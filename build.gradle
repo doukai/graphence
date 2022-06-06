@@ -31,9 +31,10 @@ repositories {
 }
 
 dependencies {
+    compile "io.graphoenix:graphoenix-mysql:0.0.1-SNAPSHOT"
+
     implementation "io.graphoenix:graphoenix-core:0.0.1-SNAPSHOT"
     implementation "io.graphoenix:graphoenix-http-server:0.0.1-SNAPSHOT"
-    api "io.graphoenix:graphoenix-mysql:0.0.1-SNAPSHOT"
 
     annotationProcessor "io.graphoenix:graphoenix-annotation-processor:0.0.1-SNAPSHOT"
     annotationProcessor "io.graphoenix:graphoenix-inject:0.0.1-SNAPSHOT"
