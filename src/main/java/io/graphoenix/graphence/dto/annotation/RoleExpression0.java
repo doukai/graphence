@@ -36,7 +36,13 @@ public @interface RoleExpression0 {
 
   UserExpressions1[] users() default {};
 
+  PermissionExpressions1[] permissions() default {};
+
   UserExpressions1[] usersAggregate() default {};
 
+  PermissionExpressions1[] permissionsAggregate() default {};
+
   UserConnectionExpressions1[] usersConnection() default {};
+
+  PermissionConnectionExpressions1[] permissionsConnection() default {};
 }

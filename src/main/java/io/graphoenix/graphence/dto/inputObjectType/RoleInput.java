@@ -21,6 +21,8 @@ public class RoleInput {
 
   private Collection<UserInput> users;
 
+  private Collection<PermissionInput> permissions;
+
   private Integer version;
 
   private Boolean isDeprecated;
@@ -51,6 +53,14 @@ public class RoleInput {
 
   public void setUsers(Collection<UserInput> users) {
     this.users = users;
+  }
+
+  public Collection<PermissionInput> getPermissions() {
+    return this.permissions;
+  }
+
+  public void setPermissions(Collection<PermissionInput> permissions) {
+    this.permissions = permissions;
   }
 
   public Integer getVersion() {

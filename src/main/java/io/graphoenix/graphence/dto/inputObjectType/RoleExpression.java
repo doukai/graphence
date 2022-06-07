@@ -18,6 +18,8 @@ public class RoleExpression {
 
   private UserExpression users;
 
+  private PermissionExpression permissions;
+
   private IntExpression version;
 
   @DefaultValue("false")
@@ -52,6 +54,14 @@ public class RoleExpression {
 
   public void setUsers(UserExpression users) {
     this.users = users;
+  }
+
+  public PermissionExpression getPermissions() {
+    return this.permissions;
+  }
+
+  public void setPermissions(PermissionExpression permissions) {
+    this.permissions = permissions;
   }
 
   public IntExpression getVersion() {

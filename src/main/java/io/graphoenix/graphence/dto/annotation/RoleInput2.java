@@ -27,6 +27,8 @@ public @interface RoleInput2 {
 
   String $users() default "";
 
+  String $permissions() default "";
+
   String $version() default "";
 
   String $isDeprecated() default "";
@@ -35,5 +37,9 @@ public @interface RoleInput2 {
 
   String $usersAggregate() default "";
 
+  String $permissionsAggregate() default "";
+
   String $usersConnection() default "";
+
+  String $permissionsConnection() default "";
 }

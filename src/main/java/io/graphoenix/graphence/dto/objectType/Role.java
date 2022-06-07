@@ -24,6 +24,8 @@ public class Role implements Meta {
 
   private Collection<User> users;
 
+  private Collection<Permission> permissions;
+
   private Integer version;
 
   private Boolean isDeprecated;
@@ -46,7 +48,11 @@ public class Role implements Meta {
 
   private User usersAggregate;
 
+  private Permission permissionsAggregate;
+
   private UserConnection usersConnection;
+
+  private PermissionConnection permissionsConnection;
 
   public String getId() {
     return this.id;
@@ -70,6 +76,14 @@ public class Role implements Meta {
 
   public void setUsers(Collection<User> users) {
     this.users = users;
+  }
+
+  public Collection<Permission> getPermissions() {
+    return this.permissions;
+  }
+
+  public void setPermissions(Collection<Permission> permissions) {
+    this.permissions = permissions;
   }
 
   @Override
@@ -156,11 +170,27 @@ public class Role implements Meta {
     this.usersAggregate = usersAggregate;
   }
 
+  public Permission getPermissionsAggregate() {
+    return this.permissionsAggregate;
+  }
+
+  public void setPermissionsAggregate(Permission permissionsAggregate) {
+    this.permissionsAggregate = permissionsAggregate;
+  }
+
   public UserConnection getUsersConnection() {
     return this.usersConnection;
   }
 
   public void setUsersConnection(UserConnection usersConnection) {
     this.usersConnection = usersConnection;
+  }
+
+  public PermissionConnection getPermissionsConnection() {
+    return this.permissionsConnection;
+  }
+
+  public void setPermissionsConnection(PermissionConnection permissionsConnection) {
+    this.permissionsConnection = permissionsConnection;
   }
 }
