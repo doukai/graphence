@@ -19,6 +19,7 @@ type Role {
     id: ID @dataType(type: "int") @column(autoIncrement: true)
     name: String!
     users: [User] @map(from: "id" with: {type: "UserRole" from: "roleId" to: "userId"} to: "id")
+    permissions: [Permission] @map(from: "id" to: "roleId")
 }
 
 type Organization {
@@ -27,4 +28,18 @@ type Organization {
     aboveId: Int
     above: Organization @map(from: "aboveId" to: "id" anchor: true)
     users: [User] @map(from: "id" to: "organizationId")
+}
+
+type Permission {
+    id: ID @dataType(type: "int") @column(autoIncrement: true)
+    roleId: String
+    role: Role! @map(from: "roleId" to: "id" anchor: true)
+    fieldId: String
+    field: __Field! @map(from: "fieldId" to: "id" anchor: true)
+    level: PermissionLevel
+}
+
+enum PermissionLevel {
+    READ
+    WRITE
 }
