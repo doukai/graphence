@@ -26,6 +26,8 @@ public class Role implements Meta {
 
   private Collection<Permission> permissions;
 
+  private Collection<Role> parents;
+
   private Integer version;
 
   private Boolean isDeprecated;
@@ -50,9 +52,13 @@ public class Role implements Meta {
 
   private Permission permissionsAggregate;
 
+  private Role parentsAggregate;
+
   private UserConnection usersConnection;
 
   private PermissionConnection permissionsConnection;
+
+  private RoleConnection parentsConnection;
 
   public String getId() {
     return this.id;
@@ -84,6 +90,14 @@ public class Role implements Meta {
 
   public void setPermissions(Collection<Permission> permissions) {
     this.permissions = permissions;
+  }
+
+  public Collection<Role> getParents() {
+    return this.parents;
+  }
+
+  public void setParents(Collection<Role> parents) {
+    this.parents = parents;
   }
 
   @Override
@@ -178,6 +192,14 @@ public class Role implements Meta {
     this.permissionsAggregate = permissionsAggregate;
   }
 
+  public Role getParentsAggregate() {
+    return this.parentsAggregate;
+  }
+
+  public void setParentsAggregate(Role parentsAggregate) {
+    this.parentsAggregate = parentsAggregate;
+  }
+
   public UserConnection getUsersConnection() {
     return this.usersConnection;
   }
@@ -192,5 +214,13 @@ public class Role implements Meta {
 
   public void setPermissionsConnection(PermissionConnection permissionsConnection) {
     this.permissionsConnection = permissionsConnection;
+  }
+
+  public RoleConnection getParentsConnection() {
+    return this.parentsConnection;
+  }
+
+  public void setParentsConnection(RoleConnection parentsConnection) {
+    this.parentsConnection = parentsConnection;
   }
 }

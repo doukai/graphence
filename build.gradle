@@ -32,10 +32,9 @@ repositories {
 }
 
 dependencies {
-    compile "io.graphoenix:graphoenix-mysql:0.0.1-SNAPSHOT"
-
     implementation "io.graphoenix:graphoenix-core:0.0.1-SNAPSHOT"
     implementation "io.graphoenix:graphoenix-http-server:0.0.1-SNAPSHOT"
+    implementation "io.graphoenix:graphoenix-mysql:0.0.1-SNAPSHOT"
     implementation "org.casbin:jcasbin:1.24.0"
 
     annotationProcessor "io.graphoenix:graphoenix-annotation-processor:0.0.1-SNAPSHOT"

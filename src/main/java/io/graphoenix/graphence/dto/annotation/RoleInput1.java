@@ -29,6 +29,8 @@ public @interface RoleInput1 {
 
   String $permissions() default "";
 
+  String $parents() default "";
+
   String $version() default "";
 
   String $isDeprecated() default "";
@@ -39,19 +41,29 @@ public @interface RoleInput1 {
 
   String $permissionsAggregate() default "";
 
+  String $parentsAggregate() default "";
+
   String $usersConnection() default "";
 
   String $permissionsConnection() default "";
+
+  String $parentsConnection() default "";
 
   UserInput2[] users() default {};
 
   PermissionInput2[] permissions() default {};
 
+  RoleInput2[] parents() default {};
+
   UserInput2 usersAggregate() default @UserInput2;
 
   PermissionInput2 permissionsAggregate() default @PermissionInput2;
 
+  RoleInput2 parentsAggregate() default @RoleInput2;
+
   UserConnectionInput2 usersConnection() default @UserConnectionInput2;
 
   PermissionConnectionInput2 permissionsConnection() default @PermissionConnectionInput2;
+
+  RoleConnectionInput2 parentsConnection() default @RoleConnectionInput2;
 }

@@ -10,10 +10,12 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.SOURCE)
 @Target(ElementType.METHOD)
 @TypeInput
-public @interface RoleInput2 {
+public @interface RoleParentInput0 {
   String id() default "";
 
-  String name() default "";
+  int roleId() default 0;
+
+  int parentId() default 0;
 
   int version() default 0;
 
@@ -23,29 +25,13 @@ public @interface RoleInput2 {
 
   String $id() default "";
 
-  String $name() default "";
+  String $roleId() default "";
 
-  String $users() default "";
-
-  String $permissions() default "";
-
-  String $parents() default "";
+  String $parentId() default "";
 
   String $version() default "";
 
   String $isDeprecated() default "";
 
   String $__typename() default "";
-
-  String $usersAggregate() default "";
-
-  String $permissionsAggregate() default "";
-
-  String $parentsAggregate() default "";
-
-  String $usersConnection() default "";
-
-  String $permissionsConnection() default "";
-
-  String $parentsConnection() default "";
 }

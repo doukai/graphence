@@ -5,7 +5,6 @@ import jakarta.annotation.Generated;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
-import java.util.Collection;
 import org.eclipse.microprofile.graphql.DefaultValue;
 import org.eclipse.microprofile.graphql.Input;
 import org.eclipse.microprofile.graphql.NonNull;
@@ -13,23 +12,18 @@ import org.eclipse.microprofile.graphql.NonNull;
 @Input
 @Generated("io.graphoenix.java.generator.builder.TypeSpecBuilderProxy")
 @SchemaBean
-public class RoleInput {
+public class RoleParentInput {
   private String id;
 
-  @NonNull
-  private String name;
+  private Integer roleId;
 
-  private Collection<UserInput> users;
-
-  private Collection<PermissionInput> permissions;
-
-  private Collection<RoleInput> parents;
+  private Integer parentId;
 
   private Integer version;
 
   private Boolean isDeprecated;
 
-  @DefaultValue("\"Role\"")
+  @DefaultValue("\"RoleParent\"")
   @NonNull
   private String __typename;
 
@@ -41,36 +35,20 @@ public class RoleInput {
     this.id = id;
   }
 
-  public String getName() {
-    return this.name;
+  public Integer getRoleId() {
+    return this.roleId;
   }
 
-  public void setName(String name) {
-    this.name = name;
+  public void setRoleId(Integer roleId) {
+    this.roleId = roleId;
   }
 
-  public Collection<UserInput> getUsers() {
-    return this.users;
+  public Integer getParentId() {
+    return this.parentId;
   }
 
-  public void setUsers(Collection<UserInput> users) {
-    this.users = users;
-  }
-
-  public Collection<PermissionInput> getPermissions() {
-    return this.permissions;
-  }
-
-  public void setPermissions(Collection<PermissionInput> permissions) {
-    this.permissions = permissions;
-  }
-
-  public Collection<RoleInput> getParents() {
-    return this.parents;
-  }
-
-  public void setParents(Collection<RoleInput> parents) {
-    this.parents = parents;
+  public void setParentId(Integer parentId) {
+    this.parentId = parentId;
   }
 
   public Integer getVersion() {

@@ -20,6 +20,13 @@ type Role {
     name: String!
     users: [User] @map(from: "id" with: {type: "UserRole" from: "roleId" to: "userId"} to: "id")
     permissions: [Permission] @map(from: "id" to: "roleId")
+    parents: [Role] @map(from: "id" with: {type: "RoleParent" from: "roleId" to: "parentId"} to: "id")
+}
+
+type RoleParent {
+    id: ID @dataType(type: "int") @column(autoIncrement: true)
+    roleId: Int
+    parentId: Int
 }
 
 type Organization {
@@ -28,6 +35,12 @@ type Organization {
     aboveId: Int
     above: Organization @map(from: "aboveId" to: "id" anchor: true)
     users: [User] @map(from: "id" to: "organizationId")
+}
+
+type Domain {
+    id: ID @dataType(type: "int") @column(autoIncrement: true)
+    name: String!
+    users: [User] @map(from: "id" to: "domainId")
 }
 
 type Permission {

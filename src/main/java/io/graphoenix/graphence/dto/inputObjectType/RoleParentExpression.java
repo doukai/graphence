@@ -11,16 +11,12 @@ import org.eclipse.microprofile.graphql.Input;
 @Input
 @Generated("io.graphoenix.java.generator.builder.TypeSpecBuilderProxy")
 @SchemaBean
-public class RoleExpression {
+public class RoleParentExpression {
   private IDExpression id;
 
-  private StringExpression name;
+  private IntExpression roleId;
 
-  private UserExpression users;
-
-  private PermissionExpression permissions;
-
-  private RoleExpression parents;
+  private IntExpression parentId;
 
   private IntExpression version;
 
@@ -32,7 +28,7 @@ public class RoleExpression {
   @DefaultValue("AND")
   private Conditional cond;
 
-  private Collection<RoleExpression> exs;
+  private Collection<RoleParentExpression> exs;
 
   public IDExpression getId() {
     return this.id;
@@ -42,36 +38,20 @@ public class RoleExpression {
     this.id = id;
   }
 
-  public StringExpression getName() {
-    return this.name;
+  public IntExpression getRoleId() {
+    return this.roleId;
   }
 
-  public void setName(StringExpression name) {
-    this.name = name;
+  public void setRoleId(IntExpression roleId) {
+    this.roleId = roleId;
   }
 
-  public UserExpression getUsers() {
-    return this.users;
+  public IntExpression getParentId() {
+    return this.parentId;
   }
 
-  public void setUsers(UserExpression users) {
-    this.users = users;
-  }
-
-  public PermissionExpression getPermissions() {
-    return this.permissions;
-  }
-
-  public void setPermissions(PermissionExpression permissions) {
-    this.permissions = permissions;
-  }
-
-  public RoleExpression getParents() {
-    return this.parents;
-  }
-
-  public void setParents(RoleExpression parents) {
-    this.parents = parents;
+  public void setParentId(IntExpression parentId) {
+    this.parentId = parentId;
   }
 
   public IntExpression getVersion() {
@@ -106,11 +86,11 @@ public class RoleExpression {
     this.cond = cond;
   }
 
-  public Collection<RoleExpression> getExs() {
+  public Collection<RoleParentExpression> getExs() {
     return this.exs;
   }
 
-  public void setExs(Collection<RoleExpression> exs) {
+  public void setExs(Collection<RoleParentExpression> exs) {
     this.exs = exs;
   }
 }
