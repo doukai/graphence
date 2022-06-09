@@ -18,6 +18,7 @@ type UserRole {
 type Role {
     id: ID @dataType(type: "int") @column(autoIncrement: true)
     name: String!
+    organizationId: Int
     users: [User] @map(from: "id" with: {type: "UserRole" from: "roleId" to: "userId"} to: "id")
     permissions: [Permission] @map(from: "id" to: "roleId")
     parents: [Role] @map(from: "id" with: {type: "RoleParent" from: "roleId" to: "parentId"} to: "id")

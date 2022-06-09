@@ -1,5 +1,7 @@
 package io.graphoenix.graphence;
 
+import com.google.common.collect.Streams;
+import io.graphoenix.graphence.dto.objectType.Role;
 import io.graphoenix.graphence.spi.RBACPolicyDao;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
@@ -9,7 +11,11 @@ import org.casbin.jcasbin.persist.Helper;
 import org.tinylog.Logger;
 
 import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Set;
+import java.util.stream.Stream;
+
+import static io.graphoenix.graphence.dto.enumType.PermissionLevel.READ;
+import static io.graphoenix.graphence.dto.enumType.PermissionLevel.WRITE;
 
 @ApplicationScoped
 public class CasbinRBACAdapter implements Adapter {
@@ -17,6 +23,8 @@ public class CasbinRBACAdapter implements Adapter {
     private static final String USER_PREFIX = "U::";
 
     private static final String ROLE_PREFIX = "R::";
+
+    private static final String SPACER = "::";
 
     private static final String P_TYPE = "p";
 
@@ -32,17 +40,71 @@ public class CasbinRBACAdapter implements Adapter {
     @Override
     public void loadPolicy(Model model) {
         try {
-            rbacPolicyDao.queryRoleList().stream()
-                    .flatMap(role -> role.getPermissions().stream())
-                    .map(permission ->
-                            new CasbinRule()
-                            .setPtype(P_TYPE)
-                                    .setV0(permission.getRoleId())
-                                    .setV1(permission.getRoleId())
-                                    .setV2(permission.getRoleId())
-                                    .setV3(permission.getRoleId())
-                    )
-                    .collect(Collectors.toSet());
+            Set<Role> roles = rbacPolicyDao.queryRoleList();
+
+            Stream<CasbinRule> permissionRuleStream = roles.stream()
+                    .flatMap(role ->
+                            role.getPermissions() == null ?
+                                    Stream.empty() :
+                                    role.getPermissions().stream()
+                                            .flatMap(permission ->
+                                                    permission.getLevel().equals(WRITE) ?
+                                                            Stream.of(
+                                                                    new CasbinRule()
+                                                                            .setPtype(P_TYPE)
+                                                                            .setV0(role.getId())
+                                                                            .setV1(permission.getDomainId())
+                                                                            .setV2(permission.getField().getOfTypeName().concat(SPACER).concat(permission.getField().getName()))
+                                                                            .setV3(READ.name()),
+                                                                    new CasbinRule()
+                                                                            .setPtype(P_TYPE)
+                                                                            .setV0(role.getId())
+                                                                            .setV1(permission.getDomainId())
+                                                                            .setV2(permission.getField().getOfTypeName().concat(SPACER).concat(permission.getField().getName()))
+                                                                            .setV3(WRITE.name())
+                                                            ) :
+                                                            Stream.of(
+                                                                    new CasbinRule()
+                                                                            .setPtype(P_TYPE)
+                                                                            .setV0(role.getId())
+                                                                            .setV1(permission.getDomainId())
+                                                                            .setV2(permission.getField().getOfTypeName().concat(SPACER).concat(permission.getField().getName()))
+                                                                            .setV3(READ.name())
+                                                            )
+                                            )
+                    );
+
+
+            Stream<CasbinRule> userRuleStream = roles.stream()
+                    .flatMap(role ->
+                            role.getUsers() == null ?
+                                    Stream.empty() :
+                                    role.getUsers().stream()
+                                            .map(user ->
+                                                    new CasbinRule()
+                                                            .setPtype(G_TYPE)
+                                                            .setV0(USER_PREFIX.concat(user.getId()))
+                                                            .setV1(role.getId())
+                                                            .setV2(user.getDomainId())
+                                            )
+                    );
+
+            Stream<CasbinRule> roleRuleStream = roles.stream()
+                    .flatMap(role ->
+                            role.getParents() == null ?
+                                    Stream.empty() :
+                                    role.getParents().stream()
+                                            .map(parent ->
+                                                    new CasbinRule()
+                                                            .setPtype(G_TYPE)
+                                                            .setV0(ROLE_PREFIX.concat(role.getId()))
+                                                            .setV1(parent.getId())
+                                                            .setV2(role.getDomainId())
+                                            )
+                    );
+
+            Streams.concat(permissionRuleStream, userRuleStream, roleRuleStream).forEach(line -> loadPolicyLine(line, model));
+
         } catch (Exception e) {
             Logger.error(e);
         }

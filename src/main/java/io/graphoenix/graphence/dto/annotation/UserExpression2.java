@@ -26,9 +26,21 @@ public @interface UserExpression2 {
 
   int[] organizationId() default {};
 
-  int[] version() default {};
+  String[] domainId() default {};
 
   boolean[] isDeprecated() default {};
+
+  int[] version() default {};
+
+  String[] createUserId() default {};
+
+  String[] createTime() default {};
+
+  String[] updateUserId() default {};
+
+  String[] updateTime() default {};
+
+  String[] createOrganizationId() default {};
 
   String[] __typename() default {};
 
@@ -44,9 +56,21 @@ public @interface UserExpression2 {
 
   String[] $organizationId() default {};
 
-  String[] $version() default {};
+  String[] $domainId() default {};
 
   String[] $isDeprecated() default {};
+
+  String[] $version() default {};
+
+  String[] $createUserId() default {};
+
+  String[] $createTime() default {};
+
+  String[] $updateUserId() default {};
+
+  String[] $updateTime() default {};
+
+  String[] $createOrganizationId() default {};
 
   String[] $__typename() default {};
 }

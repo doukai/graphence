@@ -20,9 +20,21 @@ public @interface PermissionInput0 {
 
   PermissionLevel level() default PermissionLevel.READ;
 
-  int version() default 0;
+  String domainId() default "";
 
   boolean isDeprecated() default false;
+
+  int version() default 0;
+
+  String createUserId() default "";
+
+  String createTime() default "";
+
+  String updateUserId() default "";
+
+  String updateTime() default "";
+
+  String createOrganizationId() default "";
 
   String __typename() default "";
 
@@ -38,9 +50,21 @@ public @interface PermissionInput0 {
 
   String $level() default "";
 
-  String $version() default "";
+  String $domainId() default "";
 
   String $isDeprecated() default "";
+
+  String $version() default "";
+
+  String $createUserId() default "";
+
+  String $createTime() default "";
+
+  String $updateUserId() default "";
+
+  String $updateTime() default "";
+
+  String $createOrganizationId() default "";
 
   String $__typename() default "";
 

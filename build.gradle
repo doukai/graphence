@@ -36,6 +36,9 @@ dependencies {
     implementation "io.graphoenix:graphoenix-http-server:0.0.1-SNAPSHOT"
     implementation "io.graphoenix:graphoenix-mysql:0.0.1-SNAPSHOT"
     implementation "org.casbin:jcasbin:1.24.0"
+    implementation 'org.keycloak:keycloak-core:18.0.0'
+    implementation 'org.keycloak:keycloak-server-spi:18.0.0'
+
 
     annotationProcessor "io.graphoenix:graphoenix-annotation-processor:0.0.1-SNAPSHOT"
     annotationProcessor "io.graphoenix:graphoenix-inject:0.0.1-SNAPSHOT"
