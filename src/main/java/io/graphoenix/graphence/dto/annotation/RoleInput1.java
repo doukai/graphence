@@ -15,11 +15,13 @@ public @interface RoleInput1 {
 
   String name() default "";
 
-  String domainId() default "";
+  String description() default "";
 
   boolean isDeprecated() default false;
 
   int version() default 0;
+
+  String realmId() default "";
 
   String createUserId() default "";
 
@@ -29,7 +31,7 @@ public @interface RoleInput1 {
 
   String updateTime() default "";
 
-  String createOrganizationId() default "";
+  String createGroupId() default "";
 
   String __typename() default "";
 
@@ -37,17 +39,21 @@ public @interface RoleInput1 {
 
   String $name() default "";
 
+  String $description() default "";
+
   String $users() default "";
+
+  String $composites() default "";
 
   String $permissions() default "";
 
-  String $parents() default "";
-
-  String $domainId() default "";
+  String $realm() default "";
 
   String $isDeprecated() default "";
 
   String $version() default "";
+
+  String $realmId() default "";
 
   String $createUserId() default "";
 
@@ -57,37 +63,39 @@ public @interface RoleInput1 {
 
   String $updateTime() default "";
 
-  String $createOrganizationId() default "";
+  String $createGroupId() default "";
 
   String $__typename() default "";
 
   String $usersAggregate() default "";
 
-  String $permissionsAggregate() default "";
+  String $compositesAggregate() default "";
 
-  String $parentsAggregate() default "";
+  String $permissionsAggregate() default "";
 
   String $usersConnection() default "";
 
-  String $permissionsConnection() default "";
+  String $compositesConnection() default "";
 
-  String $parentsConnection() default "";
+  String $permissionsConnection() default "";
 
   UserInput2[] users() default {};
 
+  RoleInput2[] composites() default {};
+
   PermissionInput2[] permissions() default {};
 
-  RoleInput2[] parents() default {};
+  RealmInput2 realm() default @RealmInput2;
 
   UserInput2 usersAggregate() default @UserInput2;
 
-  PermissionInput2 permissionsAggregate() default @PermissionInput2;
+  RoleInput2 compositesAggregate() default @RoleInput2;
 
-  RoleInput2 parentsAggregate() default @RoleInput2;
+  PermissionInput2 permissionsAggregate() default @PermissionInput2;
 
   UserConnectionInput2 usersConnection() default @UserConnectionInput2;
 
-  PermissionConnectionInput2 permissionsConnection() default @PermissionConnectionInput2;
+  RoleConnectionInput2 compositesConnection() default @RoleConnectionInput2;
 
-  RoleConnectionInput2 parentsConnection() default @RoleConnectionInput2;
+  PermissionConnectionInput2 permissionsConnection() default @PermissionConnectionInput2;
 }

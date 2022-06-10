@@ -29,11 +29,13 @@ public class PermissionInput {
 
   private PermissionLevel level;
 
-  private String domainId;
+  private RealmInput realm;
 
   private Boolean isDeprecated;
 
   private Integer version;
+
+  private String realmId;
 
   private String createUserId;
 
@@ -43,7 +45,7 @@ public class PermissionInput {
 
   private LocalDateTime updateTime;
 
-  private String createOrganizationId;
+  private String createGroupId;
 
   @DefaultValue("\"Permission\"")
   @NonNull
@@ -97,12 +99,12 @@ public class PermissionInput {
     this.level = level;
   }
 
-  public String getDomainId() {
-    return this.domainId;
+  public RealmInput getRealm() {
+    return this.realm;
   }
 
-  public void setDomainId(String domainId) {
-    this.domainId = domainId;
+  public void setRealm(RealmInput realm) {
+    this.realm = realm;
   }
 
   public Boolean getIsDeprecated() {
@@ -119,6 +121,14 @@ public class PermissionInput {
 
   public void setVersion(Integer version) {
     this.version = version;
+  }
+
+  public String getRealmId() {
+    return this.realmId;
+  }
+
+  public void setRealmId(String realmId) {
+    this.realmId = realmId;
   }
 
   public String getCreateUserId() {
@@ -153,12 +163,12 @@ public class PermissionInput {
     this.updateTime = updateTime;
   }
 
-  public String getCreateOrganizationId() {
-    return this.createOrganizationId;
+  public String getCreateGroupId() {
+    return this.createGroupId;
   }
 
-  public void setCreateOrganizationId(String createOrganizationId) {
-    this.createOrganizationId = createOrganizationId;
+  public void setCreateGroupId(String createGroupId) {
+    this.createGroupId = createGroupId;
   }
 
   public String get__Typename() {

@@ -1,12 +1,14 @@
 type User {
     id: ID @dataType(type: "int") @column(autoIncrement: true)
     name: String!
+    lastName: String
     login: String!
     password: String!
+    email: String
     disable: Boolean
-    organizationId: Int
-    organization: Organization @map(from: "organizationId" to: "id" anchor: true)
+    groups: [Group] @map(from: "id" with: {type: "UserGroup" from: "userId" to: "groupId"} to: "id")
     roles: [Role] @map(from: "id" with: {type: "UserRole" from: "userId" to: "roleId"} to: "id")
+    realm: Realm @map(from: "realmId" to: "id")
 }
 
 type UserRole {
@@ -15,33 +17,47 @@ type UserRole {
     roleId: Int
 }
 
+type UserGroup {
+    id: ID @dataType(type: "int") @column(autoIncrement: true)
+    userId: Int
+    groupId: Int
+}
+
 type Role {
     id: ID @dataType(type: "int") @column(autoIncrement: true)
     name: String!
-    organizationId: Int
+    description: String
     users: [User] @map(from: "id" with: {type: "UserRole" from: "roleId" to: "userId"} to: "id")
+    composites: [Role] @map(from: "id" with: {type: "RoleComposite" from: "roleId" to: "compositeId"} to: "id")
     permissions: [Permission] @map(from: "id" to: "roleId")
-    parents: [Role] @map(from: "id" with: {type: "RoleParent" from: "roleId" to: "parentId"} to: "id")
+    realm: Realm @map(from: "realmId" to: "id")
 }
 
-type RoleParent {
+type RoleComposite {
     id: ID @dataType(type: "int") @column(autoIncrement: true)
     roleId: Int
+    compositeId: Int
+}
+
+type Group {
+    id: ID @dataType(type: "int") @column(autoIncrement: true)
+    name: String!
     parentId: Int
+    parent: Group @map(from: "parentId" to: "id" anchor: true)
+    subGroups: [Group] @map(from: "id" to: "parentId")
+    users: [User] @map(from: "id" with: {type: "UserRole" from: "roleId" to: "userId"} to: "id")
+    roles: [Role] @map(from: "id" with: {type: "GroupRole" from: "groupId" to: "roleId"} to: "id")
+    realm: Realm @map(from: "realmId" to: "id")
 }
 
-type Organization {
+type GroupRole {
     id: ID @dataType(type: "int") @column(autoIncrement: true)
-    name: String!
-    aboveId: Int
-    above: Organization @map(from: "aboveId" to: "id" anchor: true)
-    users: [User] @map(from: "id" to: "organizationId")
+    groupId: Int
+    roleId: Int
 }
 
-type Domain {
-    id: ID @dataType(type: "int") @column(autoIncrement: true)
-    name: String!
-    users: [User] @map(from: "id" to: "domainId")
+type Realm {
+    id: ID!
 }
 
 type Permission {
@@ -51,6 +67,7 @@ type Permission {
     fieldId: String
     field: __Field! @map(from: "fieldId" to: "id" anchor: true)
     level: PermissionLevel
+    realm: Realm @map(from: "realmId" to: "id")
 }
 
 enum PermissionLevel {

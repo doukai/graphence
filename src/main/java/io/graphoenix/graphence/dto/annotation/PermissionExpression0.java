@@ -23,11 +23,11 @@ public @interface PermissionExpression0 {
 
   PermissionLevel[] level() default {};
 
-  String[] domainId() default {};
-
   boolean[] isDeprecated() default {};
 
   int[] version() default {};
+
+  String[] realmId() default {};
 
   String[] createUserId() default {};
 
@@ -37,7 +37,7 @@ public @interface PermissionExpression0 {
 
   String[] updateTime() default {};
 
-  String[] createOrganizationId() default {};
+  String[] createGroupId() default {};
 
   String[] __typename() default {};
 
@@ -49,11 +49,11 @@ public @interface PermissionExpression0 {
 
   String[] $level() default {};
 
-  String[] $domainId() default {};
-
   String[] $isDeprecated() default {};
 
   String[] $version() default {};
+
+  String[] $realmId() default {};
 
   String[] $createUserId() default {};
 
@@ -63,11 +63,13 @@ public @interface PermissionExpression0 {
 
   String[] $updateTime() default {};
 
-  String[] $createOrganizationId() default {};
+  String[] $createGroupId() default {};
 
   String[] $__typename() default {};
 
   RoleExpressions1[] role() default {};
 
   __FieldExpressions1[] field() default {};
+
+  RealmExpressions1[] realm() default {};
 }

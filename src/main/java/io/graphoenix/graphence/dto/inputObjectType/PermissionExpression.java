@@ -24,12 +24,14 @@ public class PermissionExpression {
 
   private PermissionLevelExpression level;
 
-  private StringExpression domainId;
+  private RealmExpression realm;
 
   @DefaultValue("false")
   private Boolean includeDeprecated;
 
   private IntExpression version;
+
+  private StringExpression realmId;
 
   private StringExpression createUserId;
 
@@ -39,7 +41,7 @@ public class PermissionExpression {
 
   private StringExpression updateTime;
 
-  private StringExpression createOrganizationId;
+  private StringExpression createGroupId;
 
   private StringExpression __typename;
 
@@ -96,12 +98,12 @@ public class PermissionExpression {
     this.level = level;
   }
 
-  public StringExpression getDomainId() {
-    return this.domainId;
+  public RealmExpression getRealm() {
+    return this.realm;
   }
 
-  public void setDomainId(StringExpression domainId) {
-    this.domainId = domainId;
+  public void setRealm(RealmExpression realm) {
+    this.realm = realm;
   }
 
   public Boolean getIncludeDeprecated() {
@@ -118,6 +120,14 @@ public class PermissionExpression {
 
   public void setVersion(IntExpression version) {
     this.version = version;
+  }
+
+  public StringExpression getRealmId() {
+    return this.realmId;
+  }
+
+  public void setRealmId(StringExpression realmId) {
+    this.realmId = realmId;
   }
 
   public StringExpression getCreateUserId() {
@@ -152,12 +162,12 @@ public class PermissionExpression {
     this.updateTime = updateTime;
   }
 
-  public StringExpression getCreateOrganizationId() {
-    return this.createOrganizationId;
+  public StringExpression getCreateGroupId() {
+    return this.createGroupId;
   }
 
-  public void setCreateOrganizationId(StringExpression createOrganizationId) {
-    this.createOrganizationId = createOrganizationId;
+  public void setCreateGroupId(StringExpression createGroupId) {
+    this.createGroupId = createGroupId;
   }
 
   public StringExpression get__Typename() {

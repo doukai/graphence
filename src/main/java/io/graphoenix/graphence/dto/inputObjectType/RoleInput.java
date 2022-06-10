@@ -20,17 +20,21 @@ public class RoleInput {
   @NonNull
   private String name;
 
+  private String description;
+
   private Collection<UserInput> users;
+
+  private Collection<RoleInput> composites;
 
   private Collection<PermissionInput> permissions;
 
-  private Collection<RoleInput> parents;
-
-  private String domainId;
+  private RealmInput realm;
 
   private Boolean isDeprecated;
 
   private Integer version;
+
+  private String realmId;
 
   private String createUserId;
 
@@ -40,7 +44,7 @@ public class RoleInput {
 
   private LocalDateTime updateTime;
 
-  private String createOrganizationId;
+  private String createGroupId;
 
   @DefaultValue("\"Role\"")
   @NonNull
@@ -62,12 +66,28 @@ public class RoleInput {
     this.name = name;
   }
 
+  public String getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
   public Collection<UserInput> getUsers() {
     return this.users;
   }
 
   public void setUsers(Collection<UserInput> users) {
     this.users = users;
+  }
+
+  public Collection<RoleInput> getComposites() {
+    return this.composites;
+  }
+
+  public void setComposites(Collection<RoleInput> composites) {
+    this.composites = composites;
   }
 
   public Collection<PermissionInput> getPermissions() {
@@ -78,20 +98,12 @@ public class RoleInput {
     this.permissions = permissions;
   }
 
-  public Collection<RoleInput> getParents() {
-    return this.parents;
+  public RealmInput getRealm() {
+    return this.realm;
   }
 
-  public void setParents(Collection<RoleInput> parents) {
-    this.parents = parents;
-  }
-
-  public String getDomainId() {
-    return this.domainId;
-  }
-
-  public void setDomainId(String domainId) {
-    this.domainId = domainId;
+  public void setRealm(RealmInput realm) {
+    this.realm = realm;
   }
 
   public Boolean getIsDeprecated() {
@@ -108,6 +120,14 @@ public class RoleInput {
 
   public void setVersion(Integer version) {
     this.version = version;
+  }
+
+  public String getRealmId() {
+    return this.realmId;
+  }
+
+  public void setRealmId(String realmId) {
+    this.realmId = realmId;
   }
 
   public String getCreateUserId() {
@@ -142,12 +162,12 @@ public class RoleInput {
     this.updateTime = updateTime;
   }
 
-  public String getCreateOrganizationId() {
-    return this.createOrganizationId;
+  public String getCreateGroupId() {
+    return this.createGroupId;
   }
 
-  public void setCreateOrganizationId(String createOrganizationId) {
-    this.createOrganizationId = createOrganizationId;
+  public void setCreateGroupId(String createGroupId) {
+    this.createGroupId = createGroupId;
   }
 
   public String get__Typename() {

@@ -23,17 +23,21 @@ public class Role implements Meta {
   @NonNull
   private String name;
 
+  private String description;
+
   private Collection<User> users;
+
+  private Collection<Role> composites;
 
   private Collection<Permission> permissions;
 
-  private Collection<Role> parents;
-
-  private String domainId;
+  private Realm realm;
 
   private Boolean isDeprecated;
 
   private Integer version;
+
+  private String realmId;
 
   private String createUserId;
 
@@ -43,7 +47,7 @@ public class Role implements Meta {
 
   private LocalDateTime updateTime;
 
-  private String createOrganizationId;
+  private String createGroupId;
 
   private String __typename;
 
@@ -61,17 +65,23 @@ public class Role implements Meta {
 
   private String nameMin;
 
+  private Integer descriptionCount;
+
+  private String descriptionMax;
+
+  private String descriptionMin;
+
   private User usersAggregate;
+
+  private Role compositesAggregate;
 
   private Permission permissionsAggregate;
 
-  private Role parentsAggregate;
-
   private UserConnection usersConnection;
 
-  private PermissionConnection permissionsConnection;
+  private RoleConnection compositesConnection;
 
-  private RoleConnection parentsConnection;
+  private PermissionConnection permissionsConnection;
 
   public String getId() {
     return this.id;
@@ -89,12 +99,28 @@ public class Role implements Meta {
     this.name = name;
   }
 
+  public String getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
   public Collection<User> getUsers() {
     return this.users;
   }
 
   public void setUsers(Collection<User> users) {
     this.users = users;
+  }
+
+  public Collection<Role> getComposites() {
+    return this.composites;
+  }
+
+  public void setComposites(Collection<Role> composites) {
+    this.composites = composites;
   }
 
   public Collection<Permission> getPermissions() {
@@ -105,22 +131,12 @@ public class Role implements Meta {
     this.permissions = permissions;
   }
 
-  public Collection<Role> getParents() {
-    return this.parents;
+  public Realm getRealm() {
+    return this.realm;
   }
 
-  public void setParents(Collection<Role> parents) {
-    this.parents = parents;
-  }
-
-  @Override
-  public String getDomainId() {
-    return this.domainId;
-  }
-
-  @Override
-  public void setDomainId(String domainId) {
-    this.domainId = domainId;
+  public void setRealm(Realm realm) {
+    this.realm = realm;
   }
 
   @Override
@@ -141,6 +157,16 @@ public class Role implements Meta {
   @Override
   public void setVersion(Integer version) {
     this.version = version;
+  }
+
+  @Override
+  public String getRealmId() {
+    return this.realmId;
+  }
+
+  @Override
+  public void setRealmId(String realmId) {
+    this.realmId = realmId;
   }
 
   @Override
@@ -184,13 +210,13 @@ public class Role implements Meta {
   }
 
   @Override
-  public String getCreateOrganizationId() {
-    return this.createOrganizationId;
+  public String getCreateGroupId() {
+    return this.createGroupId;
   }
 
   @Override
-  public void setCreateOrganizationId(String createOrganizationId) {
-    this.createOrganizationId = createOrganizationId;
+  public void setCreateGroupId(String createGroupId) {
+    this.createGroupId = createGroupId;
   }
 
   public String get__Typename() {
@@ -249,12 +275,44 @@ public class Role implements Meta {
     this.nameMin = nameMin;
   }
 
+  public Integer getDescriptionCount() {
+    return this.descriptionCount;
+  }
+
+  public void setDescriptionCount(Integer descriptionCount) {
+    this.descriptionCount = descriptionCount;
+  }
+
+  public String getDescriptionMax() {
+    return this.descriptionMax;
+  }
+
+  public void setDescriptionMax(String descriptionMax) {
+    this.descriptionMax = descriptionMax;
+  }
+
+  public String getDescriptionMin() {
+    return this.descriptionMin;
+  }
+
+  public void setDescriptionMin(String descriptionMin) {
+    this.descriptionMin = descriptionMin;
+  }
+
   public User getUsersAggregate() {
     return this.usersAggregate;
   }
 
   public void setUsersAggregate(User usersAggregate) {
     this.usersAggregate = usersAggregate;
+  }
+
+  public Role getCompositesAggregate() {
+    return this.compositesAggregate;
+  }
+
+  public void setCompositesAggregate(Role compositesAggregate) {
+    this.compositesAggregate = compositesAggregate;
   }
 
   public Permission getPermissionsAggregate() {
@@ -265,14 +323,6 @@ public class Role implements Meta {
     this.permissionsAggregate = permissionsAggregate;
   }
 
-  public Role getParentsAggregate() {
-    return this.parentsAggregate;
-  }
-
-  public void setParentsAggregate(Role parentsAggregate) {
-    this.parentsAggregate = parentsAggregate;
-  }
-
   public UserConnection getUsersConnection() {
     return this.usersConnection;
   }
@@ -281,19 +331,19 @@ public class Role implements Meta {
     this.usersConnection = usersConnection;
   }
 
+  public RoleConnection getCompositesConnection() {
+    return this.compositesConnection;
+  }
+
+  public void setCompositesConnection(RoleConnection compositesConnection) {
+    this.compositesConnection = compositesConnection;
+  }
+
   public PermissionConnection getPermissionsConnection() {
     return this.permissionsConnection;
   }
 
   public void setPermissionsConnection(PermissionConnection permissionsConnection) {
     this.permissionsConnection = permissionsConnection;
-  }
-
-  public RoleConnection getParentsConnection() {
-    return this.parentsConnection;
-  }
-
-  public void setParentsConnection(RoleConnection parentsConnection) {
-    this.parentsConnection = parentsConnection;
   }
 }

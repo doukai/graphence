@@ -16,18 +16,22 @@ public class RoleExpression {
 
   private StringExpression name;
 
+  private StringExpression description;
+
   private UserExpression users;
+
+  private RoleExpression composites;
 
   private PermissionExpression permissions;
 
-  private RoleExpression parents;
-
-  private StringExpression domainId;
+  private RealmExpression realm;
 
   @DefaultValue("false")
   private Boolean includeDeprecated;
 
   private IntExpression version;
+
+  private StringExpression realmId;
 
   private StringExpression createUserId;
 
@@ -37,7 +41,7 @@ public class RoleExpression {
 
   private StringExpression updateTime;
 
-  private StringExpression createOrganizationId;
+  private StringExpression createGroupId;
 
   private StringExpression __typename;
 
@@ -62,12 +66,28 @@ public class RoleExpression {
     this.name = name;
   }
 
+  public StringExpression getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(StringExpression description) {
+    this.description = description;
+  }
+
   public UserExpression getUsers() {
     return this.users;
   }
 
   public void setUsers(UserExpression users) {
     this.users = users;
+  }
+
+  public RoleExpression getComposites() {
+    return this.composites;
+  }
+
+  public void setComposites(RoleExpression composites) {
+    this.composites = composites;
   }
 
   public PermissionExpression getPermissions() {
@@ -78,20 +98,12 @@ public class RoleExpression {
     this.permissions = permissions;
   }
 
-  public RoleExpression getParents() {
-    return this.parents;
+  public RealmExpression getRealm() {
+    return this.realm;
   }
 
-  public void setParents(RoleExpression parents) {
-    this.parents = parents;
-  }
-
-  public StringExpression getDomainId() {
-    return this.domainId;
-  }
-
-  public void setDomainId(StringExpression domainId) {
-    this.domainId = domainId;
+  public void setRealm(RealmExpression realm) {
+    this.realm = realm;
   }
 
   public Boolean getIncludeDeprecated() {
@@ -108,6 +120,14 @@ public class RoleExpression {
 
   public void setVersion(IntExpression version) {
     this.version = version;
+  }
+
+  public StringExpression getRealmId() {
+    return this.realmId;
+  }
+
+  public void setRealmId(StringExpression realmId) {
+    this.realmId = realmId;
   }
 
   public StringExpression getCreateUserId() {
@@ -142,12 +162,12 @@ public class RoleExpression {
     this.updateTime = updateTime;
   }
 
-  public StringExpression getCreateOrganizationId() {
-    return this.createOrganizationId;
+  public StringExpression getCreateGroupId() {
+    return this.createGroupId;
   }
 
-  public void setCreateOrganizationId(StringExpression createOrganizationId) {
-    this.createOrganizationId = createOrganizationId;
+  public void setCreateGroupId(StringExpression createGroupId) {
+    this.createGroupId = createGroupId;
   }
 
   public StringExpression get__Typename() {

@@ -53,13 +53,13 @@ public class CasbinRBACAdapter implements Adapter {
                                                                     new CasbinRule()
                                                                             .setPtype(P_TYPE)
                                                                             .setV0(role.getId())
-                                                                            .setV1(permission.getDomainId())
+                                                                            .setV1(permission.getRealmId())
                                                                             .setV2(permission.getField().getOfTypeName().concat(SPACER).concat(permission.getField().getName()))
                                                                             .setV3(READ.name()),
                                                                     new CasbinRule()
                                                                             .setPtype(P_TYPE)
                                                                             .setV0(role.getId())
-                                                                            .setV1(permission.getDomainId())
+                                                                            .setV1(permission.getRealmId())
                                                                             .setV2(permission.getField().getOfTypeName().concat(SPACER).concat(permission.getField().getName()))
                                                                             .setV3(WRITE.name())
                                                             ) :
@@ -67,7 +67,7 @@ public class CasbinRBACAdapter implements Adapter {
                                                                     new CasbinRule()
                                                                             .setPtype(P_TYPE)
                                                                             .setV0(role.getId())
-                                                                            .setV1(permission.getDomainId())
+                                                                            .setV1(permission.getRealmId())
                                                                             .setV2(permission.getField().getOfTypeName().concat(SPACER).concat(permission.getField().getName()))
                                                                             .setV3(READ.name())
                                                             )
@@ -85,21 +85,21 @@ public class CasbinRBACAdapter implements Adapter {
                                                             .setPtype(G_TYPE)
                                                             .setV0(USER_PREFIX.concat(user.getId()))
                                                             .setV1(role.getId())
-                                                            .setV2(user.getDomainId())
+                                                            .setV2(user.getRealmId())
                                             )
                     );
 
             Stream<CasbinRule> roleRuleStream = roles.stream()
                     .flatMap(role ->
-                            role.getParents() == null ?
+                            role.getComposites() == null ?
                                     Stream.empty() :
-                                    role.getParents().stream()
+                                    role.getComposites().stream()
                                             .map(parent ->
                                                     new CasbinRule()
                                                             .setPtype(G_TYPE)
                                                             .setV0(ROLE_PREFIX.concat(role.getId()))
                                                             .setV1(parent.getId())
-                                                            .setV2(role.getDomainId())
+                                                            .setV2(role.getRealmId())
                                             )
                     );
 

@@ -18,11 +18,13 @@ public @interface RoleExpression2 {
 
   String[] name() default {};
 
-  String[] domainId() default {};
+  String[] description() default {};
 
   boolean[] isDeprecated() default {};
 
   int[] version() default {};
+
+  String[] realmId() default {};
 
   String[] createUserId() default {};
 
@@ -32,7 +34,7 @@ public @interface RoleExpression2 {
 
   String[] updateTime() default {};
 
-  String[] createOrganizationId() default {};
+  String[] createGroupId() default {};
 
   String[] __typename() default {};
 
@@ -40,11 +42,13 @@ public @interface RoleExpression2 {
 
   String[] $name() default {};
 
-  String[] $domainId() default {};
+  String[] $description() default {};
 
   String[] $isDeprecated() default {};
 
   String[] $version() default {};
+
+  String[] $realmId() default {};
 
   String[] $createUserId() default {};
 
@@ -54,7 +58,7 @@ public @interface RoleExpression2 {
 
   String[] $updateTime() default {};
 
-  String[] $createOrganizationId() default {};
+  String[] $createGroupId() default {};
 
   String[] $__typename() default {};
 }

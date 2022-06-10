@@ -1,0 +1,47 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        jcenter()
+        mavenLocal()
+    }
+    dependencies {
+        classpath 'io.graphoenix:graphoenix-gradle-plugin:0.0.1-SNAPSHOT'
+    }
+}
+
+plugins {
+    id 'java'
+}
+
+compileJava.options.sourcepath = files('src/main/resources')
+
+apply plugin: 'io.graphoenix'
+graphql {
+    graphQLFileName = "graphence.gql"
+    packageName = "io.graphoenix.graphence"
+    inputLayers = 3
+}
+
+group 'io.graphoenix.graphence'
+version '0.0.1-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    jcenter()
+    mavenLocal()
+}
+
+dependencies {
+    implementation "org.casbin:jcasbin:1.24.0"
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.2'
+
+    annotationProcessor "io.graphoenix:graphoenix-annotation-processor:0.0.1-SNAPSHOT"
+    annotationProcessor "io.graphoenix:graphoenix-inject:0.0.1-SNAPSHOT"
+    annotationProcessor "io.graphoenix:graphoenix-interceptor:0.0.1-SNAPSHOT"
+    annotationProcessor "io.graphoenix:graphoenix-config:0.0.1-SNAPSHOT"
+}
+
+test {
+    useJUnitPlatform()
+}

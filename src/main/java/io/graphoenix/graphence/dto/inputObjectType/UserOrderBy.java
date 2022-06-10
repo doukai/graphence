@@ -13,19 +13,21 @@ public class UserOrderBy {
 
   private Sort name;
 
+  private Sort lastName;
+
   private Sort login;
 
   private Sort password;
 
+  private Sort email;
+
   private Sort disable;
-
-  private Sort organizationId;
-
-  private Sort domainId;
 
   private Sort isDeprecated;
 
   private Sort version;
+
+  private Sort realmId;
 
   private Sort createUserId;
 
@@ -35,7 +37,7 @@ public class UserOrderBy {
 
   private Sort updateTime;
 
-  private Sort createOrganizationId;
+  private Sort createGroupId;
 
   private Sort __typename;
 
@@ -55,6 +57,14 @@ public class UserOrderBy {
     this.name = name;
   }
 
+  public Sort getLastName() {
+    return this.lastName;
+  }
+
+  public void setLastName(Sort lastName) {
+    this.lastName = lastName;
+  }
+
   public Sort getLogin() {
     return this.login;
   }
@@ -71,28 +81,20 @@ public class UserOrderBy {
     this.password = password;
   }
 
+  public Sort getEmail() {
+    return this.email;
+  }
+
+  public void setEmail(Sort email) {
+    this.email = email;
+  }
+
   public Sort getDisable() {
     return this.disable;
   }
 
   public void setDisable(Sort disable) {
     this.disable = disable;
-  }
-
-  public Sort getOrganizationId() {
-    return this.organizationId;
-  }
-
-  public void setOrganizationId(Sort organizationId) {
-    this.organizationId = organizationId;
-  }
-
-  public Sort getDomainId() {
-    return this.domainId;
-  }
-
-  public void setDomainId(Sort domainId) {
-    this.domainId = domainId;
   }
 
   public Sort getIsDeprecated() {
@@ -109,6 +111,14 @@ public class UserOrderBy {
 
   public void setVersion(Sort version) {
     this.version = version;
+  }
+
+  public Sort getRealmId() {
+    return this.realmId;
+  }
+
+  public void setRealmId(Sort realmId) {
+    this.realmId = realmId;
   }
 
   public Sort getCreateUserId() {
@@ -143,12 +153,12 @@ public class UserOrderBy {
     this.updateTime = updateTime;
   }
 
-  public Sort getCreateOrganizationId() {
-    return this.createOrganizationId;
+  public Sort getCreateGroupId() {
+    return this.createGroupId;
   }
 
-  public void setCreateOrganizationId(Sort createOrganizationId) {
-    this.createOrganizationId = createOrganizationId;
+  public void setCreateGroupId(Sort createGroupId) {
+    this.createGroupId = createGroupId;
   }
 
   public Sort get__Typename() {

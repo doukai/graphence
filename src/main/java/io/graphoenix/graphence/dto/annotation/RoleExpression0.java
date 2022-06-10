@@ -18,11 +18,13 @@ public @interface RoleExpression0 {
 
   String[] name() default {};
 
-  String[] domainId() default {};
+  String[] description() default {};
 
   boolean[] isDeprecated() default {};
 
   int[] version() default {};
+
+  String[] realmId() default {};
 
   String[] createUserId() default {};
 
@@ -32,7 +34,7 @@ public @interface RoleExpression0 {
 
   String[] updateTime() default {};
 
-  String[] createOrganizationId() default {};
+  String[] createGroupId() default {};
 
   String[] __typename() default {};
 
@@ -40,11 +42,13 @@ public @interface RoleExpression0 {
 
   String[] $name() default {};
 
-  String[] $domainId() default {};
+  String[] $description() default {};
 
   String[] $isDeprecated() default {};
 
   String[] $version() default {};
+
+  String[] $realmId() default {};
 
   String[] $createUserId() default {};
 
@@ -54,25 +58,27 @@ public @interface RoleExpression0 {
 
   String[] $updateTime() default {};
 
-  String[] $createOrganizationId() default {};
+  String[] $createGroupId() default {};
 
   String[] $__typename() default {};
 
   UserExpressions1[] users() default {};
 
+  RoleExpressions1[] composites() default {};
+
   PermissionExpressions1[] permissions() default {};
 
-  RoleExpressions1[] parents() default {};
+  RealmExpressions1[] realm() default {};
 
   UserExpressions1[] usersAggregate() default {};
 
-  PermissionExpressions1[] permissionsAggregate() default {};
+  RoleExpressions1[] compositesAggregate() default {};
 
-  RoleExpressions1[] parentsAggregate() default {};
+  PermissionExpressions1[] permissionsAggregate() default {};
 
   UserConnectionExpressions1[] usersConnection() default {};
 
-  PermissionConnectionExpressions1[] permissionsConnection() default {};
+  RoleConnectionExpressions1[] compositesConnection() default {};
 
-  RoleConnectionExpressions1[] parentsConnection() default {};
+  PermissionConnectionExpressions1[] permissionsConnection() default {};
 }

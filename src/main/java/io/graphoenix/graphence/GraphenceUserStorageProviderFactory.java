@@ -6,10 +6,10 @@ import org.keycloak.models.KeycloakSession;
 import org.keycloak.storage.UserStorageProviderFactory;
 
 @AutoService(UserStorageProviderFactory.class)
-public class CustomUserStorageProviderFactory implements UserStorageProviderFactory<CustomUserStorageProvider> {
+public class GraphenceUserStorageProviderFactory implements UserStorageProviderFactory<GraphenceUserStorageProvider> {
 
     @Override
-    public CustomUserStorageProvider create(KeycloakSession session, ComponentModel model) {
+    public GraphenceUserStorageProvider create(KeycloakSession session, ComponentModel model) {
         return null;
     }
 

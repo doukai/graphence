@@ -23,25 +23,29 @@ public class User implements Meta {
   @NonNull
   private String name;
 
+  private String lastName;
+
   @NonNull
   private String login;
 
   @NonNull
   private String password;
 
+  private String email;
+
   private Boolean disable;
 
-  private Integer organizationId;
-
-  private Organization organization;
+  private Collection<Group> groups;
 
   private Collection<Role> roles;
 
-  private String domainId;
+  private Realm realm;
 
   private Boolean isDeprecated;
 
   private Integer version;
+
+  private String realmId;
 
   private String createUserId;
 
@@ -51,7 +55,7 @@ public class User implements Meta {
 
   private LocalDateTime updateTime;
 
-  private String createOrganizationId;
+  private String createGroupId;
 
   private String __typename;
 
@@ -69,6 +73,12 @@ public class User implements Meta {
 
   private String nameMin;
 
+  private Integer lastNameCount;
+
+  private String lastNameMax;
+
+  private String lastNameMin;
+
   private Integer loginCount;
 
   private String loginMax;
@@ -81,17 +91,17 @@ public class User implements Meta {
 
   private String passwordMin;
 
-  private Integer organizationIdCount;
+  private Integer emailCount;
 
-  private Integer organizationIdSum;
+  private String emailMax;
 
-  private Integer organizationIdAvg;
+  private String emailMin;
 
-  private Integer organizationIdMax;
-
-  private Integer organizationIdMin;
+  private Group groupsAggregate;
 
   private Role rolesAggregate;
+
+  private GroupConnection groupsConnection;
 
   private RoleConnection rolesConnection;
 
@@ -111,6 +121,14 @@ public class User implements Meta {
     this.name = name;
   }
 
+  public String getLastName() {
+    return this.lastName;
+  }
+
+  public void setLastName(String lastName) {
+    this.lastName = lastName;
+  }
+
   public String getLogin() {
     return this.login;
   }
@@ -127,6 +145,14 @@ public class User implements Meta {
     this.password = password;
   }
 
+  public String getEmail() {
+    return this.email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
   public Boolean getDisable() {
     return this.disable;
   }
@@ -135,20 +161,12 @@ public class User implements Meta {
     this.disable = disable;
   }
 
-  public Integer getOrganizationId() {
-    return this.organizationId;
+  public Collection<Group> getGroups() {
+    return this.groups;
   }
 
-  public void setOrganizationId(Integer organizationId) {
-    this.organizationId = organizationId;
-  }
-
-  public Organization getOrganization() {
-    return this.organization;
-  }
-
-  public void setOrganization(Organization organization) {
-    this.organization = organization;
+  public void setGroups(Collection<Group> groups) {
+    this.groups = groups;
   }
 
   public Collection<Role> getRoles() {
@@ -159,14 +177,12 @@ public class User implements Meta {
     this.roles = roles;
   }
 
-  @Override
-  public String getDomainId() {
-    return this.domainId;
+  public Realm getRealm() {
+    return this.realm;
   }
 
-  @Override
-  public void setDomainId(String domainId) {
-    this.domainId = domainId;
+  public void setRealm(Realm realm) {
+    this.realm = realm;
   }
 
   @Override
@@ -187,6 +203,16 @@ public class User implements Meta {
   @Override
   public void setVersion(Integer version) {
     this.version = version;
+  }
+
+  @Override
+  public String getRealmId() {
+    return this.realmId;
+  }
+
+  @Override
+  public void setRealmId(String realmId) {
+    this.realmId = realmId;
   }
 
   @Override
@@ -230,13 +256,13 @@ public class User implements Meta {
   }
 
   @Override
-  public String getCreateOrganizationId() {
-    return this.createOrganizationId;
+  public String getCreateGroupId() {
+    return this.createGroupId;
   }
 
   @Override
-  public void setCreateOrganizationId(String createOrganizationId) {
-    this.createOrganizationId = createOrganizationId;
+  public void setCreateGroupId(String createGroupId) {
+    this.createGroupId = createGroupId;
   }
 
   public String get__Typename() {
@@ -295,6 +321,30 @@ public class User implements Meta {
     this.nameMin = nameMin;
   }
 
+  public Integer getLastNameCount() {
+    return this.lastNameCount;
+  }
+
+  public void setLastNameCount(Integer lastNameCount) {
+    this.lastNameCount = lastNameCount;
+  }
+
+  public String getLastNameMax() {
+    return this.lastNameMax;
+  }
+
+  public void setLastNameMax(String lastNameMax) {
+    this.lastNameMax = lastNameMax;
+  }
+
+  public String getLastNameMin() {
+    return this.lastNameMin;
+  }
+
+  public void setLastNameMin(String lastNameMin) {
+    this.lastNameMin = lastNameMin;
+  }
+
   public Integer getLoginCount() {
     return this.loginCount;
   }
@@ -343,44 +393,36 @@ public class User implements Meta {
     this.passwordMin = passwordMin;
   }
 
-  public Integer getOrganizationIdCount() {
-    return this.organizationIdCount;
+  public Integer getEmailCount() {
+    return this.emailCount;
   }
 
-  public void setOrganizationIdCount(Integer organizationIdCount) {
-    this.organizationIdCount = organizationIdCount;
+  public void setEmailCount(Integer emailCount) {
+    this.emailCount = emailCount;
   }
 
-  public Integer getOrganizationIdSum() {
-    return this.organizationIdSum;
+  public String getEmailMax() {
+    return this.emailMax;
   }
 
-  public void setOrganizationIdSum(Integer organizationIdSum) {
-    this.organizationIdSum = organizationIdSum;
+  public void setEmailMax(String emailMax) {
+    this.emailMax = emailMax;
   }
 
-  public Integer getOrganizationIdAvg() {
-    return this.organizationIdAvg;
+  public String getEmailMin() {
+    return this.emailMin;
   }
 
-  public void setOrganizationIdAvg(Integer organizationIdAvg) {
-    this.organizationIdAvg = organizationIdAvg;
+  public void setEmailMin(String emailMin) {
+    this.emailMin = emailMin;
   }
 
-  public Integer getOrganizationIdMax() {
-    return this.organizationIdMax;
+  public Group getGroupsAggregate() {
+    return this.groupsAggregate;
   }
 
-  public void setOrganizationIdMax(Integer organizationIdMax) {
-    this.organizationIdMax = organizationIdMax;
-  }
-
-  public Integer getOrganizationIdMin() {
-    return this.organizationIdMin;
-  }
-
-  public void setOrganizationIdMin(Integer organizationIdMin) {
-    this.organizationIdMin = organizationIdMin;
+  public void setGroupsAggregate(Group groupsAggregate) {
+    this.groupsAggregate = groupsAggregate;
   }
 
   public Role getRolesAggregate() {
@@ -389,6 +431,14 @@ public class User implements Meta {
 
   public void setRolesAggregate(Role rolesAggregate) {
     this.rolesAggregate = rolesAggregate;
+  }
+
+  public GroupConnection getGroupsConnection() {
+    return this.groupsConnection;
+  }
+
+  public void setGroupsConnection(GroupConnection groupsConnection) {
+    this.groupsConnection = groupsConnection;
   }
 
   public RoleConnection getRolesConnection() {

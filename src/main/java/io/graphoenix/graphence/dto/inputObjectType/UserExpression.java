@@ -16,24 +16,28 @@ public class UserExpression {
 
   private StringExpression name;
 
+  private StringExpression lastName;
+
   private StringExpression login;
 
   private StringExpression password;
 
+  private StringExpression email;
+
   private Boolean disable;
 
-  private IntExpression organizationId;
-
-  private OrganizationExpression organization;
+  private GroupExpression groups;
 
   private RoleExpression roles;
 
-  private StringExpression domainId;
+  private RealmExpression realm;
 
   @DefaultValue("false")
   private Boolean includeDeprecated;
 
   private IntExpression version;
+
+  private StringExpression realmId;
 
   private StringExpression createUserId;
 
@@ -43,7 +47,7 @@ public class UserExpression {
 
   private StringExpression updateTime;
 
-  private StringExpression createOrganizationId;
+  private StringExpression createGroupId;
 
   private StringExpression __typename;
 
@@ -68,6 +72,14 @@ public class UserExpression {
     this.name = name;
   }
 
+  public StringExpression getLastName() {
+    return this.lastName;
+  }
+
+  public void setLastName(StringExpression lastName) {
+    this.lastName = lastName;
+  }
+
   public StringExpression getLogin() {
     return this.login;
   }
@@ -84,6 +96,14 @@ public class UserExpression {
     this.password = password;
   }
 
+  public StringExpression getEmail() {
+    return this.email;
+  }
+
+  public void setEmail(StringExpression email) {
+    this.email = email;
+  }
+
   public Boolean getDisable() {
     return this.disable;
   }
@@ -92,20 +112,12 @@ public class UserExpression {
     this.disable = disable;
   }
 
-  public IntExpression getOrganizationId() {
-    return this.organizationId;
+  public GroupExpression getGroups() {
+    return this.groups;
   }
 
-  public void setOrganizationId(IntExpression organizationId) {
-    this.organizationId = organizationId;
-  }
-
-  public OrganizationExpression getOrganization() {
-    return this.organization;
-  }
-
-  public void setOrganization(OrganizationExpression organization) {
-    this.organization = organization;
+  public void setGroups(GroupExpression groups) {
+    this.groups = groups;
   }
 
   public RoleExpression getRoles() {
@@ -116,12 +128,12 @@ public class UserExpression {
     this.roles = roles;
   }
 
-  public StringExpression getDomainId() {
-    return this.domainId;
+  public RealmExpression getRealm() {
+    return this.realm;
   }
 
-  public void setDomainId(StringExpression domainId) {
-    this.domainId = domainId;
+  public void setRealm(RealmExpression realm) {
+    this.realm = realm;
   }
 
   public Boolean getIncludeDeprecated() {
@@ -138,6 +150,14 @@ public class UserExpression {
 
   public void setVersion(IntExpression version) {
     this.version = version;
+  }
+
+  public StringExpression getRealmId() {
+    return this.realmId;
+  }
+
+  public void setRealmId(StringExpression realmId) {
+    this.realmId = realmId;
   }
 
   public StringExpression getCreateUserId() {
@@ -172,12 +192,12 @@ public class UserExpression {
     this.updateTime = updateTime;
   }
 
-  public StringExpression getCreateOrganizationId() {
-    return this.createOrganizationId;
+  public StringExpression getCreateGroupId() {
+    return this.createGroupId;
   }
 
-  public void setCreateOrganizationId(StringExpression createOrganizationId) {
-    this.createOrganizationId = createOrganizationId;
+  public void setCreateGroupId(StringExpression createGroupId) {
+    this.createGroupId = createGroupId;
   }
 
   public StringExpression get__Typename() {

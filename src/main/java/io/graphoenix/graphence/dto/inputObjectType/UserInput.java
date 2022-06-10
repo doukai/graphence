@@ -20,25 +20,29 @@ public class UserInput {
   @NonNull
   private String name;
 
+  private String lastName;
+
   @NonNull
   private String login;
 
   @NonNull
   private String password;
 
+  private String email;
+
   private Boolean disable;
 
-  private Integer organizationId;
-
-  private OrganizationInput organization;
+  private Collection<GroupInput> groups;
 
   private Collection<RoleInput> roles;
 
-  private String domainId;
+  private RealmInput realm;
 
   private Boolean isDeprecated;
 
   private Integer version;
+
+  private String realmId;
 
   private String createUserId;
 
@@ -48,7 +52,7 @@ public class UserInput {
 
   private LocalDateTime updateTime;
 
-  private String createOrganizationId;
+  private String createGroupId;
 
   @DefaultValue("\"User\"")
   @NonNull
@@ -70,6 +74,14 @@ public class UserInput {
     this.name = name;
   }
 
+  public String getLastName() {
+    return this.lastName;
+  }
+
+  public void setLastName(String lastName) {
+    this.lastName = lastName;
+  }
+
   public String getLogin() {
     return this.login;
   }
@@ -86,6 +98,14 @@ public class UserInput {
     this.password = password;
   }
 
+  public String getEmail() {
+    return this.email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
   public Boolean getDisable() {
     return this.disable;
   }
@@ -94,20 +114,12 @@ public class UserInput {
     this.disable = disable;
   }
 
-  public Integer getOrganizationId() {
-    return this.organizationId;
+  public Collection<GroupInput> getGroups() {
+    return this.groups;
   }
 
-  public void setOrganizationId(Integer organizationId) {
-    this.organizationId = organizationId;
-  }
-
-  public OrganizationInput getOrganization() {
-    return this.organization;
-  }
-
-  public void setOrganization(OrganizationInput organization) {
-    this.organization = organization;
+  public void setGroups(Collection<GroupInput> groups) {
+    this.groups = groups;
   }
 
   public Collection<RoleInput> getRoles() {
@@ -118,12 +130,12 @@ public class UserInput {
     this.roles = roles;
   }
 
-  public String getDomainId() {
-    return this.domainId;
+  public RealmInput getRealm() {
+    return this.realm;
   }
 
-  public void setDomainId(String domainId) {
-    this.domainId = domainId;
+  public void setRealm(RealmInput realm) {
+    this.realm = realm;
   }
 
   public Boolean getIsDeprecated() {
@@ -140,6 +152,14 @@ public class UserInput {
 
   public void setVersion(Integer version) {
     this.version = version;
+  }
+
+  public String getRealmId() {
+    return this.realmId;
+  }
+
+  public void setRealmId(String realmId) {
+    this.realmId = realmId;
   }
 
   public String getCreateUserId() {
@@ -174,12 +194,12 @@ public class UserInput {
     this.updateTime = updateTime;
   }
 
-  public String getCreateOrganizationId() {
-    return this.createOrganizationId;
+  public String getCreateGroupId() {
+    return this.createGroupId;
   }
 
-  public void setCreateOrganizationId(String createOrganizationId) {
-    this.createOrganizationId = createOrganizationId;
+  public void setCreateGroupId(String createGroupId) {
+    this.createGroupId = createGroupId;
   }
 
   public String get__Typename() {

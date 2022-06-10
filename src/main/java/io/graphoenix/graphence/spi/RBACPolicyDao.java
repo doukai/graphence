@@ -10,6 +10,6 @@ import java.util.Set;
 @GraphQLOperation(operationDAO = R2DBCOperationDAO.class)
 public interface RBACPolicyDao {
 
-    @QueryOperation(value = "roleList", selectionSet = "{ id name users{ id domainId } parents{ id } permissions{ field{ name ofTypeName } level } domainId }")
+    @QueryOperation(value = "roleList", selectionSet = "{ id name users{ id realmId } parents{ id } permissions{ field{ name ofTypeName } level } realmId }")
     Set<Role> queryRoleList() throws Exception;
 }

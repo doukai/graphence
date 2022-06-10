@@ -18,19 +18,21 @@ public @interface UserExpression2 {
 
   String[] name() default {};
 
+  String[] lastName() default {};
+
   String[] login() default {};
 
   String[] password() default {};
 
+  String[] email() default {};
+
   boolean[] disable() default {};
-
-  int[] organizationId() default {};
-
-  String[] domainId() default {};
 
   boolean[] isDeprecated() default {};
 
   int[] version() default {};
+
+  String[] realmId() default {};
 
   String[] createUserId() default {};
 
@@ -40,7 +42,7 @@ public @interface UserExpression2 {
 
   String[] updateTime() default {};
 
-  String[] createOrganizationId() default {};
+  String[] createGroupId() default {};
 
   String[] __typename() default {};
 
@@ -48,19 +50,21 @@ public @interface UserExpression2 {
 
   String[] $name() default {};
 
+  String[] $lastName() default {};
+
   String[] $login() default {};
 
   String[] $password() default {};
 
+  String[] $email() default {};
+
   String[] $disable() default {};
-
-  String[] $organizationId() default {};
-
-  String[] $domainId() default {};
 
   String[] $isDeprecated() default {};
 
   String[] $version() default {};
+
+  String[] $realmId() default {};
 
   String[] $createUserId() default {};
 
@@ -70,7 +74,7 @@ public @interface UserExpression2 {
 
   String[] $updateTime() default {};
 
-  String[] $createOrganizationId() default {};
+  String[] $createGroupId() default {};
 
   String[] $__typename() default {};
 }

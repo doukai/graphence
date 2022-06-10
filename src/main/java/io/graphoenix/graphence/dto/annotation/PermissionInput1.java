@@ -20,11 +20,11 @@ public @interface PermissionInput1 {
 
   PermissionLevel level() default PermissionLevel.READ;
 
-  String domainId() default "";
-
   boolean isDeprecated() default false;
 
   int version() default 0;
+
+  String realmId() default "";
 
   String createUserId() default "";
 
@@ -34,7 +34,7 @@ public @interface PermissionInput1 {
 
   String updateTime() default "";
 
-  String createOrganizationId() default "";
+  String createGroupId() default "";
 
   String __typename() default "";
 
@@ -50,11 +50,13 @@ public @interface PermissionInput1 {
 
   String $level() default "";
 
-  String $domainId() default "";
+  String $realm() default "";
 
   String $isDeprecated() default "";
 
   String $version() default "";
+
+  String $realmId() default "";
 
   String $createUserId() default "";
 
@@ -64,11 +66,13 @@ public @interface PermissionInput1 {
 
   String $updateTime() default "";
 
-  String $createOrganizationId() default "";
+  String $createGroupId() default "";
 
   String $__typename() default "";
 
   RoleInput2 role() default @RoleInput2;
 
   __FieldInput2 field() default @__FieldInput2;
+
+  RealmInput2 realm() default @RealmInput2;
 }

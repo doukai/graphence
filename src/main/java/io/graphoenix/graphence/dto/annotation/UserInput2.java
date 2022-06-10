@@ -15,19 +15,21 @@ public @interface UserInput2 {
 
   String name() default "";
 
+  String lastName() default "";
+
   String login() default "";
 
   String password() default "";
 
+  String email() default "";
+
   boolean disable() default false;
-
-  int organizationId() default 0;
-
-  String domainId() default "";
 
   boolean isDeprecated() default false;
 
   int version() default 0;
+
+  String realmId() default "";
 
   String createUserId() default "";
 
@@ -37,7 +39,7 @@ public @interface UserInput2 {
 
   String updateTime() default "";
 
-  String createOrganizationId() default "";
+  String createGroupId() default "";
 
   String __typename() default "";
 
@@ -45,23 +47,27 @@ public @interface UserInput2 {
 
   String $name() default "";
 
+  String $lastName() default "";
+
   String $login() default "";
 
   String $password() default "";
 
+  String $email() default "";
+
   String $disable() default "";
 
-  String $organizationId() default "";
-
-  String $organization() default "";
+  String $groups() default "";
 
   String $roles() default "";
 
-  String $domainId() default "";
+  String $realm() default "";
 
   String $isDeprecated() default "";
 
   String $version() default "";
+
+  String $realmId() default "";
 
   String $createUserId() default "";
 
@@ -71,11 +77,15 @@ public @interface UserInput2 {
 
   String $updateTime() default "";
 
-  String $createOrganizationId() default "";
+  String $createGroupId() default "";
 
   String $__typename() default "";
 
+  String $groupsAggregate() default "";
+
   String $rolesAggregate() default "";
+
+  String $groupsConnection() default "";
 
   String $rolesConnection() default "";
 }
