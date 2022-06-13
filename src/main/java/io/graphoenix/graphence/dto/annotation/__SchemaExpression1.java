@@ -1,7 +1,7 @@
 package io.graphoenix.graphence.dto.annotation;
 
-import io.graphoenix.graphence.dto.enumType.Operator;
-import io.graphoenix.spi.annotation.TypeExpression;
+import io.graphoenix.graphence.dto.enumType.Conditional;
+import io.graphoenix.spi.annotation.Arguments;
 import java.lang.String;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -10,77 +10,69 @@ import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.SOURCE)
 @Target(ElementType.METHOD)
-@TypeExpression
+@Arguments
 public @interface __SchemaExpression1 {
-  Operator opr() default Operator.EQ;
+  Conditional cond() default Conditional.AND;
 
-  String[] id() default {};
+  IDExpression id() default @IDExpression;
 
-  String[] queryTypeName() default {};
+  StringExpression queryTypeName() default @StringExpression;
 
-  String[] mutationTypeName() default {};
+  StringExpression mutationTypeName() default @StringExpression;
 
-  String[] subscriptionTypeName() default {};
+  StringExpression subscriptionTypeName() default @StringExpression;
 
-  boolean[] isDeprecated() default {};
+  boolean isDeprecated() default false;
 
-  int[] version() default {};
+  IntExpression version() default @IntExpression;
 
-  String[] realmId() default {};
+  StringExpression realmId() default @StringExpression;
 
-  String[] createUserId() default {};
+  StringExpression createUserId() default @StringExpression;
 
-  String[] createTime() default {};
+  TimestampExpression createTime() default @TimestampExpression;
 
-  String[] updateUserId() default {};
+  StringExpression updateUserId() default @StringExpression;
 
-  String[] updateTime() default {};
+  TimestampExpression updateTime() default @TimestampExpression;
 
-  String[] createGroupId() default {};
+  StringExpression createGroupId() default @StringExpression;
 
-  String[] __typename() default {};
+  StringExpression __typename() default @StringExpression;
 
-  String[] $id() default {};
+  String[] groupBy() default {};
 
-  String[] $queryTypeName() default {};
+  __SchemaOrderBy1 orderBy() default @__SchemaOrderBy1;
 
-  String[] $mutationTypeName() default {};
+  int first() default 0;
 
-  String[] $subscriptionTypeName() default {};
+  String $first() default "";
 
-  String[] $isDeprecated() default {};
+  int last() default 0;
 
-  String[] $version() default {};
+  String $last() default "";
 
-  String[] $realmId() default {};
+  int offset() default 0;
 
-  String[] $createUserId() default {};
+  String $offset() default "";
 
-  String[] $createTime() default {};
+  String after() default "";
 
-  String[] $updateUserId() default {};
+  String before() default "";
 
-  String[] $updateTime() default {};
+  String $after() default "";
 
-  String[] $createGroupId() default {};
+  String $before() default "";
 
-  String[] $__typename() default {};
+  __TypeExpression2 types() default @__TypeExpression2;
 
-  __TypeExpressions2[] types() default {};
+  __TypeExpression2 queryType() default @__TypeExpression2;
 
-  __TypeExpressions2[] queryType() default {};
+  __TypeExpression2 mutationType() default @__TypeExpression2;
 
-  __TypeExpressions2[] mutationType() default {};
+  __TypeExpression2 subscriptionType() default @__TypeExpression2;
 
-  __TypeExpressions2[] subscriptionType() default {};
+  __DirectiveExpression2 directives() default @__DirectiveExpression2;
 
-  __DirectiveExpressions2[] directives() default {};
-
-  __TypeExpressions2[] typesAggregate() default {};
-
-  __DirectiveExpressions2[] directivesAggregate() default {};
-
-  __TypeConnectionExpressions2[] typesConnection() default {};
-
-  __DirectiveConnectionExpressions2[] directivesConnection() default {};
+  __SchemaExpression2[] exs() default {};
 }

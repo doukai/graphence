@@ -1,8 +1,7 @@
 package io.graphoenix.graphence.dto.annotation;
 
-import io.graphoenix.graphence.dto.enumType.Operator;
-import io.graphoenix.graphence.dto.enumType.__TypeKind;
-import io.graphoenix.spi.annotation.TypeExpression;
+import io.graphoenix.graphence.dto.enumType.Conditional;
+import io.graphoenix.spi.annotation.Arguments;
 import java.lang.String;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -11,95 +10,73 @@ import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.SOURCE)
 @Target(ElementType.METHOD)
-@TypeExpression
+@Arguments
 public @interface __TypeExpression1 {
-  Operator opr() default Operator.EQ;
+  Conditional cond() default Conditional.AND;
 
-  String[] name() default {};
+  IDExpression name() default @IDExpression;
 
-  int[] schemaId() default {};
+  IntExpression schemaId() default @IntExpression;
 
-  __TypeKind[] kind() default {};
+  __TypeKindExpression kind() default @__TypeKindExpression;
 
-  String[] description() default {};
+  StringExpression description() default @StringExpression;
 
-  String[] ofTypeName() default {};
+  StringExpression ofTypeName() default @StringExpression;
 
-  boolean[] isDeprecated() default {};
+  boolean isDeprecated() default false;
 
-  int[] version() default {};
+  IntExpression version() default @IntExpression;
 
-  String[] realmId() default {};
+  StringExpression realmId() default @StringExpression;
 
-  String[] createUserId() default {};
+  StringExpression createUserId() default @StringExpression;
 
-  String[] createTime() default {};
+  TimestampExpression createTime() default @TimestampExpression;
 
-  String[] updateUserId() default {};
+  StringExpression updateUserId() default @StringExpression;
 
-  String[] updateTime() default {};
+  TimestampExpression updateTime() default @TimestampExpression;
 
-  String[] createGroupId() default {};
+  StringExpression createGroupId() default @StringExpression;
 
-  String[] __typename() default {};
+  StringExpression __typename() default @StringExpression;
 
-  String[] $name() default {};
+  String[] groupBy() default {};
 
-  String[] $schemaId() default {};
+  __TypeOrderBy1 orderBy() default @__TypeOrderBy1;
 
-  String[] $kind() default {};
+  int first() default 0;
 
-  String[] $description() default {};
+  String $first() default "";
 
-  String[] $ofTypeName() default {};
+  int last() default 0;
 
-  String[] $isDeprecated() default {};
+  String $last() default "";
 
-  String[] $version() default {};
+  int offset() default 0;
 
-  String[] $realmId() default {};
+  String $offset() default "";
 
-  String[] $createUserId() default {};
+  String after() default "";
 
-  String[] $createTime() default {};
+  String before() default "";
 
-  String[] $updateUserId() default {};
+  String $after() default "";
 
-  String[] $updateTime() default {};
+  String $before() default "";
 
-  String[] $createGroupId() default {};
+  __FieldExpression2 fields() default @__FieldExpression2;
 
-  String[] $__typename() default {};
+  __TypeExpression2 interfaces() default @__TypeExpression2;
 
-  __FieldExpressions2[] fields() default {};
+  __TypeExpression2 possibleTypes() default @__TypeExpression2;
 
-  __TypeExpressions2[] interfaces() default {};
+  __EnumValueExpression2 enumValues() default @__EnumValueExpression2;
 
-  __TypeExpressions2[] possibleTypes() default {};
+  __InputValueExpression2 inputFields() default @__InputValueExpression2;
 
-  __EnumValueExpressions2[] enumValues() default {};
+  __TypeExpression2 ofType() default @__TypeExpression2;
 
-  __InputValueExpressions2[] inputFields() default {};
-
-  __TypeExpressions2[] ofType() default {};
-
-  __FieldExpressions2[] fieldsAggregate() default {};
-
-  __TypeExpressions2[] interfacesAggregate() default {};
-
-  __TypeExpressions2[] possibleTypesAggregate() default {};
-
-  __EnumValueExpressions2[] enumValuesAggregate() default {};
-
-  __InputValueExpressions2[] inputFieldsAggregate() default {};
-
-  __FieldConnectionExpressions2[] fieldsConnection() default {};
-
-  __TypeConnectionExpressions2[] interfacesConnection() default {};
-
-  __TypeConnectionExpressions2[] possibleTypesConnection() default {};
-
-  __EnumValueConnectionExpressions2[] enumValuesConnection() default {};
-
-  __InputValueConnectionExpressions2[] inputFieldsConnection() default {};
+  __TypeExpression2[] exs() default {};
 }

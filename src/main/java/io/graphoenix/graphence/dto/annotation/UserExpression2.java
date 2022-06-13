@@ -1,7 +1,7 @@
 package io.graphoenix.graphence.dto.annotation;
 
-import io.graphoenix.graphence.dto.enumType.Operator;
-import io.graphoenix.spi.annotation.TypeExpression;
+import io.graphoenix.graphence.dto.enumType.Conditional;
+import io.graphoenix.spi.annotation.Arguments;
 import java.lang.String;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -10,71 +10,63 @@ import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.SOURCE)
 @Target(ElementType.METHOD)
-@TypeExpression
+@Arguments
 public @interface UserExpression2 {
-  Operator opr() default Operator.EQ;
+  Conditional cond() default Conditional.AND;
 
-  String[] id() default {};
+  IDExpression id() default @IDExpression;
 
-  String[] name() default {};
+  StringExpression name() default @StringExpression;
 
-  String[] lastName() default {};
+  StringExpression lastName() default @StringExpression;
 
-  String[] login() default {};
+  StringExpression login() default @StringExpression;
 
-  String[] password() default {};
+  StringExpression password() default @StringExpression;
 
-  String[] email() default {};
+  StringExpression email() default @StringExpression;
 
-  boolean[] disable() default {};
+  boolean disable() default false;
 
-  boolean[] isDeprecated() default {};
+  boolean isDeprecated() default false;
 
-  int[] version() default {};
+  IntExpression version() default @IntExpression;
 
-  String[] realmId() default {};
+  StringExpression realmId() default @StringExpression;
 
-  String[] createUserId() default {};
+  StringExpression createUserId() default @StringExpression;
 
-  String[] createTime() default {};
+  TimestampExpression createTime() default @TimestampExpression;
 
-  String[] updateUserId() default {};
+  StringExpression updateUserId() default @StringExpression;
 
-  String[] updateTime() default {};
+  TimestampExpression updateTime() default @TimestampExpression;
 
-  String[] createGroupId() default {};
+  StringExpression createGroupId() default @StringExpression;
 
-  String[] __typename() default {};
+  StringExpression __typename() default @StringExpression;
 
-  String[] $id() default {};
+  String[] groupBy() default {};
 
-  String[] $name() default {};
+  UserOrderBy2 orderBy() default @UserOrderBy2;
 
-  String[] $lastName() default {};
+  int first() default 0;
 
-  String[] $login() default {};
+  String $first() default "";
 
-  String[] $password() default {};
+  int last() default 0;
 
-  String[] $email() default {};
+  String $last() default "";
 
-  String[] $disable() default {};
+  int offset() default 0;
 
-  String[] $isDeprecated() default {};
+  String $offset() default "";
 
-  String[] $version() default {};
+  String after() default "";
 
-  String[] $realmId() default {};
+  String before() default "";
 
-  String[] $createUserId() default {};
+  String $after() default "";
 
-  String[] $createTime() default {};
-
-  String[] $updateUserId() default {};
-
-  String[] $updateTime() default {};
-
-  String[] $createGroupId() default {};
-
-  String[] $__typename() default {};
+  String $before() default "";
 }

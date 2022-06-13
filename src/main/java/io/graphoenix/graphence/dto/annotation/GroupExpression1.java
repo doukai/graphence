@@ -1,7 +1,7 @@
 package io.graphoenix.graphence.dto.annotation;
 
-import io.graphoenix.graphence.dto.enumType.Operator;
-import io.graphoenix.spi.annotation.TypeExpression;
+import io.graphoenix.graphence.dto.enumType.Conditional;
+import io.graphoenix.spi.annotation.Arguments;
 import java.lang.String;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -10,77 +10,67 @@ import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.SOURCE)
 @Target(ElementType.METHOD)
-@TypeExpression
+@Arguments
 public @interface GroupExpression1 {
-  Operator opr() default Operator.EQ;
+  Conditional cond() default Conditional.AND;
 
-  String[] id() default {};
+  IDExpression id() default @IDExpression;
 
-  String[] name() default {};
+  StringExpression name() default @StringExpression;
 
-  int[] parentId() default {};
+  IntExpression parentId() default @IntExpression;
 
-  boolean[] isDeprecated() default {};
+  boolean isDeprecated() default false;
 
-  int[] version() default {};
+  IntExpression version() default @IntExpression;
 
-  String[] realmId() default {};
+  StringExpression realmId() default @StringExpression;
 
-  String[] createUserId() default {};
+  StringExpression createUserId() default @StringExpression;
 
-  String[] createTime() default {};
+  TimestampExpression createTime() default @TimestampExpression;
 
-  String[] updateUserId() default {};
+  StringExpression updateUserId() default @StringExpression;
 
-  String[] updateTime() default {};
+  TimestampExpression updateTime() default @TimestampExpression;
 
-  String[] createGroupId() default {};
+  StringExpression createGroupId() default @StringExpression;
 
-  String[] __typename() default {};
+  StringExpression __typename() default @StringExpression;
 
-  String[] $id() default {};
+  String[] groupBy() default {};
 
-  String[] $name() default {};
+  GroupOrderBy1 orderBy() default @GroupOrderBy1;
 
-  String[] $parentId() default {};
+  int first() default 0;
 
-  String[] $isDeprecated() default {};
+  String $first() default "";
 
-  String[] $version() default {};
+  int last() default 0;
 
-  String[] $realmId() default {};
+  String $last() default "";
 
-  String[] $createUserId() default {};
+  int offset() default 0;
 
-  String[] $createTime() default {};
+  String $offset() default "";
 
-  String[] $updateUserId() default {};
+  String after() default "";
 
-  String[] $updateTime() default {};
+  String before() default "";
 
-  String[] $createGroupId() default {};
+  String $after() default "";
 
-  String[] $__typename() default {};
+  String $before() default "";
 
-  GroupExpressions2[] parent() default {};
+  GroupExpression2 parent() default @GroupExpression2;
 
-  GroupExpressions2[] subGroups() default {};
+  GroupExpression2 subGroups() default @GroupExpression2;
 
-  UserExpressions2[] users() default {};
+  UserExpression2 users() default @UserExpression2;
 
-  RoleExpressions2[] roles() default {};
+  RoleExpression2 roles() default @RoleExpression2;
 
-  RealmExpressions2[] realm() default {};
+  RealmExpression2 realm() default @RealmExpression2;
 
-  GroupExpressions2[] subGroupsAggregate() default {};
-
-  UserExpressions2[] usersAggregate() default {};
-
-  RoleExpressions2[] rolesAggregate() default {};
-
-  GroupConnectionExpressions2[] subGroupsConnection() default {};
-
-  UserConnectionExpressions2[] usersConnection() default {};
-
-  RoleConnectionExpressions2[] rolesConnection() default {};
+  GroupExpression2[] exs() default {};
 }

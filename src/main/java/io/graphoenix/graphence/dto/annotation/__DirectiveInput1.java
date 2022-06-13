@@ -1,7 +1,7 @@
 package io.graphoenix.graphence.dto.annotation;
 
 import io.graphoenix.graphence.dto.enumType.__DirectiveLocation;
-import io.graphoenix.spi.annotation.TypeInput;
+import io.graphoenix.spi.annotation.Arguments;
 import java.lang.String;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -10,7 +10,7 @@ import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.SOURCE)
 @Target(ElementType.METHOD)
-@TypeInput
+@Arguments
 public @interface __DirectiveInput1 {
   String name() default "";
 
@@ -83,8 +83,4 @@ public @interface __DirectiveInput1 {
   String $argsConnection() default "";
 
   __InputValueInput2[] args() default {};
-
-  __InputValueInput2 argsAggregate() default @__InputValueInput2;
-
-  __InputValueConnectionInput2 argsConnection() default @__InputValueConnectionInput2;
 }

@@ -1,6 +1,6 @@
 package io.graphoenix.graphence.dto.annotation;
 
-import io.graphoenix.spi.annotation.TypeInput;
+import io.graphoenix.spi.annotation.Arguments;
 import java.lang.String;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -9,7 +9,7 @@ import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.SOURCE)
 @Target(ElementType.METHOD)
-@TypeInput
+@Arguments
 public @interface __FieldInput0 {
   String id() default "";
 
@@ -106,8 +106,4 @@ public @interface __FieldInput0 {
   __InputValueInput1[] args() default {};
 
   __TypeInput1 type() default @__TypeInput1;
-
-  __InputValueInput1 argsAggregate() default @__InputValueInput1;
-
-  __InputValueConnectionInput1 argsConnection() default @__InputValueConnectionInput1;
 }

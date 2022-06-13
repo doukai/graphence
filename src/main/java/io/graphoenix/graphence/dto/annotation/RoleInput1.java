@@ -1,6 +1,6 @@
 package io.graphoenix.graphence.dto.annotation;
 
-import io.graphoenix.spi.annotation.TypeInput;
+import io.graphoenix.spi.annotation.Arguments;
 import java.lang.String;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -9,7 +9,7 @@ import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.SOURCE)
 @Target(ElementType.METHOD)
-@TypeInput
+@Arguments
 public @interface RoleInput1 {
   String id() default "";
 
@@ -86,16 +86,4 @@ public @interface RoleInput1 {
   PermissionInput2[] permissions() default {};
 
   RealmInput2 realm() default @RealmInput2;
-
-  UserInput2 usersAggregate() default @UserInput2;
-
-  RoleInput2 compositesAggregate() default @RoleInput2;
-
-  PermissionInput2 permissionsAggregate() default @PermissionInput2;
-
-  UserConnectionInput2 usersConnection() default @UserConnectionInput2;
-
-  RoleConnectionInput2 compositesConnection() default @RoleConnectionInput2;
-
-  PermissionConnectionInput2 permissionsConnection() default @PermissionConnectionInput2;
 }

@@ -1,7 +1,7 @@
 package io.graphoenix.graphence.dto.annotation;
 
-import io.graphoenix.graphence.dto.enumType.Operator;
-import io.graphoenix.spi.annotation.TypeExpression;
+import io.graphoenix.graphence.dto.enumType.Conditional;
+import io.graphoenix.spi.annotation.Arguments;
 import java.lang.String;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -10,79 +10,71 @@ import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.SOURCE)
 @Target(ElementType.METHOD)
-@TypeExpression
+@Arguments
 public @interface __InputValueExpression1 {
-  Operator opr() default Operator.EQ;
+  Conditional cond() default Conditional.AND;
 
-  String[] id() default {};
+  IDExpression id() default @IDExpression;
 
-  String[] name() default {};
+  StringExpression name() default @StringExpression;
 
-  String[] typeName() default {};
+  StringExpression typeName() default @StringExpression;
 
-  String[] ofTypeName() default {};
+  StringExpression ofTypeName() default @StringExpression;
 
-  int[] fieldId() default {};
+  IntExpression fieldId() default @IntExpression;
 
-  String[] directiveName() default {};
+  StringExpression directiveName() default @StringExpression;
 
-  String[] description() default {};
+  StringExpression description() default @StringExpression;
 
-  String[] defaultValue() default {};
+  StringExpression defaultValue() default @StringExpression;
 
-  boolean[] isDeprecated() default {};
+  boolean isDeprecated() default false;
 
-  int[] version() default {};
+  IntExpression version() default @IntExpression;
 
-  String[] realmId() default {};
+  StringExpression realmId() default @StringExpression;
 
-  String[] createUserId() default {};
+  StringExpression createUserId() default @StringExpression;
 
-  String[] createTime() default {};
+  TimestampExpression createTime() default @TimestampExpression;
 
-  String[] updateUserId() default {};
+  StringExpression updateUserId() default @StringExpression;
 
-  String[] updateTime() default {};
+  TimestampExpression updateTime() default @TimestampExpression;
 
-  String[] createGroupId() default {};
+  StringExpression createGroupId() default @StringExpression;
 
-  String[] __typename() default {};
+  StringExpression __typename() default @StringExpression;
 
-  String[] $id() default {};
+  String[] groupBy() default {};
 
-  String[] $name() default {};
+  __InputValueOrderBy1 orderBy() default @__InputValueOrderBy1;
 
-  String[] $typeName() default {};
+  int first() default 0;
 
-  String[] $ofTypeName() default {};
+  String $first() default "";
 
-  String[] $fieldId() default {};
+  int last() default 0;
 
-  String[] $directiveName() default {};
+  String $last() default "";
 
-  String[] $description() default {};
+  int offset() default 0;
 
-  String[] $defaultValue() default {};
+  String $offset() default "";
 
-  String[] $isDeprecated() default {};
+  String after() default "";
 
-  String[] $version() default {};
+  String before() default "";
 
-  String[] $realmId() default {};
+  String $after() default "";
 
-  String[] $createUserId() default {};
+  String $before() default "";
 
-  String[] $createTime() default {};
+  __TypeExpression2 ofType() default @__TypeExpression2;
 
-  String[] $updateUserId() default {};
+  __TypeExpression2 type() default @__TypeExpression2;
 
-  String[] $updateTime() default {};
-
-  String[] $createGroupId() default {};
-
-  String[] $__typename() default {};
-
-  __TypeExpressions2[] ofType() default {};
-
-  __TypeExpressions2[] type() default {};
+  __InputValueExpression2[] exs() default {};
 }

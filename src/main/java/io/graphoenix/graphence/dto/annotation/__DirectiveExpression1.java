@@ -1,8 +1,7 @@
 package io.graphoenix.graphence.dto.annotation;
 
-import io.graphoenix.graphence.dto.enumType.Operator;
-import io.graphoenix.graphence.dto.enumType.__DirectiveLocation;
-import io.graphoenix.spi.annotation.TypeExpression;
+import io.graphoenix.graphence.dto.enumType.Conditional;
+import io.graphoenix.spi.annotation.Arguments;
 import java.lang.String;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -11,77 +10,67 @@ import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.SOURCE)
 @Target(ElementType.METHOD)
-@TypeExpression
+@Arguments
 public @interface __DirectiveExpression1 {
-  Operator opr() default Operator.EQ;
+  Conditional cond() default Conditional.AND;
 
-  String[] name() default {};
+  IDExpression name() default @IDExpression;
 
-  int[] schemaId() default {};
+  IntExpression schemaId() default @IntExpression;
 
-  String[] description() default {};
+  StringExpression description() default @StringExpression;
 
-  __DirectiveLocation[] locations() default {};
+  __DirectiveLocationExpression locations() default @__DirectiveLocationExpression;
 
-  boolean[] onOperation() default {};
+  boolean onOperation() default false;
 
-  boolean[] onFragment() default {};
+  boolean onFragment() default false;
 
-  boolean[] onField() default {};
+  boolean onField() default false;
 
-  boolean[] isDeprecated() default {};
+  boolean isDeprecated() default false;
 
-  int[] version() default {};
+  IntExpression version() default @IntExpression;
 
-  String[] realmId() default {};
+  StringExpression realmId() default @StringExpression;
 
-  String[] createUserId() default {};
+  StringExpression createUserId() default @StringExpression;
 
-  String[] createTime() default {};
+  TimestampExpression createTime() default @TimestampExpression;
 
-  String[] updateUserId() default {};
+  StringExpression updateUserId() default @StringExpression;
 
-  String[] updateTime() default {};
+  TimestampExpression updateTime() default @TimestampExpression;
 
-  String[] createGroupId() default {};
+  StringExpression createGroupId() default @StringExpression;
 
-  String[] __typename() default {};
+  StringExpression __typename() default @StringExpression;
 
-  String[] $name() default {};
+  String[] groupBy() default {};
 
-  String[] $schemaId() default {};
+  __DirectiveOrderBy1 orderBy() default @__DirectiveOrderBy1;
 
-  String[] $description() default {};
+  int first() default 0;
 
-  String[] $locations() default {};
+  String $first() default "";
 
-  String[] $onOperation() default {};
+  int last() default 0;
 
-  String[] $onFragment() default {};
+  String $last() default "";
 
-  String[] $onField() default {};
+  int offset() default 0;
 
-  String[] $isDeprecated() default {};
+  String $offset() default "";
 
-  String[] $version() default {};
+  String after() default "";
 
-  String[] $realmId() default {};
+  String before() default "";
 
-  String[] $createUserId() default {};
+  String $after() default "";
 
-  String[] $createTime() default {};
+  String $before() default "";
 
-  String[] $updateUserId() default {};
+  __InputValueExpression2 args() default @__InputValueExpression2;
 
-  String[] $updateTime() default {};
-
-  String[] $createGroupId() default {};
-
-  String[] $__typename() default {};
-
-  __InputValueExpressions2[] args() default {};
-
-  __InputValueExpressions2[] argsAggregate() default {};
-
-  __InputValueConnectionExpressions2[] argsConnection() default {};
+  __DirectiveExpression2[] exs() default {};
 }

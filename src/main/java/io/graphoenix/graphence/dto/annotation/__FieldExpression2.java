@@ -1,7 +1,7 @@
 package io.graphoenix.graphence.dto.annotation;
 
-import io.graphoenix.graphence.dto.enumType.Operator;
-import io.graphoenix.spi.annotation.TypeExpression;
+import io.graphoenix.graphence.dto.enumType.Conditional;
+import io.graphoenix.spi.annotation.Arguments;
 import java.lang.String;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -10,87 +10,71 @@ import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.SOURCE)
 @Target(ElementType.METHOD)
-@TypeExpression
+@Arguments
 public @interface __FieldExpression2 {
-  Operator opr() default Operator.EQ;
+  Conditional cond() default Conditional.AND;
 
-  String[] id() default {};
+  IDExpression id() default @IDExpression;
 
-  String[] name() default {};
+  StringExpression name() default @StringExpression;
 
-  String[] typeName() default {};
+  StringExpression typeName() default @StringExpression;
 
-  String[] ofTypeName() default {};
+  StringExpression ofTypeName() default @StringExpression;
 
-  String[] description() default {};
+  StringExpression description() default @StringExpression;
 
-  String[] deprecationReason() default {};
+  StringExpression deprecationReason() default @StringExpression;
 
-  String[] from() default {};
+  StringExpression from() default @StringExpression;
 
-  String[] to() default {};
+  StringExpression to() default @StringExpression;
 
-  String[] withType() default {};
+  StringExpression withType() default @StringExpression;
 
-  String[] withFrom() default {};
+  StringExpression withFrom() default @StringExpression;
 
-  String[] withTo() default {};
+  StringExpression withTo() default @StringExpression;
 
-  boolean[] isDeprecated() default {};
+  boolean isDeprecated() default false;
 
-  int[] version() default {};
+  IntExpression version() default @IntExpression;
 
-  String[] realmId() default {};
+  StringExpression realmId() default @StringExpression;
 
-  String[] createUserId() default {};
+  StringExpression createUserId() default @StringExpression;
 
-  String[] createTime() default {};
+  TimestampExpression createTime() default @TimestampExpression;
 
-  String[] updateUserId() default {};
+  StringExpression updateUserId() default @StringExpression;
 
-  String[] updateTime() default {};
+  TimestampExpression updateTime() default @TimestampExpression;
 
-  String[] createGroupId() default {};
+  StringExpression createGroupId() default @StringExpression;
 
-  String[] __typename() default {};
+  StringExpression __typename() default @StringExpression;
 
-  String[] $id() default {};
+  String[] groupBy() default {};
 
-  String[] $name() default {};
+  __FieldOrderBy2 orderBy() default @__FieldOrderBy2;
 
-  String[] $typeName() default {};
+  int first() default 0;
 
-  String[] $ofTypeName() default {};
+  String $first() default "";
 
-  String[] $description() default {};
+  int last() default 0;
 
-  String[] $deprecationReason() default {};
+  String $last() default "";
 
-  String[] $from() default {};
+  int offset() default 0;
 
-  String[] $to() default {};
+  String $offset() default "";
 
-  String[] $withType() default {};
+  String after() default "";
 
-  String[] $withFrom() default {};
+  String before() default "";
 
-  String[] $withTo() default {};
+  String $after() default "";
 
-  String[] $isDeprecated() default {};
-
-  String[] $version() default {};
-
-  String[] $realmId() default {};
-
-  String[] $createUserId() default {};
-
-  String[] $createTime() default {};
-
-  String[] $updateUserId() default {};
-
-  String[] $updateTime() default {};
-
-  String[] $createGroupId() default {};
-
-  String[] $__typename() default {};
+  String $before() default "";
 }

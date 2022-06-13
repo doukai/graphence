@@ -1,8 +1,7 @@
 package io.graphoenix.graphence.dto.annotation;
 
-import io.graphoenix.graphence.dto.enumType.Operator;
-import io.graphoenix.graphence.dto.enumType.PermissionLevel;
-import io.graphoenix.spi.annotation.TypeExpression;
+import io.graphoenix.graphence.dto.enumType.Conditional;
+import io.graphoenix.spi.annotation.Arguments;
 import java.lang.String;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -11,65 +10,65 @@ import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.SOURCE)
 @Target(ElementType.METHOD)
-@TypeExpression
+@Arguments
 public @interface PermissionExpression0 {
-  Operator opr() default Operator.EQ;
+  Conditional cond() default Conditional.AND;
 
-  String[] id() default {};
+  IDExpression id() default @IDExpression;
 
-  String[] roleId() default {};
+  StringExpression roleId() default @StringExpression;
 
-  String[] fieldId() default {};
+  StringExpression fieldId() default @StringExpression;
 
-  PermissionLevel[] level() default {};
+  PermissionLevelExpression level() default @PermissionLevelExpression;
 
-  boolean[] isDeprecated() default {};
+  boolean isDeprecated() default false;
 
-  int[] version() default {};
+  IntExpression version() default @IntExpression;
 
-  String[] realmId() default {};
+  StringExpression realmId() default @StringExpression;
 
-  String[] createUserId() default {};
+  StringExpression createUserId() default @StringExpression;
 
-  String[] createTime() default {};
+  TimestampExpression createTime() default @TimestampExpression;
 
-  String[] updateUserId() default {};
+  StringExpression updateUserId() default @StringExpression;
 
-  String[] updateTime() default {};
+  TimestampExpression updateTime() default @TimestampExpression;
 
-  String[] createGroupId() default {};
+  StringExpression createGroupId() default @StringExpression;
 
-  String[] __typename() default {};
+  StringExpression __typename() default @StringExpression;
 
-  String[] $id() default {};
+  String[] groupBy() default {};
 
-  String[] $roleId() default {};
+  PermissionOrderBy0 orderBy() default @PermissionOrderBy0;
 
-  String[] $fieldId() default {};
+  int first() default 0;
 
-  String[] $level() default {};
+  String $first() default "";
 
-  String[] $isDeprecated() default {};
+  int last() default 0;
 
-  String[] $version() default {};
+  String $last() default "";
 
-  String[] $realmId() default {};
+  int offset() default 0;
 
-  String[] $createUserId() default {};
+  String $offset() default "";
 
-  String[] $createTime() default {};
+  String after() default "";
 
-  String[] $updateUserId() default {};
+  String before() default "";
 
-  String[] $updateTime() default {};
+  String $after() default "";
 
-  String[] $createGroupId() default {};
+  String $before() default "";
 
-  String[] $__typename() default {};
+  RoleExpression1 role() default @RoleExpression1;
 
-  RoleExpressions1[] role() default {};
+  __FieldExpression1 field() default @__FieldExpression1;
 
-  __FieldExpressions1[] field() default {};
+  RealmExpression1 realm() default @RealmExpression1;
 
-  RealmExpressions1[] realm() default {};
+  PermissionExpression1[] exs() default {};
 }

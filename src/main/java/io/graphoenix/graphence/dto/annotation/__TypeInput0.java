@@ -1,7 +1,7 @@
 package io.graphoenix.graphence.dto.annotation;
 
 import io.graphoenix.graphence.dto.enumType.__TypeKind;
-import io.graphoenix.spi.annotation.TypeInput;
+import io.graphoenix.spi.annotation.Arguments;
 import java.lang.String;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -10,7 +10,7 @@ import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.SOURCE)
 @Target(ElementType.METHOD)
-@TypeInput
+@Arguments
 public @interface __TypeInput0 {
   String name() default "";
 
@@ -111,24 +111,4 @@ public @interface __TypeInput0 {
   __InputValueInput1[] inputFields() default {};
 
   __TypeInput1 ofType() default @__TypeInput1;
-
-  __FieldInput1 fieldsAggregate() default @__FieldInput1;
-
-  __TypeInput1 interfacesAggregate() default @__TypeInput1;
-
-  __TypeInput1 possibleTypesAggregate() default @__TypeInput1;
-
-  __EnumValueInput1 enumValuesAggregate() default @__EnumValueInput1;
-
-  __InputValueInput1 inputFieldsAggregate() default @__InputValueInput1;
-
-  __FieldConnectionInput1 fieldsConnection() default @__FieldConnectionInput1;
-
-  __TypeConnectionInput1 interfacesConnection() default @__TypeConnectionInput1;
-
-  __TypeConnectionInput1 possibleTypesConnection() default @__TypeConnectionInput1;
-
-  __EnumValueConnectionInput1 enumValuesConnection() default @__EnumValueConnectionInput1;
-
-  __InputValueConnectionInput1 inputFieldsConnection() default @__InputValueConnectionInput1;
 }
