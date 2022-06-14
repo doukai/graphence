@@ -1,6 +1,25 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        jcenter()
+        mavenLocal()
+    }
+    dependencies {
+        classpath 'io.graphoenix:graphoenix-gradle-plugin:0.0.1-SNAPSHOT'
+    }
+}
+
 plugins {
     id 'java'
 }
+
+apply plugin: 'io.graphoenix'
+graphql {
+    graphQLFileName = "graphence.gql"
+    packageName = "io.graphoenix.graphence.core"
+    inputLayers = 3
+}
+
 
 group 'io.graphoenix.graphence'
 version '0.0.1-SNAPSHOT'
@@ -12,10 +31,9 @@ repositories {
 }
 
 dependencies {
-    implementation "io.graphoenix:graphoenix-core:0.0.1-SNAPSHOT"
-    implementation "io.graphoenix:graphoenix-mysql:0.0.1-SNAPSHOT"
+    compile "io.graphoenix:graphoenix-core:0.0.1-SNAPSHOT"
+    compile "io.graphoenix:graphoenix-mysql:0.0.1-SNAPSHOT"
 
-    annotationProcessor "io.graphoenix:graphoenix-annotation-processor:0.0.1-SNAPSHOT"
     annotationProcessor "io.graphoenix:graphoenix-inject:0.0.1-SNAPSHOT"
     annotationProcessor "io.graphoenix:graphoenix-interceptor:0.0.1-SNAPSHOT"
     annotationProcessor "io.graphoenix:graphoenix-config:0.0.1-SNAPSHOT"

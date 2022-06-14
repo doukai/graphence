@@ -1,0 +1,76 @@
+type User {
+    id: ID @dataType(type: "int") @column(autoIncrement: true)
+    name: String!
+    lastName: String
+    login: String!
+    password: String!
+    email: String
+    disable: Boolean
+    groups: [Group] @map(from: "id" with: {type: "UserGroup" from: "userId" to: "groupId"} to: "id")
+    roles: [Role] @map(from: "id" with: {type: "UserRole" from: "userId" to: "roleId"} to: "id")
+    realm: Realm @map(from: "realmId" to: "id")
+}
+
+type UserRole {
+    id: ID @dataType(type: "int") @column(autoIncrement: true)
+    userId: Int
+    roleId: Int
+}
+
+type UserGroup {
+    id: ID @dataType(type: "int") @column(autoIncrement: true)
+    userId: Int
+    groupId: Int
+}
+
+type Role {
+    id: ID @dataType(type: "int") @column(autoIncrement: true)
+    name: String!
+    description: String
+    users: [User] @map(from: "id" with: {type: "UserRole" from: "roleId" to: "userId"} to: "id")
+    composites: [Role] @map(from: "id" with: {type: "RoleComposite" from: "roleId" to: "compositeId"} to: "id")
+    permissions: [Permission] @map(from: "id" to: "roleId")
+    realm: Realm @map(from: "realmId" to: "id")
+}
+
+type RoleComposite {
+    id: ID @dataType(type: "int") @column(autoIncrement: true)
+    roleId: Int
+    compositeId: Int
+}
+
+type Group {
+    id: ID @dataType(type: "int") @column(autoIncrement: true)
+    name: String!
+    parentId: Int
+    parent: Group @map(from: "parentId" to: "id" anchor: true)
+    subGroups: [Group] @map(from: "id" to: "parentId")
+    users: [User] @map(from: "id" with: {type: "UserRole" from: "roleId" to: "userId"} to: "id")
+    roles: [Role] @map(from: "id" with: {type: "GroupRole" from: "groupId" to: "roleId"} to: "id")
+    realm: Realm @map(from: "realmId" to: "id")
+}
+
+type GroupRole {
+    id: ID @dataType(type: "int") @column(autoIncrement: true)
+    groupId: Int
+    roleId: Int
+}
+
+type Realm {
+    id: ID!
+}
+
+type Permission {
+    id: ID @dataType(type: "int") @column(autoIncrement: true)
+    roleId: String
+    role: Role! @map(from: "roleId" to: "id" anchor: true)
+    fieldId: String
+    field: __Field! @map(from: "fieldId" to: "id" anchor: true)
+    level: PermissionLevel
+    realm: Realm @map(from: "realmId" to: "id")
+}
+
+enum PermissionLevel {
+    READ
+    WRITE
+}

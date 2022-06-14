@@ -2,6 +2,8 @@ plugins {
     id 'java'
 }
 
+compileJava.options.sourcepath = files('src/main/resources')
+
 group 'io.graphoenix.graphence'
 version '0.0.1-SNAPSHOT'
 
@@ -12,6 +14,7 @@ repositories {
 }
 
 dependencies {
+    implementation project(":graphence-core")
     implementation 'org.keycloak:keycloak-core:18.0.0'
     implementation 'org.keycloak:keycloak-server-spi:18.0.0'
     implementation "com.google.auto.service:auto-service:1.0.1"
@@ -20,6 +23,8 @@ dependencies {
     annotationProcessor "io.graphoenix:graphoenix-inject:0.0.1-SNAPSHOT"
     annotationProcessor "io.graphoenix:graphoenix-interceptor:0.0.1-SNAPSHOT"
     annotationProcessor "io.graphoenix:graphoenix-config:0.0.1-SNAPSHOT"
+    annotationProcessor "io.graphoenix:graphoenix-mysql:0.0.1-SNAPSHOT"
+    annotationProcessor project(":graphence-core")
     annotationProcessor "com.google.auto.service:auto-service:1.0.1"
 
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.2'

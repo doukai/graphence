@@ -1,0 +1,66 @@
+package io.graphoenix.graphence.core.dto.annotation;
+
+import io.graphoenix.graphence.core.dto.enumType.Conditional;
+import io.graphoenix.spi.annotation.Arguments;
+import java.lang.String;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+
+@Retention(RetentionPolicy.SOURCE)
+@Target(ElementType.METHOD)
+@Arguments
+public @interface PermissionExpression2 {
+  Conditional cond() default Conditional.AND;
+
+  IDExpression id() default @IDExpression;
+
+  StringExpression roleId() default @StringExpression;
+
+  StringExpression fieldId() default @StringExpression;
+
+  PermissionLevelExpression level() default @PermissionLevelExpression;
+
+  BooleanExpression isDeprecated() default @BooleanExpression;
+
+  IntExpression version() default @IntExpression;
+
+  StringExpression realmId() default @StringExpression;
+
+  StringExpression createUserId() default @StringExpression;
+
+  StringExpression createTime() default @StringExpression;
+
+  StringExpression updateUserId() default @StringExpression;
+
+  StringExpression updateTime() default @StringExpression;
+
+  StringExpression createGroupId() default @StringExpression;
+
+  StringExpression __typename() default @StringExpression;
+
+  String[] groupBy() default {};
+
+  PermissionOrderBy2 orderBy() default @PermissionOrderBy2;
+
+  int first() default 0;
+
+  String $first() default "";
+
+  int last() default 0;
+
+  String $last() default "";
+
+  int offset() default 0;
+
+  String $offset() default "";
+
+  String after() default "";
+
+  String before() default "";
+
+  String $after() default "";
+
+  String $before() default "";
+}
