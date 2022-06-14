@@ -4,7 +4,6 @@ import io.graphoenix.graphence.dto.enumType.Operator;
 import io.graphoenix.spi.annotation.SchemaBean;
 import jakarta.annotation.Generated;
 import java.lang.Boolean;
-import java.lang.String;
 import java.util.Collection;
 import org.eclipse.microprofile.graphql.DefaultValue;
 import org.eclipse.microprofile.graphql.Input;
@@ -12,13 +11,13 @@ import org.eclipse.microprofile.graphql.Input;
 @Input
 @Generated("io.graphoenix.java.generator.builder.TypeSpecBuilderProxy")
 @SchemaBean
-public class IDExpression {
+public class BooleanExpression {
   @DefaultValue("EQ")
   private Operator opr;
 
-  private String val;
+  private Boolean val;
 
-  private Collection<String> in;
+  private Collection<Boolean> in;
 
   @DefaultValue("false")
   private Boolean skipNull;
@@ -31,19 +30,19 @@ public class IDExpression {
     this.opr = opr;
   }
 
-  public String getVal() {
+  public Boolean getVal() {
     return this.val;
   }
 
-  public void setVal(String val) {
+  public void setVal(Boolean val) {
     this.val = val;
   }
 
-  public Collection<String> getIn() {
+  public Collection<Boolean> getIn() {
     return this.in;
   }
 
-  public void setIn(Collection<String> in) {
+  public void setIn(Collection<Boolean> in) {
     this.in = in;
   }
 

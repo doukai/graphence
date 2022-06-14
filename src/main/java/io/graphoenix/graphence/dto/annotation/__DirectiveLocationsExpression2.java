@@ -20,7 +20,7 @@ public @interface __DirectiveLocationsExpression2 {
 
   __DirectiveLocationExpression directiveLocation() default @__DirectiveLocationExpression;
 
-  boolean isDeprecated() default false;
+  BooleanExpression isDeprecated() default @BooleanExpression;
 
   IntExpression version() default @IntExpression;
 
@@ -28,11 +28,11 @@ public @interface __DirectiveLocationsExpression2 {
 
   StringExpression createUserId() default @StringExpression;
 
-  TimestampExpression createTime() default @TimestampExpression;
+  StringExpression createTime() default @StringExpression;
 
   StringExpression updateUserId() default @StringExpression;
 
-  TimestampExpression updateTime() default @TimestampExpression;
+  StringExpression updateTime() default @StringExpression;
 
   StringExpression createGroupId() default @StringExpression;
 

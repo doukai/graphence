@@ -12,12 +12,20 @@ import org.keycloak.storage.UserStorageProvider;
 import org.keycloak.storage.group.GroupLookupProvider;
 import org.keycloak.storage.role.RoleLookupProvider;
 import org.keycloak.storage.user.UserLookupProvider;
+import org.keycloak.storage.user.UserQueryProvider;
+import org.tinylog.Logger;
 
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
+
+import static org.keycloak.models.UserModel.*;
 
 public class GraphenceUserStorageProvider implements UserStorageProvider,
         UserLookupProvider,
+        UserQueryProvider,
         RoleLookupProvider,
         GroupLookupProvider,
         CredentialInputValidator {
@@ -50,49 +58,74 @@ public class GraphenceUserStorageProvider implements UserStorageProvider,
 
     @Override
     public GroupModel getGroupById(RealmModel realm, String id) {
-        Group group = keycloakDao.getGroupById(realm.getId(), id);
-        return group == null ? null : new GraphenceGroupModel(group);
+        try {
+            Group group = keycloakDao.getGroupById(realm.getId(), id);
+            return group == null ? null : new GraphenceGroupModel(group);
+        } catch (Exception e) {
+            Logger.error(e);
+            return null;
+        }
     }
 
     @Override
     public Stream<GroupModel> searchForGroupByNameStream(RealmModel realm, String search, Integer firstResult, Integer maxResults) {
-        Set<Group> groupList = keycloakDao.findGroupListByName(realm.getId(), search);
-        if (groupList == null) {
+        try {
+            Set<Group> groupSet;
+            if (firstResult != null && maxResults != null) {
+                groupSet = keycloakDao.searchGroupListByName(realm.getId(), search, firstResult - 1, maxResults);
+            } else if (firstResult != null) {
+                groupSet = keycloakDao.searchGroupListByName(realm.getId(), search, firstResult - 1);
+            } else if (maxResults != null) {
+                groupSet = keycloakDao.searchGroupListByName(realm.getId(), search, 0, maxResults);
+            } else {
+                groupSet = keycloakDao.searchGroupListByName(realm.getId(), search);
+            }
+            return groupSet == null ? null : groupSet.stream().map(GraphenceGroupModel::new);
+        } catch (Exception e) {
+            Logger.error(e);
             return null;
-        }
-        if (firstResult != null && maxResults != null) {
-            return groupList.stream().skip(firstResult - 1).limit(maxResults).map(GraphenceGroupModel::new);
-        } else if (firstResult != null) {
-            return groupList.stream().skip(firstResult - 1).map(GraphenceGroupModel::new);
-        } else {
-            return groupList.stream().map(GraphenceGroupModel::new);
         }
     }
 
     @Override
     public RoleModel getRealmRole(RealmModel realm, String name) {
-        Role role = keycloakDao.getRoleByName(realm.getId(), name);
-        return role == null ? null : new GraphenceRoleModel(role);
+        try {
+            Role role = keycloakDao.getRoleByName(realm.getId(), name);
+            return role == null ? null : new GraphenceRoleModel(role);
+        } catch (Exception e) {
+            Logger.error(e);
+            return null;
+        }
     }
 
     @Override
     public RoleModel getRoleById(RealmModel realm, String id) {
-        Role role = keycloakDao.getRoleById(realm.getId(), id);
-        return role == null ? null : new GraphenceRoleModel(role);
+        try {
+            Role role = keycloakDao.getRoleById(realm.getId(), id);
+            return role == null ? null : new GraphenceRoleModel(role);
+        } catch (Exception e) {
+            Logger.error(e);
+            return null;
+        }
     }
 
     @Override
     public Stream<RoleModel> searchForRolesStream(RealmModel realm, String search, Integer first, Integer max) {
-        Set<Role> roleList = keycloakDao.getRoleListByName(realm.getId(), search);
-        if (roleList == null) {
+        try {
+            Set<Role> roleSet;
+            if (first != null && max != null) {
+                roleSet = keycloakDao.searchRoleListByName(realm.getId(), search, first - 1, max);
+            } else if (first != null) {
+                roleSet = keycloakDao.searchRoleListByName(realm.getId(), search, first - 1);
+            } else if (max != null) {
+                roleSet = keycloakDao.searchRoleListByName(realm.getId(), search, 0, max);
+            } else {
+                roleSet = keycloakDao.searchRoleListByName(realm.getId(), search);
+            }
+            return roleSet == null ? null : roleSet.stream().map(GraphenceRoleModel::new);
+        } catch (Exception e) {
+            Logger.error(e);
             return null;
-        }
-        if (first != null && max != null) {
-            return roleList.stream().skip(first - 1).limit(max).map(GraphenceRoleModel::new);
-        } else if (first != null) {
-            return roleList.stream().skip(first - 1).map(GraphenceRoleModel::new);
-        } else {
-            return roleList.stream().map(GraphenceRoleModel::new);
         }
     }
 
@@ -108,19 +141,131 @@ public class GraphenceUserStorageProvider implements UserStorageProvider,
 
     @Override
     public UserModel getUserById(String id, RealmModel realm) {
-        User user = keycloakDao.getUserById(realm.getId(), id);
-        return user == null ? null : new GraphenceUserModel(user);
+        try {
+            User user = keycloakDao.getUserById(realm.getId(), id);
+            return user == null ? null : new GraphenceUserModel(user);
+        } catch (Exception e) {
+            Logger.error(e);
+            return null;
+        }
     }
 
     @Override
     public UserModel getUserByUsername(String username, RealmModel realm) {
-        User user = keycloakDao.getUserByLogin(realm.getId(), username);
-        return user == null ? null : new GraphenceUserModel(user);
+        try {
+            User user = keycloakDao.getUserByLogin(realm.getId(), username);
+            return user == null ? null : new GraphenceUserModel(user);
+        } catch (Exception e) {
+            Logger.error(e);
+            return null;
+        }
     }
 
     @Override
     public UserModel getUserByEmail(String email, RealmModel realm) {
-        User user = keycloakDao.getUserByEmail(realm.getId(), email);
-        return user == null ? null : new GraphenceUserModel(user);
+        try {
+            User user = keycloakDao.getUserByEmail(realm.getId(), email);
+            return user == null ? null : new GraphenceUserModel(user);
+        } catch (Exception e) {
+            Logger.error(e);
+            return null;
+        }
+    }
+
+    @Override
+    public List<UserModel> getUsers(RealmModel realm) {
+        try {
+            Set<User> userList = keycloakDao.getUserListRealmId(realm.getId());
+            return userList == null ? null : userList.stream().map(GraphenceUserModel::new).collect(Collectors.toList());
+        } catch (Exception e) {
+            Logger.error(e);
+            return null;
+        }
+    }
+
+    @Override
+    public List<UserModel> getUsers(RealmModel realm, int firstResult, int maxResults) {
+        try {
+            Set<User> userList = keycloakDao.getUserListRealmId(realm.getId(), firstResult - 1, maxResults);
+            return userList == null ? null : userList.stream().map(GraphenceUserModel::new).collect(Collectors.toList());
+        } catch (Exception e) {
+            Logger.error(e);
+            return null;
+        }
+    }
+
+    @Override
+    public List<UserModel> searchForUser(String search, RealmModel realm) {
+        return null;
+    }
+
+    @Override
+    public List<UserModel> searchForUser(String search, RealmModel realm, int firstResult, int maxResults) {
+        try {
+            Set<User> userList = keycloakDao.searchUserListByName(realm.getId(), search, firstResult - 1, maxResults);
+            return userList == null ? null : userList.stream().map(GraphenceUserModel::new).collect(Collectors.toList());
+        } catch (Exception e) {
+            Logger.error(e);
+            return null;
+        }
+    }
+
+    @Override
+    public List<UserModel> searchForUser(Map<String, String> params, RealmModel realm) {
+        String name = params.get(FIRST_NAME) == null ? null : params.get(FIRST_NAME);
+        String lastName = params.get(FIRST_NAME) == null ? null : params.get(LAST_NAME);
+        String email = params.get(FIRST_NAME) == null ? null : params.get(EMAIL);
+        String login = params.get(FIRST_NAME) == null ? null : params.get(USERNAME);
+        Boolean disable = params.get(FIRST_NAME) == null ? null : !Boolean.parseBoolean(params.get(ENABLED));
+        try {
+            Set<User> userList = keycloakDao.searchUserList(realm.getId(), name, lastName, email, login, disable);
+            return userList == null ? null : userList.stream().map(GraphenceUserModel::new).collect(Collectors.toList());
+        } catch (Exception e) {
+            Logger.error(e);
+            return null;
+        }
+    }
+
+    @Override
+    public List<UserModel> searchForUser(Map<String, String> params, RealmModel realm, int firstResult, int maxResults) {
+        String name = params.get(FIRST_NAME) == null ? null : params.get(FIRST_NAME);
+        String lastName = params.get(FIRST_NAME) == null ? null : params.get(LAST_NAME);
+        String email = params.get(FIRST_NAME) == null ? null : params.get(EMAIL);
+        String login = params.get(FIRST_NAME) == null ? null : params.get(USERNAME);
+        Boolean disable = params.get(FIRST_NAME) == null ? null : !Boolean.parseBoolean(params.get(ENABLED));
+        try {
+            Set<User> userList = keycloakDao.searchUserList(realm.getId(), name, lastName, email, login, disable, firstResult - 1, maxResults);
+            return userList == null ? null : userList.stream().map(GraphenceUserModel::new).collect(Collectors.toList());
+        } catch (Exception e) {
+            Logger.error(e);
+            return null;
+        }
+    }
+
+    @Override
+    public List<UserModel> getGroupMembers(RealmModel realm, GroupModel group) {
+        try {
+            Set<User> userList = keycloakDao.getUserListByGroupId(realm.getId(), group.getId());
+            return userList == null ? null : userList.stream().map(GraphenceUserModel::new).collect(Collectors.toList());
+        } catch (Exception e) {
+            Logger.error(e);
+            return null;
+        }
+    }
+
+    @Override
+    public List<UserModel> getGroupMembers(RealmModel realm, GroupModel group, int firstResult, int maxResults) {
+        try {
+            Set<User> userList = keycloakDao.getUserListByGroupId(realm.getId(), group.getId(), firstResult - 1, maxResults);
+            return userList == null ? null : userList.stream().map(GraphenceUserModel::new).collect(Collectors.toList());
+        } catch (Exception e) {
+            Logger.error(e);
+            return null;
+        }
+    }
+
+    @Override
+    public List<UserModel> searchForUserByUserAttribute(String attrName, String attrValue, RealmModel realm) {
+        return null;
     }
 }

@@ -16,7 +16,7 @@ public @interface RealmExpression0 {
 
   IDExpression id() default @IDExpression;
 
-  boolean isDeprecated() default false;
+  BooleanExpression isDeprecated() default @BooleanExpression;
 
   IntExpression version() default @IntExpression;
 
@@ -24,11 +24,11 @@ public @interface RealmExpression0 {
 
   StringExpression createUserId() default @StringExpression;
 
-  TimestampExpression createTime() default @TimestampExpression;
+  StringExpression createTime() default @StringExpression;
 
   StringExpression updateUserId() default @StringExpression;
 
-  TimestampExpression updateTime() default @TimestampExpression;
+  StringExpression updateTime() default @StringExpression;
 
   StringExpression createGroupId() default @StringExpression;
 

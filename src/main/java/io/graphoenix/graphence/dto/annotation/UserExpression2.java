@@ -26,9 +26,9 @@ public @interface UserExpression2 {
 
   StringExpression email() default @StringExpression;
 
-  boolean disable() default false;
+  BooleanExpression disable() default @BooleanExpression;
 
-  boolean isDeprecated() default false;
+  BooleanExpression isDeprecated() default @BooleanExpression;
 
   IntExpression version() default @IntExpression;
 
@@ -36,11 +36,11 @@ public @interface UserExpression2 {
 
   StringExpression createUserId() default @StringExpression;
 
-  TimestampExpression createTime() default @TimestampExpression;
+  StringExpression createTime() default @StringExpression;
 
   StringExpression updateUserId() default @StringExpression;
 
-  TimestampExpression updateTime() default @TimestampExpression;
+  StringExpression updateTime() default @StringExpression;
 
   StringExpression createGroupId() default @StringExpression;
 

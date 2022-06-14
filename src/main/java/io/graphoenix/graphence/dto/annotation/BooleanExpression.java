@@ -9,12 +9,12 @@ import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.SOURCE)
 @Target(ElementType.METHOD)
-public @interface IntExpression {
+public @interface BooleanExpression {
   Operator opr() default Operator.EQ;
 
-  int val() default 0;
+  boolean val() default false;
 
-  int[] in() default {};
+  boolean[] in() default {};
 
   String $val() default "";
 

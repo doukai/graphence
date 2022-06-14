@@ -22,7 +22,7 @@ public @interface PermissionExpression1 {
 
   PermissionLevelExpression level() default @PermissionLevelExpression;
 
-  boolean isDeprecated() default false;
+  BooleanExpression isDeprecated() default @BooleanExpression;
 
   IntExpression version() default @IntExpression;
 
@@ -30,11 +30,11 @@ public @interface PermissionExpression1 {
 
   StringExpression createUserId() default @StringExpression;
 
-  TimestampExpression createTime() default @TimestampExpression;
+  StringExpression createTime() default @StringExpression;
 
   StringExpression updateUserId() default @StringExpression;
 
-  TimestampExpression updateTime() default @TimestampExpression;
+  StringExpression updateTime() default @StringExpression;
 
   StringExpression createGroupId() default @StringExpression;
 

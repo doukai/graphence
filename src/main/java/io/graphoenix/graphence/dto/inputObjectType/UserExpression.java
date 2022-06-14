@@ -24,7 +24,7 @@ public class UserExpression {
 
   private StringExpression email;
 
-  private Boolean disable;
+  private BooleanExpression disable;
 
   private GroupExpression groups;
 
@@ -104,11 +104,11 @@ public class UserExpression {
     this.email = email;
   }
 
-  public Boolean getDisable() {
+  public BooleanExpression getDisable() {
     return this.disable;
   }
 
-  public void setDisable(Boolean disable) {
+  public void setDisable(BooleanExpression disable) {
     this.disable = disable;
   }
 
