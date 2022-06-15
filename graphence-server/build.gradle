@@ -14,7 +14,6 @@ repositories {
 }
 
 dependencies {
-
     compile project(":graphence-core")
     compile "io.graphoenix:graphoenix-http-server:0.0.1-SNAPSHOT"
 

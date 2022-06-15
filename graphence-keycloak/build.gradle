@@ -14,8 +14,8 @@ repositories {
 
 dependencies {
     implementation project(":graphence-core")
-    compile  'org.keycloak:keycloak-core:18.0.0'
-    compile  'org.keycloak:keycloak-server-spi:18.0.0'
+    implementation  'org.keycloak:keycloak-core:18.0.0'
+    implementation  'org.keycloak:keycloak-server-spi:18.0.0'
     implementation "com.google.auto.service:auto-service:1.0.1"
 
     annotationProcessor "io.graphoenix:graphoenix-annotation-processor:0.0.1-SNAPSHOT"

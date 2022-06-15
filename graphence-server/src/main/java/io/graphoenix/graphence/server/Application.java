@@ -14,7 +14,6 @@ public class Application {
     }
 
     private void run() {
-
         GraphQLHttpServer graphqlHttpServer = BeanContext.get(GraphQLHttpServer.class);
         graphqlHttpServer.run();
     }
