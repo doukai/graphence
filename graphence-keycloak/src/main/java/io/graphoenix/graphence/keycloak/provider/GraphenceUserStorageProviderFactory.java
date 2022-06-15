@@ -10,7 +10,7 @@ public class GraphenceUserStorageProviderFactory implements UserStorageProviderF
 
     @Override
     public GraphenceUserStorageProvider create(KeycloakSession session, ComponentModel model) {
-        return null;
+        return new GraphenceUserStorageProvider(session, model);
     }
 
     @Override

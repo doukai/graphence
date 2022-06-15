@@ -1,6 +1,6 @@
 package io.graphoenix.graphence.casbin.spi;
 
-import io.graphoenix.graphence.core.dto.objectType.Role;
+import io.graphoenix.graphence.dto.objectType.Role;
 import io.graphoenix.r2dbc.connector.dao.R2DBCOperationDAO;
 import io.graphoenix.spi.annotation.GraphQLOperation;
 import io.graphoenix.spi.annotation.QueryOperation;

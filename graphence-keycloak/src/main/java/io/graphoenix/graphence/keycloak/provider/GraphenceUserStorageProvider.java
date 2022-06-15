@@ -1,13 +1,14 @@
 package io.graphoenix.graphence.keycloak.provider;
 
 import io.graphoenix.core.context.BeanContext;
-import io.graphoenix.graphence.core.dto.objectType.Group;
-import io.graphoenix.graphence.core.dto.objectType.Role;
-import io.graphoenix.graphence.core.dto.objectType.User;
+import io.graphoenix.graphence.dto.objectType.Group;
+import io.graphoenix.graphence.dto.objectType.Role;
+import io.graphoenix.graphence.dto.objectType.User;
 import io.graphoenix.graphence.keycloak.dto.GraphenceGroupModel;
 import io.graphoenix.graphence.keycloak.dto.GraphenceRoleModel;
 import io.graphoenix.graphence.keycloak.dto.GraphenceUserModel;
 import io.graphoenix.graphence.keycloak.spi.KeycloakDao;
+import org.keycloak.component.ComponentModel;
 import org.keycloak.credential.CredentialInput;
 import org.keycloak.credential.CredentialInputValidator;
 import org.keycloak.models.*;
@@ -33,9 +34,13 @@ public class GraphenceUserStorageProvider implements UserStorageProvider,
         GroupLookupProvider,
         CredentialInputValidator {
 
+    private final KeycloakSession session;
+    private final ComponentModel model;
     private final KeycloakDao keycloakDao;
 
-    public GraphenceUserStorageProvider() {
+    public GraphenceUserStorageProvider(KeycloakSession session, ComponentModel model) {
+        this.session = session;
+        this.model = model;
         this.keycloakDao = BeanContext.get(KeycloakDao.class);
     }
 

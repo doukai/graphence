@@ -1,6 +1,6 @@
 package io.graphoenix.graphence.keycloak.dto;
 
-import io.graphoenix.graphence.core.dto.objectType.User;
+import io.graphoenix.graphence.dto.objectType.User;
 import org.keycloak.models.ClientModel;
 import org.keycloak.models.GroupModel;
 import org.keycloak.models.RoleModel;

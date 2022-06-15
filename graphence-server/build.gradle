@@ -2,6 +2,8 @@ plugins {
     id 'java'
 }
 
+compileJava.options.sourcepath = files('src/main/resources')
+
 group 'io.graphoenix.graphence'
 version '0.0.1-SNAPSHOT'
 
@@ -12,12 +14,15 @@ repositories {
 }
 
 dependencies {
-    implementation "io.graphoenix:graphoenix-http-server:0.0.1-SNAPSHOT"
+
+    compile project(":graphence-core")
+    compile "io.graphoenix:graphoenix-http-server:0.0.1-SNAPSHOT"
 
     annotationProcessor "io.graphoenix:graphoenix-annotation-processor:0.0.1-SNAPSHOT"
     annotationProcessor "io.graphoenix:graphoenix-inject:0.0.1-SNAPSHOT"
     annotationProcessor "io.graphoenix:graphoenix-interceptor:0.0.1-SNAPSHOT"
     annotationProcessor "io.graphoenix:graphoenix-config:0.0.1-SNAPSHOT"
+    annotationProcessor project(":graphence-core")
     annotationProcessor "io.graphoenix:graphoenix-http-server:0.0.1-SNAPSHOT"
 
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.2'

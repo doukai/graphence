@@ -1,10 +1,10 @@
 package io.graphoenix.graphence.keycloak.spi;
 
-import io.graphoenix.graphence.core.dto.annotation.*;
-import io.graphoenix.graphence.core.dto.enumType.Operator;
-import io.graphoenix.graphence.core.dto.objectType.Group;
-import io.graphoenix.graphence.core.dto.objectType.Role;
-import io.graphoenix.graphence.core.dto.objectType.User;
+import io.graphoenix.graphence.dto.annotation.*;
+import io.graphoenix.graphence.dto.enumType.Operator;
+import io.graphoenix.graphence.dto.objectType.Group;
+import io.graphoenix.graphence.dto.objectType.Role;
+import io.graphoenix.graphence.dto.objectType.User;
 import io.graphoenix.r2dbc.connector.dao.R2DBCOperationDAO;
 import io.graphoenix.spi.annotation.GraphQLOperation;
 import io.graphoenix.spi.annotation.QueryOperation;
@@ -14,25 +14,25 @@ import java.util.Set;
 @GraphQLOperation(operationDAO = R2DBCOperationDAO.class)
 public interface KeycloakDao {
 
-    @QueryOperation("group")
+    @QueryOperation(value = "group", layers = 1)
     @GroupExpression0(
             realmId = @StringExpression($val = "realmId"),
             id = @IDExpression($val = "id")
     )
     Group getGroupById(String realmId, String id) throws Exception;
 
-    @QueryOperation("groupList")
+    @QueryOperation(value = "groupList", layers = 1)
     @GroupExpression0(realmId = @StringExpression($val = "realmId"))
     Set<Group> getGroupListByRealmId(String realmId) throws Exception;
 
-    @QueryOperation("groupList")
+    @QueryOperation(value = "groupList", layers = 1)
     @GroupExpression0(
             realmId = @StringExpression($val = "realmId"),
             name = @StringExpression(opr = Operator.LK, $val = "name")
     )
     Set<Group> searchGroupListByName(String realmId, String name) throws Exception;
 
-    @QueryOperation("groupList")
+    @QueryOperation(value = "groupList", layers = 1)
     @GroupExpression0(
             realmId = @StringExpression($val = "realmId"),
             name = @StringExpression(opr = Operator.LK, $val = "name"),
@@ -40,7 +40,7 @@ public interface KeycloakDao {
     )
     Set<Group> searchGroupListByName(String realmId, String name, int offset) throws Exception;
 
-    @QueryOperation("groupList")
+    @QueryOperation(value = "groupList", layers = 1)
     @GroupExpression0(
             realmId = @StringExpression($val = "realmId"),
             name = @StringExpression(opr = Operator.LK, $val = "name"),
@@ -49,32 +49,32 @@ public interface KeycloakDao {
     )
     Set<Group> searchGroupListByName(String realmId, String name, int offset, int first) throws Exception;
 
-    @QueryOperation("role")
+    @QueryOperation(value = "role", layers = 1)
     @RoleExpression0(
             realmId = @StringExpression($val = "realmId"),
             id = @IDExpression($val = "id")
     )
     Role getRoleById(String realmId, String id) throws Exception;
 
-    @QueryOperation("role")
+    @QueryOperation(value = "role", layers = 1)
     @RoleExpression0(
             realmId = @StringExpression($val = "realmId"),
             name = @StringExpression($val = "name")
     )
     Role getRoleByName(String realmId, String name) throws Exception;
 
-    @QueryOperation("roleList")
+    @QueryOperation(value = "roleList", layers = 1)
     @RoleExpression0(realmId = @StringExpression($val = "realmId"))
     Set<Role> getRoleListByRealmId(String realmId) throws Exception;
 
-    @QueryOperation("roleList")
+    @QueryOperation(value = "roleList", layers = 1)
     @RoleExpression0(
             realmId = @StringExpression($val = "realmId"),
             name = @StringExpression(opr = Operator.LK, $val = "name")
     )
     Set<Role> searchRoleListByName(String realmId, String name) throws Exception;
 
-    @QueryOperation("roleList")
+    @QueryOperation(value = "roleList", layers = 1)
     @RoleExpression0(
             realmId = @StringExpression($val = "realmId"),
             name = @StringExpression(opr = Operator.LK, $val = "name"),
@@ -82,7 +82,7 @@ public interface KeycloakDao {
     )
     Set<Role> searchRoleListByName(String realmId, String name, int offset) throws Exception;
 
-    @QueryOperation("roleList")
+    @QueryOperation(value = "roleList", layers = 1)
     @RoleExpression0(
             realmId = @StringExpression($val = "realmId"),
             name = @StringExpression(opr = Operator.LK, $val = "name"),
@@ -91,39 +91,39 @@ public interface KeycloakDao {
     )
     Set<Role> searchRoleListByName(String realmId, String name, int offset, int first) throws Exception;
 
-    @QueryOperation("user")
+    @QueryOperation(value = "user", layers = 1)
     @UserExpression0(
             realmId = @StringExpression($val = "realmId"),
             id = @IDExpression($val = "id")
     )
     User getUserById(String realmId, String id) throws Exception;
 
-    @QueryOperation("user")
+    @QueryOperation(value = "user", layers = 1)
     @UserExpression0(
             realmId = @StringExpression($val = "realmId"),
             login = @StringExpression($val = "login")
     )
     User getUserByLogin(String realmId, String login) throws Exception;
 
-    @QueryOperation("user")
+    @QueryOperation(value = "user", layers = 1)
     @UserExpression0(
             realmId = @StringExpression($val = "realmId"),
             email = @StringExpression($val = "email")
     )
     User getUserByEmail(String realmId, String email) throws Exception;
 
-    @QueryOperation("userList")
+    @QueryOperation(value = "userList", layers = 1)
     @UserExpression0(realmId = @StringExpression($val = "realmId"))
     Set<User> getUserListRealmId(String realmId) throws Exception;
 
-    @QueryOperation("userList")
+    @QueryOperation(value = "userList", layers = 1)
     @UserExpression0(
             realmId = @StringExpression($val = "realmId"),
             $offset = "offset"
     )
     Set<User> getUserListRealmId(String realmId, int offset) throws Exception;
 
-    @QueryOperation("userList")
+    @QueryOperation(value = "userList", layers = 1)
     @UserExpression0(
             realmId = @StringExpression($val = "realmId"),
             $offset = "offset",
@@ -131,14 +131,14 @@ public interface KeycloakDao {
     )
     Set<User> getUserListRealmId(String realmId, int offset, int first) throws Exception;
 
-    @QueryOperation("userList")
+    @QueryOperation(value = "userList", layers = 1)
     @UserExpression0(
             realmId = @StringExpression($val = "realmId"),
             name = @StringExpression(opr = Operator.LK, $val = "name")
     )
     Set<User> searchUserListByName(String realmId, String name) throws Exception;
 
-    @QueryOperation("userList")
+    @QueryOperation(value = "userList", layers = 1)
     @UserExpression0(
             realmId = @StringExpression($val = "realmId"),
             name = @StringExpression(opr = Operator.LK, $val = "name"),
@@ -146,7 +146,7 @@ public interface KeycloakDao {
     )
     Set<User> searchUserListByName(String realmId, String name, int offset) throws Exception;
 
-    @QueryOperation("userList")
+    @QueryOperation(value = "userList", layers = 1)
     @UserExpression0(
             realmId = @StringExpression($val = "realmId"),
             name = @StringExpression($val = "name", skipNull = true),
@@ -157,7 +157,7 @@ public interface KeycloakDao {
     )
     Set<User> searchUserList(String realmId, String name, String lastName, String email, String login, Boolean disable) throws Exception;
 
-    @QueryOperation("userList")
+    @QueryOperation(value = "userList", layers = 1)
     @UserExpression0(
             realmId = @StringExpression($val = "realmId"),
             name = @StringExpression($val = "name", skipNull = true),
@@ -169,7 +169,7 @@ public interface KeycloakDao {
     )
     Set<User> searchUserList(String realmId, String name, String lastName, String email, String login, Boolean disable, int offset) throws Exception;
 
-    @QueryOperation("userList")
+    @QueryOperation(value = "userList", layers = 1)
     @UserExpression0(
             realmId = @StringExpression($val = "realmId"),
             name = @StringExpression($val = "name", skipNull = true),
@@ -182,7 +182,7 @@ public interface KeycloakDao {
     )
     Set<User> searchUserList(String realmId, String name, String lastName, String email, String login, Boolean disable, int offset, int first) throws Exception;
 
-    @QueryOperation("userList")
+    @QueryOperation(value = "userList", layers = 1)
     @UserExpression0(
             realmId = @StringExpression($val = "realmId"),
             name = @StringExpression(opr = Operator.LK, $val = "name"),
@@ -191,7 +191,7 @@ public interface KeycloakDao {
     )
     Set<User> searchUserListByName(String realmId, String name, int offset, int first) throws Exception;
 
-    @QueryOperation("userList")
+    @QueryOperation(value = "userList", layers = 1)
     @UserExpression0(
             realmId = @StringExpression($val = "realmId"),
             groups = @GroupExpression1(
@@ -200,7 +200,7 @@ public interface KeycloakDao {
     )
     Set<User> getUserListByGroupId(String realmId, String groupId) throws Exception;
 
-    @QueryOperation("userList")
+    @QueryOperation(value = "userList", layers = 1)
     @UserExpression0(
             realmId = @StringExpression($val = "realmId"),
             groups = @GroupExpression1(
@@ -210,7 +210,7 @@ public interface KeycloakDao {
     )
     Set<User> getUserListByGroupId(String realmId, String groupId, int offset) throws Exception;
 
-    @QueryOperation("userList")
+    @QueryOperation(value = "userList", layers = 1)
     @UserExpression0(
             realmId = @StringExpression($val = "realmId"),
             groups = @GroupExpression1(

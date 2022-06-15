@@ -1,6 +1,6 @@
 package io.graphoenix.graphence.keycloak.dto;
 
-import io.graphoenix.graphence.core.dto.objectType.Role;
+import io.graphoenix.graphence.dto.objectType.Role;
 import org.keycloak.models.RoleContainerModel;
 import org.keycloak.models.RoleModel;
 

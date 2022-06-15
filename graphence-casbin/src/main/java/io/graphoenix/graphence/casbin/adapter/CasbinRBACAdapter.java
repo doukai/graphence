@@ -2,7 +2,7 @@ package io.graphoenix.graphence.casbin.adapter;
 
 import com.google.common.collect.Streams;
 import io.graphoenix.graphence.casbin.spi.RBACPolicyDao;
-import io.graphoenix.graphence.core.dto.objectType.Role;
+import io.graphoenix.graphence.dto.objectType.Role;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import org.casbin.jcasbin.model.Model;
@@ -14,8 +14,8 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Stream;
 
-import static io.graphoenix.graphence.core.dto.enumType.PermissionLevel.READ;
-import static io.graphoenix.graphence.core.dto.enumType.PermissionLevel.WRITE;
+import static io.graphoenix.graphence.dto.enumType.PermissionLevel.READ;
+import static io.graphoenix.graphence.dto.enumType.PermissionLevel.WRITE;
 
 @ApplicationScoped
 public class CasbinRBACAdapter implements Adapter {

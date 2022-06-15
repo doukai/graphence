@@ -15,8 +15,8 @@ plugins {
 
 apply plugin: 'io.graphoenix'
 graphql {
-    graphQLFileName = "graphence.gql"
-    packageName = "io.graphoenix.graphence.core"
+    graphQLFileName = "META-INF/graphql/graphence.gql"
+    packageName = "io.graphoenix.graphence"
     inputLayers = 3
 }
 

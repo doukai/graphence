@@ -2,8 +2,6 @@ plugins {
     id 'java'
 }
 
-compileJava.options.sourcepath = files('src/main/resources')
-
 group 'io.graphoenix.graphence'
 version '0.0.1-SNAPSHOT'
 
