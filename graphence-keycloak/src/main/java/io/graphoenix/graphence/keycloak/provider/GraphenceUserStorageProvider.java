@@ -8,6 +8,7 @@ import io.graphoenix.graphence.keycloak.dto.GraphenceGroupModel;
 import io.graphoenix.graphence.keycloak.dto.GraphenceRoleModel;
 import io.graphoenix.graphence.keycloak.dto.GraphenceUserModel;
 import io.graphoenix.graphence.keycloak.spi.KeycloakDao;
+import io.graphoenix.r2dbc.connector.config.R2DBCConfig;
 import io.graphoenix.r2dbc.connector.dao.R2DBCOperationDAOBuilder;
 import org.keycloak.component.ComponentModel;
 import org.keycloak.credential.CredentialInput;
@@ -18,6 +19,7 @@ import org.keycloak.storage.group.GroupLookupProvider;
 import org.keycloak.storage.role.RoleLookupProvider;
 import org.keycloak.storage.user.UserLookupProvider;
 import org.keycloak.storage.user.UserQueryProvider;
+import org.keycloak.utils.StringUtil;
 import org.tinylog.Logger;
 
 import java.util.List;
@@ -40,9 +42,55 @@ public class GraphenceUserStorageProvider implements UserStorageProvider,
     private final KeycloakDao keycloakDao;
 
     public GraphenceUserStorageProvider(KeycloakSession session, ComponentModel model) {
-        R2DBCOperationDAOBuilder r2DBCOperationDAOBuilder = BeanContext.get(R2DBCOperationDAOBuilder.class);
         this.session = session;
         this.model = model;
+        Logger.info(model.getConfig());
+        R2DBCOperationDAOBuilder r2DBCOperationDAOBuilder = BeanContext.get(R2DBCOperationDAOBuilder.class);
+        R2DBCConfig r2DBCConfig = new R2DBCConfig();
+        r2DBCConfig.setDatabase("dev");
+        r2DBCConfig.setUser("root");
+        r2DBCConfig.setPassword("root");
+//        String driver = model.getConfig().getFirst("driver");
+//        String protocol = model.getConfig().getFirst("protocol");
+//        String database = model.getConfig().getFirst("database");
+//        String host = model.getConfig().getFirst("host");
+//        String port = model.getConfig().getFirst("port");
+//        String user = model.getConfig().getFirst("user");
+//        String password = model.getConfig().getFirst("password");
+//        String usePool = model.getConfig().getFirst("usePool");
+//        String poolMaxSize = model.getConfig().getFirst("poolMaxSize");
+//        String poolMaxIdleTime = model.getConfig().getFirst("poolMaxIdleTime");
+//        if (StringUtil.isNotBlank(driver)) {
+//            r2DBCConfig.setDriver(driver);
+//        }
+//        if (StringUtil.isNotBlank(protocol)) {
+//            r2DBCConfig.setProtocol(protocol);
+//        }
+//        if (StringUtil.isNotBlank(database)) {
+//            r2DBCConfig.setDatabase(database);
+//        }
+//        if (StringUtil.isNotBlank(host)) {
+//            r2DBCConfig.setHost(host);
+//        }
+//        if (StringUtil.isNotBlank(port)) {
+//            r2DBCConfig.setPort(Integer.parseInt(port));
+//        }
+//        if (StringUtil.isNotBlank(user)) {
+//            r2DBCConfig.setUser(user);
+//        }
+//        if (StringUtil.isNotBlank(password)) {
+//            r2DBCConfig.setPassword(password);
+//        }
+//        if (StringUtil.isNotBlank(usePool)) {
+//            r2DBCConfig.setUsePool(Boolean.parseBoolean(usePool));
+//        }
+//        if (StringUtil.isNotBlank(poolMaxSize)) {
+//            r2DBCConfig.setPoolMaxSize(Integer.parseInt(poolMaxSize));
+//        }
+//        if (StringUtil.isNotBlank(poolMaxIdleTime)) {
+//            r2DBCConfig.setPoolMaxIdleTime(Long.parseLong(poolMaxIdleTime));
+//        }
+        r2DBCOperationDAOBuilder.build(r2DBCConfig);
         this.keycloakDao = BeanContext.get(KeycloakDao.class);
     }
 
