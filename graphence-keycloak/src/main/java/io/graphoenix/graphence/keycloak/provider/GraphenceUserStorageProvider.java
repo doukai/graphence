@@ -8,6 +8,7 @@ import io.graphoenix.graphence.keycloak.dto.GraphenceGroupModel;
 import io.graphoenix.graphence.keycloak.dto.GraphenceRoleModel;
 import io.graphoenix.graphence.keycloak.dto.GraphenceUserModel;
 import io.graphoenix.graphence.keycloak.spi.KeycloakDao;
+import io.graphoenix.r2dbc.connector.dao.R2DBCOperationDAOBuilder;
 import org.keycloak.component.ComponentModel;
 import org.keycloak.credential.CredentialInput;
 import org.keycloak.credential.CredentialInputValidator;
@@ -39,6 +40,7 @@ public class GraphenceUserStorageProvider implements UserStorageProvider,
     private final KeycloakDao keycloakDao;
 
     public GraphenceUserStorageProvider(KeycloakSession session, ComponentModel model) {
+        R2DBCOperationDAOBuilder r2DBCOperationDAOBuilder = BeanContext.get(R2DBCOperationDAOBuilder.class);
         this.session = session;
         this.model = model;
         this.keycloakDao = BeanContext.get(KeycloakDao.class);

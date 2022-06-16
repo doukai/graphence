@@ -12,17 +12,20 @@ repositories {
     mavenLocal()
 }
 
+shadowJar {
+    minimize()
+}
+
 dependencies {
-    implementation project(":graphence-core")
-    implementation  'org.keycloak:keycloak-core:18.0.0'
-    implementation  'org.keycloak:keycloak-server-spi:18.0.0'
+    compile project(":graphence-core")
+    implementation 'org.keycloak:keycloak-core:18.0.0'
+    implementation 'org.keycloak:keycloak-server-spi:18.0.0'
     implementation "com.google.auto.service:auto-service:1.0.1"
 
     annotationProcessor "io.graphoenix:graphoenix-annotation-processor:0.0.1-SNAPSHOT"
     annotationProcessor "io.graphoenix:graphoenix-inject:0.0.1-SNAPSHOT"
     annotationProcessor "io.graphoenix:graphoenix-interceptor:0.0.1-SNAPSHOT"
     annotationProcessor "io.graphoenix:graphoenix-config:0.0.1-SNAPSHOT"
-    annotationProcessor "io.graphoenix:graphoenix-mysql:0.0.1-SNAPSHOT"
     annotationProcessor project(":graphence-core")
     annotationProcessor "com.google.auto.service:auto-service:1.0.1"
 

@@ -15,6 +15,6 @@ public class GraphenceUserStorageProviderFactory implements UserStorageProviderF
 
     @Override
     public String getId() {
-        return "graphoenix";
+        return "graphence";
     }
 }
