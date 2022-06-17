@@ -5,13 +5,13 @@ import io.graphoenix.graphence.dto.enumType.Operator;
 import io.graphoenix.graphence.dto.objectType.Group;
 import io.graphoenix.graphence.dto.objectType.Role;
 import io.graphoenix.graphence.dto.objectType.User;
-import io.graphoenix.r2dbc.connector.dao.R2DBCOperationDAOBuilder;
+import io.graphoenix.r2dbc.connector.dao.R2DBCOperationDAO;
 import io.graphoenix.spi.annotation.GraphQLOperation;
 import io.graphoenix.spi.annotation.QueryOperation;
 
 import java.util.Set;
 
-@GraphQLOperation(operationDAO = R2DBCOperationDAOBuilder.class)
+@GraphQLOperation(operationDAO = R2DBCOperationDAO.class)
 public interface KeycloakDao {
 
     @QueryOperation(value = "group", layers = 1)

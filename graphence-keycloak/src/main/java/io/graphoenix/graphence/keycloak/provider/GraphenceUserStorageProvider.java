@@ -44,12 +44,12 @@ public class GraphenceUserStorageProvider implements UserStorageProvider,
     public GraphenceUserStorageProvider(KeycloakSession session, ComponentModel model) {
         this.session = session;
         this.model = model;
-        Logger.info(model.getConfig());
-        R2DBCOperationDAOBuilder r2DBCOperationDAOBuilder = BeanContext.get(R2DBCOperationDAOBuilder.class);
-        R2DBCConfig r2DBCConfig = new R2DBCConfig();
-        r2DBCConfig.setDatabase("dev");
-        r2DBCConfig.setUser("root");
-        r2DBCConfig.setPassword("root");
+//        Logger.info(model.getConfig());
+//        R2DBCOperationDAOBuilder r2DBCOperationDAOBuilder = BeanContext.get(R2DBCOperationDAOBuilder.class);
+//        R2DBCConfig r2DBCConfig = new R2DBCConfig();
+//        r2DBCConfig.setDatabase("dev");
+//        r2DBCConfig.setUser("root");
+//        r2DBCConfig.setPassword("root");
 //        String driver = model.getConfig().getFirst("driver");
 //        String protocol = model.getConfig().getFirst("protocol");
 //        String database = model.getConfig().getFirst("database");
@@ -90,7 +90,7 @@ public class GraphenceUserStorageProvider implements UserStorageProvider,
 //        if (StringUtil.isNotBlank(poolMaxIdleTime)) {
 //            r2DBCConfig.setPoolMaxIdleTime(Long.parseLong(poolMaxIdleTime));
 //        }
-        r2DBCOperationDAOBuilder.build(r2DBCConfig);
+//        r2DBCOperationDAOBuilder.build(r2DBCConfig);
         this.keycloakDao = BeanContext.get(KeycloakDao.class);
     }
 
