@@ -204,7 +204,13 @@ public class GraphenceUserStorageProvider implements UserStorageProvider,
 
     @Override
     public List<UserModel> searchForUser(String search, RealmModel realm) {
-        return null;
+        try {
+            Set<User> userList = keycloakDao.searchUserListByName(realm.getId(), search);
+            return userList == null ? null : userList.stream().map(GraphenceUserModel::new).collect(Collectors.toList());
+        } catch (Exception e) {
+            Logger.error(e);
+            return null;
+        }
     }
 
     @Override
@@ -221,10 +227,10 @@ public class GraphenceUserStorageProvider implements UserStorageProvider,
     @Override
     public List<UserModel> searchForUser(Map<String, String> params, RealmModel realm) {
         String name = params.get(FIRST_NAME) == null ? null : params.get(FIRST_NAME);
-        String lastName = params.get(FIRST_NAME) == null ? null : params.get(LAST_NAME);
-        String email = params.get(FIRST_NAME) == null ? null : params.get(EMAIL);
-        String login = params.get(FIRST_NAME) == null ? null : params.get(USERNAME);
-        Boolean disable = params.get(FIRST_NAME) == null ? null : !Boolean.parseBoolean(params.get(ENABLED));
+        String lastName = params.get(LAST_NAME) == null ? null : params.get(LAST_NAME);
+        String email = params.get(EMAIL) == null ? null : params.get(EMAIL);
+        String login = params.get(USERNAME) == null ? null : params.get(USERNAME);
+        Boolean disable = params.get(ENABLED) == null ? null : !Boolean.parseBoolean(params.get(ENABLED));
         try {
             Set<User> userList = keycloakDao.searchUserList(realm.getId(), name, lastName, email, login, disable);
             return userList == null ? null : userList.stream().map(GraphenceUserModel::new).collect(Collectors.toList());
@@ -237,10 +243,10 @@ public class GraphenceUserStorageProvider implements UserStorageProvider,
     @Override
     public List<UserModel> searchForUser(Map<String, String> params, RealmModel realm, int firstResult, int maxResults) {
         String name = params.get(FIRST_NAME) == null ? null : params.get(FIRST_NAME);
-        String lastName = params.get(FIRST_NAME) == null ? null : params.get(LAST_NAME);
-        String email = params.get(FIRST_NAME) == null ? null : params.get(EMAIL);
-        String login = params.get(FIRST_NAME) == null ? null : params.get(USERNAME);
-        Boolean disable = params.get(FIRST_NAME) == null ? null : !Boolean.parseBoolean(params.get(ENABLED));
+        String lastName = params.get(LAST_NAME) == null ? null : params.get(LAST_NAME);
+        String email = params.get(EMAIL) == null ? null : params.get(EMAIL);
+        String login = params.get(USERNAME) == null ? null : params.get(USERNAME);
+        Boolean disable = params.get(ENABLED) == null ? null : !Boolean.parseBoolean(params.get(ENABLED));
         try {
             Set<User> userList = keycloakDao.searchUserList(realm.getId(), name, lastName, email, login, disable, firstResult - 1, maxResults);
             return userList == null ? null : userList.stream().map(GraphenceUserModel::new).collect(Collectors.toList());
