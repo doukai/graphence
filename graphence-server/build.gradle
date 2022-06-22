@@ -14,14 +14,16 @@ repositories {
 }
 
 dependencies {
-    compile project(":graphence-core")
-    compile "io.graphoenix:graphoenix-http-server:0.0.1-SNAPSHOT"
+    implementation project(":graphence-core")
+    implementation project(":graphence-jwt")
+    implementation "io.graphoenix:graphoenix-http-server:0.0.1-SNAPSHOT"
 
     annotationProcessor "io.graphoenix:graphoenix-annotation-processor:0.0.1-SNAPSHOT"
     annotationProcessor "io.graphoenix:graphoenix-inject:0.0.1-SNAPSHOT"
     annotationProcessor "io.graphoenix:graphoenix-interceptor:0.0.1-SNAPSHOT"
     annotationProcessor "io.graphoenix:graphoenix-config:0.0.1-SNAPSHOT"
     annotationProcessor project(":graphence-core")
+    annotationProcessor project(":graphence-jwt")
     annotationProcessor "io.graphoenix:graphoenix-http-server:0.0.1-SNAPSHOT"
 
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.2'
