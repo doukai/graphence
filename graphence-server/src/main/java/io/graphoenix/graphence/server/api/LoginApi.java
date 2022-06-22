@@ -1,7 +1,6 @@
 package io.graphoenix.graphence.server.api;
 
 import io.graphoenix.graphence.dto.objectType.User;
-import io.graphoenix.graphence.jwt.error.AuthenticationErrorType;
 import io.graphoenix.graphence.jwt.error.AuthenticationException;
 import io.graphoenix.graphence.jwt.utils.JWTUtil;
 import io.graphoenix.graphence.server.spi.LoginDao;
@@ -10,6 +9,7 @@ import jakarta.inject.Inject;
 import org.eclipse.microprofile.graphql.GraphQLApi;
 import org.eclipse.microprofile.graphql.Query;
 import org.tinylog.Logger;
+import reactor.core.publisher.Mono;
 
 import static io.graphoenix.graphence.jwt.error.AuthenticationErrorType.AUTHENTICATION_FAILED;
 import static io.graphoenix.graphence.jwt.error.AuthenticationErrorType.AUTHENTICATION_SERVER_ERROR;
@@ -29,14 +29,17 @@ public class LoginApi {
     }
 
     @Query
-    public String login(String login, String password) {
+    public Mono<String> login(String login, String password) {
         try {
-            User user = loginDao.getUserByLogin(login);
-            if (user.getPassword().equals(password)) {
-                return jwtUtil.build(user);
-            } else {
-                throw new AuthenticationException(AUTHENTICATION_FAILED);
-            }
+            return loginDao.getUserByLogin(login)
+                    .map(user -> {
+                                if (user.getPassword().equals(password)) {
+                                    return jwtUtil.build(user);
+                                } else {
+                                    throw new AuthenticationException(AUTHENTICATION_FAILED);
+                                }
+                            }
+                    );
         } catch (Exception e) {
             Logger.error(e);
         }

@@ -6,11 +6,12 @@ import io.graphoenix.graphence.dto.objectType.User;
 import io.graphoenix.r2dbc.connector.dao.R2DBCOperationDAO;
 import io.graphoenix.spi.annotation.GraphQLOperation;
 import io.graphoenix.spi.annotation.QueryOperation;
+import reactor.core.publisher.Mono;
 
 @GraphQLOperation(operationDAO = R2DBCOperationDAO.class)
 public interface LoginDao {
 
     @QueryOperation(value = "user", layers = 1)
     @UserExpression0(login = @StringExpression($val = "login"))
-    User getUserByLogin(String login) throws Exception;
+    Mono<User> getUserByLogin(String login) throws Exception;
 }

@@ -34,6 +34,7 @@ public class JWTUtil {
     public String build(User user) {
         Date issuedAt = getIssuedAt();
         return Jwts.builder()
+                .setHeaderParam("typ", "JWT")
                 .setIssuer(jwtConfig.getIssuer())
                 .setSubject(user.getLogin())
                 .claim(Claims.full_name.name(), user.getName())
