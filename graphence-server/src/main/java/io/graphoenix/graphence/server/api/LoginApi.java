@@ -1,6 +1,5 @@
 package io.graphoenix.graphence.server.api;
 
-import io.graphoenix.graphence.dto.objectType.User;
 import io.graphoenix.graphence.jwt.error.AuthenticationException;
 import io.graphoenix.graphence.jwt.utils.JWTUtil;
 import io.graphoenix.graphence.server.spi.LoginDao;
