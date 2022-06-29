@@ -7,12 +7,14 @@ import io.graphoenix.graphence.jwt.GraphenceJsonWebToken;
 import io.graphoenix.graphence.jwt.dto.CurrentUser;
 import io.graphoenix.graphence.jwt.error.AuthenticationException;
 import io.graphoenix.graphence.jwt.utils.JWTUtil;
+import io.graphoenix.spi.dto.GraphQLRequest;
 import jakarta.ws.rs.container.ContainerRequestContext;
 import jakarta.ws.rs.container.ContainerRequestFilter;
 import org.eclipse.microprofile.jwt.Claims;
 
 import static io.graphoenix.core.context.SessionCache.SESSION_ID;
 import static io.graphoenix.graphence.jwt.error.AuthenticationErrorType.UN_AUTHENTICATION;
+import static io.graphoenix.spi.constant.Hammurabi.GRAPHQL_REQUEST_KEY;
 
 @AutoService(ContainerRequestFilter.class)
 public class JWTFilter implements ContainerRequestFilter {
@@ -27,6 +29,9 @@ public class JWTFilter implements ContainerRequestFilter {
 
     @Override
     public void filter(ContainerRequestContext requestContext) {
+
+        GraphQLRequest graphQLRequest = (GraphQLRequest) requestContext.getProperty(GRAPHQL_REQUEST_KEY);
+
         String authorization = requestContext.getHeaderString(AUTHORIZATION_HEADER);
         if (authorization != null && authorization.startsWith("Bearer")) {
             String jws = authorization.substring(7);
