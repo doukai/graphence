@@ -2,6 +2,7 @@ package io.graphoenix.graphence.jwt.error;
 
 public enum AuthenticationErrorType {
 
+    UN_AUTHENTICATION(-40100, "Unauthorized"),
     AUTHENTICATION_FAILED(-40101, "authentication failed"),
     AUTHENTICATION_SERVER_ERROR(-40102, "authentication error"),
 

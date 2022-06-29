@@ -34,14 +34,12 @@ public class JWTUtil {
     public String build(User user) {
         Date issuedAt = getIssuedAt();
         return Jwts.builder()
-                .setHeaderParam("typ", "JWT")
                 .setIssuer(jwtConfig.getIssuer())
                 .setSubject(user.getLogin())
                 .claim(Claims.full_name.name(), user.getName())
                 .claim(Claims.family_name.name(), user.getLastName())
                 .claim(Claims.upn.name(), user.getEmail())
                 .claim(Claims.groups.name(), getGroups(user))
-                .claim("roles", getRoles(user))
                 .setIssuedAt(issuedAt)
                 .setExpiration(getExpiration(issuedAt))
                 .signWith(key)
