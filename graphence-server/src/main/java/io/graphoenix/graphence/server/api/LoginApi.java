@@ -3,6 +3,7 @@ package io.graphoenix.graphence.server.api;
 import io.graphoenix.graphence.jwt.error.AuthenticationException;
 import io.graphoenix.graphence.jwt.utils.JWTUtil;
 import io.graphoenix.graphence.server.spi.LoginDao;
+import jakarta.annotation.security.PermitAll;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import org.eclipse.microprofile.graphql.GraphQLApi;
@@ -28,6 +29,7 @@ public class LoginApi {
     }
 
     @Query
+    @PermitAll
     public Mono<String> login(String login, String password) {
         try {
             return loginDao.getUserByLogin(login)
@@ -38,7 +40,8 @@ public class LoginApi {
                                     throw new AuthenticationException(AUTHENTICATION_FAILED);
                                 }
                             }
-                    );
+                    )
+                    .switchIfEmpty(Mono.error(new AuthenticationException(AUTHENTICATION_FAILED)));
         } catch (Exception e) {
             Logger.error(e);
         }
