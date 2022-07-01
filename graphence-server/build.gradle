@@ -1,5 +1,21 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        jcenter()
+        mavenLocal()
+    }
+    dependencies {
+        classpath 'io.graphoenix:graphoenix-gradle-plugin:0.0.1-SNAPSHOT'
+    }
+}
+
 plugins {
     id 'java'
+}
+
+apply plugin: 'io.graphoenix'
+banner {
+    text = "Graphence"
 }
 
 compileJava.options.sourcepath = files('src/main/resources')

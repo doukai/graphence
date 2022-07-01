@@ -6,7 +6,7 @@ import io.graphoenix.core.context.BeanContext;
 import io.graphoenix.core.context.SessionCache;
 import io.graphoenix.core.error.GraphQLErrors;
 import io.graphoenix.graphence.jwt.GraphenceJsonWebToken;
-import io.graphoenix.graphence.jwt.dto.CurrentUser;
+import io.graphoenix.graphence.core.CurrentUser;
 import io.graphoenix.graphence.jwt.error.AuthenticationException;
 import io.graphoenix.graphence.jwt.utils.JWTUtil;
 import io.graphoenix.spi.antlr.IGraphQLDocumentManager;
@@ -22,6 +22,7 @@ import static io.graphoenix.core.context.SessionCache.SESSION_ID;
 import static io.graphoenix.core.error.GraphQLErrorType.UNSUPPORTED_OPERATION_TYPE;
 import static io.graphoenix.core.utils.DocumentUtil.DOCUMENT_UTIL;
 import static io.graphoenix.graphence.jwt.error.AuthenticationErrorType.UN_AUTHENTICATION;
+import static io.graphoenix.spi.constant.Hammurabi.CURRENT_USER_KEY;
 import static io.graphoenix.spi.constant.Hammurabi.GRAPHQL_REQUEST_KEY;
 
 @AutoService(ContainerRequestFilter.class)
@@ -116,10 +117,11 @@ public class JWTFilter implements ContainerRequestFilter {
                     .setLogin(jsonWebToken.getSubject())
                     .setName(jsonWebToken.getClaim(Claims.full_name))
                     .setLastName(jsonWebToken.getClaim(Claims.family_name))
-                    .setEmail(jsonWebToken.getClaim(Claims.upn))
+                    .setRealmId(jsonWebToken.getClaim(Claims.upn))
                     .setGroups(jsonWebToken.getGroups());
 
             requestContext.setProperty(SESSION_ID, jws);
+            requestContext.setProperty(CURRENT_USER_KEY, currentUser);
             SessionCache.putIfAbsent(jws, CurrentUser.class, currentUser);
         }
         throw new AuthenticationException(UN_AUTHENTICATION);

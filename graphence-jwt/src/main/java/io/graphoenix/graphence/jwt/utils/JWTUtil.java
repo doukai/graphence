@@ -38,7 +38,7 @@ public class JWTUtil {
                 .setSubject(user.getLogin())
                 .claim(Claims.full_name.name(), user.getName())
                 .claim(Claims.family_name.name(), user.getLastName())
-                .claim(Claims.upn.name(), user.getEmail())
+                .claim(Claims.upn.name(), user.getRealmId())
                 .claim(Claims.groups.name(), getGroups(user))
                 .setIssuedAt(issuedAt)
                 .setExpiration(getExpiration(issuedAt))

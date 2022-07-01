@@ -7,7 +7,7 @@ import io.jsonwebtoken.JwtException;
 import jakarta.ws.rs.core.Response;
 
 @AutoService(HttpErrorStatus.class)
-public class JwtHttpErrorStatus extends BaseHttpErrorStatus {
+public class JWTHttpErrorStatus extends BaseHttpErrorStatus {
 
     @Override
     public void register() {

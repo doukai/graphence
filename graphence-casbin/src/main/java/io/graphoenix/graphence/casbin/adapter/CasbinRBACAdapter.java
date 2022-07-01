@@ -20,15 +20,15 @@ import static io.graphoenix.graphence.dto.enumType.PermissionLevel.WRITE;
 @ApplicationScoped
 public class CasbinRBACAdapter implements Adapter {
 
-    private static final String USER_PREFIX = "U::";
+    public static final String USER_PREFIX = "U::";
 
-    private static final String ROLE_PREFIX = "R::";
+    public static final String ROLE_PREFIX = "R::";
 
-    private static final String SPACER = "::";
+    public static final String SPACER = "::";
 
-    private static final String P_TYPE = "p";
+    public static final String P_TYPE = "p";
 
-    private static final String G_TYPE = "g";
+    public static final String G_TYPE = "g";
 
     private final RBACPolicyDao rbacPolicyDao;
 
@@ -52,13 +52,13 @@ public class CasbinRBACAdapter implements Adapter {
                                                             Stream.of(
                                                                     new CasbinRule()
                                                                             .setPtype(P_TYPE)
-                                                                            .setV0(role.getId())
+                                                                            .setV0(role.getName())
                                                                             .setV1(permission.getRealmId())
                                                                             .setV2(permission.getField().getOfTypeName().concat(SPACER).concat(permission.getField().getName()))
                                                                             .setV3(READ.name()),
                                                                     new CasbinRule()
                                                                             .setPtype(P_TYPE)
-                                                                            .setV0(role.getId())
+                                                                            .setV0(role.getName())
                                                                             .setV1(permission.getRealmId())
                                                                             .setV2(permission.getField().getOfTypeName().concat(SPACER).concat(permission.getField().getName()))
                                                                             .setV3(WRITE.name())
@@ -66,7 +66,7 @@ public class CasbinRBACAdapter implements Adapter {
                                                             Stream.of(
                                                                     new CasbinRule()
                                                                             .setPtype(P_TYPE)
-                                                                            .setV0(role.getId())
+                                                                            .setV0(role.getName())
                                                                             .setV1(permission.getRealmId())
                                                                             .setV2(permission.getField().getOfTypeName().concat(SPACER).concat(permission.getField().getName()))
                                                                             .setV3(READ.name())
@@ -83,8 +83,8 @@ public class CasbinRBACAdapter implements Adapter {
                                             .map(user ->
                                                     new CasbinRule()
                                                             .setPtype(G_TYPE)
-                                                            .setV0(USER_PREFIX.concat(user.getId()))
-                                                            .setV1(role.getId())
+                                                            .setV0(USER_PREFIX.concat(user.getLogin()))
+                                                            .setV1(role.getName())
                                                             .setV2(user.getRealmId())
                                             )
                     );
@@ -94,11 +94,11 @@ public class CasbinRBACAdapter implements Adapter {
                             role.getComposites() == null ?
                                     Stream.empty() :
                                     role.getComposites().stream()
-                                            .map(parent ->
+                                            .map(composite ->
                                                     new CasbinRule()
                                                             .setPtype(G_TYPE)
-                                                            .setV0(ROLE_PREFIX.concat(role.getId()))
-                                                            .setV1(parent.getId())
+                                                            .setV0(ROLE_PREFIX.concat(role.getName()))
+                                                            .setV1(composite.getName())
                                                             .setV2(role.getRealmId())
                                             )
                     );

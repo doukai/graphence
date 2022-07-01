@@ -1,4 +1,4 @@
-package io.graphoenix.graphence.jwt.dto;
+package io.graphoenix.graphence.core;
 
 import java.util.Set;
 
@@ -10,7 +10,7 @@ public class CurrentUser {
 
     private String login;
 
-    private String email;
+    private String realmId;
 
     private Set<String> groups;
 
@@ -43,12 +43,12 @@ public class CurrentUser {
         return this;
     }
 
-    public String getEmail() {
-        return email;
+    public String getRealmId() {
+        return realmId;
     }
 
-    public CurrentUser setEmail(String email) {
-        this.email = email;
+    public CurrentUser setRealmId(String realmId) {
+        this.realmId = realmId;
         return this;
     }
 
