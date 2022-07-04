@@ -1,7 +1,10 @@
-package io.graphoenix.graphence.core;
+package io.graphoenix.graphence.dto.objectType;
+
+import org.eclipse.microprofile.graphql.Type;
 
 import java.util.Set;
 
+@Type
 public class CurrentUser {
 
     private String name;

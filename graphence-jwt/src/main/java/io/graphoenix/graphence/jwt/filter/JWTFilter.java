@@ -3,10 +3,9 @@ package io.graphoenix.graphence.jwt.filter;
 import com.google.auto.service.AutoService;
 import graphql.parser.antlr.GraphqlParser;
 import io.graphoenix.core.context.BeanContext;
-import io.graphoenix.core.context.SessionCache;
 import io.graphoenix.core.error.GraphQLErrors;
 import io.graphoenix.graphence.jwt.GraphenceJsonWebToken;
-import io.graphoenix.graphence.core.CurrentUser;
+import io.graphoenix.graphence.dto.objectType.CurrentUser;
 import io.graphoenix.graphence.jwt.error.AuthenticationException;
 import io.graphoenix.graphence.jwt.utils.JWTUtil;
 import io.graphoenix.spi.antlr.IGraphQLDocumentManager;
@@ -18,7 +17,7 @@ import org.eclipse.microprofile.jwt.Claims;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static io.graphoenix.core.context.SessionCache.SESSION_ID;
+import static io.graphoenix.core.context.SessionInstanceFactory.SESSION_ID;
 import static io.graphoenix.core.error.GraphQLErrorType.UNSUPPORTED_OPERATION_TYPE;
 import static io.graphoenix.core.utils.DocumentUtil.DOCUMENT_UTIL;
 import static io.graphoenix.graphence.jwt.error.AuthenticationErrorType.UN_AUTHENTICATION;
@@ -122,7 +121,6 @@ public class JWTFilter implements ContainerRequestFilter {
 
             requestContext.setProperty(SESSION_ID, jws);
             requestContext.setProperty(CURRENT_USER_KEY, currentUser);
-            SessionCache.putIfAbsent(jws, CurrentUser.class, currentUser);
         }
         throw new AuthenticationException(UN_AUTHENTICATION);
     }
