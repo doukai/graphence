@@ -1,4 +1,4 @@
-package io.graphoenix.graphence.jwt.error;
+package io.graphoenix.graphence.error;
 
 public enum AuthenticationErrorType {
 

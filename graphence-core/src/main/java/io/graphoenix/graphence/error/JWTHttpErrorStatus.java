@@ -1,4 +1,4 @@
-package io.graphoenix.graphence.jwt.error;
+package io.graphoenix.graphence.error;
 
 import com.google.auto.service.AutoService;
 import io.graphoenix.spi.error.BaseHttpErrorStatus;

@@ -1,4 +1,4 @@
-package io.graphoenix.graphence.casbin.spi;
+package io.graphoenix.graphence.spi;
 
 import io.graphoenix.graphence.dto.objectType.Role;
 import io.graphoenix.r2dbc.connector.dao.R2DBCOperationDAO;

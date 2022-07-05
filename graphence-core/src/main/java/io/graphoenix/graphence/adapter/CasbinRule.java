@@ -1,4 +1,4 @@
-package io.graphoenix.graphence.casbin.adapter;
+package io.graphoenix.graphence.adapter;
 
 public class CasbinRule {
     private int id;

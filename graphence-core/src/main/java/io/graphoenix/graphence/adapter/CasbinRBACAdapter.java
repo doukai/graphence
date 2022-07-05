@@ -1,7 +1,7 @@
-package io.graphoenix.graphence.casbin.adapter;
+package io.graphoenix.graphence.adapter;
 
 import com.google.common.collect.Streams;
-import io.graphoenix.graphence.casbin.spi.RBACPolicyDao;
+import io.graphoenix.graphence.spi.RBACPolicyDao;
 import io.graphoenix.graphence.dto.objectType.Role;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;

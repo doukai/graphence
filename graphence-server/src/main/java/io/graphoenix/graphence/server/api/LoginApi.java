@@ -1,7 +1,7 @@
 package io.graphoenix.graphence.server.api;
 
-import io.graphoenix.graphence.jwt.error.AuthenticationException;
-import io.graphoenix.graphence.jwt.utils.JWTUtil;
+import io.graphoenix.graphence.error.AuthenticationException;
+import io.graphoenix.graphence.utils.JWTUtil;
 import io.graphoenix.graphence.server.spi.LoginDao;
 import jakarta.annotation.security.PermitAll;
 import jakarta.enterprise.context.ApplicationScoped;
@@ -11,8 +11,8 @@ import org.eclipse.microprofile.graphql.Query;
 import org.tinylog.Logger;
 import reactor.core.publisher.Mono;
 
-import static io.graphoenix.graphence.jwt.error.AuthenticationErrorType.AUTHENTICATION_FAILED;
-import static io.graphoenix.graphence.jwt.error.AuthenticationErrorType.AUTHENTICATION_SERVER_ERROR;
+import static io.graphoenix.graphence.error.AuthenticationErrorType.AUTHENTICATION_FAILED;
+import static io.graphoenix.graphence.error.AuthenticationErrorType.AUTHENTICATION_SERVER_ERROR;
 
 
 @GraphQLApi

@@ -1,13 +1,12 @@
-package io.graphoenix.graphence.jwt.filter;
+package io.graphoenix.graphence.filter;
 
 import com.google.auto.service.AutoService;
 import graphql.parser.antlr.GraphqlParser;
 import io.graphoenix.core.context.BeanContext;
 import io.graphoenix.core.error.GraphQLErrors;
-import io.graphoenix.graphence.jwt.GraphenceJsonWebToken;
 import io.graphoenix.graphence.dto.objectType.CurrentUser;
-import io.graphoenix.graphence.jwt.error.AuthenticationException;
-import io.graphoenix.graphence.jwt.utils.JWTUtil;
+import io.graphoenix.graphence.error.AuthenticationException;
+import io.graphoenix.graphence.utils.JWTUtil;
 import io.graphoenix.spi.antlr.IGraphQLDocumentManager;
 import io.graphoenix.spi.dto.GraphQLRequest;
 import jakarta.ws.rs.container.ContainerRequestContext;
@@ -20,7 +19,7 @@ import java.util.stream.Collectors;
 import static io.graphoenix.core.context.SessionInstanceFactory.SESSION_ID;
 import static io.graphoenix.core.error.GraphQLErrorType.UNSUPPORTED_OPERATION_TYPE;
 import static io.graphoenix.core.utils.DocumentUtil.DOCUMENT_UTIL;
-import static io.graphoenix.graphence.jwt.error.AuthenticationErrorType.UN_AUTHENTICATION;
+import static io.graphoenix.graphence.error.AuthenticationErrorType.UN_AUTHENTICATION;
 import static io.graphoenix.spi.constant.Hammurabi.CURRENT_USER_KEY;
 import static io.graphoenix.spi.constant.Hammurabi.GRAPHQL_REQUEST_KEY;
 

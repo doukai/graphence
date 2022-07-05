@@ -1,4 +1,4 @@
-package io.graphoenix.graphence.jwt;
+package io.graphoenix.graphence.filter;
 
 import io.jsonwebtoken.Jws;
 import org.eclipse.microprofile.jwt.Claims;

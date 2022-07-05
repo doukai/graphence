@@ -1,10 +1,10 @@
-package io.graphoenix.graphence.jwt.utils;
+package io.graphoenix.graphence.utils;
 
 import io.graphoenix.graphence.dto.objectType.Group;
 import io.graphoenix.graphence.dto.objectType.Role;
 import io.graphoenix.graphence.dto.objectType.User;
-import io.graphoenix.graphence.jwt.GraphenceJsonWebToken;
-import io.graphoenix.graphence.jwt.config.JWTConfig;
+import io.graphoenix.graphence.filter.GraphenceJsonWebToken;
+import io.graphoenix.graphence.config.JWTConfig;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;

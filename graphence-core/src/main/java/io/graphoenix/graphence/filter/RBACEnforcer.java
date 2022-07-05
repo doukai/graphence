@@ -1,7 +1,7 @@
-package io.graphoenix.graphence.casbin.filter;
+package io.graphoenix.graphence.filter;
 
-import io.graphoenix.graphence.casbin.adapter.CasbinRBACAdapter;
-import io.graphoenix.graphence.casbin.config.CasbinConfig;
+import io.graphoenix.graphence.adapter.CasbinRBACAdapter;
+import io.graphoenix.graphence.config.CasbinConfig;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import org.casbin.jcasbin.main.Enforcer;

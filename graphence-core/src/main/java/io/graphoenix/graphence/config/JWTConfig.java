@@ -1,4 +1,4 @@
-package io.graphoenix.graphence.jwt.config;
+package io.graphoenix.graphence.config;
 
 import com.typesafe.config.Optional;
 import org.eclipse.microprofile.config.inject.ConfigProperties;

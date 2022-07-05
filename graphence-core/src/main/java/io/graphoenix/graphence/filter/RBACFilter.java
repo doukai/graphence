@@ -1,4 +1,4 @@
-package io.graphoenix.graphence.casbin.filter;
+package io.graphoenix.graphence.filter;
 
 import com.google.auto.service.AutoService;
 import graphql.parser.antlr.GraphqlParser;
@@ -16,8 +16,8 @@ import static io.graphoenix.core.error.GraphQLErrorType.MUTATION_TYPE_NOT_EXIST;
 import static io.graphoenix.core.error.GraphQLErrorType.QUERY_TYPE_NOT_EXIST;
 import static io.graphoenix.core.error.GraphQLErrorType.UNSUPPORTED_OPERATION_TYPE;
 import static io.graphoenix.core.utils.DocumentUtil.DOCUMENT_UTIL;
-import static io.graphoenix.graphence.casbin.adapter.CasbinRBACAdapter.SPACER;
-import static io.graphoenix.graphence.casbin.adapter.CasbinRBACAdapter.USER_PREFIX;
+import static io.graphoenix.graphence.adapter.CasbinRBACAdapter.SPACER;
+import static io.graphoenix.graphence.adapter.CasbinRBACAdapter.USER_PREFIX;
 import static io.graphoenix.spi.constant.Hammurabi.CURRENT_USER_KEY;
 import static io.graphoenix.spi.constant.Hammurabi.GRAPHQL_REQUEST_KEY;
 
