@@ -1,6 +1,4 @@
 rootProject.name = 'graphence'
 include 'graphence-core'
-include 'graphence-casbin'
-include 'graphence-jwt'
 include 'graphence-server'
 

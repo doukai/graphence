@@ -13,7 +13,9 @@ import java.lang.annotation.Target;
 @SchemaBean
 @Documented
 @Retention(RetentionPolicy.SOURCE)
-@Target({ElementType.TYPE})
-public @interface containerType {
+@Target(ElementType.ANNOTATION_TYPE)
+public @interface InvokeParameter {
+  String name();
+
   String className();
 }

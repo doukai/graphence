@@ -8,6 +8,8 @@ import org.casbin.jcasbin.main.Enforcer;
 import org.casbin.jcasbin.main.SyncedEnforcer;
 import org.casbin.jcasbin.model.Model;
 
+import java.util.Objects;
+
 @ApplicationScoped
 public class RBACEnforcer {
 
@@ -18,7 +20,7 @@ public class RBACEnforcer {
     public RBACEnforcer(CasbinRBACAdapter adapter, CasbinConfig config) {
         this.adapter = adapter;
         Model model = new Model();
-        model.loadModel(config.getModel());
+        model.loadModel(Objects.requireNonNull(this.getClass().getClassLoader().getResource(config.getModel())).getFile());
 
         if (config.getSynced()) {
             enforcer = new SyncedEnforcer(model);

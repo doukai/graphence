@@ -21,7 +21,7 @@ import static io.graphoenix.graphence.adapter.CasbinRBACAdapter.USER_PREFIX;
 import static io.graphoenix.spi.constant.Hammurabi.CURRENT_USER_KEY;
 import static io.graphoenix.spi.constant.Hammurabi.GRAPHQL_REQUEST_KEY;
 
-@AutoService(ContainerRequestFilter.class)
+//@AutoService(ContainerRequestFilter.class)
 public class RBACFilter implements ContainerRequestFilter {
 
     private final IGraphQLDocumentManager manager;

@@ -18,4 +18,8 @@ public @interface invoke {
   String className();
 
   String methodName();
+
+  InvokeParameter[] parameters();
+
+  String returnClassName();
 }
