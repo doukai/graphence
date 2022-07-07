@@ -1,7 +1,6 @@
 package io.graphoenix.graphence;
 
 import io.graphoenix.core.context.RequestInstanceFactory;
-import io.graphoenix.graphence.dto.objectType.CurrentUser;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.enterprise.inject.Instance;

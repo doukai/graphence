@@ -1,4 +1,4 @@
-package io.graphoenix.graphence.dto.objectType;
+package io.graphoenix.graphence;
 
 import org.eclipse.microprofile.graphql.Type;
 

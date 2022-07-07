@@ -1,6 +1,6 @@
 package io.graphoenix.graphence.server.api;
 
-import io.graphoenix.graphence.dto.objectType.CurrentUser;
+import io.graphoenix.graphence.CurrentUser;
 import jakarta.annotation.security.PermitAll;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.inject.Instance;

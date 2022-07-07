@@ -4,7 +4,7 @@ import com.google.auto.service.AutoService;
 import graphql.parser.antlr.GraphqlParser;
 import io.graphoenix.core.context.BeanContext;
 import io.graphoenix.core.error.GraphQLErrors;
-import io.graphoenix.graphence.dto.objectType.CurrentUser;
+import io.graphoenix.graphence.CurrentUser;
 import io.graphoenix.graphence.dto.enumType.PermissionLevel;
 import io.graphoenix.spi.antlr.IGraphQLDocumentManager;
 import io.graphoenix.spi.dto.GraphQLRequest;
