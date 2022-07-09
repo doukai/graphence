@@ -16,7 +16,7 @@ import org.eclipse.microprofile.jwt.Claims;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static io.graphoenix.core.context.SessionInstanceFactory.SESSION_ID;
+import static io.graphoenix.core.context.SessionPublisherBuilderFactory.SESSION_ID;
 import static io.graphoenix.core.error.GraphQLErrorType.UNSUPPORTED_OPERATION_TYPE;
 import static io.graphoenix.core.utils.DocumentUtil.DOCUMENT_UTIL;
 import static io.graphoenix.graphence.error.AuthenticationErrorType.UN_AUTHENTICATION;
