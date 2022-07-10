@@ -1,5 +1,7 @@
 package io.graphoenix.graphence.utils;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import io.graphoenix.graphence.dto.objectType.Group;
 import io.graphoenix.graphence.dto.objectType.Role;
 import io.graphoenix.graphence.dto.objectType.User;
@@ -9,6 +11,8 @@ import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.gson.io.GsonDeserializer;
+import io.jsonwebtoken.gson.io.GsonSerializer;
 import io.jsonwebtoken.security.Keys;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
@@ -22,18 +26,21 @@ import java.util.Date;
 public class JWTUtil {
 
     private final JWTConfig jwtConfig;
+    private final GsonBuilder gsonBuilder;
 
     private final Key key;
 
     @Inject
     public JWTUtil(JWTConfig jwtConfig) {
         this.jwtConfig = jwtConfig;
+        this.gsonBuilder = new GsonBuilder();
         this.key = Keys.secretKeyFor(SignatureAlgorithm.forName(jwtConfig.getAlgorithm()));
     }
 
     public String build(User user) {
         Date issuedAt = getIssuedAt();
         return Jwts.builder()
+                .serializeToJsonWith(new GsonSerializer<>(new Gson()))
                 .setIssuer(jwtConfig.getIssuer())
                 .setSubject(user.getLogin())
                 .claim(Claims.full_name.name(), user.getName())
@@ -72,7 +79,7 @@ public class JWTUtil {
     }
 
     public GraphenceJsonWebToken parser(String compactJws) throws JwtException {
-        Jws<io.jsonwebtoken.Claims> claimsJws = Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(compactJws);
+        Jws<io.jsonwebtoken.Claims> claimsJws = Jwts.parserBuilder().deserializeJsonWith(new GsonDeserializer<>(new Gson())).setSigningKey(key).build().parseClaimsJws(compactJws);
         return new GraphenceJsonWebToken(claimsJws);
     }
 }

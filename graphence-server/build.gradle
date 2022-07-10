@@ -30,15 +30,16 @@ repositories {
 }
 
 dependencies {
-    implementation project(":graphence-core")
-    implementation "io.graphoenix:graphoenix-http-server:0.0.1-SNAPSHOT"
+    implementation project(':graphence-core')
+    implementation 'io.graphoenix:graphoenix-http-server:0.0.1-SNAPSHOT'
+    runtime 'io.jsonwebtoken:jjwt-gson:0.11.5'
 
-    annotationProcessor "io.graphoenix:graphoenix-annotation-processor:0.0.1-SNAPSHOT"
-    annotationProcessor "io.graphoenix:graphoenix-inject:0.0.1-SNAPSHOT"
-    annotationProcessor "io.graphoenix:graphoenix-interceptor:0.0.1-SNAPSHOT"
-    annotationProcessor "io.graphoenix:graphoenix-config:0.0.1-SNAPSHOT"
-    annotationProcessor "io.graphoenix:graphoenix-http-server:0.0.1-SNAPSHOT"
-    annotationProcessor project(":graphence-core")
+    annotationProcessor 'io.graphoenix:graphoenix-annotation-processor:0.0.1-SNAPSHOT'
+    annotationProcessor 'io.graphoenix:graphoenix-inject:0.0.1-SNAPSHOT'
+    annotationProcessor 'io.graphoenix:graphoenix-interceptor:0.0.1-SNAPSHOT'
+    annotationProcessor 'io.graphoenix:graphoenix-config:0.0.1-SNAPSHOT'
+    annotationProcessor 'io.graphoenix:graphoenix-http-server:0.0.1-SNAPSHOT'
+    annotationProcessor project(':graphence-core')
 
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.2'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.2'

@@ -32,8 +32,8 @@ public class JWTFilter implements ContainerRequestFilter {
     private final IGraphQLDocumentManager manager;
 
     public JWTFilter() {
-        jwtUtil = BeanContext.get(JWTUtil.class);
-        manager = BeanContext.get(IGraphQLDocumentManager.class);
+        this.jwtUtil = BeanContext.get(JWTUtil.class);
+        this.manager = BeanContext.get(IGraphQLDocumentManager.class);
     }
 
     @Override
