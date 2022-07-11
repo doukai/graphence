@@ -17,35 +17,14 @@ import org.eclipse.microprofile.graphql.Type;
 @Generated("io.graphoenix.java.generator.builder.TypeSpecBuilderProxy")
 @Skip
 public class __Schema implements Meta {
-  private __Type mutationType;
-
-  private __Type subscriptionType;
-
-  private String mutationTypeName;
+  @Id
+  private String id;
 
   private String queryTypeName;
 
-  @Id
-  private String id;
-
-  @NonNull
-  private Collection<__Type> types;
+  private String mutationTypeName;
 
   private String subscriptionTypeName;
-
-  @NonNull
-  private __Type queryType;
-
-  @NonNull
-  private Collection<__Directive> directives;
-
-  @NonNull
-  private Collection<__Directive> directives;
-
-  private __Type subscriptionType;
-
-  @Id
-  private String id;
 
   @NonNull
   private Collection<__Type> types;
@@ -53,60 +32,31 @@ public class __Schema implements Meta {
   @NonNull
   private __Type queryType;
 
-  private String subscriptionTypeName;
-
   private __Type mutationType;
 
-  private String queryTypeName;
+  private __Type subscriptionType;
 
-  private String mutationTypeName;
-
-  private String createUserId;
-
-  private String createUserId;
-
-  private String updateUserId;
-
-  private LocalDateTime createTime;
+  @NonNull
+  private Collection<__Directive> directives;
 
   private Boolean isDeprecated;
-
-  private Boolean isDeprecated;
-
-  private LocalDateTime updateTime;
-
-  private String realmId;
-
-  private String realmId;
-
-  private String updateUserId;
 
   private Integer version;
 
-  private String createGroupId;
+  private String realmId;
+
+  private String createUserId;
 
   private LocalDateTime createTime;
+
+  private String updateUserId;
 
   private LocalDateTime updateTime;
 
   private String createGroupId;
 
-  private Integer version;
-
   private String __typename;
 
-  private Integer mutationTypeNameCount;
-
-  private String mutationTypeNameMax;
-
-  private String mutationTypeNameMin;
-
-  private Integer queryTypeNameCount;
-
-  private String queryTypeNameMax;
-
-  private String queryTypeNameMin;
-
   private Integer idCount;
 
   @Id
@@ -114,26 +64,6 @@ public class __Schema implements Meta {
 
   @Id
   private String idMin;
-
-  private Integer subscriptionTypeNameCount;
-
-  private String subscriptionTypeNameMax;
-
-  private String subscriptionTypeNameMin;
-
-  private Integer idCount;
-
-  @Id
-  private String idMax;
-
-  @Id
-  private String idMin;
-
-  private Integer subscriptionTypeNameCount;
-
-  private String subscriptionTypeNameMax;
-
-  private String subscriptionTypeNameMin;
 
   private Integer queryTypeNameCount;
 
@@ -146,37 +76,23 @@ public class __Schema implements Meta {
   private String mutationTypeNameMax;
 
   private String mutationTypeNameMin;
+
+  private Integer subscriptionTypeNameCount;
+
+  private String subscriptionTypeNameMax;
+
+  private String subscriptionTypeNameMin;
 
   private __Type typesAggregate;
 
   private __Directive directivesAggregate;
 
-  private __Directive directivesAggregate;
-
-  private __Type typesAggregate;
-
   private __TypeConnection typesConnection;
 
   private __DirectiveConnection directivesConnection;
-
-  private __DirectiveConnection directivesConnection;
-
-  private __TypeConnection typesConnection;
 
   private String __typename;
 
-  private Integer mutationTypeNameCount;
-
-  private String mutationTypeNameMax;
-
-  private String mutationTypeNameMin;
-
-  private Integer queryTypeNameCount;
-
-  private String queryTypeNameMax;
-
-  private String queryTypeNameMin;
-
   private Integer idCount;
 
   @Id
@@ -184,26 +100,6 @@ public class __Schema implements Meta {
 
   @Id
   private String idMin;
-
-  private Integer subscriptionTypeNameCount;
-
-  private String subscriptionTypeNameMax;
-
-  private String subscriptionTypeNameMin;
-
-  private Integer idCount;
-
-  @Id
-  private String idMax;
-
-  @Id
-  private String idMin;
-
-  private Integer subscriptionTypeNameCount;
-
-  private String subscriptionTypeNameMax;
-
-  private String subscriptionTypeNameMin;
 
   private Integer queryTypeNameCount;
 
@@ -217,35 +113,11 @@ public class __Schema implements Meta {
 
   private String mutationTypeNameMin;
 
-  private Integer createUserIdCount;
+  private Integer subscriptionTypeNameCount;
 
-  private String createUserIdMax;
+  private String subscriptionTypeNameMax;
 
-  private String createUserIdMin;
-
-  private Integer createUserIdCount;
-
-  private String createUserIdMax;
-
-  private String createUserIdMin;
-
-  private Integer updateUserIdCount;
-
-  private String updateUserIdMax;
-
-  private String updateUserIdMin;
-
-  private Integer createTimeCount;
-
-  private LocalDateTime createTimeMax;
-
-  private LocalDateTime createTimeMin;
-
-  private Integer updateTimeCount;
-
-  private LocalDateTime updateTimeMax;
-
-  private LocalDateTime updateTimeMin;
+  private String subscriptionTypeNameMin;
 
   private Integer realmIdCount;
 
@@ -253,29 +125,23 @@ public class __Schema implements Meta {
 
   private String realmIdMin;
 
-  private Integer realmIdCount;
+  private Integer createUserIdCount;
 
-  private String realmIdMax;
+  private String createUserIdMax;
 
-  private String realmIdMin;
-
-  private Integer updateUserIdCount;
-
-  private String updateUserIdMax;
-
-  private String updateUserIdMin;
-
-  private Integer createGroupIdCount;
-
-  private String createGroupIdMax;
-
-  private String createGroupIdMin;
+  private String createUserIdMin;
 
   private Integer createTimeCount;
 
   private LocalDateTime createTimeMax;
 
   private LocalDateTime createTimeMin;
+
+  private Integer updateUserIdCount;
+
+  private String updateUserIdMax;
+
+  private String updateUserIdMin;
 
   private Integer updateTimeCount;
 
@@ -295,30 +161,6 @@ public class __Schema implements Meta {
 
   private String __typenameMin;
 
-  private Integer mutationTypeNameMaxCount;
-
-  private String mutationTypeNameMaxMax;
-
-  private String mutationTypeNameMaxMin;
-
-  private Integer mutationTypeNameMinCount;
-
-  private String mutationTypeNameMinMax;
-
-  private String mutationTypeNameMinMin;
-
-  private Integer queryTypeNameMaxCount;
-
-  private String queryTypeNameMaxMax;
-
-  private String queryTypeNameMaxMin;
-
-  private Integer queryTypeNameMinCount;
-
-  private String queryTypeNameMinMax;
-
-  private String queryTypeNameMinMin;
-
   private Integer idMaxCount;
 
   @Id
@@ -334,46 +176,6 @@ public class __Schema implements Meta {
 
   @Id
   private String idMinMin;
-
-  private Integer subscriptionTypeNameMaxCount;
-
-  private String subscriptionTypeNameMaxMax;
-
-  private String subscriptionTypeNameMaxMin;
-
-  private Integer subscriptionTypeNameMinCount;
-
-  private String subscriptionTypeNameMinMax;
-
-  private String subscriptionTypeNameMinMin;
-
-  private Integer idMaxCount;
-
-  @Id
-  private String idMaxMax;
-
-  @Id
-  private String idMaxMin;
-
-  private Integer idMinCount;
-
-  @Id
-  private String idMinMax;
-
-  @Id
-  private String idMinMin;
-
-  private Integer subscriptionTypeNameMaxCount;
-
-  private String subscriptionTypeNameMaxMax;
-
-  private String subscriptionTypeNameMaxMin;
-
-  private Integer subscriptionTypeNameMinCount;
-
-  private String subscriptionTypeNameMinMax;
-
-  private String subscriptionTypeNameMinMin;
 
   private Integer queryTypeNameMaxCount;
 
@@ -399,6 +201,18 @@ public class __Schema implements Meta {
 
   private String mutationTypeNameMinMin;
 
+  private Integer subscriptionTypeNameMaxCount;
+
+  private String subscriptionTypeNameMaxMax;
+
+  private String subscriptionTypeNameMaxMin;
+
+  private Integer subscriptionTypeNameMinCount;
+
+  private String subscriptionTypeNameMinMax;
+
+  private String subscriptionTypeNameMinMin;
+
   private Integer versionCount;
 
   private Integer versionSum;
@@ -409,36 +223,6 @@ public class __Schema implements Meta {
 
   private Integer versionMin;
 
-  private Integer versionCount;
-
-  private Integer versionSum;
-
-  private Integer versionAvg;
-
-  private Integer versionMax;
-
-  private Integer versionMin;
-
-  private Integer mutationTypeNameCountCount;
-
-  private Integer mutationTypeNameCountSum;
-
-  private Integer mutationTypeNameCountAvg;
-
-  private Integer mutationTypeNameCountMax;
-
-  private Integer mutationTypeNameCountMin;
-
-  private Integer queryTypeNameCountCount;
-
-  private Integer queryTypeNameCountSum;
-
-  private Integer queryTypeNameCountAvg;
-
-  private Integer queryTypeNameCountMax;
-
-  private Integer queryTypeNameCountMin;
-
   private Integer idCountCount;
 
   private Integer idCountSum;
@@ -448,36 +232,6 @@ public class __Schema implements Meta {
   private Integer idCountMax;
 
   private Integer idCountMin;
-
-  private Integer subscriptionTypeNameCountCount;
-
-  private Integer subscriptionTypeNameCountSum;
-
-  private Integer subscriptionTypeNameCountAvg;
-
-  private Integer subscriptionTypeNameCountMax;
-
-  private Integer subscriptionTypeNameCountMin;
-
-  private Integer idCountCount;
-
-  private Integer idCountSum;
-
-  private Integer idCountAvg;
-
-  private Integer idCountMax;
-
-  private Integer idCountMin;
-
-  private Integer subscriptionTypeNameCountCount;
-
-  private Integer subscriptionTypeNameCountSum;
-
-  private Integer subscriptionTypeNameCountAvg;
-
-  private Integer subscriptionTypeNameCountMax;
-
-  private Integer subscriptionTypeNameCountMin;
 
   private Integer queryTypeNameCountCount;
 
@@ -499,53 +253,23 @@ public class __Schema implements Meta {
 
   private Integer mutationTypeNameCountMin;
 
+  private Integer subscriptionTypeNameCountCount;
+
+  private Integer subscriptionTypeNameCountSum;
+
+  private Integer subscriptionTypeNameCountAvg;
+
+  private Integer subscriptionTypeNameCountMax;
+
+  private Integer subscriptionTypeNameCountMin;
+
   private __Type typesAggregate;
 
   private __Directive directivesAggregate;
 
-  private __Directive directivesAggregate;
-
-  private __Type typesAggregate;
-
   private __TypeConnection typesConnection;
 
   private __DirectiveConnection directivesConnection;
-
-  private __DirectiveConnection directivesConnection;
-
-  private __TypeConnection typesConnection;
-
-  public __Type getMutationType() {
-    return this.mutationType;
-  }
-
-  public void setMutationType(__Type mutationType) {
-    this.mutationType = mutationType;
-  }
-
-  public __Type getSubscriptionType() {
-    return this.subscriptionType;
-  }
-
-  public void setSubscriptionType(__Type subscriptionType) {
-    this.subscriptionType = subscriptionType;
-  }
-
-  public String getMutationTypeName() {
-    return this.mutationTypeName;
-  }
-
-  public void setMutationTypeName(String mutationTypeName) {
-    this.mutationTypeName = mutationTypeName;
-  }
-
-  public String getQueryTypeName() {
-    return this.queryTypeName;
-  }
-
-  public void setQueryTypeName(String queryTypeName) {
-    this.queryTypeName = queryTypeName;
-  }
 
   public String getId() {
     return this.id;
@@ -553,94 +277,6 @@ public class __Schema implements Meta {
 
   public void setId(String id) {
     this.id = id;
-  }
-
-  public Collection<__Type> getTypes() {
-    return this.types;
-  }
-
-  public void setTypes(Collection<__Type> types) {
-    this.types = types;
-  }
-
-  public String getSubscriptionTypeName() {
-    return this.subscriptionTypeName;
-  }
-
-  public void setSubscriptionTypeName(String subscriptionTypeName) {
-    this.subscriptionTypeName = subscriptionTypeName;
-  }
-
-  public __Type getQueryType() {
-    return this.queryType;
-  }
-
-  public void setQueryType(__Type queryType) {
-    this.queryType = queryType;
-  }
-
-  public Collection<__Directive> getDirectives() {
-    return this.directives;
-  }
-
-  public void setDirectives(Collection<__Directive> directives) {
-    this.directives = directives;
-  }
-
-  public Collection<__Directive> getDirectives() {
-    return this.directives;
-  }
-
-  public void setDirectives(Collection<__Directive> directives) {
-    this.directives = directives;
-  }
-
-  public __Type getSubscriptionType() {
-    return this.subscriptionType;
-  }
-
-  public void setSubscriptionType(__Type subscriptionType) {
-    this.subscriptionType = subscriptionType;
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public Collection<__Type> getTypes() {
-    return this.types;
-  }
-
-  public void setTypes(Collection<__Type> types) {
-    this.types = types;
-  }
-
-  public __Type getQueryType() {
-    return this.queryType;
-  }
-
-  public void setQueryType(__Type queryType) {
-    this.queryType = queryType;
-  }
-
-  public String getSubscriptionTypeName() {
-    return this.subscriptionTypeName;
-  }
-
-  public void setSubscriptionTypeName(String subscriptionTypeName) {
-    this.subscriptionTypeName = subscriptionTypeName;
-  }
-
-  public __Type getMutationType() {
-    return this.mutationType;
-  }
-
-  public void setMutationType(__Type mutationType) {
-    this.mutationType = mutationType;
   }
 
   public String getQueryTypeName() {
@@ -659,260 +295,132 @@ public class __Schema implements Meta {
     this.mutationTypeName = mutationTypeName;
   }
 
-  @Override
-  @Override
-  @Override
-  @Override
-  public String getCreateUserId() {
-    return this.createUserId;
+  public String getSubscriptionTypeName() {
+    return this.subscriptionTypeName;
   }
 
-  @Override
-  @Override
-  @Override
-  @Override
-  public void setCreateUserId(String createUserId) {
-    this.createUserId = createUserId;
+  public void setSubscriptionTypeName(String subscriptionTypeName) {
+    this.subscriptionTypeName = subscriptionTypeName;
   }
 
-  @Override
-  @Override
-  @Override
-  @Override
-  public String getCreateUserId() {
-    return this.createUserId;
+  public Collection<__Type> getTypes() {
+    return this.types;
   }
 
-  @Override
-  @Override
-  @Override
-  @Override
-  public void setCreateUserId(String createUserId) {
-    this.createUserId = createUserId;
+  public void setTypes(Collection<__Type> types) {
+    this.types = types;
   }
 
-  @Override
-  @Override
-  @Override
-  @Override
-  public String getUpdateUserId() {
-    return this.updateUserId;
+  public __Type getQueryType() {
+    return this.queryType;
   }
 
-  @Override
-  @Override
-  @Override
-  @Override
-  public void setUpdateUserId(String updateUserId) {
-    this.updateUserId = updateUserId;
+  public void setQueryType(__Type queryType) {
+    this.queryType = queryType;
   }
 
-  @Override
-  @Override
-  @Override
-  @Override
-  public LocalDateTime getCreateTime() {
-    return this.createTime;
+  public __Type getMutationType() {
+    return this.mutationType;
   }
 
-  @Override
-  @Override
-  @Override
-  @Override
-  public void setCreateTime(LocalDateTime createTime) {
-    this.createTime = createTime;
+  public void setMutationType(__Type mutationType) {
+    this.mutationType = mutationType;
   }
 
-  @Override
-  @Override
-  @Override
+  public __Type getSubscriptionType() {
+    return this.subscriptionType;
+  }
+
+  public void setSubscriptionType(__Type subscriptionType) {
+    this.subscriptionType = subscriptionType;
+  }
+
+  public Collection<__Directive> getDirectives() {
+    return this.directives;
+  }
+
+  public void setDirectives(Collection<__Directive> directives) {
+    this.directives = directives;
+  }
+
   @Override
   public Boolean getIsDeprecated() {
     return this.isDeprecated;
   }
 
   @Override
-  @Override
-  @Override
-  @Override
   public void setIsDeprecated(Boolean isDeprecated) {
     this.isDeprecated = isDeprecated;
   }
 
-  @Override
-  @Override
-  @Override
-  @Override
-  public Boolean getIsDeprecated() {
-    return this.isDeprecated;
-  }
-
-  @Override
-  @Override
-  @Override
-  @Override
-  public void setIsDeprecated(Boolean isDeprecated) {
-    this.isDeprecated = isDeprecated;
-  }
-
-  @Override
-  @Override
-  @Override
-  @Override
-  public LocalDateTime getUpdateTime() {
-    return this.updateTime;
-  }
-
-  @Override
-  @Override
-  @Override
-  @Override
-  public void setUpdateTime(LocalDateTime updateTime) {
-    this.updateTime = updateTime;
-  }
-
-  @Override
-  @Override
-  @Override
-  @Override
-  public String getRealmId() {
-    return this.realmId;
-  }
-
-  @Override
-  @Override
-  @Override
-  @Override
-  public void setRealmId(String realmId) {
-    this.realmId = realmId;
-  }
-
-  @Override
-  @Override
-  @Override
-  @Override
-  public String getRealmId() {
-    return this.realmId;
-  }
-
-  @Override
-  @Override
-  @Override
-  @Override
-  public void setRealmId(String realmId) {
-    this.realmId = realmId;
-  }
-
-  @Override
-  @Override
-  @Override
-  @Override
-  public String getUpdateUserId() {
-    return this.updateUserId;
-  }
-
-  @Override
-  @Override
-  @Override
-  @Override
-  public void setUpdateUserId(String updateUserId) {
-    this.updateUserId = updateUserId;
-  }
-
-  @Override
-  @Override
-  @Override
   @Override
   public Integer getVersion() {
     return this.version;
   }
 
   @Override
-  @Override
-  @Override
-  @Override
   public void setVersion(Integer version) {
     this.version = version;
   }
 
   @Override
-  @Override
-  @Override
-  @Override
-  public String getCreateGroupId() {
-    return this.createGroupId;
+  public String getRealmId() {
+    return this.realmId;
   }
 
   @Override
-  @Override
-  @Override
-  @Override
-  public void setCreateGroupId(String createGroupId) {
-    this.createGroupId = createGroupId;
+  public void setRealmId(String realmId) {
+    this.realmId = realmId;
   }
 
   @Override
+  public String getCreateUserId() {
+    return this.createUserId;
+  }
+
   @Override
-  @Override
+  public void setCreateUserId(String createUserId) {
+    this.createUserId = createUserId;
+  }
+
   @Override
   public LocalDateTime getCreateTime() {
     return this.createTime;
   }
 
   @Override
-  @Override
-  @Override
-  @Override
   public void setCreateTime(LocalDateTime createTime) {
     this.createTime = createTime;
   }
 
   @Override
+  public String getUpdateUserId() {
+    return this.updateUserId;
+  }
+
   @Override
-  @Override
+  public void setUpdateUserId(String updateUserId) {
+    this.updateUserId = updateUserId;
+  }
+
   @Override
   public LocalDateTime getUpdateTime() {
     return this.updateTime;
   }
 
   @Override
-  @Override
-  @Override
-  @Override
   public void setUpdateTime(LocalDateTime updateTime) {
     this.updateTime = updateTime;
   }
 
-  @Override
-  @Override
-  @Override
   @Override
   public String getCreateGroupId() {
     return this.createGroupId;
   }
 
   @Override
-  @Override
-  @Override
-  @Override
   public void setCreateGroupId(String createGroupId) {
     this.createGroupId = createGroupId;
-  }
-
-  @Override
-  @Override
-  @Override
-  @Override
-  public Integer getVersion() {
-    return this.version;
-  }
-
-  @Override
-  @Override
-  @Override
-  @Override
-  public void setVersion(Integer version) {
-    this.version = version;
   }
 
   public String get__Typename() {
@@ -923,54 +431,6 @@ public class __Schema implements Meta {
     this.__typename = __typename;
   }
 
-  public Integer getMutationTypeNameCount() {
-    return this.mutationTypeNameCount;
-  }
-
-  public void setMutationTypeNameCount(Integer mutationTypeNameCount) {
-    this.mutationTypeNameCount = mutationTypeNameCount;
-  }
-
-  public String getMutationTypeNameMax() {
-    return this.mutationTypeNameMax;
-  }
-
-  public void setMutationTypeNameMax(String mutationTypeNameMax) {
-    this.mutationTypeNameMax = mutationTypeNameMax;
-  }
-
-  public String getMutationTypeNameMin() {
-    return this.mutationTypeNameMin;
-  }
-
-  public void setMutationTypeNameMin(String mutationTypeNameMin) {
-    this.mutationTypeNameMin = mutationTypeNameMin;
-  }
-
-  public Integer getQueryTypeNameCount() {
-    return this.queryTypeNameCount;
-  }
-
-  public void setQueryTypeNameCount(Integer queryTypeNameCount) {
-    this.queryTypeNameCount = queryTypeNameCount;
-  }
-
-  public String getQueryTypeNameMax() {
-    return this.queryTypeNameMax;
-  }
-
-  public void setQueryTypeNameMax(String queryTypeNameMax) {
-    this.queryTypeNameMax = queryTypeNameMax;
-  }
-
-  public String getQueryTypeNameMin() {
-    return this.queryTypeNameMin;
-  }
-
-  public void setQueryTypeNameMin(String queryTypeNameMin) {
-    this.queryTypeNameMin = queryTypeNameMin;
-  }
-
   public Integer getIdCount() {
     return this.idCount;
   }
@@ -993,78 +453,6 @@ public class __Schema implements Meta {
 
   public void setIdMin(String idMin) {
     this.idMin = idMin;
-  }
-
-  public Integer getSubscriptionTypeNameCount() {
-    return this.subscriptionTypeNameCount;
-  }
-
-  public void setSubscriptionTypeNameCount(Integer subscriptionTypeNameCount) {
-    this.subscriptionTypeNameCount = subscriptionTypeNameCount;
-  }
-
-  public String getSubscriptionTypeNameMax() {
-    return this.subscriptionTypeNameMax;
-  }
-
-  public void setSubscriptionTypeNameMax(String subscriptionTypeNameMax) {
-    this.subscriptionTypeNameMax = subscriptionTypeNameMax;
-  }
-
-  public String getSubscriptionTypeNameMin() {
-    return this.subscriptionTypeNameMin;
-  }
-
-  public void setSubscriptionTypeNameMin(String subscriptionTypeNameMin) {
-    this.subscriptionTypeNameMin = subscriptionTypeNameMin;
-  }
-
-  public Integer getIdCount() {
-    return this.idCount;
-  }
-
-  public void setIdCount(Integer idCount) {
-    this.idCount = idCount;
-  }
-
-  public String getIdMax() {
-    return this.idMax;
-  }
-
-  public void setIdMax(String idMax) {
-    this.idMax = idMax;
-  }
-
-  public String getIdMin() {
-    return this.idMin;
-  }
-
-  public void setIdMin(String idMin) {
-    this.idMin = idMin;
-  }
-
-  public Integer getSubscriptionTypeNameCount() {
-    return this.subscriptionTypeNameCount;
-  }
-
-  public void setSubscriptionTypeNameCount(Integer subscriptionTypeNameCount) {
-    this.subscriptionTypeNameCount = subscriptionTypeNameCount;
-  }
-
-  public String getSubscriptionTypeNameMax() {
-    return this.subscriptionTypeNameMax;
-  }
-
-  public void setSubscriptionTypeNameMax(String subscriptionTypeNameMax) {
-    this.subscriptionTypeNameMax = subscriptionTypeNameMax;
-  }
-
-  public String getSubscriptionTypeNameMin() {
-    return this.subscriptionTypeNameMin;
-  }
-
-  public void setSubscriptionTypeNameMin(String subscriptionTypeNameMin) {
-    this.subscriptionTypeNameMin = subscriptionTypeNameMin;
   }
 
   public Integer getQueryTypeNameCount() {
@@ -1113,6 +501,30 @@ public class __Schema implements Meta {
 
   public void setMutationTypeNameMin(String mutationTypeNameMin) {
     this.mutationTypeNameMin = mutationTypeNameMin;
+  }
+
+  public Integer getSubscriptionTypeNameCount() {
+    return this.subscriptionTypeNameCount;
+  }
+
+  public void setSubscriptionTypeNameCount(Integer subscriptionTypeNameCount) {
+    this.subscriptionTypeNameCount = subscriptionTypeNameCount;
+  }
+
+  public String getSubscriptionTypeNameMax() {
+    return this.subscriptionTypeNameMax;
+  }
+
+  public void setSubscriptionTypeNameMax(String subscriptionTypeNameMax) {
+    this.subscriptionTypeNameMax = subscriptionTypeNameMax;
+  }
+
+  public String getSubscriptionTypeNameMin() {
+    return this.subscriptionTypeNameMin;
+  }
+
+  public void setSubscriptionTypeNameMin(String subscriptionTypeNameMin) {
+    this.subscriptionTypeNameMin = subscriptionTypeNameMin;
   }
 
   public __Type getTypesAggregate() {
@@ -1131,22 +543,6 @@ public class __Schema implements Meta {
     this.directivesAggregate = directivesAggregate;
   }
 
-  public __Directive getDirectivesAggregate() {
-    return this.directivesAggregate;
-  }
-
-  public void setDirectivesAggregate(__Directive directivesAggregate) {
-    this.directivesAggregate = directivesAggregate;
-  }
-
-  public __Type getTypesAggregate() {
-    return this.typesAggregate;
-  }
-
-  public void setTypesAggregate(__Type typesAggregate) {
-    this.typesAggregate = typesAggregate;
-  }
-
   public __TypeConnection getTypesConnection() {
     return this.typesConnection;
   }
@@ -1161,22 +557,6 @@ public class __Schema implements Meta {
 
   public void setDirectivesConnection(__DirectiveConnection directivesConnection) {
     this.directivesConnection = directivesConnection;
-  }
-
-  public __DirectiveConnection getDirectivesConnection() {
-    return this.directivesConnection;
-  }
-
-  public void setDirectivesConnection(__DirectiveConnection directivesConnection) {
-    this.directivesConnection = directivesConnection;
-  }
-
-  public __TypeConnection getTypesConnection() {
-    return this.typesConnection;
-  }
-
-  public void setTypesConnection(__TypeConnection typesConnection) {
-    this.typesConnection = typesConnection;
   }
 
   public String get__Typename() {
@@ -1187,54 +567,6 @@ public class __Schema implements Meta {
     this.__typename = __typename;
   }
 
-  public Integer getMutationTypeNameCount() {
-    return this.mutationTypeNameCount;
-  }
-
-  public void setMutationTypeNameCount(Integer mutationTypeNameCount) {
-    this.mutationTypeNameCount = mutationTypeNameCount;
-  }
-
-  public String getMutationTypeNameMax() {
-    return this.mutationTypeNameMax;
-  }
-
-  public void setMutationTypeNameMax(String mutationTypeNameMax) {
-    this.mutationTypeNameMax = mutationTypeNameMax;
-  }
-
-  public String getMutationTypeNameMin() {
-    return this.mutationTypeNameMin;
-  }
-
-  public void setMutationTypeNameMin(String mutationTypeNameMin) {
-    this.mutationTypeNameMin = mutationTypeNameMin;
-  }
-
-  public Integer getQueryTypeNameCount() {
-    return this.queryTypeNameCount;
-  }
-
-  public void setQueryTypeNameCount(Integer queryTypeNameCount) {
-    this.queryTypeNameCount = queryTypeNameCount;
-  }
-
-  public String getQueryTypeNameMax() {
-    return this.queryTypeNameMax;
-  }
-
-  public void setQueryTypeNameMax(String queryTypeNameMax) {
-    this.queryTypeNameMax = queryTypeNameMax;
-  }
-
-  public String getQueryTypeNameMin() {
-    return this.queryTypeNameMin;
-  }
-
-  public void setQueryTypeNameMin(String queryTypeNameMin) {
-    this.queryTypeNameMin = queryTypeNameMin;
-  }
-
   public Integer getIdCount() {
     return this.idCount;
   }
@@ -1257,78 +589,6 @@ public class __Schema implements Meta {
 
   public void setIdMin(String idMin) {
     this.idMin = idMin;
-  }
-
-  public Integer getSubscriptionTypeNameCount() {
-    return this.subscriptionTypeNameCount;
-  }
-
-  public void setSubscriptionTypeNameCount(Integer subscriptionTypeNameCount) {
-    this.subscriptionTypeNameCount = subscriptionTypeNameCount;
-  }
-
-  public String getSubscriptionTypeNameMax() {
-    return this.subscriptionTypeNameMax;
-  }
-
-  public void setSubscriptionTypeNameMax(String subscriptionTypeNameMax) {
-    this.subscriptionTypeNameMax = subscriptionTypeNameMax;
-  }
-
-  public String getSubscriptionTypeNameMin() {
-    return this.subscriptionTypeNameMin;
-  }
-
-  public void setSubscriptionTypeNameMin(String subscriptionTypeNameMin) {
-    this.subscriptionTypeNameMin = subscriptionTypeNameMin;
-  }
-
-  public Integer getIdCount() {
-    return this.idCount;
-  }
-
-  public void setIdCount(Integer idCount) {
-    this.idCount = idCount;
-  }
-
-  public String getIdMax() {
-    return this.idMax;
-  }
-
-  public void setIdMax(String idMax) {
-    this.idMax = idMax;
-  }
-
-  public String getIdMin() {
-    return this.idMin;
-  }
-
-  public void setIdMin(String idMin) {
-    this.idMin = idMin;
-  }
-
-  public Integer getSubscriptionTypeNameCount() {
-    return this.subscriptionTypeNameCount;
-  }
-
-  public void setSubscriptionTypeNameCount(Integer subscriptionTypeNameCount) {
-    this.subscriptionTypeNameCount = subscriptionTypeNameCount;
-  }
-
-  public String getSubscriptionTypeNameMax() {
-    return this.subscriptionTypeNameMax;
-  }
-
-  public void setSubscriptionTypeNameMax(String subscriptionTypeNameMax) {
-    this.subscriptionTypeNameMax = subscriptionTypeNameMax;
-  }
-
-  public String getSubscriptionTypeNameMin() {
-    return this.subscriptionTypeNameMin;
-  }
-
-  public void setSubscriptionTypeNameMin(String subscriptionTypeNameMin) {
-    this.subscriptionTypeNameMin = subscriptionTypeNameMin;
   }
 
   public Integer getQueryTypeNameCount() {
@@ -1379,124 +639,28 @@ public class __Schema implements Meta {
     this.mutationTypeNameMin = mutationTypeNameMin;
   }
 
-  public Integer getCreateUserIdCount() {
-    return this.createUserIdCount;
+  public Integer getSubscriptionTypeNameCount() {
+    return this.subscriptionTypeNameCount;
   }
 
-  public void setCreateUserIdCount(Integer createUserIdCount) {
-    this.createUserIdCount = createUserIdCount;
+  public void setSubscriptionTypeNameCount(Integer subscriptionTypeNameCount) {
+    this.subscriptionTypeNameCount = subscriptionTypeNameCount;
   }
 
-  public String getCreateUserIdMax() {
-    return this.createUserIdMax;
+  public String getSubscriptionTypeNameMax() {
+    return this.subscriptionTypeNameMax;
   }
 
-  public void setCreateUserIdMax(String createUserIdMax) {
-    this.createUserIdMax = createUserIdMax;
+  public void setSubscriptionTypeNameMax(String subscriptionTypeNameMax) {
+    this.subscriptionTypeNameMax = subscriptionTypeNameMax;
   }
 
-  public String getCreateUserIdMin() {
-    return this.createUserIdMin;
+  public String getSubscriptionTypeNameMin() {
+    return this.subscriptionTypeNameMin;
   }
 
-  public void setCreateUserIdMin(String createUserIdMin) {
-    this.createUserIdMin = createUserIdMin;
-  }
-
-  public Integer getCreateUserIdCount() {
-    return this.createUserIdCount;
-  }
-
-  public void setCreateUserIdCount(Integer createUserIdCount) {
-    this.createUserIdCount = createUserIdCount;
-  }
-
-  public String getCreateUserIdMax() {
-    return this.createUserIdMax;
-  }
-
-  public void setCreateUserIdMax(String createUserIdMax) {
-    this.createUserIdMax = createUserIdMax;
-  }
-
-  public String getCreateUserIdMin() {
-    return this.createUserIdMin;
-  }
-
-  public void setCreateUserIdMin(String createUserIdMin) {
-    this.createUserIdMin = createUserIdMin;
-  }
-
-  public Integer getUpdateUserIdCount() {
-    return this.updateUserIdCount;
-  }
-
-  public void setUpdateUserIdCount(Integer updateUserIdCount) {
-    this.updateUserIdCount = updateUserIdCount;
-  }
-
-  public String getUpdateUserIdMax() {
-    return this.updateUserIdMax;
-  }
-
-  public void setUpdateUserIdMax(String updateUserIdMax) {
-    this.updateUserIdMax = updateUserIdMax;
-  }
-
-  public String getUpdateUserIdMin() {
-    return this.updateUserIdMin;
-  }
-
-  public void setUpdateUserIdMin(String updateUserIdMin) {
-    this.updateUserIdMin = updateUserIdMin;
-  }
-
-  public Integer getCreateTimeCount() {
-    return this.createTimeCount;
-  }
-
-  public void setCreateTimeCount(Integer createTimeCount) {
-    this.createTimeCount = createTimeCount;
-  }
-
-  public LocalDateTime getCreateTimeMax() {
-    return this.createTimeMax;
-  }
-
-  public void setCreateTimeMax(LocalDateTime createTimeMax) {
-    this.createTimeMax = createTimeMax;
-  }
-
-  public LocalDateTime getCreateTimeMin() {
-    return this.createTimeMin;
-  }
-
-  public void setCreateTimeMin(LocalDateTime createTimeMin) {
-    this.createTimeMin = createTimeMin;
-  }
-
-  public Integer getUpdateTimeCount() {
-    return this.updateTimeCount;
-  }
-
-  public void setUpdateTimeCount(Integer updateTimeCount) {
-    this.updateTimeCount = updateTimeCount;
-  }
-
-  public LocalDateTime getUpdateTimeMax() {
-    return this.updateTimeMax;
-  }
-
-  public void setUpdateTimeMax(LocalDateTime updateTimeMax) {
-    this.updateTimeMax = updateTimeMax;
-  }
-
-  public LocalDateTime getUpdateTimeMin() {
-    return this.updateTimeMin;
-  }
-
-  public void setUpdateTimeMin(LocalDateTime updateTimeMin) {
-    this.updateTimeMin = updateTimeMin;
+  public void setSubscriptionTypeNameMin(String subscriptionTypeNameMin) {
+    this.subscriptionTypeNameMin = subscriptionTypeNameMin;
   }
 
   public Integer getRealmIdCount() {
@@ -1523,76 +687,28 @@ public class __Schema implements Meta {
     this.realmIdMin = realmIdMin;
   }
 
-  public Integer getRealmIdCount() {
-    return this.realmIdCount;
+  public Integer getCreateUserIdCount() {
+    return this.createUserIdCount;
   }
 
-  public void setRealmIdCount(Integer realmIdCount) {
-    this.realmIdCount = realmIdCount;
+  public void setCreateUserIdCount(Integer createUserIdCount) {
+    this.createUserIdCount = createUserIdCount;
   }
 
-  public String getRealmIdMax() {
-    return this.realmIdMax;
+  public String getCreateUserIdMax() {
+    return this.createUserIdMax;
   }
 
-  public void setRealmIdMax(String realmIdMax) {
-    this.realmIdMax = realmIdMax;
+  public void setCreateUserIdMax(String createUserIdMax) {
+    this.createUserIdMax = createUserIdMax;
   }
 
-  public String getRealmIdMin() {
-    return this.realmIdMin;
+  public String getCreateUserIdMin() {
+    return this.createUserIdMin;
   }
 
-  public void setRealmIdMin(String realmIdMin) {
-    this.realmIdMin = realmIdMin;
-  }
-
-  public Integer getUpdateUserIdCount() {
-    return this.updateUserIdCount;
-  }
-
-  public void setUpdateUserIdCount(Integer updateUserIdCount) {
-    this.updateUserIdCount = updateUserIdCount;
-  }
-
-  public String getUpdateUserIdMax() {
-    return this.updateUserIdMax;
-  }
-
-  public void setUpdateUserIdMax(String updateUserIdMax) {
-    this.updateUserIdMax = updateUserIdMax;
-  }
-
-  public String getUpdateUserIdMin() {
-    return this.updateUserIdMin;
-  }
-
-  public void setUpdateUserIdMin(String updateUserIdMin) {
-    this.updateUserIdMin = updateUserIdMin;
-  }
-
-  public Integer getCreateGroupIdCount() {
-    return this.createGroupIdCount;
-  }
-
-  public void setCreateGroupIdCount(Integer createGroupIdCount) {
-    this.createGroupIdCount = createGroupIdCount;
-  }
-
-  public String getCreateGroupIdMax() {
-    return this.createGroupIdMax;
-  }
-
-  public void setCreateGroupIdMax(String createGroupIdMax) {
-    this.createGroupIdMax = createGroupIdMax;
-  }
-
-  public String getCreateGroupIdMin() {
-    return this.createGroupIdMin;
-  }
-
-  public void setCreateGroupIdMin(String createGroupIdMin) {
-    this.createGroupIdMin = createGroupIdMin;
+  public void setCreateUserIdMin(String createUserIdMin) {
+    this.createUserIdMin = createUserIdMin;
   }
 
   public Integer getCreateTimeCount() {
@@ -1617,6 +733,30 @@ public class __Schema implements Meta {
 
   public void setCreateTimeMin(LocalDateTime createTimeMin) {
     this.createTimeMin = createTimeMin;
+  }
+
+  public Integer getUpdateUserIdCount() {
+    return this.updateUserIdCount;
+  }
+
+  public void setUpdateUserIdCount(Integer updateUserIdCount) {
+    this.updateUserIdCount = updateUserIdCount;
+  }
+
+  public String getUpdateUserIdMax() {
+    return this.updateUserIdMax;
+  }
+
+  public void setUpdateUserIdMax(String updateUserIdMax) {
+    this.updateUserIdMax = updateUserIdMax;
+  }
+
+  public String getUpdateUserIdMin() {
+    return this.updateUserIdMin;
+  }
+
+  public void setUpdateUserIdMin(String updateUserIdMin) {
+    this.updateUserIdMin = updateUserIdMin;
   }
 
   public Integer getUpdateTimeCount() {
@@ -1691,102 +831,6 @@ public class __Schema implements Meta {
     this.__typenameMin = __typenameMin;
   }
 
-  public Integer getMutationTypeNameMaxCount() {
-    return this.mutationTypeNameMaxCount;
-  }
-
-  public void setMutationTypeNameMaxCount(Integer mutationTypeNameMaxCount) {
-    this.mutationTypeNameMaxCount = mutationTypeNameMaxCount;
-  }
-
-  public String getMutationTypeNameMaxMax() {
-    return this.mutationTypeNameMaxMax;
-  }
-
-  public void setMutationTypeNameMaxMax(String mutationTypeNameMaxMax) {
-    this.mutationTypeNameMaxMax = mutationTypeNameMaxMax;
-  }
-
-  public String getMutationTypeNameMaxMin() {
-    return this.mutationTypeNameMaxMin;
-  }
-
-  public void setMutationTypeNameMaxMin(String mutationTypeNameMaxMin) {
-    this.mutationTypeNameMaxMin = mutationTypeNameMaxMin;
-  }
-
-  public Integer getMutationTypeNameMinCount() {
-    return this.mutationTypeNameMinCount;
-  }
-
-  public void setMutationTypeNameMinCount(Integer mutationTypeNameMinCount) {
-    this.mutationTypeNameMinCount = mutationTypeNameMinCount;
-  }
-
-  public String getMutationTypeNameMinMax() {
-    return this.mutationTypeNameMinMax;
-  }
-
-  public void setMutationTypeNameMinMax(String mutationTypeNameMinMax) {
-    this.mutationTypeNameMinMax = mutationTypeNameMinMax;
-  }
-
-  public String getMutationTypeNameMinMin() {
-    return this.mutationTypeNameMinMin;
-  }
-
-  public void setMutationTypeNameMinMin(String mutationTypeNameMinMin) {
-    this.mutationTypeNameMinMin = mutationTypeNameMinMin;
-  }
-
-  public Integer getQueryTypeNameMaxCount() {
-    return this.queryTypeNameMaxCount;
-  }
-
-  public void setQueryTypeNameMaxCount(Integer queryTypeNameMaxCount) {
-    this.queryTypeNameMaxCount = queryTypeNameMaxCount;
-  }
-
-  public String getQueryTypeNameMaxMax() {
-    return this.queryTypeNameMaxMax;
-  }
-
-  public void setQueryTypeNameMaxMax(String queryTypeNameMaxMax) {
-    this.queryTypeNameMaxMax = queryTypeNameMaxMax;
-  }
-
-  public String getQueryTypeNameMaxMin() {
-    return this.queryTypeNameMaxMin;
-  }
-
-  public void setQueryTypeNameMaxMin(String queryTypeNameMaxMin) {
-    this.queryTypeNameMaxMin = queryTypeNameMaxMin;
-  }
-
-  public Integer getQueryTypeNameMinCount() {
-    return this.queryTypeNameMinCount;
-  }
-
-  public void setQueryTypeNameMinCount(Integer queryTypeNameMinCount) {
-    this.queryTypeNameMinCount = queryTypeNameMinCount;
-  }
-
-  public String getQueryTypeNameMinMax() {
-    return this.queryTypeNameMinMax;
-  }
-
-  public void setQueryTypeNameMinMax(String queryTypeNameMinMax) {
-    this.queryTypeNameMinMax = queryTypeNameMinMax;
-  }
-
-  public String getQueryTypeNameMinMin() {
-    return this.queryTypeNameMinMin;
-  }
-
-  public void setQueryTypeNameMinMin(String queryTypeNameMinMin) {
-    this.queryTypeNameMinMin = queryTypeNameMinMin;
-  }
-
   public Integer getIdMaxCount() {
     return this.idMaxCount;
   }
@@ -1833,150 +877,6 @@ public class __Schema implements Meta {
 
   public void setIdMinMin(String idMinMin) {
     this.idMinMin = idMinMin;
-  }
-
-  public Integer getSubscriptionTypeNameMaxCount() {
-    return this.subscriptionTypeNameMaxCount;
-  }
-
-  public void setSubscriptionTypeNameMaxCount(Integer subscriptionTypeNameMaxCount) {
-    this.subscriptionTypeNameMaxCount = subscriptionTypeNameMaxCount;
-  }
-
-  public String getSubscriptionTypeNameMaxMax() {
-    return this.subscriptionTypeNameMaxMax;
-  }
-
-  public void setSubscriptionTypeNameMaxMax(String subscriptionTypeNameMaxMax) {
-    this.subscriptionTypeNameMaxMax = subscriptionTypeNameMaxMax;
-  }
-
-  public String getSubscriptionTypeNameMaxMin() {
-    return this.subscriptionTypeNameMaxMin;
-  }
-
-  public void setSubscriptionTypeNameMaxMin(String subscriptionTypeNameMaxMin) {
-    this.subscriptionTypeNameMaxMin = subscriptionTypeNameMaxMin;
-  }
-
-  public Integer getSubscriptionTypeNameMinCount() {
-    return this.subscriptionTypeNameMinCount;
-  }
-
-  public void setSubscriptionTypeNameMinCount(Integer subscriptionTypeNameMinCount) {
-    this.subscriptionTypeNameMinCount = subscriptionTypeNameMinCount;
-  }
-
-  public String getSubscriptionTypeNameMinMax() {
-    return this.subscriptionTypeNameMinMax;
-  }
-
-  public void setSubscriptionTypeNameMinMax(String subscriptionTypeNameMinMax) {
-    this.subscriptionTypeNameMinMax = subscriptionTypeNameMinMax;
-  }
-
-  public String getSubscriptionTypeNameMinMin() {
-    return this.subscriptionTypeNameMinMin;
-  }
-
-  public void setSubscriptionTypeNameMinMin(String subscriptionTypeNameMinMin) {
-    this.subscriptionTypeNameMinMin = subscriptionTypeNameMinMin;
-  }
-
-  public Integer getIdMaxCount() {
-    return this.idMaxCount;
-  }
-
-  public void setIdMaxCount(Integer idMaxCount) {
-    this.idMaxCount = idMaxCount;
-  }
-
-  public String getIdMaxMax() {
-    return this.idMaxMax;
-  }
-
-  public void setIdMaxMax(String idMaxMax) {
-    this.idMaxMax = idMaxMax;
-  }
-
-  public String getIdMaxMin() {
-    return this.idMaxMin;
-  }
-
-  public void setIdMaxMin(String idMaxMin) {
-    this.idMaxMin = idMaxMin;
-  }
-
-  public Integer getIdMinCount() {
-    return this.idMinCount;
-  }
-
-  public void setIdMinCount(Integer idMinCount) {
-    this.idMinCount = idMinCount;
-  }
-
-  public String getIdMinMax() {
-    return this.idMinMax;
-  }
-
-  public void setIdMinMax(String idMinMax) {
-    this.idMinMax = idMinMax;
-  }
-
-  public String getIdMinMin() {
-    return this.idMinMin;
-  }
-
-  public void setIdMinMin(String idMinMin) {
-    this.idMinMin = idMinMin;
-  }
-
-  public Integer getSubscriptionTypeNameMaxCount() {
-    return this.subscriptionTypeNameMaxCount;
-  }
-
-  public void setSubscriptionTypeNameMaxCount(Integer subscriptionTypeNameMaxCount) {
-    this.subscriptionTypeNameMaxCount = subscriptionTypeNameMaxCount;
-  }
-
-  public String getSubscriptionTypeNameMaxMax() {
-    return this.subscriptionTypeNameMaxMax;
-  }
-
-  public void setSubscriptionTypeNameMaxMax(String subscriptionTypeNameMaxMax) {
-    this.subscriptionTypeNameMaxMax = subscriptionTypeNameMaxMax;
-  }
-
-  public String getSubscriptionTypeNameMaxMin() {
-    return this.subscriptionTypeNameMaxMin;
-  }
-
-  public void setSubscriptionTypeNameMaxMin(String subscriptionTypeNameMaxMin) {
-    this.subscriptionTypeNameMaxMin = subscriptionTypeNameMaxMin;
-  }
-
-  public Integer getSubscriptionTypeNameMinCount() {
-    return this.subscriptionTypeNameMinCount;
-  }
-
-  public void setSubscriptionTypeNameMinCount(Integer subscriptionTypeNameMinCount) {
-    this.subscriptionTypeNameMinCount = subscriptionTypeNameMinCount;
-  }
-
-  public String getSubscriptionTypeNameMinMax() {
-    return this.subscriptionTypeNameMinMax;
-  }
-
-  public void setSubscriptionTypeNameMinMax(String subscriptionTypeNameMinMax) {
-    this.subscriptionTypeNameMinMax = subscriptionTypeNameMinMax;
-  }
-
-  public String getSubscriptionTypeNameMinMin() {
-    return this.subscriptionTypeNameMinMin;
-  }
-
-  public void setSubscriptionTypeNameMinMin(String subscriptionTypeNameMinMin) {
-    this.subscriptionTypeNameMinMin = subscriptionTypeNameMinMin;
   }
 
   public Integer getQueryTypeNameMaxCount() {
@@ -2075,6 +975,54 @@ public class __Schema implements Meta {
     this.mutationTypeNameMinMin = mutationTypeNameMinMin;
   }
 
+  public Integer getSubscriptionTypeNameMaxCount() {
+    return this.subscriptionTypeNameMaxCount;
+  }
+
+  public void setSubscriptionTypeNameMaxCount(Integer subscriptionTypeNameMaxCount) {
+    this.subscriptionTypeNameMaxCount = subscriptionTypeNameMaxCount;
+  }
+
+  public String getSubscriptionTypeNameMaxMax() {
+    return this.subscriptionTypeNameMaxMax;
+  }
+
+  public void setSubscriptionTypeNameMaxMax(String subscriptionTypeNameMaxMax) {
+    this.subscriptionTypeNameMaxMax = subscriptionTypeNameMaxMax;
+  }
+
+  public String getSubscriptionTypeNameMaxMin() {
+    return this.subscriptionTypeNameMaxMin;
+  }
+
+  public void setSubscriptionTypeNameMaxMin(String subscriptionTypeNameMaxMin) {
+    this.subscriptionTypeNameMaxMin = subscriptionTypeNameMaxMin;
+  }
+
+  public Integer getSubscriptionTypeNameMinCount() {
+    return this.subscriptionTypeNameMinCount;
+  }
+
+  public void setSubscriptionTypeNameMinCount(Integer subscriptionTypeNameMinCount) {
+    this.subscriptionTypeNameMinCount = subscriptionTypeNameMinCount;
+  }
+
+  public String getSubscriptionTypeNameMinMax() {
+    return this.subscriptionTypeNameMinMax;
+  }
+
+  public void setSubscriptionTypeNameMinMax(String subscriptionTypeNameMinMax) {
+    this.subscriptionTypeNameMinMax = subscriptionTypeNameMinMax;
+  }
+
+  public String getSubscriptionTypeNameMinMin() {
+    return this.subscriptionTypeNameMinMin;
+  }
+
+  public void setSubscriptionTypeNameMinMin(String subscriptionTypeNameMinMin) {
+    this.subscriptionTypeNameMinMin = subscriptionTypeNameMinMin;
+  }
+
   public Integer getVersionCount() {
     return this.versionCount;
   }
@@ -2115,126 +1063,6 @@ public class __Schema implements Meta {
     this.versionMin = versionMin;
   }
 
-  public Integer getVersionCount() {
-    return this.versionCount;
-  }
-
-  public void setVersionCount(Integer versionCount) {
-    this.versionCount = versionCount;
-  }
-
-  public Integer getVersionSum() {
-    return this.versionSum;
-  }
-
-  public void setVersionSum(Integer versionSum) {
-    this.versionSum = versionSum;
-  }
-
-  public Integer getVersionAvg() {
-    return this.versionAvg;
-  }
-
-  public void setVersionAvg(Integer versionAvg) {
-    this.versionAvg = versionAvg;
-  }
-
-  public Integer getVersionMax() {
-    return this.versionMax;
-  }
-
-  public void setVersionMax(Integer versionMax) {
-    this.versionMax = versionMax;
-  }
-
-  public Integer getVersionMin() {
-    return this.versionMin;
-  }
-
-  public void setVersionMin(Integer versionMin) {
-    this.versionMin = versionMin;
-  }
-
-  public Integer getMutationTypeNameCountCount() {
-    return this.mutationTypeNameCountCount;
-  }
-
-  public void setMutationTypeNameCountCount(Integer mutationTypeNameCountCount) {
-    this.mutationTypeNameCountCount = mutationTypeNameCountCount;
-  }
-
-  public Integer getMutationTypeNameCountSum() {
-    return this.mutationTypeNameCountSum;
-  }
-
-  public void setMutationTypeNameCountSum(Integer mutationTypeNameCountSum) {
-    this.mutationTypeNameCountSum = mutationTypeNameCountSum;
-  }
-
-  public Integer getMutationTypeNameCountAvg() {
-    return this.mutationTypeNameCountAvg;
-  }
-
-  public void setMutationTypeNameCountAvg(Integer mutationTypeNameCountAvg) {
-    this.mutationTypeNameCountAvg = mutationTypeNameCountAvg;
-  }
-
-  public Integer getMutationTypeNameCountMax() {
-    return this.mutationTypeNameCountMax;
-  }
-
-  public void setMutationTypeNameCountMax(Integer mutationTypeNameCountMax) {
-    this.mutationTypeNameCountMax = mutationTypeNameCountMax;
-  }
-
-  public Integer getMutationTypeNameCountMin() {
-    return this.mutationTypeNameCountMin;
-  }
-
-  public void setMutationTypeNameCountMin(Integer mutationTypeNameCountMin) {
-    this.mutationTypeNameCountMin = mutationTypeNameCountMin;
-  }
-
-  public Integer getQueryTypeNameCountCount() {
-    return this.queryTypeNameCountCount;
-  }
-
-  public void setQueryTypeNameCountCount(Integer queryTypeNameCountCount) {
-    this.queryTypeNameCountCount = queryTypeNameCountCount;
-  }
-
-  public Integer getQueryTypeNameCountSum() {
-    return this.queryTypeNameCountSum;
-  }
-
-  public void setQueryTypeNameCountSum(Integer queryTypeNameCountSum) {
-    this.queryTypeNameCountSum = queryTypeNameCountSum;
-  }
-
-  public Integer getQueryTypeNameCountAvg() {
-    return this.queryTypeNameCountAvg;
-  }
-
-  public void setQueryTypeNameCountAvg(Integer queryTypeNameCountAvg) {
-    this.queryTypeNameCountAvg = queryTypeNameCountAvg;
-  }
-
-  public Integer getQueryTypeNameCountMax() {
-    return this.queryTypeNameCountMax;
-  }
-
-  public void setQueryTypeNameCountMax(Integer queryTypeNameCountMax) {
-    this.queryTypeNameCountMax = queryTypeNameCountMax;
-  }
-
-  public Integer getQueryTypeNameCountMin() {
-    return this.queryTypeNameCountMin;
-  }
-
-  public void setQueryTypeNameCountMin(Integer queryTypeNameCountMin) {
-    this.queryTypeNameCountMin = queryTypeNameCountMin;
-  }
-
   public Integer getIdCountCount() {
     return this.idCountCount;
   }
@@ -2273,126 +1101,6 @@ public class __Schema implements Meta {
 
   public void setIdCountMin(Integer idCountMin) {
     this.idCountMin = idCountMin;
-  }
-
-  public Integer getSubscriptionTypeNameCountCount() {
-    return this.subscriptionTypeNameCountCount;
-  }
-
-  public void setSubscriptionTypeNameCountCount(Integer subscriptionTypeNameCountCount) {
-    this.subscriptionTypeNameCountCount = subscriptionTypeNameCountCount;
-  }
-
-  public Integer getSubscriptionTypeNameCountSum() {
-    return this.subscriptionTypeNameCountSum;
-  }
-
-  public void setSubscriptionTypeNameCountSum(Integer subscriptionTypeNameCountSum) {
-    this.subscriptionTypeNameCountSum = subscriptionTypeNameCountSum;
-  }
-
-  public Integer getSubscriptionTypeNameCountAvg() {
-    return this.subscriptionTypeNameCountAvg;
-  }
-
-  public void setSubscriptionTypeNameCountAvg(Integer subscriptionTypeNameCountAvg) {
-    this.subscriptionTypeNameCountAvg = subscriptionTypeNameCountAvg;
-  }
-
-  public Integer getSubscriptionTypeNameCountMax() {
-    return this.subscriptionTypeNameCountMax;
-  }
-
-  public void setSubscriptionTypeNameCountMax(Integer subscriptionTypeNameCountMax) {
-    this.subscriptionTypeNameCountMax = subscriptionTypeNameCountMax;
-  }
-
-  public Integer getSubscriptionTypeNameCountMin() {
-    return this.subscriptionTypeNameCountMin;
-  }
-
-  public void setSubscriptionTypeNameCountMin(Integer subscriptionTypeNameCountMin) {
-    this.subscriptionTypeNameCountMin = subscriptionTypeNameCountMin;
-  }
-
-  public Integer getIdCountCount() {
-    return this.idCountCount;
-  }
-
-  public void setIdCountCount(Integer idCountCount) {
-    this.idCountCount = idCountCount;
-  }
-
-  public Integer getIdCountSum() {
-    return this.idCountSum;
-  }
-
-  public void setIdCountSum(Integer idCountSum) {
-    this.idCountSum = idCountSum;
-  }
-
-  public Integer getIdCountAvg() {
-    return this.idCountAvg;
-  }
-
-  public void setIdCountAvg(Integer idCountAvg) {
-    this.idCountAvg = idCountAvg;
-  }
-
-  public Integer getIdCountMax() {
-    return this.idCountMax;
-  }
-
-  public void setIdCountMax(Integer idCountMax) {
-    this.idCountMax = idCountMax;
-  }
-
-  public Integer getIdCountMin() {
-    return this.idCountMin;
-  }
-
-  public void setIdCountMin(Integer idCountMin) {
-    this.idCountMin = idCountMin;
-  }
-
-  public Integer getSubscriptionTypeNameCountCount() {
-    return this.subscriptionTypeNameCountCount;
-  }
-
-  public void setSubscriptionTypeNameCountCount(Integer subscriptionTypeNameCountCount) {
-    this.subscriptionTypeNameCountCount = subscriptionTypeNameCountCount;
-  }
-
-  public Integer getSubscriptionTypeNameCountSum() {
-    return this.subscriptionTypeNameCountSum;
-  }
-
-  public void setSubscriptionTypeNameCountSum(Integer subscriptionTypeNameCountSum) {
-    this.subscriptionTypeNameCountSum = subscriptionTypeNameCountSum;
-  }
-
-  public Integer getSubscriptionTypeNameCountAvg() {
-    return this.subscriptionTypeNameCountAvg;
-  }
-
-  public void setSubscriptionTypeNameCountAvg(Integer subscriptionTypeNameCountAvg) {
-    this.subscriptionTypeNameCountAvg = subscriptionTypeNameCountAvg;
-  }
-
-  public Integer getSubscriptionTypeNameCountMax() {
-    return this.subscriptionTypeNameCountMax;
-  }
-
-  public void setSubscriptionTypeNameCountMax(Integer subscriptionTypeNameCountMax) {
-    this.subscriptionTypeNameCountMax = subscriptionTypeNameCountMax;
-  }
-
-  public Integer getSubscriptionTypeNameCountMin() {
-    return this.subscriptionTypeNameCountMin;
-  }
-
-  public void setSubscriptionTypeNameCountMin(Integer subscriptionTypeNameCountMin) {
-    this.subscriptionTypeNameCountMin = subscriptionTypeNameCountMin;
   }
 
   public Integer getQueryTypeNameCountCount() {
@@ -2475,6 +1183,46 @@ public class __Schema implements Meta {
     this.mutationTypeNameCountMin = mutationTypeNameCountMin;
   }
 
+  public Integer getSubscriptionTypeNameCountCount() {
+    return this.subscriptionTypeNameCountCount;
+  }
+
+  public void setSubscriptionTypeNameCountCount(Integer subscriptionTypeNameCountCount) {
+    this.subscriptionTypeNameCountCount = subscriptionTypeNameCountCount;
+  }
+
+  public Integer getSubscriptionTypeNameCountSum() {
+    return this.subscriptionTypeNameCountSum;
+  }
+
+  public void setSubscriptionTypeNameCountSum(Integer subscriptionTypeNameCountSum) {
+    this.subscriptionTypeNameCountSum = subscriptionTypeNameCountSum;
+  }
+
+  public Integer getSubscriptionTypeNameCountAvg() {
+    return this.subscriptionTypeNameCountAvg;
+  }
+
+  public void setSubscriptionTypeNameCountAvg(Integer subscriptionTypeNameCountAvg) {
+    this.subscriptionTypeNameCountAvg = subscriptionTypeNameCountAvg;
+  }
+
+  public Integer getSubscriptionTypeNameCountMax() {
+    return this.subscriptionTypeNameCountMax;
+  }
+
+  public void setSubscriptionTypeNameCountMax(Integer subscriptionTypeNameCountMax) {
+    this.subscriptionTypeNameCountMax = subscriptionTypeNameCountMax;
+  }
+
+  public Integer getSubscriptionTypeNameCountMin() {
+    return this.subscriptionTypeNameCountMin;
+  }
+
+  public void setSubscriptionTypeNameCountMin(Integer subscriptionTypeNameCountMin) {
+    this.subscriptionTypeNameCountMin = subscriptionTypeNameCountMin;
+  }
+
   public __Type getTypesAggregate() {
     return this.typesAggregate;
   }
@@ -2491,22 +1239,6 @@ public class __Schema implements Meta {
     this.directivesAggregate = directivesAggregate;
   }
 
-  public __Directive getDirectivesAggregate() {
-    return this.directivesAggregate;
-  }
-
-  public void setDirectivesAggregate(__Directive directivesAggregate) {
-    this.directivesAggregate = directivesAggregate;
-  }
-
-  public __Type getTypesAggregate() {
-    return this.typesAggregate;
-  }
-
-  public void setTypesAggregate(__Type typesAggregate) {
-    this.typesAggregate = typesAggregate;
-  }
-
   public __TypeConnection getTypesConnection() {
     return this.typesConnection;
   }
@@ -2521,21 +1253,5 @@ public class __Schema implements Meta {
 
   public void setDirectivesConnection(__DirectiveConnection directivesConnection) {
     this.directivesConnection = directivesConnection;
-  }
-
-  public __DirectiveConnection getDirectivesConnection() {
-    return this.directivesConnection;
-  }
-
-  public void setDirectivesConnection(__DirectiveConnection directivesConnection) {
-    this.directivesConnection = directivesConnection;
-  }
-
-  public __TypeConnection getTypesConnection() {
-    return this.typesConnection;
-  }
-
-  public void setTypesConnection(__TypeConnection typesConnection) {
-    this.typesConnection = typesConnection;
   }
 }

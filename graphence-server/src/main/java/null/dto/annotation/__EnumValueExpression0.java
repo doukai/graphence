@@ -12,29 +12,29 @@ import null.dto.enumType.Conditional;
 public @interface __EnumValueExpression0 {
   Conditional cond() default Conditional.AND;
 
-  StringExpression name() default @StringExpression;
-
-  StringExpression description() default @StringExpression;
-
   IDExpression id() default @IDExpression;
 
-  StringExpression deprecationReason() default @StringExpression;
+  StringExpression name() default @StringExpression;
 
   StringExpression ofTypeName() default @StringExpression;
 
-  StringExpression createUserId() default @StringExpression;
+  StringExpression description() default @StringExpression;
 
-  StringExpression updateUserId() default @StringExpression;
-
-  StringExpression createTime() default @StringExpression;
+  StringExpression deprecationReason() default @StringExpression;
 
   BooleanExpression isDeprecated() default @BooleanExpression;
 
-  StringExpression updateTime() default @StringExpression;
+  IntExpression version() default @IntExpression;
 
   StringExpression realmId() default @StringExpression;
 
-  IntExpression version() default @IntExpression;
+  StringExpression createUserId() default @StringExpression;
+
+  StringExpression createTime() default @StringExpression;
+
+  StringExpression updateUserId() default @StringExpression;
+
+  StringExpression updateTime() default @StringExpression;
 
   StringExpression createGroupId() default @StringExpression;
 

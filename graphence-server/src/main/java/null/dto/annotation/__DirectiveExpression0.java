@@ -12,33 +12,33 @@ import null.dto.enumType.Conditional;
 public @interface __DirectiveExpression0 {
   Conditional cond() default Conditional.AND;
 
+  IDExpression name() default @IDExpression;
+
+  IntExpression schemaId() default @IntExpression;
+
   StringExpression description() default @StringExpression;
+
+  __DirectiveLocationExpression locations() default @__DirectiveLocationExpression;
 
   BooleanExpression onOperation() default @BooleanExpression;
 
   BooleanExpression onFragment() default @BooleanExpression;
 
-  IntExpression schemaId() default @IntExpression;
-
-  __DirectiveLocationExpression locations() default @__DirectiveLocationExpression;
-
   BooleanExpression onField() default @BooleanExpression;
-
-  IDExpression name() default @IDExpression;
-
-  StringExpression createUserId() default @StringExpression;
-
-  StringExpression updateUserId() default @StringExpression;
-
-  StringExpression createTime() default @StringExpression;
 
   BooleanExpression isDeprecated() default @BooleanExpression;
 
-  StringExpression updateTime() default @StringExpression;
+  IntExpression version() default @IntExpression;
 
   StringExpression realmId() default @StringExpression;
 
-  IntExpression version() default @IntExpression;
+  StringExpression createUserId() default @StringExpression;
+
+  StringExpression createTime() default @StringExpression;
+
+  StringExpression updateUserId() default @StringExpression;
+
+  StringExpression updateTime() default @StringExpression;
 
   StringExpression createGroupId() default @StringExpression;
 

@@ -9,25 +9,25 @@ import null.dto.enumType.Sort;
 @Retention(RetentionPolicy.SOURCE)
 @Target(ElementType.METHOD)
 public @interface __TypeInterfacesOrderBy0 {
-  Sort interfaceName() default Sort.ASC;
-
   Sort id() default Sort.ASC;
 
   Sort typeName() default Sort.ASC;
 
-  Sort createUserId() default Sort.ASC;
-
-  Sort updateUserId() default Sort.ASC;
-
-  Sort createTime() default Sort.ASC;
+  Sort interfaceName() default Sort.ASC;
 
   Sort isDeprecated() default Sort.ASC;
 
-  Sort updateTime() default Sort.ASC;
+  Sort version() default Sort.ASC;
 
   Sort realmId() default Sort.ASC;
 
-  Sort version() default Sort.ASC;
+  Sort createUserId() default Sort.ASC;
+
+  Sort createTime() default Sort.ASC;
+
+  Sort updateUserId() default Sort.ASC;
+
+  Sort updateTime() default Sort.ASC;
 
   Sort createGroupId() default Sort.ASC;
 

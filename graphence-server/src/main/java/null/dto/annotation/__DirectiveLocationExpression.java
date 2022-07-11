@@ -13,7 +13,7 @@ import null.dto.enumType.__DirectiveLocation;
 public @interface __DirectiveLocationExpression {
   Operator opr() default Operator.EQ;
 
-  __DirectiveLocation val() default __DirectiveLocation.ENUM_VALUE;
+  __DirectiveLocation val() default __DirectiveLocation.QUERY;
 
   __DirectiveLocation[] in() default {};
 

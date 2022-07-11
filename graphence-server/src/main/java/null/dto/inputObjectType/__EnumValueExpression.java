@@ -12,63 +12,34 @@ import org.eclipse.microprofile.graphql.Input;
 @Generated("io.graphoenix.java.generator.builder.TypeSpecBuilderProxy")
 @Skip
 public class __EnumValueExpression {
-  private StringExpression name;
-
-  private StringExpression name;
-
-  private StringExpression description;
-
-  private StringExpression description;
-
-  private __TypeExpression ofType;
-
   private StringExpression id;
 
-  private StringExpression deprecationReason;
+  private StringExpression name;
 
   private StringExpression ofTypeName;
 
-  private StringExpression deprecationReason;
-
-  private StringExpression id;
-
   private __TypeExpression ofType;
 
-  private StringExpression ofTypeName;
+  private StringExpression description;
 
-  private StringExpression createUserId;
-
-  private StringExpression createUserId;
-
-  private StringExpression updateUserId;
-
-  private StringExpression createTime;
+  private StringExpression deprecationReason;
 
   @DefaultValue("false")
   private Boolean includeDeprecated;
 
-  @DefaultValue("false")
-  private Boolean includeDeprecated;
-
-  private StringExpression updateTime;
-
-  private StringExpression realmId;
-
-  private StringExpression realmId;
-
-  private StringExpression updateUserId;
-
   private IntExpression version;
 
-  private StringExpression createGroupId;
+  private StringExpression realmId;
+
+  private StringExpression createUserId;
 
   private StringExpression createTime;
 
+  private StringExpression updateUserId;
+
   private StringExpression updateTime;
 
   private StringExpression createGroupId;
-
-  private IntExpression version;
 
   private StringExpression __typename;
 
@@ -79,46 +50,6 @@ public class __EnumValueExpression {
 
   private Collection<__EnumValueExpression> exs;
 
-  public StringExpression getName() {
-    return this.name;
-  }
-
-  public void setName(StringExpression name) {
-    this.name = name;
-  }
-
-  public StringExpression getName() {
-    return this.name;
-  }
-
-  public void setName(StringExpression name) {
-    this.name = name;
-  }
-
-  public StringExpression getDescription() {
-    return this.description;
-  }
-
-  public void setDescription(StringExpression description) {
-    this.description = description;
-  }
-
-  public StringExpression getDescription() {
-    return this.description;
-  }
-
-  public void setDescription(StringExpression description) {
-    this.description = description;
-  }
-
-  public __TypeExpression getOfType() {
-    return this.ofType;
-  }
-
-  public void setOfType(__TypeExpression ofType) {
-    this.ofType = ofType;
-  }
-
   public StringExpression getId() {
     return this.id;
   }
@@ -127,12 +58,12 @@ public class __EnumValueExpression {
     this.id = id;
   }
 
-  public StringExpression getDeprecationReason() {
-    return this.deprecationReason;
+  public StringExpression getName() {
+    return this.name;
   }
 
-  public void setDeprecationReason(StringExpression deprecationReason) {
-    this.deprecationReason = deprecationReason;
+  public void setName(StringExpression name) {
+    this.name = name;
   }
 
   public StringExpression getOfTypeName() {
@@ -143,22 +74,6 @@ public class __EnumValueExpression {
     this.ofTypeName = ofTypeName;
   }
 
-  public StringExpression getDeprecationReason() {
-    return this.deprecationReason;
-  }
-
-  public void setDeprecationReason(StringExpression deprecationReason) {
-    this.deprecationReason = deprecationReason;
-  }
-
-  public StringExpression getId() {
-    return this.id;
-  }
-
-  public void setId(StringExpression id) {
-    this.id = id;
-  }
-
   public __TypeExpression getOfType() {
     return this.ofType;
   }
@@ -167,44 +82,20 @@ public class __EnumValueExpression {
     this.ofType = ofType;
   }
 
-  public StringExpression getOfTypeName() {
-    return this.ofTypeName;
+  public StringExpression getDescription() {
+    return this.description;
   }
 
-  public void setOfTypeName(StringExpression ofTypeName) {
-    this.ofTypeName = ofTypeName;
+  public void setDescription(StringExpression description) {
+    this.description = description;
   }
 
-  public StringExpression getCreateUserId() {
-    return this.createUserId;
+  public StringExpression getDeprecationReason() {
+    return this.deprecationReason;
   }
 
-  public void setCreateUserId(StringExpression createUserId) {
-    this.createUserId = createUserId;
-  }
-
-  public StringExpression getCreateUserId() {
-    return this.createUserId;
-  }
-
-  public void setCreateUserId(StringExpression createUserId) {
-    this.createUserId = createUserId;
-  }
-
-  public StringExpression getUpdateUserId() {
-    return this.updateUserId;
-  }
-
-  public void setUpdateUserId(StringExpression updateUserId) {
-    this.updateUserId = updateUserId;
-  }
-
-  public StringExpression getCreateTime() {
-    return this.createTime;
-  }
-
-  public void setCreateTime(StringExpression createTime) {
-    this.createTime = createTime;
+  public void setDeprecationReason(StringExpression deprecationReason) {
+    this.deprecationReason = deprecationReason;
   }
 
   public Boolean getIncludeDeprecated() {
@@ -213,46 +104,6 @@ public class __EnumValueExpression {
 
   public void setIncludeDeprecated(Boolean includeDeprecated) {
     this.includeDeprecated = includeDeprecated;
-  }
-
-  public Boolean getIncludeDeprecated() {
-    return this.includeDeprecated;
-  }
-
-  public void setIncludeDeprecated(Boolean includeDeprecated) {
-    this.includeDeprecated = includeDeprecated;
-  }
-
-  public StringExpression getUpdateTime() {
-    return this.updateTime;
-  }
-
-  public void setUpdateTime(StringExpression updateTime) {
-    this.updateTime = updateTime;
-  }
-
-  public StringExpression getRealmId() {
-    return this.realmId;
-  }
-
-  public void setRealmId(StringExpression realmId) {
-    this.realmId = realmId;
-  }
-
-  public StringExpression getRealmId() {
-    return this.realmId;
-  }
-
-  public void setRealmId(StringExpression realmId) {
-    this.realmId = realmId;
-  }
-
-  public StringExpression getUpdateUserId() {
-    return this.updateUserId;
-  }
-
-  public void setUpdateUserId(StringExpression updateUserId) {
-    this.updateUserId = updateUserId;
   }
 
   public IntExpression getVersion() {
@@ -263,12 +114,20 @@ public class __EnumValueExpression {
     this.version = version;
   }
 
-  public StringExpression getCreateGroupId() {
-    return this.createGroupId;
+  public StringExpression getRealmId() {
+    return this.realmId;
   }
 
-  public void setCreateGroupId(StringExpression createGroupId) {
-    this.createGroupId = createGroupId;
+  public void setRealmId(StringExpression realmId) {
+    this.realmId = realmId;
+  }
+
+  public StringExpression getCreateUserId() {
+    return this.createUserId;
+  }
+
+  public void setCreateUserId(StringExpression createUserId) {
+    this.createUserId = createUserId;
   }
 
   public StringExpression getCreateTime() {
@@ -277,6 +136,14 @@ public class __EnumValueExpression {
 
   public void setCreateTime(StringExpression createTime) {
     this.createTime = createTime;
+  }
+
+  public StringExpression getUpdateUserId() {
+    return this.updateUserId;
+  }
+
+  public void setUpdateUserId(StringExpression updateUserId) {
+    this.updateUserId = updateUserId;
   }
 
   public StringExpression getUpdateTime() {
@@ -293,14 +160,6 @@ public class __EnumValueExpression {
 
   public void setCreateGroupId(StringExpression createGroupId) {
     this.createGroupId = createGroupId;
-  }
-
-  public IntExpression getVersion() {
-    return this.version;
-  }
-
-  public void setVersion(IntExpression version) {
-    this.version = version;
   }
 
   public StringExpression get__Typename() {

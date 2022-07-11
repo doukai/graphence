@@ -26,19 +26,19 @@ public @interface UserExpression0 {
 
   BooleanExpression disable() default @BooleanExpression;
 
-  StringExpression createUserId() default @StringExpression;
-
-  StringExpression updateUserId() default @StringExpression;
-
-  StringExpression createTime() default @StringExpression;
-
   BooleanExpression isDeprecated() default @BooleanExpression;
 
-  StringExpression updateTime() default @StringExpression;
+  IntExpression version() default @IntExpression;
 
   StringExpression realmId() default @StringExpression;
 
-  IntExpression version() default @IntExpression;
+  StringExpression createUserId() default @StringExpression;
+
+  StringExpression createTime() default @StringExpression;
+
+  StringExpression updateUserId() default @StringExpression;
+
+  StringExpression updateTime() default @StringExpression;
 
   StringExpression createGroupId() default @StringExpression;
 

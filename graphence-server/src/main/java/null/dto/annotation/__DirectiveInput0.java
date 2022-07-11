@@ -10,39 +10,45 @@ import null.dto.enumType.__DirectiveLocation;
 @Retention(RetentionPolicy.SOURCE)
 @Target(ElementType.METHOD)
 public @interface __DirectiveInput0 {
+  String name() default "";
+
+  int schemaId() default 0;
+
   String description() default "";
+
+  __DirectiveLocation[] locations() default {};
 
   boolean onOperation() default false;
 
   boolean onFragment() default false;
 
-  int schemaId() default 0;
-
-  __DirectiveLocation[] locations() default {};
-
   boolean onField() default false;
-
-  String name() default "";
-
-  String createUserId() default "";
-
-  String updateUserId() default "";
-
-  String createTime() default "";
 
   boolean isDeprecated() default false;
 
-  String updateTime() default "";
+  int version() default 0;
 
   String realmId() default "";
 
-  int version() default 0;
+  String createUserId() default "";
+
+  String createTime() default "";
+
+  String updateUserId() default "";
+
+  String updateTime() default "";
 
   String createGroupId() default "";
 
   String __typename() default "";
 
+  String $name() default "";
+
+  String $schemaId() default "";
+
   String $description() default "";
+
+  String $locations() default "";
 
   String $args() default "";
 
@@ -50,27 +56,21 @@ public @interface __DirectiveInput0 {
 
   String $onFragment() default "";
 
-  String $schemaId() default "";
-
-  String $locations() default "";
-
   String $onField() default "";
-
-  String $name() default "";
-
-  String $createUserId() default "";
-
-  String $updateUserId() default "";
-
-  String $createTime() default "";
 
   String $isDeprecated() default "";
 
-  String $updateTime() default "";
+  String $version() default "";
 
   String $realmId() default "";
 
-  String $version() default "";
+  String $createUserId() default "";
+
+  String $createTime() default "";
+
+  String $updateUserId() default "";
+
+  String $updateTime() default "";
 
   String $createGroupId() default "";
 

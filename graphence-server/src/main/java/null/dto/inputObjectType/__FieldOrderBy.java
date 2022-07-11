@@ -9,19 +9,15 @@ import org.eclipse.microprofile.graphql.Input;
 @Generated("io.graphoenix.java.generator.builder.TypeSpecBuilderProxy")
 @Skip
 public class __FieldOrderBy {
-  private Sort withTo;
-
   private Sort id;
 
   private Sort name;
 
   private Sort typeName;
 
-  private Sort to;
+  private Sort ofTypeName;
 
   private Sort description;
-
-  private Sort from;
 
   private Sort deprecationReason;
 
@@ -33,69 +29,27 @@ public class __FieldOrderBy {
 
   private Sort withFrom;
 
-  private Sort typeName;
-
-  private Sort ofTypeName;
-
-  private Sort withFrom;
-
-  private Sort name;
-
-  private Sort ofTypeName;
-
   private Sort withTo;
 
-  private Sort deprecationReason;
-
-  private Sort withType;
-
-  private Sort id;
-
-  private Sort description;
-
-  private Sort createUserId;
-
-  private Sort createUserId;
-
-  private Sort updateUserId;
-
-  private Sort createTime;
-
   private Sort isDeprecated;
-
-  private Sort isDeprecated;
-
-  private Sort updateTime;
-
-  private Sort realmId;
-
-  private Sort realmId;
-
-  private Sort updateUserId;
 
   private Sort version;
 
-  private Sort createGroupId;
+  private Sort realmId;
+
+  private Sort createUserId;
 
   private Sort createTime;
+
+  private Sort updateUserId;
 
   private Sort updateTime;
 
   private Sort createGroupId;
 
-  private Sort version;
-
   private Sort __typename;
 
   private Sort __typename;
-
-  public Sort getWithTo() {
-    return this.withTo;
-  }
-
-  public void setWithTo(Sort withTo) {
-    this.withTo = withTo;
-  }
 
   public Sort getId() {
     return this.id;
@@ -121,12 +75,12 @@ public class __FieldOrderBy {
     this.typeName = typeName;
   }
 
-  public Sort getTo() {
-    return this.to;
+  public Sort getOfTypeName() {
+    return this.ofTypeName;
   }
 
-  public void setTo(Sort to) {
-    this.to = to;
+  public void setOfTypeName(Sort ofTypeName) {
+    this.ofTypeName = ofTypeName;
   }
 
   public Sort getDescription() {
@@ -135,14 +89,6 @@ public class __FieldOrderBy {
 
   public void setDescription(Sort description) {
     this.description = description;
-  }
-
-  public Sort getFrom() {
-    return this.from;
-  }
-
-  public void setFrom(Sort from) {
-    this.from = from;
   }
 
   public Sort getDeprecationReason() {
@@ -185,46 +131,6 @@ public class __FieldOrderBy {
     this.withFrom = withFrom;
   }
 
-  public Sort getTypeName() {
-    return this.typeName;
-  }
-
-  public void setTypeName(Sort typeName) {
-    this.typeName = typeName;
-  }
-
-  public Sort getOfTypeName() {
-    return this.ofTypeName;
-  }
-
-  public void setOfTypeName(Sort ofTypeName) {
-    this.ofTypeName = ofTypeName;
-  }
-
-  public Sort getWithFrom() {
-    return this.withFrom;
-  }
-
-  public void setWithFrom(Sort withFrom) {
-    this.withFrom = withFrom;
-  }
-
-  public Sort getName() {
-    return this.name;
-  }
-
-  public void setName(Sort name) {
-    this.name = name;
-  }
-
-  public Sort getOfTypeName() {
-    return this.ofTypeName;
-  }
-
-  public void setOfTypeName(Sort ofTypeName) {
-    this.ofTypeName = ofTypeName;
-  }
-
   public Sort getWithTo() {
     return this.withTo;
   }
@@ -233,116 +139,12 @@ public class __FieldOrderBy {
     this.withTo = withTo;
   }
 
-  public Sort getDeprecationReason() {
-    return this.deprecationReason;
-  }
-
-  public void setDeprecationReason(Sort deprecationReason) {
-    this.deprecationReason = deprecationReason;
-  }
-
-  public Sort getWithType() {
-    return this.withType;
-  }
-
-  public void setWithType(Sort withType) {
-    this.withType = withType;
-  }
-
-  public Sort getId() {
-    return this.id;
-  }
-
-  public void setId(Sort id) {
-    this.id = id;
-  }
-
-  public Sort getDescription() {
-    return this.description;
-  }
-
-  public void setDescription(Sort description) {
-    this.description = description;
-  }
-
-  public Sort getCreateUserId() {
-    return this.createUserId;
-  }
-
-  public void setCreateUserId(Sort createUserId) {
-    this.createUserId = createUserId;
-  }
-
-  public Sort getCreateUserId() {
-    return this.createUserId;
-  }
-
-  public void setCreateUserId(Sort createUserId) {
-    this.createUserId = createUserId;
-  }
-
-  public Sort getUpdateUserId() {
-    return this.updateUserId;
-  }
-
-  public void setUpdateUserId(Sort updateUserId) {
-    this.updateUserId = updateUserId;
-  }
-
-  public Sort getCreateTime() {
-    return this.createTime;
-  }
-
-  public void setCreateTime(Sort createTime) {
-    this.createTime = createTime;
-  }
-
   public Sort getIsDeprecated() {
     return this.isDeprecated;
   }
 
   public void setIsDeprecated(Sort isDeprecated) {
     this.isDeprecated = isDeprecated;
-  }
-
-  public Sort getIsDeprecated() {
-    return this.isDeprecated;
-  }
-
-  public void setIsDeprecated(Sort isDeprecated) {
-    this.isDeprecated = isDeprecated;
-  }
-
-  public Sort getUpdateTime() {
-    return this.updateTime;
-  }
-
-  public void setUpdateTime(Sort updateTime) {
-    this.updateTime = updateTime;
-  }
-
-  public Sort getRealmId() {
-    return this.realmId;
-  }
-
-  public void setRealmId(Sort realmId) {
-    this.realmId = realmId;
-  }
-
-  public Sort getRealmId() {
-    return this.realmId;
-  }
-
-  public void setRealmId(Sort realmId) {
-    this.realmId = realmId;
-  }
-
-  public Sort getUpdateUserId() {
-    return this.updateUserId;
-  }
-
-  public void setUpdateUserId(Sort updateUserId) {
-    this.updateUserId = updateUserId;
   }
 
   public Sort getVersion() {
@@ -353,12 +155,20 @@ public class __FieldOrderBy {
     this.version = version;
   }
 
-  public Sort getCreateGroupId() {
-    return this.createGroupId;
+  public Sort getRealmId() {
+    return this.realmId;
   }
 
-  public void setCreateGroupId(Sort createGroupId) {
-    this.createGroupId = createGroupId;
+  public void setRealmId(Sort realmId) {
+    this.realmId = realmId;
+  }
+
+  public Sort getCreateUserId() {
+    return this.createUserId;
+  }
+
+  public void setCreateUserId(Sort createUserId) {
+    this.createUserId = createUserId;
   }
 
   public Sort getCreateTime() {
@@ -367,6 +177,14 @@ public class __FieldOrderBy {
 
   public void setCreateTime(Sort createTime) {
     this.createTime = createTime;
+  }
+
+  public Sort getUpdateUserId() {
+    return this.updateUserId;
+  }
+
+  public void setUpdateUserId(Sort updateUserId) {
+    this.updateUserId = updateUserId;
   }
 
   public Sort getUpdateTime() {
@@ -383,14 +201,6 @@ public class __FieldOrderBy {
 
   public void setCreateGroupId(Sort createGroupId) {
     this.createGroupId = createGroupId;
-  }
-
-  public Sort getVersion() {
-    return this.version;
-  }
-
-  public void setVersion(Sort version) {
-    this.version = version;
   }
 
   public Sort get__Typename() {

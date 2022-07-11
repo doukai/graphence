@@ -9,47 +9,45 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.SOURCE)
 @Target(ElementType.METHOD)
 public @interface __FieldInput0 {
-  String withTo() default "";
-
   String id() default "";
 
   String name() default "";
 
   String typeName() default "";
 
-  String to() default "";
+  String ofTypeName() default "";
 
   String description() default "";
 
+  String deprecationReason() default "";
+
   String from() default "";
 
-  String deprecationReason() default "";
+  String to() default "";
 
   String withType() default "";
 
   String withFrom() default "";
 
-  String ofTypeName() default "";
-
-  String createUserId() default "";
-
-  String updateUserId() default "";
-
-  String createTime() default "";
+  String withTo() default "";
 
   boolean isDeprecated() default false;
 
-  String updateTime() default "";
+  int version() default 0;
 
   String realmId() default "";
 
-  int version() default 0;
+  String createUserId() default "";
+
+  String createTime() default "";
+
+  String updateUserId() default "";
+
+  String updateTime() default "";
 
   String createGroupId() default "";
 
   String __typename() default "";
-
-  String $withTo() default "";
 
   String $id() default "";
 
@@ -57,39 +55,41 @@ public @interface __FieldInput0 {
 
   String $typeName() default "";
 
-  String $to() default "";
-
-  String $description() default "";
-
-  String $from() default "";
+  String $ofTypeName() default "";
 
   String $ofType() default "";
 
-  String $deprecationReason() default "";
+  String $description() default "";
 
   String $args() default "";
 
-  String $withType() default "";
-
   String $type() default "";
+
+  String $deprecationReason() default "";
+
+  String $from() default "";
+
+  String $to() default "";
+
+  String $withType() default "";
 
   String $withFrom() default "";
 
-  String $ofTypeName() default "";
-
-  String $createUserId() default "";
-
-  String $updateUserId() default "";
-
-  String $createTime() default "";
+  String $withTo() default "";
 
   String $isDeprecated() default "";
 
-  String $updateTime() default "";
+  String $version() default "";
 
   String $realmId() default "";
 
-  String $version() default "";
+  String $createUserId() default "";
+
+  String $createTime() default "";
+
+  String $updateUserId() default "";
+
+  String $updateTime() default "";
 
   String $createGroupId() default "";
 

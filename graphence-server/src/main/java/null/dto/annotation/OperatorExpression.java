@@ -12,7 +12,7 @@ import null.dto.enumType.Operator;
 public @interface OperatorExpression {
   Operator opr() default Operator.EQ;
 
-  Operator val() default Operator.GTE;
+  Operator val() default Operator.EQ;
 
   Operator[] in() default {};
 

@@ -14,81 +14,42 @@ import org.eclipse.microprofile.graphql.Input;
 public class __TypeExpression {
   private StringExpression name;
 
-  private __TypeExpression possibleTypes;
-
-  private StringExpression description;
-
-  private __EnumValueExpression enumValues;
-
-  private __TypeExpression ofType;
-
-  private StringExpression name;
-
   private IntExpression schemaId;
-
-  private IntExpression schemaId;
-
-  private __FieldExpression fields;
-
-  private __TypeExpression interfaces;
-
-  private __TypeExpression interfaces;
 
   private __TypeKindExpression kind;
 
   private StringExpression description;
 
-  private __TypeExpression possibleTypes;
-
-  private __TypeExpression ofType;
-
-  private __InputValueExpression inputFields;
-
   private __FieldExpression fields;
+
+  private __TypeExpression interfaces;
+
+  private __TypeExpression possibleTypes;
 
   private __EnumValueExpression enumValues;
 
-  private __TypeKindExpression kind;
-
   private __InputValueExpression inputFields;
 
   private StringExpression ofTypeName;
 
-  private StringExpression ofTypeName;
-
-  private StringExpression createUserId;
-
-  private StringExpression createUserId;
-
-  private StringExpression updateUserId;
-
-  private StringExpression createTime;
+  private __TypeExpression ofType;
 
   @DefaultValue("false")
   private Boolean includeDeprecated;
 
-  @DefaultValue("false")
-  private Boolean includeDeprecated;
-
-  private StringExpression updateTime;
-
-  private StringExpression realmId;
-
-  private StringExpression realmId;
-
-  private StringExpression updateUserId;
-
   private IntExpression version;
 
-  private StringExpression createGroupId;
+  private StringExpression realmId;
+
+  private StringExpression createUserId;
 
   private StringExpression createTime;
 
+  private StringExpression updateUserId;
+
   private StringExpression updateTime;
 
   private StringExpression createGroupId;
-
-  private IntExpression version;
 
   private StringExpression __typename;
 
@@ -107,84 +68,12 @@ public class __TypeExpression {
     this.name = name;
   }
 
-  public __TypeExpression getPossibleTypes() {
-    return this.possibleTypes;
-  }
-
-  public void setPossibleTypes(__TypeExpression possibleTypes) {
-    this.possibleTypes = possibleTypes;
-  }
-
-  public StringExpression getDescription() {
-    return this.description;
-  }
-
-  public void setDescription(StringExpression description) {
-    this.description = description;
-  }
-
-  public __EnumValueExpression getEnumValues() {
-    return this.enumValues;
-  }
-
-  public void setEnumValues(__EnumValueExpression enumValues) {
-    this.enumValues = enumValues;
-  }
-
-  public __TypeExpression getOfType() {
-    return this.ofType;
-  }
-
-  public void setOfType(__TypeExpression ofType) {
-    this.ofType = ofType;
-  }
-
-  public StringExpression getName() {
-    return this.name;
-  }
-
-  public void setName(StringExpression name) {
-    this.name = name;
-  }
-
   public IntExpression getSchemaId() {
     return this.schemaId;
   }
 
   public void setSchemaId(IntExpression schemaId) {
     this.schemaId = schemaId;
-  }
-
-  public IntExpression getSchemaId() {
-    return this.schemaId;
-  }
-
-  public void setSchemaId(IntExpression schemaId) {
-    this.schemaId = schemaId;
-  }
-
-  public __FieldExpression getFields() {
-    return this.fields;
-  }
-
-  public void setFields(__FieldExpression fields) {
-    this.fields = fields;
-  }
-
-  public __TypeExpression getInterfaces() {
-    return this.interfaces;
-  }
-
-  public void setInterfaces(__TypeExpression interfaces) {
-    this.interfaces = interfaces;
-  }
-
-  public __TypeExpression getInterfaces() {
-    return this.interfaces;
-  }
-
-  public void setInterfaces(__TypeExpression interfaces) {
-    this.interfaces = interfaces;
   }
 
   public __TypeKindExpression getKind() {
@@ -203,36 +92,28 @@ public class __TypeExpression {
     this.description = description;
   }
 
-  public __TypeExpression getPossibleTypes() {
-    return this.possibleTypes;
-  }
-
-  public void setPossibleTypes(__TypeExpression possibleTypes) {
-    this.possibleTypes = possibleTypes;
-  }
-
-  public __TypeExpression getOfType() {
-    return this.ofType;
-  }
-
-  public void setOfType(__TypeExpression ofType) {
-    this.ofType = ofType;
-  }
-
-  public __InputValueExpression getInputFields() {
-    return this.inputFields;
-  }
-
-  public void setInputFields(__InputValueExpression inputFields) {
-    this.inputFields = inputFields;
-  }
-
   public __FieldExpression getFields() {
     return this.fields;
   }
 
   public void setFields(__FieldExpression fields) {
     this.fields = fields;
+  }
+
+  public __TypeExpression getInterfaces() {
+    return this.interfaces;
+  }
+
+  public void setInterfaces(__TypeExpression interfaces) {
+    this.interfaces = interfaces;
+  }
+
+  public __TypeExpression getPossibleTypes() {
+    return this.possibleTypes;
+  }
+
+  public void setPossibleTypes(__TypeExpression possibleTypes) {
+    this.possibleTypes = possibleTypes;
   }
 
   public __EnumValueExpression getEnumValues() {
@@ -243,14 +124,6 @@ public class __TypeExpression {
     this.enumValues = enumValues;
   }
 
-  public __TypeKindExpression getKind() {
-    return this.kind;
-  }
-
-  public void setKind(__TypeKindExpression kind) {
-    this.kind = kind;
-  }
-
   public __InputValueExpression getInputFields() {
     return this.inputFields;
   }
@@ -267,44 +140,12 @@ public class __TypeExpression {
     this.ofTypeName = ofTypeName;
   }
 
-  public StringExpression getOfTypeName() {
-    return this.ofTypeName;
+  public __TypeExpression getOfType() {
+    return this.ofType;
   }
 
-  public void setOfTypeName(StringExpression ofTypeName) {
-    this.ofTypeName = ofTypeName;
-  }
-
-  public StringExpression getCreateUserId() {
-    return this.createUserId;
-  }
-
-  public void setCreateUserId(StringExpression createUserId) {
-    this.createUserId = createUserId;
-  }
-
-  public StringExpression getCreateUserId() {
-    return this.createUserId;
-  }
-
-  public void setCreateUserId(StringExpression createUserId) {
-    this.createUserId = createUserId;
-  }
-
-  public StringExpression getUpdateUserId() {
-    return this.updateUserId;
-  }
-
-  public void setUpdateUserId(StringExpression updateUserId) {
-    this.updateUserId = updateUserId;
-  }
-
-  public StringExpression getCreateTime() {
-    return this.createTime;
-  }
-
-  public void setCreateTime(StringExpression createTime) {
-    this.createTime = createTime;
+  public void setOfType(__TypeExpression ofType) {
+    this.ofType = ofType;
   }
 
   public Boolean getIncludeDeprecated() {
@@ -313,46 +154,6 @@ public class __TypeExpression {
 
   public void setIncludeDeprecated(Boolean includeDeprecated) {
     this.includeDeprecated = includeDeprecated;
-  }
-
-  public Boolean getIncludeDeprecated() {
-    return this.includeDeprecated;
-  }
-
-  public void setIncludeDeprecated(Boolean includeDeprecated) {
-    this.includeDeprecated = includeDeprecated;
-  }
-
-  public StringExpression getUpdateTime() {
-    return this.updateTime;
-  }
-
-  public void setUpdateTime(StringExpression updateTime) {
-    this.updateTime = updateTime;
-  }
-
-  public StringExpression getRealmId() {
-    return this.realmId;
-  }
-
-  public void setRealmId(StringExpression realmId) {
-    this.realmId = realmId;
-  }
-
-  public StringExpression getRealmId() {
-    return this.realmId;
-  }
-
-  public void setRealmId(StringExpression realmId) {
-    this.realmId = realmId;
-  }
-
-  public StringExpression getUpdateUserId() {
-    return this.updateUserId;
-  }
-
-  public void setUpdateUserId(StringExpression updateUserId) {
-    this.updateUserId = updateUserId;
   }
 
   public IntExpression getVersion() {
@@ -363,12 +164,20 @@ public class __TypeExpression {
     this.version = version;
   }
 
-  public StringExpression getCreateGroupId() {
-    return this.createGroupId;
+  public StringExpression getRealmId() {
+    return this.realmId;
   }
 
-  public void setCreateGroupId(StringExpression createGroupId) {
-    this.createGroupId = createGroupId;
+  public void setRealmId(StringExpression realmId) {
+    this.realmId = realmId;
+  }
+
+  public StringExpression getCreateUserId() {
+    return this.createUserId;
+  }
+
+  public void setCreateUserId(StringExpression createUserId) {
+    this.createUserId = createUserId;
   }
 
   public StringExpression getCreateTime() {
@@ -377,6 +186,14 @@ public class __TypeExpression {
 
   public void setCreateTime(StringExpression createTime) {
     this.createTime = createTime;
+  }
+
+  public StringExpression getUpdateUserId() {
+    return this.updateUserId;
+  }
+
+  public void setUpdateUserId(StringExpression updateUserId) {
+    this.updateUserId = updateUserId;
   }
 
   public StringExpression getUpdateTime() {
@@ -393,14 +210,6 @@ public class __TypeExpression {
 
   public void setCreateGroupId(StringExpression createGroupId) {
     this.createGroupId = createGroupId;
-  }
-
-  public IntExpression getVersion() {
-    return this.version;
-  }
-
-  public void setVersion(IntExpression version) {
-    this.version = version;
   }
 
   public StringExpression get__Typename() {

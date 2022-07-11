@@ -8,39 +8,39 @@ import org.eclipse.microprofile.graphql.Enum;
 @Generated("io.graphoenix.java.generator.builder.TypeSpecBuilderProxy")
 @Skip
 public enum Operator {
-  GTE,
+  EQ,
 
   NEQ,
 
-  GT,
-
-  EQ,
-
   LK,
-
-  NBT,
-
-  NGTE,
-
-  IN,
-
-  NLTE,
 
   NLK,
 
-  NNIL,
+  GT,
+
+  NLTE,
+
+  GTE,
+
+  NLT,
+
+  LT,
+
+  NGTE,
+
+  LTE,
 
   NGT,
 
   NIL,
 
-  BT,
+  NNIL,
 
-  LT,
-
-  NLT,
+  IN,
 
   NIN,
 
-  LTE
+  BT,
+
+  NBT
 }

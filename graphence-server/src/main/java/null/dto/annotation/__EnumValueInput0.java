@@ -9,59 +9,59 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.SOURCE)
 @Target(ElementType.METHOD)
 public @interface __EnumValueInput0 {
-  String name() default "";
-
-  String description() default "";
-
   String id() default "";
 
-  String deprecationReason() default "";
+  String name() default "";
 
   String ofTypeName() default "";
 
-  String createUserId() default "";
+  String description() default "";
 
-  String updateUserId() default "";
-
-  String createTime() default "";
+  String deprecationReason() default "";
 
   boolean isDeprecated() default false;
 
-  String updateTime() default "";
+  int version() default 0;
 
   String realmId() default "";
 
-  int version() default 0;
+  String createUserId() default "";
+
+  String createTime() default "";
+
+  String updateUserId() default "";
+
+  String updateTime() default "";
 
   String createGroupId() default "";
 
   String __typename() default "";
 
-  String $name() default "";
-
-  String $description() default "";
-
-  String $ofType() default "";
-
   String $id() default "";
 
-  String $deprecationReason() default "";
+  String $name() default "";
 
   String $ofTypeName() default "";
 
-  String $createUserId() default "";
+  String $ofType() default "";
 
-  String $updateUserId() default "";
+  String $description() default "";
 
-  String $createTime() default "";
+  String $deprecationReason() default "";
 
   String $isDeprecated() default "";
 
-  String $updateTime() default "";
+  String $version() default "";
 
   String $realmId() default "";
 
-  String $version() default "";
+  String $createUserId() default "";
+
+  String $createTime() default "";
+
+  String $updateUserId() default "";
+
+  String $updateTime() default "";
 
   String $createGroupId() default "";
 

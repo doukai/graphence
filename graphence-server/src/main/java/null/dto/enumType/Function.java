@@ -12,9 +12,9 @@ public enum Function {
 
   MAX,
 
-  SUM,
-
   MIN,
+
+  SUM,
 
   AVG
 }

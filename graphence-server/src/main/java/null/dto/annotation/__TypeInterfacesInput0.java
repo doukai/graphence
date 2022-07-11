@@ -9,49 +9,49 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.SOURCE)
 @Target(ElementType.METHOD)
 public @interface __TypeInterfacesInput0 {
-  String interfaceName() default "";
-
   String id() default "";
 
   String typeName() default "";
 
-  String createUserId() default "";
-
-  String updateUserId() default "";
-
-  String createTime() default "";
+  String interfaceName() default "";
 
   boolean isDeprecated() default false;
 
-  String updateTime() default "";
+  int version() default 0;
 
   String realmId() default "";
 
-  int version() default 0;
+  String createUserId() default "";
+
+  String createTime() default "";
+
+  String updateUserId() default "";
+
+  String updateTime() default "";
 
   String createGroupId() default "";
 
   String __typename() default "";
 
-  String $interfaceName() default "";
-
   String $id() default "";
 
   String $typeName() default "";
 
-  String $createUserId() default "";
-
-  String $updateUserId() default "";
-
-  String $createTime() default "";
+  String $interfaceName() default "";
 
   String $isDeprecated() default "";
 
-  String $updateTime() default "";
+  String $version() default "";
 
   String $realmId() default "";
 
-  String $version() default "";
+  String $createUserId() default "";
+
+  String $createTime() default "";
+
+  String $updateUserId() default "";
+
+  String $updateTime() default "";
 
   String $createGroupId() default "";
 

@@ -14,27 +14,27 @@ public @interface __TypeExpression0 {
 
   IDExpression name() default @IDExpression;
 
-  StringExpression description() default @StringExpression;
-
   IntExpression schemaId() default @IntExpression;
 
   __TypeKindExpression kind() default @__TypeKindExpression;
 
+  StringExpression description() default @StringExpression;
+
   StringExpression ofTypeName() default @StringExpression;
-
-  StringExpression createUserId() default @StringExpression;
-
-  StringExpression updateUserId() default @StringExpression;
-
-  StringExpression createTime() default @StringExpression;
 
   BooleanExpression isDeprecated() default @BooleanExpression;
 
-  StringExpression updateTime() default @StringExpression;
+  IntExpression version() default @IntExpression;
 
   StringExpression realmId() default @StringExpression;
 
-  IntExpression version() default @IntExpression;
+  StringExpression createUserId() default @StringExpression;
+
+  StringExpression createTime() default @StringExpression;
+
+  StringExpression updateUserId() default @StringExpression;
+
+  StringExpression updateTime() default @StringExpression;
 
   StringExpression createGroupId() default @StringExpression;
 

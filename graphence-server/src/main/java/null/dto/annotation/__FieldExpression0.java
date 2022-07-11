@@ -12,41 +12,41 @@ import null.dto.enumType.Conditional;
 public @interface __FieldExpression0 {
   Conditional cond() default Conditional.AND;
 
-  StringExpression withTo() default @StringExpression;
-
   IDExpression id() default @IDExpression;
 
   StringExpression name() default @StringExpression;
 
   StringExpression typeName() default @StringExpression;
 
-  StringExpression to() default @StringExpression;
+  StringExpression ofTypeName() default @StringExpression;
 
   StringExpression description() default @StringExpression;
 
+  StringExpression deprecationReason() default @StringExpression;
+
   StringExpression from() default @StringExpression;
 
-  StringExpression deprecationReason() default @StringExpression;
+  StringExpression to() default @StringExpression;
 
   StringExpression withType() default @StringExpression;
 
   StringExpression withFrom() default @StringExpression;
 
-  StringExpression ofTypeName() default @StringExpression;
-
-  StringExpression createUserId() default @StringExpression;
-
-  StringExpression updateUserId() default @StringExpression;
-
-  StringExpression createTime() default @StringExpression;
+  StringExpression withTo() default @StringExpression;
 
   BooleanExpression isDeprecated() default @BooleanExpression;
 
-  StringExpression updateTime() default @StringExpression;
+  IntExpression version() default @IntExpression;
 
   StringExpression realmId() default @StringExpression;
 
-  IntExpression version() default @IntExpression;
+  StringExpression createUserId() default @StringExpression;
+
+  StringExpression createTime() default @StringExpression;
+
+  StringExpression updateUserId() default @StringExpression;
+
+  StringExpression updateTime() default @StringExpression;
 
   StringExpression createGroupId() default @StringExpression;
 

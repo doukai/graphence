@@ -13,7 +13,7 @@ import null.dto.enumType.__TypeKind;
 public @interface __TypeKindExpression {
   Operator opr() default Operator.EQ;
 
-  __TypeKind val() default __TypeKind.LIST;
+  __TypeKind val() default __TypeKind.SCALAR;
 
   __TypeKind[] in() default {};
 

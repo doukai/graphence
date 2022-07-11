@@ -12,27 +12,27 @@ import null.dto.enumType.Conditional;
 public @interface __SchemaExpression0 {
   Conditional cond() default Conditional.AND;
 
-  StringExpression mutationTypeName() default @StringExpression;
+  IDExpression id() default @IDExpression;
 
   StringExpression queryTypeName() default @StringExpression;
 
-  IDExpression id() default @IDExpression;
+  StringExpression mutationTypeName() default @StringExpression;
 
   StringExpression subscriptionTypeName() default @StringExpression;
 
-  StringExpression createUserId() default @StringExpression;
-
-  StringExpression updateUserId() default @StringExpression;
-
-  StringExpression createTime() default @StringExpression;
-
   BooleanExpression isDeprecated() default @BooleanExpression;
 
-  StringExpression updateTime() default @StringExpression;
+  IntExpression version() default @IntExpression;
 
   StringExpression realmId() default @StringExpression;
 
-  IntExpression version() default @IntExpression;
+  StringExpression createUserId() default @StringExpression;
+
+  StringExpression createTime() default @StringExpression;
+
+  StringExpression updateUserId() default @StringExpression;
+
+  StringExpression updateTime() default @StringExpression;
 
   StringExpression createGroupId() default @StringExpression;
 

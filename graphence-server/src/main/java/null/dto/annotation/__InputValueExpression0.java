@@ -12,35 +12,35 @@ import null.dto.enumType.Conditional;
 public @interface __InputValueExpression0 {
   Conditional cond() default Conditional.AND;
 
-  StringExpression typeName() default @StringExpression;
+  IDExpression id() default @IDExpression;
 
   StringExpression name() default @StringExpression;
 
-  StringExpression description() default @StringExpression;
-
-  StringExpression directiveName() default @StringExpression;
-
-  IDExpression id() default @IDExpression;
-
-  IntExpression fieldId() default @IntExpression;
+  StringExpression typeName() default @StringExpression;
 
   StringExpression ofTypeName() default @StringExpression;
 
+  IntExpression fieldId() default @IntExpression;
+
+  StringExpression directiveName() default @StringExpression;
+
+  StringExpression description() default @StringExpression;
+
   StringExpression defaultValue() default @StringExpression;
-
-  StringExpression createUserId() default @StringExpression;
-
-  StringExpression updateUserId() default @StringExpression;
-
-  StringExpression createTime() default @StringExpression;
 
   BooleanExpression isDeprecated() default @BooleanExpression;
 
-  StringExpression updateTime() default @StringExpression;
+  IntExpression version() default @IntExpression;
 
   StringExpression realmId() default @StringExpression;
 
-  IntExpression version() default @IntExpression;
+  StringExpression createUserId() default @StringExpression;
+
+  StringExpression createTime() default @StringExpression;
+
+  StringExpression updateUserId() default @StringExpression;
+
+  StringExpression updateTime() default @StringExpression;
 
   StringExpression createGroupId() default @StringExpression;
 

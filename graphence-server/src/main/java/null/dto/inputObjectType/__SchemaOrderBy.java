@@ -9,73 +9,33 @@ import org.eclipse.microprofile.graphql.Input;
 @Generated("io.graphoenix.java.generator.builder.TypeSpecBuilderProxy")
 @Skip
 public class __SchemaOrderBy {
-  private Sort mutationTypeName;
-
-  private Sort queryTypeName;
-
   private Sort id;
-
-  private Sort subscriptionTypeName;
-
-  private Sort id;
-
-  private Sort subscriptionTypeName;
 
   private Sort queryTypeName;
 
   private Sort mutationTypeName;
 
-  private Sort createUserId;
-
-  private Sort createUserId;
-
-  private Sort updateUserId;
-
-  private Sort createTime;
+  private Sort subscriptionTypeName;
 
   private Sort isDeprecated;
-
-  private Sort isDeprecated;
-
-  private Sort updateTime;
-
-  private Sort realmId;
-
-  private Sort realmId;
-
-  private Sort updateUserId;
 
   private Sort version;
 
-  private Sort createGroupId;
+  private Sort realmId;
+
+  private Sort createUserId;
 
   private Sort createTime;
+
+  private Sort updateUserId;
 
   private Sort updateTime;
 
   private Sort createGroupId;
 
-  private Sort version;
-
   private Sort __typename;
 
   private Sort __typename;
-
-  public Sort getMutationTypeName() {
-    return this.mutationTypeName;
-  }
-
-  public void setMutationTypeName(Sort mutationTypeName) {
-    this.mutationTypeName = mutationTypeName;
-  }
-
-  public Sort getQueryTypeName() {
-    return this.queryTypeName;
-  }
-
-  public void setQueryTypeName(Sort queryTypeName) {
-    this.queryTypeName = queryTypeName;
-  }
 
   public Sort getId() {
     return this.id;
@@ -83,30 +43,6 @@ public class __SchemaOrderBy {
 
   public void setId(Sort id) {
     this.id = id;
-  }
-
-  public Sort getSubscriptionTypeName() {
-    return this.subscriptionTypeName;
-  }
-
-  public void setSubscriptionTypeName(Sort subscriptionTypeName) {
-    this.subscriptionTypeName = subscriptionTypeName;
-  }
-
-  public Sort getId() {
-    return this.id;
-  }
-
-  public void setId(Sort id) {
-    this.id = id;
-  }
-
-  public Sort getSubscriptionTypeName() {
-    return this.subscriptionTypeName;
-  }
-
-  public void setSubscriptionTypeName(Sort subscriptionTypeName) {
-    this.subscriptionTypeName = subscriptionTypeName;
   }
 
   public Sort getQueryTypeName() {
@@ -125,36 +61,12 @@ public class __SchemaOrderBy {
     this.mutationTypeName = mutationTypeName;
   }
 
-  public Sort getCreateUserId() {
-    return this.createUserId;
+  public Sort getSubscriptionTypeName() {
+    return this.subscriptionTypeName;
   }
 
-  public void setCreateUserId(Sort createUserId) {
-    this.createUserId = createUserId;
-  }
-
-  public Sort getCreateUserId() {
-    return this.createUserId;
-  }
-
-  public void setCreateUserId(Sort createUserId) {
-    this.createUserId = createUserId;
-  }
-
-  public Sort getUpdateUserId() {
-    return this.updateUserId;
-  }
-
-  public void setUpdateUserId(Sort updateUserId) {
-    this.updateUserId = updateUserId;
-  }
-
-  public Sort getCreateTime() {
-    return this.createTime;
-  }
-
-  public void setCreateTime(Sort createTime) {
-    this.createTime = createTime;
+  public void setSubscriptionTypeName(Sort subscriptionTypeName) {
+    this.subscriptionTypeName = subscriptionTypeName;
   }
 
   public Sort getIsDeprecated() {
@@ -163,46 +75,6 @@ public class __SchemaOrderBy {
 
   public void setIsDeprecated(Sort isDeprecated) {
     this.isDeprecated = isDeprecated;
-  }
-
-  public Sort getIsDeprecated() {
-    return this.isDeprecated;
-  }
-
-  public void setIsDeprecated(Sort isDeprecated) {
-    this.isDeprecated = isDeprecated;
-  }
-
-  public Sort getUpdateTime() {
-    return this.updateTime;
-  }
-
-  public void setUpdateTime(Sort updateTime) {
-    this.updateTime = updateTime;
-  }
-
-  public Sort getRealmId() {
-    return this.realmId;
-  }
-
-  public void setRealmId(Sort realmId) {
-    this.realmId = realmId;
-  }
-
-  public Sort getRealmId() {
-    return this.realmId;
-  }
-
-  public void setRealmId(Sort realmId) {
-    this.realmId = realmId;
-  }
-
-  public Sort getUpdateUserId() {
-    return this.updateUserId;
-  }
-
-  public void setUpdateUserId(Sort updateUserId) {
-    this.updateUserId = updateUserId;
   }
 
   public Sort getVersion() {
@@ -213,12 +85,20 @@ public class __SchemaOrderBy {
     this.version = version;
   }
 
-  public Sort getCreateGroupId() {
-    return this.createGroupId;
+  public Sort getRealmId() {
+    return this.realmId;
   }
 
-  public void setCreateGroupId(Sort createGroupId) {
-    this.createGroupId = createGroupId;
+  public void setRealmId(Sort realmId) {
+    this.realmId = realmId;
+  }
+
+  public Sort getCreateUserId() {
+    return this.createUserId;
+  }
+
+  public void setCreateUserId(Sort createUserId) {
+    this.createUserId = createUserId;
   }
 
   public Sort getCreateTime() {
@@ -227,6 +107,14 @@ public class __SchemaOrderBy {
 
   public void setCreateTime(Sort createTime) {
     this.createTime = createTime;
+  }
+
+  public Sort getUpdateUserId() {
+    return this.updateUserId;
+  }
+
+  public void setUpdateUserId(Sort updateUserId) {
+    this.updateUserId = updateUserId;
   }
 
   public Sort getUpdateTime() {
@@ -243,14 +131,6 @@ public class __SchemaOrderBy {
 
   public void setCreateGroupId(Sort createGroupId) {
     this.createGroupId = createGroupId;
-  }
-
-  public Sort getVersion() {
-    return this.version;
-  }
-
-  public void setVersion(Sort version) {
-    this.version = version;
   }
 
   public Sort get__Typename() {

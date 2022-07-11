@@ -9,41 +9,41 @@ import null.dto.enumType.Sort;
 @Retention(RetentionPolicy.SOURCE)
 @Target(ElementType.METHOD)
 public @interface __FieldOrderBy0 {
-  Sort withTo() default Sort.ASC;
-
   Sort id() default Sort.ASC;
 
   Sort name() default Sort.ASC;
 
   Sort typeName() default Sort.ASC;
 
-  Sort to() default Sort.ASC;
+  Sort ofTypeName() default Sort.ASC;
 
   Sort description() default Sort.ASC;
 
+  Sort deprecationReason() default Sort.ASC;
+
   Sort from() default Sort.ASC;
 
-  Sort deprecationReason() default Sort.ASC;
+  Sort to() default Sort.ASC;
 
   Sort withType() default Sort.ASC;
 
   Sort withFrom() default Sort.ASC;
 
-  Sort ofTypeName() default Sort.ASC;
-
-  Sort createUserId() default Sort.ASC;
-
-  Sort updateUserId() default Sort.ASC;
-
-  Sort createTime() default Sort.ASC;
+  Sort withTo() default Sort.ASC;
 
   Sort isDeprecated() default Sort.ASC;
 
-  Sort updateTime() default Sort.ASC;
+  Sort version() default Sort.ASC;
 
   Sort realmId() default Sort.ASC;
 
-  Sort version() default Sort.ASC;
+  Sort createUserId() default Sort.ASC;
+
+  Sort createTime() default Sort.ASC;
+
+  Sort updateUserId() default Sort.ASC;
+
+  Sort updateTime() default Sort.ASC;
 
   Sort createGroupId() default Sort.ASC;
 

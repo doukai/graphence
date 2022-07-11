@@ -45,7 +45,7 @@ type Group {
     parentId: Int
     parent: Group @map(from: "parentId" to: "id" anchor: true)
     subGroups: [Group] @map(from: "id" to: "parentId")
-    users: [User] @map(from: "id" with: {type: "UserRole" from: "roleId" to: "userId"} to: "id")
+    users: [User] @map(from: "id" with: {type: "UserGroup" from: "groupId" to: "userId"} to: "id")
     roles: [Role] @map(from: "id" with: {type: "GroupRole" from: "groupId" to: "roleId"} to: "id")
     realm: Realm @map(from: "realmId" to: "id")
 }

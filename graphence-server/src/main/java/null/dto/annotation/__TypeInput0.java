@@ -12,27 +12,27 @@ import null.dto.enumType.__TypeKind;
 public @interface __TypeInput0 {
   String name() default "";
 
-  String description() default "";
-
   int schemaId() default 0;
 
-  __TypeKind kind() default __TypeKind.LIST;
+  __TypeKind kind() default __TypeKind.SCALAR;
+
+  String description() default "";
 
   String ofTypeName() default "";
 
-  String createUserId() default "";
-
-  String updateUserId() default "";
-
-  String createTime() default "";
-
   boolean isDeprecated() default false;
 
-  String updateTime() default "";
+  int version() default 0;
 
   String realmId() default "";
 
-  int version() default 0;
+  String createUserId() default "";
+
+  String createTime() default "";
+
+  String updateUserId() default "";
+
+  String updateTime() default "";
 
   String createGroupId() default "";
 
@@ -40,61 +40,61 @@ public @interface __TypeInput0 {
 
   String $name() default "";
 
-  String $possibleTypes() default "";
+  String $schemaId() default "";
+
+  String $kind() default "";
 
   String $description() default "";
-
-  String $enumValues() default "";
-
-  String $ofType() default "";
-
-  String $schemaId() default "";
 
   String $fields() default "";
 
   String $interfaces() default "";
 
-  String $kind() default "";
+  String $possibleTypes() default "";
+
+  String $enumValues() default "";
 
   String $inputFields() default "";
 
   String $ofTypeName() default "";
 
-  String $createUserId() default "";
-
-  String $updateUserId() default "";
-
-  String $createTime() default "";
+  String $ofType() default "";
 
   String $isDeprecated() default "";
 
-  String $updateTime() default "";
+  String $version() default "";
 
   String $realmId() default "";
 
-  String $version() default "";
+  String $createUserId() default "";
+
+  String $createTime() default "";
+
+  String $updateUserId() default "";
+
+  String $updateTime() default "";
 
   String $createGroupId() default "";
 
   String $__typename() default "";
 
-  String $possibleTypesAggregate() default "";
-
-  String $enumValuesAggregate() default "";
-
   String $fieldsAggregate() default "";
 
   String $interfacesAggregate() default "";
 
+  String $possibleTypesAggregate() default "";
+
+  String $enumValuesAggregate() default "";
+
   String $inputFieldsAggregate() default "";
-
-  String $possibleTypesConnection() default "";
-
-  String $enumValuesConnection() default "";
 
   String $fieldsConnection() default "";
 
   String $interfacesConnection() default "";
+
+  String $possibleTypesConnection() default "";
+
+  String $enumValuesConnection() default "";
 
   String $inputFieldsConnection() default "";
 }

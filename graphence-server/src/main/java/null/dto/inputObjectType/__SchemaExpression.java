@@ -12,75 +12,40 @@ import org.eclipse.microprofile.graphql.Input;
 @Generated("io.graphoenix.java.generator.builder.TypeSpecBuilderProxy")
 @Skip
 public class __SchemaExpression {
-  private __TypeExpression mutationType;
-
-  private __TypeExpression subscriptionType;
-
-  private StringExpression mutationTypeName;
-
-  private StringExpression queryTypeName;
-
   private StringExpression id;
-
-  private __TypeExpression types;
-
-  private StringExpression subscriptionTypeName;
-
-  private __TypeExpression queryType;
-
-  private __DirectiveExpression directives;
-
-  private __DirectiveExpression directives;
-
-  private __TypeExpression subscriptionType;
-
-  private StringExpression id;
-
-  private __TypeExpression types;
-
-  private __TypeExpression queryType;
-
-  private StringExpression subscriptionTypeName;
-
-  private __TypeExpression mutationType;
 
   private StringExpression queryTypeName;
 
   private StringExpression mutationTypeName;
 
-  private StringExpression createUserId;
+  private StringExpression subscriptionTypeName;
 
-  private StringExpression createUserId;
+  private __TypeExpression types;
 
-  private StringExpression updateUserId;
+  private __TypeExpression queryType;
 
-  private StringExpression createTime;
+  private __TypeExpression mutationType;
+
+  private __TypeExpression subscriptionType;
+
+  private __DirectiveExpression directives;
 
   @DefaultValue("false")
   private Boolean includeDeprecated;
 
-  @DefaultValue("false")
-  private Boolean includeDeprecated;
-
-  private StringExpression updateTime;
-
-  private StringExpression realmId;
-
-  private StringExpression realmId;
-
-  private StringExpression updateUserId;
-
   private IntExpression version;
 
-  private StringExpression createGroupId;
+  private StringExpression realmId;
+
+  private StringExpression createUserId;
 
   private StringExpression createTime;
 
+  private StringExpression updateUserId;
+
   private StringExpression updateTime;
 
   private StringExpression createGroupId;
-
-  private IntExpression version;
 
   private StringExpression __typename;
 
@@ -91,132 +56,12 @@ public class __SchemaExpression {
 
   private Collection<__SchemaExpression> exs;
 
-  public __TypeExpression getMutationType() {
-    return this.mutationType;
-  }
-
-  public void setMutationType(__TypeExpression mutationType) {
-    this.mutationType = mutationType;
-  }
-
-  public __TypeExpression getSubscriptionType() {
-    return this.subscriptionType;
-  }
-
-  public void setSubscriptionType(__TypeExpression subscriptionType) {
-    this.subscriptionType = subscriptionType;
-  }
-
-  public StringExpression getMutationTypeName() {
-    return this.mutationTypeName;
-  }
-
-  public void setMutationTypeName(StringExpression mutationTypeName) {
-    this.mutationTypeName = mutationTypeName;
-  }
-
-  public StringExpression getQueryTypeName() {
-    return this.queryTypeName;
-  }
-
-  public void setQueryTypeName(StringExpression queryTypeName) {
-    this.queryTypeName = queryTypeName;
-  }
-
   public StringExpression getId() {
     return this.id;
   }
 
   public void setId(StringExpression id) {
     this.id = id;
-  }
-
-  public __TypeExpression getTypes() {
-    return this.types;
-  }
-
-  public void setTypes(__TypeExpression types) {
-    this.types = types;
-  }
-
-  public StringExpression getSubscriptionTypeName() {
-    return this.subscriptionTypeName;
-  }
-
-  public void setSubscriptionTypeName(StringExpression subscriptionTypeName) {
-    this.subscriptionTypeName = subscriptionTypeName;
-  }
-
-  public __TypeExpression getQueryType() {
-    return this.queryType;
-  }
-
-  public void setQueryType(__TypeExpression queryType) {
-    this.queryType = queryType;
-  }
-
-  public __DirectiveExpression getDirectives() {
-    return this.directives;
-  }
-
-  public void setDirectives(__DirectiveExpression directives) {
-    this.directives = directives;
-  }
-
-  public __DirectiveExpression getDirectives() {
-    return this.directives;
-  }
-
-  public void setDirectives(__DirectiveExpression directives) {
-    this.directives = directives;
-  }
-
-  public __TypeExpression getSubscriptionType() {
-    return this.subscriptionType;
-  }
-
-  public void setSubscriptionType(__TypeExpression subscriptionType) {
-    this.subscriptionType = subscriptionType;
-  }
-
-  public StringExpression getId() {
-    return this.id;
-  }
-
-  public void setId(StringExpression id) {
-    this.id = id;
-  }
-
-  public __TypeExpression getTypes() {
-    return this.types;
-  }
-
-  public void setTypes(__TypeExpression types) {
-    this.types = types;
-  }
-
-  public __TypeExpression getQueryType() {
-    return this.queryType;
-  }
-
-  public void setQueryType(__TypeExpression queryType) {
-    this.queryType = queryType;
-  }
-
-  public StringExpression getSubscriptionTypeName() {
-    return this.subscriptionTypeName;
-  }
-
-  public void setSubscriptionTypeName(StringExpression subscriptionTypeName) {
-    this.subscriptionTypeName = subscriptionTypeName;
-  }
-
-  public __TypeExpression getMutationType() {
-    return this.mutationType;
-  }
-
-  public void setMutationType(__TypeExpression mutationType) {
-    this.mutationType = mutationType;
   }
 
   public StringExpression getQueryTypeName() {
@@ -235,36 +80,52 @@ public class __SchemaExpression {
     this.mutationTypeName = mutationTypeName;
   }
 
-  public StringExpression getCreateUserId() {
-    return this.createUserId;
+  public StringExpression getSubscriptionTypeName() {
+    return this.subscriptionTypeName;
   }
 
-  public void setCreateUserId(StringExpression createUserId) {
-    this.createUserId = createUserId;
+  public void setSubscriptionTypeName(StringExpression subscriptionTypeName) {
+    this.subscriptionTypeName = subscriptionTypeName;
   }
 
-  public StringExpression getCreateUserId() {
-    return this.createUserId;
+  public __TypeExpression getTypes() {
+    return this.types;
   }
 
-  public void setCreateUserId(StringExpression createUserId) {
-    this.createUserId = createUserId;
+  public void setTypes(__TypeExpression types) {
+    this.types = types;
   }
 
-  public StringExpression getUpdateUserId() {
-    return this.updateUserId;
+  public __TypeExpression getQueryType() {
+    return this.queryType;
   }
 
-  public void setUpdateUserId(StringExpression updateUserId) {
-    this.updateUserId = updateUserId;
+  public void setQueryType(__TypeExpression queryType) {
+    this.queryType = queryType;
   }
 
-  public StringExpression getCreateTime() {
-    return this.createTime;
+  public __TypeExpression getMutationType() {
+    return this.mutationType;
   }
 
-  public void setCreateTime(StringExpression createTime) {
-    this.createTime = createTime;
+  public void setMutationType(__TypeExpression mutationType) {
+    this.mutationType = mutationType;
+  }
+
+  public __TypeExpression getSubscriptionType() {
+    return this.subscriptionType;
+  }
+
+  public void setSubscriptionType(__TypeExpression subscriptionType) {
+    this.subscriptionType = subscriptionType;
+  }
+
+  public __DirectiveExpression getDirectives() {
+    return this.directives;
+  }
+
+  public void setDirectives(__DirectiveExpression directives) {
+    this.directives = directives;
   }
 
   public Boolean getIncludeDeprecated() {
@@ -273,46 +134,6 @@ public class __SchemaExpression {
 
   public void setIncludeDeprecated(Boolean includeDeprecated) {
     this.includeDeprecated = includeDeprecated;
-  }
-
-  public Boolean getIncludeDeprecated() {
-    return this.includeDeprecated;
-  }
-
-  public void setIncludeDeprecated(Boolean includeDeprecated) {
-    this.includeDeprecated = includeDeprecated;
-  }
-
-  public StringExpression getUpdateTime() {
-    return this.updateTime;
-  }
-
-  public void setUpdateTime(StringExpression updateTime) {
-    this.updateTime = updateTime;
-  }
-
-  public StringExpression getRealmId() {
-    return this.realmId;
-  }
-
-  public void setRealmId(StringExpression realmId) {
-    this.realmId = realmId;
-  }
-
-  public StringExpression getRealmId() {
-    return this.realmId;
-  }
-
-  public void setRealmId(StringExpression realmId) {
-    this.realmId = realmId;
-  }
-
-  public StringExpression getUpdateUserId() {
-    return this.updateUserId;
-  }
-
-  public void setUpdateUserId(StringExpression updateUserId) {
-    this.updateUserId = updateUserId;
   }
 
   public IntExpression getVersion() {
@@ -323,12 +144,20 @@ public class __SchemaExpression {
     this.version = version;
   }
 
-  public StringExpression getCreateGroupId() {
-    return this.createGroupId;
+  public StringExpression getRealmId() {
+    return this.realmId;
   }
 
-  public void setCreateGroupId(StringExpression createGroupId) {
-    this.createGroupId = createGroupId;
+  public void setRealmId(StringExpression realmId) {
+    this.realmId = realmId;
+  }
+
+  public StringExpression getCreateUserId() {
+    return this.createUserId;
+  }
+
+  public void setCreateUserId(StringExpression createUserId) {
+    this.createUserId = createUserId;
   }
 
   public StringExpression getCreateTime() {
@@ -337,6 +166,14 @@ public class __SchemaExpression {
 
   public void setCreateTime(StringExpression createTime) {
     this.createTime = createTime;
+  }
+
+  public StringExpression getUpdateUserId() {
+    return this.updateUserId;
+  }
+
+  public void setUpdateUserId(StringExpression updateUserId) {
+    this.updateUserId = updateUserId;
   }
 
   public StringExpression getUpdateTime() {
@@ -353,14 +190,6 @@ public class __SchemaExpression {
 
   public void setCreateGroupId(StringExpression createGroupId) {
     this.createGroupId = createGroupId;
-  }
-
-  public IntExpression getVersion() {
-    return this.version;
-  }
-
-  public void setVersion(IntExpression version) {
-    this.version = version;
   }
 
   public StringExpression get__Typename() {

@@ -20,37 +20,21 @@ public class RoleCompositeInput {
 
   private Integer compositeId;
 
-  private String createUserId;
-
-  private String createUserId;
-
-  private String updateUserId;
-
-  private LocalDateTime createTime;
-
   private Boolean isDeprecated;
-
-  private Boolean isDeprecated;
-
-  private LocalDateTime updateTime;
-
-  private String realmId;
-
-  private String realmId;
-
-  private String updateUserId;
 
   private Integer version;
 
-  private String createGroupId;
+  private String realmId;
+
+  private String createUserId;
 
   private LocalDateTime createTime;
+
+  private String updateUserId;
 
   private LocalDateTime updateTime;
 
   private String createGroupId;
-
-  private Integer version;
 
   @DefaultValue("\"RoleComposite\"")
   @NonNull
@@ -84,84 +68,12 @@ public class RoleCompositeInput {
     this.compositeId = compositeId;
   }
 
-  public String getCreateUserId() {
-    return this.createUserId;
-  }
-
-  public void setCreateUserId(String createUserId) {
-    this.createUserId = createUserId;
-  }
-
-  public String getCreateUserId() {
-    return this.createUserId;
-  }
-
-  public void setCreateUserId(String createUserId) {
-    this.createUserId = createUserId;
-  }
-
-  public String getUpdateUserId() {
-    return this.updateUserId;
-  }
-
-  public void setUpdateUserId(String updateUserId) {
-    this.updateUserId = updateUserId;
-  }
-
-  public LocalDateTime getCreateTime() {
-    return this.createTime;
-  }
-
-  public void setCreateTime(LocalDateTime createTime) {
-    this.createTime = createTime;
-  }
-
   public Boolean getIsDeprecated() {
     return this.isDeprecated;
   }
 
   public void setIsDeprecated(Boolean isDeprecated) {
     this.isDeprecated = isDeprecated;
-  }
-
-  public Boolean getIsDeprecated() {
-    return this.isDeprecated;
-  }
-
-  public void setIsDeprecated(Boolean isDeprecated) {
-    this.isDeprecated = isDeprecated;
-  }
-
-  public LocalDateTime getUpdateTime() {
-    return this.updateTime;
-  }
-
-  public void setUpdateTime(LocalDateTime updateTime) {
-    this.updateTime = updateTime;
-  }
-
-  public String getRealmId() {
-    return this.realmId;
-  }
-
-  public void setRealmId(String realmId) {
-    this.realmId = realmId;
-  }
-
-  public String getRealmId() {
-    return this.realmId;
-  }
-
-  public void setRealmId(String realmId) {
-    this.realmId = realmId;
-  }
-
-  public String getUpdateUserId() {
-    return this.updateUserId;
-  }
-
-  public void setUpdateUserId(String updateUserId) {
-    this.updateUserId = updateUserId;
   }
 
   public Integer getVersion() {
@@ -172,12 +84,20 @@ public class RoleCompositeInput {
     this.version = version;
   }
 
-  public String getCreateGroupId() {
-    return this.createGroupId;
+  public String getRealmId() {
+    return this.realmId;
   }
 
-  public void setCreateGroupId(String createGroupId) {
-    this.createGroupId = createGroupId;
+  public void setRealmId(String realmId) {
+    this.realmId = realmId;
+  }
+
+  public String getCreateUserId() {
+    return this.createUserId;
+  }
+
+  public void setCreateUserId(String createUserId) {
+    this.createUserId = createUserId;
   }
 
   public LocalDateTime getCreateTime() {
@@ -186,6 +106,14 @@ public class RoleCompositeInput {
 
   public void setCreateTime(LocalDateTime createTime) {
     this.createTime = createTime;
+  }
+
+  public String getUpdateUserId() {
+    return this.updateUserId;
+  }
+
+  public void setUpdateUserId(String updateUserId) {
+    this.updateUserId = updateUserId;
   }
 
   public LocalDateTime getUpdateTime() {
@@ -202,14 +130,6 @@ public class RoleCompositeInput {
 
   public void setCreateGroupId(String createGroupId) {
     this.createGroupId = createGroupId;
-  }
-
-  public Integer getVersion() {
-    return this.version;
-  }
-
-  public void setVersion(Integer version) {
-    this.version = version;
   }
 
   public String get__Typename() {

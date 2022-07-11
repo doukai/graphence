@@ -15,33 +15,13 @@ import org.eclipse.microprofile.graphql.NonNull;
 @Generated("io.graphoenix.java.generator.builder.TypeSpecBuilderProxy")
 @Skip
 public class __SchemaInput {
-  private __TypeInput mutationType;
-
-  private __TypeInput subscriptionType;
-
-  private String mutationTypeName;
+  private String id;
 
   private String queryTypeName;
 
-  private String id;
-
-  @NonNull
-  private Collection<__TypeInput> types;
+  private String mutationTypeName;
 
   private String subscriptionTypeName;
-
-  @NonNull
-  private __TypeInput queryType;
-
-  @NonNull
-  private Collection<__DirectiveInput> directives;
-
-  @NonNull
-  private Collection<__DirectiveInput> directives;
-
-  private __TypeInput subscriptionType;
-
-  private String id;
 
   @NonNull
   private Collection<__TypeInput> types;
@@ -49,45 +29,28 @@ public class __SchemaInput {
   @NonNull
   private __TypeInput queryType;
 
-  private String subscriptionTypeName;
-
   private __TypeInput mutationType;
 
-  private String queryTypeName;
+  private __TypeInput subscriptionType;
 
-  private String mutationTypeName;
-
-  private String createUserId;
-
-  private String createUserId;
-
-  private String updateUserId;
-
-  private LocalDateTime createTime;
+  @NonNull
+  private Collection<__DirectiveInput> directives;
 
   private Boolean isDeprecated;
-
-  private Boolean isDeprecated;
-
-  private LocalDateTime updateTime;
-
-  private String realmId;
-
-  private String realmId;
-
-  private String updateUserId;
 
   private Integer version;
 
-  private String createGroupId;
+  private String realmId;
+
+  private String createUserId;
 
   private LocalDateTime createTime;
+
+  private String updateUserId;
 
   private LocalDateTime updateTime;
 
   private String createGroupId;
-
-  private Integer version;
 
   @DefaultValue("\"__Schema\"")
   @NonNull
@@ -97,132 +60,12 @@ public class __SchemaInput {
   @NonNull
   private String __typename;
 
-  public __TypeInput getMutationType() {
-    return this.mutationType;
-  }
-
-  public void setMutationType(__TypeInput mutationType) {
-    this.mutationType = mutationType;
-  }
-
-  public __TypeInput getSubscriptionType() {
-    return this.subscriptionType;
-  }
-
-  public void setSubscriptionType(__TypeInput subscriptionType) {
-    this.subscriptionType = subscriptionType;
-  }
-
-  public String getMutationTypeName() {
-    return this.mutationTypeName;
-  }
-
-  public void setMutationTypeName(String mutationTypeName) {
-    this.mutationTypeName = mutationTypeName;
-  }
-
-  public String getQueryTypeName() {
-    return this.queryTypeName;
-  }
-
-  public void setQueryTypeName(String queryTypeName) {
-    this.queryTypeName = queryTypeName;
-  }
-
   public String getId() {
     return this.id;
   }
 
   public void setId(String id) {
     this.id = id;
-  }
-
-  public Collection<__TypeInput> getTypes() {
-    return this.types;
-  }
-
-  public void setTypes(Collection<__TypeInput> types) {
-    this.types = types;
-  }
-
-  public String getSubscriptionTypeName() {
-    return this.subscriptionTypeName;
-  }
-
-  public void setSubscriptionTypeName(String subscriptionTypeName) {
-    this.subscriptionTypeName = subscriptionTypeName;
-  }
-
-  public __TypeInput getQueryType() {
-    return this.queryType;
-  }
-
-  public void setQueryType(__TypeInput queryType) {
-    this.queryType = queryType;
-  }
-
-  public Collection<__DirectiveInput> getDirectives() {
-    return this.directives;
-  }
-
-  public void setDirectives(Collection<__DirectiveInput> directives) {
-    this.directives = directives;
-  }
-
-  public Collection<__DirectiveInput> getDirectives() {
-    return this.directives;
-  }
-
-  public void setDirectives(Collection<__DirectiveInput> directives) {
-    this.directives = directives;
-  }
-
-  public __TypeInput getSubscriptionType() {
-    return this.subscriptionType;
-  }
-
-  public void setSubscriptionType(__TypeInput subscriptionType) {
-    this.subscriptionType = subscriptionType;
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public Collection<__TypeInput> getTypes() {
-    return this.types;
-  }
-
-  public void setTypes(Collection<__TypeInput> types) {
-    this.types = types;
-  }
-
-  public __TypeInput getQueryType() {
-    return this.queryType;
-  }
-
-  public void setQueryType(__TypeInput queryType) {
-    this.queryType = queryType;
-  }
-
-  public String getSubscriptionTypeName() {
-    return this.subscriptionTypeName;
-  }
-
-  public void setSubscriptionTypeName(String subscriptionTypeName) {
-    this.subscriptionTypeName = subscriptionTypeName;
-  }
-
-  public __TypeInput getMutationType() {
-    return this.mutationType;
-  }
-
-  public void setMutationType(__TypeInput mutationType) {
-    this.mutationType = mutationType;
   }
 
   public String getQueryTypeName() {
@@ -241,36 +84,52 @@ public class __SchemaInput {
     this.mutationTypeName = mutationTypeName;
   }
 
-  public String getCreateUserId() {
-    return this.createUserId;
+  public String getSubscriptionTypeName() {
+    return this.subscriptionTypeName;
   }
 
-  public void setCreateUserId(String createUserId) {
-    this.createUserId = createUserId;
+  public void setSubscriptionTypeName(String subscriptionTypeName) {
+    this.subscriptionTypeName = subscriptionTypeName;
   }
 
-  public String getCreateUserId() {
-    return this.createUserId;
+  public Collection<__TypeInput> getTypes() {
+    return this.types;
   }
 
-  public void setCreateUserId(String createUserId) {
-    this.createUserId = createUserId;
+  public void setTypes(Collection<__TypeInput> types) {
+    this.types = types;
   }
 
-  public String getUpdateUserId() {
-    return this.updateUserId;
+  public __TypeInput getQueryType() {
+    return this.queryType;
   }
 
-  public void setUpdateUserId(String updateUserId) {
-    this.updateUserId = updateUserId;
+  public void setQueryType(__TypeInput queryType) {
+    this.queryType = queryType;
   }
 
-  public LocalDateTime getCreateTime() {
-    return this.createTime;
+  public __TypeInput getMutationType() {
+    return this.mutationType;
   }
 
-  public void setCreateTime(LocalDateTime createTime) {
-    this.createTime = createTime;
+  public void setMutationType(__TypeInput mutationType) {
+    this.mutationType = mutationType;
+  }
+
+  public __TypeInput getSubscriptionType() {
+    return this.subscriptionType;
+  }
+
+  public void setSubscriptionType(__TypeInput subscriptionType) {
+    this.subscriptionType = subscriptionType;
+  }
+
+  public Collection<__DirectiveInput> getDirectives() {
+    return this.directives;
+  }
+
+  public void setDirectives(Collection<__DirectiveInput> directives) {
+    this.directives = directives;
   }
 
   public Boolean getIsDeprecated() {
@@ -279,46 +138,6 @@ public class __SchemaInput {
 
   public void setIsDeprecated(Boolean isDeprecated) {
     this.isDeprecated = isDeprecated;
-  }
-
-  public Boolean getIsDeprecated() {
-    return this.isDeprecated;
-  }
-
-  public void setIsDeprecated(Boolean isDeprecated) {
-    this.isDeprecated = isDeprecated;
-  }
-
-  public LocalDateTime getUpdateTime() {
-    return this.updateTime;
-  }
-
-  public void setUpdateTime(LocalDateTime updateTime) {
-    this.updateTime = updateTime;
-  }
-
-  public String getRealmId() {
-    return this.realmId;
-  }
-
-  public void setRealmId(String realmId) {
-    this.realmId = realmId;
-  }
-
-  public String getRealmId() {
-    return this.realmId;
-  }
-
-  public void setRealmId(String realmId) {
-    this.realmId = realmId;
-  }
-
-  public String getUpdateUserId() {
-    return this.updateUserId;
-  }
-
-  public void setUpdateUserId(String updateUserId) {
-    this.updateUserId = updateUserId;
   }
 
   public Integer getVersion() {
@@ -329,12 +148,20 @@ public class __SchemaInput {
     this.version = version;
   }
 
-  public String getCreateGroupId() {
-    return this.createGroupId;
+  public String getRealmId() {
+    return this.realmId;
   }
 
-  public void setCreateGroupId(String createGroupId) {
-    this.createGroupId = createGroupId;
+  public void setRealmId(String realmId) {
+    this.realmId = realmId;
+  }
+
+  public String getCreateUserId() {
+    return this.createUserId;
+  }
+
+  public void setCreateUserId(String createUserId) {
+    this.createUserId = createUserId;
   }
 
   public LocalDateTime getCreateTime() {
@@ -343,6 +170,14 @@ public class __SchemaInput {
 
   public void setCreateTime(LocalDateTime createTime) {
     this.createTime = createTime;
+  }
+
+  public String getUpdateUserId() {
+    return this.updateUserId;
+  }
+
+  public void setUpdateUserId(String updateUserId) {
+    this.updateUserId = updateUserId;
   }
 
   public LocalDateTime getUpdateTime() {
@@ -359,14 +194,6 @@ public class __SchemaInput {
 
   public void setCreateGroupId(String createGroupId) {
     this.createGroupId = createGroupId;
-  }
-
-  public Integer getVersion() {
-    return this.version;
-  }
-
-  public void setVersion(Integer version) {
-    this.version = version;
   }
 
   public String get__Typename() {

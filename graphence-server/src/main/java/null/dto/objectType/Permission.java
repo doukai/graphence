@@ -34,37 +34,21 @@ public class Permission implements Meta {
 
   private Realm realm;
 
-  private String createUserId;
-
-  private String createUserId;
-
-  private String updateUserId;
-
-  private LocalDateTime createTime;
-
   private Boolean isDeprecated;
-
-  private Boolean isDeprecated;
-
-  private LocalDateTime updateTime;
-
-  private String realmId;
-
-  private String realmId;
-
-  private String updateUserId;
 
   private Integer version;
 
-  private String createGroupId;
+  private String realmId;
+
+  private String createUserId;
 
   private LocalDateTime createTime;
+
+  private String updateUserId;
 
   private LocalDateTime updateTime;
 
   private String createGroupId;
-
-  private Integer version;
 
   private String __typename;
 
@@ -110,23 +94,17 @@ public class Permission implements Meta {
 
   private String fieldIdMin;
 
+  private Integer realmIdCount;
+
+  private String realmIdMax;
+
+  private String realmIdMin;
+
   private Integer createUserIdCount;
 
   private String createUserIdMax;
 
   private String createUserIdMin;
-
-  private Integer createUserIdCount;
-
-  private String createUserIdMax;
-
-  private String createUserIdMin;
-
-  private Integer updateUserIdCount;
-
-  private String updateUserIdMax;
-
-  private String updateUserIdMin;
 
   private Integer createTimeCount;
 
@@ -134,41 +112,11 @@ public class Permission implements Meta {
 
   private LocalDateTime createTimeMin;
 
-  private Integer updateTimeCount;
-
-  private LocalDateTime updateTimeMax;
-
-  private LocalDateTime updateTimeMin;
-
-  private Integer realmIdCount;
-
-  private String realmIdMax;
-
-  private String realmIdMin;
-
-  private Integer realmIdCount;
-
-  private String realmIdMax;
-
-  private String realmIdMin;
-
   private Integer updateUserIdCount;
 
   private String updateUserIdMax;
 
   private String updateUserIdMin;
-
-  private Integer createGroupIdCount;
-
-  private String createGroupIdMax;
-
-  private String createGroupIdMin;
-
-  private Integer createTimeCount;
-
-  private LocalDateTime createTimeMax;
-
-  private LocalDateTime createTimeMin;
 
   private Integer updateTimeCount;
 
@@ -227,16 +175,6 @@ public class Permission implements Meta {
   private String fieldIdMinMax;
 
   private String fieldIdMinMin;
-
-  private Integer versionCount;
-
-  private Integer versionSum;
-
-  private Integer versionAvg;
-
-  private Integer versionMax;
-
-  private Integer versionMin;
 
   private Integer versionCount;
 
@@ -335,259 +273,83 @@ public class Permission implements Meta {
   }
 
   @Override
-  @Override
-  @Override
-  @Override
-  public String getCreateUserId() {
-    return this.createUserId;
-  }
-
-  @Override
-  @Override
-  @Override
-  @Override
-  public void setCreateUserId(String createUserId) {
-    this.createUserId = createUserId;
-  }
-
-  @Override
-  @Override
-  @Override
-  @Override
-  public String getCreateUserId() {
-    return this.createUserId;
-  }
-
-  @Override
-  @Override
-  @Override
-  @Override
-  public void setCreateUserId(String createUserId) {
-    this.createUserId = createUserId;
-  }
-
-  @Override
-  @Override
-  @Override
-  @Override
-  public String getUpdateUserId() {
-    return this.updateUserId;
-  }
-
-  @Override
-  @Override
-  @Override
-  @Override
-  public void setUpdateUserId(String updateUserId) {
-    this.updateUserId = updateUserId;
-  }
-
-  @Override
-  @Override
-  @Override
-  @Override
-  public LocalDateTime getCreateTime() {
-    return this.createTime;
-  }
-
-  @Override
-  @Override
-  @Override
-  @Override
-  public void setCreateTime(LocalDateTime createTime) {
-    this.createTime = createTime;
-  }
-
-  @Override
-  @Override
-  @Override
-  @Override
   public Boolean getIsDeprecated() {
     return this.isDeprecated;
   }
 
-  @Override
-  @Override
-  @Override
   @Override
   public void setIsDeprecated(Boolean isDeprecated) {
     this.isDeprecated = isDeprecated;
   }
 
   @Override
-  @Override
-  @Override
-  @Override
-  public Boolean getIsDeprecated() {
-    return this.isDeprecated;
-  }
-
-  @Override
-  @Override
-  @Override
-  @Override
-  public void setIsDeprecated(Boolean isDeprecated) {
-    this.isDeprecated = isDeprecated;
-  }
-
-  @Override
-  @Override
-  @Override
-  @Override
-  public LocalDateTime getUpdateTime() {
-    return this.updateTime;
-  }
-
-  @Override
-  @Override
-  @Override
-  @Override
-  public void setUpdateTime(LocalDateTime updateTime) {
-    this.updateTime = updateTime;
-  }
-
-  @Override
-  @Override
-  @Override
-  @Override
-  public String getRealmId() {
-    return this.realmId;
-  }
-
-  @Override
-  @Override
-  @Override
-  @Override
-  public void setRealmId(String realmId) {
-    this.realmId = realmId;
-  }
-
-  @Override
-  @Override
-  @Override
-  @Override
-  public String getRealmId() {
-    return this.realmId;
-  }
-
-  @Override
-  @Override
-  @Override
-  @Override
-  public void setRealmId(String realmId) {
-    this.realmId = realmId;
-  }
-
-  @Override
-  @Override
-  @Override
-  @Override
-  public String getUpdateUserId() {
-    return this.updateUserId;
-  }
-
-  @Override
-  @Override
-  @Override
-  @Override
-  public void setUpdateUserId(String updateUserId) {
-    this.updateUserId = updateUserId;
-  }
-
-  @Override
-  @Override
-  @Override
-  @Override
   public Integer getVersion() {
     return this.version;
   }
 
-  @Override
-  @Override
-  @Override
   @Override
   public void setVersion(Integer version) {
     this.version = version;
   }
 
   @Override
-  @Override
-  @Override
-  @Override
-  public String getCreateGroupId() {
-    return this.createGroupId;
+  public String getRealmId() {
+    return this.realmId;
   }
 
   @Override
-  @Override
-  @Override
-  @Override
-  public void setCreateGroupId(String createGroupId) {
-    this.createGroupId = createGroupId;
+  public void setRealmId(String realmId) {
+    this.realmId = realmId;
   }
 
   @Override
+  public String getCreateUserId() {
+    return this.createUserId;
+  }
+
   @Override
-  @Override
+  public void setCreateUserId(String createUserId) {
+    this.createUserId = createUserId;
+  }
+
   @Override
   public LocalDateTime getCreateTime() {
     return this.createTime;
   }
 
   @Override
-  @Override
-  @Override
-  @Override
   public void setCreateTime(LocalDateTime createTime) {
     this.createTime = createTime;
   }
 
   @Override
+  public String getUpdateUserId() {
+    return this.updateUserId;
+  }
+
   @Override
-  @Override
+  public void setUpdateUserId(String updateUserId) {
+    this.updateUserId = updateUserId;
+  }
+
   @Override
   public LocalDateTime getUpdateTime() {
     return this.updateTime;
   }
 
   @Override
-  @Override
-  @Override
-  @Override
   public void setUpdateTime(LocalDateTime updateTime) {
     this.updateTime = updateTime;
   }
 
-  @Override
-  @Override
-  @Override
   @Override
   public String getCreateGroupId() {
     return this.createGroupId;
   }
 
   @Override
-  @Override
-  @Override
-  @Override
   public void setCreateGroupId(String createGroupId) {
     this.createGroupId = createGroupId;
-  }
-
-  @Override
-  @Override
-  @Override
-  @Override
-  public Integer getVersion() {
-    return this.version;
-  }
-
-  @Override
-  @Override
-  @Override
-  @Override
-  public void setVersion(Integer version) {
-    this.version = version;
   }
 
   public String get__Typename() {
@@ -750,6 +512,30 @@ public class Permission implements Meta {
     this.fieldIdMin = fieldIdMin;
   }
 
+  public Integer getRealmIdCount() {
+    return this.realmIdCount;
+  }
+
+  public void setRealmIdCount(Integer realmIdCount) {
+    this.realmIdCount = realmIdCount;
+  }
+
+  public String getRealmIdMax() {
+    return this.realmIdMax;
+  }
+
+  public void setRealmIdMax(String realmIdMax) {
+    this.realmIdMax = realmIdMax;
+  }
+
+  public String getRealmIdMin() {
+    return this.realmIdMin;
+  }
+
+  public void setRealmIdMin(String realmIdMin) {
+    this.realmIdMin = realmIdMin;
+  }
+
   public Integer getCreateUserIdCount() {
     return this.createUserIdCount;
   }
@@ -772,54 +558,6 @@ public class Permission implements Meta {
 
   public void setCreateUserIdMin(String createUserIdMin) {
     this.createUserIdMin = createUserIdMin;
-  }
-
-  public Integer getCreateUserIdCount() {
-    return this.createUserIdCount;
-  }
-
-  public void setCreateUserIdCount(Integer createUserIdCount) {
-    this.createUserIdCount = createUserIdCount;
-  }
-
-  public String getCreateUserIdMax() {
-    return this.createUserIdMax;
-  }
-
-  public void setCreateUserIdMax(String createUserIdMax) {
-    this.createUserIdMax = createUserIdMax;
-  }
-
-  public String getCreateUserIdMin() {
-    return this.createUserIdMin;
-  }
-
-  public void setCreateUserIdMin(String createUserIdMin) {
-    this.createUserIdMin = createUserIdMin;
-  }
-
-  public Integer getUpdateUserIdCount() {
-    return this.updateUserIdCount;
-  }
-
-  public void setUpdateUserIdCount(Integer updateUserIdCount) {
-    this.updateUserIdCount = updateUserIdCount;
-  }
-
-  public String getUpdateUserIdMax() {
-    return this.updateUserIdMax;
-  }
-
-  public void setUpdateUserIdMax(String updateUserIdMax) {
-    this.updateUserIdMax = updateUserIdMax;
-  }
-
-  public String getUpdateUserIdMin() {
-    return this.updateUserIdMin;
-  }
-
-  public void setUpdateUserIdMin(String updateUserIdMin) {
-    this.updateUserIdMin = updateUserIdMin;
   }
 
   public Integer getCreateTimeCount() {
@@ -846,78 +584,6 @@ public class Permission implements Meta {
     this.createTimeMin = createTimeMin;
   }
 
-  public Integer getUpdateTimeCount() {
-    return this.updateTimeCount;
-  }
-
-  public void setUpdateTimeCount(Integer updateTimeCount) {
-    this.updateTimeCount = updateTimeCount;
-  }
-
-  public LocalDateTime getUpdateTimeMax() {
-    return this.updateTimeMax;
-  }
-
-  public void setUpdateTimeMax(LocalDateTime updateTimeMax) {
-    this.updateTimeMax = updateTimeMax;
-  }
-
-  public LocalDateTime getUpdateTimeMin() {
-    return this.updateTimeMin;
-  }
-
-  public void setUpdateTimeMin(LocalDateTime updateTimeMin) {
-    this.updateTimeMin = updateTimeMin;
-  }
-
-  public Integer getRealmIdCount() {
-    return this.realmIdCount;
-  }
-
-  public void setRealmIdCount(Integer realmIdCount) {
-    this.realmIdCount = realmIdCount;
-  }
-
-  public String getRealmIdMax() {
-    return this.realmIdMax;
-  }
-
-  public void setRealmIdMax(String realmIdMax) {
-    this.realmIdMax = realmIdMax;
-  }
-
-  public String getRealmIdMin() {
-    return this.realmIdMin;
-  }
-
-  public void setRealmIdMin(String realmIdMin) {
-    this.realmIdMin = realmIdMin;
-  }
-
-  public Integer getRealmIdCount() {
-    return this.realmIdCount;
-  }
-
-  public void setRealmIdCount(Integer realmIdCount) {
-    this.realmIdCount = realmIdCount;
-  }
-
-  public String getRealmIdMax() {
-    return this.realmIdMax;
-  }
-
-  public void setRealmIdMax(String realmIdMax) {
-    this.realmIdMax = realmIdMax;
-  }
-
-  public String getRealmIdMin() {
-    return this.realmIdMin;
-  }
-
-  public void setRealmIdMin(String realmIdMin) {
-    this.realmIdMin = realmIdMin;
-  }
-
   public Integer getUpdateUserIdCount() {
     return this.updateUserIdCount;
   }
@@ -940,54 +606,6 @@ public class Permission implements Meta {
 
   public void setUpdateUserIdMin(String updateUserIdMin) {
     this.updateUserIdMin = updateUserIdMin;
-  }
-
-  public Integer getCreateGroupIdCount() {
-    return this.createGroupIdCount;
-  }
-
-  public void setCreateGroupIdCount(Integer createGroupIdCount) {
-    this.createGroupIdCount = createGroupIdCount;
-  }
-
-  public String getCreateGroupIdMax() {
-    return this.createGroupIdMax;
-  }
-
-  public void setCreateGroupIdMax(String createGroupIdMax) {
-    this.createGroupIdMax = createGroupIdMax;
-  }
-
-  public String getCreateGroupIdMin() {
-    return this.createGroupIdMin;
-  }
-
-  public void setCreateGroupIdMin(String createGroupIdMin) {
-    this.createGroupIdMin = createGroupIdMin;
-  }
-
-  public Integer getCreateTimeCount() {
-    return this.createTimeCount;
-  }
-
-  public void setCreateTimeCount(Integer createTimeCount) {
-    this.createTimeCount = createTimeCount;
-  }
-
-  public LocalDateTime getCreateTimeMax() {
-    return this.createTimeMax;
-  }
-
-  public void setCreateTimeMax(LocalDateTime createTimeMax) {
-    this.createTimeMax = createTimeMax;
-  }
-
-  public LocalDateTime getCreateTimeMin() {
-    return this.createTimeMin;
-  }
-
-  public void setCreateTimeMin(LocalDateTime createTimeMin) {
-    this.createTimeMin = createTimeMin;
   }
 
   public Integer getUpdateTimeCount() {
@@ -1204,46 +822,6 @@ public class Permission implements Meta {
 
   public void setFieldIdMinMin(String fieldIdMinMin) {
     this.fieldIdMinMin = fieldIdMinMin;
-  }
-
-  public Integer getVersionCount() {
-    return this.versionCount;
-  }
-
-  public void setVersionCount(Integer versionCount) {
-    this.versionCount = versionCount;
-  }
-
-  public Integer getVersionSum() {
-    return this.versionSum;
-  }
-
-  public void setVersionSum(Integer versionSum) {
-    this.versionSum = versionSum;
-  }
-
-  public Integer getVersionAvg() {
-    return this.versionAvg;
-  }
-
-  public void setVersionAvg(Integer versionAvg) {
-    this.versionAvg = versionAvg;
-  }
-
-  public Integer getVersionMax() {
-    return this.versionMax;
-  }
-
-  public void setVersionMax(Integer versionMax) {
-    this.versionMax = versionMax;
-  }
-
-  public Integer getVersionMin() {
-    return this.versionMin;
-  }
-
-  public void setVersionMin(Integer versionMin) {
-    this.versionMin = versionMin;
   }
 
   public Integer getVersionCount() {

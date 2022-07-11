@@ -9,73 +9,73 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.SOURCE)
 @Target(ElementType.METHOD)
 public @interface __InputValueInput0 {
-  String typeName() default "";
+  String id() default "";
 
   String name() default "";
 
-  String description() default "";
-
-  String directiveName() default "";
-
-  String id() default "";
-
-  int fieldId() default 0;
+  String typeName() default "";
 
   String ofTypeName() default "";
 
+  int fieldId() default 0;
+
+  String directiveName() default "";
+
+  String description() default "";
+
   String defaultValue() default "";
-
-  String createUserId() default "";
-
-  String updateUserId() default "";
-
-  String createTime() default "";
 
   boolean isDeprecated() default false;
 
-  String updateTime() default "";
+  int version() default 0;
 
   String realmId() default "";
 
-  int version() default 0;
+  String createUserId() default "";
+
+  String createTime() default "";
+
+  String updateUserId() default "";
+
+  String updateTime() default "";
 
   String createGroupId() default "";
 
   String __typename() default "";
 
-  String $typeName() default "";
+  String $id() default "";
 
   String $name() default "";
+
+  String $typeName() default "";
+
+  String $ofTypeName() default "";
+
+  String $ofType() default "";
+
+  String $fieldId() default "";
+
+  String $directiveName() default "";
 
   String $description() default "";
 
   String $type() default "";
 
-  String $ofType() default "";
-
-  String $directiveName() default "";
-
-  String $id() default "";
-
-  String $fieldId() default "";
-
-  String $ofTypeName() default "";
-
   String $defaultValue() default "";
-
-  String $createUserId() default "";
-
-  String $updateUserId() default "";
-
-  String $createTime() default "";
 
   String $isDeprecated() default "";
 
-  String $updateTime() default "";
+  String $version() default "";
 
   String $realmId() default "";
 
-  String $version() default "";
+  String $createUserId() default "";
+
+  String $createTime() default "";
+
+  String $updateUserId() default "";
+
+  String $updateTime() default "";
 
   String $createGroupId() default "";
 

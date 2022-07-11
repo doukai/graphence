@@ -19,82 +19,42 @@ public class __TypeInput {
   @NonNull
   private String name;
 
-  private Collection<__TypeInput> possibleTypes;
-
-  private String description;
-
-  private Collection<__EnumValueInput> enumValues;
-
-  private __TypeInput ofType;
-
-  @NonNull
-  private String name;
-
   private Integer schemaId;
-
-  private Integer schemaId;
-
-  private Collection<__FieldInput> fields;
-
-  private Collection<__TypeInput> interfaces;
-
-  private Collection<__TypeInput> interfaces;
 
   @NonNull
   private __TypeKind kind;
 
   private String description;
 
-  private Collection<__TypeInput> possibleTypes;
-
-  private __TypeInput ofType;
-
-  private Collection<__InputValueInput> inputFields;
-
   private Collection<__FieldInput> fields;
+
+  private Collection<__TypeInput> interfaces;
+
+  private Collection<__TypeInput> possibleTypes;
 
   private Collection<__EnumValueInput> enumValues;
 
-  @NonNull
-  private __TypeKind kind;
-
   private Collection<__InputValueInput> inputFields;
 
   private String ofTypeName;
 
-  private String ofTypeName;
-
-  private String createUserId;
-
-  private String createUserId;
-
-  private String updateUserId;
-
-  private LocalDateTime createTime;
+  private __TypeInput ofType;
 
   private Boolean isDeprecated;
-
-  private Boolean isDeprecated;
-
-  private LocalDateTime updateTime;
-
-  private String realmId;
-
-  private String realmId;
-
-  private String updateUserId;
 
   private Integer version;
 
-  private String createGroupId;
+  private String realmId;
+
+  private String createUserId;
 
   private LocalDateTime createTime;
+
+  private String updateUserId;
 
   private LocalDateTime updateTime;
 
   private String createGroupId;
-
-  private Integer version;
 
   @DefaultValue("\"__Type\"")
   @NonNull
@@ -112,84 +72,12 @@ public class __TypeInput {
     this.name = name;
   }
 
-  public Collection<__TypeInput> getPossibleTypes() {
-    return this.possibleTypes;
-  }
-
-  public void setPossibleTypes(Collection<__TypeInput> possibleTypes) {
-    this.possibleTypes = possibleTypes;
-  }
-
-  public String getDescription() {
-    return this.description;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
-  }
-
-  public Collection<__EnumValueInput> getEnumValues() {
-    return this.enumValues;
-  }
-
-  public void setEnumValues(Collection<__EnumValueInput> enumValues) {
-    this.enumValues = enumValues;
-  }
-
-  public __TypeInput getOfType() {
-    return this.ofType;
-  }
-
-  public void setOfType(__TypeInput ofType) {
-    this.ofType = ofType;
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
   public Integer getSchemaId() {
     return this.schemaId;
   }
 
   public void setSchemaId(Integer schemaId) {
     this.schemaId = schemaId;
-  }
-
-  public Integer getSchemaId() {
-    return this.schemaId;
-  }
-
-  public void setSchemaId(Integer schemaId) {
-    this.schemaId = schemaId;
-  }
-
-  public Collection<__FieldInput> getFields() {
-    return this.fields;
-  }
-
-  public void setFields(Collection<__FieldInput> fields) {
-    this.fields = fields;
-  }
-
-  public Collection<__TypeInput> getInterfaces() {
-    return this.interfaces;
-  }
-
-  public void setInterfaces(Collection<__TypeInput> interfaces) {
-    this.interfaces = interfaces;
-  }
-
-  public Collection<__TypeInput> getInterfaces() {
-    return this.interfaces;
-  }
-
-  public void setInterfaces(Collection<__TypeInput> interfaces) {
-    this.interfaces = interfaces;
   }
 
   public __TypeKind getKind() {
@@ -208,36 +96,28 @@ public class __TypeInput {
     this.description = description;
   }
 
-  public Collection<__TypeInput> getPossibleTypes() {
-    return this.possibleTypes;
-  }
-
-  public void setPossibleTypes(Collection<__TypeInput> possibleTypes) {
-    this.possibleTypes = possibleTypes;
-  }
-
-  public __TypeInput getOfType() {
-    return this.ofType;
-  }
-
-  public void setOfType(__TypeInput ofType) {
-    this.ofType = ofType;
-  }
-
-  public Collection<__InputValueInput> getInputFields() {
-    return this.inputFields;
-  }
-
-  public void setInputFields(Collection<__InputValueInput> inputFields) {
-    this.inputFields = inputFields;
-  }
-
   public Collection<__FieldInput> getFields() {
     return this.fields;
   }
 
   public void setFields(Collection<__FieldInput> fields) {
     this.fields = fields;
+  }
+
+  public Collection<__TypeInput> getInterfaces() {
+    return this.interfaces;
+  }
+
+  public void setInterfaces(Collection<__TypeInput> interfaces) {
+    this.interfaces = interfaces;
+  }
+
+  public Collection<__TypeInput> getPossibleTypes() {
+    return this.possibleTypes;
+  }
+
+  public void setPossibleTypes(Collection<__TypeInput> possibleTypes) {
+    this.possibleTypes = possibleTypes;
   }
 
   public Collection<__EnumValueInput> getEnumValues() {
@@ -248,14 +128,6 @@ public class __TypeInput {
     this.enumValues = enumValues;
   }
 
-  public __TypeKind getKind() {
-    return this.kind;
-  }
-
-  public void setKind(__TypeKind kind) {
-    this.kind = kind;
-  }
-
   public Collection<__InputValueInput> getInputFields() {
     return this.inputFields;
   }
@@ -272,44 +144,12 @@ public class __TypeInput {
     this.ofTypeName = ofTypeName;
   }
 
-  public String getOfTypeName() {
-    return this.ofTypeName;
+  public __TypeInput getOfType() {
+    return this.ofType;
   }
 
-  public void setOfTypeName(String ofTypeName) {
-    this.ofTypeName = ofTypeName;
-  }
-
-  public String getCreateUserId() {
-    return this.createUserId;
-  }
-
-  public void setCreateUserId(String createUserId) {
-    this.createUserId = createUserId;
-  }
-
-  public String getCreateUserId() {
-    return this.createUserId;
-  }
-
-  public void setCreateUserId(String createUserId) {
-    this.createUserId = createUserId;
-  }
-
-  public String getUpdateUserId() {
-    return this.updateUserId;
-  }
-
-  public void setUpdateUserId(String updateUserId) {
-    this.updateUserId = updateUserId;
-  }
-
-  public LocalDateTime getCreateTime() {
-    return this.createTime;
-  }
-
-  public void setCreateTime(LocalDateTime createTime) {
-    this.createTime = createTime;
+  public void setOfType(__TypeInput ofType) {
+    this.ofType = ofType;
   }
 
   public Boolean getIsDeprecated() {
@@ -318,46 +158,6 @@ public class __TypeInput {
 
   public void setIsDeprecated(Boolean isDeprecated) {
     this.isDeprecated = isDeprecated;
-  }
-
-  public Boolean getIsDeprecated() {
-    return this.isDeprecated;
-  }
-
-  public void setIsDeprecated(Boolean isDeprecated) {
-    this.isDeprecated = isDeprecated;
-  }
-
-  public LocalDateTime getUpdateTime() {
-    return this.updateTime;
-  }
-
-  public void setUpdateTime(LocalDateTime updateTime) {
-    this.updateTime = updateTime;
-  }
-
-  public String getRealmId() {
-    return this.realmId;
-  }
-
-  public void setRealmId(String realmId) {
-    this.realmId = realmId;
-  }
-
-  public String getRealmId() {
-    return this.realmId;
-  }
-
-  public void setRealmId(String realmId) {
-    this.realmId = realmId;
-  }
-
-  public String getUpdateUserId() {
-    return this.updateUserId;
-  }
-
-  public void setUpdateUserId(String updateUserId) {
-    this.updateUserId = updateUserId;
   }
 
   public Integer getVersion() {
@@ -368,12 +168,20 @@ public class __TypeInput {
     this.version = version;
   }
 
-  public String getCreateGroupId() {
-    return this.createGroupId;
+  public String getRealmId() {
+    return this.realmId;
   }
 
-  public void setCreateGroupId(String createGroupId) {
-    this.createGroupId = createGroupId;
+  public void setRealmId(String realmId) {
+    this.realmId = realmId;
+  }
+
+  public String getCreateUserId() {
+    return this.createUserId;
+  }
+
+  public void setCreateUserId(String createUserId) {
+    this.createUserId = createUserId;
   }
 
   public LocalDateTime getCreateTime() {
@@ -382,6 +190,14 @@ public class __TypeInput {
 
   public void setCreateTime(LocalDateTime createTime) {
     this.createTime = createTime;
+  }
+
+  public String getUpdateUserId() {
+    return this.updateUserId;
+  }
+
+  public void setUpdateUserId(String updateUserId) {
+    this.updateUserId = updateUserId;
   }
 
   public LocalDateTime getUpdateTime() {
@@ -398,14 +214,6 @@ public class __TypeInput {
 
   public void setCreateGroupId(String createGroupId) {
     this.createGroupId = createGroupId;
-  }
-
-  public Integer getVersion() {
-    return this.version;
-  }
-
-  public void setVersion(Integer version) {
-    this.version = version;
   }
 
   public String get__Typename() {

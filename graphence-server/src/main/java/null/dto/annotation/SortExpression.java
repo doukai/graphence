@@ -13,7 +13,7 @@ import null.dto.enumType.Sort;
 public @interface SortExpression {
   Operator opr() default Operator.EQ;
 
-  Sort val() default Sort.DESC;
+  Sort val() default Sort.ASC;
 
   Sort[] in() default {};
 
