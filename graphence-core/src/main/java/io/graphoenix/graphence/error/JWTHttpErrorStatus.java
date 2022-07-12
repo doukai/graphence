@@ -11,6 +11,6 @@ public class JWTHttpErrorStatus extends BaseHttpErrorStatus {
     @Override
     public void register() {
         put(JwtException.class, 401);
-        put(AuthenticationException.class, 403);
+        put(AuthenticationException.class, 401);
     }
 }

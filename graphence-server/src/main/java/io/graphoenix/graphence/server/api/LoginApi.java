@@ -1,5 +1,7 @@
 package io.graphoenix.graphence.server.api;
 
+import io.graphoenix.core.context.SessionScopeInstanceFactory;
+import io.graphoenix.graphence.CurrentUser;
 import io.graphoenix.graphence.error.AuthenticationException;
 import io.graphoenix.graphence.utils.JWTUtil;
 import io.graphoenix.graphence.server.spi.LoginDao;
@@ -35,12 +37,14 @@ public class LoginApi {
             return loginDao.getUserByLogin(login)
                     .map(user -> {
                                 if (user.getPassword().equals(password)) {
-                                    return jwtUtil.build(user);
+                                    return user;
                                 } else {
                                     throw new AuthenticationException(AUTHENTICATION_FAILED);
                                 }
                             }
                     )
+                    .doOnSuccess(user -> SessionScopeInstanceFactory.putIfAbsent(CurrentUser.class, CurrentUser.of(user)))
+                    .map(jwtUtil::build)
                     .switchIfEmpty(Mono.error(new AuthenticationException(AUTHENTICATION_FAILED)));
         } catch (Exception e) {
             Logger.error(e);

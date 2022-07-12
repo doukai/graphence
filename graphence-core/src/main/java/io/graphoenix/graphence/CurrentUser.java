@@ -1,8 +1,15 @@
 package io.graphoenix.graphence;
 
+import io.graphoenix.graphence.dto.objectType.Group;
+import io.graphoenix.graphence.dto.objectType.Role;
+import io.graphoenix.graphence.dto.objectType.User;
 import org.eclipse.microprofile.graphql.Type;
 
+import java.util.Collection;
+import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Type
 public class CurrentUser {
@@ -15,9 +22,9 @@ public class CurrentUser {
 
     private String realmId;
 
-    private Set<String> groups;
+    private List<String> groups;
 
-    private Set<String> roles;
+    private List<String> roles;
 
     public String getName() {
         return name;
@@ -55,21 +62,31 @@ public class CurrentUser {
         return this;
     }
 
-    public Set<String> getGroups() {
+    public List<String> getGroups() {
         return groups;
     }
 
-    public CurrentUser setGroups(Set<String> groups) {
+    public CurrentUser setGroups(List<String> groups) {
         this.groups = groups;
         return this;
     }
 
-    public Set<String> getRoles() {
+    public List<String> getRoles() {
         return roles;
     }
 
-    public CurrentUser setRoles(Set<String> roles) {
+    public CurrentUser setRoles(List<String> roles) {
         this.roles = roles;
         return this;
+    }
+
+    public static CurrentUser of(User user) {
+        return new CurrentUser()
+                .setLogin(user.getLogin())
+                .setRealmId(user.getRealmId())
+                .setName(user.getName())
+                .setLastName(user.getLastName())
+                .setRoles(Stream.ofNullable(user.getRoles()).flatMap(Collection::stream).map(Role::getName).collect(Collectors.toList()))
+                .setRoles(Stream.ofNullable(user.getGroups()).flatMap(Collection::stream).map(Group::getName).collect(Collectors.toList()));
     }
 }

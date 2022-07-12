@@ -4,6 +4,7 @@ import io.graphoenix.graphence.dto.objectType.Role;
 import io.graphoenix.r2dbc.connector.dao.R2DBCOperationDAO;
 import io.graphoenix.spi.annotation.GraphQLOperation;
 import io.graphoenix.spi.annotation.QueryOperation;
+import reactor.core.publisher.Mono;
 
 import java.util.Set;
 
@@ -11,5 +12,5 @@ import java.util.Set;
 public interface RBACPolicyDao {
 
     @QueryOperation(value = "roleList", selectionSet = "{ id name users{ id login realmId } composites{ id name } permissions{ field{ name ofTypeName } level } realmId }")
-    Set<Role> queryRoleList() throws Exception;
+    Mono<Set<Role>> queryRoleList() throws Exception;
 }
