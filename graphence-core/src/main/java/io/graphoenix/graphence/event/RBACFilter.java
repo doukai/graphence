@@ -30,7 +30,7 @@ import static io.graphoenix.spi.constant.Hammurabi.GRAPHQL_REQUEST_KEY;
 @Initialized(RequestScoped.class)
 @Priority(1)
 @AutoService(ScopeEvent.class)
-public class RBACFilter implements ScopeEvent {
+public class RBACFilter extends PermitFilter implements ScopeEvent {
 
     private final IGraphQLDocumentManager manager;
     private final RBACEnforcer rbacEnforcer;
@@ -42,9 +42,13 @@ public class RBACFilter implements ScopeEvent {
 
     @Override
     public Mono<Void> fireAsync(Map<String, Object> context) {
-        CurrentUser currentUser = (CurrentUser) context.get(CURRENT_USER_KEY);
         GraphQLRequest graphQLRequest = (GraphQLRequest) context.get(GRAPHQL_REQUEST_KEY);
+        boolean permit = permit(graphQLRequest, manager);
+        if (permit) {
+            return Mono.empty();
+        }
         GraphqlParser.OperationDefinitionContext operationDefinitionContext = DOCUMENT_UTIL.graphqlToOperation(graphQLRequest.getQuery());
+        CurrentUser currentUser = (CurrentUser) context.get(CURRENT_USER_KEY);
         GraphqlParser.OperationTypeContext operationTypeContext = operationDefinitionContext.operationType();
         if (operationTypeContext == null || operationTypeContext.QUERY() != null) {
             String typeName = manager.getQueryOperationTypeName().orElseThrow(() -> new GraphQLErrors(QUERY_TYPE_NOT_EXIST));

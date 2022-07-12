@@ -35,17 +35,17 @@ public class LoginApi {
     public Mono<String> login(String login, String password) {
         try {
             return loginDao.getUserByLogin(login)
-                    .map(user -> {
+                    .flatMap(user -> {
                                 if (user.getPassword().equals(password)) {
-                                    return user;
+                                    return Mono.justOrEmpty(user);
                                 } else {
-                                    throw new AuthenticationException(AUTHENTICATION_FAILED);
+                                    return Mono.error(new AuthenticationException(AUTHENTICATION_FAILED));
                                 }
                             }
                     )
+                    .switchIfEmpty(Mono.error(new AuthenticationException(AUTHENTICATION_FAILED)))
                     .doOnSuccess(user -> SessionScopeInstanceFactory.putIfAbsent(CurrentUser.class, CurrentUser.of(user)))
-                    .map(jwtUtil::build)
-                    .switchIfEmpty(Mono.error(new AuthenticationException(AUTHENTICATION_FAILED)));
+                    .map(jwtUtil::build);
         } catch (Exception e) {
             Logger.error(e);
         }
