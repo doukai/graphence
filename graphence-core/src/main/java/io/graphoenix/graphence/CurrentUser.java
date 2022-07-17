@@ -1,5 +1,6 @@
 package io.graphoenix.graphence;
 
+import com.dslplatform.json.CompiledJson;
 import io.graphoenix.graphence.dto.objectType.Group;
 import io.graphoenix.graphence.dto.objectType.Role;
 import io.graphoenix.graphence.dto.objectType.User;
@@ -11,6 +12,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 @Type
+@CompiledJson
 public class CurrentUser {
 
     private String name;

@@ -1,5 +1,6 @@
 package io.graphoenix.graphence.dto.inputObjectType;
 
+import com.dslplatform.json.CompiledJson;
 import io.graphoenix.graphence.dto.enumType.Operator;
 import io.graphoenix.graphence.dto.enumType.Sort;
 import io.graphoenix.spi.annotation.Skip;
@@ -9,6 +10,7 @@ import org.eclipse.microprofile.graphql.DefaultValue;
 import org.eclipse.microprofile.graphql.Input;
 
 @Input
+@CompiledJson
 @Generated("io.graphoenix.java.generator.builder.TypeSpecBuilderProxy")
 @Skip
 public class SortExpression {

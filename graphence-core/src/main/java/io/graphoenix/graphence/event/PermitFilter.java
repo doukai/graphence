@@ -1,10 +1,10 @@
 package io.graphoenix.graphence.event;
 
 import graphql.parser.antlr.GraphqlParser;
+import io.graphoenix.core.dto.GraphQLRequest;
 import io.graphoenix.core.error.GraphQLErrors;
 import io.graphoenix.graphence.error.AuthenticationException;
 import io.graphoenix.spi.antlr.IGraphQLDocumentManager;
-import io.graphoenix.spi.dto.GraphQLRequest;
 
 import java.util.List;
 import java.util.stream.Collectors;

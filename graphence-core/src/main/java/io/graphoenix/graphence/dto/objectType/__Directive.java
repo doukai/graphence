@@ -1,5 +1,6 @@
 package io.graphoenix.graphence.dto.objectType;
 
+import com.dslplatform.json.CompiledJson;
 import io.graphoenix.graphence.dto.enumType.__DirectiveLocation;
 import io.graphoenix.graphence.dto.interfaceType.Meta;
 import io.graphoenix.spi.annotation.Skip;
@@ -15,6 +16,7 @@ import org.eclipse.microprofile.graphql.NonNull;
 import org.eclipse.microprofile.graphql.Type;
 
 @Type
+@CompiledJson
 @Generated("io.graphoenix.java.generator.builder.TypeSpecBuilderProxy")
 @Skip
 public class __Directive implements Meta {

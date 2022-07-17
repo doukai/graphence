@@ -1,5 +1,6 @@
 package io.graphoenix.graphence.dto.inputObjectType;
 
+import com.dslplatform.json.CompiledJson;
 import io.graphoenix.graphence.dto.enumType.__TypeKind;
 import io.graphoenix.spi.annotation.Skip;
 import jakarta.annotation.Generated;
@@ -13,6 +14,7 @@ import org.eclipse.microprofile.graphql.Input;
 import org.eclipse.microprofile.graphql.NonNull;
 
 @Input
+@CompiledJson
 @Generated("io.graphoenix.java.generator.builder.TypeSpecBuilderProxy")
 @Skip
 public class __TypeInput {
