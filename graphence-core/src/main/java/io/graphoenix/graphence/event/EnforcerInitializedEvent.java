@@ -26,7 +26,7 @@ public class EnforcerInitializedEvent implements ScopeEvent {
         try {
             return rbacPolicyDao.queryRoleList()
                     .map(casbinRBACAdapter::setRoles)
-                    .doOnSuccess(adapter -> Mono.fromRunnable(() -> rbacEnforcer.setAdapter(adapter)))
+                    .flatMap(adapter -> Mono.fromRunnable(() -> rbacEnforcer.setAdapter(adapter)))
                     .then();
         } catch (Exception e) {
             return Mono.error(e).then();

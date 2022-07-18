@@ -8,6 +8,7 @@ import org.casbin.jcasbin.persist.Adapter;
 import org.casbin.jcasbin.persist.Helper;
 import org.tinylog.Logger;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Stream;
@@ -40,36 +41,34 @@ public class CasbinRBACAdapter implements Adapter {
         try {
             Stream<CasbinRule> permissionRuleStream = roles.stream()
                     .flatMap(role ->
-                            role.getPermissions() == null ?
-                                    Stream.empty() :
-                                    role.getPermissions().stream()
-                                            .flatMap(permission ->
-                                                    permission.getLevel().equals(WRITE) ?
-                                                            Stream.of(
-                                                                    new CasbinRule()
-                                                                            .setPtype(P_TYPE)
-                                                                            .setV0(role.getName())
-                                                                            .setV1(permission.getRealmId())
-                                                                            .setV2(permission.getField().getOfTypeName().concat(SPACER).concat(permission.getField().getName()))
-                                                                            .setV3(READ.name()),
-                                                                    new CasbinRule()
-                                                                            .setPtype(P_TYPE)
-                                                                            .setV0(role.getName())
-                                                                            .setV1(permission.getRealmId())
-                                                                            .setV2(permission.getField().getOfTypeName().concat(SPACER).concat(permission.getField().getName()))
-                                                                            .setV3(WRITE.name())
-                                                            ) :
-                                                            Stream.of(
-                                                                    new CasbinRule()
-                                                                            .setPtype(P_TYPE)
-                                                                            .setV0(role.getName())
-                                                                            .setV1(permission.getRealmId())
-                                                                            .setV2(permission.getField().getOfTypeName().concat(SPACER).concat(permission.getField().getName()))
-                                                                            .setV3(READ.name())
-                                                            )
-                                            )
+                            Stream.ofNullable(role.getPermissions())
+                                    .flatMap(Collection::stream)
+                                    .flatMap(permission ->
+                                            permission.getLevel().equals(WRITE) ?
+                                                    Stream.of(
+                                                            new CasbinRule()
+                                                                    .setPtype(P_TYPE)
+                                                                    .setV0(ROLE_PREFIX.concat(role.getName()))
+                                                                    .setV1(role.getRealmId())
+                                                                    .setV2(permission.getField().getOfTypeName().concat(SPACER).concat(permission.getField().getName()))
+                                                                    .setV3(READ.name()),
+                                                            new CasbinRule()
+                                                                    .setPtype(P_TYPE)
+                                                                    .setV0(ROLE_PREFIX.concat(role.getName()))
+                                                                    .setV1(role.getRealmId())
+                                                                    .setV2(permission.getField().getOfTypeName().concat(SPACER).concat(permission.getField().getName()))
+                                                                    .setV3(WRITE.name())
+                                                    ) :
+                                                    Stream.of(
+                                                            new CasbinRule()
+                                                                    .setPtype(P_TYPE)
+                                                                    .setV0(ROLE_PREFIX.concat(role.getName()))
+                                                                    .setV1(role.getRealmId())
+                                                                    .setV2(permission.getField().getOfTypeName().concat(SPACER).concat(permission.getField().getName()))
+                                                                    .setV3(READ.name())
+                                                    )
+                                    )
                     );
-
 
             Stream<CasbinRule> userRuleStream = roles.stream()
                     .flatMap(role ->
@@ -80,7 +79,7 @@ public class CasbinRBACAdapter implements Adapter {
                                                     new CasbinRule()
                                                             .setPtype(G_TYPE)
                                                             .setV0(USER_PREFIX.concat(user.getLogin()))
-                                                            .setV1(role.getName())
+                                                            .setV1(ROLE_PREFIX.concat(role.getName()))
                                                             .setV2(user.getRealmId())
                                             )
                     );
@@ -94,7 +93,7 @@ public class CasbinRBACAdapter implements Adapter {
                                                     new CasbinRule()
                                                             .setPtype(G_TYPE)
                                                             .setV0(ROLE_PREFIX.concat(role.getName()))
-                                                            .setV1(composite.getName())
+                                                            .setV1(ROLE_PREFIX.concat(composite.getName()))
                                                             .setV2(role.getRealmId())
                                             )
                     );
