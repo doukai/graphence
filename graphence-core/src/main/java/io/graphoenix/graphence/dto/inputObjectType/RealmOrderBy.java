@@ -13,6 +13,8 @@ import org.eclipse.microprofile.graphql.Input;
 public class RealmOrderBy {
   private Sort id;
 
+  private Sort name;
+
   private Sort isDeprecated;
 
   private Sort version;
@@ -37,6 +39,14 @@ public class RealmOrderBy {
 
   public void setId(Sort id) {
     this.id = id;
+  }
+
+  public Sort getName() {
+    return this.name;
+  }
+
+  public void setName(Sort name) {
+    this.name = name;
   }
 
   public Sort getIsDeprecated() {

@@ -11,6 +11,8 @@ import java.lang.annotation.Target;
 public @interface RealmInput0 {
   String id() default "";
 
+  String name() default "";
+
   boolean isDeprecated() default false;
 
   int version() default 0;
@@ -30,6 +32,8 @@ public @interface RealmInput0 {
   String __typename() default "";
 
   String $id() default "";
+
+  String $name() default "";
 
   String $isDeprecated() default "";
 

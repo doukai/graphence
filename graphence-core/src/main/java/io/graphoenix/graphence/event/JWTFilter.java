@@ -3,7 +3,6 @@ package io.graphoenix.graphence.event;
 import com.google.auto.service.AutoService;
 import io.graphoenix.core.context.BeanContext;
 import io.graphoenix.core.context.RequestScopeInstanceFactory;
-import io.graphoenix.core.dto.GraphQLRequest;
 import io.graphoenix.graphence.CurrentUser;
 import io.graphoenix.graphence.error.AuthenticationException;
 import io.graphoenix.graphence.jwt.GraphenceJsonWebToken;
@@ -20,17 +19,12 @@ import reactor.netty.http.server.HttpServerResponse;
 
 import java.util.Map;
 
-import static io.graphoenix.core.context.SessionScopeInstanceFactory.SESSION_ID;
 import static io.graphoenix.graphence.error.AuthenticationErrorType.UN_AUTHENTICATION;
-import static io.graphoenix.spi.constant.Hammurabi.CURRENT_USER_KEY;
-import static io.graphoenix.spi.constant.Hammurabi.GRAPHQL_REQUEST_KEY;
-import static io.graphoenix.spi.constant.Hammurabi.REQUEST_KEY;
-import static io.graphoenix.spi.constant.Hammurabi.RESPONSE_KEY;
 
 @Initialized(RequestScoped.class)
 @Priority(0)
 @AutoService(ScopeEvent.class)
-public class JWTFilter extends PermitFilter implements ScopeEvent {
+public class JWTFilter extends BaseRequestFilter implements ScopeEvent {
 
     private static final String AUTHORIZATION_HEADER = "Authorization";
 
@@ -44,11 +38,10 @@ public class JWTFilter extends PermitFilter implements ScopeEvent {
 
     @Override
     public Mono<Void> fireAsync(Map<String, Object> context) {
-        HttpServerRequest request = (HttpServerRequest) context.get(REQUEST_KEY);
-        HttpServerResponse response = (HttpServerResponse) context.get(RESPONSE_KEY);
-        GraphQLRequest graphQLRequest = (GraphQLRequest) context.get(GRAPHQL_REQUEST_KEY);
-        boolean permit = permit(graphQLRequest, manager);
-        if (permit) {
+        init(manager, context);
+        HttpServerRequest request = getRequest(context);
+        HttpServerResponse response = getResponse(context);
+        if (isPermitAll(context)) {
             return RequestScopeInstanceFactory.putIfAbsent(HttpServerRequest.class, request)
                     .then(RequestScopeInstanceFactory.putIfAbsent(HttpServerResponse.class, response))
                     .then();
@@ -65,8 +58,8 @@ public class JWTFilter extends PermitFilter implements ScopeEvent {
                     .setRealmId(jsonWebToken.getClaim(Claims.upn))
                     .setGroups(jsonWebToken.getClaim(Claims.groups));
 
-            context.put(SESSION_ID, jws);
-            context.put(CURRENT_USER_KEY, currentUser);
+            setCurrentUser(context, currentUser);
+            setSessionId(context, jws);
 
             return RequestScopeInstanceFactory.putIfAbsent(HttpServerRequest.class, request)
                     .then(RequestScopeInstanceFactory.putIfAbsent(HttpServerResponse.class, response))

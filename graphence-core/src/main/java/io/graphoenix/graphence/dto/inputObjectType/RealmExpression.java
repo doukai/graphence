@@ -16,6 +16,8 @@ import org.eclipse.microprofile.graphql.Input;
 public class RealmExpression {
   private StringExpression id;
 
+  private StringExpression name;
+
   @DefaultValue("false")
   private Boolean includeDeprecated;
 
@@ -46,6 +48,14 @@ public class RealmExpression {
 
   public void setId(StringExpression id) {
     this.id = id;
+  }
+
+  public StringExpression getName() {
+    return this.name;
+  }
+
+  public void setName(StringExpression name) {
+    this.name = name;
   }
 
   public Boolean getIncludeDeprecated() {

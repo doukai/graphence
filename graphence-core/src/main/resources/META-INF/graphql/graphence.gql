@@ -58,6 +58,7 @@ type GroupRole {
 
 type Realm {
     id: ID!
+    name: String!
 }
 
 type Permission {

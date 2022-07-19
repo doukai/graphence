@@ -14,6 +14,8 @@ public @interface RealmExpression0 {
 
   IDExpression id() default @IDExpression;
 
+  StringExpression name() default @StringExpression;
+
   BooleanExpression isDeprecated() default @BooleanExpression;
 
   IntExpression version() default @IntExpression;

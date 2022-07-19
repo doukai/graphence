@@ -22,6 +22,9 @@ public class Realm implements Meta {
   @NonNull
   private String id;
 
+  @NonNull
+  private String name;
+
   private Boolean isDeprecated;
 
   private Integer version;
@@ -48,12 +51,26 @@ public class Realm implements Meta {
   @Id
   private String idMin;
 
+  private Integer nameCount;
+
+  private String nameMax;
+
+  private String nameMin;
+
   public String getId() {
     return this.id;
   }
 
   public void setId(String id) {
     this.id = id;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
   }
 
   @Override
@@ -166,5 +183,29 @@ public class Realm implements Meta {
 
   public void setIdMin(String idMin) {
     this.idMin = idMin;
+  }
+
+  public Integer getNameCount() {
+    return this.nameCount;
+  }
+
+  public void setNameCount(Integer nameCount) {
+    this.nameCount = nameCount;
+  }
+
+  public String getNameMax() {
+    return this.nameMax;
+  }
+
+  public void setNameMax(String nameMax) {
+    this.nameMax = nameMax;
+  }
+
+  public String getNameMin() {
+    return this.nameMin;
+  }
+
+  public void setNameMin(String nameMin) {
+    this.nameMin = nameMin;
   }
 }

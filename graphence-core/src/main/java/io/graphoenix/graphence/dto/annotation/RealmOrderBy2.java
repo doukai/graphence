@@ -11,6 +11,8 @@ import java.lang.annotation.Target;
 public @interface RealmOrderBy2 {
   Sort id() default Sort.ASC;
 
+  Sort name() default Sort.ASC;
+
   Sort isDeprecated() default Sort.ASC;
 
   Sort version() default Sort.ASC;
