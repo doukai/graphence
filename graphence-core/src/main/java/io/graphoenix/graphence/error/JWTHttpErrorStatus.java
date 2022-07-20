@@ -4,6 +4,7 @@ import com.google.auto.service.AutoService;
 import io.graphoenix.spi.error.BaseHttpErrorStatus;
 import io.graphoenix.spi.error.HttpErrorStatus;
 import io.jsonwebtoken.JwtException;
+import io.jsonwebtoken.security.SignatureException;
 import org.casbin.jcasbin.exception.*;
 
 @AutoService(HttpErrorStatus.class)
@@ -12,6 +13,7 @@ public class JWTHttpErrorStatus extends BaseHttpErrorStatus {
     @Override
     public void register() {
         put(JwtException.class, 401);
+        put(SignatureException.class, 401);
         put(AuthenticationException.class, 401);
         put(CasbinAdapterException.class, 403);
         put(CasbinConfigException.class, 403);

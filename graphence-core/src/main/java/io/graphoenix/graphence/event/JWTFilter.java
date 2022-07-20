@@ -50,20 +50,25 @@ public class JWTFilter extends BaseRequestFilter implements ScopeEvent {
         String authorization = request.requestHeaders().get(AUTHORIZATION_HEADER);
         if (authorization != null && authorization.startsWith("Bearer")) {
             String jws = authorization.substring(7);
-            GraphenceJsonWebToken jsonWebToken = jwtUtil.parser(jws);
-            CurrentUser currentUser = new CurrentUser()
-                    .setLogin(jsonWebToken.getSubject())
-                    .setName(jsonWebToken.getClaim(Claims.full_name))
-                    .setLastName(jsonWebToken.getClaim(Claims.family_name))
-                    .setRealmId(jsonWebToken.getClaim(Claims.upn))
-                    .setGroups(jsonWebToken.getClaim(Claims.groups));
+            try {
+                GraphenceJsonWebToken jsonWebToken = jwtUtil.parser(jws);
+                CurrentUser currentUser = new CurrentUser()
+                        .setLogin(jsonWebToken.getSubject())
+                        .setName(jsonWebToken.getClaim(Claims.full_name))
+                        .setLastName(jsonWebToken.getClaim(Claims.family_name))
+                        .setRealmId(jsonWebToken.getClaim(Claims.upn))
+                        .setGroups(jsonWebToken.getClaim(Claims.groups));
 
-            setCurrentUser(context, currentUser);
-            setSessionId(context, jws);
+                setCurrentUser(context, currentUser);
+                setSessionId(context, jws);
 
-            return RequestScopeInstanceFactory.putIfAbsent(HttpServerRequest.class, request)
-                    .then(RequestScopeInstanceFactory.putIfAbsent(HttpServerResponse.class, response))
-                    .then();
+                return RequestScopeInstanceFactory.putIfAbsent(HttpServerRequest.class, request)
+                        .then(RequestScopeInstanceFactory.putIfAbsent(HttpServerResponse.class, response))
+                        .then();
+
+            } catch (Exception e) {
+                throw new AuthenticationException(UN_AUTHENTICATION);
+            }
         }
         throw new AuthenticationException(UN_AUTHENTICATION);
     }
