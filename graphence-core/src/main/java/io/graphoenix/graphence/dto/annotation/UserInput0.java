@@ -92,4 +92,8 @@ public @interface UserInput0 {
   RoleInput1[] roles() default {};
 
   RealmInput1 realm() default @RealmInput1;
+
+  UserInput1[] list() default {};
+
+  String $list() default "";
 }

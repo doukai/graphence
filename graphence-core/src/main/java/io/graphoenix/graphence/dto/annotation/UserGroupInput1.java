@@ -56,4 +56,8 @@ public @interface UserGroupInput1 {
   String $createGroupId() default "";
 
   String $__typename() default "";
+
+  UserGroupInput2[] list() default {};
+
+  String $list() default "";
 }

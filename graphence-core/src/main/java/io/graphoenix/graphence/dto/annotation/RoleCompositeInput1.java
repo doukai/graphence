@@ -56,4 +56,8 @@ public @interface RoleCompositeInput1 {
   String $createGroupId() default "";
 
   String $__typename() default "";
+
+  RoleCompositeInput2[] list() default {};
+
+  String $list() default "";
 }

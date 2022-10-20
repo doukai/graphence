@@ -88,4 +88,8 @@ public @interface GroupInput0 {
   RoleInput1[] roles() default {};
 
   RealmInput1 realm() default @RealmInput1;
+
+  GroupInput1[] list() default {};
+
+  String $list() default "";
 }

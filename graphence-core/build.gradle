@@ -33,6 +33,7 @@ repositories {
 
 dependencies {
     compile 'io.graphoenix:graphoenix-core:0.0.1-SNAPSHOT'
+    compile 'io.graphoenix:graphoenix-interceptor:0.0.1-SNAPSHOT'
     compile 'io.graphoenix:graphoenix-mysql:0.0.1-SNAPSHOT'
     compile 'io.graphoenix:graphoenix-config:0.0.1-SNAPSHOT'
     compile 'io.graphoenix:graphoenix-json:0.0.1-SNAPSHOT'

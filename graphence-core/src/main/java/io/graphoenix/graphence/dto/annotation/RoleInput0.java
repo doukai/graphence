@@ -84,4 +84,8 @@ public @interface RoleInput0 {
   PermissionInput1[] permissions() default {};
 
   RealmInput1 realm() default @RealmInput1;
+
+  RoleInput1[] list() default {};
+
+  String $list() default "";
 }

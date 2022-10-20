@@ -51,7 +51,6 @@ public class GroupInput {
   private String createGroupId;
 
   @DefaultValue("\"Group\"")
-  @NonNull
   private String __typename;
 
   public String getId() {
@@ -182,11 +181,11 @@ public class GroupInput {
     this.createGroupId = createGroupId;
   }
 
-  public String get__Typename() {
+  public String get__typename() {
     return this.__typename;
   }
 
-  public void set__Typename(String __typename) {
+  public void set__typename(String __typename) {
     this.__typename = __typename;
   }
 }

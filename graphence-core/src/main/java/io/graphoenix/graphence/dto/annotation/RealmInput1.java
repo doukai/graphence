@@ -52,4 +52,8 @@ public @interface RealmInput1 {
   String $createGroupId() default "";
 
   String $__typename() default "";
+
+  RealmInput2[] list() default {};
+
+  String $list() default "";
 }

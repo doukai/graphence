@@ -73,4 +73,8 @@ public @interface PermissionInput0 {
   __FieldInput1 field() default @__FieldInput1;
 
   RealmInput1 realm() default @RealmInput1;
+
+  PermissionInput1[] list() default {};
+
+  String $list() default "";
 }

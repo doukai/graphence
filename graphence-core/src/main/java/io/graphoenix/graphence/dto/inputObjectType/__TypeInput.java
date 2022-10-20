@@ -59,7 +59,6 @@ public class __TypeInput {
   private String createGroupId;
 
   @DefaultValue("\"__Type\"")
-  @NonNull
   private String __typename;
 
   public String getName() {
@@ -214,11 +213,11 @@ public class __TypeInput {
     this.createGroupId = createGroupId;
   }
 
-  public String get__Typename() {
+  public String get__typename() {
     return this.__typename;
   }
 
-  public void set__Typename(String __typename) {
+  public void set__typename(String __typename) {
     this.__typename = __typename;
   }
 }

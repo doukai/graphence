@@ -9,6 +9,7 @@ import java.lang.Integer;
 import java.lang.Override;
 import java.lang.String;
 import java.time.LocalDateTime;
+import java.util.Collection;
 import org.eclipse.microprofile.graphql.Type;
 
 @Type
@@ -18,39 +19,75 @@ import org.eclipse.microprofile.graphql.Type;
 public class MutationType implements Meta {
   private __Schema __schema;
 
+  private Collection<__Schema> __schemaList;
+
   private __Type __type;
+
+  private Collection<__Type> __typeList;
 
   private __TypeInterfaces __typeInterfaces;
 
+  private Collection<__TypeInterfaces> __typeInterfacesList;
+
   private __TypePossibleTypes __typePossibleTypes;
+
+  private Collection<__TypePossibleTypes> __typePossibleTypesList;
 
   private __Field __field;
 
+  private Collection<__Field> __fieldList;
+
   private __InputValue __inputValue;
+
+  private Collection<__InputValue> __inputValueList;
 
   private __EnumValue __enumValue;
 
+  private Collection<__EnumValue> __enumValueList;
+
   private __Directive __directive;
+
+  private Collection<__Directive> __directiveList;
 
   private __DirectiveLocations __directiveLocations;
 
+  private Collection<__DirectiveLocations> __directiveLocationsList;
+
   private User user;
+
+  private Collection<User> userList;
 
   private UserRole userRole;
 
+  private Collection<UserRole> userRoleList;
+
   private UserGroup userGroup;
+
+  private Collection<UserGroup> userGroupList;
 
   private Role role;
 
+  private Collection<Role> roleList;
+
   private RoleComposite roleComposite;
+
+  private Collection<RoleComposite> roleCompositeList;
 
   private Group group;
 
+  private Collection<Group> groupList;
+
   private GroupRole groupRole;
+
+  private Collection<GroupRole> groupRoleList;
 
   private Realm realm;
 
+  private Collection<Realm> realmList;
+
   private Permission permission;
+
+  private Collection<Permission> permissionList;
 
   private Boolean isDeprecated;
 
@@ -68,76 +105,149 @@ public class MutationType implements Meta {
 
   private String createGroupId;
 
-  public __Schema get__Schema() {
+  public __Schema get__schema() {
     return this.__schema;
   }
 
-  public void set__Schema(__Schema __schema) {
+  public void set__schema(__Schema __schema) {
     this.__schema = __schema;
   }
 
-  public __Type get__Type() {
+  public Collection<__Schema> get__schemaList() {
+    return this.__schemaList;
+  }
+
+  public void set__schemaList(Collection<__Schema> __schemaList) {
+    this.__schemaList = __schemaList;
+  }
+
+  public __Type get__type() {
     return this.__type;
   }
 
-  public void set__Type(__Type __type) {
+  public void set__type(__Type __type) {
     this.__type = __type;
   }
 
-  public __TypeInterfaces get__TypeInterfaces() {
+  public Collection<__Type> get__typeList() {
+    return this.__typeList;
+  }
+
+  public void set__typeList(Collection<__Type> __typeList) {
+    this.__typeList = __typeList;
+  }
+
+  public __TypeInterfaces get__typeInterfaces() {
     return this.__typeInterfaces;
   }
 
-  public void set__TypeInterfaces(__TypeInterfaces __typeInterfaces) {
+  public void set__typeInterfaces(__TypeInterfaces __typeInterfaces) {
     this.__typeInterfaces = __typeInterfaces;
   }
 
-  public __TypePossibleTypes get__TypePossibleTypes() {
+  public Collection<__TypeInterfaces> get__typeInterfacesList() {
+    return this.__typeInterfacesList;
+  }
+
+  public void set__typeInterfacesList(Collection<__TypeInterfaces> __typeInterfacesList) {
+    this.__typeInterfacesList = __typeInterfacesList;
+  }
+
+  public __TypePossibleTypes get__typePossibleTypes() {
     return this.__typePossibleTypes;
   }
 
-  public void set__TypePossibleTypes(__TypePossibleTypes __typePossibleTypes) {
+  public void set__typePossibleTypes(__TypePossibleTypes __typePossibleTypes) {
     this.__typePossibleTypes = __typePossibleTypes;
   }
 
-  public __Field get__Field() {
+  public Collection<__TypePossibleTypes> get__typePossibleTypesList() {
+    return this.__typePossibleTypesList;
+  }
+
+  public void set__typePossibleTypesList(Collection<__TypePossibleTypes> __typePossibleTypesList) {
+    this.__typePossibleTypesList = __typePossibleTypesList;
+  }
+
+  public __Field get__field() {
     return this.__field;
   }
 
-  public void set__Field(__Field __field) {
+  public void set__field(__Field __field) {
     this.__field = __field;
   }
 
-  public __InputValue get__InputValue() {
+  public Collection<__Field> get__fieldList() {
+    return this.__fieldList;
+  }
+
+  public void set__fieldList(Collection<__Field> __fieldList) {
+    this.__fieldList = __fieldList;
+  }
+
+  public __InputValue get__inputValue() {
     return this.__inputValue;
   }
 
-  public void set__InputValue(__InputValue __inputValue) {
+  public void set__inputValue(__InputValue __inputValue) {
     this.__inputValue = __inputValue;
   }
 
-  public __EnumValue get__EnumValue() {
+  public Collection<__InputValue> get__inputValueList() {
+    return this.__inputValueList;
+  }
+
+  public void set__inputValueList(Collection<__InputValue> __inputValueList) {
+    this.__inputValueList = __inputValueList;
+  }
+
+  public __EnumValue get__enumValue() {
     return this.__enumValue;
   }
 
-  public void set__EnumValue(__EnumValue __enumValue) {
+  public void set__enumValue(__EnumValue __enumValue) {
     this.__enumValue = __enumValue;
   }
 
-  public __Directive get__Directive() {
+  public Collection<__EnumValue> get__enumValueList() {
+    return this.__enumValueList;
+  }
+
+  public void set__enumValueList(Collection<__EnumValue> __enumValueList) {
+    this.__enumValueList = __enumValueList;
+  }
+
+  public __Directive get__directive() {
     return this.__directive;
   }
 
-  public void set__Directive(__Directive __directive) {
+  public void set__directive(__Directive __directive) {
     this.__directive = __directive;
   }
 
-  public __DirectiveLocations get__DirectiveLocations() {
+  public Collection<__Directive> get__directiveList() {
+    return this.__directiveList;
+  }
+
+  public void set__directiveList(Collection<__Directive> __directiveList) {
+    this.__directiveList = __directiveList;
+  }
+
+  public __DirectiveLocations get__directiveLocations() {
     return this.__directiveLocations;
   }
 
-  public void set__DirectiveLocations(__DirectiveLocations __directiveLocations) {
+  public void set__directiveLocations(__DirectiveLocations __directiveLocations) {
     this.__directiveLocations = __directiveLocations;
+  }
+
+  public Collection<__DirectiveLocations> get__directiveLocationsList() {
+    return this.__directiveLocationsList;
+  }
+
+  public void set__directiveLocationsList(
+      Collection<__DirectiveLocations> __directiveLocationsList) {
+    this.__directiveLocationsList = __directiveLocationsList;
   }
 
   public User getUser() {
@@ -148,12 +258,28 @@ public class MutationType implements Meta {
     this.user = user;
   }
 
+  public Collection<User> getUserList() {
+    return this.userList;
+  }
+
+  public void setUserList(Collection<User> userList) {
+    this.userList = userList;
+  }
+
   public UserRole getUserRole() {
     return this.userRole;
   }
 
   public void setUserRole(UserRole userRole) {
     this.userRole = userRole;
+  }
+
+  public Collection<UserRole> getUserRoleList() {
+    return this.userRoleList;
+  }
+
+  public void setUserRoleList(Collection<UserRole> userRoleList) {
+    this.userRoleList = userRoleList;
   }
 
   public UserGroup getUserGroup() {
@@ -164,12 +290,28 @@ public class MutationType implements Meta {
     this.userGroup = userGroup;
   }
 
+  public Collection<UserGroup> getUserGroupList() {
+    return this.userGroupList;
+  }
+
+  public void setUserGroupList(Collection<UserGroup> userGroupList) {
+    this.userGroupList = userGroupList;
+  }
+
   public Role getRole() {
     return this.role;
   }
 
   public void setRole(Role role) {
     this.role = role;
+  }
+
+  public Collection<Role> getRoleList() {
+    return this.roleList;
+  }
+
+  public void setRoleList(Collection<Role> roleList) {
+    this.roleList = roleList;
   }
 
   public RoleComposite getRoleComposite() {
@@ -180,12 +322,28 @@ public class MutationType implements Meta {
     this.roleComposite = roleComposite;
   }
 
+  public Collection<RoleComposite> getRoleCompositeList() {
+    return this.roleCompositeList;
+  }
+
+  public void setRoleCompositeList(Collection<RoleComposite> roleCompositeList) {
+    this.roleCompositeList = roleCompositeList;
+  }
+
   public Group getGroup() {
     return this.group;
   }
 
   public void setGroup(Group group) {
     this.group = group;
+  }
+
+  public Collection<Group> getGroupList() {
+    return this.groupList;
+  }
+
+  public void setGroupList(Collection<Group> groupList) {
+    this.groupList = groupList;
   }
 
   public GroupRole getGroupRole() {
@@ -196,6 +354,14 @@ public class MutationType implements Meta {
     this.groupRole = groupRole;
   }
 
+  public Collection<GroupRole> getGroupRoleList() {
+    return this.groupRoleList;
+  }
+
+  public void setGroupRoleList(Collection<GroupRole> groupRoleList) {
+    this.groupRoleList = groupRoleList;
+  }
+
   public Realm getRealm() {
     return this.realm;
   }
@@ -204,12 +370,28 @@ public class MutationType implements Meta {
     this.realm = realm;
   }
 
+  public Collection<Realm> getRealmList() {
+    return this.realmList;
+  }
+
+  public void setRealmList(Collection<Realm> realmList) {
+    this.realmList = realmList;
+  }
+
   public Permission getPermission() {
     return this.permission;
   }
 
   public void setPermission(Permission permission) {
     this.permission = permission;
+  }
+
+  public Collection<Permission> getPermissionList() {
+    return this.permissionList;
+  }
+
+  public void setPermissionList(Collection<Permission> permissionList) {
+    this.permissionList = permissionList;
   }
 
   @Override

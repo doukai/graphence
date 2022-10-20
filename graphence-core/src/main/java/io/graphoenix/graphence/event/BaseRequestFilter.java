@@ -13,8 +13,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import static io.graphoenix.core.context.RequestScopeInstanceFactory.REQUEST_ID;
-import static io.graphoenix.core.context.SessionScopeInstanceFactory.SESSION_ID;
 import static io.graphoenix.core.error.GraphQLErrorType.UNSUPPORTED_OPERATION_TYPE;
 import static io.graphoenix.core.utils.DocumentUtil.DOCUMENT_UTIL;
 import static io.graphoenix.graphence.error.AuthenticationErrorType.UN_AUTHENTICATION;

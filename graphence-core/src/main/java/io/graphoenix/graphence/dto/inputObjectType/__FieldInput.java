@@ -64,7 +64,6 @@ public class __FieldInput {
   private String createGroupId;
 
   @DefaultValue("\"__Field\"")
-  @NonNull
   private String __typename;
 
   public String getId() {
@@ -243,11 +242,11 @@ public class __FieldInput {
     this.createGroupId = createGroupId;
   }
 
-  public String get__Typename() {
+  public String get__typename() {
     return this.__typename;
   }
 
-  public void set__Typename(String __typename) {
+  public void set__typename(String __typename) {
     this.__typename = __typename;
   }
 }

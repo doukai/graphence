@@ -56,4 +56,8 @@ public @interface GroupRoleInput0 {
   String $createGroupId() default "";
 
   String $__typename() default "";
+
+  GroupRoleInput1[] list() default {};
+
+  String $list() default "";
 }
