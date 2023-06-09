@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "io.graphence.spi.grpc";
+
+package io.graphence.spi.grpc;
+
+import "io/graphence/spi/enums.proto";
+import "io/graphence/spi/objects.proto";
+import "io/graphence/spi/interfaces.proto";
+import "io/graphence/spi/input_objects.proto";
+import "io/graphence/spi/query_requests.proto";
+import "io/graphence/spi/query_responses.proto";
+
+service QueryTypeService {
+    rpc IsDeprecated (QueryIsDeprecatedRequest) returns (QueryIsDeprecatedResponse);
+    rpc Version (QueryVersionRequest) returns (QueryVersionResponse);
+    rpc RealmId (QueryRealmIdRequest) returns (QueryRealmIdResponse);
+    rpc CreateUserId (QueryCreateUserIdRequest) returns (QueryCreateUserIdResponse);
+    rpc CreateTime (QueryCreateTimeRequest) returns (QueryCreateTimeResponse);
+    rpc UpdateUserId (QueryUpdateUserIdRequest) returns (QueryUpdateUserIdResponse);
+    rpc UpdateTime (QueryUpdateTimeRequest) returns (QueryUpdateTimeResponse);
+    rpc CreateGroupId (QueryCreateGroupIdRequest) returns (QueryCreateGroupIdResponse);
+    rpc User (QueryUserRequest) returns (QueryUserResponse);
+    rpc UserList (QueryUserListRequest) returns (QueryUserListResponse);
+    rpc UserConnection (QueryUserConnectionRequest) returns (QueryUserConnectionResponse);
+    rpc Role (QueryRoleRequest) returns (QueryRoleResponse);
+    rpc RoleList (QueryRoleListRequest) returns (QueryRoleListResponse);
+    rpc RoleConnection (QueryRoleConnectionRequest) returns (QueryRoleConnectionResponse);
+    rpc Group (QueryGroupRequest) returns (QueryGroupResponse);
+    rpc GroupList (QueryGroupListRequest) returns (QueryGroupListResponse);
+    rpc GroupConnection (QueryGroupConnectionRequest) returns (QueryGroupConnectionResponse);
+    rpc Realm (QueryRealmRequest) returns (QueryRealmResponse);
+    rpc RealmList (QueryRealmListRequest) returns (QueryRealmListResponse);
+    rpc RealmConnection (QueryRealmConnectionRequest) returns (QueryRealmConnectionResponse);
+    rpc Permission (QueryPermissionRequest) returns (QueryPermissionResponse);
+    rpc PermissionList (QueryPermissionListRequest) returns (QueryPermissionListResponse);
+    rpc PermissionConnection (QueryPermissionConnectionRequest) returns (QueryPermissionConnectionResponse);
+    rpc UserGroup (QueryUserGroupRequest) returns (QueryUserGroupResponse);
+    rpc UserGroupList (QueryUserGroupListRequest) returns (QueryUserGroupListResponse);
+    rpc UserGroupConnection (QueryUserGroupConnectionRequest) returns (QueryUserGroupConnectionResponse);
+    rpc UserRole (QueryUserRoleRequest) returns (QueryUserRoleResponse);
+    rpc UserRoleList (QueryUserRoleListRequest) returns (QueryUserRoleListResponse);
+    rpc UserRoleConnection (QueryUserRoleConnectionRequest) returns (QueryUserRoleConnectionResponse);
+    rpc RoleComposite (QueryRoleCompositeRequest) returns (QueryRoleCompositeResponse);
+    rpc RoleCompositeList (QueryRoleCompositeListRequest) returns (QueryRoleCompositeListResponse);
+    rpc RoleCompositeConnection (QueryRoleCompositeConnectionRequest) returns (QueryRoleCompositeConnectionResponse);
+    rpc GroupRole (QueryGroupRoleRequest) returns (QueryGroupRoleResponse);
+    rpc GroupRoleList (QueryGroupRoleListRequest) returns (QueryGroupRoleListResponse);
+    rpc GroupRoleConnection (QueryGroupRoleConnectionRequest) returns (QueryGroupRoleConnectionResponse);
+}

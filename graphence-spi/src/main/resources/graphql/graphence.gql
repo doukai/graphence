@@ -1,0 +1,50 @@
+type User {
+    id: ID @dataType(type: "Int" autoIncrement: true)
+    name: String!
+    lastName: String
+    login: String!
+    password: String!
+    email: String
+    disable: Boolean
+    groups: [Group] @map(from: "id" with: {type: "UserGroup" from: "userId" to: "groupId"} to: "id")
+    roles: [Role] @map(from: "id" with: {type: "UserRole" from: "userId" to: "roleId"} to: "id")
+    realm: Realm @map(from: "realmId" to: "id" anchor: true)
+}
+
+type Role {
+    id: ID @dataType(type: "Int" autoIncrement: true)
+    name: String!
+    description: String
+    users: [User] @map(from: "id" with: {type: "UserRole" from: "roleId" to: "userId"} to: "id")
+    composites: [Role] @map(from: "id" with: {type: "RoleComposite" from: "roleId" to: "compositeId"} to: "id")
+    permissions: [Permission] @map(from: "id" to: "roleId")
+    realm: Realm @map(from: "realmId" to: "id" anchor: true)
+}
+
+type Group {
+    id: ID @dataType(type: "Int" autoIncrement: true)
+    name: String!
+    parent: Group @map(from: "parentId" to: "id" anchor: true)
+    subGroups: [Group] @map(from: "id" to: "parentId")
+    users: [User] @map(from: "id" with: {type: "UserGroup" from: "groupId" to: "userId"} to: "id")
+    roles: [Role] @map(from: "id" with: {type: "GroupRole" from: "groupId" to: "roleId"} to: "id")
+    realm: Realm @map(from: "realmId" to: "id" anchor: true)
+}
+
+type Realm {
+    id: ID!
+    name: String!
+}
+
+type Permission {
+    id: ID @dataType(type: "Int" autoIncrement: true)
+    role: Role! @map(from: "roleId" to: "id" anchor: true)
+    field: __Field! @map(from: "fieldId" to: "id" anchor: true)
+    level: PermissionLevel
+    realm: Realm @map(from: "realmId" to: "id" anchor: true)
+}
+
+enum PermissionLevel {
+    READ
+    WRITE
+}

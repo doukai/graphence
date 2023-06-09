@@ -1,0 +1,121 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "io.graphence.spi.grpc";
+
+package io.graphence.spi.grpc;
+
+import "io/graphence/spi/enums.proto";
+import "io/graphence/spi/objects.proto";
+import "io/graphence/spi/interfaces.proto";
+import "io/graphence/spi/input_objects.proto";
+import "io/graphoenix/core/enums.proto";
+import "io/graphoenix/core/input_objects.proto";
+import "io/graphoenix/introspection/input_objects.proto";
+import "google/protobuf/timestamp.proto";
+
+message QueryIsDeprecatedResponse {
+    optional bool is_deprecated = 1;
+}
+message QueryVersionResponse {
+    optional int32 version = 1;
+}
+message QueryRealmIdResponse {
+    optional string realm_id = 1;
+}
+message QueryCreateUserIdResponse {
+    optional string create_user_id = 1;
+}
+message QueryCreateTimeResponse {
+    optional google.protobuf.Timestamp create_time = 1;
+}
+message QueryUpdateUserIdResponse {
+    optional string update_user_id = 1;
+}
+message QueryUpdateTimeResponse {
+    optional google.protobuf.Timestamp update_time = 1;
+}
+message QueryCreateGroupIdResponse {
+    optional string create_group_id = 1;
+}
+message QueryUserResponse {
+    optional User user = 1;
+}
+message QueryUserListResponse {
+    repeated User user_list = 1;
+}
+message QueryUserConnectionResponse {
+    optional UserConnection user_connection = 1;
+}
+message QueryRoleResponse {
+    optional Role role = 1;
+}
+message QueryRoleListResponse {
+    repeated Role role_list = 1;
+}
+message QueryRoleConnectionResponse {
+    optional RoleConnection role_connection = 1;
+}
+message QueryGroupResponse {
+    optional Group group = 1;
+}
+message QueryGroupListResponse {
+    repeated Group group_list = 1;
+}
+message QueryGroupConnectionResponse {
+    optional GroupConnection group_connection = 1;
+}
+message QueryRealmResponse {
+    optional Realm realm = 1;
+}
+message QueryRealmListResponse {
+    repeated Realm realm_list = 1;
+}
+message QueryRealmConnectionResponse {
+    optional RealmConnection realm_connection = 1;
+}
+message QueryPermissionResponse {
+    optional Permission permission = 1;
+}
+message QueryPermissionListResponse {
+    repeated Permission permission_list = 1;
+}
+message QueryPermissionConnectionResponse {
+    optional PermissionConnection permission_connection = 1;
+}
+message QueryUserGroupResponse {
+    optional UserGroup user_group = 1;
+}
+message QueryUserGroupListResponse {
+    repeated UserGroup user_group_list = 1;
+}
+message QueryUserGroupConnectionResponse {
+    optional UserGroupConnection user_group_connection = 1;
+}
+message QueryUserRoleResponse {
+    optional UserRole user_role = 1;
+}
+message QueryUserRoleListResponse {
+    repeated UserRole user_role_list = 1;
+}
+message QueryUserRoleConnectionResponse {
+    optional UserRoleConnection user_role_connection = 1;
+}
+message QueryRoleCompositeResponse {
+    optional RoleComposite role_composite = 1;
+}
+message QueryRoleCompositeListResponse {
+    repeated RoleComposite role_composite_list = 1;
+}
+message QueryRoleCompositeConnectionResponse {
+    optional RoleCompositeConnection role_composite_connection = 1;
+}
+message QueryGroupRoleResponse {
+    optional GroupRole group_role = 1;
+}
+message QueryGroupRoleListResponse {
+    repeated GroupRole group_role_list = 1;
+}
+message QueryGroupRoleConnectionResponse {
+    optional GroupRoleConnection group_role_connection = 1;
+}
