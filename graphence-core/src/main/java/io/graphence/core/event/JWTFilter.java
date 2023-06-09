@@ -3,7 +3,7 @@ package io.graphence.core.event;
 import com.google.auto.service.AutoService;
 import io.graphoenix.core.context.BeanContext;
 import io.graphoenix.core.context.RequestScopeInstanceFactory;
-import io.graphence.core.CurrentUser;
+import io.graphence.core.dto.CurrentUser;
 import io.graphence.core.error.AuthenticationException;
 import io.graphence.core.jwt.GraphenceJsonWebToken;
 import io.graphence.core.utils.JWTUtil;

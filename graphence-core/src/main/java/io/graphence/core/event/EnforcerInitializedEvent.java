@@ -4,7 +4,7 @@ import com.google.auto.service.AutoService;
 import io.graphoenix.core.context.BeanContext;
 import io.graphence.core.casbin.RBACEnforcer;
 import io.graphence.core.casbin.adapter.CasbinRBACAdapter;
-import io.graphence.spi.dao.RBACPolicyDao;
+import io.graphence.core.dao.RBACPolicyDao;
 import io.graphoenix.spi.handler.ScopeEvent;
 import jakarta.annotation.Priority;
 import jakarta.enterprise.context.ApplicationScoped;

@@ -30,7 +30,6 @@ repositories {
 }
 
 dependencies {
-    implementation project(':graphence-spi')
     implementation project(':graphence-core')
     implementation 'io.graphoenix:graphoenix-http-server:0.0.1-SNAPSHOT'
     implementation 'io.graphoenix:graphoenix-grpc-server:0.0.1-SNAPSHOT'

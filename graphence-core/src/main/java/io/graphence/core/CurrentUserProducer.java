@@ -1,5 +1,6 @@
 package io.graphence.core;
 
+import io.graphence.core.dto.CurrentUser;
 import io.graphoenix.core.context.SessionScopeInstanceFactory;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.context.SessionScoped;

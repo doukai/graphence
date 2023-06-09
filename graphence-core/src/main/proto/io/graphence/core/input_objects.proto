@@ -1,0 +1,484 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "io.graphence.core.dto.inputObjectType.grpc";
+
+package io.graphence.core.grpc;
+
+import "io/graphence/core/enums.proto";
+import "io/graphoenix/core/enums.proto";
+import "io/graphoenix/core/input_objects.proto";
+import "io/graphoenix/introspection/input_objects.proto";
+import "google/protobuf/timestamp.proto";
+
+message UserExpression {
+    optional io.graphoenix.core.grpc.StringExpression id = 1;
+    optional io.graphoenix.core.grpc.StringExpression name = 2;
+    optional io.graphoenix.core.grpc.StringExpression last_name = 3;
+    optional io.graphoenix.core.grpc.StringExpression login = 4;
+    optional io.graphoenix.core.grpc.StringExpression password = 5;
+    optional io.graphoenix.core.grpc.StringExpression email = 6;
+    optional io.graphoenix.core.grpc.BooleanExpression disable = 7;
+    optional GroupExpression groups = 8;
+    optional RoleExpression roles = 9;
+    optional RealmExpression realm = 10;
+    optional bool include_deprecated = 11;
+    optional io.graphoenix.core.grpc.IntExpression version = 12;
+    optional io.graphoenix.core.grpc.StringExpression realm_id = 13;
+    optional io.graphoenix.core.grpc.StringExpression create_user_id = 14;
+    optional io.graphoenix.core.grpc.StringExpression create_time = 15;
+    optional io.graphoenix.core.grpc.StringExpression update_user_id = 16;
+    optional io.graphoenix.core.grpc.StringExpression update_time = 17;
+    optional io.graphoenix.core.grpc.StringExpression create_group_id = 18;
+    optional io.graphoenix.core.grpc.StringExpression intro_typename = 19;
+    optional UserGroupExpression user_group = 20;
+    optional UserRoleExpression user_role = 21;
+    optional io.graphoenix.core.grpc.Conditional cond = 22;
+    repeated UserExpression exs = 23;
+}
+message UserInput {
+    optional string id = 1;
+    optional string name = 2;
+    optional string last_name = 3;
+    optional string login = 4;
+    optional string password = 5;
+    optional string email = 6;
+    optional bool disable = 7;
+    repeated GroupInput groups = 8;
+    repeated RoleInput roles = 9;
+    optional RealmInput realm = 10;
+    optional bool is_deprecated = 11;
+    optional int32 version = 12;
+    optional string realm_id = 13;
+    optional string create_user_id = 14;
+    optional google.protobuf.Timestamp create_time = 15;
+    optional string update_user_id = 16;
+    optional google.protobuf.Timestamp update_time = 17;
+    optional string create_group_id = 18;
+    optional string intro_typename = 19;
+    repeated UserGroupInput user_group = 20;
+    repeated UserRoleInput user_role = 21;
+}
+message UserOrderBy {
+    optional io.graphoenix.core.grpc.Sort id = 1;
+    optional io.graphoenix.core.grpc.Sort name = 2;
+    optional io.graphoenix.core.grpc.Sort last_name = 3;
+    optional io.graphoenix.core.grpc.Sort login = 4;
+    optional io.graphoenix.core.grpc.Sort password = 5;
+    optional io.graphoenix.core.grpc.Sort email = 6;
+    optional io.graphoenix.core.grpc.Sort disable = 7;
+    optional io.graphoenix.core.grpc.Sort is_deprecated = 8;
+    optional io.graphoenix.core.grpc.Sort version = 9;
+    optional io.graphoenix.core.grpc.Sort realm_id = 10;
+    optional io.graphoenix.core.grpc.Sort create_user_id = 11;
+    optional io.graphoenix.core.grpc.Sort create_time = 12;
+    optional io.graphoenix.core.grpc.Sort update_user_id = 13;
+    optional io.graphoenix.core.grpc.Sort update_time = 14;
+    optional io.graphoenix.core.grpc.Sort create_group_id = 15;
+    optional io.graphoenix.core.grpc.Sort intro_typename = 16;
+}
+message RoleExpression {
+    optional io.graphoenix.core.grpc.StringExpression id = 1;
+    optional io.graphoenix.core.grpc.StringExpression name = 2;
+    optional io.graphoenix.core.grpc.StringExpression description = 3;
+    optional UserExpression users = 4;
+    optional RoleExpression composites = 5;
+    optional PermissionExpression permissions = 6;
+    optional RealmExpression realm = 7;
+    optional bool include_deprecated = 8;
+    optional io.graphoenix.core.grpc.IntExpression version = 9;
+    optional io.graphoenix.core.grpc.StringExpression realm_id = 10;
+    optional io.graphoenix.core.grpc.StringExpression create_user_id = 11;
+    optional io.graphoenix.core.grpc.StringExpression create_time = 12;
+    optional io.graphoenix.core.grpc.StringExpression update_user_id = 13;
+    optional io.graphoenix.core.grpc.StringExpression update_time = 14;
+    optional io.graphoenix.core.grpc.StringExpression create_group_id = 15;
+    optional io.graphoenix.core.grpc.StringExpression intro_typename = 16;
+    optional UserRoleExpression user_role = 17;
+    optional RoleCompositeExpression role_composite = 18;
+    optional io.graphoenix.core.grpc.Conditional cond = 19;
+    repeated RoleExpression exs = 20;
+}
+message RoleInput {
+    optional string id = 1;
+    optional string name = 2;
+    optional string description = 3;
+    repeated UserInput users = 4;
+    repeated RoleInput composites = 5;
+    repeated PermissionInput permissions = 6;
+    optional RealmInput realm = 7;
+    optional bool is_deprecated = 8;
+    optional int32 version = 9;
+    optional string realm_id = 10;
+    optional string create_user_id = 11;
+    optional google.protobuf.Timestamp create_time = 12;
+    optional string update_user_id = 13;
+    optional google.protobuf.Timestamp update_time = 14;
+    optional string create_group_id = 15;
+    optional string intro_typename = 16;
+    repeated UserRoleInput user_role = 17;
+    repeated RoleCompositeInput role_composite = 18;
+}
+message RoleOrderBy {
+    optional io.graphoenix.core.grpc.Sort id = 1;
+    optional io.graphoenix.core.grpc.Sort name = 2;
+    optional io.graphoenix.core.grpc.Sort description = 3;
+    optional io.graphoenix.core.grpc.Sort is_deprecated = 4;
+    optional io.graphoenix.core.grpc.Sort version = 5;
+    optional io.graphoenix.core.grpc.Sort realm_id = 6;
+    optional io.graphoenix.core.grpc.Sort create_user_id = 7;
+    optional io.graphoenix.core.grpc.Sort create_time = 8;
+    optional io.graphoenix.core.grpc.Sort update_user_id = 9;
+    optional io.graphoenix.core.grpc.Sort update_time = 10;
+    optional io.graphoenix.core.grpc.Sort create_group_id = 11;
+    optional io.graphoenix.core.grpc.Sort intro_typename = 12;
+}
+message GroupExpression {
+    optional io.graphoenix.core.grpc.StringExpression id = 1;
+    optional io.graphoenix.core.grpc.StringExpression name = 2;
+    optional GroupExpression parent = 3;
+    optional GroupExpression sub_groups = 4;
+    optional UserExpression users = 5;
+    optional RoleExpression roles = 6;
+    optional RealmExpression realm = 7;
+    optional bool include_deprecated = 8;
+    optional io.graphoenix.core.grpc.IntExpression version = 9;
+    optional io.graphoenix.core.grpc.StringExpression realm_id = 10;
+    optional io.graphoenix.core.grpc.StringExpression create_user_id = 11;
+    optional io.graphoenix.core.grpc.StringExpression create_time = 12;
+    optional io.graphoenix.core.grpc.StringExpression update_user_id = 13;
+    optional io.graphoenix.core.grpc.StringExpression update_time = 14;
+    optional io.graphoenix.core.grpc.StringExpression create_group_id = 15;
+    optional io.graphoenix.core.grpc.StringExpression intro_typename = 16;
+    optional io.graphoenix.core.grpc.IntExpression parent_id = 17;
+    optional UserGroupExpression user_group = 18;
+    optional GroupRoleExpression group_role = 19;
+    optional io.graphoenix.core.grpc.Conditional cond = 20;
+    repeated GroupExpression exs = 21;
+}
+message GroupInput {
+    optional string id = 1;
+    optional string name = 2;
+    optional GroupInput parent = 3;
+    repeated GroupInput sub_groups = 4;
+    repeated UserInput users = 5;
+    repeated RoleInput roles = 6;
+    optional RealmInput realm = 7;
+    optional bool is_deprecated = 8;
+    optional int32 version = 9;
+    optional string realm_id = 10;
+    optional string create_user_id = 11;
+    optional google.protobuf.Timestamp create_time = 12;
+    optional string update_user_id = 13;
+    optional google.protobuf.Timestamp update_time = 14;
+    optional string create_group_id = 15;
+    optional string intro_typename = 16;
+    optional int32 parent_id = 17;
+    repeated UserGroupInput user_group = 18;
+    repeated GroupRoleInput group_role = 19;
+}
+message GroupOrderBy {
+    optional io.graphoenix.core.grpc.Sort id = 1;
+    optional io.graphoenix.core.grpc.Sort name = 2;
+    optional io.graphoenix.core.grpc.Sort is_deprecated = 3;
+    optional io.graphoenix.core.grpc.Sort version = 4;
+    optional io.graphoenix.core.grpc.Sort realm_id = 5;
+    optional io.graphoenix.core.grpc.Sort create_user_id = 6;
+    optional io.graphoenix.core.grpc.Sort create_time = 7;
+    optional io.graphoenix.core.grpc.Sort update_user_id = 8;
+    optional io.graphoenix.core.grpc.Sort update_time = 9;
+    optional io.graphoenix.core.grpc.Sort create_group_id = 10;
+    optional io.graphoenix.core.grpc.Sort intro_typename = 11;
+    optional io.graphoenix.core.grpc.Sort parent_id = 12;
+}
+message RealmExpression {
+    optional io.graphoenix.core.grpc.StringExpression id = 1;
+    optional io.graphoenix.core.grpc.StringExpression name = 2;
+    optional bool include_deprecated = 3;
+    optional io.graphoenix.core.grpc.IntExpression version = 4;
+    optional io.graphoenix.core.grpc.StringExpression realm_id = 5;
+    optional io.graphoenix.core.grpc.StringExpression create_user_id = 6;
+    optional io.graphoenix.core.grpc.StringExpression create_time = 7;
+    optional io.graphoenix.core.grpc.StringExpression update_user_id = 8;
+    optional io.graphoenix.core.grpc.StringExpression update_time = 9;
+    optional io.graphoenix.core.grpc.StringExpression create_group_id = 10;
+    optional io.graphoenix.core.grpc.StringExpression intro_typename = 11;
+    optional io.graphoenix.core.grpc.Conditional cond = 12;
+    repeated RealmExpression exs = 13;
+}
+message RealmInput {
+    optional string id = 1;
+    optional string name = 2;
+    optional bool is_deprecated = 3;
+    optional int32 version = 4;
+    optional string realm_id = 5;
+    optional string create_user_id = 6;
+    optional google.protobuf.Timestamp create_time = 7;
+    optional string update_user_id = 8;
+    optional google.protobuf.Timestamp update_time = 9;
+    optional string create_group_id = 10;
+    optional string intro_typename = 11;
+}
+message RealmOrderBy {
+    optional io.graphoenix.core.grpc.Sort id = 1;
+    optional io.graphoenix.core.grpc.Sort name = 2;
+    optional io.graphoenix.core.grpc.Sort is_deprecated = 3;
+    optional io.graphoenix.core.grpc.Sort version = 4;
+    optional io.graphoenix.core.grpc.Sort realm_id = 5;
+    optional io.graphoenix.core.grpc.Sort create_user_id = 6;
+    optional io.graphoenix.core.grpc.Sort create_time = 7;
+    optional io.graphoenix.core.grpc.Sort update_user_id = 8;
+    optional io.graphoenix.core.grpc.Sort update_time = 9;
+    optional io.graphoenix.core.grpc.Sort create_group_id = 10;
+    optional io.graphoenix.core.grpc.Sort intro_typename = 11;
+}
+message PermissionExpression {
+    optional io.graphoenix.core.grpc.StringExpression id = 1;
+    optional RoleExpression role = 2;
+    optional io.graphoenix.introspection.grpc.IntroFieldExpression field = 3;
+    optional PermissionLevelExpression level = 4;
+    optional RealmExpression realm = 5;
+    optional bool include_deprecated = 6;
+    optional io.graphoenix.core.grpc.IntExpression version = 7;
+    optional io.graphoenix.core.grpc.StringExpression realm_id = 8;
+    optional io.graphoenix.core.grpc.StringExpression create_user_id = 9;
+    optional io.graphoenix.core.grpc.StringExpression create_time = 10;
+    optional io.graphoenix.core.grpc.StringExpression update_user_id = 11;
+    optional io.graphoenix.core.grpc.StringExpression update_time = 12;
+    optional io.graphoenix.core.grpc.StringExpression create_group_id = 13;
+    optional io.graphoenix.core.grpc.StringExpression intro_typename = 14;
+    optional io.graphoenix.core.grpc.IntExpression role_id = 15;
+    optional io.graphoenix.core.grpc.IntExpression field_id = 16;
+    optional io.graphoenix.core.grpc.Conditional cond = 17;
+    repeated PermissionExpression exs = 18;
+}
+message PermissionInput {
+    optional string id = 1;
+    optional RoleInput role = 2;
+    optional io.graphoenix.introspection.grpc.IntroFieldInput field = 3;
+    optional PermissionLevel level = 4;
+    optional RealmInput realm = 5;
+    optional bool is_deprecated = 6;
+    optional int32 version = 7;
+    optional string realm_id = 8;
+    optional string create_user_id = 9;
+    optional google.protobuf.Timestamp create_time = 10;
+    optional string update_user_id = 11;
+    optional google.protobuf.Timestamp update_time = 12;
+    optional string create_group_id = 13;
+    optional string intro_typename = 14;
+    optional int32 role_id = 15;
+    optional int32 field_id = 16;
+}
+message PermissionOrderBy {
+    optional io.graphoenix.core.grpc.Sort id = 1;
+    optional io.graphoenix.core.grpc.Sort level = 2;
+    optional io.graphoenix.core.grpc.Sort is_deprecated = 3;
+    optional io.graphoenix.core.grpc.Sort version = 4;
+    optional io.graphoenix.core.grpc.Sort realm_id = 5;
+    optional io.graphoenix.core.grpc.Sort create_user_id = 6;
+    optional io.graphoenix.core.grpc.Sort create_time = 7;
+    optional io.graphoenix.core.grpc.Sort update_user_id = 8;
+    optional io.graphoenix.core.grpc.Sort update_time = 9;
+    optional io.graphoenix.core.grpc.Sort create_group_id = 10;
+    optional io.graphoenix.core.grpc.Sort intro_typename = 11;
+    optional io.graphoenix.core.grpc.Sort role_id = 12;
+    optional io.graphoenix.core.grpc.Sort field_id = 13;
+}
+message UserGroupExpression {
+    optional io.graphoenix.core.grpc.StringExpression id = 1;
+    optional io.graphoenix.core.grpc.IntExpression user_id = 2;
+    optional UserExpression from = 3;
+    optional io.graphoenix.core.grpc.IntExpression group_id = 4;
+    optional GroupExpression to = 5;
+    optional bool include_deprecated = 6;
+    optional io.graphoenix.core.grpc.IntExpression version = 7;
+    optional io.graphoenix.core.grpc.StringExpression realm_id = 8;
+    optional io.graphoenix.core.grpc.StringExpression create_user_id = 9;
+    optional io.graphoenix.core.grpc.StringExpression create_time = 10;
+    optional io.graphoenix.core.grpc.StringExpression update_user_id = 11;
+    optional io.graphoenix.core.grpc.StringExpression update_time = 12;
+    optional io.graphoenix.core.grpc.StringExpression create_group_id = 13;
+    optional io.graphoenix.core.grpc.StringExpression intro_typename = 14;
+    optional io.graphoenix.core.grpc.Conditional cond = 15;
+    repeated UserGroupExpression exs = 16;
+}
+message UserGroupInput {
+    optional string id = 1;
+    optional int32 user_id = 2;
+    optional UserInput from = 3;
+    optional int32 group_id = 4;
+    optional GroupInput to = 5;
+    optional bool is_deprecated = 6;
+    optional int32 version = 7;
+    optional string realm_id = 8;
+    optional string create_user_id = 9;
+    optional google.protobuf.Timestamp create_time = 10;
+    optional string update_user_id = 11;
+    optional google.protobuf.Timestamp update_time = 12;
+    optional string create_group_id = 13;
+    optional string intro_typename = 14;
+}
+message UserGroupOrderBy {
+    optional io.graphoenix.core.grpc.Sort id = 1;
+    optional io.graphoenix.core.grpc.Sort user_id = 2;
+    optional io.graphoenix.core.grpc.Sort group_id = 3;
+    optional io.graphoenix.core.grpc.Sort is_deprecated = 4;
+    optional io.graphoenix.core.grpc.Sort version = 5;
+    optional io.graphoenix.core.grpc.Sort realm_id = 6;
+    optional io.graphoenix.core.grpc.Sort create_user_id = 7;
+    optional io.graphoenix.core.grpc.Sort create_time = 8;
+    optional io.graphoenix.core.grpc.Sort update_user_id = 9;
+    optional io.graphoenix.core.grpc.Sort update_time = 10;
+    optional io.graphoenix.core.grpc.Sort create_group_id = 11;
+    optional io.graphoenix.core.grpc.Sort intro_typename = 12;
+}
+message UserRoleExpression {
+    optional io.graphoenix.core.grpc.StringExpression id = 1;
+    optional io.graphoenix.core.grpc.IntExpression user_id = 2;
+    optional UserExpression from = 3;
+    optional io.graphoenix.core.grpc.IntExpression role_id = 4;
+    optional RoleExpression to = 5;
+    optional bool include_deprecated = 6;
+    optional io.graphoenix.core.grpc.IntExpression version = 7;
+    optional io.graphoenix.core.grpc.StringExpression realm_id = 8;
+    optional io.graphoenix.core.grpc.StringExpression create_user_id = 9;
+    optional io.graphoenix.core.grpc.StringExpression create_time = 10;
+    optional io.graphoenix.core.grpc.StringExpression update_user_id = 11;
+    optional io.graphoenix.core.grpc.StringExpression update_time = 12;
+    optional io.graphoenix.core.grpc.StringExpression create_group_id = 13;
+    optional io.graphoenix.core.grpc.StringExpression intro_typename = 14;
+    optional io.graphoenix.core.grpc.Conditional cond = 15;
+    repeated UserRoleExpression exs = 16;
+}
+message UserRoleInput {
+    optional string id = 1;
+    optional int32 user_id = 2;
+    optional UserInput from = 3;
+    optional int32 role_id = 4;
+    optional RoleInput to = 5;
+    optional bool is_deprecated = 6;
+    optional int32 version = 7;
+    optional string realm_id = 8;
+    optional string create_user_id = 9;
+    optional google.protobuf.Timestamp create_time = 10;
+    optional string update_user_id = 11;
+    optional google.protobuf.Timestamp update_time = 12;
+    optional string create_group_id = 13;
+    optional string intro_typename = 14;
+}
+message UserRoleOrderBy {
+    optional io.graphoenix.core.grpc.Sort id = 1;
+    optional io.graphoenix.core.grpc.Sort user_id = 2;
+    optional io.graphoenix.core.grpc.Sort role_id = 3;
+    optional io.graphoenix.core.grpc.Sort is_deprecated = 4;
+    optional io.graphoenix.core.grpc.Sort version = 5;
+    optional io.graphoenix.core.grpc.Sort realm_id = 6;
+    optional io.graphoenix.core.grpc.Sort create_user_id = 7;
+    optional io.graphoenix.core.grpc.Sort create_time = 8;
+    optional io.graphoenix.core.grpc.Sort update_user_id = 9;
+    optional io.graphoenix.core.grpc.Sort update_time = 10;
+    optional io.graphoenix.core.grpc.Sort create_group_id = 11;
+    optional io.graphoenix.core.grpc.Sort intro_typename = 12;
+}
+message RoleCompositeExpression {
+    optional io.graphoenix.core.grpc.StringExpression id = 1;
+    optional io.graphoenix.core.grpc.IntExpression role_id = 2;
+    optional RoleExpression from = 3;
+    optional io.graphoenix.core.grpc.IntExpression composite_id = 4;
+    optional RoleExpression to = 5;
+    optional bool include_deprecated = 6;
+    optional io.graphoenix.core.grpc.IntExpression version = 7;
+    optional io.graphoenix.core.grpc.StringExpression realm_id = 8;
+    optional io.graphoenix.core.grpc.StringExpression create_user_id = 9;
+    optional io.graphoenix.core.grpc.StringExpression create_time = 10;
+    optional io.graphoenix.core.grpc.StringExpression update_user_id = 11;
+    optional io.graphoenix.core.grpc.StringExpression update_time = 12;
+    optional io.graphoenix.core.grpc.StringExpression create_group_id = 13;
+    optional io.graphoenix.core.grpc.StringExpression intro_typename = 14;
+    optional io.graphoenix.core.grpc.Conditional cond = 15;
+    repeated RoleCompositeExpression exs = 16;
+}
+message RoleCompositeInput {
+    optional string id = 1;
+    optional int32 role_id = 2;
+    optional RoleInput from = 3;
+    optional int32 composite_id = 4;
+    optional RoleInput to = 5;
+    optional bool is_deprecated = 6;
+    optional int32 version = 7;
+    optional string realm_id = 8;
+    optional string create_user_id = 9;
+    optional google.protobuf.Timestamp create_time = 10;
+    optional string update_user_id = 11;
+    optional google.protobuf.Timestamp update_time = 12;
+    optional string create_group_id = 13;
+    optional string intro_typename = 14;
+}
+message RoleCompositeOrderBy {
+    optional io.graphoenix.core.grpc.Sort id = 1;
+    optional io.graphoenix.core.grpc.Sort role_id = 2;
+    optional io.graphoenix.core.grpc.Sort composite_id = 3;
+    optional io.graphoenix.core.grpc.Sort is_deprecated = 4;
+    optional io.graphoenix.core.grpc.Sort version = 5;
+    optional io.graphoenix.core.grpc.Sort realm_id = 6;
+    optional io.graphoenix.core.grpc.Sort create_user_id = 7;
+    optional io.graphoenix.core.grpc.Sort create_time = 8;
+    optional io.graphoenix.core.grpc.Sort update_user_id = 9;
+    optional io.graphoenix.core.grpc.Sort update_time = 10;
+    optional io.graphoenix.core.grpc.Sort create_group_id = 11;
+    optional io.graphoenix.core.grpc.Sort intro_typename = 12;
+}
+message GroupRoleExpression {
+    optional io.graphoenix.core.grpc.StringExpression id = 1;
+    optional io.graphoenix.core.grpc.IntExpression group_id = 2;
+    optional GroupExpression from = 3;
+    optional io.graphoenix.core.grpc.IntExpression role_id = 4;
+    optional RoleExpression to = 5;
+    optional bool include_deprecated = 6;
+    optional io.graphoenix.core.grpc.IntExpression version = 7;
+    optional io.graphoenix.core.grpc.StringExpression realm_id = 8;
+    optional io.graphoenix.core.grpc.StringExpression create_user_id = 9;
+    optional io.graphoenix.core.grpc.StringExpression create_time = 10;
+    optional io.graphoenix.core.grpc.StringExpression update_user_id = 11;
+    optional io.graphoenix.core.grpc.StringExpression update_time = 12;
+    optional io.graphoenix.core.grpc.StringExpression create_group_id = 13;
+    optional io.graphoenix.core.grpc.StringExpression intro_typename = 14;
+    optional io.graphoenix.core.grpc.Conditional cond = 15;
+    repeated GroupRoleExpression exs = 16;
+}
+message GroupRoleInput {
+    optional string id = 1;
+    optional int32 group_id = 2;
+    optional GroupInput from = 3;
+    optional int32 role_id = 4;
+    optional RoleInput to = 5;
+    optional bool is_deprecated = 6;
+    optional int32 version = 7;
+    optional string realm_id = 8;
+    optional string create_user_id = 9;
+    optional google.protobuf.Timestamp create_time = 10;
+    optional string update_user_id = 11;
+    optional google.protobuf.Timestamp update_time = 12;
+    optional string create_group_id = 13;
+    optional string intro_typename = 14;
+}
+message GroupRoleOrderBy {
+    optional io.graphoenix.core.grpc.Sort id = 1;
+    optional io.graphoenix.core.grpc.Sort group_id = 2;
+    optional io.graphoenix.core.grpc.Sort role_id = 3;
+    optional io.graphoenix.core.grpc.Sort is_deprecated = 4;
+    optional io.graphoenix.core.grpc.Sort version = 5;
+    optional io.graphoenix.core.grpc.Sort realm_id = 6;
+    optional io.graphoenix.core.grpc.Sort create_user_id = 7;
+    optional io.graphoenix.core.grpc.Sort create_time = 8;
+    optional io.graphoenix.core.grpc.Sort update_user_id = 9;
+    optional io.graphoenix.core.grpc.Sort update_time = 10;
+    optional io.graphoenix.core.grpc.Sort create_group_id = 11;
+    optional io.graphoenix.core.grpc.Sort intro_typename = 12;
+}
+message PermissionLevelExpression {
+    optional io.graphoenix.core.grpc.Operator opr = 1;
+    optional PermissionLevel val = 2;
+    repeated PermissionLevel in = 3;
+}

@@ -1,7 +1,7 @@
 package io.graphence.core.casbin.adapter;
 
 import com.google.common.collect.Streams;
-import io.graphence.spi.dto.objectType.Role;
+import io.graphence.core.dto.objectType.Role;
 import jakarta.enterprise.context.ApplicationScoped;
 import org.casbin.jcasbin.model.Model;
 import org.casbin.jcasbin.persist.Adapter;
@@ -13,8 +13,8 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Stream;
 
-import static io.graphence.spi.dto.enumType.PermissionLevel.READ;
-import static io.graphence.spi.dto.enumType.PermissionLevel.WRITE;
+import static io.graphence.core.dto.enumType.PermissionLevel.READ;
+import static io.graphence.core.dto.enumType.PermissionLevel.WRITE;
 
 
 @ApplicationScoped

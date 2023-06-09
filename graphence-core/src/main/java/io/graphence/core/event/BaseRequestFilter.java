@@ -3,7 +3,7 @@ package io.graphence.core.event;
 import graphql.parser.antlr.GraphqlParser;
 import io.graphoenix.core.dto.GraphQLRequest;
 import io.graphoenix.core.error.GraphQLErrors;
-import io.graphence.core.CurrentUser;
+import io.graphence.core.dto.CurrentUser;
 import io.graphence.core.error.AuthenticationException;
 import io.graphoenix.spi.antlr.IGraphQLDocumentManager;
 import reactor.netty.http.server.HttpServerRequest;
