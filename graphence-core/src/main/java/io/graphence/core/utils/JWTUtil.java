@@ -1,11 +1,11 @@
 package io.graphence.core.utils;
 
 import com.google.gson.GsonBuilder;
+import io.graphence.core.config.JWTConfig;
 import io.graphence.core.dto.objectType.Group;
 import io.graphence.core.dto.objectType.Role;
 import io.graphence.core.dto.objectType.User;
 import io.graphence.core.jwt.GraphenceJsonWebToken;
-import io.graphence.core.config.JWTConfig;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;

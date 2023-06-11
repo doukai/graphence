@@ -1,6 +1,6 @@
 package io.graphence.core.casbin.adapter;
 
-public class CasbinRule {
+public class Rule {
     private int id;
     private String ptype;
     private String v0;
@@ -14,7 +14,7 @@ public class CasbinRule {
         return id;
     }
 
-    public CasbinRule setId(int id) {
+    public Rule setId(int id) {
         this.id = id;
         return this;
     }
@@ -23,7 +23,7 @@ public class CasbinRule {
         return ptype;
     }
 
-    public CasbinRule setPtype(String ptype) {
+    public Rule setPtype(String ptype) {
         this.ptype = ptype;
         return this;
     }
@@ -32,7 +32,7 @@ public class CasbinRule {
         return v0;
     }
 
-    public CasbinRule setV0(String v0) {
+    public Rule setV0(String v0) {
         this.v0 = v0;
         return this;
     }
@@ -41,7 +41,7 @@ public class CasbinRule {
         return v1;
     }
 
-    public CasbinRule setV1(String v1) {
+    public Rule setV1(String v1) {
         this.v1 = v1;
         return this;
     }
@@ -50,7 +50,7 @@ public class CasbinRule {
         return v2;
     }
 
-    public CasbinRule setV2(String v2) {
+    public Rule setV2(String v2) {
         this.v2 = v2;
         return this;
     }
@@ -59,7 +59,7 @@ public class CasbinRule {
         return v3;
     }
 
-    public CasbinRule setV3(String v3) {
+    public Rule setV3(String v3) {
         this.v3 = v3;
         return this;
     }
@@ -68,7 +68,7 @@ public class CasbinRule {
         return v4;
     }
 
-    public CasbinRule setV4(String v4) {
+    public Rule setV4(String v4) {
         this.v4 = v4;
         return this;
     }
@@ -77,7 +77,7 @@ public class CasbinRule {
         return v5;
     }
 
-    public CasbinRule setV5(String v5) {
+    public Rule setV5(String v5) {
         this.v5 = v5;
         return this;
     }

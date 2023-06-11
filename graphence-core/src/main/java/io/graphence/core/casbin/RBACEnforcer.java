@@ -1,7 +1,7 @@
 package io.graphence.core.casbin;
 
 import io.graphence.core.config.CasbinConfig;
-import io.graphence.core.casbin.adapter.CasbinRBACAdapter;
+import io.graphence.core.casbin.adapter.RBACAdapter;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import org.casbin.jcasbin.main.Enforcer;
@@ -31,7 +31,7 @@ public class RBACEnforcer {
         return enforcer;
     }
 
-    public void setAdapter(CasbinRBACAdapter adapter) {
+    public void setAdapter(RBACAdapter adapter) {
         this.enforcer.setAdapter(adapter);
         this.enforcer.loadPolicy();
     }

@@ -18,7 +18,7 @@ import static io.graphence.core.dto.enumType.PermissionLevel.WRITE;
 
 
 @ApplicationScoped
-public class CasbinRBACAdapter implements Adapter {
+public class RBACAdapter implements Adapter {
 
     public static final String USER_PREFIX = "U::";
 
@@ -32,7 +32,7 @@ public class CasbinRBACAdapter implements Adapter {
 
     private Set<Role> roles;
 
-    public CasbinRBACAdapter setRoles(Set<Role> roles) {
+    public RBACAdapter setRoles(Set<Role> roles) {
         this.roles = roles;
         return this;
     }
@@ -40,20 +40,20 @@ public class CasbinRBACAdapter implements Adapter {
     @Override
     public void loadPolicy(Model model) {
         try {
-            Stream<CasbinRule> permissionRuleStream = roles.stream()
+            Stream<Rule> permissionRuleStream = roles.stream()
                     .flatMap(role ->
                             Stream.ofNullable(role.getPermissions())
                                     .flatMap(Collection::stream)
                                     .flatMap(permission ->
                                             permission.getLevel().equals(WRITE) ?
                                                     Stream.of(
-                                                            new CasbinRule()
+                                                            new Rule()
                                                                     .setPtype(P_TYPE)
                                                                     .setV0(ROLE_PREFIX.concat(role.getName()))
                                                                     .setV1(role.getRealmId())
                                                                     .setV2(permission.getField().getOfTypeName().concat(SPACER).concat(permission.getField().getName()))
                                                                     .setV3(READ.name()),
-                                                            new CasbinRule()
+                                                            new Rule()
                                                                     .setPtype(P_TYPE)
                                                                     .setV0(ROLE_PREFIX.concat(role.getName()))
                                                                     .setV1(role.getRealmId())
@@ -61,7 +61,7 @@ public class CasbinRBACAdapter implements Adapter {
                                                                     .setV3(WRITE.name())
                                                     ) :
                                                     Stream.of(
-                                                            new CasbinRule()
+                                                            new Rule()
                                                                     .setPtype(P_TYPE)
                                                                     .setV0(ROLE_PREFIX.concat(role.getName()))
                                                                     .setV1(role.getRealmId())
@@ -71,13 +71,13 @@ public class CasbinRBACAdapter implements Adapter {
                                     )
                     );
 
-            Stream<CasbinRule> userRuleStream = roles.stream()
+            Stream<Rule> userRuleStream = roles.stream()
                     .flatMap(role ->
                             role.getUsers() == null ?
                                     Stream.empty() :
                                     role.getUsers().stream()
                                             .map(user ->
-                                                    new CasbinRule()
+                                                    new Rule()
                                                             .setPtype(G_TYPE)
                                                             .setV0(USER_PREFIX.concat(user.getLogin()))
                                                             .setV1(ROLE_PREFIX.concat(role.getName()))
@@ -85,13 +85,13 @@ public class CasbinRBACAdapter implements Adapter {
                                             )
                     );
 
-            Stream<CasbinRule> roleRuleStream = roles.stream()
+            Stream<Rule> roleRuleStream = roles.stream()
                     .flatMap(role ->
                             role.getComposites() == null ?
                                     Stream.empty() :
                                     role.getComposites().stream()
                                             .map(composite ->
-                                                    new CasbinRule()
+                                                    new Rule()
                                                             .setPtype(G_TYPE)
                                                             .setV0(ROLE_PREFIX.concat(role.getName()))
                                                             .setV1(ROLE_PREFIX.concat(composite.getName()))
@@ -106,7 +106,7 @@ public class CasbinRBACAdapter implements Adapter {
         }
     }
 
-    private static void loadPolicyLine(CasbinRule line, Model model) {
+    private static void loadPolicyLine(Rule line, Model model) {
         String lineText = line.getPtype();
         if (line.getV0() != null) {
             lineText += ", " + line.getV0();

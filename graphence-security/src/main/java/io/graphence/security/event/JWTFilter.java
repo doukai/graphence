@@ -1,4 +1,4 @@
-package io.graphence.core.event;
+package io.graphence.security.event;
 
 import com.google.auto.service.AutoService;
 import io.graphoenix.core.context.BeanContext;

@@ -1,4 +1,4 @@
-package io.graphence.core.event;
+package io.graphence.security.event;
 
 import graphql.parser.antlr.GraphqlParser;
 import io.graphoenix.core.dto.GraphQLRequest;

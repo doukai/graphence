@@ -1,4 +1,4 @@
-package io.graphence.core.event;
+package io.graphence.security.event;
 
 import com.google.auto.service.AutoService;
 import graphql.parser.antlr.GraphqlParser;
@@ -20,8 +20,8 @@ import static io.graphoenix.core.error.GraphQLErrorType.FIELD_NOT_EXIST;
 import static io.graphoenix.core.error.GraphQLErrorType.MUTATION_TYPE_NOT_EXIST;
 import static io.graphoenix.core.error.GraphQLErrorType.QUERY_TYPE_NOT_EXIST;
 import static io.graphoenix.core.error.GraphQLErrorType.UNSUPPORTED_OPERATION_TYPE;
-import static io.graphence.core.casbin.adapter.CasbinRBACAdapter.SPACER;
-import static io.graphence.core.casbin.adapter.CasbinRBACAdapter.USER_PREFIX;
+import static io.graphence.core.casbin.adapter.RBACAdapter.SPACER;
+import static io.graphence.core.casbin.adapter.RBACAdapter.USER_PREFIX;
 import static io.graphence.core.dto.enumType.PermissionLevel.READ;
 import static io.graphence.core.dto.enumType.PermissionLevel.WRITE;
 import static io.graphence.core.error.AuthorizationErrorType.UN_AUTHORIZATION_READ;
