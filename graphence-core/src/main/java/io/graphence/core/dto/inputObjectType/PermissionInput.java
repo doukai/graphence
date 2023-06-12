@@ -2,7 +2,6 @@ package io.graphence.core.dto.inputObjectType;
 
 import com.dslplatform.json.CompiledJson;
 import io.graphence.core.dto.enumType.PermissionLevel;
-import io.graphoenix.introspection.dto.inputObjectType.__FieldInput;
 import io.graphoenix.spi.annotation.Ignore;
 import jakarta.annotation.Generated;
 import java.lang.Boolean;
@@ -19,11 +18,15 @@ import org.eclipse.microprofile.graphql.Input;
 public class PermissionInput {
   private String id;
 
-  private RoleInput role;
+  private String name;
 
-  private __FieldInput field;
+  private String ofTypeName;
+
+  private String description;
 
   private PermissionLevel level;
+
+  private RoleInput role;
 
   private RealmInput realm;
 
@@ -48,8 +51,6 @@ public class PermissionInput {
 
   private Integer roleId;
 
-  private Integer fieldId;
-
   public String getId() {
     return this.id;
   }
@@ -58,20 +59,28 @@ public class PermissionInput {
     this.id = id;
   }
 
-  public RoleInput getRole() {
-    return this.role;
+  public String getName() {
+    return this.name;
   }
 
-  public void setRole(RoleInput role) {
-    this.role = role;
+  public void setName(String name) {
+    this.name = name;
   }
 
-  public __FieldInput getField() {
-    return this.field;
+  public String getOfTypeName() {
+    return this.ofTypeName;
   }
 
-  public void setField(__FieldInput field) {
-    this.field = field;
+  public void setOfTypeName(String ofTypeName) {
+    this.ofTypeName = ofTypeName;
+  }
+
+  public String getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
   public PermissionLevel getLevel() {
@@ -80,6 +89,14 @@ public class PermissionInput {
 
   public void setLevel(PermissionLevel level) {
     this.level = level;
+  }
+
+  public RoleInput getRole() {
+    return this.role;
+  }
+
+  public void setRole(RoleInput role) {
+    this.role = role;
   }
 
   public RealmInput getRealm() {
@@ -168,13 +185,5 @@ public class PermissionInput {
 
   public void setRoleId(Integer roleId) {
     this.roleId = roleId;
-  }
-
-  public Integer getFieldId() {
-    return this.fieldId;
-  }
-
-  public void setFieldId(Integer fieldId) {
-    this.fieldId = fieldId;
   }
 }

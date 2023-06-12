@@ -14,6 +14,12 @@ public @interface PermissionExpression0 {
 
   IDExpression id() default @IDExpression;
 
+  StringExpression name() default @StringExpression;
+
+  StringExpression ofTypeName() default @StringExpression;
+
+  StringExpression description() default @StringExpression;
+
   PermissionLevelExpression level() default @PermissionLevelExpression;
 
   BooleanExpression isDeprecated() default @BooleanExpression;
@@ -35,8 +41,6 @@ public @interface PermissionExpression0 {
   StringExpression __typename() default @StringExpression;
 
   IntExpression roleId() default @IntExpression;
-
-  IntExpression fieldId() default @IntExpression;
 
   String[] groupBy() default {};
 

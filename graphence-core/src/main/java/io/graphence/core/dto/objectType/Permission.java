@@ -3,7 +3,6 @@ package io.graphence.core.dto.objectType;
 import com.dslplatform.json.CompiledJson;
 import io.graphence.core.dto.enumType.PermissionLevel;
 import io.graphoenix.core.dto.interfaceType.Meta;
-import io.graphoenix.introspection.dto.objectType.__Field;
 import io.graphoenix.spi.annotation.Ignore;
 import jakarta.annotation.Generated;
 import java.lang.Boolean;
@@ -23,13 +22,16 @@ public class Permission implements Meta {
   @Id
   private String id;
 
-  @NonNull
-  private Role role;
+  private String name;
 
-  @NonNull
-  private __Field field;
+  private String ofTypeName;
+
+  private String description;
 
   private PermissionLevel level;
+
+  @NonNull
+  private Role role;
 
   private Realm realm;
 
@@ -57,6 +59,24 @@ public class Permission implements Meta {
 
   private Integer idMin;
 
+  private Integer nameCount;
+
+  private String nameMax;
+
+  private String nameMin;
+
+  private Integer ofTypeNameCount;
+
+  private String ofTypeNameMax;
+
+  private String ofTypeNameMin;
+
+  private Integer descriptionCount;
+
+  private String descriptionMax;
+
+  private String descriptionMin;
+
   private Integer roleId;
 
   private Integer roleIdCount;
@@ -68,18 +88,6 @@ public class Permission implements Meta {
   private Integer roleIdMax;
 
   private Integer roleIdMin;
-
-  private Integer fieldId;
-
-  private Integer fieldIdCount;
-
-  private Integer fieldIdSum;
-
-  private Integer fieldIdAvg;
-
-  private Integer fieldIdMax;
-
-  private Integer fieldIdMin;
 
   private Integer realmIdCount;
 
@@ -95,20 +103,28 @@ public class Permission implements Meta {
     this.id = id;
   }
 
-  public Role getRole() {
-    return this.role;
+  public String getName() {
+    return this.name;
   }
 
-  public void setRole(Role role) {
-    this.role = role;
+  public void setName(String name) {
+    this.name = name;
   }
 
-  public __Field getField() {
-    return this.field;
+  public String getOfTypeName() {
+    return this.ofTypeName;
   }
 
-  public void setField(__Field field) {
-    this.field = field;
+  public void setOfTypeName(String ofTypeName) {
+    this.ofTypeName = ofTypeName;
+  }
+
+  public String getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
   public PermissionLevel getLevel() {
@@ -117,6 +133,14 @@ public class Permission implements Meta {
 
   public void setLevel(PermissionLevel level) {
     this.level = level;
+  }
+
+  public Role getRole() {
+    return this.role;
+  }
+
+  public void setRole(Role role) {
+    this.role = role;
   }
 
   public Realm getRealm() {
@@ -239,6 +263,78 @@ public class Permission implements Meta {
     this.idMin = idMin;
   }
 
+  public Integer getNameCount() {
+    return this.nameCount;
+  }
+
+  public void setNameCount(Integer nameCount) {
+    this.nameCount = nameCount;
+  }
+
+  public String getNameMax() {
+    return this.nameMax;
+  }
+
+  public void setNameMax(String nameMax) {
+    this.nameMax = nameMax;
+  }
+
+  public String getNameMin() {
+    return this.nameMin;
+  }
+
+  public void setNameMin(String nameMin) {
+    this.nameMin = nameMin;
+  }
+
+  public Integer getOfTypeNameCount() {
+    return this.ofTypeNameCount;
+  }
+
+  public void setOfTypeNameCount(Integer ofTypeNameCount) {
+    this.ofTypeNameCount = ofTypeNameCount;
+  }
+
+  public String getOfTypeNameMax() {
+    return this.ofTypeNameMax;
+  }
+
+  public void setOfTypeNameMax(String ofTypeNameMax) {
+    this.ofTypeNameMax = ofTypeNameMax;
+  }
+
+  public String getOfTypeNameMin() {
+    return this.ofTypeNameMin;
+  }
+
+  public void setOfTypeNameMin(String ofTypeNameMin) {
+    this.ofTypeNameMin = ofTypeNameMin;
+  }
+
+  public Integer getDescriptionCount() {
+    return this.descriptionCount;
+  }
+
+  public void setDescriptionCount(Integer descriptionCount) {
+    this.descriptionCount = descriptionCount;
+  }
+
+  public String getDescriptionMax() {
+    return this.descriptionMax;
+  }
+
+  public void setDescriptionMax(String descriptionMax) {
+    this.descriptionMax = descriptionMax;
+  }
+
+  public String getDescriptionMin() {
+    return this.descriptionMin;
+  }
+
+  public void setDescriptionMin(String descriptionMin) {
+    this.descriptionMin = descriptionMin;
+  }
+
   public Integer getRoleId() {
     return this.roleId;
   }
@@ -285,54 +381,6 @@ public class Permission implements Meta {
 
   public void setRoleIdMin(Integer roleIdMin) {
     this.roleIdMin = roleIdMin;
-  }
-
-  public Integer getFieldId() {
-    return this.fieldId;
-  }
-
-  public void setFieldId(Integer fieldId) {
-    this.fieldId = fieldId;
-  }
-
-  public Integer getFieldIdCount() {
-    return this.fieldIdCount;
-  }
-
-  public void setFieldIdCount(Integer fieldIdCount) {
-    this.fieldIdCount = fieldIdCount;
-  }
-
-  public Integer getFieldIdSum() {
-    return this.fieldIdSum;
-  }
-
-  public void setFieldIdSum(Integer fieldIdSum) {
-    this.fieldIdSum = fieldIdSum;
-  }
-
-  public Integer getFieldIdAvg() {
-    return this.fieldIdAvg;
-  }
-
-  public void setFieldIdAvg(Integer fieldIdAvg) {
-    this.fieldIdAvg = fieldIdAvg;
-  }
-
-  public Integer getFieldIdMax() {
-    return this.fieldIdMax;
-  }
-
-  public void setFieldIdMax(Integer fieldIdMax) {
-    this.fieldIdMax = fieldIdMax;
-  }
-
-  public Integer getFieldIdMin() {
-    return this.fieldIdMin;
-  }
-
-  public void setFieldIdMin(Integer fieldIdMin) {
-    this.fieldIdMin = fieldIdMin;
   }
 
   public Integer getRealmIdCount() {

@@ -11,6 +11,12 @@ import java.lang.annotation.Target;
 public @interface PermissionOrderBy0 {
   Sort id() default Sort.ASC;
 
+  Sort name() default Sort.ASC;
+
+  Sort ofTypeName() default Sort.ASC;
+
+  Sort description() default Sort.ASC;
+
   Sort level() default Sort.ASC;
 
   Sort isDeprecated() default Sort.ASC;
@@ -32,6 +38,4 @@ public @interface PermissionOrderBy0 {
   Sort __typename() default Sort.ASC;
 
   Sort roleId() default Sort.ASC;
-
-  Sort fieldId() default Sort.ASC;
 }

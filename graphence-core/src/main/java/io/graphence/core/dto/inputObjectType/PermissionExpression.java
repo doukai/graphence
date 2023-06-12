@@ -4,7 +4,6 @@ import com.dslplatform.json.CompiledJson;
 import io.graphoenix.core.dto.enumType.Conditional;
 import io.graphoenix.core.dto.inputObjectType.IntExpression;
 import io.graphoenix.core.dto.inputObjectType.StringExpression;
-import io.graphoenix.introspection.dto.inputObjectType.__FieldExpression;
 import io.graphoenix.spi.annotation.Ignore;
 import jakarta.annotation.Generated;
 import java.lang.Boolean;
@@ -19,11 +18,15 @@ import org.eclipse.microprofile.graphql.Input;
 public class PermissionExpression {
   private StringExpression id;
 
-  private RoleExpression role;
+  private StringExpression name;
 
-  private __FieldExpression field;
+  private StringExpression ofTypeName;
+
+  private StringExpression description;
 
   private PermissionLevelExpression level;
+
+  private RoleExpression role;
 
   private RealmExpression realm;
 
@@ -48,8 +51,6 @@ public class PermissionExpression {
 
   private IntExpression roleId;
 
-  private IntExpression fieldId;
-
   @DefaultValue("AND")
   private Conditional cond;
 
@@ -63,20 +64,28 @@ public class PermissionExpression {
     this.id = id;
   }
 
-  public RoleExpression getRole() {
-    return this.role;
+  public StringExpression getName() {
+    return this.name;
   }
 
-  public void setRole(RoleExpression role) {
-    this.role = role;
+  public void setName(StringExpression name) {
+    this.name = name;
   }
 
-  public __FieldExpression getField() {
-    return this.field;
+  public StringExpression getOfTypeName() {
+    return this.ofTypeName;
   }
 
-  public void setField(__FieldExpression field) {
-    this.field = field;
+  public void setOfTypeName(StringExpression ofTypeName) {
+    this.ofTypeName = ofTypeName;
+  }
+
+  public StringExpression getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(StringExpression description) {
+    this.description = description;
   }
 
   public PermissionLevelExpression getLevel() {
@@ -85,6 +94,14 @@ public class PermissionExpression {
 
   public void setLevel(PermissionLevelExpression level) {
     this.level = level;
+  }
+
+  public RoleExpression getRole() {
+    return this.role;
+  }
+
+  public void setRole(RoleExpression role) {
+    this.role = role;
   }
 
   public RealmExpression getRealm() {
@@ -173,14 +190,6 @@ public class PermissionExpression {
 
   public void setRoleId(IntExpression roleId) {
     this.roleId = roleId;
-  }
-
-  public IntExpression getFieldId() {
-    return this.fieldId;
-  }
-
-  public void setFieldId(IntExpression fieldId) {
-    this.fieldId = fieldId;
   }
 
   public Conditional getCond() {

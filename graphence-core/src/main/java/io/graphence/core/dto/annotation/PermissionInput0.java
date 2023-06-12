@@ -12,6 +12,12 @@ import java.lang.annotation.Target;
 public @interface PermissionInput0 {
   String id() default "";
 
+  String name() default "";
+
+  String ofTypeName() default "";
+
+  String description() default "";
+
   PermissionLevel level() default PermissionLevel.READ;
 
   boolean isDeprecated() default false;
@@ -34,15 +40,17 @@ public @interface PermissionInput0 {
 
   int roleId() default 0;
 
-  int fieldId() default 0;
-
   String $id() default "";
 
-  String $role() default "";
+  String $name() default "";
 
-  String $field() default "";
+  String $ofTypeName() default "";
+
+  String $description() default "";
 
   String $level() default "";
+
+  String $role() default "";
 
   String $realm() default "";
 
@@ -65,6 +73,4 @@ public @interface PermissionInput0 {
   String $__typename() default "";
 
   String $roleId() default "";
-
-  String $fieldId() default "";
 }

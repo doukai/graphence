@@ -51,13 +51,13 @@ public class RBACAdapter implements Adapter {
                                                                     .setPtype(P_TYPE)
                                                                     .setV0(ROLE_PREFIX.concat(role.getName()))
                                                                     .setV1(role.getRealmId())
-                                                                    .setV2(permission.getField().getOfTypeName().concat(SPACER).concat(permission.getField().getName()))
+                                                                    .setV2(permission.getOfTypeName().concat(SPACER).concat(permission.getName()))
                                                                     .setV3(READ.name()),
                                                             new Rule()
                                                                     .setPtype(P_TYPE)
                                                                     .setV0(ROLE_PREFIX.concat(role.getName()))
                                                                     .setV1(role.getRealmId())
-                                                                    .setV2(permission.getField().getOfTypeName().concat(SPACER).concat(permission.getField().getName()))
+                                                                    .setV2(permission.getOfTypeName().concat(SPACER).concat(permission.getName()))
                                                                     .setV3(WRITE.name())
                                                     ) :
                                                     Stream.of(
@@ -65,7 +65,7 @@ public class RBACAdapter implements Adapter {
                                                                     .setPtype(P_TYPE)
                                                                     .setV0(ROLE_PREFIX.concat(role.getName()))
                                                                     .setV1(role.getRealmId())
-                                                                    .setV2(permission.getField().getOfTypeName().concat(SPACER).concat(permission.getField().getName()))
+                                                                    .setV2(permission.getOfTypeName().concat(SPACER).concat(permission.getName()))
                                                                     .setV3(READ.name())
                                                     )
                                     )

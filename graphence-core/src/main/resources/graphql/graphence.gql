@@ -38,9 +38,11 @@ type Realm {
 
 type Permission {
     id: ID @dataType(type: "Int" autoIncrement: true)
-    role: Role! @map(from: "roleId" to: "id" anchor: true)
-    field: __Field! @map(from: "fieldId" to: "id" anchor: true)
+    name: String
+    ofTypeName: String
+    description: String
     level: PermissionLevel
+    role: Role! @map(from: "roleId" to: "id" anchor: true)
     realm: Realm @map(from: "realmId" to: "id" anchor: true)
 }
 
