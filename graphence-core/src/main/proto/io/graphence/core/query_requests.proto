@@ -81,6 +81,7 @@ message QueryUserRequest {
     optional UserGroupExpression user_group = 22;
     optional UserRoleExpression user_role = 23;
     optional io.graphoenix.core.grpc.Conditional cond = 24;
+    repeated UserExpression exs = 25;
 }
 message QueryUserListRequest {
     optional string selection_set = 1;
@@ -109,11 +110,12 @@ message QueryUserListRequest {
     optional UserOrderBy order_by = 24;
     repeated string group_by = 25;
     optional io.graphoenix.core.grpc.Conditional cond = 26;
-    optional int32 first = 27;
-    optional int32 last = 28;
-    optional int32 offset = 29;
-    optional string after = 30;
-    optional string before = 31;
+    repeated UserExpression exs = 27;
+    optional int32 first = 28;
+    optional int32 last = 29;
+    optional int32 offset = 30;
+    optional string after = 31;
+    optional string before = 32;
 }
 message QueryUserConnectionRequest {
     optional string selection_set = 1;
@@ -171,6 +173,7 @@ message QueryRoleRequest {
     optional UserRoleExpression user_role = 19;
     optional RoleCompositeExpression role_composite = 20;
     optional io.graphoenix.core.grpc.Conditional cond = 21;
+    repeated RoleExpression exs = 22;
 }
 message QueryRoleListRequest {
     optional string selection_set = 1;
@@ -196,11 +199,12 @@ message QueryRoleListRequest {
     optional RoleOrderBy order_by = 21;
     repeated string group_by = 22;
     optional io.graphoenix.core.grpc.Conditional cond = 23;
-    optional int32 first = 24;
-    optional int32 last = 25;
-    optional int32 offset = 26;
-    optional string after = 27;
-    optional string before = 28;
+    repeated RoleExpression exs = 24;
+    optional int32 first = 25;
+    optional int32 last = 26;
+    optional int32 offset = 27;
+    optional string after = 28;
+    optional string before = 29;
 }
 message QueryRoleConnectionRequest {
     optional string selection_set = 1;
@@ -256,6 +260,7 @@ message QueryGroupRequest {
     optional UserGroupExpression user_group = 20;
     optional GroupRoleExpression group_role = 21;
     optional io.graphoenix.core.grpc.Conditional cond = 22;
+    repeated GroupExpression exs = 23;
 }
 message QueryGroupListRequest {
     optional string selection_set = 1;
@@ -282,11 +287,12 @@ message QueryGroupListRequest {
     optional GroupOrderBy order_by = 22;
     repeated string group_by = 23;
     optional io.graphoenix.core.grpc.Conditional cond = 24;
-    optional int32 first = 25;
-    optional int32 last = 26;
-    optional int32 offset = 27;
-    optional string after = 28;
-    optional string before = 29;
+    repeated GroupExpression exs = 25;
+    optional int32 first = 26;
+    optional int32 last = 27;
+    optional int32 offset = 28;
+    optional string after = 29;
+    optional string before = 30;
 }
 message QueryGroupConnectionRequest {
     optional string selection_set = 1;
@@ -335,6 +341,7 @@ message QueryRealmRequest {
     optional io.graphoenix.core.grpc.StringExpression create_group_id = 12;
     optional io.graphoenix.core.grpc.StringExpression intro_typename = 13;
     optional io.graphoenix.core.grpc.Conditional cond = 14;
+    repeated RealmExpression exs = 15;
 }
 message QueryRealmListRequest {
     optional string selection_set = 1;
@@ -353,11 +360,12 @@ message QueryRealmListRequest {
     optional RealmOrderBy order_by = 14;
     repeated string group_by = 15;
     optional io.graphoenix.core.grpc.Conditional cond = 16;
-    optional int32 first = 17;
-    optional int32 last = 18;
-    optional int32 offset = 19;
-    optional string after = 20;
-    optional string before = 21;
+    repeated RealmExpression exs = 17;
+    optional int32 first = 18;
+    optional int32 last = 19;
+    optional int32 offset = 20;
+    optional string after = 21;
+    optional string before = 22;
 }
 message QueryRealmConnectionRequest {
     optional string selection_set = 1;
@@ -404,6 +412,7 @@ message QueryPermissionRequest {
     optional io.graphoenix.core.grpc.StringExpression intro_typename = 18;
     optional io.graphoenix.core.grpc.IntExpression role_id = 19;
     optional io.graphoenix.core.grpc.Conditional cond = 20;
+    repeated PermissionExpression exs = 21;
 }
 message QueryPermissionListRequest {
     optional string selection_set = 1;
@@ -428,11 +437,12 @@ message QueryPermissionListRequest {
     optional PermissionOrderBy order_by = 20;
     repeated string group_by = 21;
     optional io.graphoenix.core.grpc.Conditional cond = 22;
-    optional int32 first = 23;
-    optional int32 last = 24;
-    optional int32 offset = 25;
-    optional string after = 26;
-    optional string before = 27;
+    repeated PermissionExpression exs = 23;
+    optional int32 first = 24;
+    optional int32 last = 25;
+    optional int32 offset = 26;
+    optional string after = 27;
+    optional string before = 28;
 }
 message QueryPermissionConnectionRequest {
     optional string selection_set = 1;
@@ -482,6 +492,7 @@ message QueryUserGroupRequest {
     optional io.graphoenix.core.grpc.StringExpression create_group_id = 15;
     optional io.graphoenix.core.grpc.StringExpression intro_typename = 16;
     optional io.graphoenix.core.grpc.Conditional cond = 17;
+    repeated UserGroupExpression exs = 18;
 }
 message QueryUserGroupListRequest {
     optional string selection_set = 1;
@@ -503,11 +514,12 @@ message QueryUserGroupListRequest {
     optional UserGroupOrderBy order_by = 17;
     repeated string group_by = 18;
     optional io.graphoenix.core.grpc.Conditional cond = 19;
-    optional int32 first = 20;
-    optional int32 last = 21;
-    optional int32 offset = 22;
-    optional string after = 23;
-    optional string before = 24;
+    repeated UserGroupExpression exs = 20;
+    optional int32 first = 21;
+    optional int32 last = 22;
+    optional int32 offset = 23;
+    optional string after = 24;
+    optional string before = 25;
 }
 message QueryUserGroupConnectionRequest {
     optional string selection_set = 1;
@@ -554,6 +566,7 @@ message QueryUserRoleRequest {
     optional io.graphoenix.core.grpc.StringExpression create_group_id = 15;
     optional io.graphoenix.core.grpc.StringExpression intro_typename = 16;
     optional io.graphoenix.core.grpc.Conditional cond = 17;
+    repeated UserRoleExpression exs = 18;
 }
 message QueryUserRoleListRequest {
     optional string selection_set = 1;
@@ -575,11 +588,12 @@ message QueryUserRoleListRequest {
     optional UserRoleOrderBy order_by = 17;
     repeated string group_by = 18;
     optional io.graphoenix.core.grpc.Conditional cond = 19;
-    optional int32 first = 20;
-    optional int32 last = 21;
-    optional int32 offset = 22;
-    optional string after = 23;
-    optional string before = 24;
+    repeated UserRoleExpression exs = 20;
+    optional int32 first = 21;
+    optional int32 last = 22;
+    optional int32 offset = 23;
+    optional string after = 24;
+    optional string before = 25;
 }
 message QueryUserRoleConnectionRequest {
     optional string selection_set = 1;
@@ -626,6 +640,7 @@ message QueryRoleCompositeRequest {
     optional io.graphoenix.core.grpc.StringExpression create_group_id = 15;
     optional io.graphoenix.core.grpc.StringExpression intro_typename = 16;
     optional io.graphoenix.core.grpc.Conditional cond = 17;
+    repeated RoleCompositeExpression exs = 18;
 }
 message QueryRoleCompositeListRequest {
     optional string selection_set = 1;
@@ -647,11 +662,12 @@ message QueryRoleCompositeListRequest {
     optional RoleCompositeOrderBy order_by = 17;
     repeated string group_by = 18;
     optional io.graphoenix.core.grpc.Conditional cond = 19;
-    optional int32 first = 20;
-    optional int32 last = 21;
-    optional int32 offset = 22;
-    optional string after = 23;
-    optional string before = 24;
+    repeated RoleCompositeExpression exs = 20;
+    optional int32 first = 21;
+    optional int32 last = 22;
+    optional int32 offset = 23;
+    optional string after = 24;
+    optional string before = 25;
 }
 message QueryRoleCompositeConnectionRequest {
     optional string selection_set = 1;
@@ -698,6 +714,7 @@ message QueryGroupRoleRequest {
     optional io.graphoenix.core.grpc.StringExpression create_group_id = 15;
     optional io.graphoenix.core.grpc.StringExpression intro_typename = 16;
     optional io.graphoenix.core.grpc.Conditional cond = 17;
+    repeated GroupRoleExpression exs = 18;
 }
 message QueryGroupRoleListRequest {
     optional string selection_set = 1;
@@ -719,11 +736,12 @@ message QueryGroupRoleListRequest {
     optional GroupRoleOrderBy order_by = 17;
     repeated string group_by = 18;
     optional io.graphoenix.core.grpc.Conditional cond = 19;
-    optional int32 first = 20;
-    optional int32 last = 21;
-    optional int32 offset = 22;
-    optional string after = 23;
-    optional string before = 24;
+    repeated GroupRoleExpression exs = 20;
+    optional int32 first = 21;
+    optional int32 last = 22;
+    optional int32 offset = 23;
+    optional string after = 24;
+    optional string before = 25;
 }
 message QueryGroupRoleConnectionRequest {
     optional string selection_set = 1;
