@@ -1,0 +1,47 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "io.graphence.core.grpc";
+
+package io.graphence.core.grpc;
+
+import "io/graphence/core/enums.proto";
+import "io/graphence/core/objects.proto";
+import "io/graphence/core/interfaces.proto";
+import "io/graphence/core/input_objects.proto";
+import "io/graphoenix/introspection/input_objects.proto";
+import "io/graphoenix/core/enums.proto";
+import "google/protobuf/timestamp.proto";
+
+message MutationIsDeprecatedRequest {
+    optional string selection_set = 1;
+    optional string arguments = 2;
+}
+message MutationVersionRequest {
+    optional string selection_set = 1;
+    optional string arguments = 2;
+}
+message MutationRealmIdRequest {
+    optional string selection_set = 1;
+    optional string arguments = 2;
+}
+message MutationCreateUserIdRequest {
+    optional string selection_set = 1;
+    optional string arguments = 2;
+}
+message MutationCreateTimeRequest {
+    optional string selection_set = 1;
+    optional string arguments = 2;
+}
+message MutationUpdateUserIdRequest {
+    optional string selection_set = 1;
+    optional string arguments = 2;
+}
+message MutationUpdateTimeRequest {
+    optional string selection_set = 1;
+    optional string arguments = 2;
+}
+message MutationCreateGroupIdRequest {
+    optional string selection_set = 1;
+    optional string arguments = 2;
+}
