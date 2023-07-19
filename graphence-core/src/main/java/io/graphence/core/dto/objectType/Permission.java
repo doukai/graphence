@@ -91,9 +91,13 @@ public class Permission implements Meta {
 
   private Integer realmIdCount;
 
-  private String realmIdMax;
+  private Integer realmIdSum;
 
-  private String realmIdMin;
+  private Integer realmIdAvg;
+
+  private Integer realmIdMax;
+
+  private Integer realmIdMin;
 
   public String getId() {
     return this.id;
@@ -391,19 +395,35 @@ public class Permission implements Meta {
     this.realmIdCount = realmIdCount;
   }
 
-  public String getRealmIdMax() {
+  public Integer getRealmIdSum() {
+    return this.realmIdSum;
+  }
+
+  public void setRealmIdSum(Integer realmIdSum) {
+    this.realmIdSum = realmIdSum;
+  }
+
+  public Integer getRealmIdAvg() {
+    return this.realmIdAvg;
+  }
+
+  public void setRealmIdAvg(Integer realmIdAvg) {
+    this.realmIdAvg = realmIdAvg;
+  }
+
+  public Integer getRealmIdMax() {
     return this.realmIdMax;
   }
 
-  public void setRealmIdMax(String realmIdMax) {
+  public void setRealmIdMax(Integer realmIdMax) {
     this.realmIdMax = realmIdMax;
   }
 
-  public String getRealmIdMin() {
+  public Integer getRealmIdMin() {
     return this.realmIdMin;
   }
 
-  public void setRealmIdMin(String realmIdMin) {
+  public void setRealmIdMin(Integer realmIdMin) {
     this.realmIdMin = realmIdMin;
   }
 }

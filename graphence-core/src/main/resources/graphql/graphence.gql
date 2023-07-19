@@ -32,7 +32,7 @@ type Group {
 }
 
 type Realm {
-    id: ID!
+    id: ID @dataType(type: "Int" autoIncrement: true)
     name: String!
 }
 

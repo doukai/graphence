@@ -52,14 +52,16 @@ message User {
     optional Role roles_aggregate = 40;
     optional RoleConnection roles_connection = 41;
     optional int32 realm_id_count = 42;
-    optional string realm_id_max = 43;
-    optional string realm_id_min = 44;
-    repeated UserGroup user_group = 45;
-    optional UserGroup user_group_aggregate = 46;
-    optional UserGroupConnection user_group_connection = 47;
-    repeated UserRole user_role = 48;
-    optional UserRole user_role_aggregate = 49;
-    optional UserRoleConnection user_role_connection = 50;
+    optional int32 realm_id_sum = 43;
+    optional int32 realm_id_avg = 44;
+    optional int32 realm_id_max = 45;
+    optional int32 realm_id_min = 46;
+    repeated UserGroup user_group = 47;
+    optional UserGroup user_group_aggregate = 48;
+    optional UserGroupConnection user_group_connection = 49;
+    repeated UserRole user_role = 50;
+    optional UserRole user_role_aggregate = 51;
+    optional UserRoleConnection user_role_connection = 52;
 }
 message Role {
     optional string id = 1;
@@ -94,14 +96,16 @@ message Role {
     optional Permission permissions_aggregate = 30;
     optional PermissionConnection permissions_connection = 31;
     optional int32 realm_id_count = 32;
-    optional string realm_id_max = 33;
-    optional string realm_id_min = 34;
-    repeated UserRole user_role = 35;
-    optional UserRole user_role_aggregate = 36;
-    optional UserRoleConnection user_role_connection = 37;
-    repeated RoleComposite role_composite = 38;
-    optional RoleComposite role_composite_aggregate = 39;
-    optional RoleCompositeConnection role_composite_connection = 40;
+    optional int32 realm_id_sum = 33;
+    optional int32 realm_id_avg = 34;
+    optional int32 realm_id_max = 35;
+    optional int32 realm_id_min = 36;
+    repeated UserRole user_role = 37;
+    optional UserRole user_role_aggregate = 38;
+    optional UserRoleConnection user_role_connection = 39;
+    repeated RoleComposite role_composite = 40;
+    optional RoleComposite role_composite_aggregate = 41;
+    optional RoleCompositeConnection role_composite_connection = 42;
 }
 message Group {
     optional string id = 1;
@@ -139,17 +143,19 @@ message Group {
     optional int32 parent_id_max = 33;
     optional int32 parent_id_min = 34;
     optional int32 realm_id_count = 35;
-    optional string realm_id_max = 36;
-    optional string realm_id_min = 37;
-    repeated UserGroup user_group = 38;
-    optional UserGroup user_group_aggregate = 39;
-    optional UserGroupConnection user_group_connection = 40;
-    repeated GroupRole group_role = 41;
-    optional GroupRole group_role_aggregate = 42;
-    optional GroupRoleConnection group_role_connection = 43;
+    optional int32 realm_id_sum = 36;
+    optional int32 realm_id_avg = 37;
+    optional int32 realm_id_max = 38;
+    optional int32 realm_id_min = 39;
+    repeated UserGroup user_group = 40;
+    optional UserGroup user_group_aggregate = 41;
+    optional UserGroupConnection user_group_connection = 42;
+    repeated GroupRole group_role = 43;
+    optional GroupRole group_role_aggregate = 44;
+    optional GroupRoleConnection group_role_connection = 45;
 }
 message Realm {
-    string id = 1;
+    optional string id = 1;
     string name = 2;
     optional bool is_deprecated = 3;
     optional int32 version = 4;
@@ -161,8 +167,8 @@ message Realm {
     optional string create_group_id = 10;
     optional string intro_typename = 11;
     optional int32 id_count = 12;
-    optional string id_max = 13;
-    optional string id_min = 14;
+    optional int32 id_max = 13;
+    optional int32 id_min = 14;
     optional int32 name_count = 15;
     optional string name_max = 16;
     optional string name_min = 17;
@@ -203,15 +209,17 @@ message Permission {
     optional int32 role_id_max = 33;
     optional int32 role_id_min = 34;
     optional int32 realm_id_count = 35;
-    optional string realm_id_max = 36;
-    optional string realm_id_min = 37;
+    optional int32 realm_id_sum = 36;
+    optional int32 realm_id_avg = 37;
+    optional int32 realm_id_max = 38;
+    optional int32 realm_id_min = 39;
 }
 message CurrentUser {
-    optional string login = 1;
-    repeated string groups = 2;
-    optional string realm_id = 3;
-    optional string name = 4;
-    repeated string roles = 5;
+    repeated string roles = 1;
+    optional string realm_id = 2;
+    optional string login = 3;
+    repeated string groups = 4;
+    optional string name = 5;
     optional string last_name = 6;
 }
 message UserGroup {

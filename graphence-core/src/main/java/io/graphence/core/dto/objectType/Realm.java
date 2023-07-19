@@ -19,7 +19,6 @@ import org.eclipse.microprofile.graphql.Type;
 @Ignore
 public class Realm implements Meta {
   @Id
-  @NonNull
   private String id;
 
   @NonNull
@@ -45,9 +44,9 @@ public class Realm implements Meta {
 
   private Integer idCount;
 
-  private String idMax;
+  private Integer idMax;
 
-  private String idMin;
+  private Integer idMin;
 
   private Integer nameCount;
 
@@ -167,19 +166,19 @@ public class Realm implements Meta {
     this.idCount = idCount;
   }
 
-  public String getIdMax() {
+  public Integer getIdMax() {
     return this.idMax;
   }
 
-  public void setIdMax(String idMax) {
+  public void setIdMax(Integer idMax) {
     this.idMax = idMax;
   }
 
-  public String getIdMin() {
+  public Integer getIdMin() {
     return this.idMin;
   }
 
-  public void setIdMin(String idMin) {
+  public void setIdMin(Integer idMin) {
     this.idMin = idMin;
   }
 
