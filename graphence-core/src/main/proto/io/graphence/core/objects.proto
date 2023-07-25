@@ -175,7 +175,7 @@ message Realm {
 }
 message Permission {
     optional string id = 1;
-    optional string name = 2;
+    string name = 2;
     optional string of_type_name = 3;
     optional string description = 4;
     optional PermissionLevel level = 5;
@@ -215,12 +215,12 @@ message Permission {
     optional int32 realm_id_min = 39;
 }
 message CurrentUser {
-    repeated string roles = 1;
-    optional string realm_id = 2;
-    optional string login = 3;
-    repeated string groups = 4;
-    optional string name = 5;
-    optional string last_name = 6;
+    repeated string groups = 1;
+    optional string login = 2;
+    repeated string roles = 3;
+    optional string last_name = 4;
+    optional string realm_id = 5;
+    optional string name = 6;
 }
 message UserGroup {
     optional string id = 1;

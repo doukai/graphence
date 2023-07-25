@@ -38,7 +38,7 @@ type Realm {
 
 type Permission {
     id: ID @dataType(type: "Int" autoIncrement: true)
-    name: String
+    name: String!
     ofTypeName: String
     description: String
     level: PermissionLevel

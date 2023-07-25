@@ -22,6 +22,7 @@ public class Permission implements Meta {
   @Id
   private String id;
 
+  @NonNull
   private String name;
 
   private String ofTypeName;
