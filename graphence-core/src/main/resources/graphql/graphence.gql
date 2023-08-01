@@ -42,7 +42,7 @@ type Permission {
     ofTypeName: String
     description: String
     level: PermissionLevel
-    role: Role! @map(from: "roleId" to: "id" anchor: true)
+    role: Role @map(from: "roleId" to: "id" anchor: true)
     realm: Realm @map(from: "realmId" to: "id" anchor: true)
 }
 
