@@ -29,6 +29,8 @@ public class UserExpression {
 
   private StringExpression email;
 
+  private StringExpression phones;
+
   private BooleanExpression disable;
 
   private GroupExpression groups;
@@ -55,6 +57,8 @@ public class UserExpression {
   private StringExpression createGroupId;
 
   private StringExpression __typename;
+
+  private UserPhonesExpression userPhones;
 
   private UserGroupExpression userGroup;
 
@@ -111,6 +115,14 @@ public class UserExpression {
 
   public void setEmail(StringExpression email) {
     this.email = email;
+  }
+
+  public StringExpression getPhones() {
+    return this.phones;
+  }
+
+  public void setPhones(StringExpression phones) {
+    this.phones = phones;
   }
 
   public BooleanExpression getDisable() {
@@ -215,6 +227,14 @@ public class UserExpression {
 
   public void set__typename(StringExpression __typename) {
     this.__typename = __typename;
+  }
+
+  public UserPhonesExpression getUserPhones() {
+    return this.userPhones;
+  }
+
+  public void setUserPhones(UserPhonesExpression userPhones) {
+    this.userPhones = userPhones;
   }
 
   public UserGroupExpression getUserGroup() {

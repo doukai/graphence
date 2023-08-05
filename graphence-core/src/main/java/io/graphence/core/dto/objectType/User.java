@@ -35,6 +35,8 @@ public class User implements Meta {
 
   private String email;
 
+  private Collection<String> phones;
+
   private Boolean disable;
 
   private Collection<Group> groups;
@@ -115,6 +117,12 @@ public class User implements Meta {
 
   private Integer realmIdMin;
 
+  private Collection<UserPhones> userPhones;
+
+  private UserPhones userPhonesAggregate;
+
+  private UserPhonesConnection userPhonesConnection;
+
   private Collection<UserGroup> userGroup;
 
   private UserGroup userGroupAggregate;
@@ -173,6 +181,14 @@ public class User implements Meta {
 
   public void setEmail(String email) {
     this.email = email;
+  }
+
+  public Collection<String> getPhones() {
+    return this.phones;
+  }
+
+  public void setPhones(Collection<String> phones) {
+    this.phones = phones;
   }
 
   public Boolean getDisable() {
@@ -509,6 +525,30 @@ public class User implements Meta {
 
   public void setRealmIdMin(Integer realmIdMin) {
     this.realmIdMin = realmIdMin;
+  }
+
+  public Collection<UserPhones> getUserPhones() {
+    return this.userPhones;
+  }
+
+  public void setUserPhones(Collection<UserPhones> userPhones) {
+    this.userPhones = userPhones;
+  }
+
+  public UserPhones getUserPhonesAggregate() {
+    return this.userPhonesAggregate;
+  }
+
+  public void setUserPhonesAggregate(UserPhones userPhonesAggregate) {
+    this.userPhonesAggregate = userPhonesAggregate;
+  }
+
+  public UserPhonesConnection getUserPhonesConnection() {
+    return this.userPhonesConnection;
+  }
+
+  public void setUserPhonesConnection(UserPhonesConnection userPhonesConnection) {
+    this.userPhonesConnection = userPhonesConnection;
   }
 
   public Collection<UserGroup> getUserGroup() {

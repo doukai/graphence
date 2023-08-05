@@ -63,6 +63,24 @@ public class SubscriptionType implements Meta {
 
   private PermissionConnection permissionConnection;
 
+  private Api api;
+
+  private Collection<Api> apiList;
+
+  private ApiConnection apiConnection;
+
+  private Menu menu;
+
+  private Collection<Menu> menuList;
+
+  private MenuConnection menuConnection;
+
+  private UserPhones userPhones;
+
+  private Collection<UserPhones> userPhonesList;
+
+  private UserPhonesConnection userPhonesConnection;
+
   private UserGroup userGroup;
 
   private Collection<UserGroup> userGroupList;
@@ -80,6 +98,18 @@ public class SubscriptionType implements Meta {
   private Collection<RoleComposite> roleCompositeList;
 
   private RoleCompositeConnection roleCompositeConnection;
+
+  private RoleApi roleApi;
+
+  private Collection<RoleApi> roleApiList;
+
+  private RoleApiConnection roleApiConnection;
+
+  private RoleMenu roleMenu;
+
+  private Collection<RoleMenu> roleMenuList;
+
+  private RoleMenuConnection roleMenuConnection;
 
   private GroupRole groupRole;
 
@@ -287,6 +317,78 @@ public class SubscriptionType implements Meta {
     this.permissionConnection = permissionConnection;
   }
 
+  public Api getApi() {
+    return this.api;
+  }
+
+  public void setApi(Api api) {
+    this.api = api;
+  }
+
+  public Collection<Api> getApiList() {
+    return this.apiList;
+  }
+
+  public void setApiList(Collection<Api> apiList) {
+    this.apiList = apiList;
+  }
+
+  public ApiConnection getApiConnection() {
+    return this.apiConnection;
+  }
+
+  public void setApiConnection(ApiConnection apiConnection) {
+    this.apiConnection = apiConnection;
+  }
+
+  public Menu getMenu() {
+    return this.menu;
+  }
+
+  public void setMenu(Menu menu) {
+    this.menu = menu;
+  }
+
+  public Collection<Menu> getMenuList() {
+    return this.menuList;
+  }
+
+  public void setMenuList(Collection<Menu> menuList) {
+    this.menuList = menuList;
+  }
+
+  public MenuConnection getMenuConnection() {
+    return this.menuConnection;
+  }
+
+  public void setMenuConnection(MenuConnection menuConnection) {
+    this.menuConnection = menuConnection;
+  }
+
+  public UserPhones getUserPhones() {
+    return this.userPhones;
+  }
+
+  public void setUserPhones(UserPhones userPhones) {
+    this.userPhones = userPhones;
+  }
+
+  public Collection<UserPhones> getUserPhonesList() {
+    return this.userPhonesList;
+  }
+
+  public void setUserPhonesList(Collection<UserPhones> userPhonesList) {
+    this.userPhonesList = userPhonesList;
+  }
+
+  public UserPhonesConnection getUserPhonesConnection() {
+    return this.userPhonesConnection;
+  }
+
+  public void setUserPhonesConnection(UserPhonesConnection userPhonesConnection) {
+    this.userPhonesConnection = userPhonesConnection;
+  }
+
   public UserGroup getUserGroup() {
     return this.userGroup;
   }
@@ -357,6 +459,54 @@ public class SubscriptionType implements Meta {
 
   public void setRoleCompositeConnection(RoleCompositeConnection roleCompositeConnection) {
     this.roleCompositeConnection = roleCompositeConnection;
+  }
+
+  public RoleApi getRoleApi() {
+    return this.roleApi;
+  }
+
+  public void setRoleApi(RoleApi roleApi) {
+    this.roleApi = roleApi;
+  }
+
+  public Collection<RoleApi> getRoleApiList() {
+    return this.roleApiList;
+  }
+
+  public void setRoleApiList(Collection<RoleApi> roleApiList) {
+    this.roleApiList = roleApiList;
+  }
+
+  public RoleApiConnection getRoleApiConnection() {
+    return this.roleApiConnection;
+  }
+
+  public void setRoleApiConnection(RoleApiConnection roleApiConnection) {
+    this.roleApiConnection = roleApiConnection;
+  }
+
+  public RoleMenu getRoleMenu() {
+    return this.roleMenu;
+  }
+
+  public void setRoleMenu(RoleMenu roleMenu) {
+    this.roleMenu = roleMenu;
+  }
+
+  public Collection<RoleMenu> getRoleMenuList() {
+    return this.roleMenuList;
+  }
+
+  public void setRoleMenuList(Collection<RoleMenu> roleMenuList) {
+    this.roleMenuList = roleMenuList;
+  }
+
+  public RoleMenuConnection getRoleMenuConnection() {
+    return this.roleMenuConnection;
+  }
+
+  public void setRoleMenuConnection(RoleMenuConnection roleMenuConnection) {
+    this.roleMenuConnection = roleMenuConnection;
   }
 
   public GroupRole getGroupRole() {

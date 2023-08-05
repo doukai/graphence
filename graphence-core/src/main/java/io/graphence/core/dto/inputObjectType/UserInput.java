@@ -28,6 +28,8 @@ public class UserInput {
 
   private String email;
 
+  private Collection<String> phones;
+
   private Boolean disable;
 
   private Collection<GroupInput> groups;
@@ -54,6 +56,8 @@ public class UserInput {
 
   @DefaultValue("\"User\"")
   private String __typename;
+
+  private Collection<UserPhonesInput> userPhones;
 
   private Collection<UserGroupInput> userGroup;
 
@@ -105,6 +109,14 @@ public class UserInput {
 
   public void setEmail(String email) {
     this.email = email;
+  }
+
+  public Collection<String> getPhones() {
+    return this.phones;
+  }
+
+  public void setPhones(Collection<String> phones) {
+    this.phones = phones;
   }
 
   public Boolean getDisable() {
@@ -209,6 +221,14 @@ public class UserInput {
 
   public void set__typename(String __typename) {
     this.__typename = __typename;
+  }
+
+  public Collection<UserPhonesInput> getUserPhones() {
+    return this.userPhones;
+  }
+
+  public void setUserPhones(Collection<UserPhonesInput> userPhones) {
+    this.userPhones = userPhones;
   }
 
   public Collection<UserGroupInput> getUserGroup() {

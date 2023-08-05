@@ -5,7 +5,23 @@ option java_package = "io.graphence.core.dto.enumType.grpc";
 
 package io.graphence.core.grpc;
 
+enum PermissionType {
+    READ_PERMISSION_TYPE = 0;
+    WRITE_PERMISSION_TYPE = 1;
+}
 enum PermissionLevel {
-    READ_PERMISSION_LEVEL = 0;
-    WRITE_PERMISSION_LEVEL = 1;
+    USER_PERMISSION_LEVEL = 0;
+    GROUP_PERMISSION_LEVEL = 1;
+    SUB_GROUP_PERMISSION_LEVEL = 2;
+    REALM_PERMISSION_LEVEL = 3;
+    ALL_PERMISSION_LEVEL = 4;
+}
+enum MenuType {
+    FOLDER_MENU_TYPE = 0;
+    PAGE_MENU_TYPE = 1;
+}
+enum ApiType {
+    QUERY_API_TYPE = 0;
+    MUTATION_API_TYPE = 1;
+    SUBSCRIPTION_API_TYPE = 2;
 }

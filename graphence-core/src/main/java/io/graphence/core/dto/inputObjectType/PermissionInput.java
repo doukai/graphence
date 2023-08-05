@@ -2,6 +2,7 @@ package io.graphence.core.dto.inputObjectType;
 
 import com.dslplatform.json.CompiledJson;
 import io.graphence.core.dto.enumType.PermissionLevel;
+import io.graphence.core.dto.enumType.PermissionType;
 import io.graphoenix.spi.annotation.Ignore;
 import jakarta.annotation.Generated;
 import java.lang.Boolean;
@@ -20,9 +21,9 @@ public class PermissionInput {
 
   private String name;
 
-  private String ofTypeName;
-
   private String description;
+
+  private PermissionType type;
 
   private PermissionLevel level;
 
@@ -67,20 +68,20 @@ public class PermissionInput {
     this.name = name;
   }
 
-  public String getOfTypeName() {
-    return this.ofTypeName;
-  }
-
-  public void setOfTypeName(String ofTypeName) {
-    this.ofTypeName = ofTypeName;
-  }
-
   public String getDescription() {
     return this.description;
   }
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public PermissionType getType() {
+    return this.type;
+  }
+
+  public void setType(PermissionType type) {
+    this.type = type;
   }
 
   public PermissionLevel getLevel() {

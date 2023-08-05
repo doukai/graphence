@@ -13,7 +13,7 @@ import java.lang.annotation.Target;
 public @interface PermissionLevelExpression {
   Operator opr() default Operator.EQ;
 
-  PermissionLevel val() default PermissionLevel.READ;
+  PermissionLevel val() default PermissionLevel.USER;
 
   PermissionLevel[] in() default {};
 

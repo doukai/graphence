@@ -5,6 +5,7 @@ type User {
     login: String!
     password: String!
     email: String
+    phones: [String] @map(from: "id" with: {type: "UserPhones" from: "userId" to: "phone"})
     disable: Boolean
     groups: [Group] @map(from: "id" with: {type: "UserGroup" from: "userId" to: "groupId"} to: "id")
     roles: [Role] @map(from: "id" with: {type: "UserRole" from: "userId" to: "roleId"} to: "id")
@@ -18,6 +19,8 @@ type Role {
     users: [User] @map(from: "id" with: {type: "UserRole" from: "roleId" to: "userId"} to: "id")
     composites: [Role] @map(from: "id" with: {type: "RoleComposite" from: "roleId" to: "compositeId"} to: "id")
     permissions: [Permission] @map(from: "id" to: "roleId")
+    apis: [Api] @map(from: "id" with: {type: "RoleApi" from: "roleId" to: "apiId"} to: "id")
+    menus: [Menu] @map(from: "id" with: {type: "RoleMenu" from: "roleId" to: "menuId"} to: "id")
     realm: Realm @map(from: "realmId" to: "id" anchor: true)
 }
 
@@ -39,14 +42,54 @@ type Realm {
 type Permission {
     id: ID @dataType(type: "Int" autoIncrement: true)
     name: String!
-    ofTypeName: String
     description: String
+    type: PermissionType
     level: PermissionLevel
     role: Role @map(from: "roleId" to: "id" anchor: true)
     realm: Realm @map(from: "realmId" to: "id" anchor: true)
 }
 
-enum PermissionLevel {
+type Api {
+    id: ID @dataType(type: "Int" autoIncrement: true)
+    name: String!
+    description: String
+    type: ApiType
+    role: Role @map(from: "roleId" to: "id" anchor: true)
+    realm: Realm @map(from: "realmId" to: "id" anchor: true)
+}
+
+type Menu {
+    id: ID @dataType(type: "Int" autoIncrement: true)
+    name: String!
+    type: MenuType!
+    path: String
+    icon: String
+    folder: Menu @map(from: "parentId" to: "id" anchor: true)
+    description: String
+    role: Role @map(from: "roleId" to: "id" anchor: true)
+    realm: Realm @map(from: "realmId" to: "id" anchor: true)
+}
+
+enum PermissionType {
     READ
     WRITE
+}
+
+enum PermissionLevel {
+    USER
+    GROUP
+    SUB_GROUP
+    REALM
+    ALL
+}
+
+enum MenuType {
+    FOLDER
+    PAGE
+}
+
+enum ApiType {
+    QUERY
+    MUTATION
+    SUBSCRIPTION
 }

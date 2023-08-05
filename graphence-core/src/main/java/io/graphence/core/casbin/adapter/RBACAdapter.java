@@ -1,6 +1,7 @@
 package io.graphence.core.casbin.adapter;
 
 import com.google.common.collect.Streams;
+import io.graphence.core.dto.enumType.ApiType;
 import io.graphence.core.dto.objectType.Role;
 import jakarta.enterprise.context.ApplicationScoped;
 import org.casbin.jcasbin.model.Model;
@@ -13,9 +14,8 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Stream;
 
-import static io.graphence.core.dto.enumType.PermissionLevel.READ;
-import static io.graphence.core.dto.enumType.PermissionLevel.WRITE;
-
+import static io.graphence.core.dto.enumType.PermissionType.READ;
+import static io.graphence.core.dto.enumType.PermissionType.WRITE;
 
 @ApplicationScoped
 public class RBACAdapter implements Adapter {
@@ -44,62 +44,93 @@ public class RBACAdapter implements Adapter {
                     .flatMap(role ->
                             Stream.ofNullable(role.getPermissions())
                                     .flatMap(Collection::stream)
-                                    .flatMap(permission ->
-                                            permission.getLevel().equals(WRITE) ?
-                                                    Stream.of(
+                                    .flatMap(permission -> {
+                                                if (permission.getType().equals(WRITE)) {
+                                                    return Stream.of(
                                                             new Rule()
                                                                     .setPtype(P_TYPE)
                                                                     .setV0(ROLE_PREFIX.concat(role.getName()))
                                                                     .setV1(role.getRealmId())
-                                                                    .setV2(permission.getOfTypeName().concat(SPACER).concat(permission.getName()))
-                                                                    .setV3(READ.name()),
+                                                                    .setV2(permission.getName())
+                                                                    .setV3(WRITE.name()),
                                                             new Rule()
                                                                     .setPtype(P_TYPE)
                                                                     .setV0(ROLE_PREFIX.concat(role.getName()))
                                                                     .setV1(role.getRealmId())
-                                                                    .setV2(permission.getOfTypeName().concat(SPACER).concat(permission.getName()))
-                                                                    .setV3(WRITE.name())
-                                                    ) :
-                                                    Stream.of(
-                                                            new Rule()
-                                                                    .setPtype(P_TYPE)
-                                                                    .setV0(ROLE_PREFIX.concat(role.getName()))
-                                                                    .setV1(role.getRealmId())
-                                                                    .setV2(permission.getOfTypeName().concat(SPACER).concat(permission.getName()))
+                                                                    .setV2(permission.getName())
                                                                     .setV3(READ.name())
-                                                    )
+                                                    );
+                                                } else if (permission.getType().equals(READ)) {
+                                                    return Stream.of(
+                                                            new Rule()
+                                                                    .setPtype(P_TYPE)
+                                                                    .setV0(ROLE_PREFIX.concat(role.getName()))
+                                                                    .setV1(role.getRealmId())
+                                                                    .setV2(permission.getName())
+                                                                    .setV3(READ.name())
+                                                    );
+                                                } else {
+                                                    return Stream.empty();
+                                                }
+                                            }
+                                    )
+                    );
+
+            Stream<Rule> apiRuleStream = roles.stream()
+                    .flatMap(role ->
+                            Stream.ofNullable(role.getApis())
+                                    .flatMap(Collection::stream)
+                                    .flatMap(api -> {
+                                                if (api.getType().equals(ApiType.MUTATION)) {
+                                                    return Stream.of(
+                                                            new Rule()
+                                                                    .setPtype(P_TYPE)
+                                                                    .setV0(ROLE_PREFIX.concat(role.getName()))
+                                                                    .setV1(role.getRealmId())
+                                                                    .setV2(api.getType().name() + SPACER + api.getName())
+                                                                    .setV3(WRITE.name())
+                                                    );
+                                                } else {
+                                                    return Stream.of(
+                                                            new Rule()
+                                                                    .setPtype(P_TYPE)
+                                                                    .setV0(ROLE_PREFIX.concat(role.getName()))
+                                                                    .setV1(role.getRealmId())
+                                                                    .setV2(api.getType().name() + SPACER + api.getName())
+                                                                    .setV3(READ.name())
+                                                    );
+                                                }
+                                            }
                                     )
                     );
 
             Stream<Rule> userRuleStream = roles.stream()
                     .flatMap(role ->
-                            role.getUsers() == null ?
-                                    Stream.empty() :
-                                    role.getUsers().stream()
-                                            .map(user ->
-                                                    new Rule()
-                                                            .setPtype(G_TYPE)
-                                                            .setV0(USER_PREFIX.concat(user.getLogin()))
-                                                            .setV1(ROLE_PREFIX.concat(role.getName()))
-                                                            .setV2(user.getRealmId())
-                                            )
+                            Stream.ofNullable(role.getUsers())
+                                    .flatMap(Collection::stream)
+                                    .map(user ->
+                                            new Rule()
+                                                    .setPtype(G_TYPE)
+                                                    .setV0(USER_PREFIX.concat(user.getLogin()))
+                                                    .setV1(ROLE_PREFIX.concat(role.getName()))
+                                                    .setV2(user.getRealmId())
+                                    )
                     );
 
             Stream<Rule> roleRuleStream = roles.stream()
                     .flatMap(role ->
-                            role.getComposites() == null ?
-                                    Stream.empty() :
-                                    role.getComposites().stream()
-                                            .map(composite ->
-                                                    new Rule()
-                                                            .setPtype(G_TYPE)
-                                                            .setV0(ROLE_PREFIX.concat(role.getName()))
-                                                            .setV1(ROLE_PREFIX.concat(composite.getName()))
-                                                            .setV2(role.getRealmId())
-                                            )
+                            Stream.ofNullable(role.getComposites())
+                                    .flatMap(Collection::stream)
+                                    .map(composite ->
+                                            new Rule()
+                                                    .setPtype(G_TYPE)
+                                                    .setV0(ROLE_PREFIX.concat(role.getName()))
+                                                    .setV1(ROLE_PREFIX.concat(composite.getName()))
+                                                    .setV2(role.getRealmId())
+                                    )
                     );
 
-            Streams.concat(permissionRuleStream, userRuleStream, roleRuleStream).forEach(line -> loadPolicyLine(line, model));
+            Streams.concat(permissionRuleStream, apiRuleStream, userRuleStream, roleRuleStream).forEach(line -> loadPolicyLine(line, model));
 
         } catch (Exception e) {
             Logger.error(e);

@@ -21,6 +21,8 @@ public @interface UserOrderBy0 {
 
   Sort email() default Sort.ASC;
 
+  Sort phones() default Sort.ASC;
+
   Sort disable() default Sort.ASC;
 
   Sort isDeprecated() default Sort.ASC;

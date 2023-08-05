@@ -28,6 +28,10 @@ public class RoleExpression {
 
   private PermissionExpression permissions;
 
+  private ApiExpression apis;
+
+  private MenuExpression menus;
+
   private RealmExpression realm;
 
   @DefaultValue("false")
@@ -52,6 +56,10 @@ public class RoleExpression {
   private UserRoleExpression userRole;
 
   private RoleCompositeExpression roleComposite;
+
+  private RoleApiExpression roleApi;
+
+  private RoleMenuExpression roleMenu;
 
   @DefaultValue("AND")
   private Conditional cond;
@@ -104,6 +112,22 @@ public class RoleExpression {
 
   public void setPermissions(PermissionExpression permissions) {
     this.permissions = permissions;
+  }
+
+  public ApiExpression getApis() {
+    return this.apis;
+  }
+
+  public void setApis(ApiExpression apis) {
+    this.apis = apis;
+  }
+
+  public MenuExpression getMenus() {
+    return this.menus;
+  }
+
+  public void setMenus(MenuExpression menus) {
+    this.menus = menus;
   }
 
   public RealmExpression getRealm() {
@@ -200,6 +224,22 @@ public class RoleExpression {
 
   public void setRoleComposite(RoleCompositeExpression roleComposite) {
     this.roleComposite = roleComposite;
+  }
+
+  public RoleApiExpression getRoleApi() {
+    return this.roleApi;
+  }
+
+  public void setRoleApi(RoleApiExpression roleApi) {
+    this.roleApi = roleApi;
+  }
+
+  public RoleMenuExpression getRoleMenu() {
+    return this.roleMenu;
+  }
+
+  public void setRoleMenu(RoleMenuExpression roleMenu) {
+    this.roleMenu = roleMenu;
   }
 
   public Conditional getCond() {

@@ -15,9 +15,9 @@ public class PermissionOrderBy {
 
   private Sort name;
 
-  private Sort ofTypeName;
-
   private Sort description;
+
+  private Sort type;
 
   private Sort level;
 
@@ -57,20 +57,20 @@ public class PermissionOrderBy {
     this.name = name;
   }
 
-  public Sort getOfTypeName() {
-    return this.ofTypeName;
-  }
-
-  public void setOfTypeName(Sort ofTypeName) {
-    this.ofTypeName = ofTypeName;
-  }
-
   public Sort getDescription() {
     return this.description;
   }
 
   public void setDescription(Sort description) {
     this.description = description;
+  }
+
+  public Sort getType() {
+    return this.type;
+  }
+
+  public void setType(Sort type) {
+    this.type = type;
   }
 
   public Sort getLevel() {

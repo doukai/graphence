@@ -1,6 +1,7 @@
 package io.graphence.core.dto.annotation;
 
 import io.graphence.core.dto.enumType.PermissionLevel;
+import io.graphence.core.dto.enumType.PermissionType;
 import java.lang.String;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -14,11 +15,11 @@ public @interface PermissionInput0 {
 
   String name() default "";
 
-  String ofTypeName() default "";
-
   String description() default "";
 
-  PermissionLevel level() default PermissionLevel.READ;
+  PermissionType type() default PermissionType.READ;
+
+  PermissionLevel level() default PermissionLevel.USER;
 
   boolean isDeprecated() default false;
 
@@ -44,9 +45,9 @@ public @interface PermissionInput0 {
 
   String $name() default "";
 
-  String $ofTypeName() default "";
-
   String $description() default "";
+
+  String $type() default "";
 
   String $level() default "";
 

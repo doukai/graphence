@@ -31,12 +31,22 @@ service MutationTypeService {
     rpc RealmList (MutationRealmListRequest) returns (MutationRealmListResponse);
     rpc Permission (MutationPermissionRequest) returns (MutationPermissionResponse);
     rpc PermissionList (MutationPermissionListRequest) returns (MutationPermissionListResponse);
+    rpc Api (MutationApiRequest) returns (MutationApiResponse);
+    rpc ApiList (MutationApiListRequest) returns (MutationApiListResponse);
+    rpc Menu (MutationMenuRequest) returns (MutationMenuResponse);
+    rpc MenuList (MutationMenuListRequest) returns (MutationMenuListResponse);
+    rpc UserPhones (MutationUserPhonesRequest) returns (MutationUserPhonesResponse);
+    rpc UserPhonesList (MutationUserPhonesListRequest) returns (MutationUserPhonesListResponse);
     rpc UserGroup (MutationUserGroupRequest) returns (MutationUserGroupResponse);
     rpc UserGroupList (MutationUserGroupListRequest) returns (MutationUserGroupListResponse);
     rpc UserRole (MutationUserRoleRequest) returns (MutationUserRoleResponse);
     rpc UserRoleList (MutationUserRoleListRequest) returns (MutationUserRoleListResponse);
     rpc RoleComposite (MutationRoleCompositeRequest) returns (MutationRoleCompositeResponse);
     rpc RoleCompositeList (MutationRoleCompositeListRequest) returns (MutationRoleCompositeListResponse);
+    rpc RoleApi (MutationRoleApiRequest) returns (MutationRoleApiResponse);
+    rpc RoleApiList (MutationRoleApiListRequest) returns (MutationRoleApiListResponse);
+    rpc RoleMenu (MutationRoleMenuRequest) returns (MutationRoleMenuResponse);
+    rpc RoleMenuList (MutationRoleMenuListRequest) returns (MutationRoleMenuListResponse);
     rpc GroupRole (MutationGroupRoleRequest) returns (MutationGroupRoleResponse);
     rpc GroupRoleList (MutationGroupRoleListRequest) returns (MutationGroupRoleListResponse);
 }

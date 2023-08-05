@@ -53,6 +53,18 @@ public class MutationType implements Meta {
 
   private Collection<Permission> permissionList;
 
+  private Api api;
+
+  private Collection<Api> apiList;
+
+  private Menu menu;
+
+  private Collection<Menu> menuList;
+
+  private UserPhones userPhones;
+
+  private Collection<UserPhones> userPhonesList;
+
   private UserGroup userGroup;
 
   private Collection<UserGroup> userGroupList;
@@ -64,6 +76,14 @@ public class MutationType implements Meta {
   private RoleComposite roleComposite;
 
   private Collection<RoleComposite> roleCompositeList;
+
+  private RoleApi roleApi;
+
+  private Collection<RoleApi> roleApiList;
+
+  private RoleMenu roleMenu;
+
+  private Collection<RoleMenu> roleMenuList;
 
   private GroupRole groupRole;
 
@@ -229,6 +249,54 @@ public class MutationType implements Meta {
     this.permissionList = permissionList;
   }
 
+  public Api getApi() {
+    return this.api;
+  }
+
+  public void setApi(Api api) {
+    this.api = api;
+  }
+
+  public Collection<Api> getApiList() {
+    return this.apiList;
+  }
+
+  public void setApiList(Collection<Api> apiList) {
+    this.apiList = apiList;
+  }
+
+  public Menu getMenu() {
+    return this.menu;
+  }
+
+  public void setMenu(Menu menu) {
+    this.menu = menu;
+  }
+
+  public Collection<Menu> getMenuList() {
+    return this.menuList;
+  }
+
+  public void setMenuList(Collection<Menu> menuList) {
+    this.menuList = menuList;
+  }
+
+  public UserPhones getUserPhones() {
+    return this.userPhones;
+  }
+
+  public void setUserPhones(UserPhones userPhones) {
+    this.userPhones = userPhones;
+  }
+
+  public Collection<UserPhones> getUserPhonesList() {
+    return this.userPhonesList;
+  }
+
+  public void setUserPhonesList(Collection<UserPhones> userPhonesList) {
+    this.userPhonesList = userPhonesList;
+  }
+
   public UserGroup getUserGroup() {
     return this.userGroup;
   }
@@ -275,6 +343,38 @@ public class MutationType implements Meta {
 
   public void setRoleCompositeList(Collection<RoleComposite> roleCompositeList) {
     this.roleCompositeList = roleCompositeList;
+  }
+
+  public RoleApi getRoleApi() {
+    return this.roleApi;
+  }
+
+  public void setRoleApi(RoleApi roleApi) {
+    this.roleApi = roleApi;
+  }
+
+  public Collection<RoleApi> getRoleApiList() {
+    return this.roleApiList;
+  }
+
+  public void setRoleApiList(Collection<RoleApi> roleApiList) {
+    this.roleApiList = roleApiList;
+  }
+
+  public RoleMenu getRoleMenu() {
+    return this.roleMenu;
+  }
+
+  public void setRoleMenu(RoleMenu roleMenu) {
+    this.roleMenu = roleMenu;
+  }
+
+  public Collection<RoleMenu> getRoleMenuList() {
+    return this.roleMenuList;
+  }
+
+  public void setRoleMenuList(Collection<RoleMenu> roleMenuList) {
+    this.roleMenuList = roleMenuList;
   }
 
   public GroupRole getGroupRole() {

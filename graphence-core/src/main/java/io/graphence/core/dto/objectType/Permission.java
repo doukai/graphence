@@ -2,6 +2,7 @@ package io.graphence.core.dto.objectType;
 
 import com.dslplatform.json.CompiledJson;
 import io.graphence.core.dto.enumType.PermissionLevel;
+import io.graphence.core.dto.enumType.PermissionType;
 import io.graphoenix.core.dto.interfaceType.Meta;
 import io.graphoenix.spi.annotation.Ignore;
 import jakarta.annotation.Generated;
@@ -25,13 +26,12 @@ public class Permission implements Meta {
   @NonNull
   private String name;
 
-  private String ofTypeName;
-
   private String description;
+
+  private PermissionType type;
 
   private PermissionLevel level;
 
-  @NonNull
   private Role role;
 
   private Realm realm;
@@ -65,12 +65,6 @@ public class Permission implements Meta {
   private String nameMax;
 
   private String nameMin;
-
-  private Integer ofTypeNameCount;
-
-  private String ofTypeNameMax;
-
-  private String ofTypeNameMin;
 
   private Integer descriptionCount;
 
@@ -116,20 +110,20 @@ public class Permission implements Meta {
     this.name = name;
   }
 
-  public String getOfTypeName() {
-    return this.ofTypeName;
-  }
-
-  public void setOfTypeName(String ofTypeName) {
-    this.ofTypeName = ofTypeName;
-  }
-
   public String getDescription() {
     return this.description;
   }
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public PermissionType getType() {
+    return this.type;
+  }
+
+  public void setType(PermissionType type) {
+    this.type = type;
   }
 
   public PermissionLevel getLevel() {
@@ -290,30 +284,6 @@ public class Permission implements Meta {
 
   public void setNameMin(String nameMin) {
     this.nameMin = nameMin;
-  }
-
-  public Integer getOfTypeNameCount() {
-    return this.ofTypeNameCount;
-  }
-
-  public void setOfTypeNameCount(Integer ofTypeNameCount) {
-    this.ofTypeNameCount = ofTypeNameCount;
-  }
-
-  public String getOfTypeNameMax() {
-    return this.ofTypeNameMax;
-  }
-
-  public void setOfTypeNameMax(String ofTypeNameMax) {
-    this.ofTypeNameMax = ofTypeNameMax;
-  }
-
-  public String getOfTypeNameMin() {
-    return this.ofTypeNameMin;
-  }
-
-  public void setOfTypeNameMin(String ofTypeNameMin) {
-    this.ofTypeNameMin = ofTypeNameMin;
   }
 
   public Integer getDescriptionCount() {

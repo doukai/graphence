@@ -24,6 +24,8 @@ public @interface UserExpression0 {
 
   StringExpression email() default @StringExpression;
 
+  StringExpression phones() default @StringExpression;
+
   BooleanExpression disable() default @BooleanExpression;
 
   BooleanExpression isDeprecated() default @BooleanExpression;

@@ -21,6 +21,8 @@ public @interface UserInput0 {
 
   String email() default "";
 
+  String[] phones() default {};
+
   boolean disable() default false;
 
   boolean isDeprecated() default false;
@@ -52,6 +54,8 @@ public @interface UserInput0 {
   String $password() default "";
 
   String $email() default "";
+
+  String $phones() default "";
 
   String $disable() default "";
 
@@ -86,6 +90,12 @@ public @interface UserInput0 {
   String $rolesAggregate() default "";
 
   String $rolesConnection() default "";
+
+  String $userPhones() default "";
+
+  String $userPhonesAggregate() default "";
+
+  String $userPhonesConnection() default "";
 
   String $userGroup() default "";
 

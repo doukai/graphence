@@ -16,9 +16,9 @@ public @interface PermissionExpression0 {
 
   StringExpression name() default @StringExpression;
 
-  StringExpression ofTypeName() default @StringExpression;
-
   StringExpression description() default @StringExpression;
+
+  PermissionTypeExpression type() default @PermissionTypeExpression;
 
   PermissionLevelExpression level() default @PermissionLevelExpression;
 

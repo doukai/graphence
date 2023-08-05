@@ -89,6 +89,33 @@ message QueryPermissionListResponse {
 message QueryPermissionConnectionResponse {
     optional PermissionConnection permission_connection = 1;
 }
+message QueryApiResponse {
+    optional Api api = 1;
+}
+message QueryApiListResponse {
+    repeated Api api_list = 1;
+}
+message QueryApiConnectionResponse {
+    optional ApiConnection api_connection = 1;
+}
+message QueryMenuResponse {
+    optional Menu menu = 1;
+}
+message QueryMenuListResponse {
+    repeated Menu menu_list = 1;
+}
+message QueryMenuConnectionResponse {
+    optional MenuConnection menu_connection = 1;
+}
+message QueryUserPhonesResponse {
+    optional UserPhones user_phones = 1;
+}
+message QueryUserPhonesListResponse {
+    repeated UserPhones user_phones_list = 1;
+}
+message QueryUserPhonesConnectionResponse {
+    optional UserPhonesConnection user_phones_connection = 1;
+}
 message QueryUserGroupResponse {
     optional UserGroup user_group = 1;
 }
@@ -115,6 +142,24 @@ message QueryRoleCompositeListResponse {
 }
 message QueryRoleCompositeConnectionResponse {
     optional RoleCompositeConnection role_composite_connection = 1;
+}
+message QueryRoleApiResponse {
+    optional RoleApi role_api = 1;
+}
+message QueryRoleApiListResponse {
+    repeated RoleApi role_api_list = 1;
+}
+message QueryRoleApiConnectionResponse {
+    optional RoleApiConnection role_api_connection = 1;
+}
+message QueryRoleMenuResponse {
+    optional RoleMenu role_menu = 1;
+}
+message QueryRoleMenuListResponse {
+    repeated RoleMenu role_menu_list = 1;
+}
+message QueryRoleMenuConnectionResponse {
+    optional RoleMenuConnection role_menu_connection = 1;
 }
 message QueryGroupRoleResponse {
     optional GroupRole group_role = 1;

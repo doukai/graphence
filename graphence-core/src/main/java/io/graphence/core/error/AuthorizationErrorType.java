@@ -2,8 +2,8 @@ package io.graphence.core.error;
 
 public enum AuthorizationErrorType {
 
-    UN_AUTHORIZATION_READ(-40300, "read authorization failed: %s %s"),
-    UN_AUTHORIZATION_WRITE(-40301, "write authorization failed: %s %s"),
+    UN_AUTHORIZATION_READ(-40300, "read authorization failed: %s"),
+    UN_AUTHORIZATION_WRITE(-40301, "write authorization failed: %s"),
 
     UNKNOWN(-40399, "unknown authentication error");
 

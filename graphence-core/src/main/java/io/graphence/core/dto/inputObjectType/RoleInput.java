@@ -28,6 +28,10 @@ public class RoleInput {
 
   private Collection<PermissionInput> permissions;
 
+  private Collection<ApiInput> apis;
+
+  private Collection<MenuInput> menus;
+
   private RealmInput realm;
 
   private Boolean isDeprecated;
@@ -52,6 +56,10 @@ public class RoleInput {
   private Collection<UserRoleInput> userRole;
 
   private Collection<RoleCompositeInput> roleComposite;
+
+  private Collection<RoleApiInput> roleApi;
+
+  private Collection<RoleMenuInput> roleMenu;
 
   public String getId() {
     return this.id;
@@ -99,6 +107,22 @@ public class RoleInput {
 
   public void setPermissions(Collection<PermissionInput> permissions) {
     this.permissions = permissions;
+  }
+
+  public Collection<ApiInput> getApis() {
+    return this.apis;
+  }
+
+  public void setApis(Collection<ApiInput> apis) {
+    this.apis = apis;
+  }
+
+  public Collection<MenuInput> getMenus() {
+    return this.menus;
+  }
+
+  public void setMenus(Collection<MenuInput> menus) {
+    this.menus = menus;
   }
 
   public RealmInput getRealm() {
@@ -195,5 +219,21 @@ public class RoleInput {
 
   public void setRoleComposite(Collection<RoleCompositeInput> roleComposite) {
     this.roleComposite = roleComposite;
+  }
+
+  public Collection<RoleApiInput> getRoleApi() {
+    return this.roleApi;
+  }
+
+  public void setRoleApi(Collection<RoleApiInput> roleApi) {
+    this.roleApi = roleApi;
+  }
+
+  public Collection<RoleMenuInput> getRoleMenu() {
+    return this.roleMenu;
+  }
+
+  public void setRoleMenu(Collection<RoleMenuInput> roleMenu) {
+    this.roleMenu = roleMenu;
   }
 }

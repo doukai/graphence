@@ -20,9 +20,9 @@ public class PermissionExpression {
 
   private StringExpression name;
 
-  private StringExpression ofTypeName;
-
   private StringExpression description;
+
+  private PermissionTypeExpression type;
 
   private PermissionLevelExpression level;
 
@@ -72,20 +72,20 @@ public class PermissionExpression {
     this.name = name;
   }
 
-  public StringExpression getOfTypeName() {
-    return this.ofTypeName;
-  }
-
-  public void setOfTypeName(StringExpression ofTypeName) {
-    this.ofTypeName = ofTypeName;
-  }
-
   public StringExpression getDescription() {
     return this.description;
   }
 
   public void setDescription(StringExpression description) {
     this.description = description;
+  }
+
+  public PermissionTypeExpression getType() {
+    return this.type;
+  }
+
+  public void setType(PermissionTypeExpression type) {
+    this.type = type;
   }
 
   public PermissionLevelExpression getLevel() {

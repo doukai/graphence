@@ -38,6 +38,15 @@ service QueryTypeService {
     rpc Permission (QueryPermissionRequest) returns (QueryPermissionResponse);
     rpc PermissionList (QueryPermissionListRequest) returns (QueryPermissionListResponse);
     rpc PermissionConnection (QueryPermissionConnectionRequest) returns (QueryPermissionConnectionResponse);
+    rpc Api (QueryApiRequest) returns (QueryApiResponse);
+    rpc ApiList (QueryApiListRequest) returns (QueryApiListResponse);
+    rpc ApiConnection (QueryApiConnectionRequest) returns (QueryApiConnectionResponse);
+    rpc Menu (QueryMenuRequest) returns (QueryMenuResponse);
+    rpc MenuList (QueryMenuListRequest) returns (QueryMenuListResponse);
+    rpc MenuConnection (QueryMenuConnectionRequest) returns (QueryMenuConnectionResponse);
+    rpc UserPhones (QueryUserPhonesRequest) returns (QueryUserPhonesResponse);
+    rpc UserPhonesList (QueryUserPhonesListRequest) returns (QueryUserPhonesListResponse);
+    rpc UserPhonesConnection (QueryUserPhonesConnectionRequest) returns (QueryUserPhonesConnectionResponse);
     rpc UserGroup (QueryUserGroupRequest) returns (QueryUserGroupResponse);
     rpc UserGroupList (QueryUserGroupListRequest) returns (QueryUserGroupListResponse);
     rpc UserGroupConnection (QueryUserGroupConnectionRequest) returns (QueryUserGroupConnectionResponse);
@@ -47,6 +56,12 @@ service QueryTypeService {
     rpc RoleComposite (QueryRoleCompositeRequest) returns (QueryRoleCompositeResponse);
     rpc RoleCompositeList (QueryRoleCompositeListRequest) returns (QueryRoleCompositeListResponse);
     rpc RoleCompositeConnection (QueryRoleCompositeConnectionRequest) returns (QueryRoleCompositeConnectionResponse);
+    rpc RoleApi (QueryRoleApiRequest) returns (QueryRoleApiResponse);
+    rpc RoleApiList (QueryRoleApiListRequest) returns (QueryRoleApiListResponse);
+    rpc RoleApiConnection (QueryRoleApiConnectionRequest) returns (QueryRoleApiConnectionResponse);
+    rpc RoleMenu (QueryRoleMenuRequest) returns (QueryRoleMenuResponse);
+    rpc RoleMenuList (QueryRoleMenuListRequest) returns (QueryRoleMenuListResponse);
+    rpc RoleMenuConnection (QueryRoleMenuConnectionRequest) returns (QueryRoleMenuConnectionResponse);
     rpc GroupRole (QueryGroupRoleRequest) returns (QueryGroupRoleResponse);
     rpc GroupRoleList (QueryGroupRoleListRequest) returns (QueryGroupRoleListResponse);
     rpc GroupRoleConnection (QueryGroupRoleConnectionRequest) returns (QueryGroupRoleConnectionResponse);
