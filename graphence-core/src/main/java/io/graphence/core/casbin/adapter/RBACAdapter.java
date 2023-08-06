@@ -80,25 +80,21 @@ public class RBACAdapter implements Adapter {
                     .flatMap(role ->
                             Stream.ofNullable(role.getApis())
                                     .flatMap(Collection::stream)
-                                    .flatMap(api -> {
+                                    .map(api -> {
                                                 if (api.getType().equals(ApiType.MUTATION)) {
-                                                    return Stream.of(
-                                                            new Rule()
-                                                                    .setPtype(P_TYPE)
-                                                                    .setV0(ROLE_PREFIX.concat(role.getName()))
-                                                                    .setV1(role.getRealmId())
-                                                                    .setV2(api.getType().name() + SPACER + api.getName())
-                                                                    .setV3(WRITE.name())
-                                                    );
+                                                    return new Rule()
+                                                            .setPtype(P_TYPE)
+                                                            .setV0(ROLE_PREFIX.concat(role.getName()))
+                                                            .setV1(role.getRealmId())
+                                                            .setV2(api.getType().name() + SPACER + api.getName())
+                                                            .setV3(WRITE.name());
                                                 } else {
-                                                    return Stream.of(
-                                                            new Rule()
-                                                                    .setPtype(P_TYPE)
-                                                                    .setV0(ROLE_PREFIX.concat(role.getName()))
-                                                                    .setV1(role.getRealmId())
-                                                                    .setV2(api.getType().name() + SPACER + api.getName())
-                                                                    .setV3(READ.name())
-                                                    );
+                                                    return new Rule()
+                                                            .setPtype(P_TYPE)
+                                                            .setV0(ROLE_PREFIX.concat(role.getName()))
+                                                            .setV1(role.getRealmId())
+                                                            .setV2(api.getType().name() + SPACER + api.getName())
+                                                            .setV3(READ.name());
                                                 }
                                             }
                                     )
