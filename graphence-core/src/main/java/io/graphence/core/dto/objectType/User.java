@@ -30,7 +30,6 @@ public class User implements Meta {
   @NonNull
   private String login;
 
-  @NonNull
   private String password;
 
   private String email;

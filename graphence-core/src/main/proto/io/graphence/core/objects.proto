@@ -14,7 +14,7 @@ message User {
     string name = 2;
     optional string last_name = 3;
     string login = 4;
-    string password = 5;
+    optional string password = 5;
     optional string email = 6;
     repeated string phones = 7;
     optional bool disable = 8;
@@ -317,12 +317,12 @@ message Menu {
     optional int32 realm_id_min = 50;
 }
 message CurrentUser {
-    optional string login = 1;
-    repeated string groups = 2;
-    optional string name = 3;
-    optional string last_name = 4;
+    optional string name = 1;
+    optional string last_name = 2;
+    repeated string groups = 3;
+    optional string realm_id = 4;
     repeated string roles = 5;
-    optional string realm_id = 6;
+    optional string login = 6;
 }
 message UserPhones {
     optional string id = 1;

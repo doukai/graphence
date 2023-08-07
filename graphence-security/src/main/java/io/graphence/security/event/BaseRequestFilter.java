@@ -20,53 +20,53 @@ import static io.graphoenix.spi.constant.Hammurabi.*;
 
 public abstract class BaseRequestFilter {
 
-    void init(IGraphQLDocumentManager manager, Map<String, Object> context) {
+    protected void init(IGraphQLDocumentManager manager, Map<String, Object> context) {
         GraphqlParser.OperationDefinitionContext operationDefinitionContext = DOCUMENT_UTIL.graphqlToOperation(getGraphQLRequest(context).getQuery());
         context.put(OPERATION_DEFINITION, operationDefinitionContext);
         context.put(PERMIT_ALL, permit(manager, context));
     }
 
-    public HttpServerRequest getRequest(Map<String, Object> context) {
+    protected HttpServerRequest getRequest(Map<String, Object> context) {
         return (HttpServerRequest) context.get(REQUEST);
     }
 
-    public HttpServerResponse getResponse(Map<String, Object> context) {
+    protected HttpServerResponse getResponse(Map<String, Object> context) {
         return (HttpServerResponse) context.get(RESPONSE);
     }
 
-    public GraphQLRequest getGraphQLRequest(Map<String, Object> context) {
+    protected GraphQLRequest getGraphQLRequest(Map<String, Object> context) {
         return (GraphQLRequest) context.get(GRAPHQL_REQUEST);
     }
 
-    public GraphqlParser.OperationDefinitionContext getOperationDefinitionContext(Map<String, Object> context) {
+    protected GraphqlParser.OperationDefinitionContext getOperationDefinitionContext(Map<String, Object> context) {
         return (GraphqlParser.OperationDefinitionContext) context.get(OPERATION_DEFINITION);
     }
 
-    public boolean isPermitAll(Map<String, Object> context) {
+    protected boolean isPermitAll(Map<String, Object> context) {
         return (boolean) context.get(PERMIT_ALL);
     }
 
-    public CurrentUser getCurrentUser(Map<String, Object> context) {
+    protected CurrentUser getCurrentUser(Map<String, Object> context) {
         return (CurrentUser) context.get(CURRENT_USER);
     }
 
-    public void setCurrentUser(Map<String, Object> context, CurrentUser currentUser) {
+    protected void setCurrentUser(Map<String, Object> context, CurrentUser currentUser) {
         context.put(CURRENT_USER, currentUser);
     }
 
-    public String getRequestId(Map<String, Object> context) {
+    protected String getRequestId(Map<String, Object> context) {
         return (String) context.get(REQUEST_ID);
     }
 
-    public String getSessionId(Map<String, Object> context) {
+    protected String getSessionId(Map<String, Object> context) {
         return (String) context.get(SESSION_ID);
     }
 
-    public void setSessionId(Map<String, Object> context, String sessionId) {
+    protected void setSessionId(Map<String, Object> context, String sessionId) {
         context.put(SESSION_ID, sessionId);
     }
 
-    boolean permit(IGraphQLDocumentManager manager, Map<String, Object> context) {
+    protected boolean permit(IGraphQLDocumentManager manager, Map<String, Object> context) {
         GraphqlParser.OperationDefinitionContext operationDefinitionContext = getOperationDefinitionContext(context);
         GraphqlParser.OperationTypeContext operationTypeContext = operationDefinitionContext.operationType();
         if (operationTypeContext == null || operationTypeContext.QUERY() != null) {

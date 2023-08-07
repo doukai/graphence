@@ -3,7 +3,7 @@ type User {
     name: String!
     lastName: String
     login: String!
-    password: String!
+    password: String
     email: String
     phones: [String] @map(from: "id" with: {type: "UserPhones" from: "userId" to: "phone"})
     disable: Boolean
