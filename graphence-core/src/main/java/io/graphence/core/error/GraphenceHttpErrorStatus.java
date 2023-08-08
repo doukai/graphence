@@ -8,7 +8,7 @@ import io.jsonwebtoken.security.SignatureException;
 import org.casbin.jcasbin.exception.*;
 
 @AutoService(HttpErrorStatus.class)
-public class JWTHttpErrorStatus extends BaseHttpErrorStatus {
+public class GraphenceHttpErrorStatus extends BaseHttpErrorStatus {
 
     @Override
     public void register() {

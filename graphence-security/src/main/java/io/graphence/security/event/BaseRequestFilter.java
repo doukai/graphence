@@ -1,7 +1,6 @@
 package io.graphence.security.event;
 
 import graphql.parser.antlr.GraphqlParser;
-import io.graphoenix.core.dto.GraphQLRequest;
 import io.graphoenix.core.error.GraphQLErrors;
 import io.graphence.core.dto.CurrentUser;
 import io.graphence.core.error.AuthenticationException;
@@ -14,15 +13,12 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 import static io.graphoenix.core.error.GraphQLErrorType.UNSUPPORTED_OPERATION_TYPE;
-import static io.graphoenix.core.utils.DocumentUtil.DOCUMENT_UTIL;
 import static io.graphence.core.error.AuthenticationErrorType.UN_AUTHENTICATION;
 import static io.graphoenix.spi.constant.Hammurabi.*;
 
 public abstract class BaseRequestFilter {
 
     protected void init(IGraphQLDocumentManager manager, Map<String, Object> context) {
-        GraphqlParser.OperationDefinitionContext operationDefinitionContext = DOCUMENT_UTIL.graphqlToOperation(getGraphQLRequest(context).getQuery());
-        context.put(OPERATION_DEFINITION, operationDefinitionContext);
         context.put(PERMIT_ALL, permit(manager, context));
     }
 
@@ -32,10 +28,6 @@ public abstract class BaseRequestFilter {
 
     protected HttpServerResponse getResponse(Map<String, Object> context) {
         return (HttpServerResponse) context.get(RESPONSE);
-    }
-
-    protected GraphQLRequest getGraphQLRequest(Map<String, Object> context) {
-        return (GraphQLRequest) context.get(GRAPHQL_REQUEST);
     }
 
     protected GraphqlParser.OperationDefinitionContext getOperationDefinitionContext(Map<String, Object> context) {

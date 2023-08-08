@@ -11,6 +11,7 @@ import org.tinylog.Logger;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Stream;
 
@@ -29,6 +30,8 @@ public class RBACAdapter implements Adapter {
     public static final String P_TYPE = "p";
 
     public static final String G_TYPE = "g";
+
+    public static final String UNDEFINED = "undefined";
 
     private Set<Role> roles;
 
@@ -50,13 +53,13 @@ public class RBACAdapter implements Adapter {
                                                             new Rule()
                                                                     .setPtype(P_TYPE)
                                                                     .setV0(ROLE_PREFIX.concat(role.getName()))
-                                                                    .setV1(role.getRealmId())
+                                                                    .setV1(Optional.ofNullable(role.getRealmId()).orElse(UNDEFINED))
                                                                     .setV2(permission.getName())
                                                                     .setV3(WRITE.name()),
                                                             new Rule()
                                                                     .setPtype(P_TYPE)
                                                                     .setV0(ROLE_PREFIX.concat(role.getName()))
-                                                                    .setV1(role.getRealmId())
+                                                                    .setV1(Optional.ofNullable(role.getRealmId()).orElse(UNDEFINED))
                                                                     .setV2(permission.getName())
                                                                     .setV3(READ.name())
                                                     );
@@ -65,7 +68,7 @@ public class RBACAdapter implements Adapter {
                                                             new Rule()
                                                                     .setPtype(P_TYPE)
                                                                     .setV0(ROLE_PREFIX.concat(role.getName()))
-                                                                    .setV1(role.getRealmId())
+                                                                    .setV1(Optional.ofNullable(role.getRealmId()).orElse(UNDEFINED))
                                                                     .setV2(permission.getName())
                                                                     .setV3(READ.name())
                                                     );
@@ -85,14 +88,14 @@ public class RBACAdapter implements Adapter {
                                                     return new Rule()
                                                             .setPtype(P_TYPE)
                                                             .setV0(ROLE_PREFIX.concat(role.getName()))
-                                                            .setV1(role.getRealmId())
+                                                            .setV1(Optional.ofNullable(role.getRealmId()).orElse(UNDEFINED))
                                                             .setV2(api.getType().name() + SPACER + api.getName())
                                                             .setV3(WRITE.name());
                                                 } else {
                                                     return new Rule()
                                                             .setPtype(P_TYPE)
                                                             .setV0(ROLE_PREFIX.concat(role.getName()))
-                                                            .setV1(role.getRealmId())
+                                                            .setV1(Optional.ofNullable(role.getRealmId()).orElse(UNDEFINED))
                                                             .setV2(api.getType().name() + SPACER + api.getName())
                                                             .setV3(READ.name());
                                                 }
@@ -109,7 +112,7 @@ public class RBACAdapter implements Adapter {
                                                     .setPtype(G_TYPE)
                                                     .setV0(USER_PREFIX.concat(user.getLogin()))
                                                     .setV1(ROLE_PREFIX.concat(role.getName()))
-                                                    .setV2(user.getRealmId())
+                                                    .setV2(Optional.ofNullable(user.getRealmId()).orElse(UNDEFINED))
                                     )
                     );
 
@@ -122,7 +125,7 @@ public class RBACAdapter implements Adapter {
                                                     .setPtype(G_TYPE)
                                                     .setV0(ROLE_PREFIX.concat(role.getName()))
                                                     .setV1(ROLE_PREFIX.concat(composite.getName()))
-                                                    .setV2(role.getRealmId())
+                                                    .setV2(Optional.ofNullable(role.getRealmId()).orElse(UNDEFINED))
                                     )
                     );
 
