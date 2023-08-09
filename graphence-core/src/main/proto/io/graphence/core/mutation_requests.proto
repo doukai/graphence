@@ -13,6 +13,12 @@ import "io/graphoenix/introspection/input_objects.proto";
 import "io/graphoenix/core/enums.proto";
 import "google/protobuf/timestamp.proto";
 
+message MutationLoginRequest {
+    optional string selection_set = 1;
+    optional string arguments = 2;
+    optional string login = 3;
+    optional string password = 4;
+}
 message MutationIsDeprecatedRequest {
     optional string selection_set = 1;
     optional string arguments = 2;

@@ -13,6 +13,7 @@ import "io/graphence/core/mutation_requests.proto";
 import "io/graphence/core/mutation_responses.proto";
 
 service MutationTypeService {
+    rpc Login (MutationLoginRequest) returns (MutationLoginResponse);
     rpc IsDeprecated (MutationIsDeprecatedRequest) returns (MutationIsDeprecatedResponse);
     rpc Version (MutationVersionRequest) returns (MutationVersionResponse);
     rpc RealmId (MutationRealmIdRequest) returns (MutationRealmIdResponse);

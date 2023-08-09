@@ -18,12 +18,6 @@ message QueryCurrentRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
 }
-message QueryLoginRequest {
-    optional string selection_set = 1;
-    optional string arguments = 2;
-    optional string login = 3;
-    optional string password = 4;
-}
 message QueryIsDeprecatedRequest {
     optional string selection_set = 1;
     optional string arguments = 2;

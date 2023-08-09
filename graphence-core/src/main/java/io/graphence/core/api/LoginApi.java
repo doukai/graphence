@@ -9,7 +9,7 @@ import jakarta.annotation.security.PermitAll;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import org.eclipse.microprofile.graphql.GraphQLApi;
-import org.eclipse.microprofile.graphql.Query;
+import org.eclipse.microprofile.graphql.Mutation;
 import org.tinylog.Logger;
 import reactor.core.publisher.Mono;
 
@@ -30,7 +30,7 @@ public class LoginApi {
         this.jwtUtil = jwtUtil;
     }
 
-    @Query
+    @Mutation
     @PermitAll
     public Mono<String> login(String login, String password) {
         try {

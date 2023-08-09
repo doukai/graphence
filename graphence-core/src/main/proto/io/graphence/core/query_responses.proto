@@ -17,9 +17,6 @@ import "google/protobuf/timestamp.proto";
 message QueryCurrentResponse {
     optional CurrentUser current = 1;
 }
-message QueryLoginResponse {
-    optional string login = 1;
-}
 message QueryIsDeprecatedResponse {
     optional bool is_deprecated = 1;
 }

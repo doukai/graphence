@@ -20,8 +20,6 @@ import org.eclipse.microprofile.graphql.Type;
 public class QueryType implements Meta {
   private CurrentUser current;
 
-  private String login;
-
   private Boolean isDeprecated;
 
   private Integer version;
@@ -128,14 +126,6 @@ public class QueryType implements Meta {
 
   public void setCurrent(CurrentUser current) {
     this.current = current;
-  }
-
-  public String getLogin() {
-    return this.login;
-  }
-
-  public void setLogin(String login) {
-    this.login = login;
   }
 
   @Override

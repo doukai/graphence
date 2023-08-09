@@ -13,6 +13,9 @@ import "io/graphoenix/introspection/input_objects.proto";
 import "io/graphoenix/core/enums.proto";
 import "google/protobuf/timestamp.proto";
 
+message MutationLoginResponse {
+    optional string login = 1;
+}
 message MutationIsDeprecatedResponse {
     optional bool is_deprecated = 1;
 }

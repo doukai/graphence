@@ -14,7 +14,6 @@ import "io/graphence/core/query_responses.proto";
 
 service QueryTypeService {
     rpc Current (QueryCurrentRequest) returns (QueryCurrentResponse);
-    rpc Login (QueryLoginRequest) returns (QueryLoginResponse);
     rpc IsDeprecated (QueryIsDeprecatedRequest) returns (QueryIsDeprecatedResponse);
     rpc Version (QueryVersionRequest) returns (QueryVersionResponse);
     rpc RealmId (QueryRealmIdRequest) returns (QueryRealmIdResponse);

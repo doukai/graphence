@@ -17,6 +17,8 @@ import org.eclipse.microprofile.graphql.Type;
 @Generated("io.graphoenix.java.generator.builder.TypeSpecBuilderProxy")
 @Ignore
 public class MutationType implements Meta {
+  private String login;
+
   private Boolean isDeprecated;
 
   private Integer version;
@@ -88,6 +90,14 @@ public class MutationType implements Meta {
   private GroupRole groupRole;
 
   private Collection<GroupRole> groupRoleList;
+
+  public String getLogin() {
+    return this.login;
+  }
+
+  public void setLogin(String login) {
+    this.login = login;
+  }
 
   @Override
   public Boolean getIsDeprecated() {
