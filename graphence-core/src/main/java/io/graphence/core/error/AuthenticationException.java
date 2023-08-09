@@ -1,8 +1,10 @@
 package io.graphence.core.error;
 
-public class AuthenticationException extends RuntimeException {
+import io.graphoenix.core.error.GraphQLErrors;
+
+public class AuthenticationException extends GraphQLErrors {
 
     public AuthenticationException(AuthenticationErrorType authenticationErrorType) {
-        super(authenticationErrorType.toString());
+        super(authenticationErrorType.getCode(), authenticationErrorType.getDescription());
     }
 }
