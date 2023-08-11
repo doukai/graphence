@@ -10,6 +10,7 @@ import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import org.eclipse.microprofile.graphql.GraphQLApi;
 import org.eclipse.microprofile.graphql.Mutation;
+import org.eclipse.microprofile.graphql.NonNull;
 import org.tinylog.Logger;
 import reactor.core.publisher.Mono;
 
@@ -32,7 +33,7 @@ public class LoginApi {
 
     @Mutation
     @PermitAll
-    public Mono<String> login(String login, String password) {
+    public Mono<String> login(@NonNull String login, @NonNull String password) {
         try {
             return loginDao.getUserByLogin(login)
                     .flatMap(user -> {
