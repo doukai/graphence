@@ -11,6 +11,7 @@ import java.lang.String;
 import java.time.LocalDateTime;
 import org.eclipse.microprofile.graphql.DefaultValue;
 import org.eclipse.microprofile.graphql.Input;
+import org.eclipse.microprofile.graphql.NonNull;
 
 @Input
 @CompiledJson
@@ -19,6 +20,7 @@ import org.eclipse.microprofile.graphql.Input;
 public class PermissionInput {
   private String id;
 
+  @NonNull
   private String name;
 
   private String description;

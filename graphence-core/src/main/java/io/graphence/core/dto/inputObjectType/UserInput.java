@@ -10,6 +10,7 @@ import java.time.LocalDateTime;
 import java.util.Collection;
 import org.eclipse.microprofile.graphql.DefaultValue;
 import org.eclipse.microprofile.graphql.Input;
+import org.eclipse.microprofile.graphql.NonNull;
 
 @Input
 @CompiledJson
@@ -18,10 +19,12 @@ import org.eclipse.microprofile.graphql.Input;
 public class UserInput {
   private String id;
 
+  @NonNull
   private String name;
 
   private String lastName;
 
+  @NonNull
   private String login;
 
   private String password;

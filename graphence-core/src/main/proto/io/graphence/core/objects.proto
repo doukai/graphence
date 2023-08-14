@@ -317,11 +317,11 @@ message Menu {
     optional int32 realm_id_min = 50;
 }
 message CurrentUser {
-    optional string last_name = 1;
+    repeated string roles = 1;
     repeated string groups = 2;
-    optional string name = 3;
-    repeated string roles = 4;
-    optional string realm_id = 5;
+    optional string last_name = 3;
+    optional string realm_id = 4;
+    optional string name = 5;
     optional string login = 6;
 }
 message UserPhones {

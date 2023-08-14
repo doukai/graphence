@@ -10,6 +10,7 @@ import java.lang.String;
 import java.time.LocalDateTime;
 import org.eclipse.microprofile.graphql.DefaultValue;
 import org.eclipse.microprofile.graphql.Input;
+import org.eclipse.microprofile.graphql.NonNull;
 
 @Input
 @CompiledJson
@@ -18,8 +19,10 @@ import org.eclipse.microprofile.graphql.Input;
 public class MenuInput {
   private String id;
 
+  @NonNull
   private String name;
 
+  @NonNull
   private MenuType type;
 
   private String path;
