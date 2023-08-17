@@ -1,8 +1,8 @@
 package io.graphence.core.dto.annotation;
 
+import io.graphoenix.core.dto.annotation.Invoke;
 import io.graphoenix.spi.annotation.Ignore;
 import jakarta.annotation.Generated;
-import java.lang.String;
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -13,7 +13,7 @@ import java.lang.annotation.Target;
 @Ignore
 @Documented
 @Retention(RetentionPolicy.SOURCE)
-@Target({ElementType.TYPE,ElementType.FIELD})
-public @interface RolesAllowed {
-  String[] roles();
+@Target({ElementType.TYPE,ElementType.FIELD,ElementType.METHOD})
+public @interface Invokes {
+  Invoke[] list();
 }
