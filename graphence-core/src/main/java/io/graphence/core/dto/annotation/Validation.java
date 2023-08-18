@@ -2,6 +2,7 @@ package io.graphence.core.dto.annotation;
 
 import io.graphoenix.core.dto.annotation.Property;
 import io.graphoenix.core.dto.annotation.ValidationInput;
+import io.graphoenix.spi.annotation.Directive;
 import io.graphoenix.spi.annotation.Ignore;
 import jakarta.annotation.Generated;
 import java.lang.String;
@@ -16,7 +17,8 @@ import org.eclipse.microprofile.graphql.Name;
 @Ignore
 @Documented
 @Retention(RetentionPolicy.SOURCE)
-@Target({ElementType.TYPE,ElementType.FIELD})
+@Directive("validation")
+@Target({ElementType.FIELD,ElementType.TYPE})
 public @interface Validation {
   int minLength();
 

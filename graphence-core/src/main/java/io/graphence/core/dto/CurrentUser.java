@@ -84,7 +84,7 @@ public class CurrentUser {
     public static CurrentUser of(User user) {
         return new CurrentUser()
                 .setLogin(user.getLogin())
-                .setRealmId(user.getRealmId())
+                .setRealmId(String.valueOf(user.getRealmId()))
                 .setName(user.getName())
                 .setLastName(user.getLastName())
                 .setRoles(Stream.ofNullable(user.getRoles()).flatMap(Collection::stream).map(Role::getName).collect(Collectors.toList()))

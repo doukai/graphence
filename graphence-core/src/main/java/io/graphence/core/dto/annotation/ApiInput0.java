@@ -22,7 +22,7 @@ public @interface ApiInput0 {
 
   int version() default 0;
 
-  String realmId() default "";
+  int realmId() default 0;
 
   String createUserId() default "";
 

@@ -53,13 +53,13 @@ public class RBACAdapter implements Adapter {
                                                             new Rule()
                                                                     .setPtype(P_TYPE)
                                                                     .setV0(ROLE_PREFIX.concat(role.getName()))
-                                                                    .setV1(Optional.ofNullable(role.getRealmId()).orElse(UNDEFINED))
+                                                                    .setV1(Optional.ofNullable(role.getRealmId()).map(String::valueOf).orElse(UNDEFINED))
                                                                     .setV2(permission.getName())
                                                                     .setV3(WRITE.name()),
                                                             new Rule()
                                                                     .setPtype(P_TYPE)
                                                                     .setV0(ROLE_PREFIX.concat(role.getName()))
-                                                                    .setV1(Optional.ofNullable(role.getRealmId()).orElse(UNDEFINED))
+                                                                    .setV1(Optional.ofNullable(role.getRealmId()).map(String::valueOf).orElse(UNDEFINED))
                                                                     .setV2(permission.getName())
                                                                     .setV3(READ.name())
                                                     );
@@ -68,7 +68,7 @@ public class RBACAdapter implements Adapter {
                                                             new Rule()
                                                                     .setPtype(P_TYPE)
                                                                     .setV0(ROLE_PREFIX.concat(role.getName()))
-                                                                    .setV1(Optional.ofNullable(role.getRealmId()).orElse(UNDEFINED))
+                                                                    .setV1(Optional.ofNullable(role.getRealmId()).map(String::valueOf).orElse(UNDEFINED))
                                                                     .setV2(permission.getName())
                                                                     .setV3(READ.name())
                                                     );
@@ -88,14 +88,14 @@ public class RBACAdapter implements Adapter {
                                                     return new Rule()
                                                             .setPtype(P_TYPE)
                                                             .setV0(ROLE_PREFIX.concat(role.getName()))
-                                                            .setV1(Optional.ofNullable(role.getRealmId()).orElse(UNDEFINED))
+                                                            .setV1(Optional.ofNullable(role.getRealmId()).map(String::valueOf).orElse(UNDEFINED))
                                                             .setV2(api.getType().name() + SPACER + api.getName())
                                                             .setV3(WRITE.name());
                                                 } else {
                                                     return new Rule()
                                                             .setPtype(P_TYPE)
                                                             .setV0(ROLE_PREFIX.concat(role.getName()))
-                                                            .setV1(Optional.ofNullable(role.getRealmId()).orElse(UNDEFINED))
+                                                            .setV1(Optional.ofNullable(role.getRealmId()).map(String::valueOf).orElse(UNDEFINED))
                                                             .setV2(api.getType().name() + SPACER + api.getName())
                                                             .setV3(READ.name());
                                                 }
@@ -112,7 +112,7 @@ public class RBACAdapter implements Adapter {
                                                     .setPtype(G_TYPE)
                                                     .setV0(USER_PREFIX.concat(user.getLogin()))
                                                     .setV1(ROLE_PREFIX.concat(role.getName()))
-                                                    .setV2(Optional.ofNullable(user.getRealmId()).orElse(UNDEFINED))
+                                                    .setV2(Optional.ofNullable(user.getRealmId()).map(String::valueOf).orElse(UNDEFINED))
                                     )
                     );
 
@@ -125,7 +125,7 @@ public class RBACAdapter implements Adapter {
                                                     .setPtype(G_TYPE)
                                                     .setV0(ROLE_PREFIX.concat(role.getName()))
                                                     .setV1(ROLE_PREFIX.concat(composite.getName()))
-                                                    .setV2(Optional.ofNullable(role.getRealmId()).orElse(UNDEFINED))
+                                                    .setV2(Optional.ofNullable(role.getRealmId()).map(String::valueOf).orElse(UNDEFINED))
                                     )
                     );
 

@@ -67,7 +67,7 @@ message MutationUserRequest {
     optional RealmInput realm = 13;
     optional bool is_deprecated = 14;
     optional int32 version = 15;
-    optional string realm_id = 16;
+    optional int32 realm_id = 16;
     optional string create_user_id = 17;
     optional google.protobuf.Timestamp create_time = 18;
     optional string update_user_id = 19;
@@ -95,7 +95,7 @@ message MutationUserListRequest {
     optional RealmInput realm = 13;
     optional bool is_deprecated = 14;
     optional int32 version = 15;
-    optional string realm_id = 16;
+    optional int32 realm_id = 16;
     optional string create_user_id = 17;
     optional google.protobuf.Timestamp create_time = 18;
     optional string update_user_id = 19;
@@ -122,7 +122,7 @@ message MutationRoleRequest {
     optional RealmInput realm = 11;
     optional bool is_deprecated = 12;
     optional int32 version = 13;
-    optional string realm_id = 14;
+    optional int32 realm_id = 14;
     optional string create_user_id = 15;
     optional google.protobuf.Timestamp create_time = 16;
     optional string update_user_id = 17;
@@ -149,7 +149,7 @@ message MutationRoleListRequest {
     optional RealmInput realm = 11;
     optional bool is_deprecated = 12;
     optional int32 version = 13;
-    optional string realm_id = 14;
+    optional int32 realm_id = 14;
     optional string create_user_id = 15;
     optional google.protobuf.Timestamp create_time = 16;
     optional string update_user_id = 17;
@@ -175,7 +175,7 @@ message MutationGroupRequest {
     optional RealmInput realm = 9;
     optional bool is_deprecated = 10;
     optional int32 version = 11;
-    optional string realm_id = 12;
+    optional int32 realm_id = 12;
     optional string create_user_id = 13;
     optional google.protobuf.Timestamp create_time = 14;
     optional string update_user_id = 15;
@@ -199,7 +199,7 @@ message MutationGroupListRequest {
     optional RealmInput realm = 9;
     optional bool is_deprecated = 10;
     optional int32 version = 11;
-    optional string realm_id = 12;
+    optional int32 realm_id = 12;
     optional string create_user_id = 13;
     optional google.protobuf.Timestamp create_time = 14;
     optional string update_user_id = 15;
@@ -219,7 +219,7 @@ message MutationRealmRequest {
     optional string name = 4;
     optional bool is_deprecated = 5;
     optional int32 version = 6;
-    optional string realm_id = 7;
+    optional int32 realm_id = 7;
     optional string create_user_id = 8;
     optional google.protobuf.Timestamp create_time = 9;
     optional string update_user_id = 10;
@@ -235,7 +235,7 @@ message MutationRealmListRequest {
     optional string name = 4;
     optional bool is_deprecated = 5;
     optional int32 version = 6;
-    optional string realm_id = 7;
+    optional int32 realm_id = 7;
     optional string create_user_id = 8;
     optional google.protobuf.Timestamp create_time = 9;
     optional string update_user_id = 10;
@@ -257,7 +257,7 @@ message MutationPermissionRequest {
     optional RealmInput realm = 9;
     optional bool is_deprecated = 10;
     optional int32 version = 11;
-    optional string realm_id = 12;
+    optional int32 realm_id = 12;
     optional string create_user_id = 13;
     optional google.protobuf.Timestamp create_time = 14;
     optional string update_user_id = 15;
@@ -279,7 +279,7 @@ message MutationPermissionListRequest {
     optional RealmInput realm = 9;
     optional bool is_deprecated = 10;
     optional int32 version = 11;
-    optional string realm_id = 12;
+    optional int32 realm_id = 12;
     optional string create_user_id = 13;
     optional google.protobuf.Timestamp create_time = 14;
     optional string update_user_id = 15;
@@ -301,7 +301,7 @@ message MutationApiRequest {
     optional RealmInput realm = 8;
     optional bool is_deprecated = 9;
     optional int32 version = 10;
-    optional string realm_id = 11;
+    optional int32 realm_id = 11;
     optional string create_user_id = 12;
     optional google.protobuf.Timestamp create_time = 13;
     optional string update_user_id = 14;
@@ -322,7 +322,7 @@ message MutationApiListRequest {
     optional RealmInput realm = 8;
     optional bool is_deprecated = 9;
     optional int32 version = 10;
-    optional string realm_id = 11;
+    optional int32 realm_id = 11;
     optional string create_user_id = 12;
     optional google.protobuf.Timestamp create_time = 13;
     optional string update_user_id = 14;
@@ -347,7 +347,7 @@ message MutationMenuRequest {
     optional RealmInput realm = 11;
     optional bool is_deprecated = 12;
     optional int32 version = 13;
-    optional string realm_id = 14;
+    optional int32 realm_id = 14;
     optional string create_user_id = 15;
     optional google.protobuf.Timestamp create_time = 16;
     optional string update_user_id = 17;
@@ -372,7 +372,7 @@ message MutationMenuListRequest {
     optional RealmInput realm = 11;
     optional bool is_deprecated = 12;
     optional int32 version = 13;
-    optional string realm_id = 14;
+    optional int32 realm_id = 14;
     optional string create_user_id = 15;
     optional google.protobuf.Timestamp create_time = 16;
     optional string update_user_id = 17;
@@ -393,7 +393,7 @@ message MutationUserPhonesRequest {
     optional string phone = 6;
     optional bool is_deprecated = 7;
     optional int32 version = 8;
-    optional string realm_id = 9;
+    optional int32 realm_id = 9;
     optional string create_user_id = 10;
     optional google.protobuf.Timestamp create_time = 11;
     optional string update_user_id = 12;
@@ -411,7 +411,7 @@ message MutationUserPhonesListRequest {
     optional string phone = 6;
     optional bool is_deprecated = 7;
     optional int32 version = 8;
-    optional string realm_id = 9;
+    optional int32 realm_id = 9;
     optional string create_user_id = 10;
     optional google.protobuf.Timestamp create_time = 11;
     optional string update_user_id = 12;
@@ -431,7 +431,7 @@ message MutationUserGroupRequest {
     optional GroupInput to = 7;
     optional bool is_deprecated = 8;
     optional int32 version = 9;
-    optional string realm_id = 10;
+    optional int32 realm_id = 10;
     optional string create_user_id = 11;
     optional google.protobuf.Timestamp create_time = 12;
     optional string update_user_id = 13;
@@ -450,7 +450,7 @@ message MutationUserGroupListRequest {
     optional GroupInput to = 7;
     optional bool is_deprecated = 8;
     optional int32 version = 9;
-    optional string realm_id = 10;
+    optional int32 realm_id = 10;
     optional string create_user_id = 11;
     optional google.protobuf.Timestamp create_time = 12;
     optional string update_user_id = 13;
@@ -470,7 +470,7 @@ message MutationUserRoleRequest {
     optional RoleInput to = 7;
     optional bool is_deprecated = 8;
     optional int32 version = 9;
-    optional string realm_id = 10;
+    optional int32 realm_id = 10;
     optional string create_user_id = 11;
     optional google.protobuf.Timestamp create_time = 12;
     optional string update_user_id = 13;
@@ -489,7 +489,7 @@ message MutationUserRoleListRequest {
     optional RoleInput to = 7;
     optional bool is_deprecated = 8;
     optional int32 version = 9;
-    optional string realm_id = 10;
+    optional int32 realm_id = 10;
     optional string create_user_id = 11;
     optional google.protobuf.Timestamp create_time = 12;
     optional string update_user_id = 13;
@@ -509,7 +509,7 @@ message MutationRoleCompositeRequest {
     optional RoleInput to = 7;
     optional bool is_deprecated = 8;
     optional int32 version = 9;
-    optional string realm_id = 10;
+    optional int32 realm_id = 10;
     optional string create_user_id = 11;
     optional google.protobuf.Timestamp create_time = 12;
     optional string update_user_id = 13;
@@ -528,7 +528,7 @@ message MutationRoleCompositeListRequest {
     optional RoleInput to = 7;
     optional bool is_deprecated = 8;
     optional int32 version = 9;
-    optional string realm_id = 10;
+    optional int32 realm_id = 10;
     optional string create_user_id = 11;
     optional google.protobuf.Timestamp create_time = 12;
     optional string update_user_id = 13;
@@ -548,7 +548,7 @@ message MutationRoleApiRequest {
     optional ApiInput to = 7;
     optional bool is_deprecated = 8;
     optional int32 version = 9;
-    optional string realm_id = 10;
+    optional int32 realm_id = 10;
     optional string create_user_id = 11;
     optional google.protobuf.Timestamp create_time = 12;
     optional string update_user_id = 13;
@@ -567,7 +567,7 @@ message MutationRoleApiListRequest {
     optional ApiInput to = 7;
     optional bool is_deprecated = 8;
     optional int32 version = 9;
-    optional string realm_id = 10;
+    optional int32 realm_id = 10;
     optional string create_user_id = 11;
     optional google.protobuf.Timestamp create_time = 12;
     optional string update_user_id = 13;
@@ -587,7 +587,7 @@ message MutationRoleMenuRequest {
     optional MenuInput to = 7;
     optional bool is_deprecated = 8;
     optional int32 version = 9;
-    optional string realm_id = 10;
+    optional int32 realm_id = 10;
     optional string create_user_id = 11;
     optional google.protobuf.Timestamp create_time = 12;
     optional string update_user_id = 13;
@@ -606,7 +606,7 @@ message MutationRoleMenuListRequest {
     optional MenuInput to = 7;
     optional bool is_deprecated = 8;
     optional int32 version = 9;
-    optional string realm_id = 10;
+    optional int32 realm_id = 10;
     optional string create_user_id = 11;
     optional google.protobuf.Timestamp create_time = 12;
     optional string update_user_id = 13;
@@ -626,7 +626,7 @@ message MutationGroupRoleRequest {
     optional RoleInput to = 7;
     optional bool is_deprecated = 8;
     optional int32 version = 9;
-    optional string realm_id = 10;
+    optional int32 realm_id = 10;
     optional string create_user_id = 11;
     optional google.protobuf.Timestamp create_time = 12;
     optional string update_user_id = 13;
@@ -645,7 +645,7 @@ message MutationGroupRoleListRequest {
     optional RoleInput to = 7;
     optional bool is_deprecated = 8;
     optional int32 version = 9;
-    optional string realm_id = 10;
+    optional int32 realm_id = 10;
     optional string create_user_id = 11;
     optional google.protobuf.Timestamp create_time = 12;
     optional string update_user_id = 13;

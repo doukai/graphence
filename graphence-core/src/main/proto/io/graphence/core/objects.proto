@@ -23,7 +23,7 @@ message User {
     optional Realm realm = 11;
     optional bool is_deprecated = 12;
     optional int32 version = 13;
-    optional string realm_id = 14;
+    optional int32 realm_id = 14;
     optional string create_user_id = 15;
     optional google.protobuf.Timestamp create_time = 16;
     optional string update_user_id = 17;
@@ -79,7 +79,7 @@ message Role {
     optional Realm realm = 9;
     optional bool is_deprecated = 10;
     optional int32 version = 11;
-    optional string realm_id = 12;
+    optional int32 realm_id = 12;
     optional string create_user_id = 13;
     optional google.protobuf.Timestamp create_time = 14;
     optional string update_user_id = 15;
@@ -133,7 +133,7 @@ message Group {
     optional Realm realm = 7;
     optional bool is_deprecated = 8;
     optional int32 version = 9;
-    optional string realm_id = 10;
+    optional int32 realm_id = 10;
     optional string create_user_id = 11;
     optional google.protobuf.Timestamp create_time = 12;
     optional string update_user_id = 13;
@@ -175,7 +175,7 @@ message Realm {
     string name = 2;
     optional bool is_deprecated = 3;
     optional int32 version = 4;
-    optional string realm_id = 5;
+    optional int32 realm_id = 5;
     optional string create_user_id = 6;
     optional google.protobuf.Timestamp create_time = 7;
     optional string update_user_id = 8;
@@ -199,7 +199,7 @@ message Permission {
     optional Realm realm = 7;
     optional bool is_deprecated = 8;
     optional int32 version = 9;
-    optional string realm_id = 10;
+    optional int32 realm_id = 10;
     optional string create_user_id = 11;
     optional google.protobuf.Timestamp create_time = 12;
     optional string update_user_id = 13;
@@ -236,7 +236,7 @@ message Api {
     optional Realm realm = 6;
     optional bool is_deprecated = 7;
     optional int32 version = 8;
-    optional string realm_id = 9;
+    optional int32 realm_id = 9;
     optional string create_user_id = 10;
     optional google.protobuf.Timestamp create_time = 11;
     optional string update_user_id = 12;
@@ -276,7 +276,7 @@ message Menu {
     optional Realm realm = 9;
     optional bool is_deprecated = 10;
     optional int32 version = 11;
-    optional string realm_id = 12;
+    optional int32 realm_id = 12;
     optional string create_user_id = 13;
     optional google.protobuf.Timestamp create_time = 14;
     optional string update_user_id = 15;
@@ -320,8 +320,8 @@ message CurrentUser {
     optional string name = 1;
     repeated string roles = 2;
     optional string last_name = 3;
-    optional string login = 4;
-    optional string realm_id = 5;
+    optional string realm_id = 4;
+    optional string login = 5;
     repeated string groups = 6;
 }
 message UserPhones {
@@ -331,7 +331,7 @@ message UserPhones {
     optional string phone = 4;
     optional bool is_deprecated = 5;
     optional int32 version = 6;
-    optional string realm_id = 7;
+    optional int32 realm_id = 7;
     optional string create_user_id = 8;
     optional google.protobuf.Timestamp create_time = 9;
     optional string update_user_id = 10;
@@ -358,7 +358,7 @@ message UserGroup {
     optional Group to = 5;
     optional bool is_deprecated = 6;
     optional int32 version = 7;
-    optional string realm_id = 8;
+    optional int32 realm_id = 8;
     optional string create_user_id = 9;
     optional google.protobuf.Timestamp create_time = 10;
     optional string update_user_id = 11;
@@ -387,7 +387,7 @@ message UserRole {
     optional Role to = 5;
     optional bool is_deprecated = 6;
     optional int32 version = 7;
-    optional string realm_id = 8;
+    optional int32 realm_id = 8;
     optional string create_user_id = 9;
     optional google.protobuf.Timestamp create_time = 10;
     optional string update_user_id = 11;
@@ -416,7 +416,7 @@ message RoleComposite {
     optional Role to = 5;
     optional bool is_deprecated = 6;
     optional int32 version = 7;
-    optional string realm_id = 8;
+    optional int32 realm_id = 8;
     optional string create_user_id = 9;
     optional google.protobuf.Timestamp create_time = 10;
     optional string update_user_id = 11;
@@ -445,7 +445,7 @@ message RoleApi {
     optional Api to = 5;
     optional bool is_deprecated = 6;
     optional int32 version = 7;
-    optional string realm_id = 8;
+    optional int32 realm_id = 8;
     optional string create_user_id = 9;
     optional google.protobuf.Timestamp create_time = 10;
     optional string update_user_id = 11;
@@ -474,7 +474,7 @@ message RoleMenu {
     optional Menu to = 5;
     optional bool is_deprecated = 6;
     optional int32 version = 7;
-    optional string realm_id = 8;
+    optional int32 realm_id = 8;
     optional string create_user_id = 9;
     optional google.protobuf.Timestamp create_time = 10;
     optional string update_user_id = 11;
@@ -503,7 +503,7 @@ message GroupRole {
     optional Role to = 5;
     optional bool is_deprecated = 6;
     optional int32 version = 7;
-    optional string realm_id = 8;
+    optional int32 realm_id = 8;
     optional string create_user_id = 9;
     optional google.protobuf.Timestamp create_time = 10;
     optional string update_user_id = 11;

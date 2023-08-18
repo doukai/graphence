@@ -24,7 +24,7 @@ message UserExpression {
     optional RealmExpression realm = 11;
     optional bool include_deprecated = 12;
     optional io.graphoenix.core.grpc.IntExpression version = 13;
-    optional io.graphoenix.core.grpc.StringExpression realm_id = 14;
+    optional io.graphoenix.core.grpc.IntExpression realm_id = 14;
     optional io.graphoenix.core.grpc.StringExpression create_user_id = 15;
     optional io.graphoenix.core.grpc.StringExpression create_time = 16;
     optional io.graphoenix.core.grpc.StringExpression update_user_id = 17;
@@ -51,7 +51,7 @@ message UserInput {
     optional RealmInput realm = 11;
     optional bool is_deprecated = 12;
     optional int32 version = 13;
-    optional string realm_id = 14;
+    optional int32 realm_id = 14;
     optional string create_user_id = 15;
     optional google.protobuf.Timestamp create_time = 16;
     optional string update_user_id = 17;
@@ -92,7 +92,7 @@ message RoleExpression {
     optional RealmExpression realm = 9;
     optional bool include_deprecated = 10;
     optional io.graphoenix.core.grpc.IntExpression version = 11;
-    optional io.graphoenix.core.grpc.StringExpression realm_id = 12;
+    optional io.graphoenix.core.grpc.IntExpression realm_id = 12;
     optional io.graphoenix.core.grpc.StringExpression create_user_id = 13;
     optional io.graphoenix.core.grpc.StringExpression create_time = 14;
     optional io.graphoenix.core.grpc.StringExpression update_user_id = 15;
@@ -118,7 +118,7 @@ message RoleInput {
     optional RealmInput realm = 9;
     optional bool is_deprecated = 10;
     optional int32 version = 11;
-    optional string realm_id = 12;
+    optional int32 realm_id = 12;
     optional string create_user_id = 13;
     optional google.protobuf.Timestamp create_time = 14;
     optional string update_user_id = 15;
@@ -154,7 +154,7 @@ message GroupExpression {
     optional RealmExpression realm = 7;
     optional bool include_deprecated = 8;
     optional io.graphoenix.core.grpc.IntExpression version = 9;
-    optional io.graphoenix.core.grpc.StringExpression realm_id = 10;
+    optional io.graphoenix.core.grpc.IntExpression realm_id = 10;
     optional io.graphoenix.core.grpc.StringExpression create_user_id = 11;
     optional io.graphoenix.core.grpc.StringExpression create_time = 12;
     optional io.graphoenix.core.grpc.StringExpression update_user_id = 13;
@@ -177,7 +177,7 @@ message GroupInput {
     optional RealmInput realm = 7;
     optional bool is_deprecated = 8;
     optional int32 version = 9;
-    optional string realm_id = 10;
+    optional int32 realm_id = 10;
     optional string create_user_id = 11;
     optional google.protobuf.Timestamp create_time = 12;
     optional string update_user_id = 13;
@@ -207,7 +207,7 @@ message RealmExpression {
     optional io.graphoenix.core.grpc.StringExpression name = 2;
     optional bool include_deprecated = 3;
     optional io.graphoenix.core.grpc.IntExpression version = 4;
-    optional io.graphoenix.core.grpc.StringExpression realm_id = 5;
+    optional io.graphoenix.core.grpc.IntExpression realm_id = 5;
     optional io.graphoenix.core.grpc.StringExpression create_user_id = 6;
     optional io.graphoenix.core.grpc.StringExpression create_time = 7;
     optional io.graphoenix.core.grpc.StringExpression update_user_id = 8;
@@ -222,7 +222,7 @@ message RealmInput {
     string name = 2;
     optional bool is_deprecated = 3;
     optional int32 version = 4;
-    optional string realm_id = 5;
+    optional int32 realm_id = 5;
     optional string create_user_id = 6;
     optional google.protobuf.Timestamp create_time = 7;
     optional string update_user_id = 8;
@@ -253,7 +253,7 @@ message PermissionExpression {
     optional RealmExpression realm = 7;
     optional bool include_deprecated = 8;
     optional io.graphoenix.core.grpc.IntExpression version = 9;
-    optional io.graphoenix.core.grpc.StringExpression realm_id = 10;
+    optional io.graphoenix.core.grpc.IntExpression realm_id = 10;
     optional io.graphoenix.core.grpc.StringExpression create_user_id = 11;
     optional io.graphoenix.core.grpc.StringExpression create_time = 12;
     optional io.graphoenix.core.grpc.StringExpression update_user_id = 13;
@@ -274,7 +274,7 @@ message PermissionInput {
     optional RealmInput realm = 7;
     optional bool is_deprecated = 8;
     optional int32 version = 9;
-    optional string realm_id = 10;
+    optional int32 realm_id = 10;
     optional string create_user_id = 11;
     optional google.protobuf.Timestamp create_time = 12;
     optional string update_user_id = 13;
@@ -309,7 +309,7 @@ message ApiExpression {
     optional RealmExpression realm = 6;
     optional bool include_deprecated = 7;
     optional io.graphoenix.core.grpc.IntExpression version = 8;
-    optional io.graphoenix.core.grpc.StringExpression realm_id = 9;
+    optional io.graphoenix.core.grpc.IntExpression realm_id = 9;
     optional io.graphoenix.core.grpc.StringExpression create_user_id = 10;
     optional io.graphoenix.core.grpc.StringExpression create_time = 11;
     optional io.graphoenix.core.grpc.StringExpression update_user_id = 12;
@@ -329,7 +329,7 @@ message ApiInput {
     optional RealmInput realm = 6;
     optional bool is_deprecated = 7;
     optional int32 version = 8;
-    optional string realm_id = 9;
+    optional int32 realm_id = 9;
     optional string create_user_id = 10;
     optional google.protobuf.Timestamp create_time = 11;
     optional string update_user_id = 12;
@@ -366,7 +366,7 @@ message MenuExpression {
     optional RealmExpression realm = 9;
     optional bool include_deprecated = 10;
     optional io.graphoenix.core.grpc.IntExpression version = 11;
-    optional io.graphoenix.core.grpc.StringExpression realm_id = 12;
+    optional io.graphoenix.core.grpc.IntExpression realm_id = 12;
     optional io.graphoenix.core.grpc.StringExpression create_user_id = 13;
     optional io.graphoenix.core.grpc.StringExpression create_time = 14;
     optional io.graphoenix.core.grpc.StringExpression update_user_id = 15;
@@ -390,7 +390,7 @@ message MenuInput {
     optional RealmInput realm = 9;
     optional bool is_deprecated = 10;
     optional int32 version = 11;
-    optional string realm_id = 12;
+    optional int32 realm_id = 12;
     optional string create_user_id = 13;
     optional google.protobuf.Timestamp create_time = 14;
     optional string update_user_id = 15;
@@ -426,7 +426,7 @@ message UserPhonesExpression {
     optional io.graphoenix.core.grpc.StringExpression phone = 4;
     optional bool include_deprecated = 5;
     optional io.graphoenix.core.grpc.IntExpression version = 6;
-    optional io.graphoenix.core.grpc.StringExpression realm_id = 7;
+    optional io.graphoenix.core.grpc.IntExpression realm_id = 7;
     optional io.graphoenix.core.grpc.StringExpression create_user_id = 8;
     optional io.graphoenix.core.grpc.StringExpression create_time = 9;
     optional io.graphoenix.core.grpc.StringExpression update_user_id = 10;
@@ -443,7 +443,7 @@ message UserPhonesInput {
     optional string phone = 4;
     optional bool is_deprecated = 5;
     optional int32 version = 6;
-    optional string realm_id = 7;
+    optional int32 realm_id = 7;
     optional string create_user_id = 8;
     optional google.protobuf.Timestamp create_time = 9;
     optional string update_user_id = 10;
@@ -473,7 +473,7 @@ message UserGroupExpression {
     optional GroupExpression to = 5;
     optional bool include_deprecated = 6;
     optional io.graphoenix.core.grpc.IntExpression version = 7;
-    optional io.graphoenix.core.grpc.StringExpression realm_id = 8;
+    optional io.graphoenix.core.grpc.IntExpression realm_id = 8;
     optional io.graphoenix.core.grpc.StringExpression create_user_id = 9;
     optional io.graphoenix.core.grpc.StringExpression create_time = 10;
     optional io.graphoenix.core.grpc.StringExpression update_user_id = 11;
@@ -491,7 +491,7 @@ message UserGroupInput {
     optional GroupInput to = 5;
     optional bool is_deprecated = 6;
     optional int32 version = 7;
-    optional string realm_id = 8;
+    optional int32 realm_id = 8;
     optional string create_user_id = 9;
     optional google.protobuf.Timestamp create_time = 10;
     optional string update_user_id = 11;
@@ -521,7 +521,7 @@ message UserRoleExpression {
     optional RoleExpression to = 5;
     optional bool include_deprecated = 6;
     optional io.graphoenix.core.grpc.IntExpression version = 7;
-    optional io.graphoenix.core.grpc.StringExpression realm_id = 8;
+    optional io.graphoenix.core.grpc.IntExpression realm_id = 8;
     optional io.graphoenix.core.grpc.StringExpression create_user_id = 9;
     optional io.graphoenix.core.grpc.StringExpression create_time = 10;
     optional io.graphoenix.core.grpc.StringExpression update_user_id = 11;
@@ -539,7 +539,7 @@ message UserRoleInput {
     optional RoleInput to = 5;
     optional bool is_deprecated = 6;
     optional int32 version = 7;
-    optional string realm_id = 8;
+    optional int32 realm_id = 8;
     optional string create_user_id = 9;
     optional google.protobuf.Timestamp create_time = 10;
     optional string update_user_id = 11;
@@ -569,7 +569,7 @@ message RoleCompositeExpression {
     optional RoleExpression to = 5;
     optional bool include_deprecated = 6;
     optional io.graphoenix.core.grpc.IntExpression version = 7;
-    optional io.graphoenix.core.grpc.StringExpression realm_id = 8;
+    optional io.graphoenix.core.grpc.IntExpression realm_id = 8;
     optional io.graphoenix.core.grpc.StringExpression create_user_id = 9;
     optional io.graphoenix.core.grpc.StringExpression create_time = 10;
     optional io.graphoenix.core.grpc.StringExpression update_user_id = 11;
@@ -587,7 +587,7 @@ message RoleCompositeInput {
     optional RoleInput to = 5;
     optional bool is_deprecated = 6;
     optional int32 version = 7;
-    optional string realm_id = 8;
+    optional int32 realm_id = 8;
     optional string create_user_id = 9;
     optional google.protobuf.Timestamp create_time = 10;
     optional string update_user_id = 11;
@@ -617,7 +617,7 @@ message RoleApiExpression {
     optional ApiExpression to = 5;
     optional bool include_deprecated = 6;
     optional io.graphoenix.core.grpc.IntExpression version = 7;
-    optional io.graphoenix.core.grpc.StringExpression realm_id = 8;
+    optional io.graphoenix.core.grpc.IntExpression realm_id = 8;
     optional io.graphoenix.core.grpc.StringExpression create_user_id = 9;
     optional io.graphoenix.core.grpc.StringExpression create_time = 10;
     optional io.graphoenix.core.grpc.StringExpression update_user_id = 11;
@@ -635,7 +635,7 @@ message RoleApiInput {
     optional ApiInput to = 5;
     optional bool is_deprecated = 6;
     optional int32 version = 7;
-    optional string realm_id = 8;
+    optional int32 realm_id = 8;
     optional string create_user_id = 9;
     optional google.protobuf.Timestamp create_time = 10;
     optional string update_user_id = 11;
@@ -665,7 +665,7 @@ message RoleMenuExpression {
     optional MenuExpression to = 5;
     optional bool include_deprecated = 6;
     optional io.graphoenix.core.grpc.IntExpression version = 7;
-    optional io.graphoenix.core.grpc.StringExpression realm_id = 8;
+    optional io.graphoenix.core.grpc.IntExpression realm_id = 8;
     optional io.graphoenix.core.grpc.StringExpression create_user_id = 9;
     optional io.graphoenix.core.grpc.StringExpression create_time = 10;
     optional io.graphoenix.core.grpc.StringExpression update_user_id = 11;
@@ -683,7 +683,7 @@ message RoleMenuInput {
     optional MenuInput to = 5;
     optional bool is_deprecated = 6;
     optional int32 version = 7;
-    optional string realm_id = 8;
+    optional int32 realm_id = 8;
     optional string create_user_id = 9;
     optional google.protobuf.Timestamp create_time = 10;
     optional string update_user_id = 11;
@@ -713,7 +713,7 @@ message GroupRoleExpression {
     optional RoleExpression to = 5;
     optional bool include_deprecated = 6;
     optional io.graphoenix.core.grpc.IntExpression version = 7;
-    optional io.graphoenix.core.grpc.StringExpression realm_id = 8;
+    optional io.graphoenix.core.grpc.IntExpression realm_id = 8;
     optional io.graphoenix.core.grpc.StringExpression create_user_id = 9;
     optional io.graphoenix.core.grpc.StringExpression create_time = 10;
     optional io.graphoenix.core.grpc.StringExpression update_user_id = 11;
@@ -731,7 +731,7 @@ message GroupRoleInput {
     optional RoleInput to = 5;
     optional bool is_deprecated = 6;
     optional int32 version = 7;
-    optional string realm_id = 8;
+    optional int32 realm_id = 8;
     optional string create_user_id = 9;
     optional google.protobuf.Timestamp create_time = 10;
     optional string update_user_id = 11;
@@ -787,7 +787,7 @@ message UserQueryTypeArguments {
     optional RealmExpression realm = 11;
     optional bool include_deprecated = 12;
     optional io.graphoenix.core.grpc.IntExpression version = 13;
-    optional io.graphoenix.core.grpc.StringExpression realm_id = 14;
+    optional io.graphoenix.core.grpc.IntExpression realm_id = 14;
     optional io.graphoenix.core.grpc.StringExpression create_user_id = 15;
     optional io.graphoenix.core.grpc.StringExpression create_time = 16;
     optional io.graphoenix.core.grpc.StringExpression update_user_id = 17;
@@ -814,7 +814,7 @@ message UserListQueryTypeArguments {
     optional RealmExpression realm = 11;
     optional bool include_deprecated = 12;
     optional io.graphoenix.core.grpc.IntExpression version = 13;
-    optional io.graphoenix.core.grpc.StringExpression realm_id = 14;
+    optional io.graphoenix.core.grpc.IntExpression realm_id = 14;
     optional io.graphoenix.core.grpc.StringExpression create_user_id = 15;
     optional io.graphoenix.core.grpc.StringExpression create_time = 16;
     optional io.graphoenix.core.grpc.StringExpression update_user_id = 17;
@@ -848,7 +848,7 @@ message UserConnectionQueryTypeArguments {
     optional RealmExpression realm = 11;
     optional bool include_deprecated = 12;
     optional io.graphoenix.core.grpc.IntExpression version = 13;
-    optional io.graphoenix.core.grpc.StringExpression realm_id = 14;
+    optional io.graphoenix.core.grpc.IntExpression realm_id = 14;
     optional io.graphoenix.core.grpc.StringExpression create_user_id = 15;
     optional io.graphoenix.core.grpc.StringExpression create_time = 16;
     optional io.graphoenix.core.grpc.StringExpression update_user_id = 17;
@@ -880,7 +880,7 @@ message RoleQueryTypeArguments {
     optional RealmExpression realm = 9;
     optional bool include_deprecated = 10;
     optional io.graphoenix.core.grpc.IntExpression version = 11;
-    optional io.graphoenix.core.grpc.StringExpression realm_id = 12;
+    optional io.graphoenix.core.grpc.IntExpression realm_id = 12;
     optional io.graphoenix.core.grpc.StringExpression create_user_id = 13;
     optional io.graphoenix.core.grpc.StringExpression create_time = 14;
     optional io.graphoenix.core.grpc.StringExpression update_user_id = 15;
@@ -906,7 +906,7 @@ message RoleListQueryTypeArguments {
     optional RealmExpression realm = 9;
     optional bool include_deprecated = 10;
     optional io.graphoenix.core.grpc.IntExpression version = 11;
-    optional io.graphoenix.core.grpc.StringExpression realm_id = 12;
+    optional io.graphoenix.core.grpc.IntExpression realm_id = 12;
     optional io.graphoenix.core.grpc.StringExpression create_user_id = 13;
     optional io.graphoenix.core.grpc.StringExpression create_time = 14;
     optional io.graphoenix.core.grpc.StringExpression update_user_id = 15;
@@ -939,7 +939,7 @@ message RoleConnectionQueryTypeArguments {
     optional RealmExpression realm = 9;
     optional bool include_deprecated = 10;
     optional io.graphoenix.core.grpc.IntExpression version = 11;
-    optional io.graphoenix.core.grpc.StringExpression realm_id = 12;
+    optional io.graphoenix.core.grpc.IntExpression realm_id = 12;
     optional io.graphoenix.core.grpc.StringExpression create_user_id = 13;
     optional io.graphoenix.core.grpc.StringExpression create_time = 14;
     optional io.graphoenix.core.grpc.StringExpression update_user_id = 15;
@@ -970,7 +970,7 @@ message GroupQueryTypeArguments {
     optional RealmExpression realm = 7;
     optional bool include_deprecated = 8;
     optional io.graphoenix.core.grpc.IntExpression version = 9;
-    optional io.graphoenix.core.grpc.StringExpression realm_id = 10;
+    optional io.graphoenix.core.grpc.IntExpression realm_id = 10;
     optional io.graphoenix.core.grpc.StringExpression create_user_id = 11;
     optional io.graphoenix.core.grpc.StringExpression create_time = 12;
     optional io.graphoenix.core.grpc.StringExpression update_user_id = 13;
@@ -993,7 +993,7 @@ message GroupListQueryTypeArguments {
     optional RealmExpression realm = 7;
     optional bool include_deprecated = 8;
     optional io.graphoenix.core.grpc.IntExpression version = 9;
-    optional io.graphoenix.core.grpc.StringExpression realm_id = 10;
+    optional io.graphoenix.core.grpc.IntExpression realm_id = 10;
     optional io.graphoenix.core.grpc.StringExpression create_user_id = 11;
     optional io.graphoenix.core.grpc.StringExpression create_time = 12;
     optional io.graphoenix.core.grpc.StringExpression update_user_id = 13;
@@ -1023,7 +1023,7 @@ message GroupConnectionQueryTypeArguments {
     optional RealmExpression realm = 7;
     optional bool include_deprecated = 8;
     optional io.graphoenix.core.grpc.IntExpression version = 9;
-    optional io.graphoenix.core.grpc.StringExpression realm_id = 10;
+    optional io.graphoenix.core.grpc.IntExpression realm_id = 10;
     optional io.graphoenix.core.grpc.StringExpression create_user_id = 11;
     optional io.graphoenix.core.grpc.StringExpression create_time = 12;
     optional io.graphoenix.core.grpc.StringExpression update_user_id = 13;
@@ -1048,7 +1048,7 @@ message RealmQueryTypeArguments {
     optional io.graphoenix.core.grpc.StringExpression name = 2;
     optional bool include_deprecated = 3;
     optional io.graphoenix.core.grpc.IntExpression version = 4;
-    optional io.graphoenix.core.grpc.StringExpression realm_id = 5;
+    optional io.graphoenix.core.grpc.IntExpression realm_id = 5;
     optional io.graphoenix.core.grpc.StringExpression create_user_id = 6;
     optional io.graphoenix.core.grpc.StringExpression create_time = 7;
     optional io.graphoenix.core.grpc.StringExpression update_user_id = 8;
@@ -1063,7 +1063,7 @@ message RealmListQueryTypeArguments {
     optional io.graphoenix.core.grpc.StringExpression name = 2;
     optional bool include_deprecated = 3;
     optional io.graphoenix.core.grpc.IntExpression version = 4;
-    optional io.graphoenix.core.grpc.StringExpression realm_id = 5;
+    optional io.graphoenix.core.grpc.IntExpression realm_id = 5;
     optional io.graphoenix.core.grpc.StringExpression create_user_id = 6;
     optional io.graphoenix.core.grpc.StringExpression create_time = 7;
     optional io.graphoenix.core.grpc.StringExpression update_user_id = 8;
@@ -1085,7 +1085,7 @@ message RealmConnectionQueryTypeArguments {
     optional io.graphoenix.core.grpc.StringExpression name = 2;
     optional bool include_deprecated = 3;
     optional io.graphoenix.core.grpc.IntExpression version = 4;
-    optional io.graphoenix.core.grpc.StringExpression realm_id = 5;
+    optional io.graphoenix.core.grpc.IntExpression realm_id = 5;
     optional io.graphoenix.core.grpc.StringExpression create_user_id = 6;
     optional io.graphoenix.core.grpc.StringExpression create_time = 7;
     optional io.graphoenix.core.grpc.StringExpression update_user_id = 8;
@@ -1112,7 +1112,7 @@ message PermissionQueryTypeArguments {
     optional RealmExpression realm = 7;
     optional bool include_deprecated = 8;
     optional io.graphoenix.core.grpc.IntExpression version = 9;
-    optional io.graphoenix.core.grpc.StringExpression realm_id = 10;
+    optional io.graphoenix.core.grpc.IntExpression realm_id = 10;
     optional io.graphoenix.core.grpc.StringExpression create_user_id = 11;
     optional io.graphoenix.core.grpc.StringExpression create_time = 12;
     optional io.graphoenix.core.grpc.StringExpression update_user_id = 13;
@@ -1133,7 +1133,7 @@ message PermissionListQueryTypeArguments {
     optional RealmExpression realm = 7;
     optional bool include_deprecated = 8;
     optional io.graphoenix.core.grpc.IntExpression version = 9;
-    optional io.graphoenix.core.grpc.StringExpression realm_id = 10;
+    optional io.graphoenix.core.grpc.IntExpression realm_id = 10;
     optional io.graphoenix.core.grpc.StringExpression create_user_id = 11;
     optional io.graphoenix.core.grpc.StringExpression create_time = 12;
     optional io.graphoenix.core.grpc.StringExpression update_user_id = 13;
@@ -1161,7 +1161,7 @@ message PermissionConnectionQueryTypeArguments {
     optional RealmExpression realm = 7;
     optional bool include_deprecated = 8;
     optional io.graphoenix.core.grpc.IntExpression version = 9;
-    optional io.graphoenix.core.grpc.StringExpression realm_id = 10;
+    optional io.graphoenix.core.grpc.IntExpression realm_id = 10;
     optional io.graphoenix.core.grpc.StringExpression create_user_id = 11;
     optional io.graphoenix.core.grpc.StringExpression create_time = 12;
     optional io.graphoenix.core.grpc.StringExpression update_user_id = 13;
@@ -1188,7 +1188,7 @@ message ApiQueryTypeArguments {
     optional RealmExpression realm = 6;
     optional bool include_deprecated = 7;
     optional io.graphoenix.core.grpc.IntExpression version = 8;
-    optional io.graphoenix.core.grpc.StringExpression realm_id = 9;
+    optional io.graphoenix.core.grpc.IntExpression realm_id = 9;
     optional io.graphoenix.core.grpc.StringExpression create_user_id = 10;
     optional io.graphoenix.core.grpc.StringExpression create_time = 11;
     optional io.graphoenix.core.grpc.StringExpression update_user_id = 12;
@@ -1208,7 +1208,7 @@ message ApiListQueryTypeArguments {
     optional RealmExpression realm = 6;
     optional bool include_deprecated = 7;
     optional io.graphoenix.core.grpc.IntExpression version = 8;
-    optional io.graphoenix.core.grpc.StringExpression realm_id = 9;
+    optional io.graphoenix.core.grpc.IntExpression realm_id = 9;
     optional io.graphoenix.core.grpc.StringExpression create_user_id = 10;
     optional io.graphoenix.core.grpc.StringExpression create_time = 11;
     optional io.graphoenix.core.grpc.StringExpression update_user_id = 12;
@@ -1235,7 +1235,7 @@ message ApiConnectionQueryTypeArguments {
     optional RealmExpression realm = 6;
     optional bool include_deprecated = 7;
     optional io.graphoenix.core.grpc.IntExpression version = 8;
-    optional io.graphoenix.core.grpc.StringExpression realm_id = 9;
+    optional io.graphoenix.core.grpc.IntExpression realm_id = 9;
     optional io.graphoenix.core.grpc.StringExpression create_user_id = 10;
     optional io.graphoenix.core.grpc.StringExpression create_time = 11;
     optional io.graphoenix.core.grpc.StringExpression update_user_id = 12;
@@ -1265,7 +1265,7 @@ message MenuQueryTypeArguments {
     optional RealmExpression realm = 9;
     optional bool include_deprecated = 10;
     optional io.graphoenix.core.grpc.IntExpression version = 11;
-    optional io.graphoenix.core.grpc.StringExpression realm_id = 12;
+    optional io.graphoenix.core.grpc.IntExpression realm_id = 12;
     optional io.graphoenix.core.grpc.StringExpression create_user_id = 13;
     optional io.graphoenix.core.grpc.StringExpression create_time = 14;
     optional io.graphoenix.core.grpc.StringExpression update_user_id = 15;
@@ -1289,7 +1289,7 @@ message MenuListQueryTypeArguments {
     optional RealmExpression realm = 9;
     optional bool include_deprecated = 10;
     optional io.graphoenix.core.grpc.IntExpression version = 11;
-    optional io.graphoenix.core.grpc.StringExpression realm_id = 12;
+    optional io.graphoenix.core.grpc.IntExpression realm_id = 12;
     optional io.graphoenix.core.grpc.StringExpression create_user_id = 13;
     optional io.graphoenix.core.grpc.StringExpression create_time = 14;
     optional io.graphoenix.core.grpc.StringExpression update_user_id = 15;
@@ -1320,7 +1320,7 @@ message MenuConnectionQueryTypeArguments {
     optional RealmExpression realm = 9;
     optional bool include_deprecated = 10;
     optional io.graphoenix.core.grpc.IntExpression version = 11;
-    optional io.graphoenix.core.grpc.StringExpression realm_id = 12;
+    optional io.graphoenix.core.grpc.IntExpression realm_id = 12;
     optional io.graphoenix.core.grpc.StringExpression create_user_id = 13;
     optional io.graphoenix.core.grpc.StringExpression create_time = 14;
     optional io.graphoenix.core.grpc.StringExpression update_user_id = 15;
@@ -1346,7 +1346,7 @@ message UserPhonesQueryTypeArguments {
     optional io.graphoenix.core.grpc.StringExpression phone = 4;
     optional bool include_deprecated = 5;
     optional io.graphoenix.core.grpc.IntExpression version = 6;
-    optional io.graphoenix.core.grpc.StringExpression realm_id = 7;
+    optional io.graphoenix.core.grpc.IntExpression realm_id = 7;
     optional io.graphoenix.core.grpc.StringExpression create_user_id = 8;
     optional io.graphoenix.core.grpc.StringExpression create_time = 9;
     optional io.graphoenix.core.grpc.StringExpression update_user_id = 10;
@@ -1363,7 +1363,7 @@ message UserPhonesListQueryTypeArguments {
     optional io.graphoenix.core.grpc.StringExpression phone = 4;
     optional bool include_deprecated = 5;
     optional io.graphoenix.core.grpc.IntExpression version = 6;
-    optional io.graphoenix.core.grpc.StringExpression realm_id = 7;
+    optional io.graphoenix.core.grpc.IntExpression realm_id = 7;
     optional io.graphoenix.core.grpc.StringExpression create_user_id = 8;
     optional io.graphoenix.core.grpc.StringExpression create_time = 9;
     optional io.graphoenix.core.grpc.StringExpression update_user_id = 10;
@@ -1387,7 +1387,7 @@ message UserPhonesConnectionQueryTypeArguments {
     optional io.graphoenix.core.grpc.StringExpression phone = 4;
     optional bool include_deprecated = 5;
     optional io.graphoenix.core.grpc.IntExpression version = 6;
-    optional io.graphoenix.core.grpc.StringExpression realm_id = 7;
+    optional io.graphoenix.core.grpc.IntExpression realm_id = 7;
     optional io.graphoenix.core.grpc.StringExpression create_user_id = 8;
     optional io.graphoenix.core.grpc.StringExpression create_time = 9;
     optional io.graphoenix.core.grpc.StringExpression update_user_id = 10;
@@ -1412,7 +1412,7 @@ message UserGroupQueryTypeArguments {
     optional GroupExpression to = 5;
     optional bool include_deprecated = 6;
     optional io.graphoenix.core.grpc.IntExpression version = 7;
-    optional io.graphoenix.core.grpc.StringExpression realm_id = 8;
+    optional io.graphoenix.core.grpc.IntExpression realm_id = 8;
     optional io.graphoenix.core.grpc.StringExpression create_user_id = 9;
     optional io.graphoenix.core.grpc.StringExpression create_time = 10;
     optional io.graphoenix.core.grpc.StringExpression update_user_id = 11;
@@ -1430,7 +1430,7 @@ message UserGroupListQueryTypeArguments {
     optional GroupExpression to = 5;
     optional bool include_deprecated = 6;
     optional io.graphoenix.core.grpc.IntExpression version = 7;
-    optional io.graphoenix.core.grpc.StringExpression realm_id = 8;
+    optional io.graphoenix.core.grpc.IntExpression realm_id = 8;
     optional io.graphoenix.core.grpc.StringExpression create_user_id = 9;
     optional io.graphoenix.core.grpc.StringExpression create_time = 10;
     optional io.graphoenix.core.grpc.StringExpression update_user_id = 11;
@@ -1455,7 +1455,7 @@ message UserGroupConnectionQueryTypeArguments {
     optional GroupExpression to = 5;
     optional bool include_deprecated = 6;
     optional io.graphoenix.core.grpc.IntExpression version = 7;
-    optional io.graphoenix.core.grpc.StringExpression realm_id = 8;
+    optional io.graphoenix.core.grpc.IntExpression realm_id = 8;
     optional io.graphoenix.core.grpc.StringExpression create_user_id = 9;
     optional io.graphoenix.core.grpc.StringExpression create_time = 10;
     optional io.graphoenix.core.grpc.StringExpression update_user_id = 11;
@@ -1480,7 +1480,7 @@ message UserRoleQueryTypeArguments {
     optional RoleExpression to = 5;
     optional bool include_deprecated = 6;
     optional io.graphoenix.core.grpc.IntExpression version = 7;
-    optional io.graphoenix.core.grpc.StringExpression realm_id = 8;
+    optional io.graphoenix.core.grpc.IntExpression realm_id = 8;
     optional io.graphoenix.core.grpc.StringExpression create_user_id = 9;
     optional io.graphoenix.core.grpc.StringExpression create_time = 10;
     optional io.graphoenix.core.grpc.StringExpression update_user_id = 11;
@@ -1498,7 +1498,7 @@ message UserRoleListQueryTypeArguments {
     optional RoleExpression to = 5;
     optional bool include_deprecated = 6;
     optional io.graphoenix.core.grpc.IntExpression version = 7;
-    optional io.graphoenix.core.grpc.StringExpression realm_id = 8;
+    optional io.graphoenix.core.grpc.IntExpression realm_id = 8;
     optional io.graphoenix.core.grpc.StringExpression create_user_id = 9;
     optional io.graphoenix.core.grpc.StringExpression create_time = 10;
     optional io.graphoenix.core.grpc.StringExpression update_user_id = 11;
@@ -1523,7 +1523,7 @@ message UserRoleConnectionQueryTypeArguments {
     optional RoleExpression to = 5;
     optional bool include_deprecated = 6;
     optional io.graphoenix.core.grpc.IntExpression version = 7;
-    optional io.graphoenix.core.grpc.StringExpression realm_id = 8;
+    optional io.graphoenix.core.grpc.IntExpression realm_id = 8;
     optional io.graphoenix.core.grpc.StringExpression create_user_id = 9;
     optional io.graphoenix.core.grpc.StringExpression create_time = 10;
     optional io.graphoenix.core.grpc.StringExpression update_user_id = 11;
@@ -1548,7 +1548,7 @@ message RoleCompositeQueryTypeArguments {
     optional RoleExpression to = 5;
     optional bool include_deprecated = 6;
     optional io.graphoenix.core.grpc.IntExpression version = 7;
-    optional io.graphoenix.core.grpc.StringExpression realm_id = 8;
+    optional io.graphoenix.core.grpc.IntExpression realm_id = 8;
     optional io.graphoenix.core.grpc.StringExpression create_user_id = 9;
     optional io.graphoenix.core.grpc.StringExpression create_time = 10;
     optional io.graphoenix.core.grpc.StringExpression update_user_id = 11;
@@ -1566,7 +1566,7 @@ message RoleCompositeListQueryTypeArguments {
     optional RoleExpression to = 5;
     optional bool include_deprecated = 6;
     optional io.graphoenix.core.grpc.IntExpression version = 7;
-    optional io.graphoenix.core.grpc.StringExpression realm_id = 8;
+    optional io.graphoenix.core.grpc.IntExpression realm_id = 8;
     optional io.graphoenix.core.grpc.StringExpression create_user_id = 9;
     optional io.graphoenix.core.grpc.StringExpression create_time = 10;
     optional io.graphoenix.core.grpc.StringExpression update_user_id = 11;
@@ -1591,7 +1591,7 @@ message RoleCompositeConnectionQueryTypeArguments {
     optional RoleExpression to = 5;
     optional bool include_deprecated = 6;
     optional io.graphoenix.core.grpc.IntExpression version = 7;
-    optional io.graphoenix.core.grpc.StringExpression realm_id = 8;
+    optional io.graphoenix.core.grpc.IntExpression realm_id = 8;
     optional io.graphoenix.core.grpc.StringExpression create_user_id = 9;
     optional io.graphoenix.core.grpc.StringExpression create_time = 10;
     optional io.graphoenix.core.grpc.StringExpression update_user_id = 11;
@@ -1616,7 +1616,7 @@ message RoleApiQueryTypeArguments {
     optional ApiExpression to = 5;
     optional bool include_deprecated = 6;
     optional io.graphoenix.core.grpc.IntExpression version = 7;
-    optional io.graphoenix.core.grpc.StringExpression realm_id = 8;
+    optional io.graphoenix.core.grpc.IntExpression realm_id = 8;
     optional io.graphoenix.core.grpc.StringExpression create_user_id = 9;
     optional io.graphoenix.core.grpc.StringExpression create_time = 10;
     optional io.graphoenix.core.grpc.StringExpression update_user_id = 11;
@@ -1634,7 +1634,7 @@ message RoleApiListQueryTypeArguments {
     optional ApiExpression to = 5;
     optional bool include_deprecated = 6;
     optional io.graphoenix.core.grpc.IntExpression version = 7;
-    optional io.graphoenix.core.grpc.StringExpression realm_id = 8;
+    optional io.graphoenix.core.grpc.IntExpression realm_id = 8;
     optional io.graphoenix.core.grpc.StringExpression create_user_id = 9;
     optional io.graphoenix.core.grpc.StringExpression create_time = 10;
     optional io.graphoenix.core.grpc.StringExpression update_user_id = 11;
@@ -1659,7 +1659,7 @@ message RoleApiConnectionQueryTypeArguments {
     optional ApiExpression to = 5;
     optional bool include_deprecated = 6;
     optional io.graphoenix.core.grpc.IntExpression version = 7;
-    optional io.graphoenix.core.grpc.StringExpression realm_id = 8;
+    optional io.graphoenix.core.grpc.IntExpression realm_id = 8;
     optional io.graphoenix.core.grpc.StringExpression create_user_id = 9;
     optional io.graphoenix.core.grpc.StringExpression create_time = 10;
     optional io.graphoenix.core.grpc.StringExpression update_user_id = 11;
@@ -1684,7 +1684,7 @@ message RoleMenuQueryTypeArguments {
     optional MenuExpression to = 5;
     optional bool include_deprecated = 6;
     optional io.graphoenix.core.grpc.IntExpression version = 7;
-    optional io.graphoenix.core.grpc.StringExpression realm_id = 8;
+    optional io.graphoenix.core.grpc.IntExpression realm_id = 8;
     optional io.graphoenix.core.grpc.StringExpression create_user_id = 9;
     optional io.graphoenix.core.grpc.StringExpression create_time = 10;
     optional io.graphoenix.core.grpc.StringExpression update_user_id = 11;
@@ -1702,7 +1702,7 @@ message RoleMenuListQueryTypeArguments {
     optional MenuExpression to = 5;
     optional bool include_deprecated = 6;
     optional io.graphoenix.core.grpc.IntExpression version = 7;
-    optional io.graphoenix.core.grpc.StringExpression realm_id = 8;
+    optional io.graphoenix.core.grpc.IntExpression realm_id = 8;
     optional io.graphoenix.core.grpc.StringExpression create_user_id = 9;
     optional io.graphoenix.core.grpc.StringExpression create_time = 10;
     optional io.graphoenix.core.grpc.StringExpression update_user_id = 11;
@@ -1727,7 +1727,7 @@ message RoleMenuConnectionQueryTypeArguments {
     optional MenuExpression to = 5;
     optional bool include_deprecated = 6;
     optional io.graphoenix.core.grpc.IntExpression version = 7;
-    optional io.graphoenix.core.grpc.StringExpression realm_id = 8;
+    optional io.graphoenix.core.grpc.IntExpression realm_id = 8;
     optional io.graphoenix.core.grpc.StringExpression create_user_id = 9;
     optional io.graphoenix.core.grpc.StringExpression create_time = 10;
     optional io.graphoenix.core.grpc.StringExpression update_user_id = 11;
@@ -1752,7 +1752,7 @@ message GroupRoleQueryTypeArguments {
     optional RoleExpression to = 5;
     optional bool include_deprecated = 6;
     optional io.graphoenix.core.grpc.IntExpression version = 7;
-    optional io.graphoenix.core.grpc.StringExpression realm_id = 8;
+    optional io.graphoenix.core.grpc.IntExpression realm_id = 8;
     optional io.graphoenix.core.grpc.StringExpression create_user_id = 9;
     optional io.graphoenix.core.grpc.StringExpression create_time = 10;
     optional io.graphoenix.core.grpc.StringExpression update_user_id = 11;
@@ -1770,7 +1770,7 @@ message GroupRoleListQueryTypeArguments {
     optional RoleExpression to = 5;
     optional bool include_deprecated = 6;
     optional io.graphoenix.core.grpc.IntExpression version = 7;
-    optional io.graphoenix.core.grpc.StringExpression realm_id = 8;
+    optional io.graphoenix.core.grpc.IntExpression realm_id = 8;
     optional io.graphoenix.core.grpc.StringExpression create_user_id = 9;
     optional io.graphoenix.core.grpc.StringExpression create_time = 10;
     optional io.graphoenix.core.grpc.StringExpression update_user_id = 11;
@@ -1795,7 +1795,7 @@ message GroupRoleConnectionQueryTypeArguments {
     optional RoleExpression to = 5;
     optional bool include_deprecated = 6;
     optional io.graphoenix.core.grpc.IntExpression version = 7;
-    optional io.graphoenix.core.grpc.StringExpression realm_id = 8;
+    optional io.graphoenix.core.grpc.IntExpression realm_id = 8;
     optional io.graphoenix.core.grpc.StringExpression create_user_id = 9;
     optional io.graphoenix.core.grpc.StringExpression create_time = 10;
     optional io.graphoenix.core.grpc.StringExpression update_user_id = 11;
@@ -1826,7 +1826,7 @@ message UserMutationTypeArguments {
     optional RealmInput realm = 11;
     optional bool is_deprecated = 12;
     optional int32 version = 13;
-    optional string realm_id = 14;
+    optional int32 realm_id = 14;
     optional string create_user_id = 15;
     optional google.protobuf.Timestamp create_time = 16;
     optional string update_user_id = 17;
@@ -1852,7 +1852,7 @@ message UserListMutationTypeArguments {
     optional RealmInput realm = 11;
     optional bool is_deprecated = 12;
     optional int32 version = 13;
-    optional string realm_id = 14;
+    optional int32 realm_id = 14;
     optional string create_user_id = 15;
     optional google.protobuf.Timestamp create_time = 16;
     optional string update_user_id = 17;
@@ -1877,7 +1877,7 @@ message RoleMutationTypeArguments {
     optional RealmInput realm = 9;
     optional bool is_deprecated = 10;
     optional int32 version = 11;
-    optional string realm_id = 12;
+    optional int32 realm_id = 12;
     optional string create_user_id = 13;
     optional google.protobuf.Timestamp create_time = 14;
     optional string update_user_id = 15;
@@ -1902,7 +1902,7 @@ message RoleListMutationTypeArguments {
     optional RealmInput realm = 9;
     optional bool is_deprecated = 10;
     optional int32 version = 11;
-    optional string realm_id = 12;
+    optional int32 realm_id = 12;
     optional string create_user_id = 13;
     optional google.protobuf.Timestamp create_time = 14;
     optional string update_user_id = 15;
@@ -1926,7 +1926,7 @@ message GroupMutationTypeArguments {
     optional RealmInput realm = 7;
     optional bool is_deprecated = 8;
     optional int32 version = 9;
-    optional string realm_id = 10;
+    optional int32 realm_id = 10;
     optional string create_user_id = 11;
     optional google.protobuf.Timestamp create_time = 12;
     optional string update_user_id = 13;
@@ -1948,7 +1948,7 @@ message GroupListMutationTypeArguments {
     optional RealmInput realm = 7;
     optional bool is_deprecated = 8;
     optional int32 version = 9;
-    optional string realm_id = 10;
+    optional int32 realm_id = 10;
     optional string create_user_id = 11;
     optional google.protobuf.Timestamp create_time = 12;
     optional string update_user_id = 13;
@@ -1966,7 +1966,7 @@ message RealmMutationTypeArguments {
     optional string name = 2;
     optional bool is_deprecated = 3;
     optional int32 version = 4;
-    optional string realm_id = 5;
+    optional int32 realm_id = 5;
     optional string create_user_id = 6;
     optional google.protobuf.Timestamp create_time = 7;
     optional string update_user_id = 8;
@@ -1980,7 +1980,7 @@ message RealmListMutationTypeArguments {
     optional string name = 2;
     optional bool is_deprecated = 3;
     optional int32 version = 4;
-    optional string realm_id = 5;
+    optional int32 realm_id = 5;
     optional string create_user_id = 6;
     optional google.protobuf.Timestamp create_time = 7;
     optional string update_user_id = 8;
@@ -2000,7 +2000,7 @@ message PermissionMutationTypeArguments {
     optional RealmInput realm = 7;
     optional bool is_deprecated = 8;
     optional int32 version = 9;
-    optional string realm_id = 10;
+    optional int32 realm_id = 10;
     optional string create_user_id = 11;
     optional google.protobuf.Timestamp create_time = 12;
     optional string update_user_id = 13;
@@ -2020,7 +2020,7 @@ message PermissionListMutationTypeArguments {
     optional RealmInput realm = 7;
     optional bool is_deprecated = 8;
     optional int32 version = 9;
-    optional string realm_id = 10;
+    optional int32 realm_id = 10;
     optional string create_user_id = 11;
     optional google.protobuf.Timestamp create_time = 12;
     optional string update_user_id = 13;
@@ -2040,7 +2040,7 @@ message ApiMutationTypeArguments {
     optional RealmInput realm = 6;
     optional bool is_deprecated = 7;
     optional int32 version = 8;
-    optional string realm_id = 9;
+    optional int32 realm_id = 9;
     optional string create_user_id = 10;
     optional google.protobuf.Timestamp create_time = 11;
     optional string update_user_id = 12;
@@ -2059,7 +2059,7 @@ message ApiListMutationTypeArguments {
     optional RealmInput realm = 6;
     optional bool is_deprecated = 7;
     optional int32 version = 8;
-    optional string realm_id = 9;
+    optional int32 realm_id = 9;
     optional string create_user_id = 10;
     optional google.protobuf.Timestamp create_time = 11;
     optional string update_user_id = 12;
@@ -2082,7 +2082,7 @@ message MenuMutationTypeArguments {
     optional RealmInput realm = 9;
     optional bool is_deprecated = 10;
     optional int32 version = 11;
-    optional string realm_id = 12;
+    optional int32 realm_id = 12;
     optional string create_user_id = 13;
     optional google.protobuf.Timestamp create_time = 14;
     optional string update_user_id = 15;
@@ -2105,7 +2105,7 @@ message MenuListMutationTypeArguments {
     optional RealmInput realm = 9;
     optional bool is_deprecated = 10;
     optional int32 version = 11;
-    optional string realm_id = 12;
+    optional int32 realm_id = 12;
     optional string create_user_id = 13;
     optional google.protobuf.Timestamp create_time = 14;
     optional string update_user_id = 15;
@@ -2124,7 +2124,7 @@ message UserPhonesMutationTypeArguments {
     optional string phone = 4;
     optional bool is_deprecated = 5;
     optional int32 version = 6;
-    optional string realm_id = 7;
+    optional int32 realm_id = 7;
     optional string create_user_id = 8;
     optional google.protobuf.Timestamp create_time = 9;
     optional string update_user_id = 10;
@@ -2140,7 +2140,7 @@ message UserPhonesListMutationTypeArguments {
     optional string phone = 4;
     optional bool is_deprecated = 5;
     optional int32 version = 6;
-    optional string realm_id = 7;
+    optional int32 realm_id = 7;
     optional string create_user_id = 8;
     optional google.protobuf.Timestamp create_time = 9;
     optional string update_user_id = 10;
@@ -2158,7 +2158,7 @@ message UserGroupMutationTypeArguments {
     optional GroupInput to = 5;
     optional bool is_deprecated = 6;
     optional int32 version = 7;
-    optional string realm_id = 8;
+    optional int32 realm_id = 8;
     optional string create_user_id = 9;
     optional google.protobuf.Timestamp create_time = 10;
     optional string update_user_id = 11;
@@ -2175,7 +2175,7 @@ message UserGroupListMutationTypeArguments {
     optional GroupInput to = 5;
     optional bool is_deprecated = 6;
     optional int32 version = 7;
-    optional string realm_id = 8;
+    optional int32 realm_id = 8;
     optional string create_user_id = 9;
     optional google.protobuf.Timestamp create_time = 10;
     optional string update_user_id = 11;
@@ -2193,7 +2193,7 @@ message UserRoleMutationTypeArguments {
     optional RoleInput to = 5;
     optional bool is_deprecated = 6;
     optional int32 version = 7;
-    optional string realm_id = 8;
+    optional int32 realm_id = 8;
     optional string create_user_id = 9;
     optional google.protobuf.Timestamp create_time = 10;
     optional string update_user_id = 11;
@@ -2210,7 +2210,7 @@ message UserRoleListMutationTypeArguments {
     optional RoleInput to = 5;
     optional bool is_deprecated = 6;
     optional int32 version = 7;
-    optional string realm_id = 8;
+    optional int32 realm_id = 8;
     optional string create_user_id = 9;
     optional google.protobuf.Timestamp create_time = 10;
     optional string update_user_id = 11;
@@ -2228,7 +2228,7 @@ message RoleCompositeMutationTypeArguments {
     optional RoleInput to = 5;
     optional bool is_deprecated = 6;
     optional int32 version = 7;
-    optional string realm_id = 8;
+    optional int32 realm_id = 8;
     optional string create_user_id = 9;
     optional google.protobuf.Timestamp create_time = 10;
     optional string update_user_id = 11;
@@ -2245,7 +2245,7 @@ message RoleCompositeListMutationTypeArguments {
     optional RoleInput to = 5;
     optional bool is_deprecated = 6;
     optional int32 version = 7;
-    optional string realm_id = 8;
+    optional int32 realm_id = 8;
     optional string create_user_id = 9;
     optional google.protobuf.Timestamp create_time = 10;
     optional string update_user_id = 11;
@@ -2263,7 +2263,7 @@ message RoleApiMutationTypeArguments {
     optional ApiInput to = 5;
     optional bool is_deprecated = 6;
     optional int32 version = 7;
-    optional string realm_id = 8;
+    optional int32 realm_id = 8;
     optional string create_user_id = 9;
     optional google.protobuf.Timestamp create_time = 10;
     optional string update_user_id = 11;
@@ -2280,7 +2280,7 @@ message RoleApiListMutationTypeArguments {
     optional ApiInput to = 5;
     optional bool is_deprecated = 6;
     optional int32 version = 7;
-    optional string realm_id = 8;
+    optional int32 realm_id = 8;
     optional string create_user_id = 9;
     optional google.protobuf.Timestamp create_time = 10;
     optional string update_user_id = 11;
@@ -2298,7 +2298,7 @@ message RoleMenuMutationTypeArguments {
     optional MenuInput to = 5;
     optional bool is_deprecated = 6;
     optional int32 version = 7;
-    optional string realm_id = 8;
+    optional int32 realm_id = 8;
     optional string create_user_id = 9;
     optional google.protobuf.Timestamp create_time = 10;
     optional string update_user_id = 11;
@@ -2315,7 +2315,7 @@ message RoleMenuListMutationTypeArguments {
     optional MenuInput to = 5;
     optional bool is_deprecated = 6;
     optional int32 version = 7;
-    optional string realm_id = 8;
+    optional int32 realm_id = 8;
     optional string create_user_id = 9;
     optional google.protobuf.Timestamp create_time = 10;
     optional string update_user_id = 11;
@@ -2333,7 +2333,7 @@ message GroupRoleMutationTypeArguments {
     optional RoleInput to = 5;
     optional bool is_deprecated = 6;
     optional int32 version = 7;
-    optional string realm_id = 8;
+    optional int32 realm_id = 8;
     optional string create_user_id = 9;
     optional google.protobuf.Timestamp create_time = 10;
     optional string update_user_id = 11;
@@ -2350,7 +2350,7 @@ message GroupRoleListMutationTypeArguments {
     optional RoleInput to = 5;
     optional bool is_deprecated = 6;
     optional int32 version = 7;
-    optional string realm_id = 8;
+    optional int32 realm_id = 8;
     optional string create_user_id = 9;
     optional google.protobuf.Timestamp create_time = 10;
     optional string update_user_id = 11;
