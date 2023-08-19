@@ -10,7 +10,6 @@ import "io/graphence/core/objects.proto";
 import "io/graphence/core/interfaces.proto";
 import "io/graphence/core/input_objects.proto";
 import "io/graphoenix/introspection/input_objects.proto";
-import "io/graphoenix/core/enums.proto";
 import "google/protobuf/timestamp.proto";
 
 message MutationLoginRequest {
@@ -18,38 +17,6 @@ message MutationLoginRequest {
     optional string arguments = 2;
     optional string login = 3;
     optional string password = 4;
-}
-message MutationIsDeprecatedRequest {
-    optional string selection_set = 1;
-    optional string arguments = 2;
-}
-message MutationVersionRequest {
-    optional string selection_set = 1;
-    optional string arguments = 2;
-}
-message MutationRealmIdRequest {
-    optional string selection_set = 1;
-    optional string arguments = 2;
-}
-message MutationCreateUserIdRequest {
-    optional string selection_set = 1;
-    optional string arguments = 2;
-}
-message MutationCreateTimeRequest {
-    optional string selection_set = 1;
-    optional string arguments = 2;
-}
-message MutationUpdateUserIdRequest {
-    optional string selection_set = 1;
-    optional string arguments = 2;
-}
-message MutationUpdateTimeRequest {
-    optional string selection_set = 1;
-    optional string arguments = 2;
-}
-message MutationCreateGroupIdRequest {
-    optional string selection_set = 1;
-    optional string arguments = 2;
 }
 message MutationUserRequest {
     optional string selection_set = 1;
@@ -654,4 +621,36 @@ message MutationGroupRoleListRequest {
     optional string intro_typename = 16;
     repeated GroupRoleInput list = 17;
     optional GroupRoleExpression where = 18;
+}
+message MutationIsDeprecatedRequest {
+    optional string selection_set = 1;
+    optional string arguments = 2;
+}
+message MutationVersionRequest {
+    optional string selection_set = 1;
+    optional string arguments = 2;
+}
+message MutationRealmIdRequest {
+    optional string selection_set = 1;
+    optional string arguments = 2;
+}
+message MutationCreateUserIdRequest {
+    optional string selection_set = 1;
+    optional string arguments = 2;
+}
+message MutationCreateTimeRequest {
+    optional string selection_set = 1;
+    optional string arguments = 2;
+}
+message MutationUpdateUserIdRequest {
+    optional string selection_set = 1;
+    optional string arguments = 2;
+}
+message MutationUpdateTimeRequest {
+    optional string selection_set = 1;
+    optional string arguments = 2;
+}
+message MutationCreateGroupIdRequest {
+    optional string selection_set = 1;
+    optional string arguments = 2;
 }
