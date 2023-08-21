@@ -2,7 +2,6 @@ package io.graphence.security.event;
 
 import com.google.auto.service.AutoService;
 import io.graphoenix.core.context.BeanContext;
-import io.graphoenix.core.context.RequestScopeInstanceFactory;
 import io.graphence.core.dto.CurrentUser;
 import io.graphence.core.error.AuthenticationException;
 import io.graphence.core.jwt.GraphenceJsonWebToken;
@@ -15,18 +14,16 @@ import jakarta.enterprise.context.RequestScoped;
 import org.eclipse.microprofile.jwt.Claims;
 import reactor.core.publisher.Mono;
 import reactor.netty.http.server.HttpServerRequest;
-import reactor.netty.http.server.HttpServerResponse;
 
 import java.util.Map;
 
+import static io.graphence.core.constant.Constant.AUTHORIZATION_HEADER;
 import static io.graphence.core.error.AuthenticationErrorType.UN_AUTHENTICATION;
 
 @Initialized(RequestScoped.class)
 @Priority(0)
 @AutoService(ScopeEvent.class)
 public class JWTFilter extends BaseRequestFilter implements ScopeEvent {
-
-    private static final String AUTHORIZATION_HEADER = "Authorization";
 
     private final JWTUtil jwtUtil;
     private final IGraphQLDocumentManager manager;
@@ -40,11 +37,8 @@ public class JWTFilter extends BaseRequestFilter implements ScopeEvent {
     public Mono<Void> fireAsync(Map<String, Object> context) {
         init(manager, context);
         HttpServerRequest request = getRequest(context);
-        HttpServerResponse response = getResponse(context);
         if (isPermitAll(context)) {
-            return RequestScopeInstanceFactory.putIfAbsent(HttpServerRequest.class, request)
-                    .then(RequestScopeInstanceFactory.putIfAbsent(HttpServerResponse.class, response))
-                    .then();
+            return Mono.empty();
         }
 
         String authorization = request.requestHeaders().get(AUTHORIZATION_HEADER);
@@ -62,9 +56,7 @@ public class JWTFilter extends BaseRequestFilter implements ScopeEvent {
                 setCurrentUser(context, currentUser);
                 setSessionId(context, jws);
 
-                return RequestScopeInstanceFactory.putIfAbsent(HttpServerRequest.class, request)
-                        .then(RequestScopeInstanceFactory.putIfAbsent(HttpServerResponse.class, response))
-                        .then();
+                return Mono.empty();
 
             } catch (Exception e) {
                 throw new AuthenticationException(UN_AUTHENTICATION);

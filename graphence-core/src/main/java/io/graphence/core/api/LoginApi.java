@@ -8,12 +8,15 @@ import io.graphoenix.core.context.SessionScopeInstanceFactory;
 import jakarta.annotation.security.PermitAll;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
+import jakarta.inject.Provider;
 import org.eclipse.microprofile.graphql.GraphQLApi;
 import org.eclipse.microprofile.graphql.Mutation;
 import org.eclipse.microprofile.graphql.NonNull;
 import org.tinylog.Logger;
 import reactor.core.publisher.Mono;
+import reactor.netty.http.server.HttpServerResponse;
 
+import static io.graphence.core.constant.Constant.AUTHORIZATION_HEADER;
 import static io.graphence.core.error.AuthenticationErrorType.AUTHENTICATION_FAILED;
 import static io.graphence.core.error.AuthenticationErrorType.AUTHENTICATION_SERVER_ERROR;
 
@@ -24,11 +27,13 @@ public class LoginApi {
 
     private final LoginDao loginDao;
     private final JWTUtil jwtUtil;
+    private final Provider<Mono<HttpServerResponse>> responseProvider;
 
     @Inject
-    public LoginApi(LoginDao loginDao, JWTUtil jwtUtil) {
+    public LoginApi(LoginDao loginDao, JWTUtil jwtUtil, Provider<Mono<HttpServerResponse>> responseProvider) {
         this.loginDao = loginDao;
         this.jwtUtil = jwtUtil;
+        this.responseProvider = responseProvider;
     }
 
     @Mutation
@@ -45,8 +50,13 @@ public class LoginApi {
                             }
                     )
                     .switchIfEmpty(Mono.error(new AuthenticationException(AUTHENTICATION_FAILED)))
-                    .doOnSuccess(user -> SessionScopeInstanceFactory.putIfAbsent(CurrentUser.class, CurrentUser.of(user)))
-                    .map(jwtUtil::build);
+                    .flatMap(user -> SessionScopeInstanceFactory.computeIfAbsent(CurrentUser.class, CurrentUser.of(user)).thenReturn(user))
+                    .map(jwtUtil::build)
+                    .flatMap(token ->
+                            responseProvider.get()
+                                    .map(response -> response.addHeader("Set-Cookie", AUTHORIZATION_HEADER + "=Bearer " + token))
+                                    .thenReturn(token)
+                    );
         } catch (Exception e) {
             Logger.error(e);
         }
