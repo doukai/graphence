@@ -17,7 +17,7 @@ import reactor.core.publisher.Mono;
 import reactor.netty.http.server.HttpServerResponse;
 
 import static io.graphence.core.constant.Constant.AUTHORIZATION_HEADER;
-import static io.graphence.core.constant.Constant.AUTHORIZATION_SCHEMA_BEARER;
+import static io.graphence.core.constant.Constant.AUTHORIZATION_SCHEME_BEARER;
 import static io.graphence.core.error.AuthenticationErrorType.AUTHENTICATION_FAILED;
 import static io.graphence.core.error.AuthenticationErrorType.AUTHENTICATION_SERVER_ERROR;
 
@@ -55,7 +55,7 @@ public class LoginApi {
                     .map(jwtUtil::build)
                     .flatMap(token ->
                             responseProvider.get()
-                                    .map(response -> response.addHeader("Set-Cookie", AUTHORIZATION_HEADER + "=" + AUTHORIZATION_SCHEMA_BEARER + " " + token))
+                                    .map(response -> response.addHeader("Set-Cookie", AUTHORIZATION_HEADER + "=" + AUTHORIZATION_SCHEME_BEARER + " " + token))
                                     .thenReturn(token)
                     );
         } catch (Exception e) {

@@ -46,6 +46,7 @@ public class JWTUtil {
                 .claim(Claims.family_name.name(), user.getLastName())
                 .claim(Claims.upn.name(), user.getRealmId())
                 .claim(Claims.groups.name(), getGroups(user))
+                .claim("roles", getRoles(user))
                 .setIssuedAt(issuedAt)
                 .setExpiration(getExpiration(issuedAt))
                 .signWith(key)
