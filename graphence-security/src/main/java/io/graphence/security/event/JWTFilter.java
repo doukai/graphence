@@ -18,6 +18,7 @@ import reactor.netty.http.server.HttpServerRequest;
 import java.util.Map;
 
 import static io.graphence.core.constant.Constant.AUTHORIZATION_HEADER;
+import static io.graphence.core.constant.Constant.AUTHORIZATION_SCHEMA_BEARER;
 import static io.graphence.core.error.AuthenticationErrorType.UN_AUTHENTICATION;
 
 @Initialized(RequestScoped.class)
@@ -42,7 +43,7 @@ public class JWTFilter extends BaseRequestFilter implements ScopeEvent {
         }
 
         String authorization = request.requestHeaders().get(AUTHORIZATION_HEADER);
-        if (authorization != null && authorization.startsWith("Bearer")) {
+        if (authorization != null && authorization.startsWith(AUTHORIZATION_SCHEMA_BEARER)) {
             String jws = authorization.substring(7);
             try {
                 GraphenceJsonWebToken jsonWebToken = jwtUtil.parser(jws);
