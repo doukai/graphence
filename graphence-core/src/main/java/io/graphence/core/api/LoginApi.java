@@ -3,6 +3,7 @@ package io.graphence.core.api;
 import io.graphence.core.dao.LoginDao;
 import io.graphence.core.error.AuthenticationException;
 import io.graphence.core.utils.JWTUtil;
+import io.netty.handler.codec.http.HttpHeaderNames;
 import jakarta.annotation.security.PermitAll;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
@@ -53,7 +54,7 @@ public class LoginApi {
                     .map(jwtUtil::build)
                     .flatMap(token ->
                             responseProvider.get()
-                                    .map(response -> response.addHeader("Set-Cookie", AUTHORIZATION_HEADER + "=" + AUTHORIZATION_SCHEME_BEARER + " " + token))
+                                    .map(response -> response.addHeader(HttpHeaderNames.SET_COOKIE, AUTHORIZATION_HEADER + "=" + AUTHORIZATION_SCHEME_BEARER + " " + token))
                                     .thenReturn(token)
                     );
         } catch (Exception e) {
