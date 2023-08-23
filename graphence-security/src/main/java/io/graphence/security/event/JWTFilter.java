@@ -6,6 +6,7 @@ import io.graphence.core.dto.CurrentUser;
 import io.graphence.core.error.AuthenticationException;
 import io.graphence.core.jwt.GraphenceJsonWebToken;
 import io.graphence.core.utils.JWTUtil;
+import io.graphoenix.core.context.RequestScopeInstanceFactory;
 import io.graphoenix.spi.antlr.IGraphQLDocumentManager;
 import io.graphoenix.spi.handler.ScopeEvent;
 import jakarta.annotation.Priority;
@@ -52,12 +53,13 @@ public class JWTFilter extends BaseRequestFilter implements ScopeEvent {
                         .setName(jsonWebToken.getClaim(Claims.full_name))
                         .setLastName(jsonWebToken.getClaim(Claims.family_name))
                         .setRealmId(jsonWebToken.getClaim(Claims.upn))
-                        .setGroups(jsonWebToken.getClaim(Claims.groups));
+                        .setGroups(jsonWebToken.getClaim(Claims.groups))
+                        .setRoles(jsonWebToken.getClaim("roles"));
 
                 setCurrentUser(context, currentUser);
                 setSessionId(context, jws);
 
-                return Mono.empty();
+                return RequestScopeInstanceFactory.computeIfAbsent(CurrentUser.class, currentUser).then();
 
             } catch (Exception e) {
                 throw new AuthenticationException(UN_AUTHENTICATION);

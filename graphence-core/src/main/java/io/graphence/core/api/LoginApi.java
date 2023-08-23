@@ -1,10 +1,8 @@
 package io.graphence.core.api;
 
-import io.graphence.core.dto.CurrentUser;
+import io.graphence.core.dao.LoginDao;
 import io.graphence.core.error.AuthenticationException;
 import io.graphence.core.utils.JWTUtil;
-import io.graphence.core.dao.LoginDao;
-import io.graphoenix.core.context.SessionScopeInstanceFactory;
 import jakarta.annotation.security.PermitAll;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
@@ -51,7 +49,7 @@ public class LoginApi {
                             }
                     )
                     .switchIfEmpty(Mono.error(new AuthenticationException(AUTHENTICATION_FAILED)))
-                    .flatMap(user -> SessionScopeInstanceFactory.computeIfAbsent(CurrentUser.class, CurrentUser.of(user)).thenReturn(user))
+//                    .flatMap(user -> SessionScopeInstanceFactory.computeIfAbsent(CurrentUser.class, CurrentUser.of(user)).thenReturn(user))
                     .map(jwtUtil::build)
                     .flatMap(token ->
                             responseProvider.get()
