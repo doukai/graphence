@@ -3,7 +3,7 @@ package io.graphence.core.config;
 import com.typesafe.config.Optional;
 import org.eclipse.microprofile.config.inject.ConfigProperties;
 
-@ConfigProperties(prefix = "http")
+@ConfigProperties(prefix = "jwt")
 public class JWTConfig {
 
     @Optional
