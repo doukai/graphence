@@ -68,6 +68,7 @@ dependencies {
     compile 'io.jsonwebtoken:jjwt-impl:0.11.5'
     compile 'io.jsonwebtoken:jjwt-gson:0.11.5'
     compile 'com.google.auto.service:auto-service:1.0.1'
+    compile 'com.password4j:password4j:1.7.2'
 
     implementation 'io.graphoenix:graphoenix-http-server:0.0.1-SNAPSHOT'
 

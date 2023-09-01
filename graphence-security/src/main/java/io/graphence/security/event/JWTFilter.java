@@ -1,6 +1,7 @@
 package io.graphence.security.event;
 
 import com.google.auto.service.AutoService;
+import com.password4j.Password;
 import io.graphence.core.dao.LoginDao;
 import io.graphence.core.dto.CurrentUser;
 import io.graphence.core.error.AuthenticationException;
@@ -14,13 +15,9 @@ import jakarta.annotation.Priority;
 import jakarta.enterprise.context.Initialized;
 import jakarta.enterprise.context.RequestScoped;
 import org.eclipse.microprofile.jwt.Claims;
-import org.tinylog.Logger;
 import reactor.core.publisher.Mono;
 import reactor.netty.http.server.HttpServerRequest;
 
-import java.nio.charset.StandardCharsets;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.util.Base64;
 import java.util.Map;
 
@@ -81,18 +78,10 @@ public class JWTFilter extends BaseRequestFilter implements ScopeEvent {
 
                 return loginDao.getUserByLogin(login)
                         .flatMap(user -> {
-                                    try {
-                                        MessageDigest messageDigest = MessageDigest.getInstance("SHA-512");
-                                        messageDigest.update(password.getBytes(StandardCharsets.UTF_8));
-                                        messageDigest.update(user.getSalt().getBytes(StandardCharsets.UTF_8));
-                                        if (MessageDigest.isEqual(messageDigest.digest(), user.getHash().getBytes(StandardCharsets.UTF_8))) {
-                                            return Mono.justOrEmpty(user);
-                                        } else {
-                                            return Mono.error(new AuthenticationException(AUTHENTICATION_FAILED));
-                                        }
-                                    } catch (NoSuchAlgorithmException e) {
-                                        Logger.error(e);
-                                        return Mono.error(new AuthenticationException(AUTHENTICATION_SERVER_ERROR));
+                                    if (Password.check(password, user.getHash()).addSalt(user.getSalt()).withBcrypt()) {
+                                        return Mono.justOrEmpty(user);
+                                    } else {
+                                        return Mono.error(new AuthenticationException(AUTHENTICATION_FAILED));
                                     }
                                 }
                         )

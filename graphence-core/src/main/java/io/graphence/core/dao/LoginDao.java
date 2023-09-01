@@ -11,7 +11,7 @@ import reactor.core.publisher.Mono;
 @GraphQLOperation
 public interface LoginDao {
 
-    @QueryOperation(value = "user", selectionSet = "{ name lastName login password email disable groups { name } roles { name } realmId }")
+    @QueryOperation(value = "user", selectionSet = "{ name lastName login salt hash email disable groups { name } roles { name } realmId }")
     @UserExpression0(login = @StringExpression($val = "login"))
     Mono<User> getUserByLogin(String login) throws Exception;
 }
