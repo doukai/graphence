@@ -17,7 +17,9 @@ public @interface UserInput0 {
 
   String login() default "";
 
-  String password() default "";
+  String salt() default "";
+
+  String hash() default "";
 
   String email() default "";
 
@@ -51,7 +53,9 @@ public @interface UserInput0 {
 
   String $login() default "";
 
-  String $password() default "";
+  String $salt() default "";
+
+  String $hash() default "";
 
   String $email() default "";
 

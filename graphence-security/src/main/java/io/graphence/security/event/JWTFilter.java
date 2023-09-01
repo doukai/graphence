@@ -14,9 +14,13 @@ import jakarta.annotation.Priority;
 import jakarta.enterprise.context.Initialized;
 import jakarta.enterprise.context.RequestScoped;
 import org.eclipse.microprofile.jwt.Claims;
+import org.tinylog.Logger;
 import reactor.core.publisher.Mono;
 import reactor.netty.http.server.HttpServerRequest;
 
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.Base64;
 import java.util.Map;
 
@@ -24,6 +28,7 @@ import static io.graphence.core.constant.Constant.AUTHORIZATION_HEADER;
 import static io.graphence.core.constant.Constant.AUTHORIZATION_SCHEME_BASIC;
 import static io.graphence.core.constant.Constant.AUTHORIZATION_SCHEME_BEARER;
 import static io.graphence.core.error.AuthenticationErrorType.AUTHENTICATION_FAILED;
+import static io.graphence.core.error.AuthenticationErrorType.AUTHENTICATION_SERVER_ERROR;
 import static io.graphence.core.error.AuthenticationErrorType.UN_AUTHENTICATION;
 
 @Initialized(RequestScoped.class)
@@ -76,10 +81,18 @@ public class JWTFilter extends BaseRequestFilter implements ScopeEvent {
 
                 return loginDao.getUserByLogin(login)
                         .flatMap(user -> {
-                                    if (user.getPassword().equals(password)) {
-                                        return Mono.justOrEmpty(user);
-                                    } else {
-                                        return Mono.error(new AuthenticationException(AUTHENTICATION_FAILED));
+                                    try {
+                                        MessageDigest messageDigest = MessageDigest.getInstance("SHA-512");
+                                        messageDigest.update(password.getBytes(StandardCharsets.UTF_8));
+                                        messageDigest.update(user.getSalt().getBytes(StandardCharsets.UTF_8));
+                                        if (MessageDigest.isEqual(messageDigest.digest(), user.getHash().getBytes(StandardCharsets.UTF_8))) {
+                                            return Mono.justOrEmpty(user);
+                                        } else {
+                                            return Mono.error(new AuthenticationException(AUTHENTICATION_FAILED));
+                                        }
+                                    } catch (NoSuchAlgorithmException e) {
+                                        Logger.error(e);
+                                        return Mono.error(new AuthenticationException(AUTHENTICATION_SERVER_ERROR));
                                     }
                                 }
                         )

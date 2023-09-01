@@ -17,7 +17,9 @@ public @interface UserOrderBy0 {
 
   Sort login() default Sort.ASC;
 
-  Sort password() default Sort.ASC;
+  Sort salt() default Sort.ASC;
+
+  Sort hash() default Sort.ASC;
 
   Sort email() default Sort.ASC;
 

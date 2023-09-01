@@ -24,7 +24,9 @@ public class UserMutationTypeArguments {
 
   private String login;
 
-  private String password;
+  private String salt;
+
+  private String hash;
 
   private String email;
 
@@ -97,12 +99,20 @@ public class UserMutationTypeArguments {
     this.login = login;
   }
 
-  public String getPassword() {
-    return this.password;
+  public String getSalt() {
+    return this.salt;
   }
 
-  public void setPassword(String password) {
-    this.password = password;
+  public void setSalt(String salt) {
+    this.salt = salt;
+  }
+
+  public String getHash() {
+    return this.hash;
+  }
+
+  public void setHash(String hash) {
+    this.hash = hash;
   }
 
   public String getEmail() {

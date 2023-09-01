@@ -19,7 +19,9 @@ public class UserOrderBy {
 
   private Sort login;
 
-  private Sort password;
+  private Sort salt;
+
+  private Sort hash;
 
   private Sort email;
 
@@ -75,12 +77,20 @@ public class UserOrderBy {
     this.login = login;
   }
 
-  public Sort getPassword() {
-    return this.password;
+  public Sort getSalt() {
+    return this.salt;
   }
 
-  public void setPassword(Sort password) {
-    this.password = password;
+  public void setSalt(Sort salt) {
+    this.salt = salt;
+  }
+
+  public Sort getHash() {
+    return this.hash;
+  }
+
+  public void setHash(Sort hash) {
+    this.hash = hash;
   }
 
   public Sort getEmail() {

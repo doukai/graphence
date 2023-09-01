@@ -14,6 +14,14 @@ import "io/graphence/core/mutation_responses.proto";
 
 service MutationTypeService {
     rpc Login (MutationLoginRequest) returns (MutationLoginResponse);
+    rpc IsDeprecated (MutationIsDeprecatedRequest) returns (MutationIsDeprecatedResponse);
+    rpc Version (MutationVersionRequest) returns (MutationVersionResponse);
+    rpc RealmId (MutationRealmIdRequest) returns (MutationRealmIdResponse);
+    rpc CreateUserId (MutationCreateUserIdRequest) returns (MutationCreateUserIdResponse);
+    rpc CreateTime (MutationCreateTimeRequest) returns (MutationCreateTimeResponse);
+    rpc UpdateUserId (MutationUpdateUserIdRequest) returns (MutationUpdateUserIdResponse);
+    rpc UpdateTime (MutationUpdateTimeRequest) returns (MutationUpdateTimeResponse);
+    rpc CreateGroupId (MutationCreateGroupIdRequest) returns (MutationCreateGroupIdResponse);
     rpc User (MutationUserRequest) returns (MutationUserResponse);
     rpc UserList (MutationUserListRequest) returns (MutationUserListResponse);
     rpc Role (MutationRoleRequest) returns (MutationRoleResponse);
@@ -42,12 +50,4 @@ service MutationTypeService {
     rpc RoleMenuList (MutationRoleMenuListRequest) returns (MutationRoleMenuListResponse);
     rpc GroupRole (MutationGroupRoleRequest) returns (MutationGroupRoleResponse);
     rpc GroupRoleList (MutationGroupRoleListRequest) returns (MutationGroupRoleListResponse);
-    rpc IsDeprecated (MutationIsDeprecatedRequest) returns (MutationIsDeprecatedResponse);
-    rpc Version (MutationVersionRequest) returns (MutationVersionResponse);
-    rpc RealmId (MutationRealmIdRequest) returns (MutationRealmIdResponse);
-    rpc CreateUserId (MutationCreateUserIdRequest) returns (MutationCreateUserIdResponse);
-    rpc CreateTime (MutationCreateTimeRequest) returns (MutationCreateTimeResponse);
-    rpc UpdateUserId (MutationUpdateUserIdRequest) returns (MutationUpdateUserIdResponse);
-    rpc UpdateTime (MutationUpdateTimeRequest) returns (MutationUpdateTimeResponse);
-    rpc CreateGroupId (MutationCreateGroupIdRequest) returns (MutationCreateGroupIdResponse);
 }

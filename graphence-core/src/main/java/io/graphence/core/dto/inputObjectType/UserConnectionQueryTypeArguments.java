@@ -27,7 +27,9 @@ public class UserConnectionQueryTypeArguments {
 
   private StringExpression login;
 
-  private StringExpression password;
+  private StringExpression salt;
+
+  private StringExpression hash;
 
   private StringExpression email;
 
@@ -117,12 +119,20 @@ public class UserConnectionQueryTypeArguments {
     this.login = login;
   }
 
-  public StringExpression getPassword() {
-    return this.password;
+  public StringExpression getSalt() {
+    return this.salt;
   }
 
-  public void setPassword(StringExpression password) {
-    this.password = password;
+  public void setSalt(StringExpression salt) {
+    this.salt = salt;
+  }
+
+  public StringExpression getHash() {
+    return this.hash;
+  }
+
+  public void setHash(StringExpression hash) {
+    this.hash = hash;
   }
 
   public StringExpression getEmail() {

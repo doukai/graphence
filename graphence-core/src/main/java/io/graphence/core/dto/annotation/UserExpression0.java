@@ -20,7 +20,9 @@ public @interface UserExpression0 {
 
   StringExpression login() default @StringExpression;
 
-  StringExpression password() default @StringExpression;
+  StringExpression salt() default @StringExpression;
+
+  StringExpression hash() default @StringExpression;
 
   StringExpression email() default @StringExpression;
 

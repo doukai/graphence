@@ -30,7 +30,9 @@ public class User implements Meta {
   @NonNull
   private String login;
 
-  private String password;
+  private String salt;
+
+  private String hash;
 
   private String email;
 
@@ -86,11 +88,17 @@ public class User implements Meta {
 
   private String loginMin;
 
-  private Integer passwordCount;
+  private Integer saltCount;
 
-  private String passwordMax;
+  private String saltMax;
 
-  private String passwordMin;
+  private String saltMin;
+
+  private Integer hashCount;
+
+  private String hashMax;
+
+  private String hashMin;
 
   private Integer emailCount;
 
@@ -166,12 +174,20 @@ public class User implements Meta {
     this.login = login;
   }
 
-  public String getPassword() {
-    return this.password;
+  public String getSalt() {
+    return this.salt;
   }
 
-  public void setPassword(String password) {
-    this.password = password;
+  public void setSalt(String salt) {
+    this.salt = salt;
+  }
+
+  public String getHash() {
+    return this.hash;
+  }
+
+  public void setHash(String hash) {
+    this.hash = hash;
   }
 
   public String getEmail() {
@@ -406,28 +422,52 @@ public class User implements Meta {
     this.loginMin = loginMin;
   }
 
-  public Integer getPasswordCount() {
-    return this.passwordCount;
+  public Integer getSaltCount() {
+    return this.saltCount;
   }
 
-  public void setPasswordCount(Integer passwordCount) {
-    this.passwordCount = passwordCount;
+  public void setSaltCount(Integer saltCount) {
+    this.saltCount = saltCount;
   }
 
-  public String getPasswordMax() {
-    return this.passwordMax;
+  public String getSaltMax() {
+    return this.saltMax;
   }
 
-  public void setPasswordMax(String passwordMax) {
-    this.passwordMax = passwordMax;
+  public void setSaltMax(String saltMax) {
+    this.saltMax = saltMax;
   }
 
-  public String getPasswordMin() {
-    return this.passwordMin;
+  public String getSaltMin() {
+    return this.saltMin;
   }
 
-  public void setPasswordMin(String passwordMin) {
-    this.passwordMin = passwordMin;
+  public void setSaltMin(String saltMin) {
+    this.saltMin = saltMin;
+  }
+
+  public Integer getHashCount() {
+    return this.hashCount;
+  }
+
+  public void setHashCount(Integer hashCount) {
+    this.hashCount = hashCount;
+  }
+
+  public String getHashMax() {
+    return this.hashMax;
+  }
+
+  public void setHashMax(String hashMax) {
+    this.hashMax = hashMax;
+  }
+
+  public String getHashMin() {
+    return this.hashMin;
+  }
+
+  public void setHashMin(String hashMin) {
+    this.hashMin = hashMin;
   }
 
   public Integer getEmailCount() {
