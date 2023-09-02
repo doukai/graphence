@@ -20,6 +20,8 @@ import org.tinylog.Logger;
 import reactor.core.publisher.Mono;
 import reactor.netty.http.server.HttpServerResponse;
 
+import java.util.Base64;
+
 import static io.graphence.core.constant.Constant.AUTHORIZATION_HEADER;
 import static io.graphence.core.constant.Constant.AUTHORIZATION_SCHEME_BEARER;
 import static io.graphence.core.error.AuthenticationErrorType.AUTHENTICATION_FAILED;
@@ -49,7 +51,7 @@ public class LoginApi {
         try {
             return loginDao.getUserByLogin(login)
                     .flatMap(user -> {
-                                if (Password.check(password, user.getHash()).addSalt(user.getSalt()).withBcrypt()) {
+                                if (Password.check(password, new String(Base64.getDecoder().decode(user.getHash()))).addSalt(Base64.getDecoder().decode(user.getSalt())).withBcrypt()) {
                                     return Mono.justOrEmpty(user);
                                 } else {
                                     return Mono.error(new AuthenticationException(AUTHENTICATION_FAILED));
@@ -73,8 +75,8 @@ public class LoginApi {
     public UserMutationTypeArguments hashPassword(@Source UserMutationTypeArguments userMutationTypeArguments) {
         if (config.getInitialPassword() != null && userMutationTypeArguments.getId() == null && userMutationTypeArguments.getWhere() == null) {
             Hash hash = Password.hash(config.getInitialPassword()).withBcrypt();
-            userMutationTypeArguments.setSalt(hash.getSalt());
-            userMutationTypeArguments.setHash(hash.getResult());
+            userMutationTypeArguments.setSalt(Base64.getEncoder().encodeToString(hash.getSaltBytes()));
+            userMutationTypeArguments.setHash(Base64.getEncoder().encodeToString(hash.getResultAsBytes()));
         }
         return userMutationTypeArguments;
     }
