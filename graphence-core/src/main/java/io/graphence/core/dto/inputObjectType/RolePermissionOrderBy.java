@@ -10,14 +10,12 @@ import org.eclipse.microprofile.graphql.Input;
 @CompiledJson
 @Generated("io.graphoenix.java.generator.builder.TypeSpecBuilderProxy")
 @Ignore
-public class ApiOrderBy {
+public class RolePermissionOrderBy {
   private Sort id;
 
-  private Sort name;
+  private Sort roleId;
 
-  private Sort description;
-
-  private Sort type;
+  private Sort permissionName;
 
   private Sort isDeprecated;
 
@@ -37,8 +35,6 @@ public class ApiOrderBy {
 
   private Sort __typename;
 
-  private Sort roleId;
-
   public Sort getId() {
     return this.id;
   }
@@ -47,28 +43,20 @@ public class ApiOrderBy {
     this.id = id;
   }
 
-  public Sort getName() {
-    return this.name;
+  public Sort getRoleId() {
+    return this.roleId;
   }
 
-  public void setName(Sort name) {
-    this.name = name;
+  public void setRoleId(Sort roleId) {
+    this.roleId = roleId;
   }
 
-  public Sort getDescription() {
-    return this.description;
+  public Sort getPermissionName() {
+    return this.permissionName;
   }
 
-  public void setDescription(Sort description) {
-    this.description = description;
-  }
-
-  public Sort getType() {
-    return this.type;
-  }
-
-  public void setType(Sort type) {
-    this.type = type;
+  public void setPermissionName(Sort permissionName) {
+    this.permissionName = permissionName;
   }
 
   public Sort getIsDeprecated() {
@@ -141,13 +129,5 @@ public class ApiOrderBy {
 
   public void set__typename(Sort __typename) {
     this.__typename = __typename;
-  }
-
-  public Sort getRoleId() {
-    return this.roleId;
-  }
-
-  public void setRoleId(Sort roleId) {
-    this.roleId = roleId;
   }
 }

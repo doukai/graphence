@@ -12,9 +12,11 @@ import java.lang.annotation.Target;
 public @interface PermissionExpression0 {
   Conditional cond() default Conditional.AND;
 
-  IDExpression id() default @IDExpression;
+  IDExpression name() default @IDExpression;
 
-  StringExpression name() default @StringExpression;
+  StringExpression fieldName() default @StringExpression;
+
+  StringExpression typeName() default @StringExpression;
 
   StringExpression description() default @StringExpression;
 
@@ -39,8 +41,6 @@ public @interface PermissionExpression0 {
   StringExpression createGroupId() default @StringExpression;
 
   StringExpression __typename() default @StringExpression;
-
-  IntExpression roleId() default @IntExpression;
 
   String[] groupBy() default {};
 

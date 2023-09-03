@@ -11,17 +11,17 @@ import org.eclipse.microprofile.graphql.Type;
 @CompiledJson
 @Generated("io.graphoenix.java.generator.builder.TypeSpecBuilderProxy")
 @Ignore
-public class RoleApiEdge {
-  private RoleApi node;
+public class RolePermissionEdge {
+  private RolePermission node;
 
   @Id
   private String cursor;
 
-  public RoleApi getNode() {
+  public RolePermission getNode() {
     return this.node;
   }
 
-  public void setNode(RoleApi node) {
+  public void setNode(RolePermission node) {
     this.node = node;
   }
 

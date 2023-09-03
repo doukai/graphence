@@ -24,7 +24,7 @@ public class RoleMenu implements Meta {
 
   private Role from;
 
-  private Integer menuId;
+  private String menuHref;
 
   private Menu to;
 
@@ -52,6 +52,12 @@ public class RoleMenu implements Meta {
 
   private Integer idMin;
 
+  private Integer menuHrefCount;
+
+  private String menuHrefMax;
+
+  private String menuHrefMin;
+
   private Integer roleIdCount;
 
   private Integer roleIdSum;
@@ -61,16 +67,6 @@ public class RoleMenu implements Meta {
   private Integer roleIdMax;
 
   private Integer roleIdMin;
-
-  private Integer menuIdCount;
-
-  private Integer menuIdSum;
-
-  private Integer menuIdAvg;
-
-  private Integer menuIdMax;
-
-  private Integer menuIdMin;
 
   public String getId() {
     return this.id;
@@ -96,12 +92,12 @@ public class RoleMenu implements Meta {
     this.from = from;
   }
 
-  public Integer getMenuId() {
-    return this.menuId;
+  public String getMenuHref() {
+    return this.menuHref;
   }
 
-  public void setMenuId(Integer menuId) {
-    this.menuId = menuId;
+  public void setMenuHref(String menuHref) {
+    this.menuHref = menuHref;
   }
 
   public Menu getTo() {
@@ -224,6 +220,30 @@ public class RoleMenu implements Meta {
     this.idMin = idMin;
   }
 
+  public Integer getMenuHrefCount() {
+    return this.menuHrefCount;
+  }
+
+  public void setMenuHrefCount(Integer menuHrefCount) {
+    this.menuHrefCount = menuHrefCount;
+  }
+
+  public String getMenuHrefMax() {
+    return this.menuHrefMax;
+  }
+
+  public void setMenuHrefMax(String menuHrefMax) {
+    this.menuHrefMax = menuHrefMax;
+  }
+
+  public String getMenuHrefMin() {
+    return this.menuHrefMin;
+  }
+
+  public void setMenuHrefMin(String menuHrefMin) {
+    this.menuHrefMin = menuHrefMin;
+  }
+
   public Integer getRoleIdCount() {
     return this.roleIdCount;
   }
@@ -262,45 +282,5 @@ public class RoleMenu implements Meta {
 
   public void setRoleIdMin(Integer roleIdMin) {
     this.roleIdMin = roleIdMin;
-  }
-
-  public Integer getMenuIdCount() {
-    return this.menuIdCount;
-  }
-
-  public void setMenuIdCount(Integer menuIdCount) {
-    this.menuIdCount = menuIdCount;
-  }
-
-  public Integer getMenuIdSum() {
-    return this.menuIdSum;
-  }
-
-  public void setMenuIdSum(Integer menuIdSum) {
-    this.menuIdSum = menuIdSum;
-  }
-
-  public Integer getMenuIdAvg() {
-    return this.menuIdAvg;
-  }
-
-  public void setMenuIdAvg(Integer menuIdAvg) {
-    this.menuIdAvg = menuIdAvg;
-  }
-
-  public Integer getMenuIdMax() {
-    return this.menuIdMax;
-  }
-
-  public void setMenuIdMax(Integer menuIdMax) {
-    this.menuIdMax = menuIdMax;
-  }
-
-  public Integer getMenuIdMin() {
-    return this.menuIdMin;
-  }
-
-  public void setMenuIdMin(Integer menuIdMin) {
-    this.menuIdMin = menuIdMin;
   }
 }

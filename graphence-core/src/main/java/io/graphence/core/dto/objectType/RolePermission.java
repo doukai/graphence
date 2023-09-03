@@ -16,7 +16,7 @@ import org.eclipse.microprofile.graphql.Type;
 @CompiledJson
 @Generated("io.graphoenix.java.generator.builder.TypeSpecBuilderProxy")
 @Ignore
-public class RoleApi implements Meta {
+public class RolePermission implements Meta {
   @Id
   private String id;
 
@@ -24,9 +24,9 @@ public class RoleApi implements Meta {
 
   private Role from;
 
-  private Integer apiId;
+  private String permissionName;
 
-  private Api to;
+  private Permission to;
 
   private Boolean isDeprecated;
 
@@ -52,6 +52,12 @@ public class RoleApi implements Meta {
 
   private Integer idMin;
 
+  private Integer permissionNameCount;
+
+  private String permissionNameMax;
+
+  private String permissionNameMin;
+
   private Integer roleIdCount;
 
   private Integer roleIdSum;
@@ -61,16 +67,6 @@ public class RoleApi implements Meta {
   private Integer roleIdMax;
 
   private Integer roleIdMin;
-
-  private Integer apiIdCount;
-
-  private Integer apiIdSum;
-
-  private Integer apiIdAvg;
-
-  private Integer apiIdMax;
-
-  private Integer apiIdMin;
 
   public String getId() {
     return this.id;
@@ -96,19 +92,19 @@ public class RoleApi implements Meta {
     this.from = from;
   }
 
-  public Integer getApiId() {
-    return this.apiId;
+  public String getPermissionName() {
+    return this.permissionName;
   }
 
-  public void setApiId(Integer apiId) {
-    this.apiId = apiId;
+  public void setPermissionName(String permissionName) {
+    this.permissionName = permissionName;
   }
 
-  public Api getTo() {
+  public Permission getTo() {
     return this.to;
   }
 
-  public void setTo(Api to) {
+  public void setTo(Permission to) {
     this.to = to;
   }
 
@@ -224,6 +220,30 @@ public class RoleApi implements Meta {
     this.idMin = idMin;
   }
 
+  public Integer getPermissionNameCount() {
+    return this.permissionNameCount;
+  }
+
+  public void setPermissionNameCount(Integer permissionNameCount) {
+    this.permissionNameCount = permissionNameCount;
+  }
+
+  public String getPermissionNameMax() {
+    return this.permissionNameMax;
+  }
+
+  public void setPermissionNameMax(String permissionNameMax) {
+    this.permissionNameMax = permissionNameMax;
+  }
+
+  public String getPermissionNameMin() {
+    return this.permissionNameMin;
+  }
+
+  public void setPermissionNameMin(String permissionNameMin) {
+    this.permissionNameMin = permissionNameMin;
+  }
+
   public Integer getRoleIdCount() {
     return this.roleIdCount;
   }
@@ -262,45 +282,5 @@ public class RoleApi implements Meta {
 
   public void setRoleIdMin(Integer roleIdMin) {
     this.roleIdMin = roleIdMin;
-  }
-
-  public Integer getApiIdCount() {
-    return this.apiIdCount;
-  }
-
-  public void setApiIdCount(Integer apiIdCount) {
-    this.apiIdCount = apiIdCount;
-  }
-
-  public Integer getApiIdSum() {
-    return this.apiIdSum;
-  }
-
-  public void setApiIdSum(Integer apiIdSum) {
-    this.apiIdSum = apiIdSum;
-  }
-
-  public Integer getApiIdAvg() {
-    return this.apiIdAvg;
-  }
-
-  public void setApiIdAvg(Integer apiIdAvg) {
-    this.apiIdAvg = apiIdAvg;
-  }
-
-  public Integer getApiIdMax() {
-    return this.apiIdMax;
-  }
-
-  public void setApiIdMax(Integer apiIdMax) {
-    this.apiIdMax = apiIdMax;
-  }
-
-  public Integer getApiIdMin() {
-    return this.apiIdMin;
-  }
-
-  public void setApiIdMin(Integer apiIdMin) {
-    this.apiIdMin = apiIdMin;
   }
 }

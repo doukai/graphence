@@ -9,6 +9,7 @@ import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.time.LocalDateTime;
+import java.util.Collection;
 import org.eclipse.microprofile.graphql.DefaultValue;
 import org.eclipse.microprofile.graphql.Input;
 
@@ -17,9 +18,11 @@ import org.eclipse.microprofile.graphql.Input;
 @Generated("io.graphoenix.java.generator.builder.TypeSpecBuilderProxy")
 @Ignore
 public class PermissionMutationTypeArguments {
-  private String id;
-
   private String name;
+
+  private String fieldName;
+
+  private String typeName;
 
   private String description;
 
@@ -27,7 +30,7 @@ public class PermissionMutationTypeArguments {
 
   private PermissionLevel level;
 
-  private RoleInput role;
+  private Collection<RoleInput> role;
 
   private RealmInput realm;
 
@@ -50,17 +53,9 @@ public class PermissionMutationTypeArguments {
   @DefaultValue("\"Permission\"")
   private String __typename;
 
-  private Integer roleId;
+  private Collection<RolePermissionInput> rolePermission;
 
   private PermissionExpression where;
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
 
   public String getName() {
     return this.name;
@@ -68,6 +63,22 @@ public class PermissionMutationTypeArguments {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public String getFieldName() {
+    return this.fieldName;
+  }
+
+  public void setFieldName(String fieldName) {
+    this.fieldName = fieldName;
+  }
+
+  public String getTypeName() {
+    return this.typeName;
+  }
+
+  public void setTypeName(String typeName) {
+    this.typeName = typeName;
   }
 
   public String getDescription() {
@@ -94,11 +105,11 @@ public class PermissionMutationTypeArguments {
     this.level = level;
   }
 
-  public RoleInput getRole() {
+  public Collection<RoleInput> getRole() {
     return this.role;
   }
 
-  public void setRole(RoleInput role) {
+  public void setRole(Collection<RoleInput> role) {
     this.role = role;
   }
 
@@ -182,12 +193,12 @@ public class PermissionMutationTypeArguments {
     this.__typename = __typename;
   }
 
-  public Integer getRoleId() {
-    return this.roleId;
+  public Collection<RolePermissionInput> getRolePermission() {
+    return this.rolePermission;
   }
 
-  public void setRoleId(Integer roleId) {
-    this.roleId = roleId;
+  public void setRolePermission(Collection<RolePermissionInput> rolePermission) {
+    this.rolePermission = rolePermission;
   }
 
   public PermissionExpression getWhere() {

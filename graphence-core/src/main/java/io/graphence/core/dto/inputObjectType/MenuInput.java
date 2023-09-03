@@ -8,6 +8,7 @@ import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.time.LocalDateTime;
+import java.util.Collection;
 import org.eclipse.microprofile.graphql.DefaultValue;
 import org.eclipse.microprofile.graphql.Input;
 import org.eclipse.microprofile.graphql.NonNull;
@@ -17,10 +18,10 @@ import org.eclipse.microprofile.graphql.NonNull;
 @Generated("io.graphoenix.java.generator.builder.TypeSpecBuilderProxy")
 @Ignore
 public class MenuInput {
-  private String id;
-
   @NonNull
-  private String name;
+  private String href;
+
+  private String description;
 
   @NonNull
   private MenuType type;
@@ -29,11 +30,9 @@ public class MenuInput {
 
   private String icon;
 
-  private MenuInput folder;
+  private MenuInput parent;
 
-  private String description;
-
-  private RoleInput role;
+  private Collection<RoleInput> role;
 
   private RealmInput realm;
 
@@ -56,24 +55,24 @@ public class MenuInput {
   @DefaultValue("\"Menu\"")
   private String __typename;
 
-  private Integer parentId;
+  private String parentHref;
 
-  private Integer roleId;
+  private Collection<RoleMenuInput> roleMenu;
 
-  public String getId() {
-    return this.id;
+  public String getHref() {
+    return this.href;
   }
 
-  public void setId(String id) {
-    this.id = id;
+  public void setHref(String href) {
+    this.href = href;
   }
 
-  public String getName() {
-    return this.name;
+  public String getDescription() {
+    return this.description;
   }
 
-  public void setName(String name) {
-    this.name = name;
+  public void setDescription(String description) {
+    this.description = description;
   }
 
   public MenuType getType() {
@@ -100,27 +99,19 @@ public class MenuInput {
     this.icon = icon;
   }
 
-  public MenuInput getFolder() {
-    return this.folder;
+  public MenuInput getParent() {
+    return this.parent;
   }
 
-  public void setFolder(MenuInput folder) {
-    this.folder = folder;
+  public void setParent(MenuInput parent) {
+    this.parent = parent;
   }
 
-  public String getDescription() {
-    return this.description;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
-  }
-
-  public RoleInput getRole() {
+  public Collection<RoleInput> getRole() {
     return this.role;
   }
 
-  public void setRole(RoleInput role) {
+  public void setRole(Collection<RoleInput> role) {
     this.role = role;
   }
 
@@ -204,19 +195,19 @@ public class MenuInput {
     this.__typename = __typename;
   }
 
-  public Integer getParentId() {
-    return this.parentId;
+  public String getParentHref() {
+    return this.parentHref;
   }
 
-  public void setParentId(Integer parentId) {
-    this.parentId = parentId;
+  public void setParentHref(String parentHref) {
+    this.parentHref = parentHref;
   }
 
-  public Integer getRoleId() {
-    return this.roleId;
+  public Collection<RoleMenuInput> getRoleMenu() {
+    return this.roleMenu;
   }
 
-  public void setRoleId(Integer roleId) {
-    this.roleId = roleId;
+  public void setRoleMenu(Collection<RoleMenuInput> roleMenu) {
+    this.roleMenu = roleMenu;
   }
 }

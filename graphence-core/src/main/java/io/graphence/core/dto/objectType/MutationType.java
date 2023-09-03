@@ -55,10 +55,6 @@ public class MutationType implements Meta {
 
   private Collection<Permission> permissionList;
 
-  private Api api;
-
-  private Collection<Api> apiList;
-
   private Menu menu;
 
   private Collection<Menu> menuList;
@@ -79,9 +75,9 @@ public class MutationType implements Meta {
 
   private Collection<RoleComposite> roleCompositeList;
 
-  private RoleApi roleApi;
+  private RolePermission rolePermission;
 
-  private Collection<RoleApi> roleApiList;
+  private Collection<RolePermission> rolePermissionList;
 
   private RoleMenu roleMenu;
 
@@ -259,22 +255,6 @@ public class MutationType implements Meta {
     this.permissionList = permissionList;
   }
 
-  public Api getApi() {
-    return this.api;
-  }
-
-  public void setApi(Api api) {
-    this.api = api;
-  }
-
-  public Collection<Api> getApiList() {
-    return this.apiList;
-  }
-
-  public void setApiList(Collection<Api> apiList) {
-    this.apiList = apiList;
-  }
-
   public Menu getMenu() {
     return this.menu;
   }
@@ -355,20 +335,20 @@ public class MutationType implements Meta {
     this.roleCompositeList = roleCompositeList;
   }
 
-  public RoleApi getRoleApi() {
-    return this.roleApi;
+  public RolePermission getRolePermission() {
+    return this.rolePermission;
   }
 
-  public void setRoleApi(RoleApi roleApi) {
-    this.roleApi = roleApi;
+  public void setRolePermission(RolePermission rolePermission) {
+    this.rolePermission = rolePermission;
   }
 
-  public Collection<RoleApi> getRoleApiList() {
-    return this.roleApiList;
+  public Collection<RolePermission> getRolePermissionList() {
+    return this.rolePermissionList;
   }
 
-  public void setRoleApiList(Collection<RoleApi> roleApiList) {
-    this.roleApiList = roleApiList;
+  public void setRolePermissionList(Collection<RolePermission> rolePermissionList) {
+    this.rolePermissionList = rolePermissionList;
   }
 
   public RoleMenu getRoleMenu() {

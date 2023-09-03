@@ -30,8 +30,6 @@ public class RoleListQueryTypeArguments {
 
   private PermissionExpression permissions;
 
-  private ApiExpression apis;
-
   private MenuExpression menus;
 
   private RealmExpression realm;
@@ -59,7 +57,7 @@ public class RoleListQueryTypeArguments {
 
   private RoleCompositeExpression roleComposite;
 
-  private RoleApiExpression roleApi;
+  private RolePermissionExpression rolePermission;
 
   private RoleMenuExpression roleMenu;
 
@@ -128,14 +126,6 @@ public class RoleListQueryTypeArguments {
 
   public void setPermissions(PermissionExpression permissions) {
     this.permissions = permissions;
-  }
-
-  public ApiExpression getApis() {
-    return this.apis;
-  }
-
-  public void setApis(ApiExpression apis) {
-    this.apis = apis;
   }
 
   public MenuExpression getMenus() {
@@ -242,12 +232,12 @@ public class RoleListQueryTypeArguments {
     this.roleComposite = roleComposite;
   }
 
-  public RoleApiExpression getRoleApi() {
-    return this.roleApi;
+  public RolePermissionExpression getRolePermission() {
+    return this.rolePermission;
   }
 
-  public void setRoleApi(RoleApiExpression roleApi) {
-    this.roleApi = roleApi;
+  public void setRolePermission(RolePermissionExpression rolePermission) {
+    this.rolePermission = rolePermission;
   }
 
   public RoleMenuExpression getRoleMenu() {

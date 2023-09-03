@@ -13,7 +13,7 @@ import java.lang.annotation.Target;
 public @interface MenuTypeExpression {
   Operator opr() default Operator.EQ;
 
-  MenuType val() default MenuType.FOLDER;
+  MenuType val() default MenuType.MENU;
 
   MenuType[] in() default {};
 

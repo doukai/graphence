@@ -7,6 +7,8 @@ import io.graphoenix.core.dto.inputObjectType.StringExpression;
 import io.graphoenix.spi.annotation.Ignore;
 import jakarta.annotation.Generated;
 import java.lang.Boolean;
+import java.lang.Integer;
+import java.lang.String;
 import java.util.Collection;
 import org.eclipse.microprofile.graphql.DefaultValue;
 import org.eclipse.microprofile.graphql.Input;
@@ -15,18 +17,16 @@ import org.eclipse.microprofile.graphql.Input;
 @CompiledJson
 @Generated("io.graphoenix.java.generator.builder.TypeSpecBuilderProxy")
 @Ignore
-public class ApiQueryTypeArguments {
+public class RolePermissionConnectionQueryTypeArguments {
   private StringExpression id;
 
-  private StringExpression name;
+  private IntExpression roleId;
 
-  private StringExpression description;
+  private RoleExpression from;
 
-  private ApiTypeExpression type;
+  private StringExpression permissionName;
 
-  private RoleExpression role;
-
-  private RealmExpression realm;
+  private PermissionExpression to;
 
   @DefaultValue("false")
   private Boolean includeDeprecated;
@@ -47,12 +47,24 @@ public class ApiQueryTypeArguments {
 
   private StringExpression __typename;
 
-  private IntExpression roleId;
+  private RolePermissionOrderBy orderBy;
+
+  private Collection<String> groupBy;
 
   @DefaultValue("AND")
   private Conditional cond;
 
-  private Collection<ApiExpression> exs;
+  private Collection<RolePermissionExpression> exs;
+
+  private Integer first;
+
+  private Integer last;
+
+  private Integer offset;
+
+  private String after;
+
+  private String before;
 
   public StringExpression getId() {
     return this.id;
@@ -62,44 +74,36 @@ public class ApiQueryTypeArguments {
     this.id = id;
   }
 
-  public StringExpression getName() {
-    return this.name;
+  public IntExpression getRoleId() {
+    return this.roleId;
   }
 
-  public void setName(StringExpression name) {
-    this.name = name;
+  public void setRoleId(IntExpression roleId) {
+    this.roleId = roleId;
   }
 
-  public StringExpression getDescription() {
-    return this.description;
+  public RoleExpression getFrom() {
+    return this.from;
   }
 
-  public void setDescription(StringExpression description) {
-    this.description = description;
+  public void setFrom(RoleExpression from) {
+    this.from = from;
   }
 
-  public ApiTypeExpression getType() {
-    return this.type;
+  public StringExpression getPermissionName() {
+    return this.permissionName;
   }
 
-  public void setType(ApiTypeExpression type) {
-    this.type = type;
+  public void setPermissionName(StringExpression permissionName) {
+    this.permissionName = permissionName;
   }
 
-  public RoleExpression getRole() {
-    return this.role;
+  public PermissionExpression getTo() {
+    return this.to;
   }
 
-  public void setRole(RoleExpression role) {
-    this.role = role;
-  }
-
-  public RealmExpression getRealm() {
-    return this.realm;
-  }
-
-  public void setRealm(RealmExpression realm) {
-    this.realm = realm;
+  public void setTo(PermissionExpression to) {
+    this.to = to;
   }
 
   public Boolean getIncludeDeprecated() {
@@ -174,12 +178,20 @@ public class ApiQueryTypeArguments {
     this.__typename = __typename;
   }
 
-  public IntExpression getRoleId() {
-    return this.roleId;
+  public RolePermissionOrderBy getOrderBy() {
+    return this.orderBy;
   }
 
-  public void setRoleId(IntExpression roleId) {
-    this.roleId = roleId;
+  public void setOrderBy(RolePermissionOrderBy orderBy) {
+    this.orderBy = orderBy;
+  }
+
+  public Collection<String> getGroupBy() {
+    return this.groupBy;
+  }
+
+  public void setGroupBy(Collection<String> groupBy) {
+    this.groupBy = groupBy;
   }
 
   public Conditional getCond() {
@@ -190,11 +202,51 @@ public class ApiQueryTypeArguments {
     this.cond = cond;
   }
 
-  public Collection<ApiExpression> getExs() {
+  public Collection<RolePermissionExpression> getExs() {
     return this.exs;
   }
 
-  public void setExs(Collection<ApiExpression> exs) {
+  public void setExs(Collection<RolePermissionExpression> exs) {
     this.exs = exs;
+  }
+
+  public Integer getFirst() {
+    return this.first;
+  }
+
+  public void setFirst(Integer first) {
+    this.first = first;
+  }
+
+  public Integer getLast() {
+    return this.last;
+  }
+
+  public void setLast(Integer last) {
+    this.last = last;
+  }
+
+  public Integer getOffset() {
+    return this.offset;
+  }
+
+  public void setOffset(Integer offset) {
+    this.offset = offset;
+  }
+
+  public String getAfter() {
+    return this.after;
+  }
+
+  public void setAfter(String after) {
+    this.after = after;
+  }
+
+  public String getBefore() {
+    return this.before;
+  }
+
+  public void setBefore(String before) {
+    this.before = before;
   }
 }

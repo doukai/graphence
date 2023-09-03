@@ -63,12 +63,6 @@ public class SubscriptionType implements Meta {
 
   private PermissionConnection permissionConnection;
 
-  private Api api;
-
-  private Collection<Api> apiList;
-
-  private ApiConnection apiConnection;
-
   private Menu menu;
 
   private Collection<Menu> menuList;
@@ -99,11 +93,11 @@ public class SubscriptionType implements Meta {
 
   private RoleCompositeConnection roleCompositeConnection;
 
-  private RoleApi roleApi;
+  private RolePermission rolePermission;
 
-  private Collection<RoleApi> roleApiList;
+  private Collection<RolePermission> rolePermissionList;
 
-  private RoleApiConnection roleApiConnection;
+  private RolePermissionConnection rolePermissionConnection;
 
   private RoleMenu roleMenu;
 
@@ -317,30 +311,6 @@ public class SubscriptionType implements Meta {
     this.permissionConnection = permissionConnection;
   }
 
-  public Api getApi() {
-    return this.api;
-  }
-
-  public void setApi(Api api) {
-    this.api = api;
-  }
-
-  public Collection<Api> getApiList() {
-    return this.apiList;
-  }
-
-  public void setApiList(Collection<Api> apiList) {
-    this.apiList = apiList;
-  }
-
-  public ApiConnection getApiConnection() {
-    return this.apiConnection;
-  }
-
-  public void setApiConnection(ApiConnection apiConnection) {
-    this.apiConnection = apiConnection;
-  }
-
   public Menu getMenu() {
     return this.menu;
   }
@@ -461,28 +431,28 @@ public class SubscriptionType implements Meta {
     this.roleCompositeConnection = roleCompositeConnection;
   }
 
-  public RoleApi getRoleApi() {
-    return this.roleApi;
+  public RolePermission getRolePermission() {
+    return this.rolePermission;
   }
 
-  public void setRoleApi(RoleApi roleApi) {
-    this.roleApi = roleApi;
+  public void setRolePermission(RolePermission rolePermission) {
+    this.rolePermission = rolePermission;
   }
 
-  public Collection<RoleApi> getRoleApiList() {
-    return this.roleApiList;
+  public Collection<RolePermission> getRolePermissionList() {
+    return this.rolePermissionList;
   }
 
-  public void setRoleApiList(Collection<RoleApi> roleApiList) {
-    this.roleApiList = roleApiList;
+  public void setRolePermissionList(Collection<RolePermission> rolePermissionList) {
+    this.rolePermissionList = rolePermissionList;
   }
 
-  public RoleApiConnection getRoleApiConnection() {
-    return this.roleApiConnection;
+  public RolePermissionConnection getRolePermissionConnection() {
+    return this.rolePermissionConnection;
   }
 
-  public void setRoleApiConnection(RoleApiConnection roleApiConnection) {
-    this.roleApiConnection = roleApiConnection;
+  public void setRolePermissionConnection(RolePermissionConnection rolePermissionConnection) {
+    this.rolePermissionConnection = rolePermissionConnection;
   }
 
   public RoleMenu getRoleMenu() {

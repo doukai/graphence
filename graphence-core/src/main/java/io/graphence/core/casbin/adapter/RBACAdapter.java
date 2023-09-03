@@ -1,7 +1,6 @@
 package io.graphence.core.casbin.adapter;
 
 import com.google.common.collect.Streams;
-import io.graphence.core.dto.enumType.ApiType;
 import io.graphence.core.dto.objectType.Role;
 import jakarta.enterprise.context.ApplicationScoped;
 import org.casbin.jcasbin.model.Model;
@@ -54,13 +53,13 @@ public class RBACAdapter implements Adapter {
                                                                     .setPtype(P_TYPE)
                                                                     .setV0(ROLE_PREFIX.concat(role.getName()))
                                                                     .setV1(Optional.ofNullable(role.getRealmId()).map(String::valueOf).orElse(UNDEFINED))
-                                                                    .setV2(permission.getName())
+                                                                    .setV2(permission.getTypeName() + SPACER + permission.getFieldName())
                                                                     .setV3(WRITE.name()),
                                                             new Rule()
                                                                     .setPtype(P_TYPE)
                                                                     .setV0(ROLE_PREFIX.concat(role.getName()))
                                                                     .setV1(Optional.ofNullable(role.getRealmId()).map(String::valueOf).orElse(UNDEFINED))
-                                                                    .setV2(permission.getName())
+                                                                    .setV2(permission.getTypeName() + SPACER + permission.getFieldName())
                                                                     .setV3(READ.name())
                                                     );
                                                 } else if (permission.getType().equals(READ)) {
@@ -69,35 +68,11 @@ public class RBACAdapter implements Adapter {
                                                                     .setPtype(P_TYPE)
                                                                     .setV0(ROLE_PREFIX.concat(role.getName()))
                                                                     .setV1(Optional.ofNullable(role.getRealmId()).map(String::valueOf).orElse(UNDEFINED))
-                                                                    .setV2(permission.getName())
+                                                                    .setV2(permission.getTypeName() + SPACER + permission.getFieldName())
                                                                     .setV3(READ.name())
                                                     );
                                                 } else {
                                                     return Stream.empty();
-                                                }
-                                            }
-                                    )
-                    );
-
-            Stream<Rule> apiRuleStream = roles.stream()
-                    .flatMap(role ->
-                            Stream.ofNullable(role.getApis())
-                                    .flatMap(Collection::stream)
-                                    .map(api -> {
-                                                if (api.getType().equals(ApiType.MUTATION)) {
-                                                    return new Rule()
-                                                            .setPtype(P_TYPE)
-                                                            .setV0(ROLE_PREFIX.concat(role.getName()))
-                                                            .setV1(Optional.ofNullable(role.getRealmId()).map(String::valueOf).orElse(UNDEFINED))
-                                                            .setV2(api.getType().name() + SPACER + api.getName())
-                                                            .setV3(WRITE.name());
-                                                } else {
-                                                    return new Rule()
-                                                            .setPtype(P_TYPE)
-                                                            .setV0(ROLE_PREFIX.concat(role.getName()))
-                                                            .setV1(Optional.ofNullable(role.getRealmId()).map(String::valueOf).orElse(UNDEFINED))
-                                                            .setV2(api.getType().name() + SPACER + api.getName())
-                                                            .setV3(READ.name());
                                                 }
                                             }
                                     )
@@ -129,7 +104,7 @@ public class RBACAdapter implements Adapter {
                                     )
                     );
 
-            Streams.concat(permissionRuleStream, apiRuleStream, userRuleStream, roleRuleStream).forEach(line -> loadPolicyLine(line, model));
+            Streams.concat(permissionRuleStream, userRuleStream, roleRuleStream).forEach(line -> loadPolicyLine(line, model));
 
         } catch (Exception e) {
             Logger.error(e);

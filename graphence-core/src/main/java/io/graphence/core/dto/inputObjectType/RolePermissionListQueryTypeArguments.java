@@ -7,6 +7,8 @@ import io.graphoenix.core.dto.inputObjectType.StringExpression;
 import io.graphoenix.spi.annotation.Ignore;
 import jakarta.annotation.Generated;
 import java.lang.Boolean;
+import java.lang.Integer;
+import java.lang.String;
 import java.util.Collection;
 import org.eclipse.microprofile.graphql.DefaultValue;
 import org.eclipse.microprofile.graphql.Input;
@@ -15,16 +17,16 @@ import org.eclipse.microprofile.graphql.Input;
 @CompiledJson
 @Generated("io.graphoenix.java.generator.builder.TypeSpecBuilderProxy")
 @Ignore
-public class RoleApiExpression {
+public class RolePermissionListQueryTypeArguments {
   private StringExpression id;
 
   private IntExpression roleId;
 
   private RoleExpression from;
 
-  private IntExpression apiId;
+  private StringExpression permissionName;
 
-  private ApiExpression to;
+  private PermissionExpression to;
 
   @DefaultValue("false")
   private Boolean includeDeprecated;
@@ -45,10 +47,24 @@ public class RoleApiExpression {
 
   private StringExpression __typename;
 
+  private RolePermissionOrderBy orderBy;
+
+  private Collection<String> groupBy;
+
   @DefaultValue("AND")
   private Conditional cond;
 
-  private Collection<RoleApiExpression> exs;
+  private Collection<RolePermissionExpression> exs;
+
+  private Integer first;
+
+  private Integer last;
+
+  private Integer offset;
+
+  private String after;
+
+  private String before;
 
   public StringExpression getId() {
     return this.id;
@@ -74,19 +90,19 @@ public class RoleApiExpression {
     this.from = from;
   }
 
-  public IntExpression getApiId() {
-    return this.apiId;
+  public StringExpression getPermissionName() {
+    return this.permissionName;
   }
 
-  public void setApiId(IntExpression apiId) {
-    this.apiId = apiId;
+  public void setPermissionName(StringExpression permissionName) {
+    this.permissionName = permissionName;
   }
 
-  public ApiExpression getTo() {
+  public PermissionExpression getTo() {
     return this.to;
   }
 
-  public void setTo(ApiExpression to) {
+  public void setTo(PermissionExpression to) {
     this.to = to;
   }
 
@@ -162,6 +178,22 @@ public class RoleApiExpression {
     this.__typename = __typename;
   }
 
+  public RolePermissionOrderBy getOrderBy() {
+    return this.orderBy;
+  }
+
+  public void setOrderBy(RolePermissionOrderBy orderBy) {
+    this.orderBy = orderBy;
+  }
+
+  public Collection<String> getGroupBy() {
+    return this.groupBy;
+  }
+
+  public void setGroupBy(Collection<String> groupBy) {
+    this.groupBy = groupBy;
+  }
+
   public Conditional getCond() {
     return this.cond;
   }
@@ -170,11 +202,51 @@ public class RoleApiExpression {
     this.cond = cond;
   }
 
-  public Collection<RoleApiExpression> getExs() {
+  public Collection<RolePermissionExpression> getExs() {
     return this.exs;
   }
 
-  public void setExs(Collection<RoleApiExpression> exs) {
+  public void setExs(Collection<RolePermissionExpression> exs) {
     this.exs = exs;
+  }
+
+  public Integer getFirst() {
+    return this.first;
+  }
+
+  public void setFirst(Integer first) {
+    this.first = first;
+  }
+
+  public Integer getLast() {
+    return this.last;
+  }
+
+  public void setLast(Integer last) {
+    this.last = last;
+  }
+
+  public Integer getOffset() {
+    return this.offset;
+  }
+
+  public void setOffset(Integer offset) {
+    this.offset = offset;
+  }
+
+  public String getAfter() {
+    return this.after;
+  }
+
+  public void setAfter(String after) {
+    this.after = after;
+  }
+
+  public String getBefore() {
+    return this.before;
+  }
+
+  public void setBefore(String before) {
+    this.before = before;
   }
 }

@@ -14,16 +14,16 @@ import org.eclipse.microprofile.graphql.Input;
 @CompiledJson
 @Generated("io.graphoenix.java.generator.builder.TypeSpecBuilderProxy")
 @Ignore
-public class RoleApiInput {
+public class RolePermissionInput {
   private String id;
 
   private Integer roleId;
 
   private RoleInput from;
 
-  private Integer apiId;
+  private String permissionName;
 
-  private ApiInput to;
+  private PermissionInput to;
 
   private Boolean isDeprecated;
 
@@ -41,7 +41,7 @@ public class RoleApiInput {
 
   private String createGroupId;
 
-  @DefaultValue("\"RoleApi\"")
+  @DefaultValue("\"RolePermission\"")
   private String __typename;
 
   public String getId() {
@@ -68,19 +68,19 @@ public class RoleApiInput {
     this.from = from;
   }
 
-  public Integer getApiId() {
-    return this.apiId;
+  public String getPermissionName() {
+    return this.permissionName;
   }
 
-  public void setApiId(Integer apiId) {
-    this.apiId = apiId;
+  public void setPermissionName(String permissionName) {
+    this.permissionName = permissionName;
   }
 
-  public ApiInput getTo() {
+  public PermissionInput getTo() {
     return this.to;
   }
 
-  public void setTo(ApiInput to) {
+  public void setTo(PermissionInput to) {
     this.to = to;
   }
 

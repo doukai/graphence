@@ -86,15 +86,6 @@ message QueryPermissionListResponse {
 message QueryPermissionConnectionResponse {
     optional PermissionConnection permission_connection = 1;
 }
-message QueryApiResponse {
-    optional Api api = 1;
-}
-message QueryApiListResponse {
-    repeated Api api_list = 1;
-}
-message QueryApiConnectionResponse {
-    optional ApiConnection api_connection = 1;
-}
 message QueryMenuResponse {
     optional Menu menu = 1;
 }
@@ -140,14 +131,14 @@ message QueryRoleCompositeListResponse {
 message QueryRoleCompositeConnectionResponse {
     optional RoleCompositeConnection role_composite_connection = 1;
 }
-message QueryRoleApiResponse {
-    optional RoleApi role_api = 1;
+message QueryRolePermissionResponse {
+    optional RolePermission role_permission = 1;
 }
-message QueryRoleApiListResponse {
-    repeated RoleApi role_api_list = 1;
+message QueryRolePermissionListResponse {
+    repeated RolePermission role_permission_list = 1;
 }
-message QueryRoleApiConnectionResponse {
-    optional RoleApiConnection role_api_connection = 1;
+message QueryRolePermissionConnectionResponse {
+    optional RolePermissionConnection role_permission_connection = 1;
 }
 message QueryRoleMenuResponse {
     optional RoleMenu role_menu = 1;

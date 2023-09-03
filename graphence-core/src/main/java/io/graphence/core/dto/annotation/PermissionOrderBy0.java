@@ -9,9 +9,11 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.SOURCE)
 @Target(ElementType.METHOD)
 public @interface PermissionOrderBy0 {
-  Sort id() default Sort.ASC;
-
   Sort name() default Sort.ASC;
+
+  Sort fieldName() default Sort.ASC;
+
+  Sort typeName() default Sort.ASC;
 
   Sort description() default Sort.ASC;
 
@@ -36,6 +38,4 @@ public @interface PermissionOrderBy0 {
   Sort createGroupId() default Sort.ASC;
 
   Sort __typename() default Sort.ASC;
-
-  Sort roleId() default Sort.ASC;
 }

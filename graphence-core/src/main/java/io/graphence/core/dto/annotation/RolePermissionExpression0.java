@@ -9,16 +9,14 @@ import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.SOURCE)
 @Target(ElementType.METHOD)
-public @interface ApiExpression0 {
+public @interface RolePermissionExpression0 {
   Conditional cond() default Conditional.AND;
 
   IDExpression id() default @IDExpression;
 
-  StringExpression name() default @StringExpression;
+  IntExpression roleId() default @IntExpression;
 
-  StringExpression description() default @StringExpression;
-
-  ApiTypeExpression type() default @ApiTypeExpression;
+  StringExpression permissionName() default @StringExpression;
 
   BooleanExpression isDeprecated() default @BooleanExpression;
 
@@ -38,11 +36,9 @@ public @interface ApiExpression0 {
 
   StringExpression __typename() default @StringExpression;
 
-  IntExpression roleId() default @IntExpression;
-
   String[] groupBy() default {};
 
-  ApiOrderBy0 orderBy() default @ApiOrderBy0;
+  RolePermissionOrderBy0 orderBy() default @RolePermissionOrderBy0;
 
   int first() default 0;
 

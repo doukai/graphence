@@ -11,17 +11,15 @@ import org.eclipse.microprofile.graphql.Input;
 @Generated("io.graphoenix.java.generator.builder.TypeSpecBuilderProxy")
 @Ignore
 public class MenuOrderBy {
-  private Sort id;
+  private Sort href;
 
-  private Sort name;
+  private Sort description;
 
   private Sort type;
 
   private Sort path;
 
   private Sort icon;
-
-  private Sort description;
 
   private Sort isDeprecated;
 
@@ -41,24 +39,22 @@ public class MenuOrderBy {
 
   private Sort __typename;
 
-  private Sort parentId;
+  private Sort parentHref;
 
-  private Sort roleId;
-
-  public Sort getId() {
-    return this.id;
+  public Sort getHref() {
+    return this.href;
   }
 
-  public void setId(Sort id) {
-    this.id = id;
+  public void setHref(Sort href) {
+    this.href = href;
   }
 
-  public Sort getName() {
-    return this.name;
+  public Sort getDescription() {
+    return this.description;
   }
 
-  public void setName(Sort name) {
-    this.name = name;
+  public void setDescription(Sort description) {
+    this.description = description;
   }
 
   public Sort getType() {
@@ -83,14 +79,6 @@ public class MenuOrderBy {
 
   public void setIcon(Sort icon) {
     this.icon = icon;
-  }
-
-  public Sort getDescription() {
-    return this.description;
-  }
-
-  public void setDescription(Sort description) {
-    this.description = description;
   }
 
   public Sort getIsDeprecated() {
@@ -165,19 +153,11 @@ public class MenuOrderBy {
     this.__typename = __typename;
   }
 
-  public Sort getParentId() {
-    return this.parentId;
+  public Sort getParentHref() {
+    return this.parentHref;
   }
 
-  public void setParentId(Sort parentId) {
-    this.parentId = parentId;
-  }
-
-  public Sort getRoleId() {
-    return this.roleId;
-  }
-
-  public void setRoleId(Sort roleId) {
-    this.roleId = roleId;
+  public void setParentHref(Sort parentHref) {
+    this.parentHref = parentHref;
   }
 }

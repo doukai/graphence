@@ -12,17 +12,15 @@ import java.lang.annotation.Target;
 public @interface MenuExpression0 {
   Conditional cond() default Conditional.AND;
 
-  IDExpression id() default @IDExpression;
+  IDExpression href() default @IDExpression;
 
-  StringExpression name() default @StringExpression;
+  StringExpression description() default @StringExpression;
 
   MenuTypeExpression type() default @MenuTypeExpression;
 
   StringExpression path() default @StringExpression;
 
   StringExpression icon() default @StringExpression;
-
-  StringExpression description() default @StringExpression;
 
   BooleanExpression isDeprecated() default @BooleanExpression;
 
@@ -42,9 +40,7 @@ public @interface MenuExpression0 {
 
   StringExpression __typename() default @StringExpression;
 
-  IntExpression parentId() default @IntExpression;
-
-  IntExpression roleId() default @IntExpression;
+  StringExpression parentHref() default @StringExpression;
 
   String[] groupBy() default {};
 

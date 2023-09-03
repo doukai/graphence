@@ -1,6 +1,5 @@
 package io.graphence.core.dto.annotation;
 
-import io.graphence.core.dto.enumType.ApiType;
 import java.lang.String;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -9,14 +8,12 @@ import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.SOURCE)
 @Target(ElementType.METHOD)
-public @interface ApiInput0 {
+public @interface RolePermissionInput0 {
   String id() default "";
 
-  String name() default "";
+  int roleId() default 0;
 
-  String description() default "";
-
-  ApiType type() default ApiType.QUERY;
+  String permissionName() default "";
 
   boolean isDeprecated() default false;
 
@@ -36,19 +33,15 @@ public @interface ApiInput0 {
 
   String __typename() default "";
 
-  int roleId() default 0;
-
   String $id() default "";
 
-  String $name() default "";
+  String $roleId() default "";
 
-  String $description() default "";
+  String $from() default "";
 
-  String $type() default "";
+  String $permissionName() default "";
 
-  String $role() default "";
-
-  String $realm() default "";
+  String $to() default "";
 
   String $isDeprecated() default "";
 
@@ -67,6 +60,4 @@ public @interface ApiInput0 {
   String $createGroupId() default "";
 
   String $__typename() default "";
-
-  String $roleId() default "";
 }

@@ -4,7 +4,8 @@ public enum AuthenticationErrorType {
 
     UN_AUTHENTICATION(-40100, "unauthorized"),
     AUTHENTICATION_FAILED(-40101, "authentication failed"),
-    AUTHENTICATION_SERVER_ERROR(-40102, "authentication error"),
+    AUTHENTICATION_DISABLE(-40102, "account disable"),
+    AUTHENTICATION_SERVER_ERROR(-40103, "authentication error"),
 
     UNKNOWN(-40199, "unknown authentication error");
 

@@ -15,7 +15,7 @@ public class RoleMenuOrderBy {
 
   private Sort roleId;
 
-  private Sort menuId;
+  private Sort menuHref;
 
   private Sort isDeprecated;
 
@@ -51,12 +51,12 @@ public class RoleMenuOrderBy {
     this.roleId = roleId;
   }
 
-  public Sort getMenuId() {
-    return this.menuId;
+  public Sort getMenuHref() {
+    return this.menuHref;
   }
 
-  public void setMenuId(Sort menuId) {
-    this.menuId = menuId;
+  public void setMenuHref(Sort menuHref) {
+    this.menuHref = menuHref;
   }
 
   public Sort getIsDeprecated() {

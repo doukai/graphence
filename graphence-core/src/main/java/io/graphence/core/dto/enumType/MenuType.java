@@ -8,7 +8,7 @@ import org.eclipse.microprofile.graphql.Enum;
 @Generated("io.graphoenix.java.generator.builder.TypeSpecBuilderProxy")
 @Ignore
 public enum MenuType {
-  FOLDER,
+  MENU,
 
   PAGE
 }

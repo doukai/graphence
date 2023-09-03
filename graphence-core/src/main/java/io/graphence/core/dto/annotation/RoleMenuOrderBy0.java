@@ -13,7 +13,7 @@ public @interface RoleMenuOrderBy0 {
 
   Sort roleId() default Sort.ASC;
 
-  Sort menuId() default Sort.ASC;
+  Sort menuHref() default Sort.ASC;
 
   Sort isDeprecated() default Sort.ASC;
 

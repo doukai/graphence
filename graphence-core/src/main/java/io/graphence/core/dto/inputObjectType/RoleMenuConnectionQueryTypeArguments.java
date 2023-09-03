@@ -24,7 +24,7 @@ public class RoleMenuConnectionQueryTypeArguments {
 
   private RoleExpression from;
 
-  private IntExpression menuId;
+  private StringExpression menuHref;
 
   private MenuExpression to;
 
@@ -90,12 +90,12 @@ public class RoleMenuConnectionQueryTypeArguments {
     this.from = from;
   }
 
-  public IntExpression getMenuId() {
-    return this.menuId;
+  public StringExpression getMenuHref() {
+    return this.menuHref;
   }
 
-  public void setMenuId(IntExpression menuId) {
-    this.menuId = menuId;
+  public void setMenuHref(StringExpression menuHref) {
+    this.menuHref = menuHref;
   }
 
   public MenuExpression getTo() {

@@ -33,8 +33,6 @@ public class Role implements Meta {
 
   private Collection<Permission> permissions;
 
-  private Collection<Api> apis;
-
   private Collection<Menu> menus;
 
   private Realm realm;
@@ -87,10 +85,6 @@ public class Role implements Meta {
 
   private PermissionConnection permissionsConnection;
 
-  private Api apisAggregate;
-
-  private ApiConnection apisConnection;
-
   private Menu menusAggregate;
 
   private MenuConnection menusConnection;
@@ -117,11 +111,11 @@ public class Role implements Meta {
 
   private RoleCompositeConnection roleCompositeConnection;
 
-  private Collection<RoleApi> roleApi;
+  private Collection<RolePermission> rolePermission;
 
-  private RoleApi roleApiAggregate;
+  private RolePermission rolePermissionAggregate;
 
-  private RoleApiConnection roleApiConnection;
+  private RolePermissionConnection rolePermissionConnection;
 
   private Collection<RoleMenu> roleMenu;
 
@@ -175,14 +169,6 @@ public class Role implements Meta {
 
   public void setPermissions(Collection<Permission> permissions) {
     this.permissions = permissions;
-  }
-
-  public Collection<Api> getApis() {
-    return this.apis;
-  }
-
-  public void setApis(Collection<Api> apis) {
-    this.apis = apis;
   }
 
   public Collection<Menu> getMenus() {
@@ -409,22 +395,6 @@ public class Role implements Meta {
     this.permissionsConnection = permissionsConnection;
   }
 
-  public Api getApisAggregate() {
-    return this.apisAggregate;
-  }
-
-  public void setApisAggregate(Api apisAggregate) {
-    this.apisAggregate = apisAggregate;
-  }
-
-  public ApiConnection getApisConnection() {
-    return this.apisConnection;
-  }
-
-  public void setApisConnection(ApiConnection apisConnection) {
-    this.apisConnection = apisConnection;
-  }
-
   public Menu getMenusAggregate() {
     return this.menusAggregate;
   }
@@ -529,28 +499,28 @@ public class Role implements Meta {
     this.roleCompositeConnection = roleCompositeConnection;
   }
 
-  public Collection<RoleApi> getRoleApi() {
-    return this.roleApi;
+  public Collection<RolePermission> getRolePermission() {
+    return this.rolePermission;
   }
 
-  public void setRoleApi(Collection<RoleApi> roleApi) {
-    this.roleApi = roleApi;
+  public void setRolePermission(Collection<RolePermission> rolePermission) {
+    this.rolePermission = rolePermission;
   }
 
-  public RoleApi getRoleApiAggregate() {
-    return this.roleApiAggregate;
+  public RolePermission getRolePermissionAggregate() {
+    return this.rolePermissionAggregate;
   }
 
-  public void setRoleApiAggregate(RoleApi roleApiAggregate) {
-    this.roleApiAggregate = roleApiAggregate;
+  public void setRolePermissionAggregate(RolePermission rolePermissionAggregate) {
+    this.rolePermissionAggregate = rolePermissionAggregate;
   }
 
-  public RoleApiConnection getRoleApiConnection() {
-    return this.roleApiConnection;
+  public RolePermissionConnection getRolePermissionConnection() {
+    return this.rolePermissionConnection;
   }
 
-  public void setRoleApiConnection(RoleApiConnection roleApiConnection) {
-    this.roleApiConnection = roleApiConnection;
+  public void setRolePermissionConnection(RolePermissionConnection rolePermissionConnection) {
+    this.rolePermissionConnection = rolePermissionConnection;
   }
 
   public Collection<RoleMenu> getRoleMenu() {

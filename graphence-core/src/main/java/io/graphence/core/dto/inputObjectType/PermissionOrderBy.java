@@ -11,9 +11,11 @@ import org.eclipse.microprofile.graphql.Input;
 @Generated("io.graphoenix.java.generator.builder.TypeSpecBuilderProxy")
 @Ignore
 public class PermissionOrderBy {
-  private Sort id;
-
   private Sort name;
+
+  private Sort fieldName;
+
+  private Sort typeName;
 
   private Sort description;
 
@@ -39,22 +41,28 @@ public class PermissionOrderBy {
 
   private Sort __typename;
 
-  private Sort roleId;
-
-  public Sort getId() {
-    return this.id;
-  }
-
-  public void setId(Sort id) {
-    this.id = id;
-  }
-
   public Sort getName() {
     return this.name;
   }
 
   public void setName(Sort name) {
     this.name = name;
+  }
+
+  public Sort getFieldName() {
+    return this.fieldName;
+  }
+
+  public void setFieldName(Sort fieldName) {
+    this.fieldName = fieldName;
+  }
+
+  public Sort getTypeName() {
+    return this.typeName;
+  }
+
+  public void setTypeName(Sort typeName) {
+    this.typeName = typeName;
   }
 
   public Sort getDescription() {
@@ -151,13 +159,5 @@ public class PermissionOrderBy {
 
   public void set__typename(Sort __typename) {
     this.__typename = __typename;
-  }
-
-  public Sort getRoleId() {
-    return this.roleId;
-  }
-
-  public void setRoleId(Sort roleId) {
-    this.roleId = roleId;
   }
 }

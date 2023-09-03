@@ -16,7 +16,7 @@ public @interface RoleMenuExpression0 {
 
   IntExpression roleId() default @IntExpression;
 
-  IntExpression menuId() default @IntExpression;
+  StringExpression menuHref() default @StringExpression;
 
   BooleanExpression isDeprecated() default @BooleanExpression;
 

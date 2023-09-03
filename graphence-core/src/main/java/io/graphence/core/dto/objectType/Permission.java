@@ -11,6 +11,7 @@ import java.lang.Integer;
 import java.lang.Override;
 import java.lang.String;
 import java.time.LocalDateTime;
+import java.util.Collection;
 import org.eclipse.microprofile.graphql.Id;
 import org.eclipse.microprofile.graphql.NonNull;
 import org.eclipse.microprofile.graphql.Type;
@@ -21,10 +22,14 @@ import org.eclipse.microprofile.graphql.Type;
 @Ignore
 public class Permission implements Meta {
   @Id
-  private String id;
-
   @NonNull
   private String name;
+
+  @NonNull
+  private String fieldName;
+
+  @NonNull
+  private String typeName;
 
   private String description;
 
@@ -32,7 +37,7 @@ public class Permission implements Meta {
 
   private PermissionLevel level;
 
-  private Role role;
+  private Collection<Role> role;
 
   private Realm realm;
 
@@ -54,17 +59,23 @@ public class Permission implements Meta {
 
   private String __typename;
 
-  private Integer idCount;
-
-  private Integer idMax;
-
-  private Integer idMin;
-
   private Integer nameCount;
 
   private String nameMax;
 
   private String nameMin;
+
+  private Integer fieldNameCount;
+
+  private String fieldNameMax;
+
+  private String fieldNameMin;
+
+  private Integer typeNameCount;
+
+  private String typeNameMax;
+
+  private String typeNameMin;
 
   private Integer descriptionCount;
 
@@ -72,17 +83,9 @@ public class Permission implements Meta {
 
   private String descriptionMin;
 
-  private Integer roleId;
+  private Role roleAggregate;
 
-  private Integer roleIdCount;
-
-  private Integer roleIdSum;
-
-  private Integer roleIdAvg;
-
-  private Integer roleIdMax;
-
-  private Integer roleIdMin;
+  private RoleConnection roleConnection;
 
   private Integer realmIdCount;
 
@@ -94,13 +97,11 @@ public class Permission implements Meta {
 
   private Integer realmIdMin;
 
-  public String getId() {
-    return this.id;
-  }
+  private Collection<RolePermission> rolePermission;
 
-  public void setId(String id) {
-    this.id = id;
-  }
+  private RolePermission rolePermissionAggregate;
+
+  private RolePermissionConnection rolePermissionConnection;
 
   public String getName() {
     return this.name;
@@ -108,6 +109,22 @@ public class Permission implements Meta {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public String getFieldName() {
+    return this.fieldName;
+  }
+
+  public void setFieldName(String fieldName) {
+    this.fieldName = fieldName;
+  }
+
+  public String getTypeName() {
+    return this.typeName;
+  }
+
+  public void setTypeName(String typeName) {
+    this.typeName = typeName;
   }
 
   public String getDescription() {
@@ -134,11 +151,11 @@ public class Permission implements Meta {
     this.level = level;
   }
 
-  public Role getRole() {
+  public Collection<Role> getRole() {
     return this.role;
   }
 
-  public void setRole(Role role) {
+  public void setRole(Collection<Role> role) {
     this.role = role;
   }
 
@@ -238,30 +255,6 @@ public class Permission implements Meta {
     this.__typename = __typename;
   }
 
-  public Integer getIdCount() {
-    return this.idCount;
-  }
-
-  public void setIdCount(Integer idCount) {
-    this.idCount = idCount;
-  }
-
-  public Integer getIdMax() {
-    return this.idMax;
-  }
-
-  public void setIdMax(Integer idMax) {
-    this.idMax = idMax;
-  }
-
-  public Integer getIdMin() {
-    return this.idMin;
-  }
-
-  public void setIdMin(Integer idMin) {
-    this.idMin = idMin;
-  }
-
   public Integer getNameCount() {
     return this.nameCount;
   }
@@ -284,6 +277,54 @@ public class Permission implements Meta {
 
   public void setNameMin(String nameMin) {
     this.nameMin = nameMin;
+  }
+
+  public Integer getFieldNameCount() {
+    return this.fieldNameCount;
+  }
+
+  public void setFieldNameCount(Integer fieldNameCount) {
+    this.fieldNameCount = fieldNameCount;
+  }
+
+  public String getFieldNameMax() {
+    return this.fieldNameMax;
+  }
+
+  public void setFieldNameMax(String fieldNameMax) {
+    this.fieldNameMax = fieldNameMax;
+  }
+
+  public String getFieldNameMin() {
+    return this.fieldNameMin;
+  }
+
+  public void setFieldNameMin(String fieldNameMin) {
+    this.fieldNameMin = fieldNameMin;
+  }
+
+  public Integer getTypeNameCount() {
+    return this.typeNameCount;
+  }
+
+  public void setTypeNameCount(Integer typeNameCount) {
+    this.typeNameCount = typeNameCount;
+  }
+
+  public String getTypeNameMax() {
+    return this.typeNameMax;
+  }
+
+  public void setTypeNameMax(String typeNameMax) {
+    this.typeNameMax = typeNameMax;
+  }
+
+  public String getTypeNameMin() {
+    return this.typeNameMin;
+  }
+
+  public void setTypeNameMin(String typeNameMin) {
+    this.typeNameMin = typeNameMin;
   }
 
   public Integer getDescriptionCount() {
@@ -310,52 +351,20 @@ public class Permission implements Meta {
     this.descriptionMin = descriptionMin;
   }
 
-  public Integer getRoleId() {
-    return this.roleId;
+  public Role getRoleAggregate() {
+    return this.roleAggregate;
   }
 
-  public void setRoleId(Integer roleId) {
-    this.roleId = roleId;
+  public void setRoleAggregate(Role roleAggregate) {
+    this.roleAggregate = roleAggregate;
   }
 
-  public Integer getRoleIdCount() {
-    return this.roleIdCount;
+  public RoleConnection getRoleConnection() {
+    return this.roleConnection;
   }
 
-  public void setRoleIdCount(Integer roleIdCount) {
-    this.roleIdCount = roleIdCount;
-  }
-
-  public Integer getRoleIdSum() {
-    return this.roleIdSum;
-  }
-
-  public void setRoleIdSum(Integer roleIdSum) {
-    this.roleIdSum = roleIdSum;
-  }
-
-  public Integer getRoleIdAvg() {
-    return this.roleIdAvg;
-  }
-
-  public void setRoleIdAvg(Integer roleIdAvg) {
-    this.roleIdAvg = roleIdAvg;
-  }
-
-  public Integer getRoleIdMax() {
-    return this.roleIdMax;
-  }
-
-  public void setRoleIdMax(Integer roleIdMax) {
-    this.roleIdMax = roleIdMax;
-  }
-
-  public Integer getRoleIdMin() {
-    return this.roleIdMin;
-  }
-
-  public void setRoleIdMin(Integer roleIdMin) {
-    this.roleIdMin = roleIdMin;
+  public void setRoleConnection(RoleConnection roleConnection) {
+    this.roleConnection = roleConnection;
   }
 
   public Integer getRealmIdCount() {
@@ -396,5 +405,29 @@ public class Permission implements Meta {
 
   public void setRealmIdMin(Integer realmIdMin) {
     this.realmIdMin = realmIdMin;
+  }
+
+  public Collection<RolePermission> getRolePermission() {
+    return this.rolePermission;
+  }
+
+  public void setRolePermission(Collection<RolePermission> rolePermission) {
+    this.rolePermission = rolePermission;
+  }
+
+  public RolePermission getRolePermissionAggregate() {
+    return this.rolePermissionAggregate;
+  }
+
+  public void setRolePermissionAggregate(RolePermission rolePermissionAggregate) {
+    this.rolePermissionAggregate = rolePermissionAggregate;
+  }
+
+  public RolePermissionConnection getRolePermissionConnection() {
+    return this.rolePermissionConnection;
+  }
+
+  public void setRolePermissionConnection(RolePermissionConnection rolePermissionConnection) {
+    this.rolePermissionConnection = rolePermissionConnection;
   }
 }

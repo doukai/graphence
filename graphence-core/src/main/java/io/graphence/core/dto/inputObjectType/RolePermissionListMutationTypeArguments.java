@@ -15,16 +15,16 @@ import org.eclipse.microprofile.graphql.Input;
 @CompiledJson
 @Generated("io.graphoenix.java.generator.builder.TypeSpecBuilderProxy")
 @Ignore
-public class RoleApiListMutationTypeArguments {
+public class RolePermissionListMutationTypeArguments {
   private String id;
 
   private Integer roleId;
 
   private RoleInput from;
 
-  private Integer apiId;
+  private String permissionName;
 
-  private ApiInput to;
+  private PermissionInput to;
 
   private Boolean isDeprecated;
 
@@ -42,12 +42,12 @@ public class RoleApiListMutationTypeArguments {
 
   private String createGroupId;
 
-  @DefaultValue("\"RoleApi\"")
+  @DefaultValue("\"RolePermission\"")
   private String __typename;
 
-  private Collection<RoleApiInput> list;
+  private Collection<RolePermissionInput> list;
 
-  private RoleApiExpression where;
+  private RolePermissionExpression where;
 
   public String getId() {
     return this.id;
@@ -73,19 +73,19 @@ public class RoleApiListMutationTypeArguments {
     this.from = from;
   }
 
-  public Integer getApiId() {
-    return this.apiId;
+  public String getPermissionName() {
+    return this.permissionName;
   }
 
-  public void setApiId(Integer apiId) {
-    this.apiId = apiId;
+  public void setPermissionName(String permissionName) {
+    this.permissionName = permissionName;
   }
 
-  public ApiInput getTo() {
+  public PermissionInput getTo() {
     return this.to;
   }
 
-  public void setTo(ApiInput to) {
+  public void setTo(PermissionInput to) {
     this.to = to;
   }
 
@@ -161,19 +161,19 @@ public class RoleApiListMutationTypeArguments {
     this.__typename = __typename;
   }
 
-  public Collection<RoleApiInput> getList() {
+  public Collection<RolePermissionInput> getList() {
     return this.list;
   }
 
-  public void setList(Collection<RoleApiInput> list) {
+  public void setList(Collection<RolePermissionInput> list) {
     this.list = list;
   }
 
-  public RoleApiExpression getWhere() {
+  public RolePermissionExpression getWhere() {
     return this.where;
   }
 
-  public void setWhere(RoleApiExpression where) {
+  public void setWhere(RolePermissionExpression where) {
     this.where = where;
   }
 }

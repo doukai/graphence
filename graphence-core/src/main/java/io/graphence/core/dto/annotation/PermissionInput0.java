@@ -11,9 +11,11 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.SOURCE)
 @Target(ElementType.METHOD)
 public @interface PermissionInput0 {
-  String id() default "";
-
   String name() default "";
+
+  String fieldName() default "";
+
+  String typeName() default "";
 
   String description() default "";
 
@@ -39,11 +41,11 @@ public @interface PermissionInput0 {
 
   String __typename() default "";
 
-  int roleId() default 0;
-
-  String $id() default "";
-
   String $name() default "";
+
+  String $fieldName() default "";
+
+  String $typeName() default "";
 
   String $description() default "";
 
@@ -73,5 +75,13 @@ public @interface PermissionInput0 {
 
   String $__typename() default "";
 
-  String $roleId() default "";
+  String $roleAggregate() default "";
+
+  String $roleConnection() default "";
+
+  String $rolePermission() default "";
+
+  String $rolePermissionAggregate() default "";
+
+  String $rolePermissionConnection() default "";
 }

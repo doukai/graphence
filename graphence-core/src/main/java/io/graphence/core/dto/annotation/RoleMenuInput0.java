@@ -13,7 +13,7 @@ public @interface RoleMenuInput0 {
 
   int roleId() default 0;
 
-  int menuId() default 0;
+  String menuHref() default "";
 
   boolean isDeprecated() default false;
 
@@ -39,7 +39,7 @@ public @interface RoleMenuInput0 {
 
   String $from() default "";
 
-  String $menuId() default "";
+  String $menuHref() default "";
 
   String $to() default "";
 

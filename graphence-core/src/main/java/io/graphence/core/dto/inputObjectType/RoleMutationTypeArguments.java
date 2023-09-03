@@ -28,8 +28,6 @@ public class RoleMutationTypeArguments {
 
   private Collection<PermissionInput> permissions;
 
-  private Collection<ApiInput> apis;
-
   private Collection<MenuInput> menus;
 
   private RealmInput realm;
@@ -57,7 +55,7 @@ public class RoleMutationTypeArguments {
 
   private Collection<RoleCompositeInput> roleComposite;
 
-  private Collection<RoleApiInput> roleApi;
+  private Collection<RolePermissionInput> rolePermission;
 
   private Collection<RoleMenuInput> roleMenu;
 
@@ -109,14 +107,6 @@ public class RoleMutationTypeArguments {
 
   public void setPermissions(Collection<PermissionInput> permissions) {
     this.permissions = permissions;
-  }
-
-  public Collection<ApiInput> getApis() {
-    return this.apis;
-  }
-
-  public void setApis(Collection<ApiInput> apis) {
-    this.apis = apis;
   }
 
   public Collection<MenuInput> getMenus() {
@@ -223,12 +213,12 @@ public class RoleMutationTypeArguments {
     this.roleComposite = roleComposite;
   }
 
-  public Collection<RoleApiInput> getRoleApi() {
-    return this.roleApi;
+  public Collection<RolePermissionInput> getRolePermission() {
+    return this.rolePermission;
   }
 
-  public void setRoleApi(Collection<RoleApiInput> roleApi) {
-    this.roleApi = roleApi;
+  public void setRolePermission(Collection<RolePermissionInput> rolePermission) {
+    this.rolePermission = rolePermission;
   }
 
   public Collection<RoleMenuInput> getRoleMenu() {

@@ -19,9 +19,8 @@ type Role {
     description: String
     users: [User] @map(from: "id" with: {type: "UserRole" from: "roleId" to: "userId"} to: "id")
     composites: [Role] @map(from: "id" with: {type: "RoleComposite" from: "roleId" to: "compositeId"} to: "id")
-    permissions: [Permission] @map(from: "id" to: "roleId")
-    apis: [Api] @map(from: "id" with: {type: "RoleApi" from: "roleId" to: "apiId"} to: "id")
-    menus: [Menu] @map(from: "id" with: {type: "RoleMenu" from: "roleId" to: "menuId"} to: "id")
+    permissions: [Permission] @map(from: "id" with: {type: "RolePermission" from: "roleId" to: "permissionName"} to: "name")
+    menus: [Menu] @map(from: "id" with: {type: "RoleMenu" from: "roleId" to: "menuHref"} to: "href")
     realm: Realm @map(from: "realmId" to: "id" anchor: true)
 }
 
@@ -41,33 +40,24 @@ type Realm {
 }
 
 type Permission {
-    id: ID @dataType(type: "Int" autoIncrement: true)
-    name: String!
+    name: ID!
+    fieldName: String!
+    typeName: String!
     description: String
     type: PermissionType
     level: PermissionLevel
-    role: Role @map(from: "roleId" to: "id" anchor: true)
-    realm: Realm @map(from: "realmId" to: "id" anchor: true)
-}
-
-type Api {
-    id: ID @dataType(type: "Int" autoIncrement: true)
-    name: String!
-    description: String
-    type: ApiType
-    role: Role @map(from: "roleId" to: "id" anchor: true)
+    role: [Role] @map(from: "name" with: {type: "RolePermission" from: "permissionName" to: "roleId"} to: "id")
     realm: Realm @map(from: "realmId" to: "id" anchor: true)
 }
 
 type Menu {
-    id: ID @dataType(type: "Int" autoIncrement: true)
-    name: String!
+    href: ID!
+    description: String
     type: MenuType!
     path: String
     icon: String
-    folder: Menu @map(from: "parentId" to: "id" anchor: true)
-    description: String
-    role: Role @map(from: "roleId" to: "id" anchor: true)
+    parent: Menu @map(from: "parentHref" to: "href" anchor: true)
+    role: [Role] @map(from: "href" with: {type: "RoleMenu" from: "menuHref" to: "roleId"} to: "id")
     realm: Realm @map(from: "realmId" to: "id" anchor: true)
 }
 
@@ -85,12 +75,6 @@ enum PermissionLevel {
 }
 
 enum MenuType {
-    FOLDER
+    MENU
     PAGE
-}
-
-enum ApiType {
-    QUERY
-    MUTATION
-    SUBSCRIPTION
 }

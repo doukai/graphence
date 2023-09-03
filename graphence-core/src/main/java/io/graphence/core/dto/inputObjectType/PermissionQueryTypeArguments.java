@@ -16,9 +16,11 @@ import org.eclipse.microprofile.graphql.Input;
 @Generated("io.graphoenix.java.generator.builder.TypeSpecBuilderProxy")
 @Ignore
 public class PermissionQueryTypeArguments {
-  private StringExpression id;
-
   private StringExpression name;
+
+  private StringExpression fieldName;
+
+  private StringExpression typeName;
 
   private StringExpression description;
 
@@ -49,20 +51,12 @@ public class PermissionQueryTypeArguments {
 
   private StringExpression __typename;
 
-  private IntExpression roleId;
+  private RolePermissionExpression rolePermission;
 
   @DefaultValue("AND")
   private Conditional cond;
 
   private Collection<PermissionExpression> exs;
-
-  public StringExpression getId() {
-    return this.id;
-  }
-
-  public void setId(StringExpression id) {
-    this.id = id;
-  }
 
   public StringExpression getName() {
     return this.name;
@@ -70,6 +64,22 @@ public class PermissionQueryTypeArguments {
 
   public void setName(StringExpression name) {
     this.name = name;
+  }
+
+  public StringExpression getFieldName() {
+    return this.fieldName;
+  }
+
+  public void setFieldName(StringExpression fieldName) {
+    this.fieldName = fieldName;
+  }
+
+  public StringExpression getTypeName() {
+    return this.typeName;
+  }
+
+  public void setTypeName(StringExpression typeName) {
+    this.typeName = typeName;
   }
 
   public StringExpression getDescription() {
@@ -184,12 +194,12 @@ public class PermissionQueryTypeArguments {
     this.__typename = __typename;
   }
 
-  public IntExpression getRoleId() {
-    return this.roleId;
+  public RolePermissionExpression getRolePermission() {
+    return this.rolePermission;
   }
 
-  public void setRoleId(IntExpression roleId) {
-    this.roleId = roleId;
+  public void setRolePermission(RolePermissionExpression rolePermission) {
+    this.rolePermission = rolePermission;
   }
 
   public Conditional getCond() {

@@ -9,17 +9,15 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.SOURCE)
 @Target(ElementType.METHOD)
 public @interface MenuOrderBy0 {
-  Sort id() default Sort.ASC;
+  Sort href() default Sort.ASC;
 
-  Sort name() default Sort.ASC;
+  Sort description() default Sort.ASC;
 
   Sort type() default Sort.ASC;
 
   Sort path() default Sort.ASC;
 
   Sort icon() default Sort.ASC;
-
-  Sort description() default Sort.ASC;
 
   Sort isDeprecated() default Sort.ASC;
 
@@ -39,7 +37,5 @@ public @interface MenuOrderBy0 {
 
   Sort __typename() default Sort.ASC;
 
-  Sort parentId() default Sort.ASC;
-
-  Sort roleId() default Sort.ASC;
+  Sort parentHref() default Sort.ASC;
 }

@@ -70,12 +70,6 @@ message MutationPermissionResponse {
 message MutationPermissionListResponse {
     repeated Permission permission_list = 1;
 }
-message MutationApiResponse {
-    optional Api api = 1;
-}
-message MutationApiListResponse {
-    repeated Api api_list = 1;
-}
 message MutationMenuResponse {
     optional Menu menu = 1;
 }
@@ -106,11 +100,11 @@ message MutationRoleCompositeResponse {
 message MutationRoleCompositeListResponse {
     repeated RoleComposite role_composite_list = 1;
 }
-message MutationRoleApiResponse {
-    optional RoleApi role_api = 1;
+message MutationRolePermissionResponse {
+    optional RolePermission role_permission = 1;
 }
-message MutationRoleApiListResponse {
-    repeated RoleApi role_api_list = 1;
+message MutationRolePermissionListResponse {
+    repeated RolePermission role_permission_list = 1;
 }
 message MutationRoleMenuResponse {
     optional RoleMenu role_menu = 1;

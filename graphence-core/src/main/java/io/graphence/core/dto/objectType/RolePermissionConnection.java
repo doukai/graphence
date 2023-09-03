@@ -12,12 +12,12 @@ import org.eclipse.microprofile.graphql.Type;
 @CompiledJson
 @Generated("io.graphoenix.java.generator.builder.TypeSpecBuilderProxy")
 @Ignore
-public class ApiConnection {
+public class RolePermissionConnection {
   private Integer totalCount;
 
   private PageInfo pageInfo;
 
-  private Collection<ApiEdge> edges;
+  private Collection<RolePermissionEdge> edges;
 
   public Integer getTotalCount() {
     return this.totalCount;
@@ -35,11 +35,11 @@ public class ApiConnection {
     this.pageInfo = pageInfo;
   }
 
-  public Collection<ApiEdge> getEdges() {
+  public Collection<RolePermissionEdge> getEdges() {
     return this.edges;
   }
 
-  public void setEdges(Collection<ApiEdge> edges) {
+  public void setEdges(Collection<RolePermissionEdge> edges) {
     this.edges = edges;
   }
 }

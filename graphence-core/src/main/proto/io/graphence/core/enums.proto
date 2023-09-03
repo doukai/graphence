@@ -17,11 +17,6 @@ enum PermissionLevel {
     ALL_PERMISSION_LEVEL = 4;
 }
 enum MenuType {
-    FOLDER_MENU_TYPE = 0;
+    MENU_MENU_TYPE = 0;
     PAGE_MENU_TYPE = 1;
-}
-enum ApiType {
-    QUERY_API_TYPE = 0;
-    MUTATION_API_TYPE = 1;
-    SUBSCRIPTION_API_TYPE = 2;
 }

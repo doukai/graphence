@@ -11,10 +11,6 @@ public class JWTConfig {
 
     @Optional
     private String algorithm = "HS256";
-
-    @Optional
-    private String initialPassword;
-
     @Optional
     private Integer validityPeriod = 60 * 60;
 
@@ -32,14 +28,6 @@ public class JWTConfig {
 
     public void setAlgorithm(String algorithm) {
         this.algorithm = algorithm;
-    }
-
-    public String getInitialPassword() {
-        return initialPassword;
-    }
-
-    public void setInitialPassword(String initialPassword) {
-        this.initialPassword = initialPassword;
     }
 
     public Integer getValidityPeriod() {

@@ -10,6 +10,7 @@ import java.lang.Integer;
 import java.lang.Override;
 import java.lang.String;
 import java.time.LocalDateTime;
+import java.util.Collection;
 import org.eclipse.microprofile.graphql.Id;
 import org.eclipse.microprofile.graphql.NonNull;
 import org.eclipse.microprofile.graphql.Type;
@@ -20,10 +21,10 @@ import org.eclipse.microprofile.graphql.Type;
 @Ignore
 public class Menu implements Meta {
   @Id
-  private String id;
-
   @NonNull
-  private String name;
+  private String href;
+
+  private String description;
 
   @NonNull
   private MenuType type;
@@ -32,11 +33,9 @@ public class Menu implements Meta {
 
   private String icon;
 
-  private Menu folder;
+  private Menu parent;
 
-  private String description;
-
-  private Role role;
+  private Collection<Role> role;
 
   private Realm realm;
 
@@ -58,17 +57,17 @@ public class Menu implements Meta {
 
   private String __typename;
 
-  private Integer idCount;
+  private Integer hrefCount;
 
-  private Integer idMax;
+  private String hrefMax;
 
-  private Integer idMin;
+  private String hrefMin;
 
-  private Integer nameCount;
+  private Integer descriptionCount;
 
-  private String nameMax;
+  private String descriptionMax;
 
-  private String nameMin;
+  private String descriptionMin;
 
   private Integer pathCount;
 
@@ -82,35 +81,17 @@ public class Menu implements Meta {
 
   private String iconMin;
 
-  private Integer descriptionCount;
+  private Role roleAggregate;
 
-  private String descriptionMax;
+  private RoleConnection roleConnection;
 
-  private String descriptionMin;
+  private String parentHref;
 
-  private Integer parentId;
+  private Integer parentHrefCount;
 
-  private Integer parentIdCount;
+  private String parentHrefMax;
 
-  private Integer parentIdSum;
-
-  private Integer parentIdAvg;
-
-  private Integer parentIdMax;
-
-  private Integer parentIdMin;
-
-  private Integer roleId;
-
-  private Integer roleIdCount;
-
-  private Integer roleIdSum;
-
-  private Integer roleIdAvg;
-
-  private Integer roleIdMax;
-
-  private Integer roleIdMin;
+  private String parentHrefMin;
 
   private Integer realmIdCount;
 
@@ -122,20 +103,26 @@ public class Menu implements Meta {
 
   private Integer realmIdMin;
 
-  public String getId() {
-    return this.id;
+  private Collection<RoleMenu> roleMenu;
+
+  private RoleMenu roleMenuAggregate;
+
+  private RoleMenuConnection roleMenuConnection;
+
+  public String getHref() {
+    return this.href;
   }
 
-  public void setId(String id) {
-    this.id = id;
+  public void setHref(String href) {
+    this.href = href;
   }
 
-  public String getName() {
-    return this.name;
+  public String getDescription() {
+    return this.description;
   }
 
-  public void setName(String name) {
-    this.name = name;
+  public void setDescription(String description) {
+    this.description = description;
   }
 
   public MenuType getType() {
@@ -162,27 +149,19 @@ public class Menu implements Meta {
     this.icon = icon;
   }
 
-  public Menu getFolder() {
-    return this.folder;
+  public Menu getParent() {
+    return this.parent;
   }
 
-  public void setFolder(Menu folder) {
-    this.folder = folder;
+  public void setParent(Menu parent) {
+    this.parent = parent;
   }
 
-  public String getDescription() {
-    return this.description;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
-  }
-
-  public Role getRole() {
+  public Collection<Role> getRole() {
     return this.role;
   }
 
-  public void setRole(Role role) {
+  public void setRole(Collection<Role> role) {
     this.role = role;
   }
 
@@ -282,52 +261,52 @@ public class Menu implements Meta {
     this.__typename = __typename;
   }
 
-  public Integer getIdCount() {
-    return this.idCount;
+  public Integer getHrefCount() {
+    return this.hrefCount;
   }
 
-  public void setIdCount(Integer idCount) {
-    this.idCount = idCount;
+  public void setHrefCount(Integer hrefCount) {
+    this.hrefCount = hrefCount;
   }
 
-  public Integer getIdMax() {
-    return this.idMax;
+  public String getHrefMax() {
+    return this.hrefMax;
   }
 
-  public void setIdMax(Integer idMax) {
-    this.idMax = idMax;
+  public void setHrefMax(String hrefMax) {
+    this.hrefMax = hrefMax;
   }
 
-  public Integer getIdMin() {
-    return this.idMin;
+  public String getHrefMin() {
+    return this.hrefMin;
   }
 
-  public void setIdMin(Integer idMin) {
-    this.idMin = idMin;
+  public void setHrefMin(String hrefMin) {
+    this.hrefMin = hrefMin;
   }
 
-  public Integer getNameCount() {
-    return this.nameCount;
+  public Integer getDescriptionCount() {
+    return this.descriptionCount;
   }
 
-  public void setNameCount(Integer nameCount) {
-    this.nameCount = nameCount;
+  public void setDescriptionCount(Integer descriptionCount) {
+    this.descriptionCount = descriptionCount;
   }
 
-  public String getNameMax() {
-    return this.nameMax;
+  public String getDescriptionMax() {
+    return this.descriptionMax;
   }
 
-  public void setNameMax(String nameMax) {
-    this.nameMax = nameMax;
+  public void setDescriptionMax(String descriptionMax) {
+    this.descriptionMax = descriptionMax;
   }
 
-  public String getNameMin() {
-    return this.nameMin;
+  public String getDescriptionMin() {
+    return this.descriptionMin;
   }
 
-  public void setNameMin(String nameMin) {
-    this.nameMin = nameMin;
+  public void setDescriptionMin(String descriptionMin) {
+    this.descriptionMin = descriptionMin;
   }
 
   public Integer getPathCount() {
@@ -378,124 +357,52 @@ public class Menu implements Meta {
     this.iconMin = iconMin;
   }
 
-  public Integer getDescriptionCount() {
-    return this.descriptionCount;
+  public Role getRoleAggregate() {
+    return this.roleAggregate;
   }
 
-  public void setDescriptionCount(Integer descriptionCount) {
-    this.descriptionCount = descriptionCount;
+  public void setRoleAggregate(Role roleAggregate) {
+    this.roleAggregate = roleAggregate;
   }
 
-  public String getDescriptionMax() {
-    return this.descriptionMax;
+  public RoleConnection getRoleConnection() {
+    return this.roleConnection;
   }
 
-  public void setDescriptionMax(String descriptionMax) {
-    this.descriptionMax = descriptionMax;
+  public void setRoleConnection(RoleConnection roleConnection) {
+    this.roleConnection = roleConnection;
   }
 
-  public String getDescriptionMin() {
-    return this.descriptionMin;
+  public String getParentHref() {
+    return this.parentHref;
   }
 
-  public void setDescriptionMin(String descriptionMin) {
-    this.descriptionMin = descriptionMin;
+  public void setParentHref(String parentHref) {
+    this.parentHref = parentHref;
   }
 
-  public Integer getParentId() {
-    return this.parentId;
+  public Integer getParentHrefCount() {
+    return this.parentHrefCount;
   }
 
-  public void setParentId(Integer parentId) {
-    this.parentId = parentId;
+  public void setParentHrefCount(Integer parentHrefCount) {
+    this.parentHrefCount = parentHrefCount;
   }
 
-  public Integer getParentIdCount() {
-    return this.parentIdCount;
+  public String getParentHrefMax() {
+    return this.parentHrefMax;
   }
 
-  public void setParentIdCount(Integer parentIdCount) {
-    this.parentIdCount = parentIdCount;
+  public void setParentHrefMax(String parentHrefMax) {
+    this.parentHrefMax = parentHrefMax;
   }
 
-  public Integer getParentIdSum() {
-    return this.parentIdSum;
+  public String getParentHrefMin() {
+    return this.parentHrefMin;
   }
 
-  public void setParentIdSum(Integer parentIdSum) {
-    this.parentIdSum = parentIdSum;
-  }
-
-  public Integer getParentIdAvg() {
-    return this.parentIdAvg;
-  }
-
-  public void setParentIdAvg(Integer parentIdAvg) {
-    this.parentIdAvg = parentIdAvg;
-  }
-
-  public Integer getParentIdMax() {
-    return this.parentIdMax;
-  }
-
-  public void setParentIdMax(Integer parentIdMax) {
-    this.parentIdMax = parentIdMax;
-  }
-
-  public Integer getParentIdMin() {
-    return this.parentIdMin;
-  }
-
-  public void setParentIdMin(Integer parentIdMin) {
-    this.parentIdMin = parentIdMin;
-  }
-
-  public Integer getRoleId() {
-    return this.roleId;
-  }
-
-  public void setRoleId(Integer roleId) {
-    this.roleId = roleId;
-  }
-
-  public Integer getRoleIdCount() {
-    return this.roleIdCount;
-  }
-
-  public void setRoleIdCount(Integer roleIdCount) {
-    this.roleIdCount = roleIdCount;
-  }
-
-  public Integer getRoleIdSum() {
-    return this.roleIdSum;
-  }
-
-  public void setRoleIdSum(Integer roleIdSum) {
-    this.roleIdSum = roleIdSum;
-  }
-
-  public Integer getRoleIdAvg() {
-    return this.roleIdAvg;
-  }
-
-  public void setRoleIdAvg(Integer roleIdAvg) {
-    this.roleIdAvg = roleIdAvg;
-  }
-
-  public Integer getRoleIdMax() {
-    return this.roleIdMax;
-  }
-
-  public void setRoleIdMax(Integer roleIdMax) {
-    this.roleIdMax = roleIdMax;
-  }
-
-  public Integer getRoleIdMin() {
-    return this.roleIdMin;
-  }
-
-  public void setRoleIdMin(Integer roleIdMin) {
-    this.roleIdMin = roleIdMin;
+  public void setParentHrefMin(String parentHrefMin) {
+    this.parentHrefMin = parentHrefMin;
   }
 
   public Integer getRealmIdCount() {
@@ -536,5 +443,29 @@ public class Menu implements Meta {
 
   public void setRealmIdMin(Integer realmIdMin) {
     this.realmIdMin = realmIdMin;
+  }
+
+  public Collection<RoleMenu> getRoleMenu() {
+    return this.roleMenu;
+  }
+
+  public void setRoleMenu(Collection<RoleMenu> roleMenu) {
+    this.roleMenu = roleMenu;
+  }
+
+  public RoleMenu getRoleMenuAggregate() {
+    return this.roleMenuAggregate;
+  }
+
+  public void setRoleMenuAggregate(RoleMenu roleMenuAggregate) {
+    this.roleMenuAggregate = roleMenuAggregate;
+  }
+
+  public RoleMenuConnection getRoleMenuConnection() {
+    return this.roleMenuConnection;
+  }
+
+  public void setRoleMenuConnection(RoleMenuConnection roleMenuConnection) {
+    this.roleMenuConnection = roleMenuConnection;
   }
 }

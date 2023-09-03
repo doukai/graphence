@@ -18,9 +18,11 @@ import org.eclipse.microprofile.graphql.Input;
 @Generated("io.graphoenix.java.generator.builder.TypeSpecBuilderProxy")
 @Ignore
 public class PermissionListMutationTypeArguments {
-  private String id;
-
   private String name;
+
+  private String fieldName;
+
+  private String typeName;
 
   private String description;
 
@@ -28,7 +30,7 @@ public class PermissionListMutationTypeArguments {
 
   private PermissionLevel level;
 
-  private RoleInput role;
+  private Collection<RoleInput> role;
 
   private RealmInput realm;
 
@@ -51,19 +53,11 @@ public class PermissionListMutationTypeArguments {
   @DefaultValue("\"Permission\"")
   private String __typename;
 
-  private Integer roleId;
+  private Collection<RolePermissionInput> rolePermission;
 
   private Collection<PermissionInput> list;
 
   private PermissionExpression where;
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
 
   public String getName() {
     return this.name;
@@ -71,6 +65,22 @@ public class PermissionListMutationTypeArguments {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public String getFieldName() {
+    return this.fieldName;
+  }
+
+  public void setFieldName(String fieldName) {
+    this.fieldName = fieldName;
+  }
+
+  public String getTypeName() {
+    return this.typeName;
+  }
+
+  public void setTypeName(String typeName) {
+    this.typeName = typeName;
   }
 
   public String getDescription() {
@@ -97,11 +107,11 @@ public class PermissionListMutationTypeArguments {
     this.level = level;
   }
 
-  public RoleInput getRole() {
+  public Collection<RoleInput> getRole() {
     return this.role;
   }
 
-  public void setRole(RoleInput role) {
+  public void setRole(Collection<RoleInput> role) {
     this.role = role;
   }
 
@@ -185,12 +195,12 @@ public class PermissionListMutationTypeArguments {
     this.__typename = __typename;
   }
 
-  public Integer getRoleId() {
-    return this.roleId;
+  public Collection<RolePermissionInput> getRolePermission() {
+    return this.rolePermission;
   }
 
-  public void setRoleId(Integer roleId) {
-    this.roleId = roleId;
+  public void setRolePermission(Collection<RolePermissionInput> rolePermission) {
+    this.rolePermission = rolePermission;
   }
 
   public Collection<PermissionInput> getList() {

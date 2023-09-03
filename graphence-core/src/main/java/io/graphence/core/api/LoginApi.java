@@ -2,7 +2,7 @@ package io.graphence.core.api;
 
 import com.password4j.Hash;
 import com.password4j.Password;
-import io.graphence.core.config.JWTConfig;
+import io.graphence.core.config.SecurityConfig;
 import io.graphence.core.dao.LoginDao;
 import io.graphence.core.dto.inputObjectType.UserMutationTypeArguments;
 import io.graphence.core.error.AuthenticationException;
@@ -24,21 +24,20 @@ import java.util.Base64;
 
 import static io.graphence.core.constant.Constant.AUTHORIZATION_HEADER;
 import static io.graphence.core.constant.Constant.AUTHORIZATION_SCHEME_BEARER;
-import static io.graphence.core.error.AuthenticationErrorType.AUTHENTICATION_FAILED;
-import static io.graphence.core.error.AuthenticationErrorType.AUTHENTICATION_SERVER_ERROR;
+import static io.graphence.core.error.AuthenticationErrorType.*;
 
 
 @GraphQLApi
 @ApplicationScoped
 public class LoginApi {
 
-    private final JWTConfig config;
+    private final SecurityConfig config;
     private final LoginDao loginDao;
     private final JWTUtil jwtUtil;
     private final Provider<Mono<HttpServerResponse>> responseProvider;
 
     @Inject
-    public LoginApi(JWTConfig config, LoginDao loginDao, JWTUtil jwtUtil, Provider<Mono<HttpServerResponse>> responseProvider) {
+    public LoginApi(SecurityConfig config, LoginDao loginDao, JWTUtil jwtUtil, Provider<Mono<HttpServerResponse>> responseProvider) {
         this.config = config;
         this.loginDao = loginDao;
         this.jwtUtil = jwtUtil;
@@ -51,7 +50,9 @@ public class LoginApi {
         try {
             return loginDao.getUserByLogin(login)
                     .flatMap(user -> {
-                                if (Password.check(password, new String(Base64.getDecoder().decode(user.getHash()))).addSalt(Base64.getDecoder().decode(user.getSalt())).withBcrypt()) {
+                                if (user.getDisable()) {
+                                    return Mono.error(new AuthenticationException(AUTHENTICATION_DISABLE));
+                                } else if (Password.check(password, new String(Base64.getDecoder().decode(user.getHash()))).addSalt(Base64.getDecoder().decode(user.getSalt())).withBcrypt()) {
                                     return Mono.justOrEmpty(user);
                                 } else {
                                     return Mono.error(new AuthenticationException(AUTHENTICATION_FAILED));

@@ -22,7 +22,7 @@ public class RoleMenuListMutationTypeArguments {
 
   private RoleInput from;
 
-  private Integer menuId;
+  private String menuHref;
 
   private MenuInput to;
 
@@ -73,12 +73,12 @@ public class RoleMenuListMutationTypeArguments {
     this.from = from;
   }
 
-  public Integer getMenuId() {
-    return this.menuId;
+  public String getMenuHref() {
+    return this.menuHref;
   }
 
-  public void setMenuId(Integer menuId) {
-    this.menuId = menuId;
+  public void setMenuHref(String menuHref) {
+    this.menuHref = menuHref;
   }
 
   public MenuInput getTo() {

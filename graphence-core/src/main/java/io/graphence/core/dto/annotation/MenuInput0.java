@@ -10,17 +10,15 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.SOURCE)
 @Target(ElementType.METHOD)
 public @interface MenuInput0 {
-  String id() default "";
+  String href() default "";
 
-  String name() default "";
+  String description() default "";
 
-  MenuType type() default MenuType.FOLDER;
+  MenuType type() default MenuType.MENU;
 
   String path() default "";
 
   String icon() default "";
-
-  String description() default "";
 
   boolean isDeprecated() default false;
 
@@ -40,13 +38,11 @@ public @interface MenuInput0 {
 
   String __typename() default "";
 
-  int parentId() default 0;
+  String parentHref() default "";
 
-  int roleId() default 0;
+  String $href() default "";
 
-  String $id() default "";
-
-  String $name() default "";
+  String $description() default "";
 
   String $type() default "";
 
@@ -54,9 +50,7 @@ public @interface MenuInput0 {
 
   String $icon() default "";
 
-  String $folder() default "";
-
-  String $description() default "";
+  String $parent() default "";
 
   String $role() default "";
 
@@ -80,7 +74,15 @@ public @interface MenuInput0 {
 
   String $__typename() default "";
 
-  String $parentId() default "";
+  String $roleAggregate() default "";
 
-  String $roleId() default "";
+  String $roleConnection() default "";
+
+  String $parentHref() default "";
+
+  String $roleMenu() default "";
+
+  String $roleMenuAggregate() default "";
+
+  String $roleMenuConnection() default "";
 }

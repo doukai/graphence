@@ -24,8 +24,7 @@ import java.util.Map;
 import static io.graphence.core.constant.Constant.AUTHORIZATION_HEADER;
 import static io.graphence.core.constant.Constant.AUTHORIZATION_SCHEME_BASIC;
 import static io.graphence.core.constant.Constant.AUTHORIZATION_SCHEME_BEARER;
-import static io.graphence.core.error.AuthenticationErrorType.AUTHENTICATION_FAILED;
-import static io.graphence.core.error.AuthenticationErrorType.UN_AUTHENTICATION;
+import static io.graphence.core.error.AuthenticationErrorType.*;
 
 @Initialized(RequestScoped.class)
 @Priority(0)
@@ -77,7 +76,9 @@ public class JWTFilter extends BaseRequestFilter implements ScopeEvent {
 
                 return loginDao.getUserByLogin(login)
                         .flatMap(user -> {
-                                    if (Password.check(password, new String(Base64.getDecoder().decode(user.getHash()))).addSalt(Base64.getDecoder().decode(user.getSalt())).withBcrypt()) {
+                                    if (user.getDisable()) {
+                                        return Mono.error(new AuthenticationException(AUTHENTICATION_DISABLE));
+                                    } else if (Password.check(password, new String(Base64.getDecoder().decode(user.getHash()))).addSalt(Base64.getDecoder().decode(user.getSalt())).withBcrypt()) {
                                         return Mono.justOrEmpty(user);
                                     } else {
                                         return Mono.error(new AuthenticationException(AUTHENTICATION_FAILED));

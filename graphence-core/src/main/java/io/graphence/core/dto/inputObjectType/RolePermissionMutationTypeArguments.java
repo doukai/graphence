@@ -14,16 +14,16 @@ import org.eclipse.microprofile.graphql.Input;
 @CompiledJson
 @Generated("io.graphoenix.java.generator.builder.TypeSpecBuilderProxy")
 @Ignore
-public class RoleApiMutationTypeArguments {
+public class RolePermissionMutationTypeArguments {
   private String id;
 
   private Integer roleId;
 
   private RoleInput from;
 
-  private Integer apiId;
+  private String permissionName;
 
-  private ApiInput to;
+  private PermissionInput to;
 
   private Boolean isDeprecated;
 
@@ -41,10 +41,10 @@ public class RoleApiMutationTypeArguments {
 
   private String createGroupId;
 
-  @DefaultValue("\"RoleApi\"")
+  @DefaultValue("\"RolePermission\"")
   private String __typename;
 
-  private RoleApiExpression where;
+  private RolePermissionExpression where;
 
   public String getId() {
     return this.id;
@@ -70,19 +70,19 @@ public class RoleApiMutationTypeArguments {
     this.from = from;
   }
 
-  public Integer getApiId() {
-    return this.apiId;
+  public String getPermissionName() {
+    return this.permissionName;
   }
 
-  public void setApiId(Integer apiId) {
-    this.apiId = apiId;
+  public void setPermissionName(String permissionName) {
+    this.permissionName = permissionName;
   }
 
-  public ApiInput getTo() {
+  public PermissionInput getTo() {
     return this.to;
   }
 
-  public void setTo(ApiInput to) {
+  public void setTo(PermissionInput to) {
     this.to = to;
   }
 
@@ -158,11 +158,11 @@ public class RoleApiMutationTypeArguments {
     this.__typename = __typename;
   }
 
-  public RoleApiExpression getWhere() {
+  public RolePermissionExpression getWhere() {
     return this.where;
   }
 
-  public void setWhere(RoleApiExpression where) {
+  public void setWhere(RolePermissionExpression where) {
     this.where = where;
   }
 }

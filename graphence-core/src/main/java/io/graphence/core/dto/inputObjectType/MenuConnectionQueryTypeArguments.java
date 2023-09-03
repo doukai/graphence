@@ -18,9 +18,9 @@ import org.eclipse.microprofile.graphql.Input;
 @Generated("io.graphoenix.java.generator.builder.TypeSpecBuilderProxy")
 @Ignore
 public class MenuConnectionQueryTypeArguments {
-  private StringExpression id;
+  private StringExpression href;
 
-  private StringExpression name;
+  private StringExpression description;
 
   private MenuTypeExpression type;
 
@@ -28,9 +28,7 @@ public class MenuConnectionQueryTypeArguments {
 
   private StringExpression icon;
 
-  private MenuExpression folder;
-
-  private StringExpression description;
+  private MenuExpression parent;
 
   private RoleExpression role;
 
@@ -55,9 +53,9 @@ public class MenuConnectionQueryTypeArguments {
 
   private StringExpression __typename;
 
-  private IntExpression parentId;
+  private StringExpression parentHref;
 
-  private IntExpression roleId;
+  private RoleMenuExpression roleMenu;
 
   private MenuOrderBy orderBy;
 
@@ -78,20 +76,20 @@ public class MenuConnectionQueryTypeArguments {
 
   private String before;
 
-  public StringExpression getId() {
-    return this.id;
+  public StringExpression getHref() {
+    return this.href;
   }
 
-  public void setId(StringExpression id) {
-    this.id = id;
+  public void setHref(StringExpression href) {
+    this.href = href;
   }
 
-  public StringExpression getName() {
-    return this.name;
+  public StringExpression getDescription() {
+    return this.description;
   }
 
-  public void setName(StringExpression name) {
-    this.name = name;
+  public void setDescription(StringExpression description) {
+    this.description = description;
   }
 
   public MenuTypeExpression getType() {
@@ -118,20 +116,12 @@ public class MenuConnectionQueryTypeArguments {
     this.icon = icon;
   }
 
-  public MenuExpression getFolder() {
-    return this.folder;
+  public MenuExpression getParent() {
+    return this.parent;
   }
 
-  public void setFolder(MenuExpression folder) {
-    this.folder = folder;
-  }
-
-  public StringExpression getDescription() {
-    return this.description;
-  }
-
-  public void setDescription(StringExpression description) {
-    this.description = description;
+  public void setParent(MenuExpression parent) {
+    this.parent = parent;
   }
 
   public RoleExpression getRole() {
@@ -222,20 +212,20 @@ public class MenuConnectionQueryTypeArguments {
     this.__typename = __typename;
   }
 
-  public IntExpression getParentId() {
-    return this.parentId;
+  public StringExpression getParentHref() {
+    return this.parentHref;
   }
 
-  public void setParentId(IntExpression parentId) {
-    this.parentId = parentId;
+  public void setParentHref(StringExpression parentHref) {
+    this.parentHref = parentHref;
   }
 
-  public IntExpression getRoleId() {
-    return this.roleId;
+  public RoleMenuExpression getRoleMenu() {
+    return this.roleMenu;
   }
 
-  public void setRoleId(IntExpression roleId) {
-    this.roleId = roleId;
+  public void setRoleMenu(RoleMenuExpression roleMenu) {
+    this.roleMenu = roleMenu;
   }
 
   public MenuOrderBy getOrderBy() {

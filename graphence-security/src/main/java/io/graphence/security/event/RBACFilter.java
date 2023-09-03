@@ -2,26 +2,29 @@ package io.graphence.security.event;
 
 import com.google.auto.service.AutoService;
 import graphql.parser.antlr.GraphqlParser;
-import io.graphence.core.dto.enumType.ApiType;
+import io.graphence.core.casbin.RBACEnforcer;
+import io.graphence.core.dto.CurrentUser;
 import io.graphence.core.dto.enumType.PermissionType;
+import io.graphence.core.error.AuthorizationException;
 import io.graphoenix.core.context.BeanContext;
 import io.graphoenix.core.error.GraphQLErrors;
-import io.graphence.core.dto.CurrentUser;
-import io.graphence.core.casbin.RBACEnforcer;
-import io.graphence.core.error.AuthorizationException;
 import io.graphoenix.spi.antlr.IGraphQLDocumentManager;
 import io.graphoenix.spi.handler.ScopeEvent;
 import jakarta.annotation.Priority;
 import jakarta.enterprise.context.Initialized;
 import jakarta.enterprise.context.RequestScoped;
+import org.antlr.v4.runtime.tree.ParseTree;
+import org.antlr.v4.runtime.tree.TerminalNode;
 import reactor.core.publisher.Mono;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import static io.graphence.core.casbin.adapter.RBACAdapter.SPACER;
 import static io.graphence.core.casbin.adapter.RBACAdapter.USER_PREFIX;
-import static io.graphence.core.dto.enumType.ApiType.*;
 import static io.graphence.core.dto.enumType.PermissionType.READ;
 import static io.graphence.core.dto.enumType.PermissionType.WRITE;
 import static io.graphence.core.error.AuthorizationErrorType.UN_AUTHORIZATION_READ;
@@ -57,7 +60,7 @@ public class RBACFilter extends BaseRequestFilter implements ScopeEvent {
                     GraphqlParser.FieldDefinitionContext fieldDefinitionContext = manager.getField(typeName, selectionContext.field().name().getText())
                             .orElseThrow(() -> new GraphQLErrors(FIELD_NOT_EXIST.bind(typeName, selectionContext.field().name().getText())));
                     if (manager.isInvokeField(fieldDefinitionContext)) {
-                        enforceApi(currentUser, QUERY, READ, selectionContext);
+                        enforceApi(currentUser, typeName, selectionContext, READ);
                     } else {
                         enforce(currentUser, manager.getFieldTypeName(fieldDefinitionContext.type()), selectionContext.field().selectionSet());
                     }
@@ -70,7 +73,7 @@ public class RBACFilter extends BaseRequestFilter implements ScopeEvent {
                     GraphqlParser.FieldDefinitionContext fieldDefinitionContext = manager.getField(typeName, selectionContext.field().name().getText())
                             .orElseThrow(() -> new GraphQLErrors(FIELD_NOT_EXIST.bind(typeName, selectionContext.field().name().getText())));
                     if (manager.isInvokeField(fieldDefinitionContext)) {
-                        enforceApi(currentUser, SUBSCRIPTION, READ, selectionContext);
+                        enforceApi(currentUser, typeName, selectionContext, READ);
                     } else {
                         enforce(currentUser, manager.getFieldTypeName(fieldDefinitionContext.type()), selectionContext.field().selectionSet());
                     }
@@ -83,7 +86,7 @@ public class RBACFilter extends BaseRequestFilter implements ScopeEvent {
                     GraphqlParser.FieldDefinitionContext fieldDefinitionContext = manager.getField(typeName, selectionContext.field().name().getText())
                             .orElseThrow(() -> new GraphQLErrors(FIELD_NOT_EXIST.bind(typeName, selectionContext.field().name().getText())));
                     if (manager.isInvokeField(fieldDefinitionContext)) {
-                        enforceApi(currentUser, MUTATION, WRITE, selectionContext);
+                        enforceApi(currentUser, typeName, selectionContext, WRITE);
                     } else {
                         enforce(currentUser, manager.getFieldTypeName(fieldDefinitionContext.type()), selectionContext.field().selectionSet());
                         enforce(currentUser, manager.getFieldTypeName(fieldDefinitionContext.type()), selectionContext.field().arguments());
@@ -96,12 +99,12 @@ public class RBACFilter extends BaseRequestFilter implements ScopeEvent {
         return Mono.empty();
     }
 
-    protected void enforceApi(CurrentUser currentUser, ApiType apiType, PermissionType permissionType, GraphqlParser.SelectionContext selectionContext) {
+    protected void enforceApi(CurrentUser currentUser, String operationTypeName, GraphqlParser.SelectionContext selectionContext, PermissionType permissionType) {
         if (!rbacEnforcer.getEnforcer()
                 .enforce(
                         USER_PREFIX.concat(currentUser.getLogin()),
                         currentUser.getRealmId(),
-                        apiType.name() + SPACER + selectionContext.field().name().getText(),
+                        operationTypeName + SPACER + selectionContext.field().name().getText(),
                         permissionType.name()
                 )
         ) {
@@ -110,67 +113,97 @@ public class RBACFilter extends BaseRequestFilter implements ScopeEvent {
     }
 
     protected void enforce(CurrentUser currentUser, String typeName, GraphqlParser.SelectionSetContext selectionSetContext) {
-        if (!rbacEnforcer.getEnforcer()
-                .enforce(
-                        USER_PREFIX.concat(currentUser.getLogin()),
-                        currentUser.getRealmId(),
-                        typeName,
-                        READ.name()
-                )
-        ) {
-            throw new AuthorizationException(UN_AUTHORIZATION_READ.bind(typeName));
-        }
-
         if (selectionSetContext != null) {
-            for (GraphqlParser.SelectionContext selectionContext : selectionSetContext.selection()) {
-                GraphqlParser.FieldDefinitionContext fieldDefinitionContext = manager.getField(typeName, selectionContext.field().name().getText())
-                        .orElseThrow(() -> new GraphQLErrors(FIELD_NOT_EXIST.bind(typeName, selectionContext.field().name().getText())));
-                enforce(currentUser, manager.getFieldTypeName(fieldDefinitionContext.type()), selectionContext.field().selectionSet());
+            List<GraphqlParser.SelectionContext> selectionContexts = selectionSetContext.selection().stream().flatMap(selectionContext -> manager.fragmentUnzip(typeName, selectionContext)).collect(Collectors.toList());
+            if (selectionContexts.size() > 0) {
+                ParseTree left = selectionSetContext.getChild(0);
+                ParseTree right = selectionSetContext.getChild(selectionSetContext.getChildCount() - 1);
+                IntStream.range(0, selectionSetContext.getChildCount()).forEach(index -> selectionSetContext.removeLastChild());
+                selectionSetContext.addChild((TerminalNode) left);
+                for (GraphqlParser.SelectionContext selectionContext : selectionContexts) {
+                    if (rbacEnforcer.getEnforcer()
+                            .enforce(
+                                    USER_PREFIX.concat(currentUser.getLogin()),
+                                    currentUser.getRealmId(),
+                                    typeName + SPACER + selectionContext.field().name().getText(),
+                                    READ.name()
+                            )
+                    ) {
+                        selectionSetContext.addChild(selectionContext);
+                        GraphqlParser.FieldDefinitionContext fieldDefinitionContext = manager.getField(typeName, selectionContext.field().name().getText())
+                                .orElseThrow(() -> new GraphQLErrors(FIELD_NOT_EXIST.bind(typeName, selectionContext.field().name().getText())));
+                        enforce(currentUser, manager.getFieldTypeName(fieldDefinitionContext.type()), selectionContext.field().selectionSet());
+                    }
+                }
+                selectionSetContext.addChild((TerminalNode) right);
+                if (selectionSetContext.selection().size() == 0) {
+                    throw new AuthorizationException(UN_AUTHORIZATION_READ.bind(typeName));
+                }
             }
         }
     }
 
     protected void enforce(CurrentUser currentUser, String typeName, GraphqlParser.ArgumentsContext argumentsContext) {
-        if (!rbacEnforcer.getEnforcer()
-                .enforce(
-                        USER_PREFIX.concat(currentUser.getLogin()),
-                        currentUser.getRealmId(),
-                        typeName,
-                        READ.name()
-                )
-        ) {
-            throw new AuthorizationException(UN_AUTHORIZATION_WRITE.bind(typeName));
-        }
-
         if (argumentsContext != null) {
-            for (GraphqlParser.ArgumentContext argumentContext : argumentsContext.argument()) {
-                if (Arrays.stream(EXCLUDE_INPUT).noneMatch(name -> argumentContext.name().getText().equals(name))) {
-                    GraphqlParser.FieldDefinitionContext fieldDefinitionContext = manager.getField(typeName, argumentContext.name().getText())
-                            .orElseThrow(() -> new GraphQLErrors(FIELD_NOT_EXIST.bind(typeName, argumentContext.name().getText())));
-                    enforce(currentUser, manager.getFieldTypeName(fieldDefinitionContext.type()), argumentContext.valueWithVariable().objectValueWithVariable());
+            List<GraphqlParser.ArgumentContext> argumentContextList = argumentsContext.argument();
+            ParseTree left = argumentsContext.getChild(0);
+            ParseTree right = argumentsContext.getChild(argumentsContext.getChildCount() - 1);
+            IntStream.range(0, argumentsContext.getChildCount()).forEach(index -> argumentsContext.removeLastChild());
+            if (argumentContextList.size() > 0) {
+                argumentsContext.addChild((TerminalNode) left);
+                for (GraphqlParser.ArgumentContext argumentContext : argumentContextList) {
+                    if (Arrays.stream(EXCLUDE_INPUT).anyMatch(name -> name.equals(argumentContext.name().getText()))) {
+                        argumentsContext.addChild(argumentContext);
+                    } else {
+                        if (rbacEnforcer.getEnforcer()
+                                .enforce(
+                                        USER_PREFIX.concat(currentUser.getLogin()),
+                                        currentUser.getRealmId(),
+                                        typeName + SPACER + argumentContext.name().getText(),
+                                        WRITE.name()
+                                )
+                        ) {
+                            argumentsContext.addChild(argumentContext);
+                            GraphqlParser.FieldDefinitionContext fieldDefinitionContext = manager.getField(typeName, argumentContext.name().getText())
+                                    .orElseThrow(() -> new GraphQLErrors(FIELD_NOT_EXIST.bind(typeName, argumentContext.name().getText())));
+                            enforce(currentUser, manager.getFieldTypeName(fieldDefinitionContext.type()), argumentContext.valueWithVariable().objectValueWithVariable());
+                        }
+                    }
+                }
+                argumentsContext.addChild((TerminalNode) right);
+                if (argumentsContext.argument().size() == 0) {
+                    throw new AuthorizationException(UN_AUTHORIZATION_WRITE.bind(typeName));
                 }
             }
         }
     }
 
     protected void enforce(CurrentUser currentUser, String typeName, GraphqlParser.ObjectValueWithVariableContext objectValueWithVariableContext) {
-        if (!rbacEnforcer.getEnforcer()
-                .enforce(
-                        USER_PREFIX.concat(currentUser.getLogin()),
-                        currentUser.getRealmId(),
-                        typeName,
-                        READ.name()
-                )
-        ) {
-            throw new AuthorizationException(UN_AUTHORIZATION_WRITE.bind(typeName));
-        }
-
         if (objectValueWithVariableContext != null) {
-            for (GraphqlParser.ObjectFieldWithVariableContext objectFieldWithVariableContext : objectValueWithVariableContext.objectFieldWithVariable()) {
-                if (Arrays.stream(EXCLUDE_INPUT).noneMatch(name -> objectFieldWithVariableContext.name().getText().equals(name))) {
-                    GraphqlParser.FieldDefinitionContext fieldDefinitionContext = manager.getField(typeName, objectFieldWithVariableContext.name().getText())
-                            .orElseThrow(() -> new GraphQLErrors(FIELD_NOT_EXIST.bind(typeName, objectFieldWithVariableContext.name().getText())));
-                    enforce(currentUser, manager.getFieldTypeName(fieldDefinitionContext.type()), objectFieldWithVariableContext.valueWithVariable().objectValueWithVariable());
+            List<GraphqlParser.ObjectFieldWithVariableContext> objectFieldWithVariableContextList = objectValueWithVariableContext.objectFieldWithVariable();
+            ParseTree left = objectValueWithVariableContext.getChild(0);
+            ParseTree right = objectValueWithVariableContext.getChild(objectValueWithVariableContext.getChildCount() - 1);
+            IntStream.range(0, objectValueWithVariableContext.getChildCount()).forEach(index -> objectValueWithVariableContext.removeLastChild());
+            if (objectFieldWithVariableContextList.size() > 0) {
+                objectValueWithVariableContext.addChild((TerminalNode) left);
+                for (GraphqlParser.ObjectFieldWithVariableContext objectFieldWithVariableContext : objectFieldWithVariableContextList) {
+                    if (rbacEnforcer.getEnforcer()
+                            .enforce(
+                                    USER_PREFIX.concat(currentUser.getLogin()),
+                                    currentUser.getRealmId(),
+                                    typeName + SPACER + objectFieldWithVariableContext.name().getText(),
+                                    WRITE.name()
+                            )
+                    ) {
+                        objectValueWithVariableContext.addChild(objectFieldWithVariableContext);
+                        GraphqlParser.FieldDefinitionContext fieldDefinitionContext = manager.getField(typeName, objectFieldWithVariableContext.name().getText())
+                                .orElseThrow(() -> new GraphQLErrors(FIELD_NOT_EXIST.bind(typeName, objectFieldWithVariableContext.name().getText())));
+                        enforce(currentUser, manager.getFieldTypeName(fieldDefinitionContext.type()), objectFieldWithVariableContext.valueWithVariable().objectValueWithVariable());
+                    }
+                }
+                objectValueWithVariableContext.addChild((TerminalNode) right);
+                if (objectValueWithVariableContext.objectFieldWithVariable().size() == 0) {
+                    throw new AuthorizationException(UN_AUTHORIZATION_WRITE.bind(typeName));
                 }
             }
         }
