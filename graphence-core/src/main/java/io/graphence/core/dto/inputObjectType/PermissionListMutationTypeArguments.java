@@ -1,8 +1,8 @@
 package io.graphence.core.dto.inputObjectType;
 
 import com.dslplatform.json.CompiledJson;
-import io.graphence.core.dto.enumType.PermissionLevel;
 import io.graphence.core.dto.enumType.PermissionType;
+import io.graphoenix.core.dto.inputObjectType.MetaInput;
 import io.graphoenix.spi.annotation.Ignore;
 import jakarta.annotation.Generated;
 import java.lang.Boolean;
@@ -17,18 +17,16 @@ import org.eclipse.microprofile.graphql.Input;
 @CompiledJson
 @Generated("io.graphoenix.java.generator.builder.TypeSpecBuilderProxy")
 @Ignore
-public class PermissionListMutationTypeArguments {
+public class PermissionListMutationTypeArguments extends MetaInput {
   private String name;
 
   private String fieldName;
 
   private String typeName;
 
-  private String description;
-
   private PermissionType type;
 
-  private PermissionLevel level;
+  private String description;
 
   private Collection<RoleInput> role;
 
@@ -83,14 +81,6 @@ public class PermissionListMutationTypeArguments {
     this.typeName = typeName;
   }
 
-  public String getDescription() {
-    return this.description;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
-  }
-
   public PermissionType getType() {
     return this.type;
   }
@@ -99,12 +89,12 @@ public class PermissionListMutationTypeArguments {
     this.type = type;
   }
 
-  public PermissionLevel getLevel() {
-    return this.level;
+  public String getDescription() {
+    return this.description;
   }
 
-  public void setLevel(PermissionLevel level) {
-    this.level = level;
+  public void setDescription(String description) {
+    this.description = description;
   }
 
   public Collection<RoleInput> getRole() {

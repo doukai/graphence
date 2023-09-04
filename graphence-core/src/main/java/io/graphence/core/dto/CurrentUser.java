@@ -15,17 +15,28 @@ import java.util.stream.Stream;
 @CompiledJson
 public class CurrentUser {
 
+    private String id;
+
     private String name;
 
     private String lastName;
 
     private String login;
 
-    private String realmId;
+    private Integer realmId;
 
     private List<String> groups;
 
     private List<String> roles;
+
+    public String getId() {
+        return id;
+    }
+
+    public CurrentUser setId(String id) {
+        this.id = id;
+        return this;
+    }
 
     public String getName() {
         return name;
@@ -54,11 +65,11 @@ public class CurrentUser {
         return this;
     }
 
-    public String getRealmId() {
+    public Integer getRealmId() {
         return realmId;
     }
 
-    public CurrentUser setRealmId(String realmId) {
+    public CurrentUser setRealmId(Integer realmId) {
         this.realmId = realmId;
         return this;
     }
@@ -83,11 +94,12 @@ public class CurrentUser {
 
     public static CurrentUser of(User user) {
         return new CurrentUser()
+                .setId(user.getId())
                 .setLogin(user.getLogin())
-                .setRealmId(String.valueOf(user.getRealmId()))
+                .setRealmId(user.getRealmId())
                 .setName(user.getName())
                 .setLastName(user.getLastName())
-                .setRoles(Stream.ofNullable(user.getRoles()).flatMap(Collection::stream).map(Role::getName).collect(Collectors.toList()))
-                .setGroups(Stream.ofNullable(user.getGroups()).flatMap(Collection::stream).map(Group::getName).collect(Collectors.toList()));
+                .setRoles(Stream.ofNullable(user.getRoles()).flatMap(Collection::stream).map(Role::getId).collect(Collectors.toList()))
+                .setGroups(Stream.ofNullable(user.getGroups()).flatMap(Collection::stream).map(Group::getId).collect(Collectors.toList()));
     }
 }

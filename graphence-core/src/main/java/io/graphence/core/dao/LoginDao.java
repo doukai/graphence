@@ -1,6 +1,5 @@
 package io.graphence.core.dao;
 
-
 import io.graphence.core.dto.annotation.StringExpression;
 import io.graphence.core.dto.annotation.UserExpression0;
 import io.graphence.core.dto.objectType.User;
@@ -11,7 +10,7 @@ import reactor.core.publisher.Mono;
 @GraphQLOperation
 public interface LoginDao {
 
-    @QueryOperation(value = "user", selectionSet = "{ name lastName login salt hash email disable groups { name } roles { name } realmId }")
+    @QueryOperation(value = "user", selectionSet = "{ id name lastName login salt hash email disable groups { id path } roles { id filters { typeName level } } realmId }")
     @UserExpression0(login = @StringExpression($val = "login"))
     Mono<User> getUserByLogin(String login) throws Exception;
 }

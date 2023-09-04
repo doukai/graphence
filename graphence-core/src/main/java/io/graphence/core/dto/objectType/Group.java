@@ -25,6 +25,8 @@ public class Group implements Meta {
   @NonNull
   private String name;
 
+  private String path;
+
   private Group parent;
 
   private Collection<Group> subGroups;
@@ -64,6 +66,12 @@ public class Group implements Meta {
   private String nameMax;
 
   private String nameMin;
+
+  private Integer pathCount;
+
+  private String pathMax;
+
+  private String pathMin;
 
   private Group subGroupsAggregate;
 
@@ -125,6 +133,14 @@ public class Group implements Meta {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public String getPath() {
+    return this.path;
+  }
+
+  public void setPath(String path) {
+    this.path = path;
   }
 
   public Group getParent() {
@@ -301,6 +317,30 @@ public class Group implements Meta {
 
   public void setNameMin(String nameMin) {
     this.nameMin = nameMin;
+  }
+
+  public Integer getPathCount() {
+    return this.pathCount;
+  }
+
+  public void setPathCount(Integer pathCount) {
+    this.pathCount = pathCount;
+  }
+
+  public String getPathMax() {
+    return this.pathMax;
+  }
+
+  public void setPathMax(String pathMax) {
+    this.pathMax = pathMax;
+  }
+
+  public String getPathMin() {
+    return this.pathMin;
+  }
+
+  public void setPathMin(String pathMin) {
+    this.pathMin = pathMin;
   }
 
   public Group getSubGroupsAggregate() {

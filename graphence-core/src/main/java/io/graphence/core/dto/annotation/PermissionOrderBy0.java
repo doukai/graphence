@@ -15,11 +15,9 @@ public @interface PermissionOrderBy0 {
 
   Sort typeName() default Sort.ASC;
 
-  Sort description() default Sort.ASC;
-
   Sort type() default Sort.ASC;
 
-  Sort level() default Sort.ASC;
+  Sort description() default Sort.ASC;
 
   Sort isDeprecated() default Sort.ASC;
 

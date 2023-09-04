@@ -54,7 +54,7 @@ public class JWTFilter extends BaseRequestFilter implements ScopeEvent {
             try {
                 GraphenceJsonWebToken jsonWebToken = jwtUtil.parser(jws);
                 CurrentUser currentUser = new CurrentUser()
-                        .setLogin(jsonWebToken.getSubject())
+                        .setId(jsonWebToken.getSubject())
                         .setName(jsonWebToken.getClaim(Claims.full_name))
                         .setLastName(jsonWebToken.getClaim(Claims.family_name))
                         .setRealmId(jsonWebToken.getClaim(Claims.upn))

@@ -3,6 +3,7 @@ package io.graphence.core.dto.inputObjectType;
 import com.dslplatform.json.CompiledJson;
 import io.graphoenix.core.dto.enumType.Conditional;
 import io.graphoenix.core.dto.inputObjectType.IntExpression;
+import io.graphoenix.core.dto.inputObjectType.MetaExpression;
 import io.graphoenix.core.dto.inputObjectType.StringExpression;
 import io.graphoenix.spi.annotation.Ignore;
 import jakarta.annotation.Generated;
@@ -15,18 +16,16 @@ import org.eclipse.microprofile.graphql.Input;
 @CompiledJson
 @Generated("io.graphoenix.java.generator.builder.TypeSpecBuilderProxy")
 @Ignore
-public class PermissionExpression {
+public class PermissionExpression extends MetaExpression {
   private StringExpression name;
 
   private StringExpression fieldName;
 
   private StringExpression typeName;
 
-  private StringExpression description;
-
   private PermissionTypeExpression type;
 
-  private PermissionLevelExpression level;
+  private StringExpression description;
 
   private RoleExpression role;
 
@@ -82,14 +81,6 @@ public class PermissionExpression {
     this.typeName = typeName;
   }
 
-  public StringExpression getDescription() {
-    return this.description;
-  }
-
-  public void setDescription(StringExpression description) {
-    this.description = description;
-  }
-
   public PermissionTypeExpression getType() {
     return this.type;
   }
@@ -98,12 +89,12 @@ public class PermissionExpression {
     this.type = type;
   }
 
-  public PermissionLevelExpression getLevel() {
-    return this.level;
+  public StringExpression getDescription() {
+    return this.description;
   }
 
-  public void setLevel(PermissionLevelExpression level) {
-    this.level = level;
+  public void setDescription(StringExpression description) {
+    this.description = description;
   }
 
   public RoleExpression getRole() {

@@ -17,11 +17,9 @@ public class PermissionOrderBy {
 
   private Sort typeName;
 
-  private Sort description;
-
   private Sort type;
 
-  private Sort level;
+  private Sort description;
 
   private Sort isDeprecated;
 
@@ -65,14 +63,6 @@ public class PermissionOrderBy {
     this.typeName = typeName;
   }
 
-  public Sort getDescription() {
-    return this.description;
-  }
-
-  public void setDescription(Sort description) {
-    this.description = description;
-  }
-
   public Sort getType() {
     return this.type;
   }
@@ -81,12 +71,12 @@ public class PermissionOrderBy {
     this.type = type;
   }
 
-  public Sort getLevel() {
-    return this.level;
+  public Sort getDescription() {
+    return this.description;
   }
 
-  public void setLevel(Sort level) {
-    this.level = level;
+  public void setDescription(Sort description) {
+    this.description = description;
   }
 
   public Sort getIsDeprecated() {

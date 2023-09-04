@@ -15,6 +15,8 @@ public class GroupOrderBy {
 
   private Sort name;
 
+  private Sort path;
+
   private Sort isDeprecated;
 
   private Sort version;
@@ -49,6 +51,14 @@ public class GroupOrderBy {
 
   public void setName(Sort name) {
     this.name = name;
+  }
+
+  public Sort getPath() {
+    return this.path;
+  }
+
+  public void setPath(Sort path) {
+    this.path = path;
   }
 
   public Sort getIsDeprecated() {

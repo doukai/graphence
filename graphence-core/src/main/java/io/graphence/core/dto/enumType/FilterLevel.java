@@ -7,14 +7,10 @@ import org.eclipse.microprofile.graphql.Enum;
 @Enum
 @Generated("io.graphoenix.java.generator.builder.TypeSpecBuilderProxy")
 @Ignore
-public enum PermissionLevel {
-  USER,
+public enum FilterLevel {
+  PRIVATE,
 
   GROUP,
 
-  SUB_GROUP,
-
-  REALM,
-
-  ALL
+  REALM
 }

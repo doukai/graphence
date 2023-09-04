@@ -2,6 +2,7 @@ package io.graphence.core.dto.inputObjectType;
 
 import com.dslplatform.json.CompiledJson;
 import io.graphence.core.dto.enumType.MenuType;
+import io.graphoenix.core.dto.inputObjectType.MetaInput;
 import io.graphoenix.spi.annotation.Ignore;
 import jakarta.annotation.Generated;
 import java.lang.Boolean;
@@ -16,7 +17,7 @@ import org.eclipse.microprofile.graphql.Input;
 @CompiledJson
 @Generated("io.graphoenix.java.generator.builder.TypeSpecBuilderProxy")
 @Ignore
-public class MenuMutationTypeArguments {
+public class MenuMutationTypeArguments extends MetaInput {
   private String href;
 
   private String description;

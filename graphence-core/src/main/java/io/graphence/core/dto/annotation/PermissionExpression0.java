@@ -18,11 +18,9 @@ public @interface PermissionExpression0 {
 
   StringExpression typeName() default @StringExpression;
 
-  StringExpression description() default @StringExpression;
-
   PermissionTypeExpression type() default @PermissionTypeExpression;
 
-  PermissionLevelExpression level() default @PermissionLevelExpression;
+  StringExpression description() default @StringExpression;
 
   BooleanExpression isDeprecated() default @BooleanExpression;
 

@@ -1,7 +1,7 @@
 package io.graphence.core.dto.inputObjectType;
 
 import com.dslplatform.json.CompiledJson;
-import io.graphence.core.dto.enumType.PermissionLevel;
+import io.graphence.core.dto.enumType.FilterLevel;
 import io.graphoenix.core.dto.enumType.Operator;
 import io.graphoenix.spi.annotation.Ignore;
 import jakarta.annotation.Generated;
@@ -13,13 +13,13 @@ import org.eclipse.microprofile.graphql.Input;
 @CompiledJson
 @Generated("io.graphoenix.java.generator.builder.TypeSpecBuilderProxy")
 @Ignore
-public class PermissionLevelExpression {
+public class FilterLevelExpression {
   @DefaultValue("EQ")
   private Operator opr;
 
-  private PermissionLevel val;
+  private FilterLevel val;
 
-  private Collection<PermissionLevel> in;
+  private Collection<FilterLevel> in;
 
   public Operator getOpr() {
     return this.opr;
@@ -29,19 +29,19 @@ public class PermissionLevelExpression {
     this.opr = opr;
   }
 
-  public PermissionLevel getVal() {
+  public FilterLevel getVal() {
     return this.val;
   }
 
-  public void setVal(PermissionLevel val) {
+  public void setVal(FilterLevel val) {
     this.val = val;
   }
 
-  public Collection<PermissionLevel> getIn() {
+  public Collection<FilterLevel> getIn() {
     return this.in;
   }
 
-  public void setIn(Collection<PermissionLevel> in) {
+  public void setIn(Collection<FilterLevel> in) {
     this.in = in;
   }
 }

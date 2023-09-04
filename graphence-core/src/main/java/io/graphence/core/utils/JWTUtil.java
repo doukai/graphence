@@ -41,7 +41,7 @@ public class JWTUtil {
         return Jwts.builder()
                 .serializeToJsonWith(new GsonSerializer<>(gsonBuilder.create()))
                 .setIssuer(jwtConfig.getIssuer())
-                .setSubject(user.getLogin())
+                .setSubject(user.getId())
                 .claim(Claims.full_name.name(), user.getName())
                 .claim(Claims.family_name.name(), user.getLastName())
                 .claim(Claims.upn.name(), user.getRealmId())
@@ -68,14 +68,14 @@ public class JWTUtil {
         if (user.getGroups() == null) {
             return null;
         }
-        return user.getGroups().stream().map(Group::getName).toArray(String[]::new);
+        return user.getGroups().stream().map(Group::getId).toArray(String[]::new);
     }
 
     protected String[] getRoles(User user) {
         if (user.getRoles() == null) {
             return null;
         }
-        return user.getRoles().stream().map(Role::getName).toArray(String[]::new);
+        return user.getRoles().stream().map(Role::getId).toArray(String[]::new);
     }
 
     public GraphenceJsonWebToken parser(String compactJws) throws JwtException {

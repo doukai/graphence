@@ -1,7 +1,6 @@
 package io.graphence.core.dto.objectType;
 
 import com.dslplatform.json.CompiledJson;
-import io.graphence.core.dto.enumType.PermissionLevel;
 import io.graphence.core.dto.enumType.PermissionType;
 import io.graphoenix.core.dto.interfaceType.Meta;
 import io.graphoenix.spi.annotation.Ignore;
@@ -31,11 +30,10 @@ public class Permission implements Meta {
   @NonNull
   private String typeName;
 
-  private String description;
-
+  @NonNull
   private PermissionType type;
 
-  private PermissionLevel level;
+  private String description;
 
   private Collection<Role> role;
 
@@ -127,14 +125,6 @@ public class Permission implements Meta {
     this.typeName = typeName;
   }
 
-  public String getDescription() {
-    return this.description;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
-  }
-
   public PermissionType getType() {
     return this.type;
   }
@@ -143,12 +133,12 @@ public class Permission implements Meta {
     this.type = type;
   }
 
-  public PermissionLevel getLevel() {
-    return this.level;
+  public String getDescription() {
+    return this.description;
   }
 
-  public void setLevel(PermissionLevel level) {
-    this.level = level;
+  public void setDescription(String description) {
+    this.description = description;
   }
 
   public Collection<Role> getRole() {

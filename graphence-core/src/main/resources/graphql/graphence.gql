@@ -27,6 +27,7 @@ type Role {
 type Group {
     id: ID @dataType(type: "Int" autoIncrement: true)
     name: String!
+    path: String
     parent: Group @map(from: "parentId" to: "id" anchor: true)
     subGroups: [Group] @map(from: "id" to: "parentId")
     users: [User] @map(from: "id" with: {type: "UserGroup" from: "groupId" to: "userId"} to: "id")
@@ -43,9 +44,8 @@ type Permission {
     name: ID!
     fieldName: String!
     typeName: String!
+    type: PermissionType!
     description: String
-    type: PermissionType
-    level: PermissionLevel
     role: [Role] @map(from: "name" with: {type: "RolePermission" from: "permissionName" to: "roleId"} to: "id")
     realm: Realm @map(from: "realmId" to: "id" anchor: true)
 }
@@ -64,14 +64,6 @@ type Menu {
 enum PermissionType {
     READ
     WRITE
-}
-
-enum PermissionLevel {
-    USER
-    GROUP
-    SUB_GROUP
-    REALM
-    ALL
 }
 
 enum MenuType {
