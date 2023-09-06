@@ -14,11 +14,11 @@ import org.eclipse.microprofile.graphql.DefaultValue;
 import org.eclipse.microprofile.graphql.Input;
 import org.eclipse.microprofile.graphql.NonNull;
 
-@Input
 @CompiledJson
+@Input
 @Generated("io.graphoenix.java.generator.builder.TypeSpecBuilderProxy")
 @Ignore
-public class PermissionInput extends MetaInput {
+public class PermissionInput implements MetaInput {
   @NonNull
   private String name;
 

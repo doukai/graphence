@@ -14,11 +14,11 @@ import java.util.Collection;
 import org.eclipse.microprofile.graphql.DefaultValue;
 import org.eclipse.microprofile.graphql.Input;
 
-@Input
 @CompiledJson
+@Input
 @Generated("io.graphoenix.java.generator.builder.TypeSpecBuilderProxy")
 @Ignore
-public class MenuListQueryTypeArguments extends MetaExpression {
+public class MenuListQueryTypeArguments implements MetaExpression {
   private StringExpression href;
 
   private StringExpression description;

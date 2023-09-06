@@ -12,11 +12,11 @@ import java.util.Collection;
 import org.eclipse.microprofile.graphql.DefaultValue;
 import org.eclipse.microprofile.graphql.Input;
 
-@Input
 @CompiledJson
+@Input
 @Generated("io.graphoenix.java.generator.builder.TypeSpecBuilderProxy")
 @Ignore
-public class RoleQueryTypeArguments extends MetaExpression {
+public class RoleQueryTypeArguments implements MetaExpression {
   private StringExpression id;
 
   private StringExpression name;

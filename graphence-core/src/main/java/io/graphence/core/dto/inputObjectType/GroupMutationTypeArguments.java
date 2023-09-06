@@ -12,11 +12,11 @@ import java.util.Collection;
 import org.eclipse.microprofile.graphql.DefaultValue;
 import org.eclipse.microprofile.graphql.Input;
 
-@Input
 @CompiledJson
+@Input
 @Generated("io.graphoenix.java.generator.builder.TypeSpecBuilderProxy")
 @Ignore
-public class GroupMutationTypeArguments extends MetaInput {
+public class GroupMutationTypeArguments implements MetaInput {
   private String id;
 
   private String name;

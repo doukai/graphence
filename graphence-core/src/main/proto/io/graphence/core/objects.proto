@@ -280,13 +280,13 @@ message Menu {
     optional RoleMenuConnection role_menu_connection = 43;
 }
 message CurrentUser {
-    repeated string roles = 1;
-    optional string last_name = 2;
-    optional string id = 3;
-    optional string login = 4;
-    optional int32 realm_id = 5;
-    repeated string groups = 6;
-    optional string name = 7;
+    optional string last_name = 1;
+    repeated string groups = 2;
+    repeated string roles = 3;
+    optional string name = 4;
+    optional string id = 5;
+    optional string login = 6;
+    optional int32 realm_id = 7;
 }
 message UserPhones {
     optional string id = 1;

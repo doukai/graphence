@@ -13,11 +13,11 @@ import java.util.Collection;
 import org.eclipse.microprofile.graphql.DefaultValue;
 import org.eclipse.microprofile.graphql.Input;
 
-@Input
 @CompiledJson
+@Input
 @Generated("io.graphoenix.java.generator.builder.TypeSpecBuilderProxy")
 @Ignore
-public class MenuMutationTypeArguments extends MetaInput {
+public class MenuMutationTypeArguments implements MetaInput {
   private String href;
 
   private String description;

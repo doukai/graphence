@@ -1,100 +1,57 @@
 package io.graphence.core.meta;
 
 import io.graphence.core.dto.CurrentUser;
+import io.graphoenix.core.dto.inputObjectType.IntExpression;
+import io.graphoenix.core.dto.inputObjectType.MetaExpression;
 import io.graphoenix.core.dto.inputObjectType.MetaInput;
-import io.graphoenix.core.error.GraphQLErrorType;
-import io.graphoenix.core.error.GraphQLErrors;
-import io.graphoenix.core.handler.OperationInterceptor;
-import io.graphoenix.core.operation.Operation;
-import io.graphoenix.spi.antlr.IGraphQLDocumentManager;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.inject.Provider;
-import jakarta.json.JsonObject;
-import jakarta.json.JsonObjectBuilder;
-import jakarta.json.JsonValue;
-import jakarta.json.spi.JsonProvider;
+import org.eclipse.microprofile.graphql.GraphQLApi;
+import org.eclipse.microprofile.graphql.Source;
 import reactor.core.publisher.Mono;
 
 import java.time.LocalDateTime;
-import java.util.Objects;
 
 @ApplicationScoped
-public class UserInputInvoker implements OperationInterceptor {
+@GraphQLApi
+public class UserInputInvoker {
 
-    private final IGraphQLDocumentManager manager;
-    private final JsonProvider jsonProvider;
     private final Provider<Mono<CurrentUser>> currentUserMonoProvider;
 
     @Inject
-    public UserInputInvoker(IGraphQLDocumentManager manager, JsonProvider jsonProvider, Provider<Mono<CurrentUser>> currentUserMonoProvider) {
-        this.manager = manager;
-        this.jsonProvider = jsonProvider;
+    public UserInputInvoker(Provider<Mono<CurrentUser>> currentUserMonoProvider) {
         this.currentUserMonoProvider = currentUserMonoProvider;
     }
 
-    @Override
-    public Mono<MetaInput> invoke(String typeName, MetaInput metaInput) {
+    public Mono<MetaInput> invoke(@Source MetaInput metaInput) {
         return currentUserMonoProvider.get().map(currentUser -> {
-                    MetaInput newInput = Objects.requireNonNullElseGet(metaInput, MetaInput::new);
                     if (currentUser.getRealmId() != null) {
-                        newInput.setRealmId(currentUser.getRealmId());
+                        metaInput.setRealmId(currentUser.getRealmId());
                     }
                     LocalDateTime now = LocalDateTime.now();
-                    if (newInput.getCreateUserId() == null) {
-                        newInput.setCreateUserId(currentUser.getId());
-                        newInput.setCreateTime(now);
+                    if (metaInput.getCreateUserId() == null) {
+                        metaInput.setCreateUserId(currentUser.getId());
+                        metaInput.setCreateTime(now);
+                        metaInput.setVersion(0);
                     } else {
-                        newInput.setUpdateUserId(currentUser.getId());
-                        newInput.setUpdateTime(now);
+                        metaInput.setUpdateUserId(currentUser.getId());
+                        metaInput.setUpdateTime(now);
+                        metaInput.setVersion(metaInput.getVersion() + 1);
                     }
-                    newInput.setVersion(newInput.getVersion() == null ? 0 : newInput.getVersion() + 1);
-                    return newInput;
+                    return metaInput;
                 }
         );
     }
 
-    @Override
-    public Mono<Operation> invoke(Operation operation) {
-
-        LocalDateTime now = LocalDateTime.now();
-
+    public Mono<MetaExpression> invoke(@Source MetaExpression metaExpression) {
         return currentUserMonoProvider.get().map(currentUser -> {
-
-                    if (operation.getName().equals("mutation")) {
-                        String typeName = manager.getMutationOperationTypeName().orElseThrow(() -> new GraphQLErrors(GraphQLErrorType.MUTATION_TYPE_NOT_EXIST));
-                        operation.getFields().stream()
-                                .filter(field -> manager.isNotInvokeField(typeName, field.getName()))
-                                .filter(field -> manager.isObject(manager.getFieldTypeName(manager.getField(typeName, field.getName()).orElseThrow().type())))
-                                .forEach(field -> {
-                                    JsonObjectBuilder argumentsBuilder = jsonProvider.createObjectBuilder(field.getArguments());
-                                    argumentsBuilder.add("realmId",currentUser.getRealmId());
-                                    if(field.getArguments().containsKey("createUserId")){
-
-                                    }else {
-
-                                        argumentsBuilder.add("createUserId",currentUser.getId())
-                                                .add("createTime",now.toString());
-                                    }
-
-
-                                    field.setArguments(argumentsBuilder.build());
-
-                                        }
-
-                                )
-                    } else {
-
+                    if (currentUser.getRealmId() != null) {
+                        IntExpression intExpression = new IntExpression();
+                        intExpression.setVal(currentUser.getRealmId());
                     }
-
-
-                    return operation;
+                    return metaExpression;
                 }
         );
-    }
-
-    public JsonObject invokeField(JsonObject jsonObject) {
-
-
     }
 }

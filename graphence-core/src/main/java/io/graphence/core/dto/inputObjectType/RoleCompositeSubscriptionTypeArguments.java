@@ -3,6 +3,7 @@ package io.graphence.core.dto.inputObjectType;
 import com.dslplatform.json.CompiledJson;
 import io.graphoenix.core.dto.enumType.Conditional;
 import io.graphoenix.core.dto.inputObjectType.IntExpression;
+import io.graphoenix.core.dto.inputObjectType.MetaExpression;
 import io.graphoenix.core.dto.inputObjectType.StringExpression;
 import io.graphoenix.spi.annotation.Ignore;
 import jakarta.annotation.Generated;
@@ -11,22 +12,20 @@ import java.util.Collection;
 import org.eclipse.microprofile.graphql.DefaultValue;
 import org.eclipse.microprofile.graphql.Input;
 
-@Input
 @CompiledJson
+@Input
 @Generated("io.graphoenix.java.generator.builder.TypeSpecBuilderProxy")
 @Ignore
-public class FilterExpression {
+public class RoleCompositeSubscriptionTypeArguments implements MetaExpression {
   private StringExpression id;
 
-  private StringExpression typeName;
+  private IntExpression roleId;
 
-  private FilterLevelExpression level;
+  private RoleExpression from;
 
-  private StringExpression description;
+  private IntExpression compositeId;
 
-  private RoleExpression role;
-
-  private RealmExpression realm;
+  private RoleExpression to;
 
   @DefaultValue("false")
   private Boolean includeDeprecated;
@@ -47,12 +46,10 @@ public class FilterExpression {
 
   private StringExpression __typename;
 
-  private IntExpression roleId;
-
   @DefaultValue("AND")
   private Conditional cond;
 
-  private Collection<FilterExpression> exs;
+  private Collection<RoleCompositeExpression> exs;
 
   public StringExpression getId() {
     return this.id;
@@ -62,44 +59,36 @@ public class FilterExpression {
     this.id = id;
   }
 
-  public StringExpression getTypeName() {
-    return this.typeName;
+  public IntExpression getRoleId() {
+    return this.roleId;
   }
 
-  public void setTypeName(StringExpression typeName) {
-    this.typeName = typeName;
+  public void setRoleId(IntExpression roleId) {
+    this.roleId = roleId;
   }
 
-  public FilterLevelExpression getLevel() {
-    return this.level;
+  public RoleExpression getFrom() {
+    return this.from;
   }
 
-  public void setLevel(FilterLevelExpression level) {
-    this.level = level;
+  public void setFrom(RoleExpression from) {
+    this.from = from;
   }
 
-  public StringExpression getDescription() {
-    return this.description;
+  public IntExpression getCompositeId() {
+    return this.compositeId;
   }
 
-  public void setDescription(StringExpression description) {
-    this.description = description;
+  public void setCompositeId(IntExpression compositeId) {
+    this.compositeId = compositeId;
   }
 
-  public RoleExpression getRole() {
-    return this.role;
+  public RoleExpression getTo() {
+    return this.to;
   }
 
-  public void setRole(RoleExpression role) {
-    this.role = role;
-  }
-
-  public RealmExpression getRealm() {
-    return this.realm;
-  }
-
-  public void setRealm(RealmExpression realm) {
-    this.realm = realm;
+  public void setTo(RoleExpression to) {
+    this.to = to;
   }
 
   public Boolean getIncludeDeprecated() {
@@ -174,14 +163,6 @@ public class FilterExpression {
     this.__typename = __typename;
   }
 
-  public IntExpression getRoleId() {
-    return this.roleId;
-  }
-
-  public void setRoleId(IntExpression roleId) {
-    this.roleId = roleId;
-  }
-
   public Conditional getCond() {
     return this.cond;
   }
@@ -190,11 +171,11 @@ public class FilterExpression {
     this.cond = cond;
   }
 
-  public Collection<FilterExpression> getExs() {
+  public Collection<RoleCompositeExpression> getExs() {
     return this.exs;
   }
 
-  public void setExs(Collection<FilterExpression> exs) {
+  public void setExs(Collection<RoleCompositeExpression> exs) {
     this.exs = exs;
   }
 }

@@ -15,11 +15,11 @@ import java.util.Collection;
 import org.eclipse.microprofile.graphql.DefaultValue;
 import org.eclipse.microprofile.graphql.Input;
 
-@Input
 @CompiledJson
+@Input
 @Generated("io.graphoenix.java.generator.builder.TypeSpecBuilderProxy")
 @Ignore
-public class UserListQueryTypeArguments extends MetaExpression {
+public class UserListQueryTypeArguments implements MetaExpression {
   private StringExpression id;
 
   private StringExpression name;

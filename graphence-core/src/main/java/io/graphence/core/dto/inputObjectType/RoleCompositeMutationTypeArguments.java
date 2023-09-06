@@ -11,11 +11,11 @@ import java.time.LocalDateTime;
 import org.eclipse.microprofile.graphql.DefaultValue;
 import org.eclipse.microprofile.graphql.Input;
 
-@Input
 @CompiledJson
+@Input
 @Generated("io.graphoenix.java.generator.builder.TypeSpecBuilderProxy")
 @Ignore
-public class RoleCompositeMutationTypeArguments extends MetaInput {
+public class RoleCompositeMutationTypeArguments implements MetaInput {
   private String id;
 
   private Integer roleId;

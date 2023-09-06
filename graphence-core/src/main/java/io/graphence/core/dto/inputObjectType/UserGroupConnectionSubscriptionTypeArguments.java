@@ -3,30 +3,31 @@ package io.graphence.core.dto.inputObjectType;
 import com.dslplatform.json.CompiledJson;
 import io.graphoenix.core.dto.enumType.Conditional;
 import io.graphoenix.core.dto.inputObjectType.IntExpression;
+import io.graphoenix.core.dto.inputObjectType.MetaExpression;
 import io.graphoenix.core.dto.inputObjectType.StringExpression;
 import io.graphoenix.spi.annotation.Ignore;
 import jakarta.annotation.Generated;
 import java.lang.Boolean;
+import java.lang.Integer;
+import java.lang.String;
 import java.util.Collection;
 import org.eclipse.microprofile.graphql.DefaultValue;
 import org.eclipse.microprofile.graphql.Input;
 
-@Input
 @CompiledJson
+@Input
 @Generated("io.graphoenix.java.generator.builder.TypeSpecBuilderProxy")
 @Ignore
-public class FilterQueryTypeArguments {
+public class UserGroupConnectionSubscriptionTypeArguments implements MetaExpression {
   private StringExpression id;
 
-  private StringExpression typeName;
+  private IntExpression userId;
 
-  private FilterLevelExpression level;
+  private UserExpression from;
 
-  private StringExpression description;
+  private IntExpression groupId;
 
-  private RoleExpression role;
-
-  private RealmExpression realm;
+  private GroupExpression to;
 
   @DefaultValue("false")
   private Boolean includeDeprecated;
@@ -47,12 +48,24 @@ public class FilterQueryTypeArguments {
 
   private StringExpression __typename;
 
-  private IntExpression roleId;
+  private UserGroupOrderBy orderBy;
+
+  private Collection<String> groupBy;
 
   @DefaultValue("AND")
   private Conditional cond;
 
-  private Collection<FilterExpression> exs;
+  private Collection<UserGroupExpression> exs;
+
+  private Integer first;
+
+  private Integer last;
+
+  private Integer offset;
+
+  private String after;
+
+  private String before;
 
   public StringExpression getId() {
     return this.id;
@@ -62,44 +75,36 @@ public class FilterQueryTypeArguments {
     this.id = id;
   }
 
-  public StringExpression getTypeName() {
-    return this.typeName;
+  public IntExpression getUserId() {
+    return this.userId;
   }
 
-  public void setTypeName(StringExpression typeName) {
-    this.typeName = typeName;
+  public void setUserId(IntExpression userId) {
+    this.userId = userId;
   }
 
-  public FilterLevelExpression getLevel() {
-    return this.level;
+  public UserExpression getFrom() {
+    return this.from;
   }
 
-  public void setLevel(FilterLevelExpression level) {
-    this.level = level;
+  public void setFrom(UserExpression from) {
+    this.from = from;
   }
 
-  public StringExpression getDescription() {
-    return this.description;
+  public IntExpression getGroupId() {
+    return this.groupId;
   }
 
-  public void setDescription(StringExpression description) {
-    this.description = description;
+  public void setGroupId(IntExpression groupId) {
+    this.groupId = groupId;
   }
 
-  public RoleExpression getRole() {
-    return this.role;
+  public GroupExpression getTo() {
+    return this.to;
   }
 
-  public void setRole(RoleExpression role) {
-    this.role = role;
-  }
-
-  public RealmExpression getRealm() {
-    return this.realm;
-  }
-
-  public void setRealm(RealmExpression realm) {
-    this.realm = realm;
+  public void setTo(GroupExpression to) {
+    this.to = to;
   }
 
   public Boolean getIncludeDeprecated() {
@@ -174,12 +179,20 @@ public class FilterQueryTypeArguments {
     this.__typename = __typename;
   }
 
-  public IntExpression getRoleId() {
-    return this.roleId;
+  public UserGroupOrderBy getOrderBy() {
+    return this.orderBy;
   }
 
-  public void setRoleId(IntExpression roleId) {
-    this.roleId = roleId;
+  public void setOrderBy(UserGroupOrderBy orderBy) {
+    this.orderBy = orderBy;
+  }
+
+  public Collection<String> getGroupBy() {
+    return this.groupBy;
+  }
+
+  public void setGroupBy(Collection<String> groupBy) {
+    this.groupBy = groupBy;
   }
 
   public Conditional getCond() {
@@ -190,11 +203,51 @@ public class FilterQueryTypeArguments {
     this.cond = cond;
   }
 
-  public Collection<FilterExpression> getExs() {
+  public Collection<UserGroupExpression> getExs() {
     return this.exs;
   }
 
-  public void setExs(Collection<FilterExpression> exs) {
+  public void setExs(Collection<UserGroupExpression> exs) {
     this.exs = exs;
+  }
+
+  public Integer getFirst() {
+    return this.first;
+  }
+
+  public void setFirst(Integer first) {
+    this.first = first;
+  }
+
+  public Integer getLast() {
+    return this.last;
+  }
+
+  public void setLast(Integer last) {
+    this.last = last;
+  }
+
+  public Integer getOffset() {
+    return this.offset;
+  }
+
+  public void setOffset(Integer offset) {
+    this.offset = offset;
+  }
+
+  public String getAfter() {
+    return this.after;
+  }
+
+  public void setAfter(String after) {
+    this.after = after;
+  }
+
+  public String getBefore() {
+    return this.before;
+  }
+
+  public void setBefore(String before) {
+    this.before = before;
   }
 }

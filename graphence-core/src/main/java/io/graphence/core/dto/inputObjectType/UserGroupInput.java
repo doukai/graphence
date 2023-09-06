@@ -11,11 +11,11 @@ import java.time.LocalDateTime;
 import org.eclipse.microprofile.graphql.DefaultValue;
 import org.eclipse.microprofile.graphql.Input;
 
-@Input
 @CompiledJson
+@Input
 @Generated("io.graphoenix.java.generator.builder.TypeSpecBuilderProxy")
 @Ignore
-public class UserGroupInput extends MetaInput {
+public class UserGroupInput implements MetaInput {
   private String id;
 
   private Integer userId;
