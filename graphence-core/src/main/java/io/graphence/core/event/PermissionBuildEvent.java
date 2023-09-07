@@ -36,22 +36,22 @@ public class PermissionBuildEvent implements ScopeEvent {
                                                     if (manager.isMutationOperationType(objectTypeDefinitionContext.name().getText())) {
                                                         Permission writePermission = new Permission();
                                                         writePermission.setName(objectTypeDefinitionContext.name().getText() + SPACER + fieldDefinitionContext.name().getText() + SPACER + READ.name());
-                                                        writePermission.setTypeName(objectTypeDefinitionContext.name().getText());
-                                                        writePermission.setFieldName(fieldDefinitionContext.name().getText());
+                                                        writePermission.setType(objectTypeDefinitionContext.name().getText());
+                                                        writePermission.setField(fieldDefinitionContext.name().getText());
                                                         if (fieldDefinitionContext.description() != null) {
                                                             writePermission.setDescription(fieldDefinitionContext.description().getText());
                                                         }
-                                                        writePermission.setType(WRITE);
+                                                        writePermission.setPermissionType(WRITE);
                                                         return Stream.of(writePermission);
                                                     } else {
                                                         Permission readPermission = new Permission();
                                                         readPermission.setName(objectTypeDefinitionContext.name().getText() + SPACER + fieldDefinitionContext.name().getText() + SPACER + READ.name());
-                                                        readPermission.setTypeName(objectTypeDefinitionContext.name().getText());
-                                                        readPermission.setFieldName(fieldDefinitionContext.name().getText());
+                                                        readPermission.setType(objectTypeDefinitionContext.name().getText());
+                                                        readPermission.setField(fieldDefinitionContext.name().getText());
                                                         if (fieldDefinitionContext.description() != null) {
                                                             readPermission.setDescription(fieldDefinitionContext.description().getText());
                                                         }
-                                                        readPermission.setType(READ);
+                                                        readPermission.setPermissionType(READ);
                                                         return Stream.of(readPermission);
                                                     }
                                                 } else {
@@ -60,21 +60,21 @@ public class PermissionBuildEvent implements ScopeEvent {
                                             } else {
                                                 Permission readPermission = new Permission();
                                                 readPermission.setName(objectTypeDefinitionContext.name().getText() + SPACER + fieldDefinitionContext.name().getText() + SPACER + READ.name());
-                                                readPermission.setTypeName(objectTypeDefinitionContext.name().getText());
-                                                readPermission.setFieldName(fieldDefinitionContext.name().getText());
+                                                readPermission.setType(objectTypeDefinitionContext.name().getText());
+                                                readPermission.setField(fieldDefinitionContext.name().getText());
                                                 if (fieldDefinitionContext.description() != null) {
                                                     readPermission.setDescription(fieldDefinitionContext.description().getText());
                                                 }
-                                                readPermission.setType(READ);
+                                                readPermission.setPermissionType(READ);
 
                                                 Permission writePermission = new Permission();
                                                 writePermission.setName(objectTypeDefinitionContext.name().getText() + SPACER + fieldDefinitionContext.name().getText() + SPACER + READ.name());
-                                                writePermission.setTypeName(objectTypeDefinitionContext.name().getText());
-                                                writePermission.setFieldName(fieldDefinitionContext.name().getText());
+                                                writePermission.setType(objectTypeDefinitionContext.name().getText());
+                                                writePermission.setField(fieldDefinitionContext.name().getText());
                                                 if (fieldDefinitionContext.description() != null) {
                                                     writePermission.setDescription(fieldDefinitionContext.description().getText());
                                                 }
-                                                writePermission.setType(WRITE);
+                                                writePermission.setPermissionType(WRITE);
                                                 return Stream.of(readPermission, writePermission);
                                             }
                                         }

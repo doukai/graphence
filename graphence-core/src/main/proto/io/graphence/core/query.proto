@@ -13,7 +13,14 @@ import "io/graphence/core/query_requests.proto";
 import "io/graphence/core/query_responses.proto";
 
 service QueryTypeService {
-    rpc Current (QueryCurrentRequest) returns (QueryCurrentResponse);
+    rpc IsDeprecated (QueryIsDeprecatedRequest) returns (QueryIsDeprecatedResponse);
+    rpc Version (QueryVersionRequest) returns (QueryVersionResponse);
+    rpc RealmId (QueryRealmIdRequest) returns (QueryRealmIdResponse);
+    rpc CreateUserId (QueryCreateUserIdRequest) returns (QueryCreateUserIdResponse);
+    rpc CreateTime (QueryCreateTimeRequest) returns (QueryCreateTimeResponse);
+    rpc UpdateUserId (QueryUpdateUserIdRequest) returns (QueryUpdateUserIdResponse);
+    rpc UpdateTime (QueryUpdateTimeRequest) returns (QueryUpdateTimeResponse);
+    rpc CreateGroupId (QueryCreateGroupIdRequest) returns (QueryCreateGroupIdResponse);
     rpc User (QueryUserRequest) returns (QueryUserResponse);
     rpc UserList (QueryUserListRequest) returns (QueryUserListResponse);
     rpc UserConnection (QueryUserConnectionRequest) returns (QueryUserConnectionResponse);
@@ -53,12 +60,5 @@ service QueryTypeService {
     rpc GroupRole (QueryGroupRoleRequest) returns (QueryGroupRoleResponse);
     rpc GroupRoleList (QueryGroupRoleListRequest) returns (QueryGroupRoleListResponse);
     rpc GroupRoleConnection (QueryGroupRoleConnectionRequest) returns (QueryGroupRoleConnectionResponse);
-    rpc IsDeprecated (QueryIsDeprecatedRequest) returns (QueryIsDeprecatedResponse);
-    rpc Version (QueryVersionRequest) returns (QueryVersionResponse);
-    rpc RealmId (QueryRealmIdRequest) returns (QueryRealmIdResponse);
-    rpc CreateUserId (QueryCreateUserIdRequest) returns (QueryCreateUserIdResponse);
-    rpc CreateTime (QueryCreateTimeRequest) returns (QueryCreateTimeResponse);
-    rpc UpdateUserId (QueryUpdateUserIdRequest) returns (QueryUpdateUserIdResponse);
-    rpc UpdateTime (QueryUpdateTimeRequest) returns (QueryUpdateTimeResponse);
-    rpc CreateGroupId (QueryCreateGroupIdRequest) returns (QueryCreateGroupIdResponse);
+    rpc Current (QueryCurrentRequest) returns (QueryCurrentResponse);
 }

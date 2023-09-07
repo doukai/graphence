@@ -47,28 +47,28 @@ public class RBACAdapter implements Adapter {
                             Stream.ofNullable(role.getPermissions())
                                     .flatMap(Collection::stream)
                                     .flatMap(permission -> {
-                                                if (permission.getType().equals(WRITE)) {
+                                                if (permission.getPermissionType().equals(WRITE)) {
                                                     return Stream.of(
                                                             new Rule()
                                                                     .setPtype(P_TYPE)
                                                                     .setV0(ROLE_PREFIX.concat(role.getName()))
                                                                     .setV1(Optional.ofNullable(role.getRealmId()).map(String::valueOf).orElse(UNDEFINED))
-                                                                    .setV2(permission.getTypeName() + SPACER + permission.getFieldName())
+                                                                    .setV2(permission.getType() + SPACER + permission.getField())
                                                                     .setV3(WRITE.name()),
                                                             new Rule()
                                                                     .setPtype(P_TYPE)
                                                                     .setV0(ROLE_PREFIX.concat(role.getName()))
                                                                     .setV1(Optional.ofNullable(role.getRealmId()).map(String::valueOf).orElse(UNDEFINED))
-                                                                    .setV2(permission.getTypeName() + SPACER + permission.getFieldName())
+                                                                    .setV2(permission.getType() + SPACER + permission.getField())
                                                                     .setV3(READ.name())
                                                     );
-                                                } else if (permission.getType().equals(READ)) {
+                                                } else if (permission.getPermissionType().equals(READ)) {
                                                     return Stream.of(
                                                             new Rule()
                                                                     .setPtype(P_TYPE)
                                                                     .setV0(ROLE_PREFIX.concat(role.getName()))
                                                                     .setV1(Optional.ofNullable(role.getRealmId()).map(String::valueOf).orElse(UNDEFINED))
-                                                                    .setV2(permission.getTypeName() + SPACER + permission.getFieldName())
+                                                                    .setV2(permission.getType() + SPACER + permission.getField())
                                                                     .setV3(READ.name())
                                                     );
                                                 } else {

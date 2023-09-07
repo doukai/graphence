@@ -10,13 +10,40 @@ import "io/graphence/core/objects.proto";
 import "io/graphence/core/interfaces.proto";
 import "io/graphence/core/input_objects.proto";
 import "io/graphoenix/introspection/input_objects.proto";
+import "io/graphoenix/core/enums.proto";
 import "google/protobuf/timestamp.proto";
 
-message MutationLoginRequest {
+message MutationIsDeprecatedRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
-    optional string login = 3;
-    optional string password = 4;
+}
+message MutationVersionRequest {
+    optional string selection_set = 1;
+    optional string arguments = 2;
+}
+message MutationRealmIdRequest {
+    optional string selection_set = 1;
+    optional string arguments = 2;
+}
+message MutationCreateUserIdRequest {
+    optional string selection_set = 1;
+    optional string arguments = 2;
+}
+message MutationCreateTimeRequest {
+    optional string selection_set = 1;
+    optional string arguments = 2;
+}
+message MutationUpdateUserIdRequest {
+    optional string selection_set = 1;
+    optional string arguments = 2;
+}
+message MutationUpdateTimeRequest {
+    optional string selection_set = 1;
+    optional string arguments = 2;
+}
+message MutationCreateGroupIdRequest {
+    optional string selection_set = 1;
+    optional string arguments = 2;
 }
 message MutationUserRequest {
     optional string selection_set = 1;
@@ -218,9 +245,9 @@ message MutationPermissionRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
     optional string name = 3;
-    optional string field_name = 4;
-    optional string type_name = 5;
-    optional PermissionType type = 6;
+    optional string field = 4;
+    optional string type = 5;
+    optional PermissionType permission_type = 6;
     optional string description = 7;
     repeated RoleInput role = 8;
     optional RealmInput realm = 9;
@@ -240,9 +267,9 @@ message MutationPermissionListRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
     optional string name = 3;
-    optional string field_name = 4;
-    optional string type_name = 5;
-    optional PermissionType type = 6;
+    optional string field = 4;
+    optional string type = 5;
+    optional PermissionType permission_type = 6;
     optional string description = 7;
     repeated RoleInput role = 8;
     optional RealmInput realm = 9;
@@ -579,35 +606,9 @@ message MutationGroupRoleListRequest {
     repeated GroupRoleInput list = 17;
     optional GroupRoleExpression where = 18;
 }
-message MutationIsDeprecatedRequest {
+message MutationLoginRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
-}
-message MutationVersionRequest {
-    optional string selection_set = 1;
-    optional string arguments = 2;
-}
-message MutationRealmIdRequest {
-    optional string selection_set = 1;
-    optional string arguments = 2;
-}
-message MutationCreateUserIdRequest {
-    optional string selection_set = 1;
-    optional string arguments = 2;
-}
-message MutationCreateTimeRequest {
-    optional string selection_set = 1;
-    optional string arguments = 2;
-}
-message MutationUpdateUserIdRequest {
-    optional string selection_set = 1;
-    optional string arguments = 2;
-}
-message MutationUpdateTimeRequest {
-    optional string selection_set = 1;
-    optional string arguments = 2;
-}
-message MutationCreateGroupIdRequest {
-    optional string selection_set = 1;
-    optional string arguments = 2;
+    optional string login = 3;
+    optional string password = 4;
 }

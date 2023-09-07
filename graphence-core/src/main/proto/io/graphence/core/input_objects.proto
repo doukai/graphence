@@ -249,9 +249,9 @@ message RealmOrderBy {
 }
 message PermissionExpression {
     optional io.graphoenix.core.grpc.StringExpression name = 1;
-    optional io.graphoenix.core.grpc.StringExpression field_name = 2;
-    optional io.graphoenix.core.grpc.StringExpression type_name = 3;
-    optional PermissionTypeExpression type = 4;
+    optional io.graphoenix.core.grpc.StringExpression field = 2;
+    optional io.graphoenix.core.grpc.StringExpression type = 3;
+    optional PermissionTypeExpression permission_type = 4;
     optional io.graphoenix.core.grpc.StringExpression description = 5;
     optional RoleExpression role = 6;
     optional RealmExpression realm = 7;
@@ -270,9 +270,9 @@ message PermissionExpression {
 }
 message PermissionInput {
     string name = 1;
-    string field_name = 2;
-    string type_name = 3;
-    PermissionType type = 4;
+    string field = 2;
+    string type = 3;
+    PermissionType permission_type = 4;
     optional string description = 5;
     repeated RoleInput role = 6;
     optional RealmInput realm = 7;
@@ -289,9 +289,9 @@ message PermissionInput {
 }
 message PermissionOrderBy {
     optional io.graphoenix.core.grpc.Sort name = 1;
-    optional io.graphoenix.core.grpc.Sort field_name = 2;
-    optional io.graphoenix.core.grpc.Sort type_name = 3;
-    optional io.graphoenix.core.grpc.Sort type = 4;
+    optional io.graphoenix.core.grpc.Sort field = 2;
+    optional io.graphoenix.core.grpc.Sort type = 3;
+    optional io.graphoenix.core.grpc.Sort permission_type = 4;
     optional io.graphoenix.core.grpc.Sort description = 5;
     optional io.graphoenix.core.grpc.Sort is_deprecated = 6;
     optional io.graphoenix.core.grpc.Sort version = 7;
@@ -1042,9 +1042,9 @@ message RealmConnectionQueryTypeArguments {
 }
 message PermissionQueryTypeArguments {
     optional io.graphoenix.core.grpc.StringExpression name = 1;
-    optional io.graphoenix.core.grpc.StringExpression field_name = 2;
-    optional io.graphoenix.core.grpc.StringExpression type_name = 3;
-    optional PermissionTypeExpression type = 4;
+    optional io.graphoenix.core.grpc.StringExpression field = 2;
+    optional io.graphoenix.core.grpc.StringExpression type = 3;
+    optional PermissionTypeExpression permission_type = 4;
     optional io.graphoenix.core.grpc.StringExpression description = 5;
     optional RoleExpression role = 6;
     optional RealmExpression realm = 7;
@@ -1063,9 +1063,9 @@ message PermissionQueryTypeArguments {
 }
 message PermissionListQueryTypeArguments {
     optional io.graphoenix.core.grpc.StringExpression name = 1;
-    optional io.graphoenix.core.grpc.StringExpression field_name = 2;
-    optional io.graphoenix.core.grpc.StringExpression type_name = 3;
-    optional PermissionTypeExpression type = 4;
+    optional io.graphoenix.core.grpc.StringExpression field = 2;
+    optional io.graphoenix.core.grpc.StringExpression type = 3;
+    optional PermissionTypeExpression permission_type = 4;
     optional io.graphoenix.core.grpc.StringExpression description = 5;
     optional RoleExpression role = 6;
     optional RealmExpression realm = 7;
@@ -1091,9 +1091,9 @@ message PermissionListQueryTypeArguments {
 }
 message PermissionConnectionQueryTypeArguments {
     optional io.graphoenix.core.grpc.StringExpression name = 1;
-    optional io.graphoenix.core.grpc.StringExpression field_name = 2;
-    optional io.graphoenix.core.grpc.StringExpression type_name = 3;
-    optional PermissionTypeExpression type = 4;
+    optional io.graphoenix.core.grpc.StringExpression field = 2;
+    optional io.graphoenix.core.grpc.StringExpression type = 3;
+    optional PermissionTypeExpression permission_type = 4;
     optional io.graphoenix.core.grpc.StringExpression description = 5;
     optional RoleExpression role = 6;
     optional RealmExpression realm = 7;
@@ -1855,9 +1855,9 @@ message RealmListMutationTypeArguments {
 }
 message PermissionMutationTypeArguments {
     optional string name = 1;
-    optional string field_name = 2;
-    optional string type_name = 3;
-    optional PermissionType type = 4;
+    optional string field = 2;
+    optional string type = 3;
+    optional PermissionType permission_type = 4;
     optional string description = 5;
     repeated RoleInput role = 6;
     optional RealmInput realm = 7;
@@ -1875,9 +1875,9 @@ message PermissionMutationTypeArguments {
 }
 message PermissionListMutationTypeArguments {
     optional string name = 1;
-    optional string field_name = 2;
-    optional string type_name = 3;
-    optional PermissionType type = 4;
+    optional string field = 2;
+    optional string type = 3;
+    optional PermissionType permission_type = 4;
     optional string description = 5;
     repeated RoleInput role = 6;
     optional RealmInput realm = 7;
@@ -2516,9 +2516,9 @@ message RealmConnectionSubscriptionTypeArguments {
 }
 message PermissionSubscriptionTypeArguments {
     optional io.graphoenix.core.grpc.StringExpression name = 1;
-    optional io.graphoenix.core.grpc.StringExpression field_name = 2;
-    optional io.graphoenix.core.grpc.StringExpression type_name = 3;
-    optional PermissionTypeExpression type = 4;
+    optional io.graphoenix.core.grpc.StringExpression field = 2;
+    optional io.graphoenix.core.grpc.StringExpression type = 3;
+    optional PermissionTypeExpression permission_type = 4;
     optional io.graphoenix.core.grpc.StringExpression description = 5;
     optional RoleExpression role = 6;
     optional RealmExpression realm = 7;
@@ -2537,9 +2537,9 @@ message PermissionSubscriptionTypeArguments {
 }
 message PermissionListSubscriptionTypeArguments {
     optional io.graphoenix.core.grpc.StringExpression name = 1;
-    optional io.graphoenix.core.grpc.StringExpression field_name = 2;
-    optional io.graphoenix.core.grpc.StringExpression type_name = 3;
-    optional PermissionTypeExpression type = 4;
+    optional io.graphoenix.core.grpc.StringExpression field = 2;
+    optional io.graphoenix.core.grpc.StringExpression type = 3;
+    optional PermissionTypeExpression permission_type = 4;
     optional io.graphoenix.core.grpc.StringExpression description = 5;
     optional RoleExpression role = 6;
     optional RealmExpression realm = 7;
@@ -2565,9 +2565,9 @@ message PermissionListSubscriptionTypeArguments {
 }
 message PermissionConnectionSubscriptionTypeArguments {
     optional io.graphoenix.core.grpc.StringExpression name = 1;
-    optional io.graphoenix.core.grpc.StringExpression field_name = 2;
-    optional io.graphoenix.core.grpc.StringExpression type_name = 3;
-    optional PermissionTypeExpression type = 4;
+    optional io.graphoenix.core.grpc.StringExpression field = 2;
+    optional io.graphoenix.core.grpc.StringExpression type = 3;
+    optional PermissionTypeExpression permission_type = 4;
     optional io.graphoenix.core.grpc.StringExpression description = 5;
     optional RoleExpression role = 6;
     optional RealmExpression realm = 7;

@@ -21,11 +21,11 @@ import org.eclipse.microprofile.graphql.Input;
 public class PermissionConnectionSubscriptionTypeArguments implements MetaExpression {
   private StringExpression name;
 
-  private StringExpression fieldName;
+  private StringExpression field;
 
-  private StringExpression typeName;
+  private StringExpression type;
 
-  private PermissionTypeExpression type;
+  private PermissionTypeExpression permissionType;
 
   private StringExpression description;
 
@@ -81,28 +81,28 @@ public class PermissionConnectionSubscriptionTypeArguments implements MetaExpres
     this.name = name;
   }
 
-  public StringExpression getFieldName() {
-    return this.fieldName;
+  public StringExpression getField() {
+    return this.field;
   }
 
-  public void setFieldName(StringExpression fieldName) {
-    this.fieldName = fieldName;
+  public void setField(StringExpression field) {
+    this.field = field;
   }
 
-  public StringExpression getTypeName() {
-    return this.typeName;
-  }
-
-  public void setTypeName(StringExpression typeName) {
-    this.typeName = typeName;
-  }
-
-  public PermissionTypeExpression getType() {
+  public StringExpression getType() {
     return this.type;
   }
 
-  public void setType(PermissionTypeExpression type) {
+  public void setType(StringExpression type) {
     this.type = type;
+  }
+
+  public PermissionTypeExpression getPermissionType() {
+    return this.permissionType;
+  }
+
+  public void setPermissionType(PermissionTypeExpression permissionType) {
+    this.permissionType = permissionType;
   }
 
   public StringExpression getDescription() {

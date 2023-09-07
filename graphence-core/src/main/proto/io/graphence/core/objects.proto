@@ -196,9 +196,9 @@ message Realm {
 }
 message Permission {
     string name = 1;
-    string field_name = 2;
-    string type_name = 3;
-    PermissionType type = 4;
+    string field = 2;
+    string type = 3;
+    PermissionType permission_type = 4;
     optional string description = 5;
     repeated Role role = 6;
     optional Realm realm = 7;
@@ -214,12 +214,12 @@ message Permission {
     optional int32 name_count = 17;
     optional string name_max = 18;
     optional string name_min = 19;
-    optional int32 field_name_count = 20;
-    optional string field_name_max = 21;
-    optional string field_name_min = 22;
-    optional int32 type_name_count = 23;
-    optional string type_name_max = 24;
-    optional string type_name_min = 25;
+    optional int32 field_count = 20;
+    optional string field_max = 21;
+    optional string field_min = 22;
+    optional int32 type_count = 23;
+    optional string type_max = 24;
+    optional string type_min = 25;
     optional int32 description_count = 26;
     optional string description_max = 27;
     optional string description_min = 28;
@@ -278,15 +278,6 @@ message Menu {
     repeated RoleMenu role_menu = 41;
     optional RoleMenu role_menu_aggregate = 42;
     optional RoleMenuConnection role_menu_connection = 43;
-}
-message CurrentUser {
-    optional string last_name = 1;
-    repeated string groups = 2;
-    repeated string roles = 3;
-    optional string name = 4;
-    optional string id = 5;
-    optional string login = 6;
-    optional int32 realm_id = 7;
 }
 message UserPhones {
     optional string id = 1;
@@ -600,4 +591,13 @@ message GroupRoleConnection {
 message GroupRoleEdge {
     optional GroupRole node = 1;
     optional string cursor = 2;
+}
+message CurrentUser {
+    optional string last_name = 1;
+    optional string login = 2;
+    optional string id = 3;
+    repeated string groups = 4;
+    repeated string roles = 5;
+    optional string name = 6;
+    optional int32 realm_id = 7;
 }

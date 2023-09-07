@@ -42,9 +42,9 @@ type Realm {
 
 type Permission {
     name: ID!
-    fieldName: String!
-    typeName: String!
-    type: PermissionType!
+    field: String!
+    type: String!
+    permissionType: PermissionType!
     description: String
     role: [Role] @map(from: "name" with: {type: "RolePermission" from: "permissionName" to: "roleId"} to: "id")
     realm: Realm @map(from: "realmId" to: "id" anchor: true)

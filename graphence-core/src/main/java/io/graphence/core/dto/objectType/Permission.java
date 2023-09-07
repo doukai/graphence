@@ -25,13 +25,13 @@ public class Permission implements Meta {
   private String name;
 
   @NonNull
-  private String fieldName;
+  private String field;
 
   @NonNull
-  private String typeName;
+  private String type;
 
   @NonNull
-  private PermissionType type;
+  private PermissionType permissionType;
 
   private String description;
 
@@ -63,17 +63,17 @@ public class Permission implements Meta {
 
   private String nameMin;
 
-  private Integer fieldNameCount;
+  private Integer fieldCount;
 
-  private String fieldNameMax;
+  private String fieldMax;
 
-  private String fieldNameMin;
+  private String fieldMin;
 
-  private Integer typeNameCount;
+  private Integer typeCount;
 
-  private String typeNameMax;
+  private String typeMax;
 
-  private String typeNameMin;
+  private String typeMin;
 
   private Integer descriptionCount;
 
@@ -109,28 +109,28 @@ public class Permission implements Meta {
     this.name = name;
   }
 
-  public String getFieldName() {
-    return this.fieldName;
+  public String getField() {
+    return this.field;
   }
 
-  public void setFieldName(String fieldName) {
-    this.fieldName = fieldName;
+  public void setField(String field) {
+    this.field = field;
   }
 
-  public String getTypeName() {
-    return this.typeName;
-  }
-
-  public void setTypeName(String typeName) {
-    this.typeName = typeName;
-  }
-
-  public PermissionType getType() {
+  public String getType() {
     return this.type;
   }
 
-  public void setType(PermissionType type) {
+  public void setType(String type) {
     this.type = type;
+  }
+
+  public PermissionType getPermissionType() {
+    return this.permissionType;
+  }
+
+  public void setPermissionType(PermissionType permissionType) {
+    this.permissionType = permissionType;
   }
 
   public String getDescription() {
@@ -269,52 +269,52 @@ public class Permission implements Meta {
     this.nameMin = nameMin;
   }
 
-  public Integer getFieldNameCount() {
-    return this.fieldNameCount;
+  public Integer getFieldCount() {
+    return this.fieldCount;
   }
 
-  public void setFieldNameCount(Integer fieldNameCount) {
-    this.fieldNameCount = fieldNameCount;
+  public void setFieldCount(Integer fieldCount) {
+    this.fieldCount = fieldCount;
   }
 
-  public String getFieldNameMax() {
-    return this.fieldNameMax;
+  public String getFieldMax() {
+    return this.fieldMax;
   }
 
-  public void setFieldNameMax(String fieldNameMax) {
-    this.fieldNameMax = fieldNameMax;
+  public void setFieldMax(String fieldMax) {
+    this.fieldMax = fieldMax;
   }
 
-  public String getFieldNameMin() {
-    return this.fieldNameMin;
+  public String getFieldMin() {
+    return this.fieldMin;
   }
 
-  public void setFieldNameMin(String fieldNameMin) {
-    this.fieldNameMin = fieldNameMin;
+  public void setFieldMin(String fieldMin) {
+    this.fieldMin = fieldMin;
   }
 
-  public Integer getTypeNameCount() {
-    return this.typeNameCount;
+  public Integer getTypeCount() {
+    return this.typeCount;
   }
 
-  public void setTypeNameCount(Integer typeNameCount) {
-    this.typeNameCount = typeNameCount;
+  public void setTypeCount(Integer typeCount) {
+    this.typeCount = typeCount;
   }
 
-  public String getTypeNameMax() {
-    return this.typeNameMax;
+  public String getTypeMax() {
+    return this.typeMax;
   }
 
-  public void setTypeNameMax(String typeNameMax) {
-    this.typeNameMax = typeNameMax;
+  public void setTypeMax(String typeMax) {
+    this.typeMax = typeMax;
   }
 
-  public String getTypeNameMin() {
-    return this.typeNameMin;
+  public String getTypeMin() {
+    return this.typeMin;
   }
 
-  public void setTypeNameMin(String typeNameMin) {
-    this.typeNameMin = typeNameMin;
+  public void setTypeMin(String typeMin) {
+    this.typeMin = typeMin;
   }
 
   public Integer getDescriptionCount() {

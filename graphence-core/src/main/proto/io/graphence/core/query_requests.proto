@@ -14,7 +14,35 @@ import "io/graphoenix/core/input_objects.proto";
 import "io/graphoenix/introspection/input_objects.proto";
 import "google/protobuf/timestamp.proto";
 
-message QueryCurrentRequest {
+message QueryIsDeprecatedRequest {
+    optional string selection_set = 1;
+    optional string arguments = 2;
+}
+message QueryVersionRequest {
+    optional string selection_set = 1;
+    optional string arguments = 2;
+}
+message QueryRealmIdRequest {
+    optional string selection_set = 1;
+    optional string arguments = 2;
+}
+message QueryCreateUserIdRequest {
+    optional string selection_set = 1;
+    optional string arguments = 2;
+}
+message QueryCreateTimeRequest {
+    optional string selection_set = 1;
+    optional string arguments = 2;
+}
+message QueryUpdateUserIdRequest {
+    optional string selection_set = 1;
+    optional string arguments = 2;
+}
+message QueryUpdateTimeRequest {
+    optional string selection_set = 1;
+    optional string arguments = 2;
+}
+message QueryCreateGroupIdRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
 }
@@ -378,9 +406,9 @@ message QueryPermissionRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
     optional io.graphoenix.core.grpc.StringExpression name = 3;
-    optional io.graphoenix.core.grpc.StringExpression field_name = 4;
-    optional io.graphoenix.core.grpc.StringExpression type_name = 5;
-    optional PermissionTypeExpression type = 6;
+    optional io.graphoenix.core.grpc.StringExpression field = 4;
+    optional io.graphoenix.core.grpc.StringExpression type = 5;
+    optional PermissionTypeExpression permission_type = 6;
     optional io.graphoenix.core.grpc.StringExpression description = 7;
     optional RoleExpression role = 8;
     optional RealmExpression realm = 9;
@@ -401,9 +429,9 @@ message QueryPermissionListRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
     optional io.graphoenix.core.grpc.StringExpression name = 3;
-    optional io.graphoenix.core.grpc.StringExpression field_name = 4;
-    optional io.graphoenix.core.grpc.StringExpression type_name = 5;
-    optional PermissionTypeExpression type = 6;
+    optional io.graphoenix.core.grpc.StringExpression field = 4;
+    optional io.graphoenix.core.grpc.StringExpression type = 5;
+    optional PermissionTypeExpression permission_type = 6;
     optional io.graphoenix.core.grpc.StringExpression description = 7;
     optional RoleExpression role = 8;
     optional RealmExpression realm = 9;
@@ -431,9 +459,9 @@ message QueryPermissionConnectionRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
     optional io.graphoenix.core.grpc.StringExpression name = 3;
-    optional io.graphoenix.core.grpc.StringExpression field_name = 4;
-    optional io.graphoenix.core.grpc.StringExpression type_name = 5;
-    optional PermissionTypeExpression type = 6;
+    optional io.graphoenix.core.grpc.StringExpression field = 4;
+    optional io.graphoenix.core.grpc.StringExpression type = 5;
+    optional PermissionTypeExpression permission_type = 6;
     optional io.graphoenix.core.grpc.StringExpression description = 7;
     optional RoleExpression role = 8;
     optional RealmExpression realm = 9;
@@ -1061,35 +1089,7 @@ message QueryGroupRoleConnectionRequest {
     optional string after = 24;
     optional string before = 25;
 }
-message QueryIsDeprecatedRequest {
-    optional string selection_set = 1;
-    optional string arguments = 2;
-}
-message QueryVersionRequest {
-    optional string selection_set = 1;
-    optional string arguments = 2;
-}
-message QueryRealmIdRequest {
-    optional string selection_set = 1;
-    optional string arguments = 2;
-}
-message QueryCreateUserIdRequest {
-    optional string selection_set = 1;
-    optional string arguments = 2;
-}
-message QueryCreateTimeRequest {
-    optional string selection_set = 1;
-    optional string arguments = 2;
-}
-message QueryUpdateUserIdRequest {
-    optional string selection_set = 1;
-    optional string arguments = 2;
-}
-message QueryUpdateTimeRequest {
-    optional string selection_set = 1;
-    optional string arguments = 2;
-}
-message QueryCreateGroupIdRequest {
+message QueryCurrentRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
 }

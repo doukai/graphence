@@ -14,11 +14,11 @@ public @interface PermissionExpression0 {
 
   IDExpression name() default @IDExpression;
 
-  StringExpression fieldName() default @StringExpression;
+  StringExpression field() default @StringExpression;
 
-  StringExpression typeName() default @StringExpression;
+  StringExpression type() default @StringExpression;
 
-  PermissionTypeExpression type() default @PermissionTypeExpression;
+  PermissionTypeExpression permissionType() default @PermissionTypeExpression;
 
   StringExpression description() default @StringExpression;
 

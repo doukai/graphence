@@ -12,11 +12,11 @@ import java.lang.annotation.Target;
 public @interface PermissionInput0 {
   String name() default "";
 
-  String fieldName() default "";
+  String field() default "";
 
-  String typeName() default "";
+  String type() default "";
 
-  PermissionType type() default PermissionType.READ;
+  PermissionType permissionType() default PermissionType.READ;
 
   String description() default "";
 
@@ -40,11 +40,11 @@ public @interface PermissionInput0 {
 
   String $name() default "";
 
-  String $fieldName() default "";
-
-  String $typeName() default "";
+  String $field() default "";
 
   String $type() default "";
+
+  String $permissionType() default "";
 
   String $description() default "";
 

@@ -10,10 +10,32 @@ import "io/graphence/core/objects.proto";
 import "io/graphence/core/interfaces.proto";
 import "io/graphence/core/input_objects.proto";
 import "io/graphoenix/introspection/input_objects.proto";
+import "io/graphoenix/core/enums.proto";
 import "google/protobuf/timestamp.proto";
 
-message MutationLoginResponse {
-    optional string login = 1;
+message MutationIsDeprecatedResponse {
+    optional bool is_deprecated = 1;
+}
+message MutationVersionResponse {
+    optional int32 version = 1;
+}
+message MutationRealmIdResponse {
+    optional int32 realm_id = 1;
+}
+message MutationCreateUserIdResponse {
+    optional string create_user_id = 1;
+}
+message MutationCreateTimeResponse {
+    optional google.protobuf.Timestamp create_time = 1;
+}
+message MutationUpdateUserIdResponse {
+    optional string update_user_id = 1;
+}
+message MutationUpdateTimeResponse {
+    optional google.protobuf.Timestamp update_time = 1;
+}
+message MutationCreateGroupIdResponse {
+    optional string create_group_id = 1;
 }
 message MutationUserResponse {
     optional User user = 1;
@@ -93,27 +115,6 @@ message MutationGroupRoleResponse {
 message MutationGroupRoleListResponse {
     repeated GroupRole group_role_list = 1;
 }
-message MutationIsDeprecatedResponse {
-    optional bool is_deprecated = 1;
-}
-message MutationVersionResponse {
-    optional int32 version = 1;
-}
-message MutationRealmIdResponse {
-    optional int32 realm_id = 1;
-}
-message MutationCreateUserIdResponse {
-    optional string create_user_id = 1;
-}
-message MutationCreateTimeResponse {
-    optional google.protobuf.Timestamp create_time = 1;
-}
-message MutationUpdateUserIdResponse {
-    optional string update_user_id = 1;
-}
-message MutationUpdateTimeResponse {
-    optional google.protobuf.Timestamp update_time = 1;
-}
-message MutationCreateGroupIdResponse {
-    optional string create_group_id = 1;
+message MutationLoginResponse {
+    optional string login = 1;
 }
