@@ -15,6 +15,8 @@ public @interface GroupInput0 {
 
   String path() default "";
 
+  int deep() default 0;
+
   boolean isDeprecated() default false;
 
   int version() default 0;
@@ -40,6 +42,8 @@ public @interface GroupInput0 {
   String $name() default "";
 
   String $path() default "";
+
+  String $deep() default "";
 
   String $parent() default "";
 

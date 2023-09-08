@@ -64,12 +64,6 @@ public class QueryType implements Meta {
 
   private PermissionConnection permissionConnection;
 
-  private Menu menu;
-
-  private Collection<Menu> menuList;
-
-  private MenuConnection menuConnection;
-
   private UserPhones userPhones;
 
   private Collection<UserPhones> userPhonesList;
@@ -99,12 +93,6 @@ public class QueryType implements Meta {
   private Collection<RolePermission> rolePermissionList;
 
   private RolePermissionConnection rolePermissionConnection;
-
-  private RoleMenu roleMenu;
-
-  private Collection<RoleMenu> roleMenuList;
-
-  private RoleMenuConnection roleMenuConnection;
 
   private GroupRole groupRole;
 
@@ -314,30 +302,6 @@ public class QueryType implements Meta {
     this.permissionConnection = permissionConnection;
   }
 
-  public Menu getMenu() {
-    return this.menu;
-  }
-
-  public void setMenu(Menu menu) {
-    this.menu = menu;
-  }
-
-  public Collection<Menu> getMenuList() {
-    return this.menuList;
-  }
-
-  public void setMenuList(Collection<Menu> menuList) {
-    this.menuList = menuList;
-  }
-
-  public MenuConnection getMenuConnection() {
-    return this.menuConnection;
-  }
-
-  public void setMenuConnection(MenuConnection menuConnection) {
-    this.menuConnection = menuConnection;
-  }
-
   public UserPhones getUserPhones() {
     return this.userPhones;
   }
@@ -456,30 +420,6 @@ public class QueryType implements Meta {
 
   public void setRolePermissionConnection(RolePermissionConnection rolePermissionConnection) {
     this.rolePermissionConnection = rolePermissionConnection;
-  }
-
-  public RoleMenu getRoleMenu() {
-    return this.roleMenu;
-  }
-
-  public void setRoleMenu(RoleMenu roleMenu) {
-    this.roleMenu = roleMenu;
-  }
-
-  public Collection<RoleMenu> getRoleMenuList() {
-    return this.roleMenuList;
-  }
-
-  public void setRoleMenuList(Collection<RoleMenu> roleMenuList) {
-    this.roleMenuList = roleMenuList;
-  }
-
-  public RoleMenuConnection getRoleMenuConnection() {
-    return this.roleMenuConnection;
-  }
-
-  public void setRoleMenuConnection(RoleMenuConnection roleMenuConnection) {
-    this.roleMenuConnection = roleMenuConnection;
   }
 
   public GroupRole getGroupRole() {

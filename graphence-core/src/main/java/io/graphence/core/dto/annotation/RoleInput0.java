@@ -45,8 +45,6 @@ public @interface RoleInput0 {
 
   String $permissions() default "";
 
-  String $menus() default "";
-
   String $realm() default "";
 
   String $isDeprecated() default "";
@@ -79,10 +77,6 @@ public @interface RoleInput0 {
 
   String $permissionsConnection() default "";
 
-  String $menusAggregate() default "";
-
-  String $menusConnection() default "";
-
   String $userRole() default "";
 
   String $userRoleAggregate() default "";
@@ -100,10 +94,4 @@ public @interface RoleInput0 {
   String $rolePermissionAggregate() default "";
 
   String $rolePermissionConnection() default "";
-
-  String $roleMenu() default "";
-
-  String $roleMenuAggregate() default "";
-
-  String $roleMenuConnection() default "";
 }

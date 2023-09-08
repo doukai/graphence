@@ -31,8 +31,6 @@ public class RoleInput implements MetaInput {
 
   private Collection<PermissionInput> permissions;
 
-  private Collection<MenuInput> menus;
-
   private RealmInput realm;
 
   private Boolean isDeprecated;
@@ -59,8 +57,6 @@ public class RoleInput implements MetaInput {
   private Collection<RoleCompositeInput> roleComposite;
 
   private Collection<RolePermissionInput> rolePermission;
-
-  private Collection<RoleMenuInput> roleMenu;
 
   public String getId() {
     return this.id;
@@ -108,14 +104,6 @@ public class RoleInput implements MetaInput {
 
   public void setPermissions(Collection<PermissionInput> permissions) {
     this.permissions = permissions;
-  }
-
-  public Collection<MenuInput> getMenus() {
-    return this.menus;
-  }
-
-  public void setMenus(Collection<MenuInput> menus) {
-    this.menus = menus;
   }
 
   public RealmInput getRealm() {
@@ -220,13 +208,5 @@ public class RoleInput implements MetaInput {
 
   public void setRolePermission(Collection<RolePermissionInput> rolePermission) {
     this.rolePermission = rolePermission;
-  }
-
-  public Collection<RoleMenuInput> getRoleMenu() {
-    return this.roleMenu;
-  }
-
-  public void setRoleMenu(Collection<RoleMenuInput> roleMenu) {
-    this.roleMenu = roleMenu;
   }
 }

@@ -33,8 +33,6 @@ public class Role implements Meta {
 
   private Collection<Permission> permissions;
 
-  private Collection<Menu> menus;
-
   private Realm realm;
 
   private Boolean isDeprecated;
@@ -85,10 +83,6 @@ public class Role implements Meta {
 
   private PermissionConnection permissionsConnection;
 
-  private Menu menusAggregate;
-
-  private MenuConnection menusConnection;
-
   private Integer realmIdCount;
 
   private Integer realmIdSum;
@@ -116,12 +110,6 @@ public class Role implements Meta {
   private RolePermission rolePermissionAggregate;
 
   private RolePermissionConnection rolePermissionConnection;
-
-  private Collection<RoleMenu> roleMenu;
-
-  private RoleMenu roleMenuAggregate;
-
-  private RoleMenuConnection roleMenuConnection;
 
   public String getId() {
     return this.id;
@@ -169,14 +157,6 @@ public class Role implements Meta {
 
   public void setPermissions(Collection<Permission> permissions) {
     this.permissions = permissions;
-  }
-
-  public Collection<Menu> getMenus() {
-    return this.menus;
-  }
-
-  public void setMenus(Collection<Menu> menus) {
-    this.menus = menus;
   }
 
   public Realm getRealm() {
@@ -395,22 +375,6 @@ public class Role implements Meta {
     this.permissionsConnection = permissionsConnection;
   }
 
-  public Menu getMenusAggregate() {
-    return this.menusAggregate;
-  }
-
-  public void setMenusAggregate(Menu menusAggregate) {
-    this.menusAggregate = menusAggregate;
-  }
-
-  public MenuConnection getMenusConnection() {
-    return this.menusConnection;
-  }
-
-  public void setMenusConnection(MenuConnection menusConnection) {
-    this.menusConnection = menusConnection;
-  }
-
   public Integer getRealmIdCount() {
     return this.realmIdCount;
   }
@@ -521,29 +485,5 @@ public class Role implements Meta {
 
   public void setRolePermissionConnection(RolePermissionConnection rolePermissionConnection) {
     this.rolePermissionConnection = rolePermissionConnection;
-  }
-
-  public Collection<RoleMenu> getRoleMenu() {
-    return this.roleMenu;
-  }
-
-  public void setRoleMenu(Collection<RoleMenu> roleMenu) {
-    this.roleMenu = roleMenu;
-  }
-
-  public RoleMenu getRoleMenuAggregate() {
-    return this.roleMenuAggregate;
-  }
-
-  public void setRoleMenuAggregate(RoleMenu roleMenuAggregate) {
-    this.roleMenuAggregate = roleMenuAggregate;
-  }
-
-  public RoleMenuConnection getRoleMenuConnection() {
-    return this.roleMenuConnection;
-  }
-
-  public void setRoleMenuConnection(RoleMenuConnection roleMenuConnection) {
-    this.roleMenuConnection = roleMenuConnection;
   }
 }

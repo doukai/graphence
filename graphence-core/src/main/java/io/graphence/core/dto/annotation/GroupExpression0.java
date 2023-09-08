@@ -18,6 +18,8 @@ public @interface GroupExpression0 {
 
   StringExpression path() default @StringExpression;
 
+  IntExpression deep() default @IntExpression;
+
   BooleanExpression isDeprecated() default @BooleanExpression;
 
   IntExpression version() default @IntExpression;

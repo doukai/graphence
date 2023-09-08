@@ -23,6 +23,8 @@ public class GroupSubscriptionTypeArguments implements MetaExpression {
 
   private StringExpression path;
 
+  private IntExpression deep;
+
   private GroupExpression parent;
 
   private GroupExpression subGroups;
@@ -85,6 +87,14 @@ public class GroupSubscriptionTypeArguments implements MetaExpression {
 
   public void setPath(StringExpression path) {
     this.path = path;
+  }
+
+  public IntExpression getDeep() {
+    return this.deep;
+  }
+
+  public void setDeep(IntExpression deep) {
+    this.deep = deep;
   }
 
   public GroupExpression getParent() {

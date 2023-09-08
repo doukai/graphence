@@ -19,7 +19,9 @@ import org.eclipse.microprofile.jwt.Claims;
 
 import java.security.Key;
 import java.util.Calendar;
+import java.util.Collection;
 import java.util.Date;
+import java.util.stream.Stream;
 
 @ApplicationScoped
 public class JWTUtil {
@@ -65,17 +67,11 @@ public class JWTUtil {
     }
 
     protected String[] getGroups(User user) {
-        if (user.getGroups() == null) {
-            return null;
-        }
-        return user.getGroups().stream().map(Group::getId).toArray(String[]::new);
+        return Stream.ofNullable(user.getGroups()).flatMap(Collection::stream).map(Group::getName).toArray(String[]::new);
     }
 
     protected String[] getRoles(User user) {
-        if (user.getRoles() == null) {
-            return null;
-        }
-        return user.getRoles().stream().map(Role::getId).toArray(String[]::new);
+        return Stream.ofNullable(user.getRoles()).flatMap(Collection::stream).map(Role::getName).toArray(String[]::new);
     }
 
     public GraphenceJsonWebToken parser(String compactJws) throws JwtException {

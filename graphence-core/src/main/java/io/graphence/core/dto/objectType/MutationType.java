@@ -53,10 +53,6 @@ public class MutationType implements Meta {
 
   private Collection<Permission> permissionList;
 
-  private Menu menu;
-
-  private Collection<Menu> menuList;
-
   private UserPhones userPhones;
 
   private Collection<UserPhones> userPhonesList;
@@ -76,10 +72,6 @@ public class MutationType implements Meta {
   private RolePermission rolePermission;
 
   private Collection<RolePermission> rolePermissionList;
-
-  private RoleMenu roleMenu;
-
-  private Collection<RoleMenu> roleMenuList;
 
   private GroupRole groupRole;
 
@@ -247,22 +239,6 @@ public class MutationType implements Meta {
     this.permissionList = permissionList;
   }
 
-  public Menu getMenu() {
-    return this.menu;
-  }
-
-  public void setMenu(Menu menu) {
-    this.menu = menu;
-  }
-
-  public Collection<Menu> getMenuList() {
-    return this.menuList;
-  }
-
-  public void setMenuList(Collection<Menu> menuList) {
-    this.menuList = menuList;
-  }
-
   public UserPhones getUserPhones() {
     return this.userPhones;
   }
@@ -341,22 +317,6 @@ public class MutationType implements Meta {
 
   public void setRolePermissionList(Collection<RolePermission> rolePermissionList) {
     this.rolePermissionList = rolePermissionList;
-  }
-
-  public RoleMenu getRoleMenu() {
-    return this.roleMenu;
-  }
-
-  public void setRoleMenu(RoleMenu roleMenu) {
-    this.roleMenu = roleMenu;
-  }
-
-  public Collection<RoleMenu> getRoleMenuList() {
-    return this.roleMenuList;
-  }
-
-  public void setRoleMenuList(Collection<RoleMenu> roleMenuList) {
-    this.roleMenuList = roleMenuList;
   }
 
   public GroupRole getGroupRole() {

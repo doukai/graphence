@@ -99,7 +99,7 @@ public class CurrentUser {
                 .setRealmId(user.getRealmId())
                 .setName(user.getName())
                 .setLastName(user.getLastName())
-                .setRoles(Stream.ofNullable(user.getRoles()).flatMap(Collection::stream).map(Role::getId).collect(Collectors.toList()))
-                .setGroups(Stream.ofNullable(user.getGroups()).flatMap(Collection::stream).map(Group::getId).collect(Collectors.toList()));
+                .setRoles(Stream.ofNullable(user.getRoles()).flatMap(Collection::stream).map(Role::getName).collect(Collectors.toList()))
+                .setGroups(Stream.ofNullable(user.getGroups()).flatMap(Collection::stream).map(Group::getName).collect(Collectors.toList()));
     }
 }

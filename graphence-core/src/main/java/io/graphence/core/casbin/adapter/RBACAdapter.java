@@ -85,7 +85,7 @@ public class RBACAdapter implements Adapter {
                                     .map(user ->
                                             new Rule()
                                                     .setPtype(G_TYPE)
-                                                    .setV0(USER_PREFIX.concat(user.getLogin()))
+                                                    .setV0(USER_PREFIX.concat(user.getId()))
                                                     .setV1(ROLE_PREFIX.concat(role.getName()))
                                                     .setV2(Optional.ofNullable(user.getRealmId()).map(String::valueOf).orElse(UNDEFINED))
                                     )

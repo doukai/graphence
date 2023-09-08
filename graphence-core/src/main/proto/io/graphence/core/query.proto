@@ -36,9 +36,6 @@ service QueryTypeService {
     rpc Permission (QueryPermissionRequest) returns (QueryPermissionResponse);
     rpc PermissionList (QueryPermissionListRequest) returns (QueryPermissionListResponse);
     rpc PermissionConnection (QueryPermissionConnectionRequest) returns (QueryPermissionConnectionResponse);
-    rpc Menu (QueryMenuRequest) returns (QueryMenuResponse);
-    rpc MenuList (QueryMenuListRequest) returns (QueryMenuListResponse);
-    rpc MenuConnection (QueryMenuConnectionRequest) returns (QueryMenuConnectionResponse);
     rpc UserPhones (QueryUserPhonesRequest) returns (QueryUserPhonesResponse);
     rpc UserPhonesList (QueryUserPhonesListRequest) returns (QueryUserPhonesListResponse);
     rpc UserPhonesConnection (QueryUserPhonesConnectionRequest) returns (QueryUserPhonesConnectionResponse);
@@ -54,9 +51,6 @@ service QueryTypeService {
     rpc RolePermission (QueryRolePermissionRequest) returns (QueryRolePermissionResponse);
     rpc RolePermissionList (QueryRolePermissionListRequest) returns (QueryRolePermissionListResponse);
     rpc RolePermissionConnection (QueryRolePermissionConnectionRequest) returns (QueryRolePermissionConnectionResponse);
-    rpc RoleMenu (QueryRoleMenuRequest) returns (QueryRoleMenuResponse);
-    rpc RoleMenuList (QueryRoleMenuListRequest) returns (QueryRoleMenuListResponse);
-    rpc RoleMenuConnection (QueryRoleMenuConnectionRequest) returns (QueryRoleMenuConnectionResponse);
     rpc GroupRole (QueryGroupRoleRequest) returns (QueryGroupRoleResponse);
     rpc GroupRoleList (QueryGroupRoleListRequest) returns (QueryGroupRoleListResponse);
     rpc GroupRoleConnection (QueryGroupRoleConnectionRequest) returns (QueryGroupRoleConnectionResponse);

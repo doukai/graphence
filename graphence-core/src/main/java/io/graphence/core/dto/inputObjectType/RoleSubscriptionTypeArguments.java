@@ -29,8 +29,6 @@ public class RoleSubscriptionTypeArguments implements MetaExpression {
 
   private PermissionExpression permissions;
 
-  private MenuExpression menus;
-
   private RealmExpression realm;
 
   @DefaultValue("false")
@@ -57,8 +55,6 @@ public class RoleSubscriptionTypeArguments implements MetaExpression {
   private RoleCompositeExpression roleComposite;
 
   private RolePermissionExpression rolePermission;
-
-  private RoleMenuExpression roleMenu;
 
   @DefaultValue("AND")
   private Conditional cond;
@@ -111,14 +107,6 @@ public class RoleSubscriptionTypeArguments implements MetaExpression {
 
   public void setPermissions(PermissionExpression permissions) {
     this.permissions = permissions;
-  }
-
-  public MenuExpression getMenus() {
-    return this.menus;
-  }
-
-  public void setMenus(MenuExpression menus) {
-    this.menus = menus;
   }
 
   public RealmExpression getRealm() {
@@ -223,14 +211,6 @@ public class RoleSubscriptionTypeArguments implements MetaExpression {
 
   public void setRolePermission(RolePermissionExpression rolePermission) {
     this.rolePermission = rolePermission;
-  }
-
-  public RoleMenuExpression getRoleMenu() {
-    return this.roleMenu;
-  }
-
-  public void setRoleMenu(RoleMenuExpression roleMenu) {
-    this.roleMenu = roleMenu;
   }
 
   public Conditional getCond() {

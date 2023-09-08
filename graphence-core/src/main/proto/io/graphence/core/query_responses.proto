@@ -83,15 +83,6 @@ message QueryPermissionListResponse {
 message QueryPermissionConnectionResponse {
     optional PermissionConnection permission_connection = 1;
 }
-message QueryMenuResponse {
-    optional Menu menu = 1;
-}
-message QueryMenuListResponse {
-    repeated Menu menu_list = 1;
-}
-message QueryMenuConnectionResponse {
-    optional MenuConnection menu_connection = 1;
-}
 message QueryUserPhonesResponse {
     optional UserPhones user_phones = 1;
 }
@@ -136,15 +127,6 @@ message QueryRolePermissionListResponse {
 }
 message QueryRolePermissionConnectionResponse {
     optional RolePermissionConnection role_permission_connection = 1;
-}
-message QueryRoleMenuResponse {
-    optional RoleMenu role_menu = 1;
-}
-message QueryRoleMenuListResponse {
-    repeated RoleMenu role_menu_list = 1;
-}
-message QueryRoleMenuConnectionResponse {
-    optional RoleMenuConnection role_menu_connection = 1;
 }
 message QueryGroupRoleResponse {
     optional GroupRole group_role = 1;

@@ -23,6 +23,8 @@ public class GroupListMutationTypeArguments implements MetaInput {
 
   private String path;
 
+  private Integer deep;
+
   private GroupInput parent;
 
   private Collection<GroupInput> subGroups;
@@ -84,6 +86,14 @@ public class GroupListMutationTypeArguments implements MetaInput {
 
   public void setPath(String path) {
     this.path = path;
+  }
+
+  public Integer getDeep() {
+    return this.deep;
+  }
+
+  public void setDeep(Integer deep) {
+    this.deep = deep;
   }
 
   public GroupInput getParent() {

@@ -35,7 +35,7 @@ public class Permission implements Meta {
 
   private String description;
 
-  private Collection<Role> role;
+  private Collection<Role> roles;
 
   private Realm realm;
 
@@ -81,9 +81,9 @@ public class Permission implements Meta {
 
   private String descriptionMin;
 
-  private Role roleAggregate;
+  private Role rolesAggregate;
 
-  private RoleConnection roleConnection;
+  private RoleConnection rolesConnection;
 
   private Integer realmIdCount;
 
@@ -141,12 +141,12 @@ public class Permission implements Meta {
     this.description = description;
   }
 
-  public Collection<Role> getRole() {
-    return this.role;
+  public Collection<Role> getRoles() {
+    return this.roles;
   }
 
-  public void setRole(Collection<Role> role) {
-    this.role = role;
+  public void setRoles(Collection<Role> roles) {
+    this.roles = roles;
   }
 
   public Realm getRealm() {
@@ -341,20 +341,20 @@ public class Permission implements Meta {
     this.descriptionMin = descriptionMin;
   }
 
-  public Role getRoleAggregate() {
-    return this.roleAggregate;
+  public Role getRolesAggregate() {
+    return this.rolesAggregate;
   }
 
-  public void setRoleAggregate(Role roleAggregate) {
-    this.roleAggregate = roleAggregate;
+  public void setRolesAggregate(Role rolesAggregate) {
+    this.rolesAggregate = rolesAggregate;
   }
 
-  public RoleConnection getRoleConnection() {
-    return this.roleConnection;
+  public RoleConnection getRolesConnection() {
+    return this.rolesConnection;
   }
 
-  public void setRoleConnection(RoleConnection roleConnection) {
-    this.roleConnection = roleConnection;
+  public void setRolesConnection(RoleConnection rolesConnection) {
+    this.rolesConnection = rolesConnection;
   }
 
   public Integer getRealmIdCount() {

@@ -48,7 +48,7 @@ public @interface PermissionInput0 {
 
   String $description() default "";
 
-  String $role() default "";
+  String $roles() default "";
 
   String $realm() default "";
 
@@ -70,9 +70,9 @@ public @interface PermissionInput0 {
 
   String $__typename() default "";
 
-  String $roleAggregate() default "";
+  String $rolesAggregate() default "";
 
-  String $roleConnection() default "";
+  String $rolesConnection() default "";
 
   String $rolePermission() default "";
 

@@ -102,7 +102,7 @@ public class RBACFilter extends BaseRequestFilter implements ScopeEvent {
     protected void enforceApi(CurrentUser currentUser, String operationTypeName, GraphqlParser.SelectionContext selectionContext, PermissionType permissionType) {
         if (!rbacEnforcer.getEnforcer()
                 .enforce(
-                        USER_PREFIX.concat(currentUser.getLogin()),
+                        USER_PREFIX.concat(currentUser.getId()),
                         currentUser.getRealmId(),
                         operationTypeName + SPACER + selectionContext.field().name().getText(),
                         permissionType.name()
@@ -123,7 +123,7 @@ public class RBACFilter extends BaseRequestFilter implements ScopeEvent {
                 for (GraphqlParser.SelectionContext selectionContext : selectionContexts) {
                     if (rbacEnforcer.getEnforcer()
                             .enforce(
-                                    USER_PREFIX.concat(currentUser.getLogin()),
+                                    USER_PREFIX.concat(currentUser.getId()),
                                     currentUser.getRealmId(),
                                     typeName + SPACER + selectionContext.field().name().getText(),
                                     READ.name()
@@ -157,7 +157,7 @@ public class RBACFilter extends BaseRequestFilter implements ScopeEvent {
                     } else {
                         if (rbacEnforcer.getEnforcer()
                                 .enforce(
-                                        USER_PREFIX.concat(currentUser.getLogin()),
+                                        USER_PREFIX.concat(currentUser.getId()),
                                         currentUser.getRealmId(),
                                         typeName + SPACER + argumentContext.name().getText(),
                                         WRITE.name()
@@ -189,7 +189,7 @@ public class RBACFilter extends BaseRequestFilter implements ScopeEvent {
                 for (GraphqlParser.ObjectFieldWithVariableContext objectFieldWithVariableContext : objectFieldWithVariableContextList) {
                     if (rbacEnforcer.getEnforcer()
                             .enforce(
-                                    USER_PREFIX.concat(currentUser.getLogin()),
+                                    USER_PREFIX.concat(currentUser.getId()),
                                     currentUser.getRealmId(),
                                     typeName + SPACER + objectFieldWithVariableContext.name().getText(),
                                     WRITE.name()

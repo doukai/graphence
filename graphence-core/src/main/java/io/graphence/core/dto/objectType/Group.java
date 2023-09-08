@@ -27,6 +27,8 @@ public class Group implements Meta {
 
   private String path;
 
+  private Integer deep;
+
   private Group parent;
 
   private Collection<Group> subGroups;
@@ -72,6 +74,16 @@ public class Group implements Meta {
   private String pathMax;
 
   private String pathMin;
+
+  private Integer deepCount;
+
+  private Integer deepSum;
+
+  private Integer deepAvg;
+
+  private Integer deepMax;
+
+  private Integer deepMin;
 
   private Group subGroupsAggregate;
 
@@ -141,6 +153,14 @@ public class Group implements Meta {
 
   public void setPath(String path) {
     this.path = path;
+  }
+
+  public Integer getDeep() {
+    return this.deep;
+  }
+
+  public void setDeep(Integer deep) {
+    this.deep = deep;
   }
 
   public Group getParent() {
@@ -341,6 +361,46 @@ public class Group implements Meta {
 
   public void setPathMin(String pathMin) {
     this.pathMin = pathMin;
+  }
+
+  public Integer getDeepCount() {
+    return this.deepCount;
+  }
+
+  public void setDeepCount(Integer deepCount) {
+    this.deepCount = deepCount;
+  }
+
+  public Integer getDeepSum() {
+    return this.deepSum;
+  }
+
+  public void setDeepSum(Integer deepSum) {
+    this.deepSum = deepSum;
+  }
+
+  public Integer getDeepAvg() {
+    return this.deepAvg;
+  }
+
+  public void setDeepAvg(Integer deepAvg) {
+    this.deepAvg = deepAvg;
+  }
+
+  public Integer getDeepMax() {
+    return this.deepMax;
+  }
+
+  public void setDeepMax(Integer deepMax) {
+    this.deepMax = deepMax;
+  }
+
+  public Integer getDeepMin() {
+    return this.deepMin;
+  }
+
+  public void setDeepMin(Integer deepMin) {
+    this.deepMin = deepMin;
   }
 
   public Group getSubGroupsAggregate() {

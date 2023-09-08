@@ -33,7 +33,7 @@ public class PermissionInput implements MetaInput {
 
   private String description;
 
-  private Collection<RoleInput> role;
+  private Collection<RoleInput> roles;
 
   private RealmInput realm;
 
@@ -98,12 +98,12 @@ public class PermissionInput implements MetaInput {
     this.description = description;
   }
 
-  public Collection<RoleInput> getRole() {
-    return this.role;
+  public Collection<RoleInput> getRoles() {
+    return this.roles;
   }
 
-  public void setRole(Collection<RoleInput> role) {
-    this.role = role;
+  public void setRoles(Collection<RoleInput> roles) {
+    this.roles = roles;
   }
 
   public RealmInput getRealm() {

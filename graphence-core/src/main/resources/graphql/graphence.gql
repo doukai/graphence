@@ -20,7 +20,6 @@ type Role {
     users: [User] @map(from: "id" with: {type: "UserRole" from: "roleId" to: "userId"} to: "id")
     composites: [Role] @map(from: "id" with: {type: "RoleComposite" from: "roleId" to: "compositeId"} to: "id")
     permissions: [Permission] @map(from: "id" with: {type: "RolePermission" from: "roleId" to: "permissionName"} to: "name")
-    menus: [Menu] @map(from: "id" with: {type: "RoleMenu" from: "roleId" to: "menuHref"} to: "href")
     realm: Realm @map(from: "realmId" to: "id" anchor: true)
 }
 
@@ -28,6 +27,7 @@ type Group {
     id: ID @dataType(type: "Int" autoIncrement: true)
     name: String!
     path: String
+    deep: Int
     parent: Group @map(from: "parentId" to: "id" anchor: true)
     subGroups: [Group] @map(from: "id" to: "parentId")
     users: [User] @map(from: "id" with: {type: "UserGroup" from: "groupId" to: "userId"} to: "id")
@@ -46,27 +46,11 @@ type Permission {
     type: String!
     permissionType: PermissionType!
     description: String
-    role: [Role] @map(from: "name" with: {type: "RolePermission" from: "permissionName" to: "roleId"} to: "id")
-    realm: Realm @map(from: "realmId" to: "id" anchor: true)
-}
-
-type Menu {
-    href: ID!
-    description: String
-    type: MenuType!
-    path: String
-    icon: String
-    parent: Menu @map(from: "parentHref" to: "href" anchor: true)
-    role: [Role] @map(from: "href" with: {type: "RoleMenu" from: "menuHref" to: "roleId"} to: "id")
+    roles: [Role] @map(from: "name" with: {type: "RolePermission" from: "permissionName" to: "roleId"} to: "id")
     realm: Realm @map(from: "realmId" to: "id" anchor: true)
 }
 
 enum PermissionType {
     READ
     WRITE
-}
-
-enum MenuType {
-    MENU
-    PAGE
 }

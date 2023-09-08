@@ -29,7 +29,7 @@ public class PermissionConnectionSubscriptionTypeArguments implements MetaExpres
 
   private StringExpression description;
 
-  private RoleExpression role;
+  private RoleExpression roles;
 
   private RealmExpression realm;
 
@@ -113,12 +113,12 @@ public class PermissionConnectionSubscriptionTypeArguments implements MetaExpres
     this.description = description;
   }
 
-  public RoleExpression getRole() {
-    return this.role;
+  public RoleExpression getRoles() {
+    return this.roles;
   }
 
-  public void setRole(RoleExpression role) {
-    this.role = role;
+  public void setRoles(RoleExpression roles) {
+    this.roles = roles;
   }
 
   public RealmExpression getRealm() {

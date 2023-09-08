@@ -67,12 +67,6 @@ message MutationPermissionResponse {
 message MutationPermissionListResponse {
     repeated Permission permission_list = 1;
 }
-message MutationMenuResponse {
-    optional Menu menu = 1;
-}
-message MutationMenuListResponse {
-    repeated Menu menu_list = 1;
-}
 message MutationUserPhonesResponse {
     optional UserPhones user_phones = 1;
 }
@@ -102,12 +96,6 @@ message MutationRolePermissionResponse {
 }
 message MutationRolePermissionListResponse {
     repeated RolePermission role_permission_list = 1;
-}
-message MutationRoleMenuResponse {
-    optional RoleMenu role_menu = 1;
-}
-message MutationRoleMenuListResponse {
-    repeated RoleMenu role_menu_list = 1;
 }
 message MutationGroupRoleResponse {
     optional GroupRole group_role = 1;
