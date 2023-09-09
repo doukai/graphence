@@ -57,4 +57,6 @@ public @interface RealmExpression0 {
   String $after() default "";
 
   String $before() default "";
+
+  RealmExpression1[] exs() default {};
 }

@@ -59,4 +59,10 @@ public @interface UserGroupExpression0 {
   String $after() default "";
 
   String $before() default "";
+
+  UserExpression1 from() default @UserExpression1;
+
+  GroupExpression1 to() default @GroupExpression1;
+
+  UserGroupExpression1[] exs() default {};
 }

@@ -140,3 +140,6 @@ message QueryGroupRoleConnectionResponse {
 message QueryCurrentResponse {
     optional CurrentUser current = 1;
 }
+message QueryCurrentPermissionListResponse {
+    repeated string current_permission_list = 1;
+}

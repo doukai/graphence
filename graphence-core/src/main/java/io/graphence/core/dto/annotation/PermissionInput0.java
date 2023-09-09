@@ -79,4 +79,14 @@ public @interface PermissionInput0 {
   String $rolePermissionAggregate() default "";
 
   String $rolePermissionConnection() default "";
+
+  RoleInput1[] roles() default {};
+
+  RealmInput1 realm() default @RealmInput1;
+
+  RolePermissionInput1[] rolePermission() default {};
+
+  PermissionInput1[] list() default {};
+
+  String $list() default "";
 }

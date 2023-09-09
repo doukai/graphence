@@ -55,4 +55,5 @@ service QueryTypeService {
     rpc GroupRoleList (QueryGroupRoleListRequest) returns (QueryGroupRoleListResponse);
     rpc GroupRoleConnection (QueryGroupRoleConnectionRequest) returns (QueryGroupRoleConnectionResponse);
     rpc Current (QueryCurrentRequest) returns (QueryCurrentResponse);
+    rpc CurrentPermissionList (QueryCurrentPermissionListRequest) returns (QueryCurrentPermissionListResponse);
 }

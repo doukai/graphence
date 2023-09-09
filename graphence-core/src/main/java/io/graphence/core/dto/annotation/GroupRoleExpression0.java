@@ -59,4 +59,10 @@ public @interface GroupRoleExpression0 {
   String $after() default "";
 
   String $before() default "";
+
+  GroupExpression1 from() default @GroupExpression1;
+
+  RoleExpression1 to() default @RoleExpression1;
+
+  GroupRoleExpression1[] exs() default {};
 }

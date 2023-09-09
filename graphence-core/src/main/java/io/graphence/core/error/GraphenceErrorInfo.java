@@ -20,13 +20,13 @@ public class GraphenceErrorInfo extends BaseErrorInfo {
 
     @Override
     public void register() {
-        put(JwtException.class, AUTHENTICATION_FAILED.getCode(), AUTHENTICATION_FAILED.getDescription());
-        put(SignatureException.class, AUTHENTICATION_FAILED.getCode(), AUTHENTICATION_FAILED.getDescription());
-        put(CasbinAdapterException.class, AUTHORIZATION_FAILED.getCode(), AUTHORIZATION_FAILED.getDescription());
-        put(CasbinConfigException.class, AUTHORIZATION_FAILED.getCode(), AUTHORIZATION_FAILED.getDescription());
-        put(CasbinEffectorException.class, AUTHORIZATION_FAILED.getCode(), AUTHORIZATION_FAILED.getDescription());
-        put(CasbinMatcherException.class, AUTHORIZATION_FAILED.getCode(), AUTHORIZATION_FAILED.getDescription());
-        put(CasbinNameNotExistException.class, AUTHORIZATION_FAILED.getCode(), AUTHORIZATION_FAILED.getDescription());
-        put(CasbinPolicyFileNotFoundException.class, AUTHORIZATION_FAILED.getCode(), AUTHORIZATION_FAILED.getDescription());
+        put(JwtException.class, AUTHENTICATION_FAILED.getCode(), AUTHENTICATION_FAILED.toString());
+        put(SignatureException.class, AUTHENTICATION_FAILED.getCode(), AUTHENTICATION_FAILED.toString());
+        put(CasbinAdapterException.class, AUTHORIZATION_FAILED.getCode(), AUTHORIZATION_FAILED.toString());
+        put(CasbinConfigException.class, AUTHORIZATION_FAILED.getCode(), AUTHORIZATION_FAILED.toString());
+        put(CasbinEffectorException.class, AUTHORIZATION_FAILED.getCode(), AUTHORIZATION_FAILED.toString());
+        put(CasbinMatcherException.class, AUTHORIZATION_FAILED.getCode(), AUTHORIZATION_FAILED.toString());
+        put(CasbinNameNotExistException.class, AUTHORIZATION_FAILED.getCode(), AUTHORIZATION_FAILED.toString());
+        put(CasbinPolicyFileNotFoundException.class, AUTHORIZATION_FAILED.getCode(), AUTHORIZATION_FAILED.toString());
     }
 }

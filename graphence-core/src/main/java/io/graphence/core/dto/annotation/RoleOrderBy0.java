@@ -32,4 +32,18 @@ public @interface RoleOrderBy0 {
   Sort createGroupId() default Sort.ASC;
 
   Sort __typename() default Sort.ASC;
+
+  UserOrderBy1 users() default @UserOrderBy1;
+
+  RoleOrderBy1 composites() default @RoleOrderBy1;
+
+  PermissionOrderBy1 permissions() default @PermissionOrderBy1;
+
+  RealmOrderBy1 realm() default @RealmOrderBy1;
+
+  UserRoleOrderBy1 userRole() default @UserRoleOrderBy1;
+
+  RoleCompositeOrderBy1 roleComposite() default @RoleCompositeOrderBy1;
+
+  RolePermissionOrderBy1 rolePermission() default @RolePermissionOrderBy1;
 }

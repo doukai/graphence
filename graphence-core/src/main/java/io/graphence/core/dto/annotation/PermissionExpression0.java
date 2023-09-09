@@ -63,4 +63,12 @@ public @interface PermissionExpression0 {
   String $after() default "";
 
   String $before() default "";
+
+  RoleExpression1 roles() default @RoleExpression1;
+
+  RealmExpression1 realm() default @RealmExpression1;
+
+  RolePermissionExpression1 rolePermission() default @RolePermissionExpression1;
+
+  PermissionExpression1[] exs() default {};
 }

@@ -65,7 +65,7 @@ public class PermissionBuildEvent implements ScopeEvent {
                                                 if (manager.isInvokeField(fieldDefinitionContext)) {
                                                     if (manager.isMutationOperationType(objectTypeDefinitionContext.name().getText())) {
                                                         PermissionInput writePermission = new PermissionInput();
-                                                        writePermission.setName(objectTypeDefinitionContext.name().getText() + SPACER + fieldDefinitionContext.name().getText() + SPACER + READ.name());
+                                                        writePermission.setName(objectTypeDefinitionContext.name().getText() + SPACER + fieldDefinitionContext.name().getText() + SPACER + WRITE.name());
                                                         writePermission.setType(objectTypeDefinitionContext.name().getText());
                                                         writePermission.setField(fieldDefinitionContext.name().getText());
                                                         if (fieldDefinitionContext.description() != null) {
@@ -102,7 +102,7 @@ public class PermissionBuildEvent implements ScopeEvent {
                                                     readPermission.setCreateTime(now);
 
                                                     PermissionInput writePermission = new PermissionInput();
-                                                    writePermission.setName(objectTypeDefinitionContext.name().getText() + SPACER + fieldDefinitionContext.name().getText() + SPACER + READ.name());
+                                                    writePermission.setName(objectTypeDefinitionContext.name().getText() + SPACER + fieldDefinitionContext.name().getText() + SPACER + WRITE.name());
                                                     writePermission.setType(objectTypeDefinitionContext.name().getText());
                                                     writePermission.setField(fieldDefinitionContext.name().getText());
                                                     if (fieldDefinitionContext.description() != null) {

@@ -59,4 +59,8 @@ public @interface UserPhonesExpression0 {
   String $after() default "";
 
   String $before() default "";
+
+  UserExpression1 from() default @UserExpression1;
+
+  UserPhonesExpression1[] exs() default {};
 }

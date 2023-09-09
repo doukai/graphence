@@ -32,4 +32,8 @@ public @interface RolePermissionOrderBy0 {
   Sort createGroupId() default Sort.ASC;
 
   Sort __typename() default Sort.ASC;
+
+  RoleOrderBy1 from() default @RoleOrderBy1;
+
+  PermissionOrderBy1 to() default @PermissionOrderBy1;
 }

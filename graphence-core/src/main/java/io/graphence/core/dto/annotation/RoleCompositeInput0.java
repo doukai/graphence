@@ -60,4 +60,12 @@ public @interface RoleCompositeInput0 {
   String $createGroupId() default "";
 
   String $__typename() default "";
+
+  RoleInput1 from() default @RoleInput1;
+
+  RoleInput1 to() default @RoleInput1;
+
+  RoleCompositeInput1[] list() default {};
+
+  String $list() default "";
 }

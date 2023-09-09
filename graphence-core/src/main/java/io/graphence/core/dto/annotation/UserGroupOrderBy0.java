@@ -32,4 +32,8 @@ public @interface UserGroupOrderBy0 {
   Sort createGroupId() default Sort.ASC;
 
   Sort __typename() default Sort.ASC;
+
+  UserOrderBy1 from() default @UserOrderBy1;
+
+  GroupOrderBy1 to() default @GroupOrderBy1;
 }

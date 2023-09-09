@@ -102,6 +102,8 @@ public class QueryType implements Meta {
 
   private CurrentUser current;
 
+  private Collection<String> currentPermissionList;
+
   @Override
   public Boolean getIsDeprecated() {
     return this.isDeprecated;
@@ -452,5 +454,13 @@ public class QueryType implements Meta {
 
   public void setCurrent(CurrentUser current) {
     this.current = current;
+  }
+
+  public Collection<String> getCurrentPermissionList() {
+    return this.currentPermissionList;
+  }
+
+  public void setCurrentPermissionList(Collection<String> currentPermissionList) {
+    this.currentPermissionList = currentPermissionList;
   }
 }

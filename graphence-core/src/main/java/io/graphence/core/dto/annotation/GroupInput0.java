@@ -98,4 +98,22 @@ public @interface GroupInput0 {
   String $groupRoleAggregate() default "";
 
   String $groupRoleConnection() default "";
+
+  GroupInput1 parent() default @GroupInput1;
+
+  GroupInput1[] subGroups() default {};
+
+  UserInput1[] users() default {};
+
+  RoleInput1[] roles() default {};
+
+  RealmInput1 realm() default @RealmInput1;
+
+  UserGroupInput1[] userGroup() default {};
+
+  GroupRoleInput1[] groupRole() default {};
+
+  GroupInput1[] list() default {};
+
+  String $list() default "";
 }

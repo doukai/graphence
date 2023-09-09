@@ -44,4 +44,16 @@ public @interface UserOrderBy0 {
   Sort createGroupId() default Sort.ASC;
 
   Sort __typename() default Sort.ASC;
+
+  GroupOrderBy1 groups() default @GroupOrderBy1;
+
+  RoleOrderBy1 roles() default @RoleOrderBy1;
+
+  RealmOrderBy1 realm() default @RealmOrderBy1;
+
+  UserPhonesOrderBy1 userPhones() default @UserPhonesOrderBy1;
+
+  UserGroupOrderBy1 userGroup() default @UserGroupOrderBy1;
+
+  UserRoleOrderBy1 userRole() default @UserRoleOrderBy1;
 }

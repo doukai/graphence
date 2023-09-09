@@ -1,24 +1,13 @@
 package io.graphence.core.api;
 
+import io.graphence.core.dao.RBACPolicyDao;
 import io.graphence.core.dto.CurrentUser;
-import io.graphence.core.dto.inputObjectType.PermissionConnectionQueryTypeArguments;
-import io.graphence.core.dto.inputObjectType.PermissionExpression;
-import io.graphence.core.dto.inputObjectType.PermissionInput;
-import io.graphence.core.dto.inputObjectType.PermissionListMutationTypeArguments;
-import io.graphence.core.dto.inputObjectType.PermissionListQueryTypeArguments;
-import io.graphence.core.dto.inputObjectType.PermissionMutationTypeArguments;
-import io.graphence.core.dto.inputObjectType.PermissionQueryTypeArguments;
-import io.graphence.core.dto.inputObjectType.RealmConnectionQueryTypeArguments;
-import io.graphence.core.dto.inputObjectType.RealmExpression;
-import io.graphence.core.dto.inputObjectType.RealmInput;
-import io.graphence.core.dto.inputObjectType.RealmListMutationTypeArguments;
-import io.graphence.core.dto.inputObjectType.RealmListQueryTypeArguments;
-import io.graphence.core.dto.inputObjectType.RealmMutationTypeArguments;
-import io.graphence.core.dto.inputObjectType.RealmQueryTypeArguments;
+import io.graphence.core.dto.inputObjectType.*;
+import io.graphence.core.dto.objectType.Permission;
+import io.graphence.core.dto.objectType.Role;
 import io.graphoenix.core.dto.inputObjectType.IntExpression;
 import io.graphoenix.core.dto.inputObjectType.MetaExpression;
 import io.graphoenix.core.dto.inputObjectType.MetaInput;
-import jakarta.annotation.security.PermitAll;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.inject.Provider;
@@ -28,22 +17,53 @@ import org.eclipse.microprofile.graphql.Source;
 import reactor.core.publisher.Mono;
 
 import java.time.LocalDateTime;
+import java.util.Collection;
+import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @GraphQLApi
 @ApplicationScoped
 public class CurrentApi {
 
-    private final Provider<Mono<CurrentUser>> currentUser;
+    private final Provider<Mono<CurrentUser>> currentUserMonoProvider;
+    private final RBACPolicyDao rbacPolicyDao;
 
     @Inject
-    public CurrentApi(Provider<Mono<CurrentUser>> currentUser) {
-        this.currentUser = currentUser;
+    public CurrentApi(Provider<Mono<CurrentUser>> currentUserMonoProvider, RBACPolicyDao rbacPolicyDao) {
+        this.currentUserMonoProvider = currentUserMonoProvider;
+        this.rbacPolicyDao = rbacPolicyDao;
     }
 
     @Query
-    @PermitAll
     public Mono<CurrentUser> current() {
-        return currentUser.get();
+        return currentUserMonoProvider.get();
+    }
+
+    @Query
+    public Mono<Set<String>> currentPermissionList() {
+        return currentUserMonoProvider.get()
+                .flatMap(currentUser -> {
+                            try {
+                                return rbacPolicyDao.queryRolePermissionsList(currentUser.getId());
+                            } catch (Exception exception) {
+                                return Mono.error(exception);
+                            }
+                        }
+                )
+                .map(roles -> roles.stream().flatMap(this::getPermissions).map(Permission::getName).collect(Collectors.toSet()));
+    }
+
+    private Stream<Permission> getPermissions(Role nullableRole) {
+        return Stream.ofNullable(nullableRole)
+                .flatMap(role ->
+                        Stream.concat(
+                                role.getPermissions().stream(),
+                                Stream.ofNullable(role.getComposites())
+                                        .flatMap(Collection::stream)
+                                        .flatMap(this::getPermissions)
+                        )
+                );
     }
 
     public Mono<MetaInput> invokeMetaInput(@Source MetaInput metaInput) {
@@ -55,7 +75,7 @@ public class CurrentApi {
             metaInput.setUpdateTime(now);
             metaInput.setVersion(metaInput.getVersion() + 1);
         }
-        return currentUser.get().map(currentUser -> {
+        return currentUserMonoProvider.get().map(currentUser -> {
                     if (!(metaInput instanceof RealmInput ||
                             metaInput instanceof RealmMutationTypeArguments ||
                             metaInput instanceof RealmListMutationTypeArguments ||
@@ -78,7 +98,7 @@ public class CurrentApi {
     }
 
     public Mono<MetaExpression> invokeMetaExpression(@Source MetaExpression metaExpression) {
-        return currentUser.get().map(currentUser -> {
+        return currentUserMonoProvider.get().map(currentUser -> {
                     if (!(metaExpression instanceof RealmExpression ||
                             metaExpression instanceof RealmQueryTypeArguments ||
                             metaExpression instanceof RealmConnectionQueryTypeArguments ||

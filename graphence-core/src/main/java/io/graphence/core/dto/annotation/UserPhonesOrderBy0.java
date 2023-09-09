@@ -32,4 +32,6 @@ public @interface UserPhonesOrderBy0 {
   Sort createGroupId() default Sort.ASC;
 
   Sort __typename() default Sort.ASC;
+
+  UserOrderBy1 from() default @UserOrderBy1;
 }

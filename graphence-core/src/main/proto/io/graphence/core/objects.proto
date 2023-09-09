@@ -503,11 +503,11 @@ message GroupRoleEdge {
     optional string cursor = 2;
 }
 message CurrentUser {
-    optional string login = 1;
-    optional string last_name = 2;
-    repeated string roles = 3;
-    optional string id = 4;
-    repeated string groups = 5;
-    optional string name = 6;
-    optional int32 realm_id = 7;
+    optional int32 realm_id = 1;
+    repeated string roles = 2;
+    optional string login = 3;
+    optional string last_name = 4;
+    optional string id = 5;
+    repeated string groups = 6;
+    optional string name = 7;
 }

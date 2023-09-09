@@ -927,3 +927,7 @@ message QueryCurrentRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
 }
+message QueryCurrentPermissionListRequest {
+    optional string selection_set = 1;
+    optional string arguments = 2;
+}

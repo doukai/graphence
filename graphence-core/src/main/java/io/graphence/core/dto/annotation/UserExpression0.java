@@ -71,4 +71,18 @@ public @interface UserExpression0 {
   String $after() default "";
 
   String $before() default "";
+
+  GroupExpression1 groups() default @GroupExpression1;
+
+  RoleExpression1 roles() default @RoleExpression1;
+
+  RealmExpression1 realm() default @RealmExpression1;
+
+  UserPhonesExpression1 userPhones() default @UserPhonesExpression1;
+
+  UserGroupExpression1 userGroup() default @UserGroupExpression1;
+
+  UserRoleExpression1 userRole() default @UserRoleExpression1;
+
+  UserExpression1[] exs() default {};
 }

@@ -63,4 +63,20 @@ public @interface GroupExpression0 {
   String $after() default "";
 
   String $before() default "";
+
+  GroupExpression1 parent() default @GroupExpression1;
+
+  GroupExpression1 subGroups() default @GroupExpression1;
+
+  UserExpression1 users() default @UserExpression1;
+
+  RoleExpression1 roles() default @RoleExpression1;
+
+  RealmExpression1 realm() default @RealmExpression1;
+
+  UserGroupExpression1 userGroup() default @UserGroupExpression1;
+
+  GroupRoleExpression1 groupRole() default @GroupRoleExpression1;
+
+  GroupExpression1[] exs() default {};
 }

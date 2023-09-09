@@ -112,4 +112,20 @@ public @interface UserInput0 {
   String $userRoleAggregate() default "";
 
   String $userRoleConnection() default "";
+
+  GroupInput1[] groups() default {};
+
+  RoleInput1[] roles() default {};
+
+  RealmInput1 realm() default @RealmInput1;
+
+  UserPhonesInput1[] userPhones() default {};
+
+  UserGroupInput1[] userGroup() default {};
+
+  UserRoleInput1[] userRole() default {};
+
+  UserInput1[] list() default {};
+
+  String $list() default "";
 }

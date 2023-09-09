@@ -59,4 +59,10 @@ public @interface UserRoleExpression0 {
   String $after() default "";
 
   String $before() default "";
+
+  UserExpression1 from() default @UserExpression1;
+
+  RoleExpression1 to() default @RoleExpression1;
+
+  UserRoleExpression1[] exs() default {};
 }

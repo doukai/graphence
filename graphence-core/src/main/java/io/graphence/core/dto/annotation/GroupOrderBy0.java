@@ -36,4 +36,18 @@ public @interface GroupOrderBy0 {
   Sort __typename() default Sort.ASC;
 
   Sort parentId() default Sort.ASC;
+
+  GroupOrderBy1 parent() default @GroupOrderBy1;
+
+  GroupOrderBy1 subGroups() default @GroupOrderBy1;
+
+  UserOrderBy1 users() default @UserOrderBy1;
+
+  RoleOrderBy1 roles() default @RoleOrderBy1;
+
+  RealmOrderBy1 realm() default @RealmOrderBy1;
+
+  UserGroupOrderBy1 userGroup() default @UserGroupOrderBy1;
+
+  GroupRoleOrderBy1 groupRole() default @GroupRoleOrderBy1;
 }

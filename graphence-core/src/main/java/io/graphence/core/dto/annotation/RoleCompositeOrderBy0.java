@@ -32,4 +32,8 @@ public @interface RoleCompositeOrderBy0 {
   Sort createGroupId() default Sort.ASC;
 
   Sort __typename() default Sort.ASC;
+
+  RoleOrderBy1 from() default @RoleOrderBy1;
+
+  RoleOrderBy1 to() default @RoleOrderBy1;
 }
