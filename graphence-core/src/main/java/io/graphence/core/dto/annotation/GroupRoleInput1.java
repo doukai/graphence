@@ -11,9 +11,9 @@ import java.lang.annotation.Target;
 public @interface GroupRoleInput1 {
   String id() default "";
 
-  int groupId() default 0;
-
   int roleId() default 0;
+
+  int groupId() default 0;
 
   boolean isDeprecated() default false;
 
@@ -35,13 +35,13 @@ public @interface GroupRoleInput1 {
 
   String $id() default "";
 
-  String $groupId() default "";
-
-  String $from() default "";
-
   String $roleId() default "";
 
-  String $to() default "";
+  String $roleIdType() default "";
+
+  String $groupId() default "";
+
+  String $groupIdType() default "";
 
   String $isDeprecated() default "";
 

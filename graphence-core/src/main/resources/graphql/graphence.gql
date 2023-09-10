@@ -18,6 +18,7 @@ type Role {
     name: String!
     description: String
     users: [User] @map(from: "id" with: {type: "UserRole" from: "roleId" to: "userId"} to: "id")
+    groups: [Group] @map(from: "id" with: {type: "GroupRole" from: "roleId" to: "groupId"} to: "id")
     composites: [Role] @map(from: "id" with: {type: "RoleComposite" from: "roleId" to: "compositeId"} to: "id")
     permissions: [Permission] @map(from: "id" with: {type: "RolePermission" from: "roleId" to: "permissionName"} to: "name")
     realm: Realm @map(from: "realmId" to: "id" anchor: true)

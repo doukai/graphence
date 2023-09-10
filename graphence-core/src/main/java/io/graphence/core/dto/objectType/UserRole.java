@@ -22,11 +22,11 @@ public class UserRole implements Meta {
 
   private Integer userId;
 
-  private User from;
+  private User userIdType;
 
   private Integer roleId;
 
-  private Role to;
+  private Role roleIdType;
 
   private Boolean isDeprecated;
 
@@ -88,12 +88,12 @@ public class UserRole implements Meta {
     this.userId = userId;
   }
 
-  public User getFrom() {
-    return this.from;
+  public User getUserIdType() {
+    return this.userIdType;
   }
 
-  public void setFrom(User from) {
-    this.from = from;
+  public void setUserIdType(User userIdType) {
+    this.userIdType = userIdType;
   }
 
   public Integer getRoleId() {
@@ -104,12 +104,12 @@ public class UserRole implements Meta {
     this.roleId = roleId;
   }
 
-  public Role getTo() {
-    return this.to;
+  public Role getRoleIdType() {
+    return this.roleIdType;
   }
 
-  public void setTo(Role to) {
-    this.to = to;
+  public void setRoleIdType(Role roleIdType) {
+    this.roleIdType = roleIdType;
   }
 
   @Override

@@ -37,11 +37,11 @@ public @interface RolePermissionInput1 {
 
   String $roleId() default "";
 
-  String $from() default "";
+  String $roleIdType() default "";
 
   String $permissionName() default "";
 
-  String $to() default "";
+  String $permissionNameType() default "";
 
   String $isDeprecated() default "";
 

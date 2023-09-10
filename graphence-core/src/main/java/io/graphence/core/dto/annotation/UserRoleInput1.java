@@ -37,11 +37,11 @@ public @interface UserRoleInput1 {
 
   String $userId() default "";
 
-  String $from() default "";
+  String $userIdType() default "";
 
   String $roleId() default "";
 
-  String $to() default "";
+  String $roleIdType() default "";
 
   String $isDeprecated() default "";
 

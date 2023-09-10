@@ -19,13 +19,13 @@ import org.eclipse.microprofile.graphql.Input;
 public class GroupRoleExpression implements MetaExpression {
   private StringExpression id;
 
-  private IntExpression groupId;
-
-  private GroupExpression from;
-
   private IntExpression roleId;
 
-  private RoleExpression to;
+  private RoleExpression roleIdType;
+
+  private IntExpression groupId;
+
+  private GroupExpression groupIdType;
 
   @DefaultValue("false")
   private Boolean includeDeprecated;
@@ -59,22 +59,6 @@ public class GroupRoleExpression implements MetaExpression {
     this.id = id;
   }
 
-  public IntExpression getGroupId() {
-    return this.groupId;
-  }
-
-  public void setGroupId(IntExpression groupId) {
-    this.groupId = groupId;
-  }
-
-  public GroupExpression getFrom() {
-    return this.from;
-  }
-
-  public void setFrom(GroupExpression from) {
-    this.from = from;
-  }
-
   public IntExpression getRoleId() {
     return this.roleId;
   }
@@ -83,12 +67,28 @@ public class GroupRoleExpression implements MetaExpression {
     this.roleId = roleId;
   }
 
-  public RoleExpression getTo() {
-    return this.to;
+  public RoleExpression getRoleIdType() {
+    return this.roleIdType;
   }
 
-  public void setTo(RoleExpression to) {
-    this.to = to;
+  public void setRoleIdType(RoleExpression roleIdType) {
+    this.roleIdType = roleIdType;
+  }
+
+  public IntExpression getGroupId() {
+    return this.groupId;
+  }
+
+  public void setGroupId(IntExpression groupId) {
+    this.groupId = groupId;
+  }
+
+  public GroupExpression getGroupIdType() {
+    return this.groupIdType;
+  }
+
+  public void setGroupIdType(GroupExpression groupIdType) {
+    this.groupIdType = groupIdType;
   }
 
   public Boolean getIncludeDeprecated() {

@@ -60,9 +60,9 @@ public @interface RolePermissionExpression0 {
 
   String $before() default "";
 
-  RoleExpression1 from() default @RoleExpression1;
+  RoleExpression1 roleIdType() default @RoleExpression1;
 
-  PermissionExpression1 to() default @PermissionExpression1;
+  PermissionExpression1 permissionNameType() default @PermissionExpression1;
 
   RolePermissionExpression1[] exs() default {};
 }

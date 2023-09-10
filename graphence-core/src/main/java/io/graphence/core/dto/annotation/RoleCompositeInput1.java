@@ -37,11 +37,11 @@ public @interface RoleCompositeInput1 {
 
   String $roleId() default "";
 
-  String $from() default "";
+  String $roleIdType() default "";
 
   String $compositeId() default "";
 
-  String $to() default "";
+  String $compositeIdType() default "";
 
   String $isDeprecated() default "";
 

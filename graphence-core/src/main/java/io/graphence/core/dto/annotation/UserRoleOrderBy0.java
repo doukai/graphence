@@ -33,7 +33,7 @@ public @interface UserRoleOrderBy0 {
 
   Sort __typename() default Sort.ASC;
 
-  UserOrderBy1 from() default @UserOrderBy1;
+  UserOrderBy1 userIdType() default @UserOrderBy1;
 
-  RoleOrderBy1 to() default @RoleOrderBy1;
+  RoleOrderBy1 roleIdType() default @RoleOrderBy1;
 }

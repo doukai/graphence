@@ -76,47 +76,53 @@ message Role {
     string name = 2;
     optional string description = 3;
     repeated User users = 4;
-    repeated Role composites = 5;
-    repeated Permission permissions = 6;
-    optional Realm realm = 7;
-    optional bool is_deprecated = 8;
-    optional int32 version = 9;
-    optional int32 realm_id = 10;
-    optional string create_user_id = 11;
-    optional google.protobuf.Timestamp create_time = 12;
-    optional string update_user_id = 13;
-    optional google.protobuf.Timestamp update_time = 14;
-    optional string create_group_id = 15;
-    optional string intro_typename = 16;
-    optional int32 id_count = 17;
-    optional int32 id_max = 18;
-    optional int32 id_min = 19;
-    optional int32 name_count = 20;
-    optional string name_max = 21;
-    optional string name_min = 22;
-    optional int32 description_count = 23;
-    optional string description_max = 24;
-    optional string description_min = 25;
-    optional User users_aggregate = 26;
-    optional UserConnection users_connection = 27;
-    optional Role composites_aggregate = 28;
-    optional RoleConnection composites_connection = 29;
-    optional Permission permissions_aggregate = 30;
-    optional PermissionConnection permissions_connection = 31;
-    optional int32 realm_id_count = 32;
-    optional int32 realm_id_sum = 33;
-    optional int32 realm_id_avg = 34;
-    optional int32 realm_id_max = 35;
-    optional int32 realm_id_min = 36;
-    repeated UserRole user_role = 37;
-    optional UserRole user_role_aggregate = 38;
-    optional UserRoleConnection user_role_connection = 39;
-    repeated RoleComposite role_composite = 40;
-    optional RoleComposite role_composite_aggregate = 41;
-    optional RoleCompositeConnection role_composite_connection = 42;
-    repeated RolePermission role_permission = 43;
-    optional RolePermission role_permission_aggregate = 44;
-    optional RolePermissionConnection role_permission_connection = 45;
+    repeated Group groups = 5;
+    repeated Role composites = 6;
+    repeated Permission permissions = 7;
+    optional Realm realm = 8;
+    optional bool is_deprecated = 9;
+    optional int32 version = 10;
+    optional int32 realm_id = 11;
+    optional string create_user_id = 12;
+    optional google.protobuf.Timestamp create_time = 13;
+    optional string update_user_id = 14;
+    optional google.protobuf.Timestamp update_time = 15;
+    optional string create_group_id = 16;
+    optional string intro_typename = 17;
+    optional int32 id_count = 18;
+    optional int32 id_max = 19;
+    optional int32 id_min = 20;
+    optional int32 name_count = 21;
+    optional string name_max = 22;
+    optional string name_min = 23;
+    optional int32 description_count = 24;
+    optional string description_max = 25;
+    optional string description_min = 26;
+    optional User users_aggregate = 27;
+    optional UserConnection users_connection = 28;
+    optional Group groups_aggregate = 29;
+    optional GroupConnection groups_connection = 30;
+    optional Role composites_aggregate = 31;
+    optional RoleConnection composites_connection = 32;
+    optional Permission permissions_aggregate = 33;
+    optional PermissionConnection permissions_connection = 34;
+    optional int32 realm_id_count = 35;
+    optional int32 realm_id_sum = 36;
+    optional int32 realm_id_avg = 37;
+    optional int32 realm_id_max = 38;
+    optional int32 realm_id_min = 39;
+    repeated UserRole user_role = 40;
+    optional UserRole user_role_aggregate = 41;
+    optional UserRoleConnection user_role_connection = 42;
+    repeated GroupRole group_role = 43;
+    optional GroupRole group_role_aggregate = 44;
+    optional GroupRoleConnection group_role_connection = 45;
+    repeated RoleComposite role_composite = 46;
+    optional RoleComposite role_composite_aggregate = 47;
+    optional RoleCompositeConnection role_composite_connection = 48;
+    repeated RolePermission role_permission = 49;
+    optional RolePermission role_permission_aggregate = 50;
+    optional RolePermissionConnection role_permission_connection = 51;
 }
 message Group {
     optional string id = 1;
@@ -237,7 +243,7 @@ message Permission {
 message UserPhones {
     optional string id = 1;
     optional int32 user_id = 2;
-    optional User from = 3;
+    optional User user_id_type = 3;
     optional string phone = 4;
     optional bool is_deprecated = 5;
     optional int32 version = 6;
@@ -263,9 +269,9 @@ message UserPhones {
 message UserGroup {
     optional string id = 1;
     optional int32 user_id = 2;
-    optional User from = 3;
+    optional User user_id_type = 3;
     optional int32 group_id = 4;
-    optional Group to = 5;
+    optional Group group_id_type = 5;
     optional bool is_deprecated = 6;
     optional int32 version = 7;
     optional int32 realm_id = 8;
@@ -292,9 +298,9 @@ message UserGroup {
 message UserRole {
     optional string id = 1;
     optional int32 user_id = 2;
-    optional User from = 3;
+    optional User user_id_type = 3;
     optional int32 role_id = 4;
-    optional Role to = 5;
+    optional Role role_id_type = 5;
     optional bool is_deprecated = 6;
     optional int32 version = 7;
     optional int32 realm_id = 8;
@@ -318,12 +324,41 @@ message UserRole {
     optional int32 role_id_max = 26;
     optional int32 role_id_min = 27;
 }
+message GroupRole {
+    optional string id = 1;
+    optional int32 role_id = 2;
+    optional Role role_id_type = 3;
+    optional int32 group_id = 4;
+    optional Group group_id_type = 5;
+    optional bool is_deprecated = 6;
+    optional int32 version = 7;
+    optional int32 realm_id = 8;
+    optional string create_user_id = 9;
+    optional google.protobuf.Timestamp create_time = 10;
+    optional string update_user_id = 11;
+    optional google.protobuf.Timestamp update_time = 12;
+    optional string create_group_id = 13;
+    optional string intro_typename = 14;
+    optional int32 id_count = 15;
+    optional int32 id_max = 16;
+    optional int32 id_min = 17;
+    optional int32 role_id_count = 18;
+    optional int32 role_id_sum = 19;
+    optional int32 role_id_avg = 20;
+    optional int32 role_id_max = 21;
+    optional int32 role_id_min = 22;
+    optional int32 group_id_count = 23;
+    optional int32 group_id_sum = 24;
+    optional int32 group_id_avg = 25;
+    optional int32 group_id_max = 26;
+    optional int32 group_id_min = 27;
+}
 message RoleComposite {
     optional string id = 1;
     optional int32 role_id = 2;
-    optional Role from = 3;
+    optional Role role_id_type = 3;
     optional int32 composite_id = 4;
-    optional Role to = 5;
+    optional Role composite_id_type = 5;
     optional bool is_deprecated = 6;
     optional int32 version = 7;
     optional int32 realm_id = 8;
@@ -350,9 +385,9 @@ message RoleComposite {
 message RolePermission {
     optional string id = 1;
     optional int32 role_id = 2;
-    optional Role from = 3;
+    optional Role role_id_type = 3;
     optional string permission_name = 4;
-    optional Permission to = 5;
+    optional Permission permission_name_type = 5;
     optional bool is_deprecated = 6;
     optional int32 version = 7;
     optional int32 realm_id = 8;
@@ -373,35 +408,6 @@ message RolePermission {
     optional int32 role_id_avg = 23;
     optional int32 role_id_max = 24;
     optional int32 role_id_min = 25;
-}
-message GroupRole {
-    optional string id = 1;
-    optional int32 group_id = 2;
-    optional Group from = 3;
-    optional int32 role_id = 4;
-    optional Role to = 5;
-    optional bool is_deprecated = 6;
-    optional int32 version = 7;
-    optional int32 realm_id = 8;
-    optional string create_user_id = 9;
-    optional google.protobuf.Timestamp create_time = 10;
-    optional string update_user_id = 11;
-    optional google.protobuf.Timestamp update_time = 12;
-    optional string create_group_id = 13;
-    optional string intro_typename = 14;
-    optional int32 id_count = 15;
-    optional int32 id_max = 16;
-    optional int32 id_min = 17;
-    optional int32 group_id_count = 18;
-    optional int32 group_id_sum = 19;
-    optional int32 group_id_avg = 20;
-    optional int32 group_id_max = 21;
-    optional int32 group_id_min = 22;
-    optional int32 role_id_count = 23;
-    optional int32 role_id_sum = 24;
-    optional int32 role_id_avg = 25;
-    optional int32 role_id_max = 26;
-    optional int32 role_id_min = 27;
 }
 message UserConnection {
     optional int32 total_count = 1;
@@ -475,6 +481,15 @@ message UserRoleEdge {
     optional UserRole node = 1;
     optional string cursor = 2;
 }
+message GroupRoleConnection {
+    optional int32 total_count = 1;
+    optional io.graphoenix.core.grpc.PageInfo page_info = 2;
+    repeated GroupRoleEdge edges = 3;
+}
+message GroupRoleEdge {
+    optional GroupRole node = 1;
+    optional string cursor = 2;
+}
 message RoleCompositeConnection {
     optional int32 total_count = 1;
     optional io.graphoenix.core.grpc.PageInfo page_info = 2;
@@ -493,21 +508,12 @@ message RolePermissionEdge {
     optional RolePermission node = 1;
     optional string cursor = 2;
 }
-message GroupRoleConnection {
-    optional int32 total_count = 1;
-    optional io.graphoenix.core.grpc.PageInfo page_info = 2;
-    repeated GroupRoleEdge edges = 3;
-}
-message GroupRoleEdge {
-    optional GroupRole node = 1;
-    optional string cursor = 2;
-}
 message CurrentUser {
     optional int32 realm_id = 1;
-    repeated string roles = 2;
-    optional string login = 3;
-    optional string last_name = 4;
-    optional string id = 5;
-    repeated string groups = 6;
+    optional string last_name = 2;
+    repeated string roles = 3;
+    repeated string groups = 4;
+    optional string login = 5;
+    optional string id = 6;
     optional string name = 7;
 }

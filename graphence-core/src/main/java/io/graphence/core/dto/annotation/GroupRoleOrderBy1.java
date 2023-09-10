@@ -11,9 +11,9 @@ import java.lang.annotation.Target;
 public @interface GroupRoleOrderBy1 {
   Sort id() default Sort.ASC;
 
-  Sort groupId() default Sort.ASC;
-
   Sort roleId() default Sort.ASC;
+
+  Sort groupId() default Sort.ASC;
 
   Sort isDeprecated() default Sort.ASC;
 

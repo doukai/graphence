@@ -14,9 +14,9 @@ public @interface GroupRoleExpression1 {
 
   IDExpression id() default @IDExpression;
 
-  IntExpression groupId() default @IntExpression;
-
   IntExpression roleId() default @IntExpression;
+
+  IntExpression groupId() default @IntExpression;
 
   BooleanExpression isDeprecated() default @BooleanExpression;
 

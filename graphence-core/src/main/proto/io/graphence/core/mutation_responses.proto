@@ -85,6 +85,12 @@ message MutationUserRoleResponse {
 message MutationUserRoleListResponse {
     repeated UserRole user_role_list = 1;
 }
+message MutationGroupRoleResponse {
+    optional GroupRole group_role = 1;
+}
+message MutationGroupRoleListResponse {
+    repeated GroupRole group_role_list = 1;
+}
 message MutationRoleCompositeResponse {
     optional RoleComposite role_composite = 1;
 }
@@ -96,12 +102,6 @@ message MutationRolePermissionResponse {
 }
 message MutationRolePermissionListResponse {
     repeated RolePermission role_permission_list = 1;
-}
-message MutationGroupRoleResponse {
-    optional GroupRole group_role = 1;
-}
-message MutationGroupRoleListResponse {
-    repeated GroupRole group_role_list = 1;
 }
 message MutationLoginResponse {
     optional string login = 1;

@@ -60,7 +60,7 @@ public @interface UserPhonesExpression0 {
 
   String $before() default "";
 
-  UserExpression1 from() default @UserExpression1;
+  UserExpression1 userIdType() default @UserExpression1;
 
   UserPhonesExpression1[] exs() default {};
 }

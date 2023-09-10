@@ -33,7 +33,7 @@ public @interface RolePermissionOrderBy0 {
 
   Sort __typename() default Sort.ASC;
 
-  RoleOrderBy1 from() default @RoleOrderBy1;
+  RoleOrderBy1 roleIdType() default @RoleOrderBy1;
 
-  PermissionOrderBy1 to() default @PermissionOrderBy1;
+  PermissionOrderBy1 permissionNameType() default @PermissionOrderBy1;
 }

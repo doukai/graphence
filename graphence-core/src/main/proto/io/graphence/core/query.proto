@@ -45,15 +45,15 @@ service QueryTypeService {
     rpc UserRole (QueryUserRoleRequest) returns (QueryUserRoleResponse);
     rpc UserRoleList (QueryUserRoleListRequest) returns (QueryUserRoleListResponse);
     rpc UserRoleConnection (QueryUserRoleConnectionRequest) returns (QueryUserRoleConnectionResponse);
+    rpc GroupRole (QueryGroupRoleRequest) returns (QueryGroupRoleResponse);
+    rpc GroupRoleList (QueryGroupRoleListRequest) returns (QueryGroupRoleListResponse);
+    rpc GroupRoleConnection (QueryGroupRoleConnectionRequest) returns (QueryGroupRoleConnectionResponse);
     rpc RoleComposite (QueryRoleCompositeRequest) returns (QueryRoleCompositeResponse);
     rpc RoleCompositeList (QueryRoleCompositeListRequest) returns (QueryRoleCompositeListResponse);
     rpc RoleCompositeConnection (QueryRoleCompositeConnectionRequest) returns (QueryRoleCompositeConnectionResponse);
     rpc RolePermission (QueryRolePermissionRequest) returns (QueryRolePermissionResponse);
     rpc RolePermissionList (QueryRolePermissionListRequest) returns (QueryRolePermissionListResponse);
     rpc RolePermissionConnection (QueryRolePermissionConnectionRequest) returns (QueryRolePermissionConnectionResponse);
-    rpc GroupRole (QueryGroupRoleRequest) returns (QueryGroupRoleResponse);
-    rpc GroupRoleList (QueryGroupRoleListRequest) returns (QueryGroupRoleListResponse);
-    rpc GroupRoleConnection (QueryGroupRoleConnectionRequest) returns (QueryGroupRoleConnectionResponse);
     rpc Current (QueryCurrentRequest) returns (QueryCurrentResponse);
     rpc CurrentPermissionList (QueryCurrentPermissionListRequest) returns (QueryCurrentPermissionListResponse);
 }

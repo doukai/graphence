@@ -23,11 +23,11 @@ public class RoleCompositeListQueryTypeArguments implements MetaExpression {
 
   private IntExpression roleId;
 
-  private RoleExpression from;
+  private RoleExpression roleIdType;
 
   private IntExpression compositeId;
 
-  private RoleExpression to;
+  private RoleExpression compositeIdType;
 
   @DefaultValue("false")
   private Boolean includeDeprecated;
@@ -83,12 +83,12 @@ public class RoleCompositeListQueryTypeArguments implements MetaExpression {
     this.roleId = roleId;
   }
 
-  public RoleExpression getFrom() {
-    return this.from;
+  public RoleExpression getRoleIdType() {
+    return this.roleIdType;
   }
 
-  public void setFrom(RoleExpression from) {
-    this.from = from;
+  public void setRoleIdType(RoleExpression roleIdType) {
+    this.roleIdType = roleIdType;
   }
 
   public IntExpression getCompositeId() {
@@ -99,12 +99,12 @@ public class RoleCompositeListQueryTypeArguments implements MetaExpression {
     this.compositeId = compositeId;
   }
 
-  public RoleExpression getTo() {
-    return this.to;
+  public RoleExpression getCompositeIdType() {
+    return this.compositeIdType;
   }
 
-  public void setTo(RoleExpression to) {
-    this.to = to;
+  public void setCompositeIdType(RoleExpression compositeIdType) {
+    this.compositeIdType = compositeIdType;
   }
 
   public Boolean getIncludeDeprecated() {

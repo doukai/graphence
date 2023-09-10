@@ -20,11 +20,11 @@ public class UserGroupMutationTypeArguments implements MetaInput {
 
   private Integer userId;
 
-  private UserInput from;
+  private UserInput userIdType;
 
   private Integer groupId;
 
-  private GroupInput to;
+  private GroupInput groupIdType;
 
   private Boolean isDeprecated;
 
@@ -63,12 +63,12 @@ public class UserGroupMutationTypeArguments implements MetaInput {
     this.userId = userId;
   }
 
-  public UserInput getFrom() {
-    return this.from;
+  public UserInput getUserIdType() {
+    return this.userIdType;
   }
 
-  public void setFrom(UserInput from) {
-    this.from = from;
+  public void setUserIdType(UserInput userIdType) {
+    this.userIdType = userIdType;
   }
 
   public Integer getGroupId() {
@@ -79,12 +79,12 @@ public class UserGroupMutationTypeArguments implements MetaInput {
     this.groupId = groupId;
   }
 
-  public GroupInput getTo() {
-    return this.to;
+  public GroupInput getGroupIdType() {
+    return this.groupIdType;
   }
 
-  public void setTo(GroupInput to) {
-    this.to = to;
+  public void setGroupIdType(GroupInput groupIdType) {
+    this.groupIdType = groupIdType;
   }
 
   public Boolean getIsDeprecated() {

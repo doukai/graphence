@@ -62,6 +62,8 @@ public @interface RoleExpression0 {
 
   UserExpression1 users() default @UserExpression1;
 
+  GroupExpression1 groups() default @GroupExpression1;
+
   RoleExpression1 composites() default @RoleExpression1;
 
   PermissionExpression1 permissions() default @PermissionExpression1;
@@ -69,6 +71,8 @@ public @interface RoleExpression0 {
   RealmExpression1 realm() default @RealmExpression1;
 
   UserRoleExpression1 userRole() default @UserRoleExpression1;
+
+  GroupRoleExpression1 groupRole() default @GroupRoleExpression1;
 
   RoleCompositeExpression1 roleComposite() default @RoleCompositeExpression1;
 

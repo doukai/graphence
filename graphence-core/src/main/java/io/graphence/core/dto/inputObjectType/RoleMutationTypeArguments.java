@@ -25,6 +25,8 @@ public class RoleMutationTypeArguments implements MetaInput {
 
   private Collection<UserInput> users;
 
+  private Collection<GroupInput> groups;
+
   private Collection<RoleInput> composites;
 
   private Collection<PermissionInput> permissions;
@@ -51,6 +53,8 @@ public class RoleMutationTypeArguments implements MetaInput {
   private String __typename;
 
   private Collection<UserRoleInput> userRole;
+
+  private Collection<GroupRoleInput> groupRole;
 
   private Collection<RoleCompositeInput> roleComposite;
 
@@ -88,6 +92,14 @@ public class RoleMutationTypeArguments implements MetaInput {
 
   public void setUsers(Collection<UserInput> users) {
     this.users = users;
+  }
+
+  public Collection<GroupInput> getGroups() {
+    return this.groups;
+  }
+
+  public void setGroups(Collection<GroupInput> groups) {
+    this.groups = groups;
   }
 
   public Collection<RoleInput> getComposites() {
@@ -192,6 +204,14 @@ public class RoleMutationTypeArguments implements MetaInput {
 
   public void setUserRole(Collection<UserRoleInput> userRole) {
     this.userRole = userRole;
+  }
+
+  public Collection<GroupRoleInput> getGroupRole() {
+    return this.groupRole;
+  }
+
+  public void setGroupRole(Collection<GroupRoleInput> groupRole) {
+    this.groupRole = groupRole;
   }
 
   public Collection<RoleCompositeInput> getRoleComposite() {

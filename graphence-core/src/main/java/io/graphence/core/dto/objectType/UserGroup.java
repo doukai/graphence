@@ -22,11 +22,11 @@ public class UserGroup implements Meta {
 
   private Integer userId;
 
-  private User from;
+  private User userIdType;
 
   private Integer groupId;
 
-  private Group to;
+  private Group groupIdType;
 
   private Boolean isDeprecated;
 
@@ -88,12 +88,12 @@ public class UserGroup implements Meta {
     this.userId = userId;
   }
 
-  public User getFrom() {
-    return this.from;
+  public User getUserIdType() {
+    return this.userIdType;
   }
 
-  public void setFrom(User from) {
-    this.from = from;
+  public void setUserIdType(User userIdType) {
+    this.userIdType = userIdType;
   }
 
   public Integer getGroupId() {
@@ -104,12 +104,12 @@ public class UserGroup implements Meta {
     this.groupId = groupId;
   }
 
-  public Group getTo() {
-    return this.to;
+  public Group getGroupIdType() {
+    return this.groupIdType;
   }
 
-  public void setTo(Group to) {
-    this.to = to;
+  public void setGroupIdType(Group groupIdType) {
+    this.groupIdType = groupIdType;
   }
 
   @Override

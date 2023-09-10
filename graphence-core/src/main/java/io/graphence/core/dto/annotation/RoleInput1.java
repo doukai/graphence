@@ -41,6 +41,8 @@ public @interface RoleInput1 {
 
   String $users() default "";
 
+  String $groups() default "";
+
   String $composites() default "";
 
   String $permissions() default "";
@@ -69,6 +71,10 @@ public @interface RoleInput1 {
 
   String $usersConnection() default "";
 
+  String $groupsAggregate() default "";
+
+  String $groupsConnection() default "";
+
   String $compositesAggregate() default "";
 
   String $compositesConnection() default "";
@@ -82,6 +88,12 @@ public @interface RoleInput1 {
   String $userRoleAggregate() default "";
 
   String $userRoleConnection() default "";
+
+  String $groupRole() default "";
+
+  String $groupRoleAggregate() default "";
+
+  String $groupRoleConnection() default "";
 
   String $roleComposite() default "";
 

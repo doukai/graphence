@@ -41,6 +41,8 @@ public @interface RoleInput0 {
 
   String $users() default "";
 
+  String $groups() default "";
+
   String $composites() default "";
 
   String $permissions() default "";
@@ -69,6 +71,10 @@ public @interface RoleInput0 {
 
   String $usersConnection() default "";
 
+  String $groupsAggregate() default "";
+
+  String $groupsConnection() default "";
+
   String $compositesAggregate() default "";
 
   String $compositesConnection() default "";
@@ -82,6 +88,12 @@ public @interface RoleInput0 {
   String $userRoleAggregate() default "";
 
   String $userRoleConnection() default "";
+
+  String $groupRole() default "";
+
+  String $groupRoleAggregate() default "";
+
+  String $groupRoleConnection() default "";
 
   String $roleComposite() default "";
 
@@ -97,6 +109,8 @@ public @interface RoleInput0 {
 
   UserInput1[] users() default {};
 
+  GroupInput1[] groups() default {};
+
   RoleInput1[] composites() default {};
 
   PermissionInput1[] permissions() default {};
@@ -104,6 +118,8 @@ public @interface RoleInput0 {
   RealmInput1 realm() default @RealmInput1;
 
   UserRoleInput1[] userRole() default {};
+
+  GroupRoleInput1[] groupRole() default {};
 
   RoleCompositeInput1[] roleComposite() default {};
 

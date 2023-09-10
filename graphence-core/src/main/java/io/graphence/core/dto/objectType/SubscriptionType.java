@@ -81,6 +81,12 @@ public class SubscriptionType implements Meta {
 
   private UserRoleConnection userRoleConnection;
 
+  private GroupRole groupRole;
+
+  private Collection<GroupRole> groupRoleList;
+
+  private GroupRoleConnection groupRoleConnection;
+
   private RoleComposite roleComposite;
 
   private Collection<RoleComposite> roleCompositeList;
@@ -92,12 +98,6 @@ public class SubscriptionType implements Meta {
   private Collection<RolePermission> rolePermissionList;
 
   private RolePermissionConnection rolePermissionConnection;
-
-  private GroupRole groupRole;
-
-  private Collection<GroupRole> groupRoleList;
-
-  private GroupRoleConnection groupRoleConnection;
 
   @Override
   public Boolean getIsDeprecated() {
@@ -371,6 +371,30 @@ public class SubscriptionType implements Meta {
     this.userRoleConnection = userRoleConnection;
   }
 
+  public GroupRole getGroupRole() {
+    return this.groupRole;
+  }
+
+  public void setGroupRole(GroupRole groupRole) {
+    this.groupRole = groupRole;
+  }
+
+  public Collection<GroupRole> getGroupRoleList() {
+    return this.groupRoleList;
+  }
+
+  public void setGroupRoleList(Collection<GroupRole> groupRoleList) {
+    this.groupRoleList = groupRoleList;
+  }
+
+  public GroupRoleConnection getGroupRoleConnection() {
+    return this.groupRoleConnection;
+  }
+
+  public void setGroupRoleConnection(GroupRoleConnection groupRoleConnection) {
+    this.groupRoleConnection = groupRoleConnection;
+  }
+
   public RoleComposite getRoleComposite() {
     return this.roleComposite;
   }
@@ -417,29 +441,5 @@ public class SubscriptionType implements Meta {
 
   public void setRolePermissionConnection(RolePermissionConnection rolePermissionConnection) {
     this.rolePermissionConnection = rolePermissionConnection;
-  }
-
-  public GroupRole getGroupRole() {
-    return this.groupRole;
-  }
-
-  public void setGroupRole(GroupRole groupRole) {
-    this.groupRole = groupRole;
-  }
-
-  public Collection<GroupRole> getGroupRoleList() {
-    return this.groupRoleList;
-  }
-
-  public void setGroupRoleList(Collection<GroupRole> groupRoleList) {
-    this.groupRoleList = groupRoleList;
-  }
-
-  public GroupRoleConnection getGroupRoleConnection() {
-    return this.groupRoleConnection;
-  }
-
-  public void setGroupRoleConnection(GroupRoleConnection groupRoleConnection) {
-    this.groupRoleConnection = groupRoleConnection;
   }
 }

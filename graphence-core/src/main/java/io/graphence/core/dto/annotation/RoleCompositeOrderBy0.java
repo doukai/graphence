@@ -33,7 +33,7 @@ public @interface RoleCompositeOrderBy0 {
 
   Sort __typename() default Sort.ASC;
 
-  RoleOrderBy1 from() default @RoleOrderBy1;
+  RoleOrderBy1 roleIdType() default @RoleOrderBy1;
 
-  RoleOrderBy1 to() default @RoleOrderBy1;
+  RoleOrderBy1 compositeIdType() default @RoleOrderBy1;
 }

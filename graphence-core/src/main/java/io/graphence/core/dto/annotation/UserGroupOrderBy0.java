@@ -33,7 +33,7 @@ public @interface UserGroupOrderBy0 {
 
   Sort __typename() default Sort.ASC;
 
-  UserOrderBy1 from() default @UserOrderBy1;
+  UserOrderBy1 userIdType() default @UserOrderBy1;
 
-  GroupOrderBy1 to() default @GroupOrderBy1;
+  GroupOrderBy1 groupIdType() default @GroupOrderBy1;
 }

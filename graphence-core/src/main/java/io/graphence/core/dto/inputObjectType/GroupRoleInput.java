@@ -18,13 +18,13 @@ import org.eclipse.microprofile.graphql.Input;
 public class GroupRoleInput implements MetaInput {
   private String id;
 
-  private Integer groupId;
-
-  private GroupInput from;
-
   private Integer roleId;
 
-  private RoleInput to;
+  private RoleInput roleIdType;
+
+  private Integer groupId;
+
+  private GroupInput groupIdType;
 
   private Boolean isDeprecated;
 
@@ -53,22 +53,6 @@ public class GroupRoleInput implements MetaInput {
     this.id = id;
   }
 
-  public Integer getGroupId() {
-    return this.groupId;
-  }
-
-  public void setGroupId(Integer groupId) {
-    this.groupId = groupId;
-  }
-
-  public GroupInput getFrom() {
-    return this.from;
-  }
-
-  public void setFrom(GroupInput from) {
-    this.from = from;
-  }
-
   public Integer getRoleId() {
     return this.roleId;
   }
@@ -77,12 +61,28 @@ public class GroupRoleInput implements MetaInput {
     this.roleId = roleId;
   }
 
-  public RoleInput getTo() {
-    return this.to;
+  public RoleInput getRoleIdType() {
+    return this.roleIdType;
   }
 
-  public void setTo(RoleInput to) {
-    this.to = to;
+  public void setRoleIdType(RoleInput roleIdType) {
+    this.roleIdType = roleIdType;
+  }
+
+  public Integer getGroupId() {
+    return this.groupId;
+  }
+
+  public void setGroupId(Integer groupId) {
+    this.groupId = groupId;
+  }
+
+  public GroupInput getGroupIdType() {
+    return this.groupIdType;
+  }
+
+  public void setGroupIdType(GroupInput groupIdType) {
+    this.groupIdType = groupIdType;
   }
 
   public Boolean getIsDeprecated() {

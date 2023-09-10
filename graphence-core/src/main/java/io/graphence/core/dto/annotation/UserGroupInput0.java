@@ -37,11 +37,11 @@ public @interface UserGroupInput0 {
 
   String $userId() default "";
 
-  String $from() default "";
+  String $userIdType() default "";
 
   String $groupId() default "";
 
-  String $to() default "";
+  String $groupIdType() default "";
 
   String $isDeprecated() default "";
 
@@ -61,9 +61,9 @@ public @interface UserGroupInput0 {
 
   String $__typename() default "";
 
-  UserInput1 from() default @UserInput1;
+  UserInput1 userIdType() default @UserInput1;
 
-  GroupInput1 to() default @GroupInput1;
+  GroupInput1 groupIdType() default @GroupInput1;
 
   UserGroupInput1[] list() default {};
 

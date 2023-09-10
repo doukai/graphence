@@ -37,7 +37,7 @@ public @interface UserPhonesInput1 {
 
   String $userId() default "";
 
-  String $from() default "";
+  String $userIdType() default "";
 
   String $phone() default "";
 

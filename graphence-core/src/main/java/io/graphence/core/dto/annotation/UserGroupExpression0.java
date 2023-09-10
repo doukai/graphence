@@ -60,9 +60,9 @@ public @interface UserGroupExpression0 {
 
   String $before() default "";
 
-  UserExpression1 from() default @UserExpression1;
+  UserExpression1 userIdType() default @UserExpression1;
 
-  GroupExpression1 to() default @GroupExpression1;
+  GroupExpression1 groupIdType() default @GroupExpression1;
 
   UserGroupExpression1[] exs() default {};
 }

@@ -65,6 +65,10 @@ public class MutationType implements Meta {
 
   private Collection<UserRole> userRoleList;
 
+  private GroupRole groupRole;
+
+  private Collection<GroupRole> groupRoleList;
+
   private RoleComposite roleComposite;
 
   private Collection<RoleComposite> roleCompositeList;
@@ -72,10 +76,6 @@ public class MutationType implements Meta {
   private RolePermission rolePermission;
 
   private Collection<RolePermission> rolePermissionList;
-
-  private GroupRole groupRole;
-
-  private Collection<GroupRole> groupRoleList;
 
   private String login;
 
@@ -287,6 +287,22 @@ public class MutationType implements Meta {
     this.userRoleList = userRoleList;
   }
 
+  public GroupRole getGroupRole() {
+    return this.groupRole;
+  }
+
+  public void setGroupRole(GroupRole groupRole) {
+    this.groupRole = groupRole;
+  }
+
+  public Collection<GroupRole> getGroupRoleList() {
+    return this.groupRoleList;
+  }
+
+  public void setGroupRoleList(Collection<GroupRole> groupRoleList) {
+    this.groupRoleList = groupRoleList;
+  }
+
   public RoleComposite getRoleComposite() {
     return this.roleComposite;
   }
@@ -317,22 +333,6 @@ public class MutationType implements Meta {
 
   public void setRolePermissionList(Collection<RolePermission> rolePermissionList) {
     this.rolePermissionList = rolePermissionList;
-  }
-
-  public GroupRole getGroupRole() {
-    return this.groupRole;
-  }
-
-  public void setGroupRole(GroupRole groupRole) {
-    this.groupRole = groupRole;
-  }
-
-  public Collection<GroupRole> getGroupRoleList() {
-    return this.groupRoleList;
-  }
-
-  public void setGroupRoleList(Collection<GroupRole> groupRoleList) {
-    this.groupRoleList = groupRoleList;
   }
 
   public String getLogin() {

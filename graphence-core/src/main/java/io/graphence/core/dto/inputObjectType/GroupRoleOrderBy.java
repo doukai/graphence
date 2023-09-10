@@ -13,9 +13,9 @@ import org.eclipse.microprofile.graphql.Input;
 public class GroupRoleOrderBy {
   private Sort id;
 
-  private Sort groupId;
-
   private Sort roleId;
+
+  private Sort groupId;
 
   private Sort isDeprecated;
 
@@ -43,20 +43,20 @@ public class GroupRoleOrderBy {
     this.id = id;
   }
 
-  public Sort getGroupId() {
-    return this.groupId;
-  }
-
-  public void setGroupId(Sort groupId) {
-    this.groupId = groupId;
-  }
-
   public Sort getRoleId() {
     return this.roleId;
   }
 
   public void setRoleId(Sort roleId) {
     this.roleId = roleId;
+  }
+
+  public Sort getGroupId() {
+    return this.groupId;
+  }
+
+  public void setGroupId(Sort groupId) {
+    this.groupId = groupId;
   }
 
   public Sort getIsDeprecated() {

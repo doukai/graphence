@@ -11,9 +11,9 @@ import java.lang.annotation.Target;
 public @interface GroupRoleOrderBy0 {
   Sort id() default Sort.ASC;
 
-  Sort groupId() default Sort.ASC;
-
   Sort roleId() default Sort.ASC;
+
+  Sort groupId() default Sort.ASC;
 
   Sort isDeprecated() default Sort.ASC;
 
@@ -33,7 +33,7 @@ public @interface GroupRoleOrderBy0 {
 
   Sort __typename() default Sort.ASC;
 
-  GroupOrderBy1 from() default @GroupOrderBy1;
+  RoleOrderBy1 roleIdType() default @RoleOrderBy1;
 
-  RoleOrderBy1 to() default @RoleOrderBy1;
+  GroupOrderBy1 groupIdType() default @GroupOrderBy1;
 }

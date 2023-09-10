@@ -20,13 +20,13 @@ public class GroupRole implements Meta {
   @Id
   private String id;
 
-  private Integer groupId;
-
-  private Group from;
-
   private Integer roleId;
 
-  private Role to;
+  private Role roleIdType;
+
+  private Integer groupId;
+
+  private Group groupIdType;
 
   private Boolean isDeprecated;
 
@@ -52,16 +52,6 @@ public class GroupRole implements Meta {
 
   private Integer idMin;
 
-  private Integer groupIdCount;
-
-  private Integer groupIdSum;
-
-  private Integer groupIdAvg;
-
-  private Integer groupIdMax;
-
-  private Integer groupIdMin;
-
   private Integer roleIdCount;
 
   private Integer roleIdSum;
@@ -72,28 +62,22 @@ public class GroupRole implements Meta {
 
   private Integer roleIdMin;
 
+  private Integer groupIdCount;
+
+  private Integer groupIdSum;
+
+  private Integer groupIdAvg;
+
+  private Integer groupIdMax;
+
+  private Integer groupIdMin;
+
   public String getId() {
     return this.id;
   }
 
   public void setId(String id) {
     this.id = id;
-  }
-
-  public Integer getGroupId() {
-    return this.groupId;
-  }
-
-  public void setGroupId(Integer groupId) {
-    this.groupId = groupId;
-  }
-
-  public Group getFrom() {
-    return this.from;
-  }
-
-  public void setFrom(Group from) {
-    this.from = from;
   }
 
   public Integer getRoleId() {
@@ -104,12 +88,28 @@ public class GroupRole implements Meta {
     this.roleId = roleId;
   }
 
-  public Role getTo() {
-    return this.to;
+  public Role getRoleIdType() {
+    return this.roleIdType;
   }
 
-  public void setTo(Role to) {
-    this.to = to;
+  public void setRoleIdType(Role roleIdType) {
+    this.roleIdType = roleIdType;
+  }
+
+  public Integer getGroupId() {
+    return this.groupId;
+  }
+
+  public void setGroupId(Integer groupId) {
+    this.groupId = groupId;
+  }
+
+  public Group getGroupIdType() {
+    return this.groupIdType;
+  }
+
+  public void setGroupIdType(Group groupIdType) {
+    this.groupIdType = groupIdType;
   }
 
   @Override
@@ -224,46 +224,6 @@ public class GroupRole implements Meta {
     this.idMin = idMin;
   }
 
-  public Integer getGroupIdCount() {
-    return this.groupIdCount;
-  }
-
-  public void setGroupIdCount(Integer groupIdCount) {
-    this.groupIdCount = groupIdCount;
-  }
-
-  public Integer getGroupIdSum() {
-    return this.groupIdSum;
-  }
-
-  public void setGroupIdSum(Integer groupIdSum) {
-    this.groupIdSum = groupIdSum;
-  }
-
-  public Integer getGroupIdAvg() {
-    return this.groupIdAvg;
-  }
-
-  public void setGroupIdAvg(Integer groupIdAvg) {
-    this.groupIdAvg = groupIdAvg;
-  }
-
-  public Integer getGroupIdMax() {
-    return this.groupIdMax;
-  }
-
-  public void setGroupIdMax(Integer groupIdMax) {
-    this.groupIdMax = groupIdMax;
-  }
-
-  public Integer getGroupIdMin() {
-    return this.groupIdMin;
-  }
-
-  public void setGroupIdMin(Integer groupIdMin) {
-    this.groupIdMin = groupIdMin;
-  }
-
   public Integer getRoleIdCount() {
     return this.roleIdCount;
   }
@@ -302,5 +262,45 @@ public class GroupRole implements Meta {
 
   public void setRoleIdMin(Integer roleIdMin) {
     this.roleIdMin = roleIdMin;
+  }
+
+  public Integer getGroupIdCount() {
+    return this.groupIdCount;
+  }
+
+  public void setGroupIdCount(Integer groupIdCount) {
+    this.groupIdCount = groupIdCount;
+  }
+
+  public Integer getGroupIdSum() {
+    return this.groupIdSum;
+  }
+
+  public void setGroupIdSum(Integer groupIdSum) {
+    this.groupIdSum = groupIdSum;
+  }
+
+  public Integer getGroupIdAvg() {
+    return this.groupIdAvg;
+  }
+
+  public void setGroupIdAvg(Integer groupIdAvg) {
+    this.groupIdAvg = groupIdAvg;
+  }
+
+  public Integer getGroupIdMax() {
+    return this.groupIdMax;
+  }
+
+  public void setGroupIdMax(Integer groupIdMax) {
+    this.groupIdMax = groupIdMax;
+  }
+
+  public Integer getGroupIdMin() {
+    return this.groupIdMin;
+  }
+
+  public void setGroupIdMin(Integer groupIdMin) {
+    this.groupIdMin = groupIdMin;
   }
 }

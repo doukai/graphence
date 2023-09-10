@@ -37,11 +37,11 @@ public @interface UserRoleInput0 {
 
   String $userId() default "";
 
-  String $from() default "";
+  String $userIdType() default "";
 
   String $roleId() default "";
 
-  String $to() default "";
+  String $roleIdType() default "";
 
   String $isDeprecated() default "";
 
@@ -61,9 +61,9 @@ public @interface UserRoleInput0 {
 
   String $__typename() default "";
 
-  UserInput1 from() default @UserInput1;
+  UserInput1 userIdType() default @UserInput1;
 
-  RoleInput1 to() default @RoleInput1;
+  RoleInput1 roleIdType() default @RoleInput1;
 
   UserRoleInput1[] list() default {};
 

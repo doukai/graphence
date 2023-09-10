@@ -21,11 +21,11 @@ public class UserGroupSubscriptionTypeArguments implements MetaExpression {
 
   private IntExpression userId;
 
-  private UserExpression from;
+  private UserExpression userIdType;
 
   private IntExpression groupId;
 
-  private GroupExpression to;
+  private GroupExpression groupIdType;
 
   @DefaultValue("false")
   private Boolean includeDeprecated;
@@ -67,12 +67,12 @@ public class UserGroupSubscriptionTypeArguments implements MetaExpression {
     this.userId = userId;
   }
 
-  public UserExpression getFrom() {
-    return this.from;
+  public UserExpression getUserIdType() {
+    return this.userIdType;
   }
 
-  public void setFrom(UserExpression from) {
-    this.from = from;
+  public void setUserIdType(UserExpression userIdType) {
+    this.userIdType = userIdType;
   }
 
   public IntExpression getGroupId() {
@@ -83,12 +83,12 @@ public class UserGroupSubscriptionTypeArguments implements MetaExpression {
     this.groupId = groupId;
   }
 
-  public GroupExpression getTo() {
-    return this.to;
+  public GroupExpression getGroupIdType() {
+    return this.groupIdType;
   }
 
-  public void setTo(GroupExpression to) {
-    this.to = to;
+  public void setGroupIdType(GroupExpression groupIdType) {
+    this.groupIdType = groupIdType;
   }
 
   public Boolean getIncludeDeprecated() {

@@ -35,6 +35,8 @@ public @interface RoleOrderBy0 {
 
   UserOrderBy1 users() default @UserOrderBy1;
 
+  GroupOrderBy1 groups() default @GroupOrderBy1;
+
   RoleOrderBy1 composites() default @RoleOrderBy1;
 
   PermissionOrderBy1 permissions() default @PermissionOrderBy1;
@@ -42,6 +44,8 @@ public @interface RoleOrderBy0 {
   RealmOrderBy1 realm() default @RealmOrderBy1;
 
   UserRoleOrderBy1 userRole() default @UserRoleOrderBy1;
+
+  GroupRoleOrderBy1 groupRole() default @GroupRoleOrderBy1;
 
   RoleCompositeOrderBy1 roleComposite() default @RoleCompositeOrderBy1;
 

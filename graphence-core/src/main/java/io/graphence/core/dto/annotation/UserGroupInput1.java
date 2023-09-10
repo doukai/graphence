@@ -37,11 +37,11 @@ public @interface UserGroupInput1 {
 
   String $userId() default "";
 
-  String $from() default "";
+  String $userIdType() default "";
 
   String $groupId() default "";
 
-  String $to() default "";
+  String $groupIdType() default "";
 
   String $isDeprecated() default "";
 

@@ -21,7 +21,7 @@ public class UserPhonesSubscriptionTypeArguments implements MetaExpression {
 
   private IntExpression userId;
 
-  private UserExpression from;
+  private UserExpression userIdType;
 
   private StringExpression phone;
 
@@ -65,12 +65,12 @@ public class UserPhonesSubscriptionTypeArguments implements MetaExpression {
     this.userId = userId;
   }
 
-  public UserExpression getFrom() {
-    return this.from;
+  public UserExpression getUserIdType() {
+    return this.userIdType;
   }
 
-  public void setFrom(UserExpression from) {
-    this.from = from;
+  public void setUserIdType(UserExpression userIdType) {
+    this.userIdType = userIdType;
   }
 
   public StringExpression getPhone() {

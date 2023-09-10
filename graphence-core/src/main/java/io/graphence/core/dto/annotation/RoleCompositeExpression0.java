@@ -60,9 +60,9 @@ public @interface RoleCompositeExpression0 {
 
   String $before() default "";
 
-  RoleExpression1 from() default @RoleExpression1;
+  RoleExpression1 roleIdType() default @RoleExpression1;
 
-  RoleExpression1 to() default @RoleExpression1;
+  RoleExpression1 compositeIdType() default @RoleExpression1;
 
   RoleCompositeExpression1[] exs() default {};
 }

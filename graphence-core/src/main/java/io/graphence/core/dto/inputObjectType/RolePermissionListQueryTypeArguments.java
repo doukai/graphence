@@ -23,11 +23,11 @@ public class RolePermissionListQueryTypeArguments implements MetaExpression {
 
   private IntExpression roleId;
 
-  private RoleExpression from;
+  private RoleExpression roleIdType;
 
   private StringExpression permissionName;
 
-  private PermissionExpression to;
+  private PermissionExpression permissionNameType;
 
   @DefaultValue("false")
   private Boolean includeDeprecated;
@@ -83,12 +83,12 @@ public class RolePermissionListQueryTypeArguments implements MetaExpression {
     this.roleId = roleId;
   }
 
-  public RoleExpression getFrom() {
-    return this.from;
+  public RoleExpression getRoleIdType() {
+    return this.roleIdType;
   }
 
-  public void setFrom(RoleExpression from) {
-    this.from = from;
+  public void setRoleIdType(RoleExpression roleIdType) {
+    this.roleIdType = roleIdType;
   }
 
   public StringExpression getPermissionName() {
@@ -99,12 +99,12 @@ public class RolePermissionListQueryTypeArguments implements MetaExpression {
     this.permissionName = permissionName;
   }
 
-  public PermissionExpression getTo() {
-    return this.to;
+  public PermissionExpression getPermissionNameType() {
+    return this.permissionNameType;
   }
 
-  public void setTo(PermissionExpression to) {
-    this.to = to;
+  public void setPermissionNameType(PermissionExpression permissionNameType) {
+    this.permissionNameType = permissionNameType;
   }
 
   public Boolean getIncludeDeprecated() {

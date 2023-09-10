@@ -22,11 +22,11 @@ public class RolePermission implements Meta {
 
   private Integer roleId;
 
-  private Role from;
+  private Role roleIdType;
 
   private String permissionName;
 
-  private Permission to;
+  private Permission permissionNameType;
 
   private Boolean isDeprecated;
 
@@ -84,12 +84,12 @@ public class RolePermission implements Meta {
     this.roleId = roleId;
   }
 
-  public Role getFrom() {
-    return this.from;
+  public Role getRoleIdType() {
+    return this.roleIdType;
   }
 
-  public void setFrom(Role from) {
-    this.from = from;
+  public void setRoleIdType(Role roleIdType) {
+    this.roleIdType = roleIdType;
   }
 
   public String getPermissionName() {
@@ -100,12 +100,12 @@ public class RolePermission implements Meta {
     this.permissionName = permissionName;
   }
 
-  public Permission getTo() {
-    return this.to;
+  public Permission getPermissionNameType() {
+    return this.permissionNameType;
   }
 
-  public void setTo(Permission to) {
-    this.to = to;
+  public void setPermissionNameType(Permission permissionNameType) {
+    this.permissionNameType = permissionNameType;
   }
 
   @Override

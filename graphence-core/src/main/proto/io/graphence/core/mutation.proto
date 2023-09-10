@@ -37,11 +37,11 @@ service MutationTypeService {
     rpc UserGroupList (MutationUserGroupListRequest) returns (MutationUserGroupListResponse);
     rpc UserRole (MutationUserRoleRequest) returns (MutationUserRoleResponse);
     rpc UserRoleList (MutationUserRoleListRequest) returns (MutationUserRoleListResponse);
+    rpc GroupRole (MutationGroupRoleRequest) returns (MutationGroupRoleResponse);
+    rpc GroupRoleList (MutationGroupRoleListRequest) returns (MutationGroupRoleListResponse);
     rpc RoleComposite (MutationRoleCompositeRequest) returns (MutationRoleCompositeResponse);
     rpc RoleCompositeList (MutationRoleCompositeListRequest) returns (MutationRoleCompositeListResponse);
     rpc RolePermission (MutationRolePermissionRequest) returns (MutationRolePermissionResponse);
     rpc RolePermissionList (MutationRolePermissionListRequest) returns (MutationRolePermissionListResponse);
-    rpc GroupRole (MutationGroupRoleRequest) returns (MutationGroupRoleResponse);
-    rpc GroupRoleList (MutationGroupRoleListRequest) returns (MutationGroupRoleListResponse);
     rpc Login (MutationLoginRequest) returns (MutationLoginResponse);
 }

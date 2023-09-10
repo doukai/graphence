@@ -25,6 +25,8 @@ public class RoleQueryTypeArguments implements MetaExpression {
 
   private UserExpression users;
 
+  private GroupExpression groups;
+
   private RoleExpression composites;
 
   private PermissionExpression permissions;
@@ -51,6 +53,8 @@ public class RoleQueryTypeArguments implements MetaExpression {
   private StringExpression __typename;
 
   private UserRoleExpression userRole;
+
+  private GroupRoleExpression groupRole;
 
   private RoleCompositeExpression roleComposite;
 
@@ -91,6 +95,14 @@ public class RoleQueryTypeArguments implements MetaExpression {
 
   public void setUsers(UserExpression users) {
     this.users = users;
+  }
+
+  public GroupExpression getGroups() {
+    return this.groups;
+  }
+
+  public void setGroups(GroupExpression groups) {
+    this.groups = groups;
   }
 
   public RoleExpression getComposites() {
@@ -195,6 +207,14 @@ public class RoleQueryTypeArguments implements MetaExpression {
 
   public void setUserRole(UserRoleExpression userRole) {
     this.userRole = userRole;
+  }
+
+  public GroupRoleExpression getGroupRole() {
+    return this.groupRole;
+  }
+
+  public void setGroupRole(GroupRoleExpression groupRole) {
+    this.groupRole = groupRole;
   }
 
   public RoleCompositeExpression getRoleComposite() {

@@ -14,9 +14,9 @@ public @interface GroupRoleExpression0 {
 
   IDExpression id() default @IDExpression;
 
-  IntExpression groupId() default @IntExpression;
-
   IntExpression roleId() default @IntExpression;
+
+  IntExpression groupId() default @IntExpression;
 
   BooleanExpression isDeprecated() default @BooleanExpression;
 
@@ -60,9 +60,9 @@ public @interface GroupRoleExpression0 {
 
   String $before() default "";
 
-  GroupExpression1 from() default @GroupExpression1;
+  RoleExpression1 roleIdType() default @RoleExpression1;
 
-  RoleExpression1 to() default @RoleExpression1;
+  GroupExpression1 groupIdType() default @GroupExpression1;
 
   GroupRoleExpression1[] exs() default {};
 }

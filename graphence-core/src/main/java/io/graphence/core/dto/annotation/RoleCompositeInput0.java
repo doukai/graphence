@@ -37,11 +37,11 @@ public @interface RoleCompositeInput0 {
 
   String $roleId() default "";
 
-  String $from() default "";
+  String $roleIdType() default "";
 
   String $compositeId() default "";
 
-  String $to() default "";
+  String $compositeIdType() default "";
 
   String $isDeprecated() default "";
 
@@ -61,9 +61,9 @@ public @interface RoleCompositeInput0 {
 
   String $__typename() default "";
 
-  RoleInput1 from() default @RoleInput1;
+  RoleInput1 roleIdType() default @RoleInput1;
 
-  RoleInput1 to() default @RoleInput1;
+  RoleInput1 compositeIdType() default @RoleInput1;
 
   RoleCompositeInput1[] list() default {};
 

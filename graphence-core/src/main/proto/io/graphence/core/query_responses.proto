@@ -110,6 +110,15 @@ message QueryUserRoleListResponse {
 message QueryUserRoleConnectionResponse {
     optional UserRoleConnection user_role_connection = 1;
 }
+message QueryGroupRoleResponse {
+    optional GroupRole group_role = 1;
+}
+message QueryGroupRoleListResponse {
+    repeated GroupRole group_role_list = 1;
+}
+message QueryGroupRoleConnectionResponse {
+    optional GroupRoleConnection group_role_connection = 1;
+}
 message QueryRoleCompositeResponse {
     optional RoleComposite role_composite = 1;
 }
@@ -127,15 +136,6 @@ message QueryRolePermissionListResponse {
 }
 message QueryRolePermissionConnectionResponse {
     optional RolePermissionConnection role_permission_connection = 1;
-}
-message QueryGroupRoleResponse {
-    optional GroupRole group_role = 1;
-}
-message QueryGroupRoleListResponse {
-    repeated GroupRole group_role_list = 1;
-}
-message QueryGroupRoleConnectionResponse {
-    optional GroupRoleConnection group_role_connection = 1;
 }
 message QueryCurrentResponse {
     optional CurrentUser current = 1;

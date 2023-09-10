@@ -29,6 +29,8 @@ public class Role implements Meta {
 
   private Collection<User> users;
 
+  private Collection<Group> groups;
+
   private Collection<Role> composites;
 
   private Collection<Permission> permissions;
@@ -75,6 +77,10 @@ public class Role implements Meta {
 
   private UserConnection usersConnection;
 
+  private Group groupsAggregate;
+
+  private GroupConnection groupsConnection;
+
   private Role compositesAggregate;
 
   private RoleConnection compositesConnection;
@@ -98,6 +104,12 @@ public class Role implements Meta {
   private UserRole userRoleAggregate;
 
   private UserRoleConnection userRoleConnection;
+
+  private Collection<GroupRole> groupRole;
+
+  private GroupRole groupRoleAggregate;
+
+  private GroupRoleConnection groupRoleConnection;
 
   private Collection<RoleComposite> roleComposite;
 
@@ -141,6 +153,14 @@ public class Role implements Meta {
 
   public void setUsers(Collection<User> users) {
     this.users = users;
+  }
+
+  public Collection<Group> getGroups() {
+    return this.groups;
+  }
+
+  public void setGroups(Collection<Group> groups) {
+    this.groups = groups;
   }
 
   public Collection<Role> getComposites() {
@@ -343,6 +363,22 @@ public class Role implements Meta {
     this.usersConnection = usersConnection;
   }
 
+  public Group getGroupsAggregate() {
+    return this.groupsAggregate;
+  }
+
+  public void setGroupsAggregate(Group groupsAggregate) {
+    this.groupsAggregate = groupsAggregate;
+  }
+
+  public GroupConnection getGroupsConnection() {
+    return this.groupsConnection;
+  }
+
+  public void setGroupsConnection(GroupConnection groupsConnection) {
+    this.groupsConnection = groupsConnection;
+  }
+
   public Role getCompositesAggregate() {
     return this.compositesAggregate;
   }
@@ -437,6 +473,30 @@ public class Role implements Meta {
 
   public void setUserRoleConnection(UserRoleConnection userRoleConnection) {
     this.userRoleConnection = userRoleConnection;
+  }
+
+  public Collection<GroupRole> getGroupRole() {
+    return this.groupRole;
+  }
+
+  public void setGroupRole(Collection<GroupRole> groupRole) {
+    this.groupRole = groupRole;
+  }
+
+  public GroupRole getGroupRoleAggregate() {
+    return this.groupRoleAggregate;
+  }
+
+  public void setGroupRoleAggregate(GroupRole groupRoleAggregate) {
+    this.groupRoleAggregate = groupRoleAggregate;
+  }
+
+  public GroupRoleConnection getGroupRoleConnection() {
+    return this.groupRoleConnection;
+  }
+
+  public void setGroupRoleConnection(GroupRoleConnection groupRoleConnection) {
+    this.groupRoleConnection = groupRoleConnection;
   }
 
   public Collection<RoleComposite> getRoleComposite() {

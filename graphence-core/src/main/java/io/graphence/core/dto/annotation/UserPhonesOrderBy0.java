@@ -33,5 +33,5 @@ public @interface UserPhonesOrderBy0 {
 
   Sort __typename() default Sort.ASC;
 
-  UserOrderBy1 from() default @UserOrderBy1;
+  UserOrderBy1 userIdType() default @UserOrderBy1;
 }

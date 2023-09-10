@@ -22,11 +22,11 @@ public class RoleComposite implements Meta {
 
   private Integer roleId;
 
-  private Role from;
+  private Role roleIdType;
 
   private Integer compositeId;
 
-  private Role to;
+  private Role compositeIdType;
 
   private Boolean isDeprecated;
 
@@ -88,12 +88,12 @@ public class RoleComposite implements Meta {
     this.roleId = roleId;
   }
 
-  public Role getFrom() {
-    return this.from;
+  public Role getRoleIdType() {
+    return this.roleIdType;
   }
 
-  public void setFrom(Role from) {
-    this.from = from;
+  public void setRoleIdType(Role roleIdType) {
+    this.roleIdType = roleIdType;
   }
 
   public Integer getCompositeId() {
@@ -104,12 +104,12 @@ public class RoleComposite implements Meta {
     this.compositeId = compositeId;
   }
 
-  public Role getTo() {
-    return this.to;
+  public Role getCompositeIdType() {
+    return this.compositeIdType;
   }
 
-  public void setTo(Role to) {
-    this.to = to;
+  public void setCompositeIdType(Role compositeIdType) {
+    this.compositeIdType = compositeIdType;
   }
 
   @Override
