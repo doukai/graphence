@@ -91,6 +91,24 @@ public class RBACAdapter implements Adapter {
                                     )
                     );
 
+
+            Stream<Rule> groupUserRuleStream = roles.stream()
+                    .flatMap(role ->
+                            Stream.ofNullable(role.getGroups())
+                                    .flatMap(Collection::stream)
+                                    .flatMap(group ->
+                                            Stream.ofNullable(group.getUsers())
+                                                    .flatMap(Collection::stream)
+                                    )
+                                    .map(user ->
+                                            new Rule()
+                                                    .setPtype(G_TYPE)
+                                                    .setV0(USER_PREFIX.concat(user.getId()))
+                                                    .setV1(ROLE_PREFIX.concat(role.getName()))
+                                                    .setV2(Optional.ofNullable(user.getRealmId()).map(String::valueOf).orElse(UNDEFINED))
+                                    )
+                    );
+
             Stream<Rule> roleRuleStream = roles.stream()
                     .flatMap(role ->
                             Stream.ofNullable(role.getComposites())
@@ -104,7 +122,7 @@ public class RBACAdapter implements Adapter {
                                     )
                     );
 
-            Streams.concat(permissionRuleStream, userRuleStream, roleRuleStream).forEach(line -> loadPolicyLine(line, model));
+            Streams.concat(permissionRuleStream, userRuleStream, groupUserRuleStream, roleRuleStream).forEach(line -> loadPolicyLine(line, model));
 
         } catch (Exception e) {
             Logger.error(e);
