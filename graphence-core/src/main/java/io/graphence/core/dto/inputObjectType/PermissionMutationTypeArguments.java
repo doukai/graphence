@@ -28,9 +28,9 @@ public class PermissionMutationTypeArguments implements MetaInput {
 
   private String description;
 
-  private Collection<RoleInput> roles;
+  private Collection<PermissionMutationTypeArguments> roles;
 
-  private RealmInput realm;
+  private PermissionMutationTypeArguments realm;
 
   private Boolean isDeprecated;
 
@@ -51,7 +51,7 @@ public class PermissionMutationTypeArguments implements MetaInput {
   @DefaultValue("\"Permission\"")
   private String __typename;
 
-  private Collection<RolePermissionInput> rolePermission;
+  private Collection<PermissionMutationTypeArguments> rolePermission;
 
   private PermissionExpression where;
 
@@ -95,19 +95,19 @@ public class PermissionMutationTypeArguments implements MetaInput {
     this.description = description;
   }
 
-  public Collection<RoleInput> getRoles() {
+  public Collection<PermissionMutationTypeArguments> getRoles() {
     return this.roles;
   }
 
-  public void setRoles(Collection<RoleInput> roles) {
+  public void setRoles(Collection<PermissionMutationTypeArguments> roles) {
     this.roles = roles;
   }
 
-  public RealmInput getRealm() {
+  public PermissionMutationTypeArguments getRealm() {
     return this.realm;
   }
 
-  public void setRealm(RealmInput realm) {
+  public void setRealm(PermissionMutationTypeArguments realm) {
     this.realm = realm;
   }
 
@@ -183,11 +183,11 @@ public class PermissionMutationTypeArguments implements MetaInput {
     this.__typename = __typename;
   }
 
-  public Collection<RolePermissionInput> getRolePermission() {
+  public Collection<PermissionMutationTypeArguments> getRolePermission() {
     return this.rolePermission;
   }
 
-  public void setRolePermission(Collection<RolePermissionInput> rolePermission) {
+  public void setRolePermission(Collection<PermissionMutationTypeArguments> rolePermission) {
     this.rolePermission = rolePermission;
   }
 

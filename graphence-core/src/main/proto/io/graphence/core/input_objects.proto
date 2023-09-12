@@ -1424,9 +1424,9 @@ message UserMutationTypeArguments {
     optional string email = 7;
     repeated string phones = 8;
     optional bool disable = 9;
-    repeated GroupInput groups = 10;
-    repeated RoleInput roles = 11;
-    optional RealmInput realm = 12;
+    repeated UserMutationTypeArguments groups = 10;
+    repeated UserMutationTypeArguments roles = 11;
+    optional UserMutationTypeArguments realm = 12;
     optional bool is_deprecated = 13;
     optional int32 version = 14;
     optional int32 realm_id = 15;
@@ -1436,9 +1436,9 @@ message UserMutationTypeArguments {
     optional google.protobuf.Timestamp update_time = 19;
     optional string create_group_id = 20;
     optional string intro_typename = 21;
-    repeated UserPhonesInput user_phones = 22;
-    repeated UserGroupInput user_group = 23;
-    repeated UserRoleInput user_role = 24;
+    repeated UserMutationTypeArguments user_phones = 22;
+    repeated UserMutationTypeArguments user_group = 23;
+    repeated UserMutationTypeArguments user_role = 24;
     optional UserExpression where = 25;
 }
 message UserListMutationTypeArguments {
@@ -1451,9 +1451,9 @@ message UserListMutationTypeArguments {
     optional string email = 7;
     repeated string phones = 8;
     optional bool disable = 9;
-    repeated GroupInput groups = 10;
-    repeated RoleInput roles = 11;
-    optional RealmInput realm = 12;
+    repeated UserMutationTypeArguments groups = 10;
+    repeated UserMutationTypeArguments roles = 11;
+    optional UserMutationTypeArguments realm = 12;
     optional bool is_deprecated = 13;
     optional int32 version = 14;
     optional int32 realm_id = 15;
@@ -1463,9 +1463,9 @@ message UserListMutationTypeArguments {
     optional google.protobuf.Timestamp update_time = 19;
     optional string create_group_id = 20;
     optional string intro_typename = 21;
-    repeated UserPhonesInput user_phones = 22;
-    repeated UserGroupInput user_group = 23;
-    repeated UserRoleInput user_role = 24;
+    repeated UserMutationTypeArguments user_phones = 22;
+    repeated UserMutationTypeArguments user_group = 23;
+    repeated UserMutationTypeArguments user_role = 24;
     repeated UserInput list = 25;
     optional UserExpression where = 26;
 }
@@ -1473,11 +1473,11 @@ message RoleMutationTypeArguments {
     optional string id = 1;
     optional string name = 2;
     optional string description = 3;
-    repeated UserInput users = 4;
-    repeated GroupInput groups = 5;
-    repeated RoleInput composites = 6;
-    repeated PermissionInput permissions = 7;
-    optional RealmInput realm = 8;
+    repeated RoleMutationTypeArguments users = 4;
+    repeated RoleMutationTypeArguments groups = 5;
+    repeated RoleMutationTypeArguments composites = 6;
+    repeated RoleMutationTypeArguments permissions = 7;
+    optional RoleMutationTypeArguments realm = 8;
     optional bool is_deprecated = 9;
     optional int32 version = 10;
     optional int32 realm_id = 11;
@@ -1487,21 +1487,21 @@ message RoleMutationTypeArguments {
     optional google.protobuf.Timestamp update_time = 15;
     optional string create_group_id = 16;
     optional string intro_typename = 17;
-    repeated UserRoleInput user_role = 18;
-    repeated GroupRoleInput group_role = 19;
-    repeated RoleCompositeInput role_composite = 20;
-    repeated RolePermissionInput role_permission = 21;
+    repeated RoleMutationTypeArguments user_role = 18;
+    repeated RoleMutationTypeArguments group_role = 19;
+    repeated RoleMutationTypeArguments role_composite = 20;
+    repeated RoleMutationTypeArguments role_permission = 21;
     optional RoleExpression where = 22;
 }
 message RoleListMutationTypeArguments {
     optional string id = 1;
     optional string name = 2;
     optional string description = 3;
-    repeated UserInput users = 4;
-    repeated GroupInput groups = 5;
-    repeated RoleInput composites = 6;
-    repeated PermissionInput permissions = 7;
-    optional RealmInput realm = 8;
+    repeated RoleMutationTypeArguments users = 4;
+    repeated RoleMutationTypeArguments groups = 5;
+    repeated RoleMutationTypeArguments composites = 6;
+    repeated RoleMutationTypeArguments permissions = 7;
+    optional RoleMutationTypeArguments realm = 8;
     optional bool is_deprecated = 9;
     optional int32 version = 10;
     optional int32 realm_id = 11;
@@ -1511,10 +1511,10 @@ message RoleListMutationTypeArguments {
     optional google.protobuf.Timestamp update_time = 15;
     optional string create_group_id = 16;
     optional string intro_typename = 17;
-    repeated UserRoleInput user_role = 18;
-    repeated GroupRoleInput group_role = 19;
-    repeated RoleCompositeInput role_composite = 20;
-    repeated RolePermissionInput role_permission = 21;
+    repeated RoleMutationTypeArguments user_role = 18;
+    repeated RoleMutationTypeArguments group_role = 19;
+    repeated RoleMutationTypeArguments role_composite = 20;
+    repeated RoleMutationTypeArguments role_permission = 21;
     repeated RoleInput list = 22;
     optional RoleExpression where = 23;
 }
@@ -1523,11 +1523,11 @@ message GroupMutationTypeArguments {
     optional string name = 2;
     optional string path = 3;
     optional int32 deep = 4;
-    optional GroupInput parent = 5;
-    repeated GroupInput sub_groups = 6;
-    repeated UserInput users = 7;
-    repeated RoleInput roles = 8;
-    optional RealmInput realm = 9;
+    optional GroupMutationTypeArguments parent = 5;
+    repeated GroupMutationTypeArguments sub_groups = 6;
+    repeated GroupMutationTypeArguments users = 7;
+    repeated GroupMutationTypeArguments roles = 8;
+    optional GroupMutationTypeArguments realm = 9;
     optional bool is_deprecated = 10;
     optional int32 version = 11;
     optional int32 realm_id = 12;
@@ -1538,8 +1538,8 @@ message GroupMutationTypeArguments {
     optional string create_group_id = 17;
     optional string intro_typename = 18;
     optional int32 parent_id = 19;
-    repeated UserGroupInput user_group = 20;
-    repeated GroupRoleInput group_role = 21;
+    repeated GroupMutationTypeArguments user_group = 20;
+    repeated GroupMutationTypeArguments group_role = 21;
     optional GroupExpression where = 22;
 }
 message GroupListMutationTypeArguments {
@@ -1547,11 +1547,11 @@ message GroupListMutationTypeArguments {
     optional string name = 2;
     optional string path = 3;
     optional int32 deep = 4;
-    optional GroupInput parent = 5;
-    repeated GroupInput sub_groups = 6;
-    repeated UserInput users = 7;
-    repeated RoleInput roles = 8;
-    optional RealmInput realm = 9;
+    optional GroupMutationTypeArguments parent = 5;
+    repeated GroupMutationTypeArguments sub_groups = 6;
+    repeated GroupMutationTypeArguments users = 7;
+    repeated GroupMutationTypeArguments roles = 8;
+    optional GroupMutationTypeArguments realm = 9;
     optional bool is_deprecated = 10;
     optional int32 version = 11;
     optional int32 realm_id = 12;
@@ -1562,8 +1562,8 @@ message GroupListMutationTypeArguments {
     optional string create_group_id = 17;
     optional string intro_typename = 18;
     optional int32 parent_id = 19;
-    repeated UserGroupInput user_group = 20;
-    repeated GroupRoleInput group_role = 21;
+    repeated GroupMutationTypeArguments user_group = 20;
+    repeated GroupMutationTypeArguments group_role = 21;
     repeated GroupInput list = 22;
     optional GroupExpression where = 23;
 }
@@ -1602,8 +1602,8 @@ message PermissionMutationTypeArguments {
     optional string type = 3;
     optional PermissionType permission_type = 4;
     optional string description = 5;
-    repeated RoleInput roles = 6;
-    optional RealmInput realm = 7;
+    repeated PermissionMutationTypeArguments roles = 6;
+    optional PermissionMutationTypeArguments realm = 7;
     optional bool is_deprecated = 8;
     optional int32 version = 9;
     optional int32 realm_id = 10;
@@ -1613,7 +1613,7 @@ message PermissionMutationTypeArguments {
     optional google.protobuf.Timestamp update_time = 14;
     optional string create_group_id = 15;
     optional string intro_typename = 16;
-    repeated RolePermissionInput role_permission = 17;
+    repeated PermissionMutationTypeArguments role_permission = 17;
     optional PermissionExpression where = 18;
 }
 message PermissionListMutationTypeArguments {
@@ -1622,8 +1622,8 @@ message PermissionListMutationTypeArguments {
     optional string type = 3;
     optional PermissionType permission_type = 4;
     optional string description = 5;
-    repeated RoleInput roles = 6;
-    optional RealmInput realm = 7;
+    repeated PermissionMutationTypeArguments roles = 6;
+    optional PermissionMutationTypeArguments realm = 7;
     optional bool is_deprecated = 8;
     optional int32 version = 9;
     optional int32 realm_id = 10;
@@ -1633,14 +1633,14 @@ message PermissionListMutationTypeArguments {
     optional google.protobuf.Timestamp update_time = 14;
     optional string create_group_id = 15;
     optional string intro_typename = 16;
-    repeated RolePermissionInput role_permission = 17;
+    repeated PermissionMutationTypeArguments role_permission = 17;
     repeated PermissionInput list = 18;
     optional PermissionExpression where = 19;
 }
 message UserPhonesMutationTypeArguments {
     optional string id = 1;
     optional int32 user_id = 2;
-    optional UserInput user_id_type = 3;
+    optional UserPhonesMutationTypeArguments user_id_type = 3;
     optional string phone = 4;
     optional bool is_deprecated = 5;
     optional int32 version = 6;
@@ -1656,7 +1656,7 @@ message UserPhonesMutationTypeArguments {
 message UserPhonesListMutationTypeArguments {
     optional string id = 1;
     optional int32 user_id = 2;
-    optional UserInput user_id_type = 3;
+    optional UserPhonesMutationTypeArguments user_id_type = 3;
     optional string phone = 4;
     optional bool is_deprecated = 5;
     optional int32 version = 6;
@@ -1673,9 +1673,9 @@ message UserPhonesListMutationTypeArguments {
 message UserGroupMutationTypeArguments {
     optional string id = 1;
     optional int32 user_id = 2;
-    optional UserInput user_id_type = 3;
+    optional UserGroupMutationTypeArguments user_id_type = 3;
     optional int32 group_id = 4;
-    optional GroupInput group_id_type = 5;
+    optional UserGroupMutationTypeArguments group_id_type = 5;
     optional bool is_deprecated = 6;
     optional int32 version = 7;
     optional int32 realm_id = 8;
@@ -1690,9 +1690,9 @@ message UserGroupMutationTypeArguments {
 message UserGroupListMutationTypeArguments {
     optional string id = 1;
     optional int32 user_id = 2;
-    optional UserInput user_id_type = 3;
+    optional UserGroupMutationTypeArguments user_id_type = 3;
     optional int32 group_id = 4;
-    optional GroupInput group_id_type = 5;
+    optional UserGroupMutationTypeArguments group_id_type = 5;
     optional bool is_deprecated = 6;
     optional int32 version = 7;
     optional int32 realm_id = 8;
@@ -1708,9 +1708,9 @@ message UserGroupListMutationTypeArguments {
 message UserRoleMutationTypeArguments {
     optional string id = 1;
     optional int32 user_id = 2;
-    optional UserInput user_id_type = 3;
+    optional UserRoleMutationTypeArguments user_id_type = 3;
     optional int32 role_id = 4;
-    optional RoleInput role_id_type = 5;
+    optional UserRoleMutationTypeArguments role_id_type = 5;
     optional bool is_deprecated = 6;
     optional int32 version = 7;
     optional int32 realm_id = 8;
@@ -1725,9 +1725,9 @@ message UserRoleMutationTypeArguments {
 message UserRoleListMutationTypeArguments {
     optional string id = 1;
     optional int32 user_id = 2;
-    optional UserInput user_id_type = 3;
+    optional UserRoleMutationTypeArguments user_id_type = 3;
     optional int32 role_id = 4;
-    optional RoleInput role_id_type = 5;
+    optional UserRoleMutationTypeArguments role_id_type = 5;
     optional bool is_deprecated = 6;
     optional int32 version = 7;
     optional int32 realm_id = 8;
@@ -1743,9 +1743,9 @@ message UserRoleListMutationTypeArguments {
 message GroupRoleMutationTypeArguments {
     optional string id = 1;
     optional int32 role_id = 2;
-    optional RoleInput role_id_type = 3;
+    optional GroupRoleMutationTypeArguments role_id_type = 3;
     optional int32 group_id = 4;
-    optional GroupInput group_id_type = 5;
+    optional GroupRoleMutationTypeArguments group_id_type = 5;
     optional bool is_deprecated = 6;
     optional int32 version = 7;
     optional int32 realm_id = 8;
@@ -1760,9 +1760,9 @@ message GroupRoleMutationTypeArguments {
 message GroupRoleListMutationTypeArguments {
     optional string id = 1;
     optional int32 role_id = 2;
-    optional RoleInput role_id_type = 3;
+    optional GroupRoleMutationTypeArguments role_id_type = 3;
     optional int32 group_id = 4;
-    optional GroupInput group_id_type = 5;
+    optional GroupRoleMutationTypeArguments group_id_type = 5;
     optional bool is_deprecated = 6;
     optional int32 version = 7;
     optional int32 realm_id = 8;
@@ -1778,9 +1778,9 @@ message GroupRoleListMutationTypeArguments {
 message RoleCompositeMutationTypeArguments {
     optional string id = 1;
     optional int32 role_id = 2;
-    optional RoleInput role_id_type = 3;
+    optional RoleCompositeMutationTypeArguments role_id_type = 3;
     optional int32 composite_id = 4;
-    optional RoleInput composite_id_type = 5;
+    optional RoleCompositeMutationTypeArguments composite_id_type = 5;
     optional bool is_deprecated = 6;
     optional int32 version = 7;
     optional int32 realm_id = 8;
@@ -1795,9 +1795,9 @@ message RoleCompositeMutationTypeArguments {
 message RoleCompositeListMutationTypeArguments {
     optional string id = 1;
     optional int32 role_id = 2;
-    optional RoleInput role_id_type = 3;
+    optional RoleCompositeMutationTypeArguments role_id_type = 3;
     optional int32 composite_id = 4;
-    optional RoleInput composite_id_type = 5;
+    optional RoleCompositeMutationTypeArguments composite_id_type = 5;
     optional bool is_deprecated = 6;
     optional int32 version = 7;
     optional int32 realm_id = 8;
@@ -1813,9 +1813,9 @@ message RoleCompositeListMutationTypeArguments {
 message RolePermissionMutationTypeArguments {
     optional string id = 1;
     optional int32 role_id = 2;
-    optional RoleInput role_id_type = 3;
+    optional RolePermissionMutationTypeArguments role_id_type = 3;
     optional string permission_name = 4;
-    optional PermissionInput permission_name_type = 5;
+    optional RolePermissionMutationTypeArguments permission_name_type = 5;
     optional bool is_deprecated = 6;
     optional int32 version = 7;
     optional int32 realm_id = 8;
@@ -1830,9 +1830,9 @@ message RolePermissionMutationTypeArguments {
 message RolePermissionListMutationTypeArguments {
     optional string id = 1;
     optional int32 role_id = 2;
-    optional RoleInput role_id_type = 3;
+    optional RolePermissionMutationTypeArguments role_id_type = 3;
     optional string permission_name = 4;
-    optional PermissionInput permission_name_type = 5;
+    optional RolePermissionMutationTypeArguments permission_name_type = 5;
     optional bool is_deprecated = 6;
     optional int32 version = 7;
     optional int32 realm_id = 8;

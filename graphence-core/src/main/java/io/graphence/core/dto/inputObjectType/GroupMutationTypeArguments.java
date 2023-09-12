@@ -25,15 +25,15 @@ public class GroupMutationTypeArguments implements MetaInput {
 
   private Integer deep;
 
-  private GroupInput parent;
+  private GroupMutationTypeArguments parent;
 
-  private Collection<GroupInput> subGroups;
+  private Collection<GroupMutationTypeArguments> subGroups;
 
-  private Collection<UserInput> users;
+  private Collection<GroupMutationTypeArguments> users;
 
-  private Collection<RoleInput> roles;
+  private Collection<GroupMutationTypeArguments> roles;
 
-  private RealmInput realm;
+  private GroupMutationTypeArguments realm;
 
   private Boolean isDeprecated;
 
@@ -56,9 +56,9 @@ public class GroupMutationTypeArguments implements MetaInput {
 
   private Integer parentId;
 
-  private Collection<UserGroupInput> userGroup;
+  private Collection<GroupMutationTypeArguments> userGroup;
 
-  private Collection<GroupRoleInput> groupRole;
+  private Collection<GroupMutationTypeArguments> groupRole;
 
   private GroupExpression where;
 
@@ -94,43 +94,43 @@ public class GroupMutationTypeArguments implements MetaInput {
     this.deep = deep;
   }
 
-  public GroupInput getParent() {
+  public GroupMutationTypeArguments getParent() {
     return this.parent;
   }
 
-  public void setParent(GroupInput parent) {
+  public void setParent(GroupMutationTypeArguments parent) {
     this.parent = parent;
   }
 
-  public Collection<GroupInput> getSubGroups() {
+  public Collection<GroupMutationTypeArguments> getSubGroups() {
     return this.subGroups;
   }
 
-  public void setSubGroups(Collection<GroupInput> subGroups) {
+  public void setSubGroups(Collection<GroupMutationTypeArguments> subGroups) {
     this.subGroups = subGroups;
   }
 
-  public Collection<UserInput> getUsers() {
+  public Collection<GroupMutationTypeArguments> getUsers() {
     return this.users;
   }
 
-  public void setUsers(Collection<UserInput> users) {
+  public void setUsers(Collection<GroupMutationTypeArguments> users) {
     this.users = users;
   }
 
-  public Collection<RoleInput> getRoles() {
+  public Collection<GroupMutationTypeArguments> getRoles() {
     return this.roles;
   }
 
-  public void setRoles(Collection<RoleInput> roles) {
+  public void setRoles(Collection<GroupMutationTypeArguments> roles) {
     this.roles = roles;
   }
 
-  public RealmInput getRealm() {
+  public GroupMutationTypeArguments getRealm() {
     return this.realm;
   }
 
-  public void setRealm(RealmInput realm) {
+  public void setRealm(GroupMutationTypeArguments realm) {
     this.realm = realm;
   }
 
@@ -214,19 +214,19 @@ public class GroupMutationTypeArguments implements MetaInput {
     this.parentId = parentId;
   }
 
-  public Collection<UserGroupInput> getUserGroup() {
+  public Collection<GroupMutationTypeArguments> getUserGroup() {
     return this.userGroup;
   }
 
-  public void setUserGroup(Collection<UserGroupInput> userGroup) {
+  public void setUserGroup(Collection<GroupMutationTypeArguments> userGroup) {
     this.userGroup = userGroup;
   }
 
-  public Collection<GroupRoleInput> getGroupRole() {
+  public Collection<GroupMutationTypeArguments> getGroupRole() {
     return this.groupRole;
   }
 
-  public void setGroupRole(Collection<GroupRoleInput> groupRole) {
+  public void setGroupRole(Collection<GroupMutationTypeArguments> groupRole) {
     this.groupRole = groupRole;
   }
 

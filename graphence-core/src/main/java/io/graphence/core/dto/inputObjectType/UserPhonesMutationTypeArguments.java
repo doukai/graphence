@@ -20,7 +20,7 @@ public class UserPhonesMutationTypeArguments implements MetaInput {
 
   private Integer userId;
 
-  private UserInput userIdType;
+  private UserPhonesMutationTypeArguments userIdType;
 
   private String phone;
 
@@ -61,11 +61,11 @@ public class UserPhonesMutationTypeArguments implements MetaInput {
     this.userId = userId;
   }
 
-  public UserInput getUserIdType() {
+  public UserPhonesMutationTypeArguments getUserIdType() {
     return this.userIdType;
   }
 
-  public void setUserIdType(UserInput userIdType) {
+  public void setUserIdType(UserPhonesMutationTypeArguments userIdType) {
     this.userIdType = userIdType;
   }
 

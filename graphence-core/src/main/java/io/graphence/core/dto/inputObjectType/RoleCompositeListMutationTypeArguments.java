@@ -21,11 +21,11 @@ public class RoleCompositeListMutationTypeArguments implements MetaInput {
 
   private Integer roleId;
 
-  private RoleInput roleIdType;
+  private RoleCompositeMutationTypeArguments roleIdType;
 
   private Integer compositeId;
 
-  private RoleInput compositeIdType;
+  private RoleCompositeMutationTypeArguments compositeIdType;
 
   private Boolean isDeprecated;
 
@@ -66,11 +66,11 @@ public class RoleCompositeListMutationTypeArguments implements MetaInput {
     this.roleId = roleId;
   }
 
-  public RoleInput getRoleIdType() {
+  public RoleCompositeMutationTypeArguments getRoleIdType() {
     return this.roleIdType;
   }
 
-  public void setRoleIdType(RoleInput roleIdType) {
+  public void setRoleIdType(RoleCompositeMutationTypeArguments roleIdType) {
     this.roleIdType = roleIdType;
   }
 
@@ -82,11 +82,11 @@ public class RoleCompositeListMutationTypeArguments implements MetaInput {
     this.compositeId = compositeId;
   }
 
-  public RoleInput getCompositeIdType() {
+  public RoleCompositeMutationTypeArguments getCompositeIdType() {
     return this.compositeIdType;
   }
 
-  public void setCompositeIdType(RoleInput compositeIdType) {
+  public void setCompositeIdType(RoleCompositeMutationTypeArguments compositeIdType) {
     this.compositeIdType = compositeIdType;
   }
 

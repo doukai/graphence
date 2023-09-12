@@ -35,11 +35,11 @@ public class UserListMutationTypeArguments implements MetaInput {
 
   private Boolean disable;
 
-  private Collection<GroupInput> groups;
+  private Collection<UserMutationTypeArguments> groups;
 
-  private Collection<RoleInput> roles;
+  private Collection<UserMutationTypeArguments> roles;
 
-  private RealmInput realm;
+  private UserMutationTypeArguments realm;
 
   private Boolean isDeprecated;
 
@@ -60,11 +60,11 @@ public class UserListMutationTypeArguments implements MetaInput {
   @DefaultValue("\"User\"")
   private String __typename;
 
-  private Collection<UserPhonesInput> userPhones;
+  private Collection<UserMutationTypeArguments> userPhones;
 
-  private Collection<UserGroupInput> userGroup;
+  private Collection<UserMutationTypeArguments> userGroup;
 
-  private Collection<UserRoleInput> userRole;
+  private Collection<UserMutationTypeArguments> userRole;
 
   private Collection<UserInput> list;
 
@@ -142,27 +142,27 @@ public class UserListMutationTypeArguments implements MetaInput {
     this.disable = disable;
   }
 
-  public Collection<GroupInput> getGroups() {
+  public Collection<UserMutationTypeArguments> getGroups() {
     return this.groups;
   }
 
-  public void setGroups(Collection<GroupInput> groups) {
+  public void setGroups(Collection<UserMutationTypeArguments> groups) {
     this.groups = groups;
   }
 
-  public Collection<RoleInput> getRoles() {
+  public Collection<UserMutationTypeArguments> getRoles() {
     return this.roles;
   }
 
-  public void setRoles(Collection<RoleInput> roles) {
+  public void setRoles(Collection<UserMutationTypeArguments> roles) {
     this.roles = roles;
   }
 
-  public RealmInput getRealm() {
+  public UserMutationTypeArguments getRealm() {
     return this.realm;
   }
 
-  public void setRealm(RealmInput realm) {
+  public void setRealm(UserMutationTypeArguments realm) {
     this.realm = realm;
   }
 
@@ -238,27 +238,27 @@ public class UserListMutationTypeArguments implements MetaInput {
     this.__typename = __typename;
   }
 
-  public Collection<UserPhonesInput> getUserPhones() {
+  public Collection<UserMutationTypeArguments> getUserPhones() {
     return this.userPhones;
   }
 
-  public void setUserPhones(Collection<UserPhonesInput> userPhones) {
+  public void setUserPhones(Collection<UserMutationTypeArguments> userPhones) {
     this.userPhones = userPhones;
   }
 
-  public Collection<UserGroupInput> getUserGroup() {
+  public Collection<UserMutationTypeArguments> getUserGroup() {
     return this.userGroup;
   }
 
-  public void setUserGroup(Collection<UserGroupInput> userGroup) {
+  public void setUserGroup(Collection<UserMutationTypeArguments> userGroup) {
     this.userGroup = userGroup;
   }
 
-  public Collection<UserRoleInput> getUserRole() {
+  public Collection<UserMutationTypeArguments> getUserRole() {
     return this.userRole;
   }
 
-  public void setUserRole(Collection<UserRoleInput> userRole) {
+  public void setUserRole(Collection<UserMutationTypeArguments> userRole) {
     this.userRole = userRole;
   }
 

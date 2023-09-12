@@ -21,11 +21,11 @@ public class GroupRoleListMutationTypeArguments implements MetaInput {
 
   private Integer roleId;
 
-  private RoleInput roleIdType;
+  private GroupRoleMutationTypeArguments roleIdType;
 
   private Integer groupId;
 
-  private GroupInput groupIdType;
+  private GroupRoleMutationTypeArguments groupIdType;
 
   private Boolean isDeprecated;
 
@@ -66,11 +66,11 @@ public class GroupRoleListMutationTypeArguments implements MetaInput {
     this.roleId = roleId;
   }
 
-  public RoleInput getRoleIdType() {
+  public GroupRoleMutationTypeArguments getRoleIdType() {
     return this.roleIdType;
   }
 
-  public void setRoleIdType(RoleInput roleIdType) {
+  public void setRoleIdType(GroupRoleMutationTypeArguments roleIdType) {
     this.roleIdType = roleIdType;
   }
 
@@ -82,11 +82,11 @@ public class GroupRoleListMutationTypeArguments implements MetaInput {
     this.groupId = groupId;
   }
 
-  public GroupInput getGroupIdType() {
+  public GroupRoleMutationTypeArguments getGroupIdType() {
     return this.groupIdType;
   }
 
-  public void setGroupIdType(GroupInput groupIdType) {
+  public void setGroupIdType(GroupRoleMutationTypeArguments groupIdType) {
     this.groupIdType = groupIdType;
   }
 

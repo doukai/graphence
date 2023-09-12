@@ -21,11 +21,11 @@ public class UserRoleListMutationTypeArguments implements MetaInput {
 
   private Integer userId;
 
-  private UserInput userIdType;
+  private UserRoleMutationTypeArguments userIdType;
 
   private Integer roleId;
 
-  private RoleInput roleIdType;
+  private UserRoleMutationTypeArguments roleIdType;
 
   private Boolean isDeprecated;
 
@@ -66,11 +66,11 @@ public class UserRoleListMutationTypeArguments implements MetaInput {
     this.userId = userId;
   }
 
-  public UserInput getUserIdType() {
+  public UserRoleMutationTypeArguments getUserIdType() {
     return this.userIdType;
   }
 
-  public void setUserIdType(UserInput userIdType) {
+  public void setUserIdType(UserRoleMutationTypeArguments userIdType) {
     this.userIdType = userIdType;
   }
 
@@ -82,11 +82,11 @@ public class UserRoleListMutationTypeArguments implements MetaInput {
     this.roleId = roleId;
   }
 
-  public RoleInput getRoleIdType() {
+  public UserRoleMutationTypeArguments getRoleIdType() {
     return this.roleIdType;
   }
 
-  public void setRoleIdType(RoleInput roleIdType) {
+  public void setRoleIdType(UserRoleMutationTypeArguments roleIdType) {
     this.roleIdType = roleIdType;
   }
 

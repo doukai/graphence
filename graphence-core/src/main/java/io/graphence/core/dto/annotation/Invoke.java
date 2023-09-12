@@ -16,7 +16,7 @@ import java.lang.annotation.Target;
 @Documented
 @Retention(RetentionPolicy.SOURCE)
 @Directive("invoke")
-@Target({ElementType.FIELD,ElementType.TYPE,ElementType.METHOD})
+@Target({ElementType.METHOD,ElementType.TYPE,ElementType.FIELD})
 public @interface Invoke {
   String className();
 

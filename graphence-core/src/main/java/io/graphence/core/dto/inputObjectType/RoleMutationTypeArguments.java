@@ -23,15 +23,15 @@ public class RoleMutationTypeArguments implements MetaInput {
 
   private String description;
 
-  private Collection<UserInput> users;
+  private Collection<RoleMutationTypeArguments> users;
 
-  private Collection<GroupInput> groups;
+  private Collection<RoleMutationTypeArguments> groups;
 
-  private Collection<RoleInput> composites;
+  private Collection<RoleMutationTypeArguments> composites;
 
-  private Collection<PermissionInput> permissions;
+  private Collection<RoleMutationTypeArguments> permissions;
 
-  private RealmInput realm;
+  private RoleMutationTypeArguments realm;
 
   private Boolean isDeprecated;
 
@@ -52,13 +52,13 @@ public class RoleMutationTypeArguments implements MetaInput {
   @DefaultValue("\"Role\"")
   private String __typename;
 
-  private Collection<UserRoleInput> userRole;
+  private Collection<RoleMutationTypeArguments> userRole;
 
-  private Collection<GroupRoleInput> groupRole;
+  private Collection<RoleMutationTypeArguments> groupRole;
 
-  private Collection<RoleCompositeInput> roleComposite;
+  private Collection<RoleMutationTypeArguments> roleComposite;
 
-  private Collection<RolePermissionInput> rolePermission;
+  private Collection<RoleMutationTypeArguments> rolePermission;
 
   private RoleExpression where;
 
@@ -86,43 +86,43 @@ public class RoleMutationTypeArguments implements MetaInput {
     this.description = description;
   }
 
-  public Collection<UserInput> getUsers() {
+  public Collection<RoleMutationTypeArguments> getUsers() {
     return this.users;
   }
 
-  public void setUsers(Collection<UserInput> users) {
+  public void setUsers(Collection<RoleMutationTypeArguments> users) {
     this.users = users;
   }
 
-  public Collection<GroupInput> getGroups() {
+  public Collection<RoleMutationTypeArguments> getGroups() {
     return this.groups;
   }
 
-  public void setGroups(Collection<GroupInput> groups) {
+  public void setGroups(Collection<RoleMutationTypeArguments> groups) {
     this.groups = groups;
   }
 
-  public Collection<RoleInput> getComposites() {
+  public Collection<RoleMutationTypeArguments> getComposites() {
     return this.composites;
   }
 
-  public void setComposites(Collection<RoleInput> composites) {
+  public void setComposites(Collection<RoleMutationTypeArguments> composites) {
     this.composites = composites;
   }
 
-  public Collection<PermissionInput> getPermissions() {
+  public Collection<RoleMutationTypeArguments> getPermissions() {
     return this.permissions;
   }
 
-  public void setPermissions(Collection<PermissionInput> permissions) {
+  public void setPermissions(Collection<RoleMutationTypeArguments> permissions) {
     this.permissions = permissions;
   }
 
-  public RealmInput getRealm() {
+  public RoleMutationTypeArguments getRealm() {
     return this.realm;
   }
 
-  public void setRealm(RealmInput realm) {
+  public void setRealm(RoleMutationTypeArguments realm) {
     this.realm = realm;
   }
 
@@ -198,35 +198,35 @@ public class RoleMutationTypeArguments implements MetaInput {
     this.__typename = __typename;
   }
 
-  public Collection<UserRoleInput> getUserRole() {
+  public Collection<RoleMutationTypeArguments> getUserRole() {
     return this.userRole;
   }
 
-  public void setUserRole(Collection<UserRoleInput> userRole) {
+  public void setUserRole(Collection<RoleMutationTypeArguments> userRole) {
     this.userRole = userRole;
   }
 
-  public Collection<GroupRoleInput> getGroupRole() {
+  public Collection<RoleMutationTypeArguments> getGroupRole() {
     return this.groupRole;
   }
 
-  public void setGroupRole(Collection<GroupRoleInput> groupRole) {
+  public void setGroupRole(Collection<RoleMutationTypeArguments> groupRole) {
     this.groupRole = groupRole;
   }
 
-  public Collection<RoleCompositeInput> getRoleComposite() {
+  public Collection<RoleMutationTypeArguments> getRoleComposite() {
     return this.roleComposite;
   }
 
-  public void setRoleComposite(Collection<RoleCompositeInput> roleComposite) {
+  public void setRoleComposite(Collection<RoleMutationTypeArguments> roleComposite) {
     this.roleComposite = roleComposite;
   }
 
-  public Collection<RolePermissionInput> getRolePermission() {
+  public Collection<RoleMutationTypeArguments> getRolePermission() {
     return this.rolePermission;
   }
 
-  public void setRolePermission(Collection<RolePermissionInput> rolePermission) {
+  public void setRolePermission(Collection<RoleMutationTypeArguments> rolePermission) {
     this.rolePermission = rolePermission;
   }
 

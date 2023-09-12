@@ -20,11 +20,11 @@ public class RolePermissionMutationTypeArguments implements MetaInput {
 
   private Integer roleId;
 
-  private RoleInput roleIdType;
+  private RolePermissionMutationTypeArguments roleIdType;
 
   private String permissionName;
 
-  private PermissionInput permissionNameType;
+  private RolePermissionMutationTypeArguments permissionNameType;
 
   private Boolean isDeprecated;
 
@@ -63,11 +63,11 @@ public class RolePermissionMutationTypeArguments implements MetaInput {
     this.roleId = roleId;
   }
 
-  public RoleInput getRoleIdType() {
+  public RolePermissionMutationTypeArguments getRoleIdType() {
     return this.roleIdType;
   }
 
-  public void setRoleIdType(RoleInput roleIdType) {
+  public void setRoleIdType(RolePermissionMutationTypeArguments roleIdType) {
     this.roleIdType = roleIdType;
   }
 
@@ -79,11 +79,11 @@ public class RolePermissionMutationTypeArguments implements MetaInput {
     this.permissionName = permissionName;
   }
 
-  public PermissionInput getPermissionNameType() {
+  public RolePermissionMutationTypeArguments getPermissionNameType() {
     return this.permissionNameType;
   }
 
-  public void setPermissionNameType(PermissionInput permissionNameType) {
+  public void setPermissionNameType(RolePermissionMutationTypeArguments permissionNameType) {
     this.permissionNameType = permissionNameType;
   }
 
