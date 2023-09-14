@@ -45,6 +45,8 @@ public class RolePermissionInput implements MetaInput {
   @DefaultValue("\"RolePermission\"")
   private String __typename;
 
+  private RolePermissionExpression where;
+
   public String getId() {
     return this.id;
   }
@@ -155,5 +157,13 @@ public class RolePermissionInput implements MetaInput {
 
   public void set__typename(String __typename) {
     this.__typename = __typename;
+  }
+
+  public RolePermissionExpression getWhere() {
+    return this.where;
+  }
+
+  public void setWhere(RolePermissionExpression where) {
+    this.where = where;
   }
 }

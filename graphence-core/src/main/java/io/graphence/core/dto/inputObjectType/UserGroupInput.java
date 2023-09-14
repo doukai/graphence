@@ -45,6 +45,8 @@ public class UserGroupInput implements MetaInput {
   @DefaultValue("\"UserGroup\"")
   private String __typename;
 
+  private UserGroupExpression where;
+
   public String getId() {
     return this.id;
   }
@@ -155,5 +157,13 @@ public class UserGroupInput implements MetaInput {
 
   public void set__typename(String __typename) {
     this.__typename = __typename;
+  }
+
+  public UserGroupExpression getWhere() {
+    return this.where;
+  }
+
+  public void setWhere(UserGroupExpression where) {
+    this.where = where;
   }
 }

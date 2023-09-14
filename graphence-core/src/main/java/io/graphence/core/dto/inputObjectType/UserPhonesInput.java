@@ -43,6 +43,8 @@ public class UserPhonesInput implements MetaInput {
   @DefaultValue("\"UserPhones\"")
   private String __typename;
 
+  private UserPhonesExpression where;
+
   public String getId() {
     return this.id;
   }
@@ -145,5 +147,13 @@ public class UserPhonesInput implements MetaInput {
 
   public void set__typename(String __typename) {
     this.__typename = __typename;
+  }
+
+  public UserPhonesExpression getWhere() {
+    return this.where;
+  }
+
+  public void setWhere(UserPhonesExpression where) {
+    this.where = where;
   }
 }

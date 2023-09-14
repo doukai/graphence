@@ -1,7 +1,7 @@
 package io.graphence.core.api;
 
 import io.graphence.core.dto.inputObjectType.GroupInput;
-import io.graphence.core.dto.inputObjectType.GroupMutationTypeArguments;
+import io.graphence.core.dto.inputObjectType.GroupMutationArguments;
 import jakarta.enterprise.context.ApplicationScoped;
 import org.eclipse.microprofile.graphql.GraphQLApi;
 import org.eclipse.microprofile.graphql.Source;
@@ -10,14 +10,14 @@ import org.eclipse.microprofile.graphql.Source;
 @ApplicationScoped
 public class GroupApi {
 
-    public GroupMutationTypeArguments setPath(@Source GroupMutationTypeArguments groupMutationTypeArguments) {
-        if (groupMutationTypeArguments.getParent() != null && groupMutationTypeArguments.getParent().getPath() != null) {
-            groupMutationTypeArguments.setPath(groupMutationTypeArguments.getParent().getPath() + "/" + groupMutationTypeArguments.getId());
-            groupMutationTypeArguments.setDeep(groupMutationTypeArguments.getDeep() + 1);
+    public GroupMutationArguments setPath(@Source GroupMutationArguments groupMutationArguments) {
+        if (groupMutationArguments.getParent() != null && groupMutationArguments.getParent().getPath() != null) {
+            groupMutationArguments.setPath(groupMutationArguments.getParent().getPath() + "/" + groupMutationArguments.getId());
+            groupMutationArguments.setDeep(groupMutationArguments.getDeep() + 1);
         } else {
-            groupMutationTypeArguments.setDeep(0);
+            groupMutationArguments.setDeep(0);
         }
-        return groupMutationTypeArguments;
+        return groupMutationArguments;
     }
 
     public GroupInput setPath(@Source GroupInput groupInput) {

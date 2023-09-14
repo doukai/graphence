@@ -11,7 +11,6 @@ import java.time.LocalDateTime;
 import java.util.Collection;
 import org.eclipse.microprofile.graphql.DefaultValue;
 import org.eclipse.microprofile.graphql.Input;
-import org.eclipse.microprofile.graphql.NonNull;
 
 @CompiledJson
 @Input
@@ -20,7 +19,6 @@ import org.eclipse.microprofile.graphql.NonNull;
 public class GroupInput implements MetaInput {
   private String id;
 
-  @NonNull
   private String name;
 
   private String path;
@@ -61,6 +59,8 @@ public class GroupInput implements MetaInput {
   private Collection<UserGroupInput> userGroup;
 
   private Collection<GroupRoleInput> groupRole;
+
+  private GroupExpression where;
 
   public String getId() {
     return this.id;
@@ -228,5 +228,13 @@ public class GroupInput implements MetaInput {
 
   public void setGroupRole(Collection<GroupRoleInput> groupRole) {
     this.groupRole = groupRole;
+  }
+
+  public GroupExpression getWhere() {
+    return this.where;
+  }
+
+  public void setWhere(GroupExpression where) {
+    this.where = where;
   }
 }

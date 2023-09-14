@@ -4,7 +4,7 @@ import com.password4j.Hash;
 import com.password4j.Password;
 import io.graphence.core.config.SecurityConfig;
 import io.graphence.core.dao.LoginDao;
-import io.graphence.core.dto.inputObjectType.UserMutationTypeArguments;
+import io.graphence.core.dto.inputObjectType.UserMutationArguments;
 import io.graphence.core.error.AuthenticationException;
 import io.graphence.core.utils.JWTUtil;
 import io.netty.handler.codec.http.HttpHeaderNames;
@@ -73,12 +73,12 @@ public class LoginApi {
         throw new AuthenticationException(AUTHENTICATION_SERVER_ERROR);
     }
 
-    public UserMutationTypeArguments hashPassword(@Source UserMutationTypeArguments userMutationTypeArguments) {
-        if (config.getInitialPassword() != null && userMutationTypeArguments.getId() == null && userMutationTypeArguments.getWhere() == null) {
+    public UserMutationArguments hashPassword(@Source UserMutationArguments userMutationArguments) {
+        if (config.getInitialPassword() != null && userMutationArguments.getId() == null && userMutationArguments.getWhere() == null) {
             Hash hash = Password.hash(config.getInitialPassword()).withBcrypt();
-            userMutationTypeArguments.setSalt(Base64.getEncoder().encodeToString(hash.getSaltBytes()));
-            userMutationTypeArguments.setHash(Base64.getEncoder().encodeToString(hash.getResultAsBytes()));
+            userMutationArguments.setSalt(Base64.getEncoder().encodeToString(hash.getSaltBytes()));
+            userMutationArguments.setHash(Base64.getEncoder().encodeToString(hash.getResultAsBytes()));
         }
-        return userMutationTypeArguments;
+        return userMutationArguments;
     }
 }

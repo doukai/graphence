@@ -12,23 +12,18 @@ import java.time.LocalDateTime;
 import java.util.Collection;
 import org.eclipse.microprofile.graphql.DefaultValue;
 import org.eclipse.microprofile.graphql.Input;
-import org.eclipse.microprofile.graphql.NonNull;
 
 @CompiledJson
 @Input
 @Generated("io.graphoenix.java.generator.builder.TypeSpecBuilderProxy")
 @Ignore
 public class PermissionInput implements MetaInput {
-  @NonNull
   private String name;
 
-  @NonNull
   private String field;
 
-  @NonNull
   private String type;
 
-  @NonNull
   private PermissionType permissionType;
 
   private String description;
@@ -57,6 +52,8 @@ public class PermissionInput implements MetaInput {
   private String __typename;
 
   private Collection<RolePermissionInput> rolePermission;
+
+  private PermissionExpression where;
 
   public String getName() {
     return this.name;
@@ -192,5 +189,13 @@ public class PermissionInput implements MetaInput {
 
   public void setRolePermission(Collection<RolePermissionInput> rolePermission) {
     this.rolePermission = rolePermission;
+  }
+
+  public PermissionExpression getWhere() {
+    return this.where;
+  }
+
+  public void setWhere(PermissionExpression where) {
+    this.where = where;
   }
 }

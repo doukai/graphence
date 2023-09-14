@@ -45,6 +45,8 @@ public class GroupRoleInput implements MetaInput {
   @DefaultValue("\"GroupRole\"")
   private String __typename;
 
+  private GroupRoleExpression where;
+
   public String getId() {
     return this.id;
   }
@@ -155,5 +157,13 @@ public class GroupRoleInput implements MetaInput {
 
   public void set__typename(String __typename) {
     this.__typename = __typename;
+  }
+
+  public GroupRoleExpression getWhere() {
+    return this.where;
+  }
+
+  public void setWhere(GroupRoleExpression where) {
+    this.where = where;
   }
 }

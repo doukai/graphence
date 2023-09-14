@@ -4,7 +4,7 @@ import com.google.auto.service.AutoService;
 import com.password4j.Hash;
 import com.password4j.Password;
 import io.graphence.core.config.SecurityConfig;
-import io.graphence.core.dto.inputObjectType.UserMutationTypeArguments;
+import io.graphence.core.dto.inputObjectType.UserMutationArguments;
 import io.graphoenix.core.context.BeanContext;
 import io.graphoenix.core.operation.Arguments;
 import io.graphoenix.core.operation.Field;
@@ -41,7 +41,7 @@ public class RootUserBuildEvent implements ScopeEvent {
             return Mono.empty();
         }
         LocalDateTime now = LocalDateTime.now();
-        UserMutationTypeArguments arguments = new UserMutationTypeArguments();
+        UserMutationArguments arguments = new UserMutationArguments();
         Hash hash = Password.hash(securityConfig.getRootPassword()).withBcrypt();
         arguments.setName(securityConfig.getRootUser());
         arguments.setLogin(securityConfig.getRootUser());

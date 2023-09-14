@@ -10,7 +10,6 @@ import java.lang.String;
 import java.time.LocalDateTime;
 import org.eclipse.microprofile.graphql.DefaultValue;
 import org.eclipse.microprofile.graphql.Input;
-import org.eclipse.microprofile.graphql.NonNull;
 
 @CompiledJson
 @Input
@@ -19,7 +18,6 @@ import org.eclipse.microprofile.graphql.NonNull;
 public class RealmInput implements MetaInput {
   private String id;
 
-  @NonNull
   private String name;
 
   private Boolean isDeprecated;
@@ -40,6 +38,8 @@ public class RealmInput implements MetaInput {
 
   @DefaultValue("\"Realm\"")
   private String __typename;
+
+  private RealmExpression where;
 
   public String getId() {
     return this.id;
@@ -127,5 +127,13 @@ public class RealmInput implements MetaInput {
 
   public void set__typename(String __typename) {
     this.__typename = __typename;
+  }
+
+  public RealmExpression getWhere() {
+    return this.where;
+  }
+
+  public void setWhere(RealmExpression where) {
+    this.where = where;
   }
 }

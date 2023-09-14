@@ -45,6 +45,8 @@ public class RoleCompositeInput implements MetaInput {
   @DefaultValue("\"RoleComposite\"")
   private String __typename;
 
+  private RoleCompositeExpression where;
+
   public String getId() {
     return this.id;
   }
@@ -155,5 +157,13 @@ public class RoleCompositeInput implements MetaInput {
 
   public void set__typename(String __typename) {
     this.__typename = __typename;
+  }
+
+  public RoleCompositeExpression getWhere() {
+    return this.where;
+  }
+
+  public void setWhere(RoleCompositeExpression where) {
+    this.where = where;
   }
 }

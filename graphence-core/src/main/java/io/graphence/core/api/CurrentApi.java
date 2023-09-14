@@ -77,11 +77,11 @@ public class CurrentApi {
         }
         return currentUserMonoProvider.get().map(currentUser -> {
                     if (!(metaInput instanceof RealmInput ||
-                            metaInput instanceof RealmMutationTypeArguments ||
-                            metaInput instanceof RealmListMutationTypeArguments ||
+                            metaInput instanceof RealmMutationArguments ||
+                            metaInput instanceof RealmListMutationArguments ||
                             metaInput instanceof PermissionInput ||
-                            metaInput instanceof PermissionMutationTypeArguments ||
-                            metaInput instanceof PermissionListMutationTypeArguments)
+                            metaInput instanceof PermissionMutationArguments ||
+                            metaInput instanceof PermissionListMutationArguments)
                     ) {
                         if (currentUser.getRealmId() != null) {
                             metaInput.setRealmId(currentUser.getRealmId());
@@ -100,13 +100,13 @@ public class CurrentApi {
     public Mono<MetaExpression> invokeMetaExpression(@Source MetaExpression metaExpression) {
         return currentUserMonoProvider.get().map(currentUser -> {
                     if (!(metaExpression instanceof RealmExpression ||
-                            metaExpression instanceof RealmQueryTypeArguments ||
-                            metaExpression instanceof RealmConnectionQueryTypeArguments ||
-                            metaExpression instanceof RealmListQueryTypeArguments ||
+                            metaExpression instanceof RealmQueryArguments ||
+                            metaExpression instanceof RealmConnectionQueryArguments ||
+                            metaExpression instanceof RealmListQueryArguments ||
                             metaExpression instanceof PermissionExpression ||
-                            metaExpression instanceof PermissionQueryTypeArguments ||
-                            metaExpression instanceof PermissionConnectionQueryTypeArguments ||
-                            metaExpression instanceof PermissionListQueryTypeArguments)
+                            metaExpression instanceof PermissionQueryArguments ||
+                            metaExpression instanceof PermissionConnectionQueryArguments ||
+                            metaExpression instanceof PermissionListQueryArguments)
                     ) {
                         if (currentUser.getRealmId() != null) {
                             IntExpression intExpression = new IntExpression();

@@ -40,9 +40,9 @@ message UserExpression {
 }
 message UserInput {
     optional string id = 1;
-    string name = 2;
+    optional string name = 2;
     optional string last_name = 3;
-    string login = 4;
+    optional string login = 4;
     optional string salt = 5;
     optional string hash = 6;
     optional string email = 7;
@@ -63,6 +63,7 @@ message UserInput {
     repeated UserPhonesInput user_phones = 22;
     repeated UserGroupInput user_group = 23;
     repeated UserRoleInput user_role = 24;
+    optional UserExpression where = 25;
 }
 message UserOrderBy {
     optional io.graphoenix.core.grpc.Sort id = 1;
@@ -110,7 +111,7 @@ message RoleExpression {
 }
 message RoleInput {
     optional string id = 1;
-    string name = 2;
+    optional string name = 2;
     optional string description = 3;
     repeated UserInput users = 4;
     repeated GroupInput groups = 5;
@@ -130,6 +131,7 @@ message RoleInput {
     repeated GroupRoleInput group_role = 19;
     repeated RoleCompositeInput role_composite = 20;
     repeated RolePermissionInput role_permission = 21;
+    optional RoleExpression where = 22;
 }
 message RoleOrderBy {
     optional io.graphoenix.core.grpc.Sort id = 1;
@@ -172,7 +174,7 @@ message GroupExpression {
 }
 message GroupInput {
     optional string id = 1;
-    string name = 2;
+    optional string name = 2;
     optional string path = 3;
     optional int32 deep = 4;
     optional GroupInput parent = 5;
@@ -192,6 +194,7 @@ message GroupInput {
     optional int32 parent_id = 19;
     repeated UserGroupInput user_group = 20;
     repeated GroupRoleInput group_role = 21;
+    optional GroupExpression where = 22;
 }
 message GroupOrderBy {
     optional io.graphoenix.core.grpc.Sort id = 1;
@@ -226,7 +229,7 @@ message RealmExpression {
 }
 message RealmInput {
     optional string id = 1;
-    string name = 2;
+    optional string name = 2;
     optional bool is_deprecated = 3;
     optional int32 version = 4;
     optional int32 realm_id = 5;
@@ -236,6 +239,7 @@ message RealmInput {
     optional google.protobuf.Timestamp update_time = 9;
     optional string create_group_id = 10;
     optional string intro_typename = 11;
+    optional RealmExpression where = 12;
 }
 message RealmOrderBy {
     optional io.graphoenix.core.grpc.Sort id = 1;
@@ -272,10 +276,10 @@ message PermissionExpression {
     repeated PermissionExpression exs = 19;
 }
 message PermissionInput {
-    string name = 1;
-    string field = 2;
-    string type = 3;
-    PermissionType permission_type = 4;
+    optional string name = 1;
+    optional string field = 2;
+    optional string type = 3;
+    optional PermissionType permission_type = 4;
     optional string description = 5;
     repeated RoleInput roles = 6;
     optional RealmInput realm = 7;
@@ -289,6 +293,7 @@ message PermissionInput {
     optional string create_group_id = 15;
     optional string intro_typename = 16;
     repeated RolePermissionInput role_permission = 17;
+    optional PermissionExpression where = 18;
 }
 message PermissionOrderBy {
     optional io.graphoenix.core.grpc.Sort name = 1;
@@ -337,6 +342,7 @@ message UserPhonesInput {
     optional google.protobuf.Timestamp update_time = 11;
     optional string create_group_id = 12;
     optional string intro_typename = 13;
+    optional UserPhonesExpression where = 14;
 }
 message UserPhonesOrderBy {
     optional io.graphoenix.core.grpc.Sort id = 1;
@@ -385,6 +391,7 @@ message UserGroupInput {
     optional google.protobuf.Timestamp update_time = 12;
     optional string create_group_id = 13;
     optional string intro_typename = 14;
+    optional UserGroupExpression where = 15;
 }
 message UserGroupOrderBy {
     optional io.graphoenix.core.grpc.Sort id = 1;
@@ -433,6 +440,7 @@ message UserRoleInput {
     optional google.protobuf.Timestamp update_time = 12;
     optional string create_group_id = 13;
     optional string intro_typename = 14;
+    optional UserRoleExpression where = 15;
 }
 message UserRoleOrderBy {
     optional io.graphoenix.core.grpc.Sort id = 1;
@@ -481,6 +489,7 @@ message GroupRoleInput {
     optional google.protobuf.Timestamp update_time = 12;
     optional string create_group_id = 13;
     optional string intro_typename = 14;
+    optional GroupRoleExpression where = 15;
 }
 message GroupRoleOrderBy {
     optional io.graphoenix.core.grpc.Sort id = 1;
@@ -529,6 +538,7 @@ message RoleCompositeInput {
     optional google.protobuf.Timestamp update_time = 12;
     optional string create_group_id = 13;
     optional string intro_typename = 14;
+    optional RoleCompositeExpression where = 15;
 }
 message RoleCompositeOrderBy {
     optional io.graphoenix.core.grpc.Sort id = 1;
@@ -577,6 +587,7 @@ message RolePermissionInput {
     optional google.protobuf.Timestamp update_time = 12;
     optional string create_group_id = 13;
     optional string intro_typename = 14;
+    optional RolePermissionExpression where = 15;
 }
 message RolePermissionOrderBy {
     optional io.graphoenix.core.grpc.Sort id = 1;
@@ -597,7 +608,7 @@ message PermissionTypeExpression {
     optional PermissionType val = 2;
     repeated PermissionType in = 3;
 }
-message UserQueryTypeArguments {
+message UserQueryArguments {
     optional io.graphoenix.core.grpc.StringExpression id = 1;
     optional io.graphoenix.core.grpc.StringExpression name = 2;
     optional io.graphoenix.core.grpc.StringExpression last_name = 3;
@@ -625,7 +636,7 @@ message UserQueryTypeArguments {
     optional io.graphoenix.core.grpc.Conditional cond = 25;
     repeated UserExpression exs = 26;
 }
-message UserListQueryTypeArguments {
+message UserListQueryArguments {
     optional io.graphoenix.core.grpc.StringExpression id = 1;
     optional io.graphoenix.core.grpc.StringExpression name = 2;
     optional io.graphoenix.core.grpc.StringExpression last_name = 3;
@@ -660,7 +671,7 @@ message UserListQueryTypeArguments {
     optional string after = 32;
     optional string before = 33;
 }
-message UserConnectionQueryTypeArguments {
+message UserConnectionQueryArguments {
     optional io.graphoenix.core.grpc.StringExpression id = 1;
     optional io.graphoenix.core.grpc.StringExpression name = 2;
     optional io.graphoenix.core.grpc.StringExpression last_name = 3;
@@ -695,7 +706,7 @@ message UserConnectionQueryTypeArguments {
     optional string after = 32;
     optional string before = 33;
 }
-message RoleQueryTypeArguments {
+message RoleQueryArguments {
     optional io.graphoenix.core.grpc.StringExpression id = 1;
     optional io.graphoenix.core.grpc.StringExpression name = 2;
     optional io.graphoenix.core.grpc.StringExpression description = 3;
@@ -720,7 +731,7 @@ message RoleQueryTypeArguments {
     optional io.graphoenix.core.grpc.Conditional cond = 22;
     repeated RoleExpression exs = 23;
 }
-message RoleListQueryTypeArguments {
+message RoleListQueryArguments {
     optional io.graphoenix.core.grpc.StringExpression id = 1;
     optional io.graphoenix.core.grpc.StringExpression name = 2;
     optional io.graphoenix.core.grpc.StringExpression description = 3;
@@ -752,7 +763,7 @@ message RoleListQueryTypeArguments {
     optional string after = 29;
     optional string before = 30;
 }
-message RoleConnectionQueryTypeArguments {
+message RoleConnectionQueryArguments {
     optional io.graphoenix.core.grpc.StringExpression id = 1;
     optional io.graphoenix.core.grpc.StringExpression name = 2;
     optional io.graphoenix.core.grpc.StringExpression description = 3;
@@ -784,7 +795,7 @@ message RoleConnectionQueryTypeArguments {
     optional string after = 29;
     optional string before = 30;
 }
-message GroupQueryTypeArguments {
+message GroupQueryArguments {
     optional io.graphoenix.core.grpc.StringExpression id = 1;
     optional io.graphoenix.core.grpc.StringExpression name = 2;
     optional io.graphoenix.core.grpc.StringExpression path = 3;
@@ -809,7 +820,7 @@ message GroupQueryTypeArguments {
     optional io.graphoenix.core.grpc.Conditional cond = 22;
     repeated GroupExpression exs = 23;
 }
-message GroupListQueryTypeArguments {
+message GroupListQueryArguments {
     optional io.graphoenix.core.grpc.StringExpression id = 1;
     optional io.graphoenix.core.grpc.StringExpression name = 2;
     optional io.graphoenix.core.grpc.StringExpression path = 3;
@@ -841,7 +852,7 @@ message GroupListQueryTypeArguments {
     optional string after = 29;
     optional string before = 30;
 }
-message GroupConnectionQueryTypeArguments {
+message GroupConnectionQueryArguments {
     optional io.graphoenix.core.grpc.StringExpression id = 1;
     optional io.graphoenix.core.grpc.StringExpression name = 2;
     optional io.graphoenix.core.grpc.StringExpression path = 3;
@@ -873,7 +884,7 @@ message GroupConnectionQueryTypeArguments {
     optional string after = 29;
     optional string before = 30;
 }
-message RealmQueryTypeArguments {
+message RealmQueryArguments {
     optional io.graphoenix.core.grpc.StringExpression id = 1;
     optional io.graphoenix.core.grpc.StringExpression name = 2;
     optional bool include_deprecated = 3;
@@ -888,7 +899,7 @@ message RealmQueryTypeArguments {
     optional io.graphoenix.core.grpc.Conditional cond = 12;
     repeated RealmExpression exs = 13;
 }
-message RealmListQueryTypeArguments {
+message RealmListQueryArguments {
     optional io.graphoenix.core.grpc.StringExpression id = 1;
     optional io.graphoenix.core.grpc.StringExpression name = 2;
     optional bool include_deprecated = 3;
@@ -910,7 +921,7 @@ message RealmListQueryTypeArguments {
     optional string after = 19;
     optional string before = 20;
 }
-message RealmConnectionQueryTypeArguments {
+message RealmConnectionQueryArguments {
     optional io.graphoenix.core.grpc.StringExpression id = 1;
     optional io.graphoenix.core.grpc.StringExpression name = 2;
     optional bool include_deprecated = 3;
@@ -932,7 +943,7 @@ message RealmConnectionQueryTypeArguments {
     optional string after = 19;
     optional string before = 20;
 }
-message PermissionQueryTypeArguments {
+message PermissionQueryArguments {
     optional io.graphoenix.core.grpc.StringExpression name = 1;
     optional io.graphoenix.core.grpc.StringExpression field = 2;
     optional io.graphoenix.core.grpc.StringExpression type = 3;
@@ -953,7 +964,7 @@ message PermissionQueryTypeArguments {
     optional io.graphoenix.core.grpc.Conditional cond = 18;
     repeated PermissionExpression exs = 19;
 }
-message PermissionListQueryTypeArguments {
+message PermissionListQueryArguments {
     optional io.graphoenix.core.grpc.StringExpression name = 1;
     optional io.graphoenix.core.grpc.StringExpression field = 2;
     optional io.graphoenix.core.grpc.StringExpression type = 3;
@@ -981,7 +992,7 @@ message PermissionListQueryTypeArguments {
     optional string after = 25;
     optional string before = 26;
 }
-message PermissionConnectionQueryTypeArguments {
+message PermissionConnectionQueryArguments {
     optional io.graphoenix.core.grpc.StringExpression name = 1;
     optional io.graphoenix.core.grpc.StringExpression field = 2;
     optional io.graphoenix.core.grpc.StringExpression type = 3;
@@ -1009,7 +1020,7 @@ message PermissionConnectionQueryTypeArguments {
     optional string after = 25;
     optional string before = 26;
 }
-message UserPhonesQueryTypeArguments {
+message UserPhonesQueryArguments {
     optional io.graphoenix.core.grpc.StringExpression id = 1;
     optional io.graphoenix.core.grpc.IntExpression user_id = 2;
     optional UserExpression user_id_type = 3;
@@ -1026,7 +1037,7 @@ message UserPhonesQueryTypeArguments {
     optional io.graphoenix.core.grpc.Conditional cond = 14;
     repeated UserPhonesExpression exs = 15;
 }
-message UserPhonesListQueryTypeArguments {
+message UserPhonesListQueryArguments {
     optional io.graphoenix.core.grpc.StringExpression id = 1;
     optional io.graphoenix.core.grpc.IntExpression user_id = 2;
     optional UserExpression user_id_type = 3;
@@ -1050,7 +1061,7 @@ message UserPhonesListQueryTypeArguments {
     optional string after = 21;
     optional string before = 22;
 }
-message UserPhonesConnectionQueryTypeArguments {
+message UserPhonesConnectionQueryArguments {
     optional io.graphoenix.core.grpc.StringExpression id = 1;
     optional io.graphoenix.core.grpc.IntExpression user_id = 2;
     optional UserExpression user_id_type = 3;
@@ -1074,7 +1085,7 @@ message UserPhonesConnectionQueryTypeArguments {
     optional string after = 21;
     optional string before = 22;
 }
-message UserGroupQueryTypeArguments {
+message UserGroupQueryArguments {
     optional io.graphoenix.core.grpc.StringExpression id = 1;
     optional io.graphoenix.core.grpc.IntExpression user_id = 2;
     optional UserExpression user_id_type = 3;
@@ -1092,7 +1103,7 @@ message UserGroupQueryTypeArguments {
     optional io.graphoenix.core.grpc.Conditional cond = 15;
     repeated UserGroupExpression exs = 16;
 }
-message UserGroupListQueryTypeArguments {
+message UserGroupListQueryArguments {
     optional io.graphoenix.core.grpc.StringExpression id = 1;
     optional io.graphoenix.core.grpc.IntExpression user_id = 2;
     optional UserExpression user_id_type = 3;
@@ -1117,7 +1128,7 @@ message UserGroupListQueryTypeArguments {
     optional string after = 22;
     optional string before = 23;
 }
-message UserGroupConnectionQueryTypeArguments {
+message UserGroupConnectionQueryArguments {
     optional io.graphoenix.core.grpc.StringExpression id = 1;
     optional io.graphoenix.core.grpc.IntExpression user_id = 2;
     optional UserExpression user_id_type = 3;
@@ -1142,7 +1153,7 @@ message UserGroupConnectionQueryTypeArguments {
     optional string after = 22;
     optional string before = 23;
 }
-message UserRoleQueryTypeArguments {
+message UserRoleQueryArguments {
     optional io.graphoenix.core.grpc.StringExpression id = 1;
     optional io.graphoenix.core.grpc.IntExpression user_id = 2;
     optional UserExpression user_id_type = 3;
@@ -1160,7 +1171,7 @@ message UserRoleQueryTypeArguments {
     optional io.graphoenix.core.grpc.Conditional cond = 15;
     repeated UserRoleExpression exs = 16;
 }
-message UserRoleListQueryTypeArguments {
+message UserRoleListQueryArguments {
     optional io.graphoenix.core.grpc.StringExpression id = 1;
     optional io.graphoenix.core.grpc.IntExpression user_id = 2;
     optional UserExpression user_id_type = 3;
@@ -1185,7 +1196,7 @@ message UserRoleListQueryTypeArguments {
     optional string after = 22;
     optional string before = 23;
 }
-message UserRoleConnectionQueryTypeArguments {
+message UserRoleConnectionQueryArguments {
     optional io.graphoenix.core.grpc.StringExpression id = 1;
     optional io.graphoenix.core.grpc.IntExpression user_id = 2;
     optional UserExpression user_id_type = 3;
@@ -1210,7 +1221,7 @@ message UserRoleConnectionQueryTypeArguments {
     optional string after = 22;
     optional string before = 23;
 }
-message GroupRoleQueryTypeArguments {
+message GroupRoleQueryArguments {
     optional io.graphoenix.core.grpc.StringExpression id = 1;
     optional io.graphoenix.core.grpc.IntExpression role_id = 2;
     optional RoleExpression role_id_type = 3;
@@ -1228,7 +1239,7 @@ message GroupRoleQueryTypeArguments {
     optional io.graphoenix.core.grpc.Conditional cond = 15;
     repeated GroupRoleExpression exs = 16;
 }
-message GroupRoleListQueryTypeArguments {
+message GroupRoleListQueryArguments {
     optional io.graphoenix.core.grpc.StringExpression id = 1;
     optional io.graphoenix.core.grpc.IntExpression role_id = 2;
     optional RoleExpression role_id_type = 3;
@@ -1253,7 +1264,7 @@ message GroupRoleListQueryTypeArguments {
     optional string after = 22;
     optional string before = 23;
 }
-message GroupRoleConnectionQueryTypeArguments {
+message GroupRoleConnectionQueryArguments {
     optional io.graphoenix.core.grpc.StringExpression id = 1;
     optional io.graphoenix.core.grpc.IntExpression role_id = 2;
     optional RoleExpression role_id_type = 3;
@@ -1278,7 +1289,7 @@ message GroupRoleConnectionQueryTypeArguments {
     optional string after = 22;
     optional string before = 23;
 }
-message RoleCompositeQueryTypeArguments {
+message RoleCompositeQueryArguments {
     optional io.graphoenix.core.grpc.StringExpression id = 1;
     optional io.graphoenix.core.grpc.IntExpression role_id = 2;
     optional RoleExpression role_id_type = 3;
@@ -1296,7 +1307,7 @@ message RoleCompositeQueryTypeArguments {
     optional io.graphoenix.core.grpc.Conditional cond = 15;
     repeated RoleCompositeExpression exs = 16;
 }
-message RoleCompositeListQueryTypeArguments {
+message RoleCompositeListQueryArguments {
     optional io.graphoenix.core.grpc.StringExpression id = 1;
     optional io.graphoenix.core.grpc.IntExpression role_id = 2;
     optional RoleExpression role_id_type = 3;
@@ -1321,7 +1332,7 @@ message RoleCompositeListQueryTypeArguments {
     optional string after = 22;
     optional string before = 23;
 }
-message RoleCompositeConnectionQueryTypeArguments {
+message RoleCompositeConnectionQueryArguments {
     optional io.graphoenix.core.grpc.StringExpression id = 1;
     optional io.graphoenix.core.grpc.IntExpression role_id = 2;
     optional RoleExpression role_id_type = 3;
@@ -1346,7 +1357,7 @@ message RoleCompositeConnectionQueryTypeArguments {
     optional string after = 22;
     optional string before = 23;
 }
-message RolePermissionQueryTypeArguments {
+message RolePermissionQueryArguments {
     optional io.graphoenix.core.grpc.StringExpression id = 1;
     optional io.graphoenix.core.grpc.IntExpression role_id = 2;
     optional RoleExpression role_id_type = 3;
@@ -1364,7 +1375,7 @@ message RolePermissionQueryTypeArguments {
     optional io.graphoenix.core.grpc.Conditional cond = 15;
     repeated RolePermissionExpression exs = 16;
 }
-message RolePermissionListQueryTypeArguments {
+message RolePermissionListQueryArguments {
     optional io.graphoenix.core.grpc.StringExpression id = 1;
     optional io.graphoenix.core.grpc.IntExpression role_id = 2;
     optional RoleExpression role_id_type = 3;
@@ -1389,7 +1400,7 @@ message RolePermissionListQueryTypeArguments {
     optional string after = 22;
     optional string before = 23;
 }
-message RolePermissionConnectionQueryTypeArguments {
+message RolePermissionConnectionQueryArguments {
     optional io.graphoenix.core.grpc.StringExpression id = 1;
     optional io.graphoenix.core.grpc.IntExpression role_id = 2;
     optional RoleExpression role_id_type = 3;
@@ -1414,7 +1425,7 @@ message RolePermissionConnectionQueryTypeArguments {
     optional string after = 22;
     optional string before = 23;
 }
-message UserMutationTypeArguments {
+message UserMutationArguments {
     optional string id = 1;
     optional string name = 2;
     optional string last_name = 3;
@@ -1424,9 +1435,9 @@ message UserMutationTypeArguments {
     optional string email = 7;
     repeated string phones = 8;
     optional bool disable = 9;
-    repeated UserMutationTypeArguments groups = 10;
-    repeated UserMutationTypeArguments roles = 11;
-    optional UserMutationTypeArguments realm = 12;
+    repeated GroupInput groups = 10;
+    repeated RoleInput roles = 11;
+    optional RealmInput realm = 12;
     optional bool is_deprecated = 13;
     optional int32 version = 14;
     optional int32 realm_id = 15;
@@ -1436,12 +1447,12 @@ message UserMutationTypeArguments {
     optional google.protobuf.Timestamp update_time = 19;
     optional string create_group_id = 20;
     optional string intro_typename = 21;
-    repeated UserMutationTypeArguments user_phones = 22;
-    repeated UserMutationTypeArguments user_group = 23;
-    repeated UserMutationTypeArguments user_role = 24;
+    repeated UserPhonesInput user_phones = 22;
+    repeated UserGroupInput user_group = 23;
+    repeated UserRoleInput user_role = 24;
     optional UserExpression where = 25;
 }
-message UserListMutationTypeArguments {
+message UserListMutationArguments {
     optional string id = 1;
     optional string name = 2;
     optional string last_name = 3;
@@ -1451,9 +1462,9 @@ message UserListMutationTypeArguments {
     optional string email = 7;
     repeated string phones = 8;
     optional bool disable = 9;
-    repeated UserMutationTypeArguments groups = 10;
-    repeated UserMutationTypeArguments roles = 11;
-    optional UserMutationTypeArguments realm = 12;
+    repeated GroupInput groups = 10;
+    repeated RoleInput roles = 11;
+    optional RealmInput realm = 12;
     optional bool is_deprecated = 13;
     optional int32 version = 14;
     optional int32 realm_id = 15;
@@ -1463,21 +1474,21 @@ message UserListMutationTypeArguments {
     optional google.protobuf.Timestamp update_time = 19;
     optional string create_group_id = 20;
     optional string intro_typename = 21;
-    repeated UserMutationTypeArguments user_phones = 22;
-    repeated UserMutationTypeArguments user_group = 23;
-    repeated UserMutationTypeArguments user_role = 24;
+    repeated UserPhonesInput user_phones = 22;
+    repeated UserGroupInput user_group = 23;
+    repeated UserRoleInput user_role = 24;
     repeated UserInput list = 25;
     optional UserExpression where = 26;
 }
-message RoleMutationTypeArguments {
+message RoleMutationArguments {
     optional string id = 1;
     optional string name = 2;
     optional string description = 3;
-    repeated RoleMutationTypeArguments users = 4;
-    repeated RoleMutationTypeArguments groups = 5;
-    repeated RoleMutationTypeArguments composites = 6;
-    repeated RoleMutationTypeArguments permissions = 7;
-    optional RoleMutationTypeArguments realm = 8;
+    repeated UserInput users = 4;
+    repeated GroupInput groups = 5;
+    repeated RoleInput composites = 6;
+    repeated PermissionInput permissions = 7;
+    optional RealmInput realm = 8;
     optional bool is_deprecated = 9;
     optional int32 version = 10;
     optional int32 realm_id = 11;
@@ -1487,21 +1498,21 @@ message RoleMutationTypeArguments {
     optional google.protobuf.Timestamp update_time = 15;
     optional string create_group_id = 16;
     optional string intro_typename = 17;
-    repeated RoleMutationTypeArguments user_role = 18;
-    repeated RoleMutationTypeArguments group_role = 19;
-    repeated RoleMutationTypeArguments role_composite = 20;
-    repeated RoleMutationTypeArguments role_permission = 21;
+    repeated UserRoleInput user_role = 18;
+    repeated GroupRoleInput group_role = 19;
+    repeated RoleCompositeInput role_composite = 20;
+    repeated RolePermissionInput role_permission = 21;
     optional RoleExpression where = 22;
 }
-message RoleListMutationTypeArguments {
+message RoleListMutationArguments {
     optional string id = 1;
     optional string name = 2;
     optional string description = 3;
-    repeated RoleMutationTypeArguments users = 4;
-    repeated RoleMutationTypeArguments groups = 5;
-    repeated RoleMutationTypeArguments composites = 6;
-    repeated RoleMutationTypeArguments permissions = 7;
-    optional RoleMutationTypeArguments realm = 8;
+    repeated UserInput users = 4;
+    repeated GroupInput groups = 5;
+    repeated RoleInput composites = 6;
+    repeated PermissionInput permissions = 7;
+    optional RealmInput realm = 8;
     optional bool is_deprecated = 9;
     optional int32 version = 10;
     optional int32 realm_id = 11;
@@ -1511,23 +1522,23 @@ message RoleListMutationTypeArguments {
     optional google.protobuf.Timestamp update_time = 15;
     optional string create_group_id = 16;
     optional string intro_typename = 17;
-    repeated RoleMutationTypeArguments user_role = 18;
-    repeated RoleMutationTypeArguments group_role = 19;
-    repeated RoleMutationTypeArguments role_composite = 20;
-    repeated RoleMutationTypeArguments role_permission = 21;
+    repeated UserRoleInput user_role = 18;
+    repeated GroupRoleInput group_role = 19;
+    repeated RoleCompositeInput role_composite = 20;
+    repeated RolePermissionInput role_permission = 21;
     repeated RoleInput list = 22;
     optional RoleExpression where = 23;
 }
-message GroupMutationTypeArguments {
+message GroupMutationArguments {
     optional string id = 1;
     optional string name = 2;
     optional string path = 3;
     optional int32 deep = 4;
-    optional GroupMutationTypeArguments parent = 5;
-    repeated GroupMutationTypeArguments sub_groups = 6;
-    repeated GroupMutationTypeArguments users = 7;
-    repeated GroupMutationTypeArguments roles = 8;
-    optional GroupMutationTypeArguments realm = 9;
+    optional GroupInput parent = 5;
+    repeated GroupInput sub_groups = 6;
+    repeated UserInput users = 7;
+    repeated RoleInput roles = 8;
+    optional RealmInput realm = 9;
     optional bool is_deprecated = 10;
     optional int32 version = 11;
     optional int32 realm_id = 12;
@@ -1538,20 +1549,20 @@ message GroupMutationTypeArguments {
     optional string create_group_id = 17;
     optional string intro_typename = 18;
     optional int32 parent_id = 19;
-    repeated GroupMutationTypeArguments user_group = 20;
-    repeated GroupMutationTypeArguments group_role = 21;
+    repeated UserGroupInput user_group = 20;
+    repeated GroupRoleInput group_role = 21;
     optional GroupExpression where = 22;
 }
-message GroupListMutationTypeArguments {
+message GroupListMutationArguments {
     optional string id = 1;
     optional string name = 2;
     optional string path = 3;
     optional int32 deep = 4;
-    optional GroupMutationTypeArguments parent = 5;
-    repeated GroupMutationTypeArguments sub_groups = 6;
-    repeated GroupMutationTypeArguments users = 7;
-    repeated GroupMutationTypeArguments roles = 8;
-    optional GroupMutationTypeArguments realm = 9;
+    optional GroupInput parent = 5;
+    repeated GroupInput sub_groups = 6;
+    repeated UserInput users = 7;
+    repeated RoleInput roles = 8;
+    optional RealmInput realm = 9;
     optional bool is_deprecated = 10;
     optional int32 version = 11;
     optional int32 realm_id = 12;
@@ -1562,12 +1573,12 @@ message GroupListMutationTypeArguments {
     optional string create_group_id = 17;
     optional string intro_typename = 18;
     optional int32 parent_id = 19;
-    repeated GroupMutationTypeArguments user_group = 20;
-    repeated GroupMutationTypeArguments group_role = 21;
+    repeated UserGroupInput user_group = 20;
+    repeated GroupRoleInput group_role = 21;
     repeated GroupInput list = 22;
     optional GroupExpression where = 23;
 }
-message RealmMutationTypeArguments {
+message RealmMutationArguments {
     optional string id = 1;
     optional string name = 2;
     optional bool is_deprecated = 3;
@@ -1581,7 +1592,7 @@ message RealmMutationTypeArguments {
     optional string intro_typename = 11;
     optional RealmExpression where = 12;
 }
-message RealmListMutationTypeArguments {
+message RealmListMutationArguments {
     optional string id = 1;
     optional string name = 2;
     optional bool is_deprecated = 3;
@@ -1596,14 +1607,14 @@ message RealmListMutationTypeArguments {
     repeated RealmInput list = 12;
     optional RealmExpression where = 13;
 }
-message PermissionMutationTypeArguments {
+message PermissionMutationArguments {
     optional string name = 1;
     optional string field = 2;
     optional string type = 3;
     optional PermissionType permission_type = 4;
     optional string description = 5;
-    repeated PermissionMutationTypeArguments roles = 6;
-    optional PermissionMutationTypeArguments realm = 7;
+    repeated RoleInput roles = 6;
+    optional RealmInput realm = 7;
     optional bool is_deprecated = 8;
     optional int32 version = 9;
     optional int32 realm_id = 10;
@@ -1613,17 +1624,17 @@ message PermissionMutationTypeArguments {
     optional google.protobuf.Timestamp update_time = 14;
     optional string create_group_id = 15;
     optional string intro_typename = 16;
-    repeated PermissionMutationTypeArguments role_permission = 17;
+    repeated RolePermissionInput role_permission = 17;
     optional PermissionExpression where = 18;
 }
-message PermissionListMutationTypeArguments {
+message PermissionListMutationArguments {
     optional string name = 1;
     optional string field = 2;
     optional string type = 3;
     optional PermissionType permission_type = 4;
     optional string description = 5;
-    repeated PermissionMutationTypeArguments roles = 6;
-    optional PermissionMutationTypeArguments realm = 7;
+    repeated RoleInput roles = 6;
+    optional RealmInput realm = 7;
     optional bool is_deprecated = 8;
     optional int32 version = 9;
     optional int32 realm_id = 10;
@@ -1633,14 +1644,14 @@ message PermissionListMutationTypeArguments {
     optional google.protobuf.Timestamp update_time = 14;
     optional string create_group_id = 15;
     optional string intro_typename = 16;
-    repeated PermissionMutationTypeArguments role_permission = 17;
+    repeated RolePermissionInput role_permission = 17;
     repeated PermissionInput list = 18;
     optional PermissionExpression where = 19;
 }
-message UserPhonesMutationTypeArguments {
+message UserPhonesMutationArguments {
     optional string id = 1;
     optional int32 user_id = 2;
-    optional UserPhonesMutationTypeArguments user_id_type = 3;
+    optional UserInput user_id_type = 3;
     optional string phone = 4;
     optional bool is_deprecated = 5;
     optional int32 version = 6;
@@ -1653,10 +1664,10 @@ message UserPhonesMutationTypeArguments {
     optional string intro_typename = 13;
     optional UserPhonesExpression where = 14;
 }
-message UserPhonesListMutationTypeArguments {
+message UserPhonesListMutationArguments {
     optional string id = 1;
     optional int32 user_id = 2;
-    optional UserPhonesMutationTypeArguments user_id_type = 3;
+    optional UserInput user_id_type = 3;
     optional string phone = 4;
     optional bool is_deprecated = 5;
     optional int32 version = 6;
@@ -1670,12 +1681,12 @@ message UserPhonesListMutationTypeArguments {
     repeated UserPhonesInput list = 14;
     optional UserPhonesExpression where = 15;
 }
-message UserGroupMutationTypeArguments {
+message UserGroupMutationArguments {
     optional string id = 1;
     optional int32 user_id = 2;
-    optional UserGroupMutationTypeArguments user_id_type = 3;
+    optional UserInput user_id_type = 3;
     optional int32 group_id = 4;
-    optional UserGroupMutationTypeArguments group_id_type = 5;
+    optional GroupInput group_id_type = 5;
     optional bool is_deprecated = 6;
     optional int32 version = 7;
     optional int32 realm_id = 8;
@@ -1687,12 +1698,12 @@ message UserGroupMutationTypeArguments {
     optional string intro_typename = 14;
     optional UserGroupExpression where = 15;
 }
-message UserGroupListMutationTypeArguments {
+message UserGroupListMutationArguments {
     optional string id = 1;
     optional int32 user_id = 2;
-    optional UserGroupMutationTypeArguments user_id_type = 3;
+    optional UserInput user_id_type = 3;
     optional int32 group_id = 4;
-    optional UserGroupMutationTypeArguments group_id_type = 5;
+    optional GroupInput group_id_type = 5;
     optional bool is_deprecated = 6;
     optional int32 version = 7;
     optional int32 realm_id = 8;
@@ -1705,12 +1716,12 @@ message UserGroupListMutationTypeArguments {
     repeated UserGroupInput list = 15;
     optional UserGroupExpression where = 16;
 }
-message UserRoleMutationTypeArguments {
+message UserRoleMutationArguments {
     optional string id = 1;
     optional int32 user_id = 2;
-    optional UserRoleMutationTypeArguments user_id_type = 3;
+    optional UserInput user_id_type = 3;
     optional int32 role_id = 4;
-    optional UserRoleMutationTypeArguments role_id_type = 5;
+    optional RoleInput role_id_type = 5;
     optional bool is_deprecated = 6;
     optional int32 version = 7;
     optional int32 realm_id = 8;
@@ -1722,12 +1733,12 @@ message UserRoleMutationTypeArguments {
     optional string intro_typename = 14;
     optional UserRoleExpression where = 15;
 }
-message UserRoleListMutationTypeArguments {
+message UserRoleListMutationArguments {
     optional string id = 1;
     optional int32 user_id = 2;
-    optional UserRoleMutationTypeArguments user_id_type = 3;
+    optional UserInput user_id_type = 3;
     optional int32 role_id = 4;
-    optional UserRoleMutationTypeArguments role_id_type = 5;
+    optional RoleInput role_id_type = 5;
     optional bool is_deprecated = 6;
     optional int32 version = 7;
     optional int32 realm_id = 8;
@@ -1740,12 +1751,12 @@ message UserRoleListMutationTypeArguments {
     repeated UserRoleInput list = 15;
     optional UserRoleExpression where = 16;
 }
-message GroupRoleMutationTypeArguments {
+message GroupRoleMutationArguments {
     optional string id = 1;
     optional int32 role_id = 2;
-    optional GroupRoleMutationTypeArguments role_id_type = 3;
+    optional RoleInput role_id_type = 3;
     optional int32 group_id = 4;
-    optional GroupRoleMutationTypeArguments group_id_type = 5;
+    optional GroupInput group_id_type = 5;
     optional bool is_deprecated = 6;
     optional int32 version = 7;
     optional int32 realm_id = 8;
@@ -1757,12 +1768,12 @@ message GroupRoleMutationTypeArguments {
     optional string intro_typename = 14;
     optional GroupRoleExpression where = 15;
 }
-message GroupRoleListMutationTypeArguments {
+message GroupRoleListMutationArguments {
     optional string id = 1;
     optional int32 role_id = 2;
-    optional GroupRoleMutationTypeArguments role_id_type = 3;
+    optional RoleInput role_id_type = 3;
     optional int32 group_id = 4;
-    optional GroupRoleMutationTypeArguments group_id_type = 5;
+    optional GroupInput group_id_type = 5;
     optional bool is_deprecated = 6;
     optional int32 version = 7;
     optional int32 realm_id = 8;
@@ -1775,12 +1786,12 @@ message GroupRoleListMutationTypeArguments {
     repeated GroupRoleInput list = 15;
     optional GroupRoleExpression where = 16;
 }
-message RoleCompositeMutationTypeArguments {
+message RoleCompositeMutationArguments {
     optional string id = 1;
     optional int32 role_id = 2;
-    optional RoleCompositeMutationTypeArguments role_id_type = 3;
+    optional RoleInput role_id_type = 3;
     optional int32 composite_id = 4;
-    optional RoleCompositeMutationTypeArguments composite_id_type = 5;
+    optional RoleInput composite_id_type = 5;
     optional bool is_deprecated = 6;
     optional int32 version = 7;
     optional int32 realm_id = 8;
@@ -1792,12 +1803,12 @@ message RoleCompositeMutationTypeArguments {
     optional string intro_typename = 14;
     optional RoleCompositeExpression where = 15;
 }
-message RoleCompositeListMutationTypeArguments {
+message RoleCompositeListMutationArguments {
     optional string id = 1;
     optional int32 role_id = 2;
-    optional RoleCompositeMutationTypeArguments role_id_type = 3;
+    optional RoleInput role_id_type = 3;
     optional int32 composite_id = 4;
-    optional RoleCompositeMutationTypeArguments composite_id_type = 5;
+    optional RoleInput composite_id_type = 5;
     optional bool is_deprecated = 6;
     optional int32 version = 7;
     optional int32 realm_id = 8;
@@ -1810,12 +1821,12 @@ message RoleCompositeListMutationTypeArguments {
     repeated RoleCompositeInput list = 15;
     optional RoleCompositeExpression where = 16;
 }
-message RolePermissionMutationTypeArguments {
+message RolePermissionMutationArguments {
     optional string id = 1;
     optional int32 role_id = 2;
-    optional RolePermissionMutationTypeArguments role_id_type = 3;
+    optional RoleInput role_id_type = 3;
     optional string permission_name = 4;
-    optional RolePermissionMutationTypeArguments permission_name_type = 5;
+    optional PermissionInput permission_name_type = 5;
     optional bool is_deprecated = 6;
     optional int32 version = 7;
     optional int32 realm_id = 8;
@@ -1827,12 +1838,12 @@ message RolePermissionMutationTypeArguments {
     optional string intro_typename = 14;
     optional RolePermissionExpression where = 15;
 }
-message RolePermissionListMutationTypeArguments {
+message RolePermissionListMutationArguments {
     optional string id = 1;
     optional int32 role_id = 2;
-    optional RolePermissionMutationTypeArguments role_id_type = 3;
+    optional RoleInput role_id_type = 3;
     optional string permission_name = 4;
-    optional RolePermissionMutationTypeArguments permission_name_type = 5;
+    optional PermissionInput permission_name_type = 5;
     optional bool is_deprecated = 6;
     optional int32 version = 7;
     optional int32 realm_id = 8;
@@ -1845,7 +1856,7 @@ message RolePermissionListMutationTypeArguments {
     repeated RolePermissionInput list = 15;
     optional RolePermissionExpression where = 16;
 }
-message UserSubscriptionTypeArguments {
+message UserSubscriptionArguments {
     optional io.graphoenix.core.grpc.StringExpression id = 1;
     optional io.graphoenix.core.grpc.StringExpression name = 2;
     optional io.graphoenix.core.grpc.StringExpression last_name = 3;
@@ -1873,7 +1884,7 @@ message UserSubscriptionTypeArguments {
     optional io.graphoenix.core.grpc.Conditional cond = 25;
     repeated UserExpression exs = 26;
 }
-message UserListSubscriptionTypeArguments {
+message UserListSubscriptionArguments {
     optional io.graphoenix.core.grpc.StringExpression id = 1;
     optional io.graphoenix.core.grpc.StringExpression name = 2;
     optional io.graphoenix.core.grpc.StringExpression last_name = 3;
@@ -1908,7 +1919,7 @@ message UserListSubscriptionTypeArguments {
     optional string after = 32;
     optional string before = 33;
 }
-message UserConnectionSubscriptionTypeArguments {
+message UserConnectionSubscriptionArguments {
     optional io.graphoenix.core.grpc.StringExpression id = 1;
     optional io.graphoenix.core.grpc.StringExpression name = 2;
     optional io.graphoenix.core.grpc.StringExpression last_name = 3;
@@ -1943,7 +1954,7 @@ message UserConnectionSubscriptionTypeArguments {
     optional string after = 32;
     optional string before = 33;
 }
-message RoleSubscriptionTypeArguments {
+message RoleSubscriptionArguments {
     optional io.graphoenix.core.grpc.StringExpression id = 1;
     optional io.graphoenix.core.grpc.StringExpression name = 2;
     optional io.graphoenix.core.grpc.StringExpression description = 3;
@@ -1968,7 +1979,7 @@ message RoleSubscriptionTypeArguments {
     optional io.graphoenix.core.grpc.Conditional cond = 22;
     repeated RoleExpression exs = 23;
 }
-message RoleListSubscriptionTypeArguments {
+message RoleListSubscriptionArguments {
     optional io.graphoenix.core.grpc.StringExpression id = 1;
     optional io.graphoenix.core.grpc.StringExpression name = 2;
     optional io.graphoenix.core.grpc.StringExpression description = 3;
@@ -2000,7 +2011,7 @@ message RoleListSubscriptionTypeArguments {
     optional string after = 29;
     optional string before = 30;
 }
-message RoleConnectionSubscriptionTypeArguments {
+message RoleConnectionSubscriptionArguments {
     optional io.graphoenix.core.grpc.StringExpression id = 1;
     optional io.graphoenix.core.grpc.StringExpression name = 2;
     optional io.graphoenix.core.grpc.StringExpression description = 3;
@@ -2032,7 +2043,7 @@ message RoleConnectionSubscriptionTypeArguments {
     optional string after = 29;
     optional string before = 30;
 }
-message GroupSubscriptionTypeArguments {
+message GroupSubscriptionArguments {
     optional io.graphoenix.core.grpc.StringExpression id = 1;
     optional io.graphoenix.core.grpc.StringExpression name = 2;
     optional io.graphoenix.core.grpc.StringExpression path = 3;
@@ -2057,7 +2068,7 @@ message GroupSubscriptionTypeArguments {
     optional io.graphoenix.core.grpc.Conditional cond = 22;
     repeated GroupExpression exs = 23;
 }
-message GroupListSubscriptionTypeArguments {
+message GroupListSubscriptionArguments {
     optional io.graphoenix.core.grpc.StringExpression id = 1;
     optional io.graphoenix.core.grpc.StringExpression name = 2;
     optional io.graphoenix.core.grpc.StringExpression path = 3;
@@ -2089,7 +2100,7 @@ message GroupListSubscriptionTypeArguments {
     optional string after = 29;
     optional string before = 30;
 }
-message GroupConnectionSubscriptionTypeArguments {
+message GroupConnectionSubscriptionArguments {
     optional io.graphoenix.core.grpc.StringExpression id = 1;
     optional io.graphoenix.core.grpc.StringExpression name = 2;
     optional io.graphoenix.core.grpc.StringExpression path = 3;
@@ -2121,7 +2132,7 @@ message GroupConnectionSubscriptionTypeArguments {
     optional string after = 29;
     optional string before = 30;
 }
-message RealmSubscriptionTypeArguments {
+message RealmSubscriptionArguments {
     optional io.graphoenix.core.grpc.StringExpression id = 1;
     optional io.graphoenix.core.grpc.StringExpression name = 2;
     optional bool include_deprecated = 3;
@@ -2136,7 +2147,7 @@ message RealmSubscriptionTypeArguments {
     optional io.graphoenix.core.grpc.Conditional cond = 12;
     repeated RealmExpression exs = 13;
 }
-message RealmListSubscriptionTypeArguments {
+message RealmListSubscriptionArguments {
     optional io.graphoenix.core.grpc.StringExpression id = 1;
     optional io.graphoenix.core.grpc.StringExpression name = 2;
     optional bool include_deprecated = 3;
@@ -2158,7 +2169,7 @@ message RealmListSubscriptionTypeArguments {
     optional string after = 19;
     optional string before = 20;
 }
-message RealmConnectionSubscriptionTypeArguments {
+message RealmConnectionSubscriptionArguments {
     optional io.graphoenix.core.grpc.StringExpression id = 1;
     optional io.graphoenix.core.grpc.StringExpression name = 2;
     optional bool include_deprecated = 3;
@@ -2180,7 +2191,7 @@ message RealmConnectionSubscriptionTypeArguments {
     optional string after = 19;
     optional string before = 20;
 }
-message PermissionSubscriptionTypeArguments {
+message PermissionSubscriptionArguments {
     optional io.graphoenix.core.grpc.StringExpression name = 1;
     optional io.graphoenix.core.grpc.StringExpression field = 2;
     optional io.graphoenix.core.grpc.StringExpression type = 3;
@@ -2201,7 +2212,7 @@ message PermissionSubscriptionTypeArguments {
     optional io.graphoenix.core.grpc.Conditional cond = 18;
     repeated PermissionExpression exs = 19;
 }
-message PermissionListSubscriptionTypeArguments {
+message PermissionListSubscriptionArguments {
     optional io.graphoenix.core.grpc.StringExpression name = 1;
     optional io.graphoenix.core.grpc.StringExpression field = 2;
     optional io.graphoenix.core.grpc.StringExpression type = 3;
@@ -2229,7 +2240,7 @@ message PermissionListSubscriptionTypeArguments {
     optional string after = 25;
     optional string before = 26;
 }
-message PermissionConnectionSubscriptionTypeArguments {
+message PermissionConnectionSubscriptionArguments {
     optional io.graphoenix.core.grpc.StringExpression name = 1;
     optional io.graphoenix.core.grpc.StringExpression field = 2;
     optional io.graphoenix.core.grpc.StringExpression type = 3;
@@ -2257,7 +2268,7 @@ message PermissionConnectionSubscriptionTypeArguments {
     optional string after = 25;
     optional string before = 26;
 }
-message UserPhonesSubscriptionTypeArguments {
+message UserPhonesSubscriptionArguments {
     optional io.graphoenix.core.grpc.StringExpression id = 1;
     optional io.graphoenix.core.grpc.IntExpression user_id = 2;
     optional UserExpression user_id_type = 3;
@@ -2274,7 +2285,7 @@ message UserPhonesSubscriptionTypeArguments {
     optional io.graphoenix.core.grpc.Conditional cond = 14;
     repeated UserPhonesExpression exs = 15;
 }
-message UserPhonesListSubscriptionTypeArguments {
+message UserPhonesListSubscriptionArguments {
     optional io.graphoenix.core.grpc.StringExpression id = 1;
     optional io.graphoenix.core.grpc.IntExpression user_id = 2;
     optional UserExpression user_id_type = 3;
@@ -2298,7 +2309,7 @@ message UserPhonesListSubscriptionTypeArguments {
     optional string after = 21;
     optional string before = 22;
 }
-message UserPhonesConnectionSubscriptionTypeArguments {
+message UserPhonesConnectionSubscriptionArguments {
     optional io.graphoenix.core.grpc.StringExpression id = 1;
     optional io.graphoenix.core.grpc.IntExpression user_id = 2;
     optional UserExpression user_id_type = 3;
@@ -2322,7 +2333,7 @@ message UserPhonesConnectionSubscriptionTypeArguments {
     optional string after = 21;
     optional string before = 22;
 }
-message UserGroupSubscriptionTypeArguments {
+message UserGroupSubscriptionArguments {
     optional io.graphoenix.core.grpc.StringExpression id = 1;
     optional io.graphoenix.core.grpc.IntExpression user_id = 2;
     optional UserExpression user_id_type = 3;
@@ -2340,7 +2351,7 @@ message UserGroupSubscriptionTypeArguments {
     optional io.graphoenix.core.grpc.Conditional cond = 15;
     repeated UserGroupExpression exs = 16;
 }
-message UserGroupListSubscriptionTypeArguments {
+message UserGroupListSubscriptionArguments {
     optional io.graphoenix.core.grpc.StringExpression id = 1;
     optional io.graphoenix.core.grpc.IntExpression user_id = 2;
     optional UserExpression user_id_type = 3;
@@ -2365,7 +2376,7 @@ message UserGroupListSubscriptionTypeArguments {
     optional string after = 22;
     optional string before = 23;
 }
-message UserGroupConnectionSubscriptionTypeArguments {
+message UserGroupConnectionSubscriptionArguments {
     optional io.graphoenix.core.grpc.StringExpression id = 1;
     optional io.graphoenix.core.grpc.IntExpression user_id = 2;
     optional UserExpression user_id_type = 3;
@@ -2390,7 +2401,7 @@ message UserGroupConnectionSubscriptionTypeArguments {
     optional string after = 22;
     optional string before = 23;
 }
-message UserRoleSubscriptionTypeArguments {
+message UserRoleSubscriptionArguments {
     optional io.graphoenix.core.grpc.StringExpression id = 1;
     optional io.graphoenix.core.grpc.IntExpression user_id = 2;
     optional UserExpression user_id_type = 3;
@@ -2408,7 +2419,7 @@ message UserRoleSubscriptionTypeArguments {
     optional io.graphoenix.core.grpc.Conditional cond = 15;
     repeated UserRoleExpression exs = 16;
 }
-message UserRoleListSubscriptionTypeArguments {
+message UserRoleListSubscriptionArguments {
     optional io.graphoenix.core.grpc.StringExpression id = 1;
     optional io.graphoenix.core.grpc.IntExpression user_id = 2;
     optional UserExpression user_id_type = 3;
@@ -2433,7 +2444,7 @@ message UserRoleListSubscriptionTypeArguments {
     optional string after = 22;
     optional string before = 23;
 }
-message UserRoleConnectionSubscriptionTypeArguments {
+message UserRoleConnectionSubscriptionArguments {
     optional io.graphoenix.core.grpc.StringExpression id = 1;
     optional io.graphoenix.core.grpc.IntExpression user_id = 2;
     optional UserExpression user_id_type = 3;
@@ -2458,7 +2469,7 @@ message UserRoleConnectionSubscriptionTypeArguments {
     optional string after = 22;
     optional string before = 23;
 }
-message GroupRoleSubscriptionTypeArguments {
+message GroupRoleSubscriptionArguments {
     optional io.graphoenix.core.grpc.StringExpression id = 1;
     optional io.graphoenix.core.grpc.IntExpression role_id = 2;
     optional RoleExpression role_id_type = 3;
@@ -2476,7 +2487,7 @@ message GroupRoleSubscriptionTypeArguments {
     optional io.graphoenix.core.grpc.Conditional cond = 15;
     repeated GroupRoleExpression exs = 16;
 }
-message GroupRoleListSubscriptionTypeArguments {
+message GroupRoleListSubscriptionArguments {
     optional io.graphoenix.core.grpc.StringExpression id = 1;
     optional io.graphoenix.core.grpc.IntExpression role_id = 2;
     optional RoleExpression role_id_type = 3;
@@ -2501,7 +2512,7 @@ message GroupRoleListSubscriptionTypeArguments {
     optional string after = 22;
     optional string before = 23;
 }
-message GroupRoleConnectionSubscriptionTypeArguments {
+message GroupRoleConnectionSubscriptionArguments {
     optional io.graphoenix.core.grpc.StringExpression id = 1;
     optional io.graphoenix.core.grpc.IntExpression role_id = 2;
     optional RoleExpression role_id_type = 3;
@@ -2526,7 +2537,7 @@ message GroupRoleConnectionSubscriptionTypeArguments {
     optional string after = 22;
     optional string before = 23;
 }
-message RoleCompositeSubscriptionTypeArguments {
+message RoleCompositeSubscriptionArguments {
     optional io.graphoenix.core.grpc.StringExpression id = 1;
     optional io.graphoenix.core.grpc.IntExpression role_id = 2;
     optional RoleExpression role_id_type = 3;
@@ -2544,7 +2555,7 @@ message RoleCompositeSubscriptionTypeArguments {
     optional io.graphoenix.core.grpc.Conditional cond = 15;
     repeated RoleCompositeExpression exs = 16;
 }
-message RoleCompositeListSubscriptionTypeArguments {
+message RoleCompositeListSubscriptionArguments {
     optional io.graphoenix.core.grpc.StringExpression id = 1;
     optional io.graphoenix.core.grpc.IntExpression role_id = 2;
     optional RoleExpression role_id_type = 3;
@@ -2569,7 +2580,7 @@ message RoleCompositeListSubscriptionTypeArguments {
     optional string after = 22;
     optional string before = 23;
 }
-message RoleCompositeConnectionSubscriptionTypeArguments {
+message RoleCompositeConnectionSubscriptionArguments {
     optional io.graphoenix.core.grpc.StringExpression id = 1;
     optional io.graphoenix.core.grpc.IntExpression role_id = 2;
     optional RoleExpression role_id_type = 3;
@@ -2594,7 +2605,7 @@ message RoleCompositeConnectionSubscriptionTypeArguments {
     optional string after = 22;
     optional string before = 23;
 }
-message RolePermissionSubscriptionTypeArguments {
+message RolePermissionSubscriptionArguments {
     optional io.graphoenix.core.grpc.StringExpression id = 1;
     optional io.graphoenix.core.grpc.IntExpression role_id = 2;
     optional RoleExpression role_id_type = 3;
@@ -2612,7 +2623,7 @@ message RolePermissionSubscriptionTypeArguments {
     optional io.graphoenix.core.grpc.Conditional cond = 15;
     repeated RolePermissionExpression exs = 16;
 }
-message RolePermissionListSubscriptionTypeArguments {
+message RolePermissionListSubscriptionArguments {
     optional io.graphoenix.core.grpc.StringExpression id = 1;
     optional io.graphoenix.core.grpc.IntExpression role_id = 2;
     optional RoleExpression role_id_type = 3;
@@ -2637,7 +2648,7 @@ message RolePermissionListSubscriptionTypeArguments {
     optional string after = 22;
     optional string before = 23;
 }
-message RolePermissionConnectionSubscriptionTypeArguments {
+message RolePermissionConnectionSubscriptionArguments {
     optional io.graphoenix.core.grpc.StringExpression id = 1;
     optional io.graphoenix.core.grpc.IntExpression role_id = 2;
     optional RoleExpression role_id_type = 3;
@@ -2661,4 +2672,8 @@ message RolePermissionConnectionSubscriptionTypeArguments {
     optional int32 offset = 21;
     optional string after = 22;
     optional string before = 23;
+}
+message Mutation_login_Arguments {
+    optional string login = 1;
+    optional string password = 2;
 }
