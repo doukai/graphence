@@ -11,21 +11,41 @@ import org.eclipse.microprofile.graphql.Source;
 public class GroupApi {
 
     public GroupMutationArguments setPath(@Source GroupMutationArguments groupMutationArguments) {
-        if (groupMutationArguments.getParent() != null && groupMutationArguments.getParent().getPath() != null) {
-            groupMutationArguments.setPath(groupMutationArguments.getParent().getPath() + "/" + groupMutationArguments.getId());
-            groupMutationArguments.setDeep(groupMutationArguments.getDeep() + 1);
+        if (groupMutationArguments.getWhere() != null) {
+            if (groupMutationArguments.getParent() != null) {
+                groupMutationArguments.setPath(groupMutationArguments.getParent().getPath() + groupMutationArguments.getWhere().getId().getVal() + "/");
+                groupMutationArguments.setDeep(groupMutationArguments.getParent().getDeep() + 1);
+            }
         } else {
-            groupMutationArguments.setDeep(0);
+            if (groupMutationArguments.getParent() != null) {
+                groupMutationArguments.setPath(groupMutationArguments.getParent().getPath() + groupMutationArguments.getId() + "/");
+                groupMutationArguments.setDeep(groupMutationArguments.getParent().getDeep() + 1);
+            } else {
+                if (groupMutationArguments.getId() == null) {
+                    groupMutationArguments.setDeep(0);
+                    groupMutationArguments.setPath("/");
+                }
+            }
         }
         return groupMutationArguments;
     }
 
     public GroupInput setPath(@Source GroupInput groupInput) {
-        if (groupInput.getParent() != null && groupInput.getParent().getPath() != null) {
-            groupInput.setPath(groupInput.getParent().getPath() + "/" + groupInput.getId());
-            groupInput.setDeep(groupInput.getDeep() + 1);
+        if (groupInput.getWhere() != null) {
+            if (groupInput.getParent() != null) {
+                groupInput.setPath(groupInput.getParent().getPath() + groupInput.getWhere().getId().getVal() + "/");
+                groupInput.setDeep(groupInput.getParent().getDeep() + 1);
+            }
         } else {
-            groupInput.setDeep(0);
+            if (groupInput.getParent() != null) {
+                groupInput.setPath(groupInput.getParent().getPath() + groupInput.getId() + "/");
+                groupInput.setDeep(groupInput.getParent().getDeep() + 1);
+            } else {
+                if (groupInput.getId() == null) {
+                    groupInput.setDeep(0);
+                    groupInput.setPath("/");
+                }
+            }
         }
         return groupInput;
     }

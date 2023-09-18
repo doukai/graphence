@@ -187,18 +187,22 @@ public class RBACFilter extends BaseRequestFilter implements ScopeEvent {
             if (objectFieldWithVariableContextList.size() > 0) {
                 objectValueWithVariableContext.addChild((TerminalNode) left);
                 for (GraphqlParser.ObjectFieldWithVariableContext objectFieldWithVariableContext : objectFieldWithVariableContextList) {
-                    if (rbacEnforcer.getEnforcer()
-                            .enforce(
-                                    USER_PREFIX + currentUser.getId(),
-                                    currentUser.getRealmId(),
-                                    typeName + SPACER + objectFieldWithVariableContext.name().getText(),
-                                    WRITE.name()
-                            )
-                    ) {
+                    if (Arrays.stream(EXCLUDE_INPUT).anyMatch(name -> name.equals(objectFieldWithVariableContext.name().getText()))) {
                         objectValueWithVariableContext.addChild(objectFieldWithVariableContext);
-                        GraphqlParser.FieldDefinitionContext fieldDefinitionContext = manager.getField(typeName, objectFieldWithVariableContext.name().getText())
-                                .orElseThrow(() -> new GraphQLErrors(FIELD_NOT_EXIST.bind(typeName, objectFieldWithVariableContext.name().getText())));
-                        enforce(currentUser, manager.getFieldTypeName(fieldDefinitionContext.type()), objectFieldWithVariableContext.valueWithVariable().objectValueWithVariable());
+                    } else {
+                        if (rbacEnforcer.getEnforcer()
+                                .enforce(
+                                        USER_PREFIX + currentUser.getId(),
+                                        currentUser.getRealmId(),
+                                        typeName + SPACER + objectFieldWithVariableContext.name().getText(),
+                                        WRITE.name()
+                                )
+                        ) {
+                            objectValueWithVariableContext.addChild(objectFieldWithVariableContext);
+                            GraphqlParser.FieldDefinitionContext fieldDefinitionContext = manager.getField(typeName, objectFieldWithVariableContext.name().getText())
+                                    .orElseThrow(() -> new GraphQLErrors(FIELD_NOT_EXIST.bind(typeName, objectFieldWithVariableContext.name().getText())));
+                            enforce(currentUser, manager.getFieldTypeName(fieldDefinitionContext.type()), objectFieldWithVariableContext.valueWithVariable().objectValueWithVariable());
+                        }
                     }
                 }
                 objectValueWithVariableContext.addChild((TerminalNode) right);
