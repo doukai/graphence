@@ -15,6 +15,9 @@ public class GroupApi {
             if (groupMutationArguments.getParent() != null) {
                 groupMutationArguments.setPath(groupMutationArguments.getParent().getPath() + groupMutationArguments.getWhere().getId().getVal() + "/");
                 groupMutationArguments.setDeep(groupMutationArguments.getParent().getDeep() + 1);
+            } else {
+                groupMutationArguments.setDeep(0);
+                groupMutationArguments.setPath("/");
             }
         } else {
             if (groupMutationArguments.getParent() != null) {
@@ -35,6 +38,9 @@ public class GroupApi {
             if (groupInput.getParent() != null) {
                 groupInput.setPath(groupInput.getParent().getPath() + groupInput.getWhere().getId().getVal() + "/");
                 groupInput.setDeep(groupInput.getParent().getDeep() + 1);
+            } else {
+                groupInput.setDeep(0);
+                groupInput.setPath("/");
             }
         } else {
             if (groupInput.getParent() != null) {
