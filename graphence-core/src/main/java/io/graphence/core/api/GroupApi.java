@@ -13,15 +13,12 @@ public class GroupApi {
     public GroupMutationArguments setPath(@Source GroupMutationArguments groupMutationArguments) {
         if (groupMutationArguments.getWhere() != null) {
             if (groupMutationArguments.getParent() != null) {
-                groupMutationArguments.setPath(groupMutationArguments.getParent().getPath() + groupMutationArguments.getWhere().getId().getVal() + "/");
+                groupMutationArguments.setPath(groupMutationArguments.getParent().getPath() + groupMutationArguments.getParent().getId() + "/");
                 groupMutationArguments.setDeep(groupMutationArguments.getParent().getDeep() + 1);
-            } else {
-                groupMutationArguments.setDeep(0);
-                groupMutationArguments.setPath("/");
             }
         } else {
             if (groupMutationArguments.getParent() != null) {
-                groupMutationArguments.setPath(groupMutationArguments.getParent().getPath() + groupMutationArguments.getId() + "/");
+                groupMutationArguments.setPath(groupMutationArguments.getParent().getPath() + groupMutationArguments.getParent().getId() + "/");
                 groupMutationArguments.setDeep(groupMutationArguments.getParent().getDeep() + 1);
             } else {
                 if (groupMutationArguments.getId() == null) {
@@ -36,15 +33,12 @@ public class GroupApi {
     public GroupInput setPath(@Source GroupInput groupInput) {
         if (groupInput.getWhere() != null) {
             if (groupInput.getParent() != null) {
-                groupInput.setPath(groupInput.getParent().getPath() + groupInput.getWhere().getId().getVal() + "/");
+                groupInput.setPath(groupInput.getParent().getPath() + groupInput.getParent().getId() + "/");
                 groupInput.setDeep(groupInput.getParent().getDeep() + 1);
-            } else {
-                groupInput.setDeep(0);
-                groupInput.setPath("/");
             }
         } else {
             if (groupInput.getParent() != null) {
-                groupInput.setPath(groupInput.getParent().getPath() + groupInput.getId() + "/");
+                groupInput.setPath(groupInput.getParent().getPath() + groupInput.getParent().getId() + "/");
                 groupInput.setDeep(groupInput.getParent().getDeep() + 1);
             } else {
                 if (groupInput.getId() == null) {
