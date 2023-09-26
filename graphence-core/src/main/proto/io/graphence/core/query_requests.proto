@@ -73,8 +73,9 @@ message QueryUserRequest {
     optional UserPhonesExpression user_phones = 24;
     optional UserGroupExpression user_group = 25;
     optional UserRoleExpression user_role = 26;
-    optional io.graphoenix.core.grpc.Conditional cond = 27;
-    repeated UserExpression exs = 28;
+    repeated string group_by = 27;
+    optional io.graphoenix.core.grpc.Conditional cond = 28;
+    repeated UserExpression exs = 29;
 }
 message QueryUserListRequest {
     optional string selection_set = 1;
@@ -174,8 +175,9 @@ message QueryRoleRequest {
     optional GroupRoleExpression group_role = 21;
     optional RoleCompositeExpression role_composite = 22;
     optional RolePermissionExpression role_permission = 23;
-    optional io.graphoenix.core.grpc.Conditional cond = 24;
-    repeated RoleExpression exs = 25;
+    repeated string group_by = 24;
+    optional io.graphoenix.core.grpc.Conditional cond = 25;
+    repeated RoleExpression exs = 26;
 }
 message QueryRoleListRequest {
     optional string selection_set = 1;
@@ -269,8 +271,9 @@ message QueryGroupRequest {
     optional io.graphoenix.core.grpc.IntExpression parent_id = 21;
     optional UserGroupExpression user_group = 22;
     optional GroupRoleExpression group_role = 23;
-    optional io.graphoenix.core.grpc.Conditional cond = 24;
-    repeated GroupExpression exs = 25;
+    repeated string group_by = 24;
+    optional io.graphoenix.core.grpc.Conditional cond = 25;
+    repeated GroupExpression exs = 26;
 }
 message QueryGroupListRequest {
     optional string selection_set = 1;
@@ -354,8 +357,9 @@ message QueryRealmRequest {
     optional io.graphoenix.core.grpc.StringExpression update_time = 11;
     optional io.graphoenix.core.grpc.StringExpression create_group_id = 12;
     optional io.graphoenix.core.grpc.StringExpression intro_typename = 13;
-    optional io.graphoenix.core.grpc.Conditional cond = 14;
-    repeated RealmExpression exs = 15;
+    repeated string group_by = 14;
+    optional io.graphoenix.core.grpc.Conditional cond = 15;
+    repeated RealmExpression exs = 16;
 }
 message QueryRealmListRequest {
     optional string selection_set = 1;
@@ -425,8 +429,9 @@ message QueryPermissionRequest {
     optional io.graphoenix.core.grpc.StringExpression create_group_id = 17;
     optional io.graphoenix.core.grpc.StringExpression intro_typename = 18;
     optional RolePermissionExpression role_permission = 19;
-    optional io.graphoenix.core.grpc.Conditional cond = 20;
-    repeated PermissionExpression exs = 21;
+    repeated string group_by = 20;
+    optional io.graphoenix.core.grpc.Conditional cond = 21;
+    repeated PermissionExpression exs = 22;
 }
 message QueryPermissionListRequest {
     optional string selection_set = 1;
@@ -504,8 +509,9 @@ message QueryUserPhonesRequest {
     optional io.graphoenix.core.grpc.StringExpression update_time = 13;
     optional io.graphoenix.core.grpc.StringExpression create_group_id = 14;
     optional io.graphoenix.core.grpc.StringExpression intro_typename = 15;
-    optional io.graphoenix.core.grpc.Conditional cond = 16;
-    repeated UserPhonesExpression exs = 17;
+    repeated string group_by = 16;
+    optional io.graphoenix.core.grpc.Conditional cond = 17;
+    repeated UserPhonesExpression exs = 18;
 }
 message QueryUserPhonesListRequest {
     optional string selection_set = 1;
@@ -576,8 +582,9 @@ message QueryUserGroupRequest {
     optional io.graphoenix.core.grpc.StringExpression update_time = 14;
     optional io.graphoenix.core.grpc.StringExpression create_group_id = 15;
     optional io.graphoenix.core.grpc.StringExpression intro_typename = 16;
-    optional io.graphoenix.core.grpc.Conditional cond = 17;
-    repeated UserGroupExpression exs = 18;
+    repeated string group_by = 17;
+    optional io.graphoenix.core.grpc.Conditional cond = 18;
+    repeated UserGroupExpression exs = 19;
 }
 message QueryUserGroupListRequest {
     optional string selection_set = 1;
@@ -650,8 +657,9 @@ message QueryUserRoleRequest {
     optional io.graphoenix.core.grpc.StringExpression update_time = 14;
     optional io.graphoenix.core.grpc.StringExpression create_group_id = 15;
     optional io.graphoenix.core.grpc.StringExpression intro_typename = 16;
-    optional io.graphoenix.core.grpc.Conditional cond = 17;
-    repeated UserRoleExpression exs = 18;
+    repeated string group_by = 17;
+    optional io.graphoenix.core.grpc.Conditional cond = 18;
+    repeated UserRoleExpression exs = 19;
 }
 message QueryUserRoleListRequest {
     optional string selection_set = 1;
@@ -724,8 +732,9 @@ message QueryGroupRoleRequest {
     optional io.graphoenix.core.grpc.StringExpression update_time = 14;
     optional io.graphoenix.core.grpc.StringExpression create_group_id = 15;
     optional io.graphoenix.core.grpc.StringExpression intro_typename = 16;
-    optional io.graphoenix.core.grpc.Conditional cond = 17;
-    repeated GroupRoleExpression exs = 18;
+    repeated string group_by = 17;
+    optional io.graphoenix.core.grpc.Conditional cond = 18;
+    repeated GroupRoleExpression exs = 19;
 }
 message QueryGroupRoleListRequest {
     optional string selection_set = 1;
@@ -798,8 +807,9 @@ message QueryRoleCompositeRequest {
     optional io.graphoenix.core.grpc.StringExpression update_time = 14;
     optional io.graphoenix.core.grpc.StringExpression create_group_id = 15;
     optional io.graphoenix.core.grpc.StringExpression intro_typename = 16;
-    optional io.graphoenix.core.grpc.Conditional cond = 17;
-    repeated RoleCompositeExpression exs = 18;
+    repeated string group_by = 17;
+    optional io.graphoenix.core.grpc.Conditional cond = 18;
+    repeated RoleCompositeExpression exs = 19;
 }
 message QueryRoleCompositeListRequest {
     optional string selection_set = 1;
@@ -872,8 +882,9 @@ message QueryRolePermissionRequest {
     optional io.graphoenix.core.grpc.StringExpression update_time = 14;
     optional io.graphoenix.core.grpc.StringExpression create_group_id = 15;
     optional io.graphoenix.core.grpc.StringExpression intro_typename = 16;
-    optional io.graphoenix.core.grpc.Conditional cond = 17;
-    repeated RolePermissionExpression exs = 18;
+    repeated string group_by = 17;
+    optional io.graphoenix.core.grpc.Conditional cond = 18;
+    repeated RolePermissionExpression exs = 19;
 }
 message QueryRolePermissionListRequest {
     optional string selection_set = 1;

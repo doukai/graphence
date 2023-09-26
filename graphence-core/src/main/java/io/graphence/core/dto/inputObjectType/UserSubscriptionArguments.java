@@ -9,6 +9,7 @@ import io.graphoenix.core.dto.inputObjectType.StringExpression;
 import io.graphoenix.spi.annotation.Ignore;
 import jakarta.annotation.Generated;
 import java.lang.Boolean;
+import java.lang.String;
 import java.util.Collection;
 import org.eclipse.microprofile.graphql.DefaultValue;
 import org.eclipse.microprofile.graphql.Input;
@@ -66,6 +67,8 @@ public class UserSubscriptionArguments implements MetaExpression {
   private UserGroupExpression userGroup;
 
   private UserRoleExpression userRole;
+
+  private Collection<String> groupBy;
 
   @DefaultValue("AND")
   private Conditional cond;
@@ -262,6 +265,14 @@ public class UserSubscriptionArguments implements MetaExpression {
 
   public void setUserRole(UserRoleExpression userRole) {
     this.userRole = userRole;
+  }
+
+  public Collection<String> getGroupBy() {
+    return this.groupBy;
+  }
+
+  public void setGroupBy(Collection<String> groupBy) {
+    this.groupBy = groupBy;
   }
 
   public Conditional getCond() {

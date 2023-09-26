@@ -8,6 +8,7 @@ import io.graphoenix.core.dto.inputObjectType.StringExpression;
 import io.graphoenix.spi.annotation.Ignore;
 import jakarta.annotation.Generated;
 import java.lang.Boolean;
+import java.lang.String;
 import java.util.Collection;
 import org.eclipse.microprofile.graphql.DefaultValue;
 import org.eclipse.microprofile.graphql.Input;
@@ -59,6 +60,8 @@ public class GroupQueryArguments implements MetaExpression {
   private UserGroupExpression userGroup;
 
   private GroupRoleExpression groupRole;
+
+  private Collection<String> groupBy;
 
   @DefaultValue("AND")
   private Conditional cond;
@@ -231,6 +234,14 @@ public class GroupQueryArguments implements MetaExpression {
 
   public void setGroupRole(GroupRoleExpression groupRole) {
     this.groupRole = groupRole;
+  }
+
+  public Collection<String> getGroupBy() {
+    return this.groupBy;
+  }
+
+  public void setGroupBy(Collection<String> groupBy) {
+    this.groupBy = groupBy;
   }
 
   public Conditional getCond() {
