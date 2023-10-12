@@ -3,6 +3,7 @@ package io.graphence.core.dto.annotation;
 import io.graphoenix.spi.annotation.Directive;
 import io.graphoenix.spi.annotation.Ignore;
 import jakarta.annotation.Generated;
+import java.lang.String;
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -13,7 +14,8 @@ import java.lang.annotation.Target;
 @Ignore
 @Documented
 @Retention(RetentionPolicy.SOURCE)
-@Directive("inputInterface")
+@Directive("implements")
 @Target({ElementType.TYPE})
-public @interface InputInterface {
+public @interface Implements {
+  String[] interfaces();
 }

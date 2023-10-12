@@ -509,11 +509,11 @@ message RolePermissionEdge {
     optional string cursor = 2;
 }
 message CurrentUser {
-    repeated string roles = 1;
-    optional string name = 2;
-    optional string last_name = 3;
-    optional int32 realm_id = 4;
-    optional string id = 5;
-    repeated string groups = 6;
-    optional string login = 7;
+    optional string name = 1;
+    optional string login = 2;
+    optional int32 realm_id = 3;
+    optional string id = 4;
+    repeated string roles = 5;
+    optional string last_name = 6;
+    repeated string groups = 7;
 }
