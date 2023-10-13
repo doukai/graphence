@@ -46,12 +46,12 @@ public class GroupApi {
                                                                                     .collect(Collectors.toList())
                                                                     );
                                                                 } catch (Exception e) {
-                                                                    throw new RuntimeException(e);
+                                                                    return Mono.error(e);
                                                                 }
                                                             }
                                                     );
                                         } catch (Exception e) {
-                                            throw new RuntimeException(e);
+                                            return Mono.error(e);
                                         }
                                     }
                             )
@@ -98,12 +98,12 @@ public class GroupApi {
                                                                                     .collect(Collectors.toList())
                                                                     );
                                                                 } catch (Exception e) {
-                                                                    throw new RuntimeException(e);
+                                                                    return Mono.error(e);
                                                                 }
                                                             }
                                                     );
                                         } catch (Exception e) {
-                                            throw new RuntimeException(e);
+                                            return Mono.error(e);
                                         }
                                     }
                             )
