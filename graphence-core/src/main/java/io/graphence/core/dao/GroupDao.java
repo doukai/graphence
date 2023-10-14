@@ -1,9 +1,6 @@
 package io.graphence.core.dao;
 
-import io.graphence.core.dto.annotation.GroupExpression0;
-import io.graphence.core.dto.annotation.GroupInput0;
-import io.graphence.core.dto.annotation.IDExpression;
-import io.graphence.core.dto.annotation.IntExpression;
+import io.graphence.core.dto.annotation.*;
 import io.graphence.core.dto.objectType.Group;
 import io.graphoenix.core.dto.enumType.Operator;
 import io.graphoenix.spi.annotation.GraphQLOperation;
@@ -21,7 +18,7 @@ public interface GroupDao {
     Mono<Group> getGroupById(String id) throws Exception;
 
     @QueryOperation(value = "groupList", selectionSet = "{ id path deep }")
-    @GroupExpression0(parentId = @IntExpression(opr = Operator.LK, $val = "path"))
+    @GroupExpression0(path = @StringExpression(opr = Operator.LK, $val = "path"))
     Mono<List<Group>> getGroupListByPath(String path) throws Exception;
 
     @MutationOperation(value = "groupList", selectionSet = "{ id }")
