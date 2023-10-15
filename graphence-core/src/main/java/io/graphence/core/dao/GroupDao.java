@@ -17,7 +17,7 @@ public interface GroupDao {
     @GroupExpression0(id = @IDExpression($val = "id"))
     Mono<Group> getGroupById(String id) throws Exception;
 
-    @QueryOperation(value = "groupList", selectionSet = "{ id path deep }")
+    @QueryOperation(value = "groupList")
     @GroupExpression0(path = @StringExpression(opr = Operator.LK, $val = "path"))
     Mono<List<Group>> getGroupListByPath(String path) throws Exception;
 
