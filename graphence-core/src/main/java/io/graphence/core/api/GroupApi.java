@@ -3,6 +3,8 @@ package io.graphence.core.api;
 import io.graphence.core.dao.GroupDao;
 import io.graphence.core.dto.inputObjectType.GroupInput;
 import io.graphence.core.dto.inputObjectType.GroupMutationArguments;
+import io.graphoenix.core.error.GraphQLErrors;
+import io.vavr.control.Try;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import org.eclipse.microprofile.graphql.GraphQLApi;
@@ -27,38 +29,29 @@ public class GroupApi {
             if (groupMutationArguments.getParent() != null) {
                 groupMutationArguments.setPath(groupMutationArguments.getParent().getPath() + groupMutationArguments.getParent().getId() + "/");
                 groupMutationArguments.setDeep(groupMutationArguments.getParent().getDeep() + 1);
-                try {
-                    return groupDao.getGroupById(groupMutationArguments.getWhere().getId().getVal())
-                            .flatMap(group -> {
-                                        try {
-                                            return groupDao.getGroupListByPath(group.getPath() + "%")
-                                                    .filter(groups -> groups.size() > 0)
-                                                    .flatMap(groups -> {
-                                                                try {
-                                                                    return groupDao.updateGroupList(
-                                                                            groups.stream()
-                                                                                    .peek(item -> {
-                                                                                                int difference = group.getDeep() - groupMutationArguments.getDeep();
-                                                                                                item.setPath(item.getPath().replaceFirst(group.getPath(), groupMutationArguments.getPath()));
-                                                                                                item.setDeep(item.getDeep() - difference);
-                                                                                            }
-                                                                                    )
-                                                                                    .collect(Collectors.toList())
-                                                                    );
-                                                                } catch (Exception e) {
-                                                                    return Mono.error(e);
-                                                                }
-                                                            }
-                                                    );
-                                        } catch (Exception e) {
-                                            return Mono.error(e);
-                                        }
-                                    }
-                            )
-                            .thenReturn(groupMutationArguments);
-                } catch (Exception e) {
-                    throw new RuntimeException(e);
-                }
+                return Try.of(() -> groupDao.getGroupById(groupMutationArguments.getWhere().getId().getVal())
+                                .flatMap(group ->
+                                        Try.of(() -> groupDao.getGroupListByPath(group.getPath() + "%")).getOrElseThrow(throwable -> new GraphQLErrors(throwable))
+                                                .filter(groups -> groups.size() > 0)
+                                                .flatMap(groups ->
+                                                        Try.of(() -> groupDao.updateGroupList(
+                                                                                groups.stream()
+                                                                                        .peek(item -> {
+                                                                                                    int difference = group.getDeep() - groupMutationArguments.getDeep();
+                                                                                                    item.setPath(item.getPath().replaceFirst(group.getPath(), groupMutationArguments.getPath()));
+                                                                                                    item.setDeep(item.getDeep() - difference);
+                                                                                                }
+                                                                                        )
+                                                                                        .collect(Collectors.toList())
+                                                                        )
+
+                                                                )
+                                                                .getOrElseThrow(throwable -> new GraphQLErrors(throwable))
+                                                )
+                                )
+                        )
+                        .getOrElseThrow(throwable -> new GraphQLErrors(throwable))
+                        .thenReturn(groupMutationArguments);
             }
         } else {
             if (groupMutationArguments.getParent() != null) {
@@ -79,38 +72,29 @@ public class GroupApi {
             if (groupInput.getParent() != null) {
                 groupInput.setPath(groupInput.getParent().getPath() + groupInput.getParent().getId() + "/");
                 groupInput.setDeep(groupInput.getParent().getDeep() + 1);
-                try {
-                    return groupDao.getGroupById(groupInput.getWhere().getId().getVal())
-                            .flatMap(group -> {
-                                        try {
-                                            return groupDao.getGroupListByPath(group.getPath() + "%")
-                                                    .filter(groups -> groups.size() > 0)
-                                                    .flatMap(groups -> {
-                                                                try {
-                                                                    return groupDao.updateGroupList(
-                                                                            groups.stream()
-                                                                                    .peek(item -> {
-                                                                                                int difference = group.getDeep() - groupInput.getDeep();
-                                                                                                item.setPath(item.getPath().replaceFirst(group.getPath(), groupInput.getPath()));
-                                                                                                item.setDeep(item.getDeep() - difference);
-                                                                                            }
-                                                                                    )
-                                                                                    .collect(Collectors.toList())
-                                                                    );
-                                                                } catch (Exception e) {
-                                                                    return Mono.error(e);
-                                                                }
-                                                            }
-                                                    );
-                                        } catch (Exception e) {
-                                            return Mono.error(e);
-                                        }
-                                    }
-                            )
-                            .thenReturn(groupInput);
-                } catch (Exception e) {
-                    throw new RuntimeException(e);
-                }
+                return Try.of(() -> groupDao.getGroupById(groupInput.getWhere().getId().getVal())
+                                .flatMap(group ->
+                                        Try.of(() -> groupDao.getGroupListByPath(group.getPath() + "%")).getOrElseThrow(throwable -> new GraphQLErrors(throwable))
+                                                .filter(groups -> groups.size() > 0)
+                                                .flatMap(groups ->
+                                                        Try.of(() -> groupDao.updateGroupList(
+                                                                                groups.stream()
+                                                                                        .peek(item -> {
+                                                                                                    int difference = group.getDeep() - groupInput.getDeep();
+                                                                                                    item.setPath(item.getPath().replaceFirst(group.getPath(), groupInput.getPath()));
+                                                                                                    item.setDeep(item.getDeep() - difference);
+                                                                                                }
+                                                                                        )
+                                                                                        .collect(Collectors.toList())
+                                                                        )
+
+                                                                )
+                                                                .getOrElseThrow(throwable -> new GraphQLErrors(throwable))
+                                                )
+                                )
+                        )
+                        .getOrElseThrow(throwable -> new GraphQLErrors(throwable))
+                        .thenReturn(groupInput);
             }
         } else {
             if (groupInput.getParent() != null) {

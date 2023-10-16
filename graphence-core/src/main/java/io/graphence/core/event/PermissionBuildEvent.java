@@ -90,7 +90,7 @@ public class PermissionBuildEvent implements ScopeEvent {
                                                     return Stream.empty();
                                                 }
                                             } else {
-                                                if (manager.isNotContainerType(objectTypeDefinitionContext)) {
+                                                if (manager.isNotContainerType(objectTypeDefinitionContext) && manager.isNotFunctionField(fieldDefinitionContext)) {
                                                     PermissionInput readPermission = new PermissionInput();
                                                     readPermission.setName(objectTypeDefinitionContext.name().getText() + SPACER + fieldDefinitionContext.name().getText() + SPACER + READ.name());
                                                     readPermission.setType(objectTypeDefinitionContext.name().getText());
