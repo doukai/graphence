@@ -21,6 +21,7 @@ import java.security.Key;
 import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
+import java.util.Set;
 import java.util.stream.Stream;
 
 @ApplicationScoped
@@ -38,7 +39,7 @@ public class JWTUtil {
         this.key = Keys.secretKeyFor(SignatureAlgorithm.forName(jwtConfig.getAlgorithm()));
     }
 
-    public String build(User user) {
+    public String build(User user, Set<String> permissions) {
         Date issuedAt = getIssuedAt();
         return Jwts.builder()
                 .serializeToJsonWith(new GsonSerializer<>(gsonBuilder.create()))
@@ -49,6 +50,7 @@ public class JWTUtil {
                 .claim(Claims.upn.name(), user.getRealmId())
                 .claim(Claims.groups.name(), getGroups(user))
                 .claim("roles", getRoles(user))
+                .claim("permissions", permissions.toArray(String[]::new))
                 .setIssuedAt(issuedAt)
                 .setExpiration(getExpiration(issuedAt))
                 .signWith(key)

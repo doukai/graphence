@@ -23,7 +23,7 @@ import static io.graphence.core.casbin.adapter.RBACAdapter.SPACER;
 import static io.graphence.core.dto.enumType.PermissionType.READ;
 import static io.graphence.core.dto.enumType.PermissionType.WRITE;
 import static io.graphoenix.core.utils.DocumentUtil.DOCUMENT_UTIL;
-import static io.graphoenix.spi.constant.Hammurabi.LIST_INPUT_NAME;
+import static io.graphoenix.spi.constant.Hammurabi.*;
 
 @Initialized(ApplicationScoped.class)
 @Priority(3)
@@ -90,7 +90,11 @@ public class PermissionBuildEvent implements ScopeEvent {
                                                     return Stream.empty();
                                                 }
                                             } else {
-                                                if (manager.isNotContainerType(objectTypeDefinitionContext) && manager.isNotFunctionField(fieldDefinitionContext)) {
+                                                if (manager.isNotContainerType(objectTypeDefinitionContext) &&
+                                                        manager.isNotFunctionField(fieldDefinitionContext) &&
+                                                        !fieldDefinitionContext.name().getText().endsWith(AGGREGATE_SUFFIX) &&
+                                                        !fieldDefinitionContext.name().getText().endsWith(CONNECTION_SUFFIX)
+                                                ) {
                                                     PermissionInput readPermission = new PermissionInput();
                                                     readPermission.setName(objectTypeDefinitionContext.name().getText() + SPACER + fieldDefinitionContext.name().getText() + SPACER + READ.name());
                                                     readPermission.setType(objectTypeDefinitionContext.name().getText());

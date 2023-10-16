@@ -68,35 +68,30 @@ public class JWTFilter extends BaseRequestFilter implements ScopeEvent {
                 throw new AuthenticationException(UN_AUTHENTICATION);
             }
         } else if (authorization != null && authorization.startsWith(AUTHORIZATION_SCHEME_BASIC)) {
-            try {
-                String token = authorization.substring(6);
-                String[] tokenDecode = new String(Base64.getDecoder().decode(token)).split(":");
-                String login = tokenDecode[0];
-                String password = tokenDecode[1];
-
-                return loginDao.getUserByLogin(login)
-                        .flatMap(user -> {
-                                    if (user.getDisable()) {
-                                        return Mono.error(new AuthenticationException(AUTHENTICATION_DISABLE));
-                                    } else if (Password.check(password, new String(Base64.getDecoder().decode(user.getHash()))).addSalt(Base64.getDecoder().decode(user.getSalt())).withBcrypt()) {
-                                        return Mono.justOrEmpty(user);
-                                    } else {
-                                        return Mono.error(new AuthenticationException(AUTHENTICATION_FAILED));
-                                    }
+            String token = authorization.substring(6);
+            String[] tokenDecode = new String(Base64.getDecoder().decode(token)).split(":");
+            String login = tokenDecode[0];
+            String password = tokenDecode[1];
+            return loginDao.getUserByLogin(login)
+                    .flatMap(user -> {
+                                if (user.getDisable()) {
+                                    return Mono.error(new AuthenticationException(AUTHENTICATION_DISABLE));
+                                } else if (Password.check(password, new String(Base64.getDecoder().decode(user.getHash()))).addSalt(Base64.getDecoder().decode(user.getSalt())).withBcrypt()) {
+                                    return Mono.justOrEmpty(user);
+                                } else {
+                                    return Mono.error(new AuthenticationException(AUTHENTICATION_FAILED));
                                 }
-                        )
-                        .switchIfEmpty(Mono.error(new AuthenticationException(AUTHENTICATION_FAILED)))
-                        .map(CurrentUser::of)
-                        .doOnSuccess(currentUser -> {
-                                    setCurrentUser(context, currentUser);
-                                    setSessionId(context, token);
-                                }
-                        )
-                        .flatMap(currentUser -> RequestScopeInstanceFactory.computeIfAbsent(CurrentUser.class, currentUser))
-                        .then();
-            } catch (Exception e) {
-                throw new AuthenticationException(UN_AUTHENTICATION);
-            }
+                            }
+                    )
+                    .switchIfEmpty(Mono.error(new AuthenticationException(AUTHENTICATION_FAILED)))
+                    .map(CurrentUser::of)
+                    .doOnSuccess(currentUser -> {
+                                setCurrentUser(context, currentUser);
+                                setSessionId(context, token);
+                            }
+                    )
+                    .flatMap(currentUser -> RequestScopeInstanceFactory.computeIfAbsent(CurrentUser.class, currentUser))
+                    .then();
         }
         throw new AuthenticationException(UN_AUTHENTICATION);
     }

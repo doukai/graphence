@@ -15,13 +15,13 @@ public interface GroupDao {
 
     @QueryOperation(value = "group", selectionSet = "{ id path deep }")
     @GroupExpression0(id = @IDExpression($val = "id"))
-    Mono<Group> getGroupById(String id) throws Exception;
+    Mono<Group> getGroupById(String id);
 
     @QueryOperation(value = "groupList")
     @GroupExpression0(path = @StringExpression(opr = Operator.LK, $val = "path"))
-    Mono<List<Group>> getGroupListByPath(String path) throws Exception;
+    Mono<List<Group>> getGroupListByPath(String path);
 
     @MutationOperation(value = "groupList", selectionSet = "{ id }")
     @GroupInput0($list = "groupList")
-    Mono<List<Group>> updateGroupList(List<Group> groupList) throws Exception;
+    Mono<List<Group>> updateGroupList(List<Group> groupList);
 }

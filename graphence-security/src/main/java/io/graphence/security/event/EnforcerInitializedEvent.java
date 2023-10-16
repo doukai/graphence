@@ -23,13 +23,9 @@ public class EnforcerInitializedEvent implements ScopeEvent {
         RBACPolicyDao rbacPolicyDao = BeanContext.get(RBACPolicyDao.class);
         RBACAdapter RBACAdapter = BeanContext.get(RBACAdapter.class);
         RBACEnforcer rbacEnforcer = BeanContext.get(RBACEnforcer.class);
-        try {
-            return rbacPolicyDao.queryRoleList()
-                    .map(RBACAdapter::setRoles)
-                    .flatMap(adapter -> Mono.fromRunnable(() -> rbacEnforcer.setAdapter(adapter)))
-                    .then();
-        } catch (Exception e) {
-            return Mono.error(e).then();
-        }
+        return rbacPolicyDao.queryRoleList()
+                .map(RBACAdapter::setRoles)
+                .flatMap(adapter -> Mono.fromRunnable(() -> rbacEnforcer.setAdapter(adapter)))
+                .then();
     }
 }

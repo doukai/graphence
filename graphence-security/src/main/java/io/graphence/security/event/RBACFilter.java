@@ -31,8 +31,7 @@ import static io.graphence.core.error.AuthorizationErrorType.UN_AUTHORIZATION_RE
 import static io.graphence.core.error.AuthorizationErrorType.UN_AUTHORIZATION_WRITE;
 import static io.graphoenix.core.error.GraphQLErrorType.*;
 import static io.graphoenix.core.utils.DocumentUtil.DOCUMENT_UTIL;
-import static io.graphoenix.spi.constant.Hammurabi.EXCLUDE_INPUT;
-import static io.graphoenix.spi.constant.Hammurabi.FUNC_DIRECTIVE_NAME;
+import static io.graphoenix.spi.constant.Hammurabi.*;
 
 @Initialized(RequestScoped.class)
 @Priority(1)
@@ -136,6 +135,10 @@ public class RBACFilter extends BaseRequestFilter implements ScopeEvent {
                                         .map(argumentContext -> DOCUMENT_UTIL.getStringValue(argumentContext.valueWithVariable().StringValue())))
                                 .findFirst()
                                 .orElse(null);
+                    } else if (fieldDefinitionContext.name().getText().endsWith(AGGREGATE_SUFFIX)) {
+                        fieldName = fieldDefinitionContext.name().getText().substring(0, fieldDefinitionContext.name().getText().lastIndexOf(AGGREGATE_SUFFIX));
+                    } else if (fieldDefinitionContext.name().getText().endsWith(CONNECTION_SUFFIX)) {
+                        fieldName = fieldDefinitionContext.name().getText().substring(0, fieldDefinitionContext.name().getText().lastIndexOf(CONNECTION_SUFFIX));
                     } else {
                         fieldName = selectionContext.field().name().getText();
                     }

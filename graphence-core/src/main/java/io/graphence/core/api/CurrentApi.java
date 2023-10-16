@@ -43,14 +43,7 @@ public class CurrentApi {
     @Query
     public Mono<Set<String>> currentPermissionList() {
         return currentUserMonoProvider.get()
-                .flatMap(currentUser -> {
-                            try {
-                                return rbacPolicyDao.queryRolePermissionsList(currentUser.getId());
-                            } catch (Exception exception) {
-                                return Mono.error(exception);
-                            }
-                        }
-                )
+                .flatMap(currentUser -> rbacPolicyDao.queryRolePermissionsList(currentUser.getId()))
                 .map(roles -> roles.stream().flatMap(this::getPermissions).map(Permission::getName).collect(Collectors.toSet()));
     }
 
