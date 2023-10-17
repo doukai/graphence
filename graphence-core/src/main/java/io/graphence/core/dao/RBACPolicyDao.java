@@ -24,7 +24,7 @@ public interface RBACPolicyDao {
     Mono<Set<Role>> queryRolePermissionsList(String userId);
 
     @QueryOperation(value = "groupList", selectionSet = "{ roles { permissions { name } composites { permissions { name } composites { permissions { name } } } } }")
-    @RoleExpression0(
+    @GroupExpression0(
             users = @UserExpression1(
                     id = @IDExpression($val = "userId")
             )

@@ -19,6 +19,7 @@ import org.eclipse.microprofile.graphql.GraphQLApi;
 import org.eclipse.microprofile.graphql.Mutation;
 import org.eclipse.microprofile.graphql.NonNull;
 import org.eclipse.microprofile.graphql.Source;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import reactor.netty.http.server.HttpServerResponse;
 
@@ -68,22 +69,21 @@ public class LoginApi {
                 .switchIfEmpty(Mono.error(new AuthenticationException(AUTHENTICATION_FAILED)))
 //                    .flatMap(user -> SessionScopeInstanceFactory.computeIfAbsent(CurrentUser.class, CurrentUser.of(user)).thenReturn(user))
                 .flatMap(user ->
-                        rbacPolicyDao.queryRolePermissionsList(user.getId())
-                                .map(roles -> roles.stream().flatMap(this::getPermissions).map(Permission::getName))
-                                .concatWith(permissions ->
+                        Flux.concat(
+                                        rbacPolicyDao.queryRolePermissionsList(user.getId()),
                                         rbacPolicyDao.queryGroupPermissionsList(user.getId())
                                                 .map(groups ->
                                                         groups.stream()
                                                                 .flatMap(group ->
                                                                         Stream.ofNullable(group.getRoles())
                                                                                 .flatMap(Collection::stream)
-                                                                                .flatMap(this::getPermissions)
-                                                                                .map(Permission::getName)
                                                                 )
+                                                                .collect(Collectors.toSet())
                                                 )
                                 )
-                                .reduce(Stream.empty(), Stream::concat)
-                                .map(permissions -> jwtUtil.build(user, permissions.map(permission -> (String) permission).collect(Collectors.toSet())))
+                                .collectList()
+                                .map(permissionsList -> permissionsList.stream().flatMap(Collection::stream).flatMap(this::getPermissions).map(Permission::getName))
+                                .map(permissions -> jwtUtil.build(user, permissions.collect(Collectors.toSet())))
                 )
                 .flatMap(token ->
                         responseProvider.get()
