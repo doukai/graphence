@@ -2,6 +2,7 @@ package io.graphence.core.utils;
 
 import com.google.gson.GsonBuilder;
 import io.graphence.core.config.JWTConfig;
+import io.graphence.core.config.SecurityConfig;
 import io.graphence.core.dto.objectType.Group;
 import io.graphence.core.dto.objectType.Role;
 import io.graphence.core.dto.objectType.User;
@@ -28,13 +29,15 @@ import java.util.stream.Stream;
 public class JWTUtil {
 
     private final JWTConfig jwtConfig;
+    private final SecurityConfig securityConfig;
     private final GsonBuilder gsonBuilder;
 
     private final Key key;
 
     @Inject
-    public JWTUtil(JWTConfig jwtConfig) {
+    public JWTUtil(JWTConfig jwtConfig, SecurityConfig securityConfig) {
         this.jwtConfig = jwtConfig;
+        this.securityConfig = securityConfig;
         this.gsonBuilder = new GsonBuilder().disableHtmlEscaping();
         this.key = Keys.secretKeyFor(SignatureAlgorithm.forName(jwtConfig.getAlgorithm()));
     }
@@ -51,6 +54,7 @@ public class JWTUtil {
                 .claim(Claims.groups.name(), getGroups(user))
                 .claim("roles", getRoles(user))
                 .claim("permissions", permissions.toArray(String[]::new))
+                .claim("is_root", securityConfig.getRootUser() != null && user.getLogin().equals(securityConfig.getRootUser()))
                 .setIssuedAt(issuedAt)
                 .setExpiration(getExpiration(issuedAt))
                 .signWith(key)
