@@ -42,48 +42,26 @@ public class RBACAdapter implements Adapter {
     @Override
     public void loadPolicy(Model model) {
         try {
-            Stream<Rule> permissionRuleStream = roles.stream()
+            Stream<Policy> permissionPolicyStream = roles.stream()
                     .flatMap(role ->
                             Stream.ofNullable(role.getPermissions())
                                     .flatMap(Collection::stream)
-                                    .flatMap(permission -> {
-                                                if (permission.getPermissionType().equals(WRITE)) {
-                                                    return Stream.of(
-                                                            new Rule()
-                                                                    .setPtype(P_TYPE)
-                                                                    .setV0(ROLE_PREFIX + role.getName())
-                                                                    .setV1(Optional.ofNullable(role.getRealmId()).map(String::valueOf).orElse(UNDEFINED))
-                                                                    .setV2(permission.getType() + SPACER + permission.getField())
-                                                                    .setV3(WRITE.name()),
-                                                            new Rule()
-                                                                    .setPtype(P_TYPE)
-                                                                    .setV0(ROLE_PREFIX + role.getName())
-                                                                    .setV1(Optional.ofNullable(role.getRealmId()).map(String::valueOf).orElse(UNDEFINED))
-                                                                    .setV2(permission.getType() + SPACER + permission.getField())
-                                                                    .setV3(READ.name())
-                                                    );
-                                                } else if (permission.getPermissionType().equals(READ)) {
-                                                    return Stream.of(
-                                                            new Rule()
-                                                                    .setPtype(P_TYPE)
-                                                                    .setV0(ROLE_PREFIX + role.getName())
-                                                                    .setV1(Optional.ofNullable(role.getRealmId()).map(String::valueOf).orElse(UNDEFINED))
-                                                                    .setV2(permission.getType() + SPACER + permission.getField())
-                                                                    .setV3(READ.name())
-                                                    );
-                                                } else {
-                                                    return Stream.empty();
-                                                }
-                                            }
+                                    .map(permission ->
+                                            new Policy()
+                                                    .setPtype(P_TYPE)
+                                                    .setV0(ROLE_PREFIX + role.getName())
+                                                    .setV1(Optional.ofNullable(role.getRealmId()).map(String::valueOf).orElse(UNDEFINED))
+                                                    .setV2(permission.getType() + SPACER + permission.getField())
+                                                    .setV3(permission.getPermissionType().name())
                                     )
                     );
 
-            Stream<Rule> userRuleStream = roles.stream()
+            Stream<Policy> userPolicyStream = roles.stream()
                     .flatMap(role ->
                             Stream.ofNullable(role.getUsers())
                                     .flatMap(Collection::stream)
                                     .map(user ->
-                                            new Rule()
+                                            new Policy()
                                                     .setPtype(G_TYPE)
                                                     .setV0(USER_PREFIX + user.getId())
                                                     .setV1(ROLE_PREFIX + role.getName())
@@ -91,8 +69,7 @@ public class RBACAdapter implements Adapter {
                                     )
                     );
 
-
-            Stream<Rule> groupUserRuleStream = roles.stream()
+            Stream<Policy> groupUserPolicyStream = roles.stream()
                     .flatMap(role ->
                             Stream.ofNullable(role.getGroups())
                                     .flatMap(Collection::stream)
@@ -101,7 +78,7 @@ public class RBACAdapter implements Adapter {
                                                     .flatMap(Collection::stream)
                                     )
                                     .map(user ->
-                                            new Rule()
+                                            new Policy()
                                                     .setPtype(G_TYPE)
                                                     .setV0(USER_PREFIX + user.getId())
                                                     .setV1(ROLE_PREFIX + role.getName())
@@ -109,12 +86,12 @@ public class RBACAdapter implements Adapter {
                                     )
                     );
 
-            Stream<Rule> roleRuleStream = roles.stream()
+            Stream<Policy> roleCompositesPolicyStream = roles.stream()
                     .flatMap(role ->
                             Stream.ofNullable(role.getComposites())
                                     .flatMap(Collection::stream)
                                     .map(composite ->
-                                            new Rule()
+                                            new Policy()
                                                     .setPtype(G_TYPE)
                                                     .setV0(ROLE_PREFIX + role.getName())
                                                     .setV1(ROLE_PREFIX + composite.getName())
@@ -122,34 +99,13 @@ public class RBACAdapter implements Adapter {
                                     )
                     );
 
-            Streams.concat(permissionRuleStream, userRuleStream, groupUserRuleStream, roleRuleStream).forEach(line -> loadPolicyLine(line, model));
-
+            Streams.concat(permissionPolicyStream, userPolicyStream, groupUserPolicyStream, roleCompositesPolicyStream)
+                    .map(Policy::toString)
+                    .distinct()
+                    .forEach(line -> Helper.loadPolicyLine(line, model));
         } catch (Exception e) {
             Logger.error(e);
         }
-    }
-
-    private static void loadPolicyLine(Rule line, Model model) {
-        String lineText = line.getPtype();
-        if (line.getV0() != null) {
-            lineText += ", " + line.getV0();
-        }
-        if (line.getV1() != null) {
-            lineText += ", " + line.getV1();
-        }
-        if (line.getV2() != null) {
-            lineText += ", " + line.getV2();
-        }
-        if (line.getV3() != null) {
-            lineText += ", " + line.getV3();
-        }
-        if (line.getV4() != null) {
-            lineText += ", " + line.getV4();
-        }
-        if (line.getV5() != null) {
-            lineText += ", " + line.getV5();
-        }
-        Helper.loadPolicyLine(lineText, model);
     }
 
     @Override
