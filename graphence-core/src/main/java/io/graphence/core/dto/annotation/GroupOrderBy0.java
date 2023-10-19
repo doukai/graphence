@@ -37,6 +37,8 @@ public @interface GroupOrderBy0 {
 
   Sort parentId() default Sort.ASC;
 
+  Sort syncGroupPolicy() default Sort.ASC;
+
   GroupOrderBy1 parent() default @GroupOrderBy1;
 
   GroupOrderBy1 subGroups() default @GroupOrderBy1;

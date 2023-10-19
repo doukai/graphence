@@ -40,6 +40,8 @@ public @interface PermissionExpression1 {
 
   StringExpression __typename() default @StringExpression;
 
+  BooleanExpression syncPermissionPolicy() default @BooleanExpression;
+
   String[] groupBy() default {};
 
   PermissionOrderBy1 orderBy() default @PermissionOrderBy1;

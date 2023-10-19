@@ -131,6 +131,8 @@ public class Group implements Meta {
 
   private GroupRoleConnection groupRoleConnection;
 
+  private Boolean syncGroupPolicy;
+
   public String getId() {
     return this.id;
   }
@@ -585,5 +587,13 @@ public class Group implements Meta {
 
   public void setGroupRoleConnection(GroupRoleConnection groupRoleConnection) {
     this.groupRoleConnection = groupRoleConnection;
+  }
+
+  public Boolean getSyncGroupPolicy() {
+    return this.syncGroupPolicy;
+  }
+
+  public void setSyncGroupPolicy(Boolean syncGroupPolicy) {
+    this.syncGroupPolicy = syncGroupPolicy;
   }
 }

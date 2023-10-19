@@ -38,6 +38,8 @@ public @interface PermissionInput1 {
 
   String __typename() default "";
 
+  boolean syncPermissionPolicy() default false;
+
   String $name() default "";
 
   String $field() default "";
@@ -79,4 +81,6 @@ public @interface PermissionInput1 {
   String $rolePermissionAggregate() default "";
 
   String $rolePermissionConnection() default "";
+
+  String $syncPermissionPolicy() default "";
 }

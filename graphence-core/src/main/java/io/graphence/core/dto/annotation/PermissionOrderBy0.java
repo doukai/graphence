@@ -37,6 +37,8 @@ public @interface PermissionOrderBy0 {
 
   Sort __typename() default Sort.ASC;
 
+  Sort syncPermissionPolicy() default Sort.ASC;
+
   RoleOrderBy1 roles() default @RoleOrderBy1;
 
   RealmOrderBy1 realm() default @RealmOrderBy1;

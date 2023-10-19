@@ -5,14 +5,17 @@ import io.graphoenix.spi.annotation.Ignore;
 import jakarta.annotation.Generated;
 import java.lang.String;
 import org.eclipse.microprofile.graphql.Input;
+import org.eclipse.microprofile.graphql.NonNull;
 
 @CompiledJson
 @Input
 @Generated("io.graphoenix.java.generator.builder.TypeSpecBuilderProxy")
 @Ignore
 public class Mutation_login_Arguments {
+  @NonNull
   private String login;
 
+  @NonNull
   private String password;
 
   public String getLogin() {

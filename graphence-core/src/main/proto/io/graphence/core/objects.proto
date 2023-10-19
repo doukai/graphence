@@ -70,6 +70,7 @@ message User {
     repeated UserRole user_role = 58;
     optional UserRole user_role_aggregate = 59;
     optional UserRoleConnection user_role_connection = 60;
+    optional bool sync_user_policy = 61;
 }
 message Role {
     optional string id = 1;
@@ -123,6 +124,7 @@ message Role {
     repeated RolePermission role_permission = 49;
     optional RolePermission role_permission_aggregate = 50;
     optional RolePermissionConnection role_permission_connection = 51;
+    optional bool sync_role_policy = 52;
 }
 message Group {
     optional string id = 1;
@@ -180,6 +182,7 @@ message Group {
     repeated GroupRole group_role = 53;
     optional GroupRole group_role_aggregate = 54;
     optional GroupRoleConnection group_role_connection = 55;
+    optional bool sync_group_policy = 56;
 }
 message Realm {
     optional string id = 1;
@@ -239,6 +242,7 @@ message Permission {
     repeated RolePermission role_permission = 36;
     optional RolePermission role_permission_aggregate = 37;
     optional RolePermissionConnection role_permission_connection = 38;
+    optional bool sync_permission_policy = 39;
 }
 message UserPhones {
     optional string id = 1;
@@ -508,12 +512,22 @@ message RolePermissionEdge {
     optional RolePermission node = 1;
     optional string cursor = 2;
 }
+message Policy {
+    int32 id = 1;
+    optional string ptype = 2;
+    optional string v0 = 3;
+    optional string v1 = 4;
+    optional string v2 = 5;
+    optional string v3 = 6;
+    optional string v4 = 7;
+    optional string v5 = 8;
+}
 message CurrentUser {
-    optional string name = 1;
-    optional string login = 2;
-    optional int32 realm_id = 3;
-    optional string id = 4;
-    repeated string roles = 5;
-    optional string last_name = 6;
-    repeated string groups = 7;
+    optional string id = 1;
+    optional string name = 2;
+    optional string last_name = 3;
+    optional string login = 4;
+    optional int32 realm_id = 5;
+    repeated string groups = 6;
+    repeated string roles = 7;
 }

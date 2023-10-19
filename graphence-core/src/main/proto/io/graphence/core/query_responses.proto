@@ -143,3 +143,6 @@ message QueryCurrentResponse {
 message QueryCurrentPermissionListResponse {
     repeated string current_permission_list = 1;
 }
+message QueryPolicyListResponse {
+    repeated Policy policy_list = 1;
+}

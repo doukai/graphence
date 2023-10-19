@@ -48,6 +48,8 @@ public @interface UserExpression1 {
 
   StringExpression __typename() default @StringExpression;
 
+  BooleanExpression syncUserPolicy() default @BooleanExpression;
+
   String[] groupBy() default {};
 
   UserOrderBy1 orderBy() default @UserOrderBy1;

@@ -1,6 +1,7 @@
 package io.graphence.core.dto.objectType;
 
 import com.dslplatform.json.CompiledJson;
+import io.graphence.core.casbin.adapter.Policy;
 import io.graphence.core.dto.CurrentUser;
 import io.graphoenix.core.dto.interfaceType.Meta;
 import io.graphoenix.spi.annotation.Ignore;
@@ -103,6 +104,8 @@ public class Query implements Meta {
   private CurrentUser current;
 
   private Collection<String> currentPermissionList;
+
+  private Collection<Policy> policyList;
 
   @Override
   public Boolean getIsDeprecated() {
@@ -462,5 +465,13 @@ public class Query implements Meta {
 
   public void setCurrentPermissionList(Collection<String> currentPermissionList) {
     this.currentPermissionList = currentPermissionList;
+  }
+
+  public Collection<Policy> getPolicyList() {
+    return this.policyList;
+  }
+
+  public void setPolicyList(Collection<Policy> policyList) {
+    this.policyList = policyList;
   }
 }

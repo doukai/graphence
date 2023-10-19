@@ -40,6 +40,8 @@ public @interface GroupExpression0 {
 
   IntExpression parentId() default @IntExpression;
 
+  BooleanExpression syncGroupPolicy() default @BooleanExpression;
+
   String[] groupBy() default {};
 
   GroupOrderBy0 orderBy() default @GroupOrderBy0;

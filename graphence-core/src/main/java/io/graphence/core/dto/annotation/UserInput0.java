@@ -45,6 +45,8 @@ public @interface UserInput0 {
 
   String __typename() default "";
 
+  boolean syncUserPolicy() default false;
+
   String $id() default "";
 
   String $name() default "";
@@ -112,6 +114,8 @@ public @interface UserInput0 {
   String $userRoleAggregate() default "";
 
   String $userRoleConnection() default "";
+
+  String $syncUserPolicy() default "";
 
   GroupInput1[] groups() default {};
 

@@ -33,6 +33,8 @@ public @interface RoleOrderBy0 {
 
   Sort __typename() default Sort.ASC;
 
+  Sort syncRolePolicy() default Sort.ASC;
+
   UserOrderBy1 users() default @UserOrderBy1;
 
   GroupOrderBy1 groups() default @GroupOrderBy1;

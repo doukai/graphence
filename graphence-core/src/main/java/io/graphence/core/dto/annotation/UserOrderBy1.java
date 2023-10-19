@@ -44,4 +44,6 @@ public @interface UserOrderBy1 {
   Sort createGroupId() default Sort.ASC;
 
   Sort __typename() default Sort.ASC;
+
+  Sort syncUserPolicy() default Sort.ASC;
 }

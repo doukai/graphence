@@ -142,6 +142,8 @@ public class User implements Meta {
 
   private UserRoleConnection userRoleConnection;
 
+  private Boolean syncUserPolicy;
+
   public String getId() {
     return this.id;
   }
@@ -636,5 +638,13 @@ public class User implements Meta {
 
   public void setUserRoleConnection(UserRoleConnection userRoleConnection) {
     this.userRoleConnection = userRoleConnection;
+  }
+
+  public Boolean getSyncUserPolicy() {
+    return this.syncUserPolicy;
+  }
+
+  public void setSyncUserPolicy(Boolean syncUserPolicy) {
+    this.syncUserPolicy = syncUserPolicy;
   }
 }

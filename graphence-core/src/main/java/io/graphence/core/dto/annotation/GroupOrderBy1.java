@@ -36,4 +36,6 @@ public @interface GroupOrderBy1 {
   Sort __typename() default Sort.ASC;
 
   Sort parentId() default Sort.ASC;
+
+  Sort syncGroupPolicy() default Sort.ASC;
 }

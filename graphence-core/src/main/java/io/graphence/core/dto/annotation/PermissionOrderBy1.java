@@ -36,4 +36,6 @@ public @interface PermissionOrderBy1 {
   Sort createGroupId() default Sort.ASC;
 
   Sort __typename() default Sort.ASC;
+
+  Sort syncPermissionPolicy() default Sort.ASC;
 }

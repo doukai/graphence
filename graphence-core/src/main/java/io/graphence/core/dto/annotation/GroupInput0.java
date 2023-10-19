@@ -37,6 +37,8 @@ public @interface GroupInput0 {
 
   int parentId() default 0;
 
+  boolean syncGroupPolicy() default false;
+
   String $id() default "";
 
   String $name() default "";
@@ -98,6 +100,8 @@ public @interface GroupInput0 {
   String $groupRoleAggregate() default "";
 
   String $groupRoleConnection() default "";
+
+  String $syncGroupPolicy() default "";
 
   GroupInput1 parent() default @GroupInput1;
 

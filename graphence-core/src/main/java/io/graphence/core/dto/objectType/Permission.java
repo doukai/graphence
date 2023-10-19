@@ -101,6 +101,8 @@ public class Permission implements Meta {
 
   private RolePermissionConnection rolePermissionConnection;
 
+  private Boolean syncPermissionPolicy;
+
   public String getName() {
     return this.name;
   }
@@ -419,5 +421,13 @@ public class Permission implements Meta {
 
   public void setRolePermissionConnection(RolePermissionConnection rolePermissionConnection) {
     this.rolePermissionConnection = rolePermissionConnection;
+  }
+
+  public Boolean getSyncPermissionPolicy() {
+    return this.syncPermissionPolicy;
+  }
+
+  public void setSyncPermissionPolicy(Boolean syncPermissionPolicy) {
+    this.syncPermissionPolicy = syncPermissionPolicy;
   }
 }

@@ -33,6 +33,8 @@ public @interface RoleInput1 {
 
   String __typename() default "";
 
+  boolean syncRolePolicy() default false;
+
   String $id() default "";
 
   String $name() default "";
@@ -106,4 +108,6 @@ public @interface RoleInput1 {
   String $rolePermissionAggregate() default "";
 
   String $rolePermissionConnection() default "";
+
+  String $syncRolePolicy() default "";
 }

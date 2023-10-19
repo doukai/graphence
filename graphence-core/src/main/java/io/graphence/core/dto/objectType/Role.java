@@ -123,6 +123,8 @@ public class Role implements Meta {
 
   private RolePermissionConnection rolePermissionConnection;
 
+  private Boolean syncRolePolicy;
+
   public String getId() {
     return this.id;
   }
@@ -545,5 +547,13 @@ public class Role implements Meta {
 
   public void setRolePermissionConnection(RolePermissionConnection rolePermissionConnection) {
     this.rolePermissionConnection = rolePermissionConnection;
+  }
+
+  public Boolean getSyncRolePolicy() {
+    return this.syncRolePolicy;
+  }
+
+  public void setSyncRolePolicy(Boolean syncRolePolicy) {
+    this.syncRolePolicy = syncRolePolicy;
   }
 }

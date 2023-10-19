@@ -36,6 +36,8 @@ public @interface RoleExpression0 {
 
   StringExpression __typename() default @StringExpression;
 
+  BooleanExpression syncRolePolicy() default @BooleanExpression;
+
   String[] groupBy() default {};
 
   RoleOrderBy0 orderBy() default @RoleOrderBy0;

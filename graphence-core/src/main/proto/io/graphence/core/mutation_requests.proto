@@ -523,6 +523,6 @@ message MutationRolePermissionListRequest {
 message MutationLoginRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
-    optional string login = 3;
-    optional string password = 4;
+    string login = 3;
+    string password = 4;
 }
