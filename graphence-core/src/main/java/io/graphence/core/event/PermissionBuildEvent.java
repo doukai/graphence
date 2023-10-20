@@ -4,6 +4,7 @@ import com.google.auto.service.AutoService;
 import io.graphence.core.config.SecurityConfig;
 import io.graphoenix.core.context.BeanContext;
 import io.graphoenix.core.operation.Field;
+import io.graphoenix.core.operation.ObjectValueWithVariable;
 import io.graphoenix.core.operation.Operation;
 import io.graphoenix.spi.antlr.IGraphQLDocumentManager;
 import io.graphoenix.spi.handler.OperationHandler;
@@ -14,7 +15,7 @@ import jakarta.enterprise.context.Initialized;
 import reactor.core.publisher.Mono;
 
 import java.time.LocalDateTime;
-import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -49,35 +50,41 @@ public class PermissionBuildEvent implements ScopeEvent {
                 .setOperationType("mutation")
                 .addField(
                         new Field("permissionList")
-                                .addArgument(LIST_INPUT_NAME, buildPermissionStream().collect(Collectors.toList()))
+                                .addArgument(LIST_INPUT_NAME, buildPermissionList())
                                 .addField(new Field("name"))
                 );
         return operationHandler.mutation(DOCUMENT_UTIL.graphqlToOperation(operation.toString())).then();
     }
 
-    private Stream<Map<String, Object>> buildPermissionStream() {
+    private List<ObjectValueWithVariable> buildPermissionList() {
         return manager.getObjects()
                 .flatMap(objectTypeDefinitionContext ->
                         objectTypeDefinitionContext.fieldsDefinition().fieldDefinition().stream()
                                 .flatMap(fieldDefinitionContext -> {
                                             if (manager.isOperationType(objectTypeDefinitionContext)) {
                                                 if (manager.isInvokeField(fieldDefinitionContext)) {
-                                                    Map<String, Object> permission = new HashMap<>() {{
-                                                        put("type", objectTypeDefinitionContext.name().getText());
-                                                        put("field", fieldDefinitionContext.name().getText());
-                                                        put("createTime", LocalDateTime.now());
-                                                    }};
-                                                    if (manager.isMutationOperationType(objectTypeDefinitionContext.name().getText())) {
-                                                        permission.put("name", objectTypeDefinitionContext.name().getText() + SPACER + fieldDefinitionContext.name().getText() + SPACER + WRITE.name());
-                                                        permission.put("permissionType", WRITE);
-                                                    } else {
-                                                        permission.put("name", objectTypeDefinitionContext.name().getText() + SPACER + fieldDefinitionContext.name().getText() + SPACER + READ.name());
-                                                        permission.put("permissionType", READ);
-                                                    }
                                                     if (fieldDefinitionContext.description() != null) {
-                                                        permission.put("description", fieldDefinitionContext.description().getText());
+                                                        return Stream.of(
+                                                                ObjectValueWithVariable.of(
+                                                                        "name", objectTypeDefinitionContext.name().getText() + SPACER + fieldDefinitionContext.name().getText() + SPACER + (manager.isMutationOperationType(objectTypeDefinitionContext.name().getText()) ? WRITE.name() : READ.name()),
+                                                                        "type", objectTypeDefinitionContext.name().getText(),
+                                                                        "field", fieldDefinitionContext.name().getText(),
+                                                                        "permissionType", manager.isMutationOperationType(objectTypeDefinitionContext.name().getText()) ? WRITE : READ,
+                                                                        "description", fieldDefinitionContext.description().getText(),
+                                                                        "createTime", LocalDateTime.now()
+                                                                )
+                                                        );
+                                                    } else {
+                                                        return Stream.of(
+                                                                ObjectValueWithVariable.of(
+                                                                        "name", objectTypeDefinitionContext.name().getText() + SPACER + fieldDefinitionContext.name().getText() + SPACER + (manager.isMutationOperationType(objectTypeDefinitionContext.name().getText()) ? WRITE.name() : READ.name()),
+                                                                        "type", objectTypeDefinitionContext.name().getText(),
+                                                                        "field", fieldDefinitionContext.name().getText(),
+                                                                        "permissionType", manager.isMutationOperationType(objectTypeDefinitionContext.name().getText()) ? WRITE : READ,
+                                                                        "createTime", LocalDateTime.now()
+                                                                )
+                                                        );
                                                     }
-                                                    return Stream.of(permission);
                                                 } else {
                                                     return Stream.empty();
                                                 }
@@ -87,33 +94,50 @@ public class PermissionBuildEvent implements ScopeEvent {
                                                         !fieldDefinitionContext.name().getText().endsWith(AGGREGATE_SUFFIX) &&
                                                         !fieldDefinitionContext.name().getText().endsWith(CONNECTION_SUFFIX)
                                                 ) {
-                                                    Map<String, Object> writePermission = new HashMap<>() {{
-                                                        put("name", objectTypeDefinitionContext.name().getText() + SPACER + fieldDefinitionContext.name().getText() + SPACER + WRITE.name());
-                                                        put("type", objectTypeDefinitionContext.name().getText());
-                                                        put("field", fieldDefinitionContext.name().getText());
-                                                        put("permissionType", WRITE);
-                                                        put("createTime", LocalDateTime.now());
-                                                    }};
-
-                                                    Map<String, Object> readPermission = new HashMap<>() {{
-                                                        put("name", objectTypeDefinitionContext.name().getText() + SPACER + fieldDefinitionContext.name().getText() + SPACER + READ.name());
-                                                        put("type", objectTypeDefinitionContext.name().getText());
-                                                        put("field", fieldDefinitionContext.name().getText());
-                                                        put("permissionType", READ);
-                                                        put("createTime", LocalDateTime.now());
-                                                    }};
-
                                                     if (fieldDefinitionContext.description() != null) {
-                                                        writePermission.put("description", fieldDefinitionContext.description().getText() + " " + WRITE);
-                                                        readPermission.put("description", fieldDefinitionContext.description().getText() + " " + READ);
+                                                        return Stream.of(
+                                                                ObjectValueWithVariable.of(
+                                                                        "name", objectTypeDefinitionContext.name().getText() + SPACER + fieldDefinitionContext.name().getText() + SPACER + WRITE.name(),
+                                                                        "type", objectTypeDefinitionContext.name().getText(),
+                                                                        "field", fieldDefinitionContext.name().getText(),
+                                                                        "permissionType", WRITE,
+                                                                        "description", fieldDefinitionContext.description().getText() + " " + WRITE,
+                                                                        "createTime", LocalDateTime.now()
+                                                                ),
+                                                                ObjectValueWithVariable.of(
+                                                                        "name", objectTypeDefinitionContext.name().getText() + SPACER + fieldDefinitionContext.name().getText() + SPACER + READ.name(),
+                                                                        "type", objectTypeDefinitionContext.name().getText(),
+                                                                        "field", fieldDefinitionContext.name().getText(),
+                                                                        "permissionType", READ,
+                                                                        "description", fieldDefinitionContext.description().getText() + " " + READ,
+                                                                        "createTime", LocalDateTime.now()
+                                                                )
+                                                        );
+                                                    } else {
+                                                        return Stream.of(
+                                                                ObjectValueWithVariable.of(
+                                                                        "name", objectTypeDefinitionContext.name().getText() + SPACER + fieldDefinitionContext.name().getText() + SPACER + WRITE.name(),
+                                                                        "type", objectTypeDefinitionContext.name().getText(),
+                                                                        "field", fieldDefinitionContext.name().getText(),
+                                                                        "permissionType", WRITE,
+                                                                        "createTime", LocalDateTime.now()
+                                                                ),
+                                                                ObjectValueWithVariable.of(
+                                                                        "name", objectTypeDefinitionContext.name().getText() + SPACER + fieldDefinitionContext.name().getText() + SPACER + READ.name(),
+                                                                        "type", objectTypeDefinitionContext.name().getText(),
+                                                                        "field", fieldDefinitionContext.name().getText(),
+                                                                        "permissionType", READ,
+                                                                        "createTime", LocalDateTime.now()
+                                                                )
+                                                        );
                                                     }
-                                                    return Stream.of(readPermission, writePermission);
                                                 } else {
                                                     return Stream.empty();
                                                 }
                                             }
                                         }
                                 )
-                );
+                )
+                .collect(Collectors.toList());
     }
 }

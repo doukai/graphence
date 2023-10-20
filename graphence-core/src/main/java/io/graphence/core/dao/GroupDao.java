@@ -3,6 +3,7 @@ package io.graphence.core.dao;
 import io.graphence.core.dto.annotation.*;
 import io.graphence.core.dto.objectType.Group;
 import io.graphoenix.core.dto.enumType.Operator;
+import io.graphoenix.core.operation.ObjectValueWithVariable;
 import io.graphoenix.spi.annotation.GraphQLOperation;
 import io.graphoenix.spi.annotation.MutationOperation;
 import io.graphoenix.spi.annotation.QueryOperation;
@@ -23,5 +24,5 @@ public interface GroupDao {
 
     @MutationOperation(value = "groupList", selectionSet = "{ id }")
     @GroupInput0($list = "groupList")
-    Mono<List<Group>> updateGroupList(List<Group> groupList);
+    Mono<List<Group>> updateGroupList(List<ObjectValueWithVariable> groupList);
 }

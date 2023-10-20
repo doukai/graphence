@@ -4,7 +4,7 @@ import com.google.auto.service.AutoService;
 import com.password4j.Hash;
 import com.password4j.Password;
 import io.graphence.core.config.SecurityConfig;
-import io.graphence.core.dto.inputObjectType.UserMutationArguments;
+import io.graphence.core.dao.LoginDao;
 import io.graphoenix.core.context.BeanContext;
 import io.graphoenix.core.operation.Arguments;
 import io.graphoenix.core.operation.Field;
@@ -29,10 +29,12 @@ public class RootUserBuildEvent implements ScopeEvent {
 
     private final OperationHandler operationHandler;
     private final SecurityConfig securityConfig;
+    private final LoginDao loginDao;
 
     public RootUserBuildEvent() {
         this.operationHandler = BeanContext.get(OperationHandler.class);
         this.securityConfig = BeanContext.get(SecurityConfig.class);
+        this.loginDao = BeanContext.get(LoginDao.class);
     }
 
     @Override
@@ -40,22 +42,39 @@ public class RootUserBuildEvent implements ScopeEvent {
         if (securityConfig.getRootUser() == null || securityConfig.getRootPassword() == null) {
             return Mono.empty();
         }
-        LocalDateTime now = LocalDateTime.now();
-        UserMutationArguments arguments = new UserMutationArguments();
         Hash hash = Password.hash(securityConfig.getRootPassword()).withBcrypt();
-        arguments.setId("0");
-        arguments.setName(securityConfig.getRootUser());
-        arguments.setLogin(securityConfig.getRootUser());
-        arguments.setSalt(Base64.getEncoder().encodeToString(hash.getSaltBytes()));
-        arguments.setHash(Base64.getEncoder().encodeToString(hash.getResultAsBytes()));
-        arguments.setCreateTime(now);
-        Operation operation = new Operation()
-                .setOperationType("mutation")
-                .addField(
-                        new Field("user")
-                                .setArguments(new Arguments(arguments))
-                                .addField(new Field("id"))
-                );
-        return operationHandler.mutation(DOCUMENT_UTIL.graphqlToOperation(operation.toString())).then();
+        return loginDao.getUserByLogin(securityConfig.getRootUser())
+                .map(user ->
+                        Arguments.of(
+                                "id", user.getId(),
+                                "login", securityConfig.getRootUser(),
+                                "name", securityConfig.getRootUser(),
+                                "salt", Base64.getEncoder().encodeToString(hash.getSaltBytes()),
+                                "hash", Base64.getEncoder().encodeToString(hash.getResultAsBytes()),
+                                "createTime", LocalDateTime.now()
+                        )
+                )
+                .switchIfEmpty(
+                        Mono.just(
+                                Arguments.of(
+                                        "login", securityConfig.getRootUser(),
+                                        "name", securityConfig.getRootUser(),
+                                        "salt", Base64.getEncoder().encodeToString(hash.getSaltBytes()),
+                                        "hash", Base64.getEncoder().encodeToString(hash.getResultAsBytes()),
+                                        "createTime", LocalDateTime.now()
+                                )
+                        )
+                )
+                .map(arguments ->
+                        new Operation()
+                                .setOperationType("mutation")
+                                .addField(
+                                        new Field("user")
+                                                .setArguments(arguments)
+                                                .addField(new Field("id"))
+                                )
+                )
+                .map(operation -> operationHandler.mutation(DOCUMENT_UTIL.graphqlToOperation(operation.toString())))
+                .then();
     }
 }

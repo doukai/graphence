@@ -3,6 +3,7 @@ package io.graphence.core.api;
 import io.graphence.core.dao.GroupDao;
 import io.graphence.core.dto.inputObjectType.GroupInput;
 import io.graphence.core.dto.inputObjectType.GroupMutationArguments;
+import io.graphoenix.core.operation.ObjectValueWithVariable;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import org.eclipse.microprofile.graphql.GraphQLApi;
@@ -34,11 +35,12 @@ public class GroupApi {
                                         .flatMap(groups ->
                                                 groupDao.updateGroupList(
                                                         groups.stream()
-                                                                .peek(item -> {
-                                                                            int difference = group.getDeep() - groupMutationArguments.getDeep();
-                                                                            item.setPath(item.getPath().replaceFirst(group.getPath(), groupMutationArguments.getPath()));
-                                                                            item.setDeep(item.getDeep() - difference);
-                                                                        }
+                                                                .map(item ->
+                                                                        ObjectValueWithVariable.of(
+                                                                                "id", item.getId(),
+                                                                                "path", item.getPath().replaceFirst(group.getPath(), groupMutationArguments.getPath()),
+                                                                                "deep", item.getDeep() - group.getDeep() + groupMutationArguments.getDeep()
+                                                                        )
                                                                 )
                                                                 .collect(Collectors.toList())
                                                 )
@@ -72,11 +74,12 @@ public class GroupApi {
                                         .flatMap(groups ->
                                                 groupDao.updateGroupList(
                                                         groups.stream()
-                                                                .peek(item -> {
-                                                                            int difference = group.getDeep() - groupInput.getDeep();
-                                                                            item.setPath(item.getPath().replaceFirst(group.getPath(), groupInput.getPath()));
-                                                                            item.setDeep(item.getDeep() - difference);
-                                                                        }
+                                                                .map(item ->
+                                                                        ObjectValueWithVariable.of(
+                                                                                "id", item.getId(),
+                                                                                "path", item.getPath().replaceFirst(group.getPath(), groupInput.getPath()),
+                                                                                "deep", item.getDeep() - group.getDeep() + groupInput.getDeep()
+                                                                        )
                                                                 )
                                                                 .collect(Collectors.toList())
                                                 )
