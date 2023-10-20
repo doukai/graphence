@@ -50,10 +50,8 @@ public class RBACEnforcerApi {
     public Mono<Boolean> syncRolePolicy(@Source Role role) {
         return rbacPolicyDao.queryRoleById(role.getId())
                 .map(syncRole -> {
-                            rbacEnforcer.getEnforcer().getModel()
+                            rbacEnforcer.getEnforcer()
                                     .removeFilteredPolicy(
-                                            P_TYPE,
-                                            P_TYPE,
                                             0,
                                             ROLE_PREFIX + syncRole.getName(),
                                             Optional.ofNullable(syncRole.getRealmId()).map(String::valueOf).orElse(UNDEFINED)
@@ -69,10 +67,8 @@ public class RBACEnforcerApi {
                                                     .setV3(permission.getPermissionType().name())
                                     );
 
-                            rbacEnforcer.getEnforcer().getModel()
-                                    .removeFilteredPolicy(
-                                            G_TYPE,
-                                            G_TYPE,
+                            rbacEnforcer.getEnforcer()
+                                    .removeFilteredGroupingPolicy(
                                             0,
                                             "",
                                             ROLE_PREFIX + syncRole.getName(),
@@ -102,10 +98,8 @@ public class RBACEnforcerApi {
                                                     .setV2(Optional.ofNullable(user.getRealmId()).map(String::valueOf).orElse(UNDEFINED))
                                     );
 
-                            rbacEnforcer.getEnforcer().getModel()
-                                    .removeFilteredPolicy(
-                                            G_TYPE,
-                                            G_TYPE,
+                            rbacEnforcer.getEnforcer()
+                                    .removeFilteredGroupingPolicy(
                                             0,
                                             ROLE_PREFIX + syncRole.getName(),
                                             "",
@@ -134,10 +128,8 @@ public class RBACEnforcerApi {
     public Mono<Boolean> syncUserPolicy(@Source User user) {
         return rbacPolicyDao.queryUserById(user.getId())
                 .map(syncUser -> {
-                            rbacEnforcer.getEnforcer().getModel()
-                                    .removeFilteredPolicy(
-                                            G_TYPE,
-                                            G_TYPE,
+                            rbacEnforcer.getEnforcer()
+                                    .removeFilteredGroupingPolicy(
                                             0,
                                             USER_PREFIX + syncUser.getId(),
                                             "",
@@ -184,10 +176,8 @@ public class RBACEnforcerApi {
                             Stream.ofNullable(syncGroup.getUsers())
                                     .flatMap(Collection::stream)
                                     .forEach(syncUser -> {
-                                                rbacEnforcer.getEnforcer().getModel()
-                                                        .removeFilteredPolicy(
-                                                                G_TYPE,
-                                                                G_TYPE,
+                                                rbacEnforcer.getEnforcer()
+                                                        .removeFilteredGroupingPolicy(
                                                                 0,
                                                                 USER_PREFIX + syncUser.getId(),
                                                                 "",
@@ -232,10 +222,8 @@ public class RBACEnforcerApi {
     public Mono<Boolean> syncPermissionPolicy(@Source Permission permission) {
         return rbacPolicyDao.queryPermissionByName(permission.getName())
                 .map(syncPermission -> {
-                            rbacEnforcer.getEnforcer().getModel()
+                            rbacEnforcer.getEnforcer()
                                     .removeFilteredPolicy(
-                                            P_TYPE,
-                                            P_TYPE,
                                             0,
                                             "",
                                             Optional.ofNullable(syncPermission.getRealmId()).map(String::valueOf).orElse(UNDEFINED),

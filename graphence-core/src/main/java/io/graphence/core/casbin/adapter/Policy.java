@@ -22,25 +22,25 @@ public class Policy {
 
     public Policy(List<String> line) {
         if (line != null) {
-            if (line.get(0) != null) {
+            if (line.size() >= 1 && line.get(0) != null) {
                 ptype = line.get(0);
             }
-            if (line.get(1) != null) {
+            if (line.size() >= 2 && line.get(1) != null) {
                 v0 = line.get(1);
             }
-            if (line.get(2) != null) {
+            if (line.size() >= 3 && line.get(2) != null) {
                 v1 = line.get(2);
             }
-            if (line.get(3) != null) {
+            if (line.size() >= 4 && line.get(3) != null) {
                 v2 = line.get(3);
             }
-            if (line.get(4) != null) {
+            if (line.size() >= 5 && line.get(4) != null) {
                 v3 = line.get(4);
             }
-            if (line.get(5) != null) {
+            if (line.size() >= 6 && line.get(5) != null) {
                 v4 = line.get(5);
             }
-            if (line.get(6) != null) {
+            if (line.size() >= 7 && line.get(6) != null) {
                 v5 = line.get(6);
             }
         }

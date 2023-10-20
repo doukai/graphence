@@ -43,6 +43,7 @@ public class RootUserBuildEvent implements ScopeEvent {
         LocalDateTime now = LocalDateTime.now();
         UserMutationArguments arguments = new UserMutationArguments();
         Hash hash = Password.hash(securityConfig.getRootPassword()).withBcrypt();
+        arguments.setId("0");
         arguments.setName(securityConfig.getRootUser());
         arguments.setLogin(securityConfig.getRootUser());
         arguments.setSalt(Base64.getEncoder().encodeToString(hash.getSaltBytes()));
