@@ -19,12 +19,8 @@ public class RBACEnforcer {
     public RBACEnforcer(CasbinConfig config) {
         Model model = new Model();
         model.loadModel(Objects.requireNonNull(this.getClass().getClassLoader().getResource(config.getModel())).getFile());
-
-        if (config.getSynced()) {
-            enforcer = new SyncedEnforcer(model);
-        } else {
-            enforcer = new Enforcer(model);
-        }
+        enforcer = new Enforcer(model);
+        enforcer.enableAutoSave(true);
     }
 
     public Enforcer getEnforcer() {

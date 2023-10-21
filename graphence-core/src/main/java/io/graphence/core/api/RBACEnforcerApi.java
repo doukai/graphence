@@ -10,7 +10,6 @@ import io.graphence.core.dto.objectType.Role;
 import io.graphence.core.dto.objectType.User;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
-import org.casbin.jcasbin.persist.Helper;
 import org.eclipse.microprofile.graphql.GraphQLApi;
 import org.eclipse.microprofile.graphql.Query;
 import org.eclipse.microprofile.graphql.Source;
@@ -26,7 +25,7 @@ import static io.graphence.core.casbin.adapter.RBACAdapter.G_TYPE;
 import static io.graphence.core.casbin.adapter.RBACAdapter.P_TYPE;
 import static io.graphence.core.casbin.adapter.RBACAdapter.ROLE_PREFIX;
 import static io.graphence.core.casbin.adapter.RBACAdapter.SPACER;
-import static io.graphence.core.casbin.adapter.RBACAdapter.UNDEFINED;
+import static io.graphence.core.casbin.adapter.RBACAdapter.EMPTY;
 import static io.graphence.core.casbin.adapter.RBACAdapter.USER_PREFIX;
 
 @GraphQLApi
@@ -44,7 +43,10 @@ public class RBACEnforcerApi {
 
     @Query
     public List<Policy> policyList() {
-        return rbacEnforcer.getEnforcer().getPolicy().stream().map(Policy::new).collect(Collectors.toList());
+        return Stream.concat(
+                rbacEnforcer.getEnforcer().getPolicy().stream().map(p -> new Policy(P_TYPE, p)),
+                rbacEnforcer.getEnforcer().getGroupingPolicy().stream().map(g -> new Policy(G_TYPE, g))
+        ).collect(Collectors.toList());
     }
 
     public Mono<Boolean> syncRolePolicy(@Source Role role) {
@@ -53,35 +55,44 @@ public class RBACEnforcerApi {
                             rbacEnforcer.getEnforcer()
                                     .removeFilteredPolicy(
                                             0,
-                                            ROLE_PREFIX + syncRole.getName(),
-                                            Optional.ofNullable(syncRole.getRealmId()).map(String::valueOf).orElse(UNDEFINED)
+                                            ROLE_PREFIX + syncRole.getId(),
+                                            Optional.ofNullable(syncRole.getRealmId()).map(String::valueOf).orElse(EMPTY)
                                     );
+
                             Stream<Policy> permissionPolicyStream = Stream.ofNullable(syncRole.getPermissions())
                                     .flatMap(Collection::stream)
                                     .map(permission ->
                                             new Policy()
                                                     .setPtype(P_TYPE)
-                                                    .setV0(ROLE_PREFIX + syncRole.getName())
-                                                    .setV1(Optional.ofNullable(syncRole.getRealmId()).map(String::valueOf).orElse(UNDEFINED))
+                                                    .setV0(ROLE_PREFIX + syncRole.getId())
+                                                    .setV1(Optional.ofNullable(syncRole.getRealmId()).map(String::valueOf).orElse(EMPTY))
                                                     .setV2(permission.getType() + SPACER + permission.getField())
                                                     .setV3(permission.getPermissionType().name())
+                                    );
+
+                            rbacEnforcer.getEnforcer()
+                                    .addPolicies(
+                                            permissionPolicyStream
+                                                    .map(Policy::toStringList)
+                                                    .collect(Collectors.toList())
                                     );
 
                             rbacEnforcer.getEnforcer()
                                     .removeFilteredGroupingPolicy(
                                             0,
                                             "",
-                                            ROLE_PREFIX + syncRole.getName(),
-                                            Optional.ofNullable(syncRole.getRealmId()).map(String::valueOf).orElse(UNDEFINED)
+                                            ROLE_PREFIX + syncRole.getId(),
+                                            Optional.ofNullable(syncRole.getRealmId()).map(String::valueOf).orElse(EMPTY)
                                     );
+
                             Stream<Policy> userPolicyStream = Stream.ofNullable(syncRole.getUsers())
                                     .flatMap(Collection::stream)
                                     .map(user ->
                                             new Policy()
                                                     .setPtype(G_TYPE)
                                                     .setV0(USER_PREFIX + user.getId())
-                                                    .setV1(ROLE_PREFIX + syncRole.getName())
-                                                    .setV2(Optional.ofNullable(user.getRealmId()).map(String::valueOf).orElse(UNDEFINED))
+                                                    .setV1(ROLE_PREFIX + syncRole.getId())
+                                                    .setV2(Optional.ofNullable(syncRole.getRealmId()).map(String::valueOf).orElse(EMPTY))
                                     );
 
                             Stream<Policy> groupUserPolicyStream = Stream.ofNullable(syncRole.getGroups())
@@ -94,31 +105,34 @@ public class RBACEnforcerApi {
                                             new Policy()
                                                     .setPtype(G_TYPE)
                                                     .setV0(USER_PREFIX + user.getId())
-                                                    .setV1(ROLE_PREFIX + syncRole.getName())
-                                                    .setV2(Optional.ofNullable(user.getRealmId()).map(String::valueOf).orElse(UNDEFINED))
+                                                    .setV1(ROLE_PREFIX + syncRole.getId())
+                                                    .setV2(Optional.ofNullable(syncRole.getRealmId()).map(String::valueOf).orElse(EMPTY))
                                     );
 
                             rbacEnforcer.getEnforcer()
                                     .removeFilteredGroupingPolicy(
                                             0,
-                                            ROLE_PREFIX + syncRole.getName(),
+                                            ROLE_PREFIX + syncRole.getId(),
                                             "",
-                                            Optional.ofNullable(syncRole.getRealmId()).map(String::valueOf).orElse(UNDEFINED)
+                                            Optional.ofNullable(syncRole.getRealmId()).map(String::valueOf).orElse(EMPTY)
                                     );
+
                             Stream<Policy> roleCompositesPolicyStream = Stream.ofNullable(syncRole.getComposites())
                                     .flatMap(Collection::stream)
                                     .map(composite ->
                                             new Policy()
                                                     .setPtype(G_TYPE)
-                                                    .setV0(ROLE_PREFIX + syncRole.getName())
-                                                    .setV1(ROLE_PREFIX + composite.getName())
-                                                    .setV2(Optional.ofNullable(syncRole.getRealmId()).map(String::valueOf).orElse(UNDEFINED))
+                                                    .setV0(ROLE_PREFIX + syncRole.getId())
+                                                    .setV1(ROLE_PREFIX + composite.getId())
+                                                    .setV2(Optional.ofNullable(syncRole.getRealmId()).map(String::valueOf).orElse(EMPTY))
                                     );
 
-                            Streams.concat(permissionPolicyStream, userPolicyStream, groupUserPolicyStream, roleCompositesPolicyStream)
-                                    .map(Policy::toString)
-                                    .distinct()
-                                    .forEach(line -> Helper.loadPolicyLine(line, rbacEnforcer.getEnforcer().getModel()));
+                            rbacEnforcer.getEnforcer()
+                                    .addGroupingPolicies(
+                                            Streams.concat(userPolicyStream, groupUserPolicyStream, roleCompositesPolicyStream)
+                                                    .map(Policy::toStringList)
+                                                    .collect(Collectors.toList())
+                                    );
                             return true;
                         }
                 )
@@ -133,16 +147,17 @@ public class RBACEnforcerApi {
                                             0,
                                             USER_PREFIX + syncUser.getId(),
                                             "",
-                                            Optional.ofNullable(syncUser.getRealmId()).map(String::valueOf).orElse(UNDEFINED)
+                                            Optional.ofNullable(syncUser.getRealmId()).map(String::valueOf).orElse(EMPTY)
                                     );
+
                             Stream<Policy> rolePolicyStream = Stream.ofNullable(syncUser.getRoles())
                                     .flatMap(Collection::stream)
                                     .map(role ->
                                             new Policy()
                                                     .setPtype(G_TYPE)
                                                     .setV0(USER_PREFIX + syncUser.getId())
-                                                    .setV1(ROLE_PREFIX + role.getName())
-                                                    .setV2(Optional.ofNullable(syncUser.getRealmId()).map(String::valueOf).orElse(UNDEFINED))
+                                                    .setV1(ROLE_PREFIX + role.getId())
+                                                    .setV2(Optional.ofNullable(syncUser.getRealmId()).map(String::valueOf).orElse(EMPTY))
                                     );
 
                             Stream<Policy> groupRolePolicyStream = Stream.ofNullable(syncUser.getGroups())
@@ -155,15 +170,16 @@ public class RBACEnforcerApi {
                                             new Policy()
                                                     .setPtype(G_TYPE)
                                                     .setV0(USER_PREFIX + syncUser.getId())
-                                                    .setV1(ROLE_PREFIX + role.getName())
-                                                    .setV2(Optional.ofNullable(syncUser.getRealmId()).map(String::valueOf).orElse(UNDEFINED))
+                                                    .setV1(ROLE_PREFIX + role.getId())
+                                                    .setV2(Optional.ofNullable(syncUser.getRealmId()).map(String::valueOf).orElse(EMPTY))
                                     );
 
-                            Streams.concat(rolePolicyStream, groupRolePolicyStream)
-                                    .map(Policy::toString)
-                                    .distinct()
-                                    .forEach(line -> Helper.loadPolicyLine(line, rbacEnforcer.getEnforcer().getModel()));
-
+                            rbacEnforcer.getEnforcer()
+                                    .addGroupingPolicies(
+                                            Streams.concat(rolePolicyStream, groupRolePolicyStream)
+                                                    .map(Policy::toStringList)
+                                                    .collect(Collectors.toList())
+                                    );
                             return true;
                         }
                 )
@@ -181,16 +197,17 @@ public class RBACEnforcerApi {
                                                                 0,
                                                                 USER_PREFIX + syncUser.getId(),
                                                                 "",
-                                                                Optional.ofNullable(syncUser.getRealmId()).map(String::valueOf).orElse(UNDEFINED)
+                                                                Optional.ofNullable(syncUser.getRealmId()).map(String::valueOf).orElse(EMPTY)
                                                         );
+
                                                 Stream<Policy> rolePolicyStream = Stream.ofNullable(syncUser.getRoles())
                                                         .flatMap(Collection::stream)
                                                         .map(role ->
                                                                 new Policy()
                                                                         .setPtype(G_TYPE)
                                                                         .setV0(USER_PREFIX + syncUser.getId())
-                                                                        .setV1(ROLE_PREFIX + role.getName())
-                                                                        .setV2(Optional.ofNullable(syncUser.getRealmId()).map(String::valueOf).orElse(UNDEFINED))
+                                                                        .setV1(ROLE_PREFIX + role.getId())
+                                                                        .setV2(Optional.ofNullable(syncUser.getRealmId()).map(String::valueOf).orElse(EMPTY))
                                                         );
 
                                                 Stream<Policy> groupRolePolicyStream = Stream.ofNullable(syncUser.getGroups())
@@ -203,14 +220,16 @@ public class RBACEnforcerApi {
                                                                 new Policy()
                                                                         .setPtype(G_TYPE)
                                                                         .setV0(USER_PREFIX + syncUser.getId())
-                                                                        .setV1(ROLE_PREFIX + role.getName())
-                                                                        .setV2(Optional.ofNullable(syncUser.getRealmId()).map(String::valueOf).orElse(UNDEFINED))
+                                                                        .setV1(ROLE_PREFIX + role.getId())
+                                                                        .setV2(Optional.ofNullable(syncUser.getRealmId()).map(String::valueOf).orElse(EMPTY))
                                                         );
 
-                                                Streams.concat(rolePolicyStream, groupRolePolicyStream)
-                                                        .map(Policy::toString)
-                                                        .distinct()
-                                                        .forEach(line -> Helper.loadPolicyLine(line, rbacEnforcer.getEnforcer().getModel()));
+                                                rbacEnforcer.getEnforcer()
+                                                        .addGroupingPolicies(
+                                                                Streams.concat(rolePolicyStream, groupRolePolicyStream)
+                                                                        .map(Policy::toStringList)
+                                                                        .collect(Collectors.toList())
+                                                        );
                                             }
                                     );
                             return true;
@@ -226,24 +245,26 @@ public class RBACEnforcerApi {
                                     .removeFilteredPolicy(
                                             0,
                                             "",
-                                            Optional.ofNullable(syncPermission.getRealmId()).map(String::valueOf).orElse(UNDEFINED),
+                                            "",
                                             syncPermission.getType() + SPACER + syncPermission.getField(),
                                             syncPermission.getPermissionType().name()
                                     );
 
-                            Stream.ofNullable(syncPermission.getRoles())
-                                    .flatMap(Collection::stream)
-                                    .map(role ->
-                                            new Policy()
-                                                    .setPtype(P_TYPE)
-                                                    .setV0(ROLE_PREFIX + role.getName())
-                                                    .setV1(Optional.ofNullable(role.getRealmId()).map(String::valueOf).orElse(UNDEFINED))
-                                                    .setV2(syncPermission.getType() + SPACER + syncPermission.getField())
-                                                    .setV3(syncPermission.getPermissionType().name())
-                                    )
-                                    .map(Policy::toString)
-                                    .distinct()
-                                    .forEach(line -> Helper.loadPolicyLine(line, rbacEnforcer.getEnforcer().getModel()));
+                            rbacEnforcer.getEnforcer()
+                                    .addPolicies(
+                                            Stream.ofNullable(syncPermission.getRoles())
+                                                    .flatMap(Collection::stream)
+                                                    .map(role ->
+                                                            new Policy()
+                                                                    .setPtype(P_TYPE)
+                                                                    .setV0(ROLE_PREFIX + role.getId())
+                                                                    .setV1(Optional.ofNullable(role.getRealmId()).map(String::valueOf).orElse(EMPTY))
+                                                                    .setV2(syncPermission.getType() + SPACER + syncPermission.getField())
+                                                                    .setV3(syncPermission.getPermissionType().name())
+                                                    )
+                                                    .map(Policy::toStringList)
+                                                    .collect(Collectors.toList())
+                                    );
                             return true;
                         }
                 )

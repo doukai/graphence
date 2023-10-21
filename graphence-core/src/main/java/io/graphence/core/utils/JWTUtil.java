@@ -73,11 +73,11 @@ public class JWTUtil {
     }
 
     protected String[] getGroups(User user) {
-        return Stream.ofNullable(user.getGroups()).flatMap(Collection::stream).map(Group::getName).toArray(String[]::new);
+        return Stream.ofNullable(user.getGroups()).flatMap(Collection::stream).map(Group::getId).toArray(String[]::new);
     }
 
     protected String[] getRoles(User user) {
-        return Stream.ofNullable(user.getRoles()).flatMap(Collection::stream).map(Role::getName).toArray(String[]::new);
+        return Stream.ofNullable(user.getRoles()).flatMap(Collection::stream).map(Role::getId).toArray(String[]::new);
     }
 
     public GraphenceJsonWebToken parser(String compactJws) throws JwtException {

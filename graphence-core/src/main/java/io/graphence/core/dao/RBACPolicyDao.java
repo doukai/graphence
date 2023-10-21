@@ -14,22 +14,22 @@ import java.util.Set;
 @GraphQLOperation
 public interface RBACPolicyDao {
 
-    @QueryOperation(value = "roleList", selectionSet = "{ id name users { id login realmId } composites { id name realmId } permissions { name type field permissionType } realmId }")
+    @QueryOperation(value = "roleList", selectionSet = "{ id name users { id login } composites { id name } permissions { name type field permissionType } realmId }")
     Mono<Set<Role>> queryRoleList();
 
-    @QueryOperation(value = "role", selectionSet = "{ id name users { id login realmId } composites { id name realmId } permissions { name type field permissionType realmId } realmId }")
+    @QueryOperation(value = "role", selectionSet = "{ id name users { id login } composites { id name } permissions { name type field permissionType } realmId }")
     @RoleExpression0(id = @IDExpression($val = "id"))
     Mono<Role> queryRoleById(String id);
 
-    @QueryOperation(value = "user", selectionSet = "{ id login roles { id name realmId } groups { roles { id name realmId } } realmId }")
+    @QueryOperation(value = "user", selectionSet = "{ id login roles { id name } groups { roles { id name } } realmId }")
     @UserExpression0(id = @IDExpression($val = "id"))
     Mono<User> queryUserById(String id);
 
-    @QueryOperation(value = "group", selectionSet = "{ id name users { id login roles { id name realmId } groups { roles { id name realmId } } realmId } realmId }")
+    @QueryOperation(value = "group", selectionSet = "{ id name users { id login roles { id name } groups { roles { id name } } } realmId }")
     @GroupExpression0(id = @IDExpression($val = "id"))
     Mono<Group> queryGroupById(String id);
 
-    @QueryOperation(value = "permission", selectionSet = "{ name type field permissionType roles { id name realmId } realmId }")
+    @QueryOperation(value = "permission", selectionSet = "{ name type field permissionType roles { id name realmId } }")
     @PermissionExpression0(name = @IDExpression($val = "name"))
     Mono<Permission> queryPermissionByName(String name);
 

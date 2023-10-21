@@ -10,7 +10,7 @@ public class CasbinConfig {
     private String model = "model.conf";
 
     @Optional
-    private Boolean synced = false;
+    private Boolean synced = true;
 
     public String getModel() {
         return model;

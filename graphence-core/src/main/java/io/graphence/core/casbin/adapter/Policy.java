@@ -3,12 +3,13 @@ package io.graphence.core.casbin.adapter;
 import com.dslplatform.json.CompiledJson;
 import org.eclipse.microprofile.graphql.Type;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Type
 @CompiledJson
 public class Policy {
-    private int id;
+    private String id;
     private String ptype;
     private String v0;
     private String v1;
@@ -20,37 +21,34 @@ public class Policy {
     public Policy() {
     }
 
-    public Policy(List<String> line) {
-        if (line != null) {
-            if (line.size() >= 1 && line.get(0) != null) {
-                ptype = line.get(0);
-            }
-            if (line.size() >= 2 && line.get(1) != null) {
-                v0 = line.get(1);
-            }
-            if (line.size() >= 3 && line.get(2) != null) {
-                v1 = line.get(2);
-            }
-            if (line.size() >= 4 && line.get(3) != null) {
-                v2 = line.get(3);
-            }
-            if (line.size() >= 5 && line.get(4) != null) {
-                v3 = line.get(4);
-            }
-            if (line.size() >= 6 && line.get(5) != null) {
-                v4 = line.get(5);
-            }
-            if (line.size() >= 7 && line.get(6) != null) {
-                v5 = line.get(6);
-            }
+    public Policy(String ptype, List<String> line) {
+        this.ptype = ptype;
+        this.id = ptype + "," + String.join(",", line);
+        if (line.size() >= 1 && line.get(0) != null) {
+            v0 = line.get(0);
+        }
+        if (line.size() >= 2 && line.get(1) != null) {
+            v1 = line.get(1);
+        }
+        if (line.size() >= 3 && line.get(2) != null) {
+            v2 = line.get(2);
+        }
+        if (line.size() >= 4 && line.get(3) != null) {
+            v3 = line.get(3);
+        }
+        if (line.size() >= 5 && line.get(4) != null) {
+            v4 = line.get(4);
+        }
+        if (line.size() >= 6 && line.get(5) != null) {
+            v5 = line.get(5);
         }
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public Policy setId(int id) {
+    public Policy setId(String id) {
         this.id = id;
         return this;
     }
@@ -140,5 +138,28 @@ public class Policy {
             lineText += ", " + getV5();
         }
         return lineText;
+    }
+
+    public List<String> toStringList() {
+        List<String> stringList = new ArrayList<>();
+        if (getV0() != null) {
+            stringList.add(getV0());
+        }
+        if (getV1() != null) {
+            stringList.add(getV1());
+        }
+        if (getV2() != null) {
+            stringList.add(getV2());
+        }
+        if (getV3() != null) {
+            stringList.add(getV3());
+        }
+        if (getV4() != null) {
+            stringList.add(getV4());
+        }
+        if (getV5() != null) {
+            stringList.add(getV5());
+        }
+        return stringList;
     }
 }

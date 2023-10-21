@@ -14,9 +14,6 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Stream;
 
-import static io.graphence.core.dto.enumType.PermissionType.READ;
-import static io.graphence.core.dto.enumType.PermissionType.WRITE;
-
 @ApplicationScoped
 public class RBACAdapter implements Adapter {
 
@@ -30,7 +27,7 @@ public class RBACAdapter implements Adapter {
 
     public static final String G_TYPE = "g";
 
-    public static final String UNDEFINED = "undefined";
+    public static final String EMPTY = "";
 
     private Set<Role> roles;
 
@@ -49,8 +46,8 @@ public class RBACAdapter implements Adapter {
                                     .map(permission ->
                                             new Policy()
                                                     .setPtype(P_TYPE)
-                                                    .setV0(ROLE_PREFIX + role.getName())
-                                                    .setV1(Optional.ofNullable(role.getRealmId()).map(String::valueOf).orElse(UNDEFINED))
+                                                    .setV0(ROLE_PREFIX + role.getId())
+                                                    .setV1(Optional.ofNullable(role.getRealmId()).map(String::valueOf).orElse(EMPTY))
                                                     .setV2(permission.getType() + SPACER + permission.getField())
                                                     .setV3(permission.getPermissionType().name())
                                     )
@@ -64,8 +61,8 @@ public class RBACAdapter implements Adapter {
                                             new Policy()
                                                     .setPtype(G_TYPE)
                                                     .setV0(USER_PREFIX + user.getId())
-                                                    .setV1(ROLE_PREFIX + role.getName())
-                                                    .setV2(Optional.ofNullable(user.getRealmId()).map(String::valueOf).orElse(UNDEFINED))
+                                                    .setV1(ROLE_PREFIX + role.getId())
+                                                    .setV2(Optional.ofNullable(role.getRealmId()).map(String::valueOf).orElse(EMPTY))
                                     )
                     );
 
@@ -81,8 +78,8 @@ public class RBACAdapter implements Adapter {
                                             new Policy()
                                                     .setPtype(G_TYPE)
                                                     .setV0(USER_PREFIX + user.getId())
-                                                    .setV1(ROLE_PREFIX + role.getName())
-                                                    .setV2(Optional.ofNullable(user.getRealmId()).map(String::valueOf).orElse(UNDEFINED))
+                                                    .setV1(ROLE_PREFIX + role.getId())
+                                                    .setV2(Optional.ofNullable(role.getRealmId()).map(String::valueOf).orElse(EMPTY))
                                     )
                     );
 
@@ -93,9 +90,9 @@ public class RBACAdapter implements Adapter {
                                     .map(composite ->
                                             new Policy()
                                                     .setPtype(G_TYPE)
-                                                    .setV0(ROLE_PREFIX + role.getName())
-                                                    .setV1(ROLE_PREFIX + composite.getName())
-                                                    .setV2(Optional.ofNullable(role.getRealmId()).map(String::valueOf).orElse(UNDEFINED))
+                                                    .setV0(ROLE_PREFIX + role.getId())
+                                                    .setV1(ROLE_PREFIX + composite.getId())
+                                                    .setV2(Optional.ofNullable(role.getRealmId()).map(String::valueOf).orElse(EMPTY))
                                     )
                     );
 

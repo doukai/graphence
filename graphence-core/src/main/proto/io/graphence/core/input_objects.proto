@@ -2696,6 +2696,6 @@ message RolePermissionConnectionSubscriptionArguments {
     optional string before = 23;
 }
 message Mutation_login_Arguments {
-    string login = 1;
-    string password = 2;
+    optional string login = 1;
+    optional string password = 2;
 }
