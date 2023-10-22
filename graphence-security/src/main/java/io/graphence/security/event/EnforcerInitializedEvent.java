@@ -2,13 +2,13 @@ package io.graphence.security.event;
 
 import com.google.auto.service.AutoService;
 import io.graphoenix.core.context.BeanContext;
-import io.graphence.core.casbin.RBACEnforcer;
 import io.graphence.core.casbin.adapter.RBACAdapter;
 import io.graphence.core.dao.RBACPolicyDao;
 import io.graphoenix.spi.handler.ScopeEvent;
 import jakarta.annotation.Priority;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.context.Initialized;
+import org.casbin.jcasbin.main.Enforcer;
 import reactor.core.publisher.Mono;
 
 import java.util.Map;
@@ -22,10 +22,11 @@ public class EnforcerInitializedEvent implements ScopeEvent {
     public Mono<Void> fireAsync(Map<String, Object> context) {
         RBACPolicyDao rbacPolicyDao = BeanContext.get(RBACPolicyDao.class);
         RBACAdapter RBACAdapter = BeanContext.get(RBACAdapter.class);
-        RBACEnforcer rbacEnforcer = BeanContext.get(RBACEnforcer.class);
+        Enforcer enforcer = BeanContext.get(Enforcer.class);
         return rbacPolicyDao.queryRoleList()
                 .map(RBACAdapter::setRoles)
-                .flatMap(adapter -> Mono.fromRunnable(() -> rbacEnforcer.setAdapter(adapter)))
+                .doOnSuccess(enforcer::setAdapter)
+                .doOnSuccess(adapter -> enforcer.loadPolicy())
                 .then();
     }
 }

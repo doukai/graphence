@@ -2,7 +2,6 @@ package io.graphence.security.event;
 
 import com.google.auto.service.AutoService;
 import graphql.parser.antlr.GraphqlParser;
-import io.graphence.core.casbin.RBACEnforcer;
 import io.graphence.core.dto.CurrentUser;
 import io.graphence.core.dto.enumType.PermissionType;
 import io.graphence.core.error.AuthorizationException;
@@ -15,6 +14,7 @@ import jakarta.enterprise.context.Initialized;
 import jakarta.enterprise.context.RequestScoped;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.TerminalNode;
+import org.casbin.jcasbin.main.Enforcer;
 import reactor.core.publisher.Mono;
 
 import java.util.Arrays;
@@ -39,11 +39,11 @@ import static io.graphoenix.spi.constant.Hammurabi.*;
 public class RBACFilter extends BaseRequestFilter implements ScopeEvent {
 
     private final IGraphQLDocumentManager manager;
-    private final RBACEnforcer rbacEnforcer;
+    private final Enforcer enforcer;
 
     public RBACFilter() {
         this.manager = BeanContext.get(IGraphQLDocumentManager.class);
-        this.rbacEnforcer = BeanContext.get(RBACEnforcer.class);
+        this.enforcer = BeanContext.get(Enforcer.class);
     }
 
     @Override
@@ -101,13 +101,12 @@ public class RBACFilter extends BaseRequestFilter implements ScopeEvent {
     }
 
     protected void enforceApi(CurrentUser currentUser, String operationTypeName, GraphqlParser.SelectionContext selectionContext, PermissionType permissionType) {
-        if (!rbacEnforcer.getEnforcer()
-                .enforce(
-                        USER_PREFIX + currentUser.getId(),
-                        currentUser.getRealmId(),
-                        operationTypeName + SPACER + selectionContext.field().name().getText(),
-                        permissionType.name()
-                )
+        if (!enforcer.enforce(
+                USER_PREFIX + currentUser.getId(),
+                currentUser.getRealmId(),
+                operationTypeName + SPACER + selectionContext.field().name().getText(),
+                permissionType.name()
+        )
         ) {
             throw new AuthorizationException(UN_AUTHORIZATION_READ.bind(selectionContext.field().name().getText()));
         }
@@ -142,13 +141,12 @@ public class RBACFilter extends BaseRequestFilter implements ScopeEvent {
                     } else {
                         fieldName = selectionContext.field().name().getText();
                     }
-                    if (rbacEnforcer.getEnforcer()
-                            .enforce(
-                                    USER_PREFIX + currentUser.getId(),
-                                    currentUser.getRealmId(),
-                                    typeName + SPACER + fieldName,
-                                    READ.name()
-                            )
+                    if (enforcer.enforce(
+                            USER_PREFIX + currentUser.getId(),
+                            currentUser.getRealmId(),
+                            typeName + SPACER + fieldName,
+                            READ.name()
+                    )
                     ) {
                         selectionSetContext.addChild(selectionContext);
                         enforce(currentUser, manager.getFieldTypeName(fieldDefinitionContext.type()), selectionContext.field().selectionSet());
@@ -174,13 +172,12 @@ public class RBACFilter extends BaseRequestFilter implements ScopeEvent {
                     if (Arrays.stream(EXCLUDE_INPUT).anyMatch(name -> name.equals(argumentContext.name().getText()))) {
                         argumentsContext.addChild(argumentContext);
                     } else {
-                        if (rbacEnforcer.getEnforcer()
-                                .enforce(
-                                        USER_PREFIX + currentUser.getId(),
-                                        currentUser.getRealmId(),
-                                        typeName + SPACER + argumentContext.name().getText(),
-                                        WRITE.name()
-                                )
+                        if (enforcer.enforce(
+                                USER_PREFIX + currentUser.getId(),
+                                currentUser.getRealmId(),
+                                typeName + SPACER + argumentContext.name().getText(),
+                                WRITE.name()
+                        )
                         ) {
                             argumentsContext.addChild(argumentContext);
                             GraphqlParser.FieldDefinitionContext fieldDefinitionContext = manager.getField(typeName, argumentContext.name().getText())
@@ -209,13 +206,12 @@ public class RBACFilter extends BaseRequestFilter implements ScopeEvent {
                     if (Arrays.stream(EXCLUDE_INPUT).anyMatch(name -> name.equals(objectFieldWithVariableContext.name().getText()))) {
                         objectValueWithVariableContext.addChild(objectFieldWithVariableContext);
                     } else {
-                        if (rbacEnforcer.getEnforcer()
-                                .enforce(
-                                        USER_PREFIX + currentUser.getId(),
-                                        currentUser.getRealmId(),
-                                        typeName + SPACER + objectFieldWithVariableContext.name().getText(),
-                                        WRITE.name()
-                                )
+                        if (enforcer.enforce(
+                                USER_PREFIX + currentUser.getId(),
+                                currentUser.getRealmId(),
+                                typeName + SPACER + objectFieldWithVariableContext.name().getText(),
+                                WRITE.name()
+                        )
                         ) {
                             objectValueWithVariableContext.addChild(objectFieldWithVariableContext);
                             GraphqlParser.FieldDefinitionContext fieldDefinitionContext = manager.getField(typeName, objectFieldWithVariableContext.name().getText())

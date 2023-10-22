@@ -9,22 +9,11 @@ public class CasbinConfig {
     @Optional
     private String model = "model.conf";
 
-    @Optional
-    private Boolean synced = true;
-
     public String getModel() {
         return model;
     }
 
     public void setModel(String model) {
         this.model = model;
-    }
-
-    public Boolean getSynced() {
-        return synced;
-    }
-
-    public void setSynced(Boolean synced) {
-        this.synced = synced;
     }
 }
