@@ -60,6 +60,9 @@ public class RoleExpression implements MetaExpression {
 
   private RolePermissionExpression rolePermission;
 
+  @DefaultValue("false")
+  private Boolean not;
+
   @DefaultValue("AND")
   private Conditional cond;
 
@@ -231,6 +234,14 @@ public class RoleExpression implements MetaExpression {
 
   public void setRolePermission(RolePermissionExpression rolePermission) {
     this.rolePermission = rolePermission;
+  }
+
+  public Boolean getNot() {
+    return this.not;
+  }
+
+  public void setNot(Boolean not) {
+    this.not = not;
   }
 
   public Conditional getCond() {

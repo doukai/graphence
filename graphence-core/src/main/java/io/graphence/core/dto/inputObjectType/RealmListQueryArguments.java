@@ -46,6 +46,9 @@ public class RealmListQueryArguments implements MetaExpression {
 
   private Collection<String> groupBy;
 
+  @DefaultValue("false")
+  private Boolean not;
+
   @DefaultValue("AND")
   private Conditional cond;
 
@@ -163,6 +166,14 @@ public class RealmListQueryArguments implements MetaExpression {
 
   public void setGroupBy(Collection<String> groupBy) {
     this.groupBy = groupBy;
+  }
+
+  public Boolean getNot() {
+    return this.not;
+  }
+
+  public void setNot(Boolean not) {
+    this.not = not;
   }
 
   public Conditional getCond() {

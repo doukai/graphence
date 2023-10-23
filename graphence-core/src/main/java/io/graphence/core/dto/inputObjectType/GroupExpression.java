@@ -60,6 +60,9 @@ public class GroupExpression implements MetaExpression {
 
   private GroupRoleExpression groupRole;
 
+  @DefaultValue("false")
+  private Boolean not;
+
   @DefaultValue("AND")
   private Conditional cond;
 
@@ -231,6 +234,14 @@ public class GroupExpression implements MetaExpression {
 
   public void setGroupRole(GroupRoleExpression groupRole) {
     this.groupRole = groupRole;
+  }
+
+  public Boolean getNot() {
+    return this.not;
+  }
+
+  public void setNot(Boolean not) {
+    this.not = not;
   }
 
   public Conditional getCond() {

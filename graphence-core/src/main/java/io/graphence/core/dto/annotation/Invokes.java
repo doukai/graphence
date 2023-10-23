@@ -15,7 +15,7 @@ import java.lang.annotation.Target;
 @Documented
 @Retention(RetentionPolicy.SOURCE)
 @Directive("invokes")
-@Target({ElementType.FIELD,ElementType.TYPE,ElementType.METHOD})
+@Target({ElementType.TYPE,ElementType.METHOD,ElementType.FIELD})
 public @interface Invokes {
   Invoke[] list();
 }
