@@ -54,15 +54,13 @@ public class RootUserBuildEvent implements ScopeEvent {
                                 "createTime", LocalDateTime.now()
                         )
                 )
-                .switchIfEmpty(
-                        Mono.just(
-                                Arguments.of(
-                                        "login", securityConfig.getRootUser(),
-                                        "name", securityConfig.getRootUser(),
-                                        "salt", Base64.getEncoder().encodeToString(hash.getSaltBytes()),
-                                        "hash", Base64.getEncoder().encodeToString(hash.getResultAsBytes()),
-                                        "createTime", LocalDateTime.now()
-                                )
+                .defaultIfEmpty(
+                        Arguments.of(
+                                "login", securityConfig.getRootUser(),
+                                "name", securityConfig.getRootUser(),
+                                "salt", Base64.getEncoder().encodeToString(hash.getSaltBytes()),
+                                "hash", Base64.getEncoder().encodeToString(hash.getResultAsBytes()),
+                                "createTime", LocalDateTime.now()
                         )
                 )
                 .map(arguments ->
@@ -74,7 +72,7 @@ public class RootUserBuildEvent implements ScopeEvent {
                                                 .addField(new Field("id"))
                                 )
                 )
-                .map(operation -> operationHandler.mutation(DOCUMENT_UTIL.graphqlToOperation(operation.toString())))
+                .flatMap(operation -> operationHandler.mutation(DOCUMENT_UTIL.graphqlToOperation(operation.toString())))
                 .then();
     }
 }
