@@ -3,6 +3,7 @@ package io.graphence.core.dto.objectType;
 import com.dslplatform.json.CompiledJson;
 import io.graphoenix.core.dto.interfaceType.Meta;
 import io.graphoenix.spi.annotation.Ignore;
+import io.graphoenix.structure.dto.interfaceType.NamedStruct;
 import jakarta.annotation.Generated;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -17,12 +18,14 @@ import org.eclipse.microprofile.graphql.Type;
 @CompiledJson
 @Generated("io.graphoenix.java.generator.builder.TypeSpecBuilderProxy")
 @Ignore
-public class Realm implements Meta {
+public class Realm implements Meta, NamedStruct {
   @Id
   private String id;
 
   @NonNull
   private String name;
+
+  private String description;
 
   private Boolean isDeprecated;
 
@@ -54,6 +57,12 @@ public class Realm implements Meta {
 
   private String nameMin;
 
+  private Integer descriptionCount;
+
+  private String descriptionMax;
+
+  private String descriptionMin;
+
   public String getId() {
     return this.id;
   }
@@ -66,8 +75,18 @@ public class Realm implements Meta {
     return this.name;
   }
 
+  @Override
   public void setName(String name) {
     this.name = name;
+  }
+
+  public String getDescription() {
+    return this.description;
+  }
+
+  @Override
+  public void setDescription(String description) {
+    this.description = description;
   }
 
   @Override
@@ -204,5 +223,29 @@ public class Realm implements Meta {
 
   public void setNameMin(String nameMin) {
     this.nameMin = nameMin;
+  }
+
+  public Integer getDescriptionCount() {
+    return this.descriptionCount;
+  }
+
+  public void setDescriptionCount(Integer descriptionCount) {
+    this.descriptionCount = descriptionCount;
+  }
+
+  public String getDescriptionMax() {
+    return this.descriptionMax;
+  }
+
+  public void setDescriptionMax(String descriptionMax) {
+    this.descriptionMax = descriptionMax;
+  }
+
+  public String getDescriptionMin() {
+    return this.descriptionMin;
+  }
+
+  public void setDescriptionMin(String descriptionMin) {
+    this.descriptionMin = descriptionMin;
   }
 }

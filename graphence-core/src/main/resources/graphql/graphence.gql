@@ -1,6 +1,7 @@
-type User {
+type User implements NamedStruct {
     id: ID @dataType(type: "Int" autoIncrement: true)
     name: String!
+    description: String
     lastName: String
     login: String!
     salt: String
@@ -13,7 +14,7 @@ type User {
     realm: Realm @map(from: "realmId" to: "id" anchor: true)
 }
 
-type Role {
+type Role implements NamedStruct & TreeStruct {
     id: ID @dataType(type: "Int" autoIncrement: true)
     name: String!
     description: String
@@ -24,9 +25,10 @@ type Role {
     realm: Realm @map(from: "realmId" to: "id" anchor: true)
 }
 
-type Group {
+type Group implements NamedStruct {
     id: ID @dataType(type: "Int" autoIncrement: true)
     name: String!
+    description: String
     path: String
     deep: Int
     parent: Group @map(from: "parentId" to: "id" anchor: true)
@@ -36,17 +38,18 @@ type Group {
     realm: Realm @map(from: "realmId" to: "id" anchor: true)
 }
 
-type Realm {
+type Realm implements NamedStruct {
     id: ID @dataType(type: "Int" autoIncrement: true)
     name: String!
+    description: String
 }
 
-type Permission {
+type Permission implements NamedStruct {
     name: ID!
+    description: String
     field: String!
     type: String!
     permissionType: PermissionType!
-    description: String
     roles: [Role] @map(from: "name" with: {type: "RolePermission" from: "permissionName" to: "roleId"} to: "id")
     realm: Realm @map(from: "realmId" to: "id" anchor: true)
 }

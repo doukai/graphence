@@ -13,6 +13,8 @@ public @interface GroupOrderBy0 {
 
   Sort name() default Sort.ASC;
 
+  Sort description() default Sort.ASC;
+
   Sort path() default Sort.ASC;
 
   Sort deep() default Sort.ASC;

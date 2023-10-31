@@ -62,6 +62,8 @@ public class GroupInput implements MetaInput {
 
   private GroupExpression where;
 
+  private String description;
+
   public String getId() {
     return this.id;
   }
@@ -236,5 +238,13 @@ public class GroupInput implements MetaInput {
 
   public void setWhere(GroupExpression where) {
     this.where = where;
+  }
+
+  public String getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 }

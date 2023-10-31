@@ -70,6 +70,8 @@ public class UserListMutationArguments implements MetaInput {
 
   private UserExpression where;
 
+  private String description;
+
   public String getId() {
     return this.id;
   }
@@ -276,5 +278,13 @@ public class UserListMutationArguments implements MetaInput {
 
   public void setWhere(UserExpression where) {
     this.where = where;
+  }
+
+  public String getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 }

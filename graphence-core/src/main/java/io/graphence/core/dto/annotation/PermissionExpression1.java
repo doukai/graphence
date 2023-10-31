@@ -14,13 +14,13 @@ public @interface PermissionExpression1 {
 
   IDExpression name() default @IDExpression;
 
+  StringExpression description() default @StringExpression;
+
   StringExpression field() default @StringExpression;
 
   StringExpression type() default @StringExpression;
 
   PermissionTypeExpression permissionType() default @PermissionTypeExpression;
-
-  StringExpression description() default @StringExpression;
 
   BooleanExpression isDeprecated() default @BooleanExpression;
 

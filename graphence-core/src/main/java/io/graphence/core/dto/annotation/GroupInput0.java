@@ -13,6 +13,8 @@ public @interface GroupInput0 {
 
   String name() default "";
 
+  String description() default "";
+
   String path() default "";
 
   int deep() default 0;
@@ -42,6 +44,8 @@ public @interface GroupInput0 {
   String $id() default "";
 
   String $name() default "";
+
+  String $description() default "";
 
   String $path() default "";
 

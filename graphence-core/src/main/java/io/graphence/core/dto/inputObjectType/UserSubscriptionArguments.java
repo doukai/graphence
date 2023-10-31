@@ -78,6 +78,8 @@ public class UserSubscriptionArguments implements MetaExpression {
 
   private Collection<UserExpression> exs;
 
+  private StringExpression description;
+
   public StringExpression getId() {
     return this.id;
   }
@@ -300,5 +302,13 @@ public class UserSubscriptionArguments implements MetaExpression {
 
   public void setExs(Collection<UserExpression> exs) {
     this.exs = exs;
+  }
+
+  public StringExpression getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(StringExpression description) {
+    this.description = description;
   }
 }

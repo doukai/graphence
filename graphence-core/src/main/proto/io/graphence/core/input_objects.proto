@@ -38,6 +38,7 @@ message UserExpression {
     optional bool not = 25;
     optional io.graphoenix.core.grpc.Conditional cond = 26;
     repeated UserExpression exs = 27;
+    optional io.graphoenix.core.grpc.StringExpression description = 28;
 }
 message UserInput {
     optional string id = 1;
@@ -65,6 +66,7 @@ message UserInput {
     repeated UserGroupInput user_group = 23;
     repeated UserRoleInput user_role = 24;
     optional UserExpression where = 25;
+    optional string description = 26;
 }
 message UserOrderBy {
     optional io.graphoenix.core.grpc.Sort id = 1;
@@ -84,6 +86,7 @@ message UserOrderBy {
     optional io.graphoenix.core.grpc.Sort update_time = 15;
     optional io.graphoenix.core.grpc.Sort create_group_id = 16;
     optional io.graphoenix.core.grpc.Sort intro_typename = 17;
+    optional io.graphoenix.core.grpc.Sort description = 18;
 }
 message RoleExpression {
     optional io.graphoenix.core.grpc.StringExpression id = 1;
@@ -174,6 +177,7 @@ message GroupExpression {
     optional bool not = 22;
     optional io.graphoenix.core.grpc.Conditional cond = 23;
     repeated GroupExpression exs = 24;
+    optional io.graphoenix.core.grpc.StringExpression description = 25;
 }
 message GroupInput {
     optional string id = 1;
@@ -198,6 +202,7 @@ message GroupInput {
     repeated UserGroupInput user_group = 20;
     repeated GroupRoleInput group_role = 21;
     optional GroupExpression where = 22;
+    optional string description = 23;
 }
 message GroupOrderBy {
     optional io.graphoenix.core.grpc.Sort id = 1;
@@ -214,6 +219,7 @@ message GroupOrderBy {
     optional io.graphoenix.core.grpc.Sort create_group_id = 12;
     optional io.graphoenix.core.grpc.Sort intro_typename = 13;
     optional io.graphoenix.core.grpc.Sort parent_id = 14;
+    optional io.graphoenix.core.grpc.Sort description = 15;
 }
 message RealmExpression {
     optional io.graphoenix.core.grpc.StringExpression id = 1;
@@ -230,6 +236,7 @@ message RealmExpression {
     optional bool not = 12;
     optional io.graphoenix.core.grpc.Conditional cond = 13;
     repeated RealmExpression exs = 14;
+    optional io.graphoenix.core.grpc.StringExpression description = 15;
 }
 message RealmInput {
     optional string id = 1;
@@ -244,6 +251,7 @@ message RealmInput {
     optional string create_group_id = 10;
     optional string intro_typename = 11;
     optional RealmExpression where = 12;
+    optional string description = 13;
 }
 message RealmOrderBy {
     optional io.graphoenix.core.grpc.Sort id = 1;
@@ -257,6 +265,7 @@ message RealmOrderBy {
     optional io.graphoenix.core.grpc.Sort update_time = 9;
     optional io.graphoenix.core.grpc.Sort create_group_id = 10;
     optional io.graphoenix.core.grpc.Sort intro_typename = 11;
+    optional io.graphoenix.core.grpc.Sort description = 12;
 }
 message PermissionExpression {
     optional io.graphoenix.core.grpc.StringExpression name = 1;
@@ -648,6 +657,7 @@ message UserQueryArguments {
     optional bool not = 26;
     optional io.graphoenix.core.grpc.Conditional cond = 27;
     repeated UserExpression exs = 28;
+    optional io.graphoenix.core.grpc.StringExpression description = 29;
 }
 message UserListQueryArguments {
     optional io.graphoenix.core.grpc.StringExpression id = 1;
@@ -684,6 +694,7 @@ message UserListQueryArguments {
     optional int32 offset = 32;
     optional string after = 33;
     optional string before = 34;
+    optional io.graphoenix.core.grpc.StringExpression description = 35;
 }
 message UserConnectionQueryArguments {
     optional io.graphoenix.core.grpc.StringExpression id = 1;
@@ -720,6 +731,7 @@ message UserConnectionQueryArguments {
     optional int32 offset = 32;
     optional string after = 33;
     optional string before = 34;
+    optional io.graphoenix.core.grpc.StringExpression description = 35;
 }
 message RoleQueryArguments {
     optional io.graphoenix.core.grpc.StringExpression id = 1;
@@ -840,6 +852,7 @@ message GroupQueryArguments {
     optional bool not = 23;
     optional io.graphoenix.core.grpc.Conditional cond = 24;
     repeated GroupExpression exs = 25;
+    optional io.graphoenix.core.grpc.StringExpression description = 26;
 }
 message GroupListQueryArguments {
     optional io.graphoenix.core.grpc.StringExpression id = 1;
@@ -873,6 +886,7 @@ message GroupListQueryArguments {
     optional int32 offset = 29;
     optional string after = 30;
     optional string before = 31;
+    optional io.graphoenix.core.grpc.StringExpression description = 32;
 }
 message GroupConnectionQueryArguments {
     optional io.graphoenix.core.grpc.StringExpression id = 1;
@@ -906,6 +920,7 @@ message GroupConnectionQueryArguments {
     optional int32 offset = 29;
     optional string after = 30;
     optional string before = 31;
+    optional io.graphoenix.core.grpc.StringExpression description = 32;
 }
 message RealmQueryArguments {
     optional io.graphoenix.core.grpc.StringExpression id = 1;
@@ -923,6 +938,7 @@ message RealmQueryArguments {
     optional bool not = 13;
     optional io.graphoenix.core.grpc.Conditional cond = 14;
     repeated RealmExpression exs = 15;
+    optional io.graphoenix.core.grpc.StringExpression description = 16;
 }
 message RealmListQueryArguments {
     optional io.graphoenix.core.grpc.StringExpression id = 1;
@@ -946,6 +962,7 @@ message RealmListQueryArguments {
     optional int32 offset = 19;
     optional string after = 20;
     optional string before = 21;
+    optional io.graphoenix.core.grpc.StringExpression description = 22;
 }
 message RealmConnectionQueryArguments {
     optional io.graphoenix.core.grpc.StringExpression id = 1;
@@ -969,6 +986,7 @@ message RealmConnectionQueryArguments {
     optional int32 offset = 19;
     optional string after = 20;
     optional string before = 21;
+    optional io.graphoenix.core.grpc.StringExpression description = 22;
 }
 message PermissionQueryArguments {
     optional io.graphoenix.core.grpc.StringExpression name = 1;
@@ -1506,6 +1524,7 @@ message UserMutationArguments {
     repeated UserGroupInput user_group = 23;
     repeated UserRoleInput user_role = 24;
     optional UserExpression where = 25;
+    optional string description = 26;
 }
 message UserListMutationArguments {
     optional string id = 1;
@@ -1534,6 +1553,7 @@ message UserListMutationArguments {
     repeated UserRoleInput user_role = 24;
     repeated UserInput list = 25;
     optional UserExpression where = 26;
+    optional string description = 27;
 }
 message RoleMutationArguments {
     optional string id = 1;
@@ -1607,6 +1627,7 @@ message GroupMutationArguments {
     repeated UserGroupInput user_group = 20;
     repeated GroupRoleInput group_role = 21;
     optional GroupExpression where = 22;
+    optional string description = 23;
 }
 message GroupListMutationArguments {
     optional string id = 1;
@@ -1632,6 +1653,7 @@ message GroupListMutationArguments {
     repeated GroupRoleInput group_role = 21;
     repeated GroupInput list = 22;
     optional GroupExpression where = 23;
+    optional string description = 24;
 }
 message RealmMutationArguments {
     optional string id = 1;
@@ -1646,6 +1668,7 @@ message RealmMutationArguments {
     optional string create_group_id = 10;
     optional string intro_typename = 11;
     optional RealmExpression where = 12;
+    optional string description = 13;
 }
 message RealmListMutationArguments {
     optional string id = 1;
@@ -1661,6 +1684,7 @@ message RealmListMutationArguments {
     optional string intro_typename = 11;
     repeated RealmInput list = 12;
     optional RealmExpression where = 13;
+    optional string description = 14;
 }
 message PermissionMutationArguments {
     optional string name = 1;
@@ -1940,6 +1964,7 @@ message UserSubscriptionArguments {
     optional bool not = 26;
     optional io.graphoenix.core.grpc.Conditional cond = 27;
     repeated UserExpression exs = 28;
+    optional io.graphoenix.core.grpc.StringExpression description = 29;
 }
 message UserListSubscriptionArguments {
     optional io.graphoenix.core.grpc.StringExpression id = 1;
@@ -1976,6 +2001,7 @@ message UserListSubscriptionArguments {
     optional int32 offset = 32;
     optional string after = 33;
     optional string before = 34;
+    optional io.graphoenix.core.grpc.StringExpression description = 35;
 }
 message UserConnectionSubscriptionArguments {
     optional io.graphoenix.core.grpc.StringExpression id = 1;
@@ -2012,6 +2038,7 @@ message UserConnectionSubscriptionArguments {
     optional int32 offset = 32;
     optional string after = 33;
     optional string before = 34;
+    optional io.graphoenix.core.grpc.StringExpression description = 35;
 }
 message RoleSubscriptionArguments {
     optional io.graphoenix.core.grpc.StringExpression id = 1;
@@ -2132,6 +2159,7 @@ message GroupSubscriptionArguments {
     optional bool not = 23;
     optional io.graphoenix.core.grpc.Conditional cond = 24;
     repeated GroupExpression exs = 25;
+    optional io.graphoenix.core.grpc.StringExpression description = 26;
 }
 message GroupListSubscriptionArguments {
     optional io.graphoenix.core.grpc.StringExpression id = 1;
@@ -2165,6 +2193,7 @@ message GroupListSubscriptionArguments {
     optional int32 offset = 29;
     optional string after = 30;
     optional string before = 31;
+    optional io.graphoenix.core.grpc.StringExpression description = 32;
 }
 message GroupConnectionSubscriptionArguments {
     optional io.graphoenix.core.grpc.StringExpression id = 1;
@@ -2198,6 +2227,7 @@ message GroupConnectionSubscriptionArguments {
     optional int32 offset = 29;
     optional string after = 30;
     optional string before = 31;
+    optional io.graphoenix.core.grpc.StringExpression description = 32;
 }
 message RealmSubscriptionArguments {
     optional io.graphoenix.core.grpc.StringExpression id = 1;
@@ -2215,6 +2245,7 @@ message RealmSubscriptionArguments {
     optional bool not = 13;
     optional io.graphoenix.core.grpc.Conditional cond = 14;
     repeated RealmExpression exs = 15;
+    optional io.graphoenix.core.grpc.StringExpression description = 16;
 }
 message RealmListSubscriptionArguments {
     optional io.graphoenix.core.grpc.StringExpression id = 1;
@@ -2238,6 +2269,7 @@ message RealmListSubscriptionArguments {
     optional int32 offset = 19;
     optional string after = 20;
     optional string before = 21;
+    optional io.graphoenix.core.grpc.StringExpression description = 22;
 }
 message RealmConnectionSubscriptionArguments {
     optional io.graphoenix.core.grpc.StringExpression id = 1;
@@ -2261,6 +2293,7 @@ message RealmConnectionSubscriptionArguments {
     optional int32 offset = 19;
     optional string after = 20;
     optional string before = 21;
+    optional io.graphoenix.core.grpc.StringExpression description = 22;
 }
 message PermissionSubscriptionArguments {
     optional io.graphoenix.core.grpc.StringExpression name = 1;
@@ -2773,6 +2806,6 @@ message RolePermissionConnectionSubscriptionArguments {
     optional string before = 24;
 }
 message Mutation_login_Arguments {
-    optional string login = 1;
-    optional string password = 2;
+    string login = 1;
+    string password = 2;
 }

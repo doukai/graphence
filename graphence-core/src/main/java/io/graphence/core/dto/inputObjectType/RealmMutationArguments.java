@@ -41,6 +41,8 @@ public class RealmMutationArguments implements MetaInput {
 
   private RealmExpression where;
 
+  private String description;
+
   public String getId() {
     return this.id;
   }
@@ -135,5 +137,13 @@ public class RealmMutationArguments implements MetaInput {
 
   public void setWhere(RealmExpression where) {
     this.where = where;
+  }
+
+  public String getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 }

@@ -84,6 +84,8 @@ public class GroupConnectionSubscriptionArguments implements MetaExpression {
 
   private String before;
 
+  private StringExpression description;
+
   public StringExpression getId() {
     return this.id;
   }
@@ -330,5 +332,13 @@ public class GroupConnectionSubscriptionArguments implements MetaExpression {
 
   public void setBefore(String before) {
     this.before = before;
+  }
+
+  public StringExpression getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(StringExpression description) {
+    this.description = description;
   }
 }

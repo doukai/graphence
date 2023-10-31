@@ -48,6 +48,8 @@ public class RealmExpression implements MetaExpression {
 
   private Collection<RealmExpression> exs;
 
+  private StringExpression description;
+
   public StringExpression getId() {
     return this.id;
   }
@@ -158,5 +160,13 @@ public class RealmExpression implements MetaExpression {
 
   public void setExs(Collection<RealmExpression> exs) {
     this.exs = exs;
+  }
+
+  public StringExpression getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(StringExpression description) {
+    this.description = description;
   }
 }

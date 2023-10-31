@@ -16,6 +16,8 @@ public @interface UserExpression1 {
 
   StringExpression name() default @StringExpression;
 
+  StringExpression description() default @StringExpression;
+
   StringExpression lastName() default @StringExpression;
 
   StringExpression login() default @StringExpression;

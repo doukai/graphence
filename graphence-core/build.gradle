@@ -60,6 +60,7 @@ repositories {
 dependencies {
     compile 'io.graphoenix:graphoenix-core:0.0.1-SNAPSHOT'
     compile 'io.graphoenix:graphoenix-introspection:0.0.1-SNAPSHOT'
+    compile 'io.graphoenix:graphoenix-structure:0.0.1-SNAPSHOT'
     compile 'io.graphoenix:graphoenix-interceptor:0.0.1-SNAPSHOT'
     compile 'io.graphoenix:graphoenix-config:0.0.1-SNAPSHOT'
     compile 'io.graphoenix:graphoenix-json:0.0.1-SNAPSHOT'
@@ -82,6 +83,7 @@ dependencies {
     compileOnly 'org.apache.tomcat:annotations-api:6.0.53' // necessary for Java 9+
 
     annotationProcessor 'io.graphoenix:graphoenix-introspection:0.0.1-SNAPSHOT'
+    annotationProcessor 'io.graphoenix:graphoenix-structure:0.0.1-SNAPSHOT'
     annotationProcessor 'io.graphoenix:graphoenix-annotation-processor:0.0.1-SNAPSHOT'
     annotationProcessor 'io.graphoenix:graphoenix-inject:0.0.1-SNAPSHOT'
     annotationProcessor 'io.graphoenix:graphoenix-interceptor:0.0.1-SNAPSHOT'
@@ -94,6 +96,7 @@ dependencies {
 
     protobuf 'io.graphoenix:graphoenix-core:0.0.1-SNAPSHOT'
     protobuf 'io.graphoenix:graphoenix-introspection:0.0.1-SNAPSHOT'
+    protobuf 'io.graphoenix:graphoenix-structure:0.0.1-SNAPSHOT'
 
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.2'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.2'

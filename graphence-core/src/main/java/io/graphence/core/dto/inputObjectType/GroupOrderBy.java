@@ -39,6 +39,8 @@ public class GroupOrderBy {
 
   private Sort parentId;
 
+  private Sort description;
+
   public Sort getId() {
     return this.id;
   }
@@ -149,5 +151,13 @@ public class GroupOrderBy {
 
   public void setParentId(Sort parentId) {
     this.parentId = parentId;
+  }
+
+  public Sort getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(Sort description) {
+    this.description = description;
   }
 }

@@ -12,13 +12,13 @@ import java.lang.annotation.Target;
 public @interface PermissionInput0 {
   String name() default "";
 
+  String description() default "";
+
   String field() default "";
 
   String type() default "";
 
   PermissionType permissionType() default PermissionType.READ;
-
-  String description() default "";
 
   boolean isDeprecated() default false;
 
@@ -42,13 +42,13 @@ public @interface PermissionInput0 {
 
   String $name() default "";
 
+  String $description() default "";
+
   String $field() default "";
 
   String $type() default "";
 
   String $permissionType() default "";
-
-  String $description() default "";
 
   String $roles() default "";
 

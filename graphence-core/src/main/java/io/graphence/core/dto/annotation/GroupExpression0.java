@@ -16,6 +16,8 @@ public @interface GroupExpression0 {
 
   StringExpression name() default @StringExpression;
 
+  StringExpression description() default @StringExpression;
+
   StringExpression path() default @StringExpression;
 
   IntExpression deep() default @IntExpression;

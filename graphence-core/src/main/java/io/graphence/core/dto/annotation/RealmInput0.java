@@ -13,6 +13,8 @@ public @interface RealmInput0 {
 
   String name() default "";
 
+  String description() default "";
+
   boolean isDeprecated() default false;
 
   int version() default 0;
@@ -34,6 +36,8 @@ public @interface RealmInput0 {
   String $id() default "";
 
   String $name() default "";
+
+  String $description() default "";
 
   String $isDeprecated() default "";
 

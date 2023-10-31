@@ -13,6 +13,8 @@ public @interface UserInput0 {
 
   String name() default "";
 
+  String description() default "";
+
   String lastName() default "";
 
   String login() default "";
@@ -50,6 +52,8 @@ public @interface UserInput0 {
   String $id() default "";
 
   String $name() default "";
+
+  String $description() default "";
 
   String $lastName() default "";
 

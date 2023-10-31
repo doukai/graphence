@@ -3,6 +3,8 @@ package io.graphence.core.dto.objectType;
 import com.dslplatform.json.CompiledJson;
 import io.graphoenix.core.dto.interfaceType.Meta;
 import io.graphoenix.spi.annotation.Ignore;
+import io.graphoenix.structure.dto.interfaceType.NamedStruct;
+import io.graphoenix.structure.dto.interfaceType.TreeStruct;
 import jakarta.annotation.Generated;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -18,7 +20,7 @@ import org.eclipse.microprofile.graphql.Type;
 @CompiledJson
 @Generated("io.graphoenix.java.generator.builder.TypeSpecBuilderProxy")
 @Ignore
-public class Role implements Meta {
+public class Role implements TreeStruct, NamedStruct, Meta {
   @Id
   private String id;
 
@@ -137,6 +139,7 @@ public class Role implements Meta {
     return this.name;
   }
 
+  @Override
   public void setName(String name) {
     this.name = name;
   }
@@ -145,6 +148,7 @@ public class Role implements Meta {
     return this.description;
   }
 
+  @Override
   public void setDescription(String description) {
     this.description = description;
   }
@@ -189,7 +193,6 @@ public class Role implements Meta {
     this.realm = realm;
   }
 
-  @Override
   public Boolean getIsDeprecated() {
     return this.isDeprecated;
   }
@@ -199,7 +202,6 @@ public class Role implements Meta {
     this.isDeprecated = isDeprecated;
   }
 
-  @Override
   public Integer getVersion() {
     return this.version;
   }
@@ -209,7 +211,6 @@ public class Role implements Meta {
     this.version = version;
   }
 
-  @Override
   public Integer getRealmId() {
     return this.realmId;
   }
@@ -219,7 +220,6 @@ public class Role implements Meta {
     this.realmId = realmId;
   }
 
-  @Override
   public String getCreateUserId() {
     return this.createUserId;
   }
@@ -229,7 +229,6 @@ public class Role implements Meta {
     this.createUserId = createUserId;
   }
 
-  @Override
   public LocalDateTime getCreateTime() {
     return this.createTime;
   }
@@ -239,7 +238,6 @@ public class Role implements Meta {
     this.createTime = createTime;
   }
 
-  @Override
   public String getUpdateUserId() {
     return this.updateUserId;
   }
@@ -249,7 +247,6 @@ public class Role implements Meta {
     this.updateUserId = updateUserId;
   }
 
-  @Override
   public LocalDateTime getUpdateTime() {
     return this.updateTime;
   }
@@ -259,7 +256,6 @@ public class Role implements Meta {
     this.updateTime = updateTime;
   }
 
-  @Override
   public String getCreateGroupId() {
     return this.createGroupId;
   }

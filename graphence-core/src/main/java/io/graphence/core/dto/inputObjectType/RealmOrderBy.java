@@ -33,6 +33,8 @@ public class RealmOrderBy {
 
   private Sort __typename;
 
+  private Sort description;
+
   public Sort getId() {
     return this.id;
   }
@@ -119,5 +121,13 @@ public class RealmOrderBy {
 
   public void set__typename(Sort __typename) {
     this.__typename = __typename;
+  }
+
+  public Sort getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(Sort description) {
+    this.description = description;
   }
 }

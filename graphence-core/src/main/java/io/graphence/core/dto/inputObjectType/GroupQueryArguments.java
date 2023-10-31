@@ -71,6 +71,8 @@ public class GroupQueryArguments implements MetaExpression {
 
   private Collection<GroupExpression> exs;
 
+  private StringExpression description;
+
   public StringExpression getId() {
     return this.id;
   }
@@ -269,5 +271,13 @@ public class GroupQueryArguments implements MetaExpression {
 
   public void setExs(Collection<GroupExpression> exs) {
     this.exs = exs;
+  }
+
+  public StringExpression getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(StringExpression description) {
+    this.description = description;
   }
 }

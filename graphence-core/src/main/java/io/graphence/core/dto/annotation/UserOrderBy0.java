@@ -13,6 +13,8 @@ public @interface UserOrderBy0 {
 
   Sort name() default Sort.ASC;
 
+  Sort description() default Sort.ASC;
+
   Sort lastName() default Sort.ASC;
 
   Sort login() default Sort.ASC;

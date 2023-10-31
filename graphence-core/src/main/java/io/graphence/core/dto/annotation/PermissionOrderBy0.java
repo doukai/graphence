@@ -11,13 +11,13 @@ import java.lang.annotation.Target;
 public @interface PermissionOrderBy0 {
   Sort name() default Sort.ASC;
 
+  Sort description() default Sort.ASC;
+
   Sort field() default Sort.ASC;
 
   Sort type() default Sort.ASC;
 
   Sort permissionType() default Sort.ASC;
-
-  Sort description() default Sort.ASC;
 
   Sort isDeprecated() default Sort.ASC;
 

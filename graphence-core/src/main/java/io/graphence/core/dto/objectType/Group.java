@@ -3,6 +3,7 @@ package io.graphence.core.dto.objectType;
 import com.dslplatform.json.CompiledJson;
 import io.graphoenix.core.dto.interfaceType.Meta;
 import io.graphoenix.spi.annotation.Ignore;
+import io.graphoenix.structure.dto.interfaceType.NamedStruct;
 import jakarta.annotation.Generated;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -18,12 +19,14 @@ import org.eclipse.microprofile.graphql.Type;
 @CompiledJson
 @Generated("io.graphoenix.java.generator.builder.TypeSpecBuilderProxy")
 @Ignore
-public class Group implements Meta {
+public class Group implements NamedStruct, Meta {
   @Id
   private String id;
 
   @NonNull
   private String name;
+
+  private String description;
 
   private String path;
 
@@ -133,6 +136,12 @@ public class Group implements Meta {
 
   private Boolean syncGroupPolicy;
 
+  private Integer descriptionCount;
+
+  private String descriptionMax;
+
+  private String descriptionMin;
+
   public String getId() {
     return this.id;
   }
@@ -141,12 +150,24 @@ public class Group implements Meta {
     this.id = id;
   }
 
+  @Override
   public String getName() {
     return this.name;
   }
 
+  @Override
   public void setName(String name) {
     this.name = name;
+  }
+
+  @Override
+  public String getDescription() {
+    return this.description;
+  }
+
+  @Override
+  public void setDescription(String description) {
+    this.description = description;
   }
 
   public String getPath() {
@@ -205,7 +226,6 @@ public class Group implements Meta {
     this.realm = realm;
   }
 
-  @Override
   public Boolean getIsDeprecated() {
     return this.isDeprecated;
   }
@@ -215,7 +235,6 @@ public class Group implements Meta {
     this.isDeprecated = isDeprecated;
   }
 
-  @Override
   public Integer getVersion() {
     return this.version;
   }
@@ -225,7 +244,6 @@ public class Group implements Meta {
     this.version = version;
   }
 
-  @Override
   public Integer getRealmId() {
     return this.realmId;
   }
@@ -235,7 +253,6 @@ public class Group implements Meta {
     this.realmId = realmId;
   }
 
-  @Override
   public String getCreateUserId() {
     return this.createUserId;
   }
@@ -245,7 +262,6 @@ public class Group implements Meta {
     this.createUserId = createUserId;
   }
 
-  @Override
   public LocalDateTime getCreateTime() {
     return this.createTime;
   }
@@ -255,7 +271,6 @@ public class Group implements Meta {
     this.createTime = createTime;
   }
 
-  @Override
   public String getUpdateUserId() {
     return this.updateUserId;
   }
@@ -265,7 +280,6 @@ public class Group implements Meta {
     this.updateUserId = updateUserId;
   }
 
-  @Override
   public LocalDateTime getUpdateTime() {
     return this.updateTime;
   }
@@ -275,7 +289,6 @@ public class Group implements Meta {
     this.updateTime = updateTime;
   }
 
-  @Override
   public String getCreateGroupId() {
     return this.createGroupId;
   }
@@ -595,5 +608,29 @@ public class Group implements Meta {
 
   public void setSyncGroupPolicy(Boolean syncGroupPolicy) {
     this.syncGroupPolicy = syncGroupPolicy;
+  }
+
+  public Integer getDescriptionCount() {
+    return this.descriptionCount;
+  }
+
+  public void setDescriptionCount(Integer descriptionCount) {
+    this.descriptionCount = descriptionCount;
+  }
+
+  public String getDescriptionMax() {
+    return this.descriptionMax;
+  }
+
+  public void setDescriptionMax(String descriptionMax) {
+    this.descriptionMax = descriptionMax;
+  }
+
+  public String getDescriptionMin() {
+    return this.descriptionMin;
+  }
+
+  public void setDescriptionMin(String descriptionMin) {
+    this.descriptionMin = descriptionMin;
   }
 }
