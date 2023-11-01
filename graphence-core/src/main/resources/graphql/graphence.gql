@@ -31,6 +31,7 @@ type Group implements NamedStruct & TreeStruct {
     description: String
     path: String
     deep: Int
+    parentId: String
     parent: Group @map(from: "parentId" to: "id" anchor: true)
     subGroups: [Group] @map(from: "id" to: "parentId")
     users: [User] @map(from: "id" with: {type: "UserGroup" from: "groupId" to: "userId"} to: "id")
