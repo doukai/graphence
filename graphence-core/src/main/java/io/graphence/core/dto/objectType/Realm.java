@@ -18,7 +18,7 @@ import org.eclipse.microprofile.graphql.Type;
 @CompiledJson
 @Generated("io.graphoenix.java.generator.builder.TypeSpecBuilderProxy")
 @Ignore
-public class Realm implements Meta, NamedStruct {
+public class Realm implements NamedStruct, Meta {
   @Id
   private String id;
 
@@ -71,6 +71,7 @@ public class Realm implements Meta, NamedStruct {
     this.id = id;
   }
 
+  @Override
   public String getName() {
     return this.name;
   }
@@ -80,6 +81,7 @@ public class Realm implements Meta, NamedStruct {
     this.name = name;
   }
 
+  @Override
   public String getDescription() {
     return this.description;
   }
@@ -89,7 +91,6 @@ public class Realm implements Meta, NamedStruct {
     this.description = description;
   }
 
-  @Override
   public Boolean getIsDeprecated() {
     return this.isDeprecated;
   }
@@ -99,7 +100,6 @@ public class Realm implements Meta, NamedStruct {
     this.isDeprecated = isDeprecated;
   }
 
-  @Override
   public Integer getVersion() {
     return this.version;
   }
@@ -109,7 +109,6 @@ public class Realm implements Meta, NamedStruct {
     this.version = version;
   }
 
-  @Override
   public Integer getRealmId() {
     return this.realmId;
   }
@@ -119,7 +118,6 @@ public class Realm implements Meta, NamedStruct {
     this.realmId = realmId;
   }
 
-  @Override
   public String getCreateUserId() {
     return this.createUserId;
   }
@@ -129,7 +127,6 @@ public class Realm implements Meta, NamedStruct {
     this.createUserId = createUserId;
   }
 
-  @Override
   public LocalDateTime getCreateTime() {
     return this.createTime;
   }
@@ -139,7 +136,6 @@ public class Realm implements Meta, NamedStruct {
     this.createTime = createTime;
   }
 
-  @Override
   public String getUpdateUserId() {
     return this.updateUserId;
   }
@@ -149,7 +145,6 @@ public class Realm implements Meta, NamedStruct {
     this.updateUserId = updateUserId;
   }
 
-  @Override
   public LocalDateTime getUpdateTime() {
     return this.updateTime;
   }
@@ -159,7 +154,6 @@ public class Realm implements Meta, NamedStruct {
     this.updateTime = updateTime;
   }
 
-  @Override
   public String getCreateGroupId() {
     return this.createGroupId;
   }

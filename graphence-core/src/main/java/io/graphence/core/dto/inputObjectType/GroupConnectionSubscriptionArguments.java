@@ -6,6 +6,8 @@ import io.graphoenix.core.dto.inputObjectType.IntExpression;
 import io.graphoenix.core.dto.inputObjectType.MetaExpression;
 import io.graphoenix.core.dto.inputObjectType.StringExpression;
 import io.graphoenix.spi.annotation.Ignore;
+import io.graphoenix.structure.dto.inputObjectType.NamedStructExpression;
+import io.graphoenix.structure.dto.inputObjectType.TreeStructExpression;
 import jakarta.annotation.Generated;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -18,10 +20,12 @@ import org.eclipse.microprofile.graphql.Input;
 @Input
 @Generated("io.graphoenix.java.generator.builder.TypeSpecBuilderProxy")
 @Ignore
-public class GroupConnectionSubscriptionArguments implements MetaExpression {
+public class GroupConnectionSubscriptionArguments implements MetaExpression, NamedStructExpression, TreeStructExpression {
   private StringExpression id;
 
   private StringExpression name;
+
+  private StringExpression description;
 
   private StringExpression path;
 
@@ -84,8 +88,6 @@ public class GroupConnectionSubscriptionArguments implements MetaExpression {
 
   private String before;
 
-  private StringExpression description;
-
   public StringExpression getId() {
     return this.id;
   }
@@ -100,6 +102,14 @@ public class GroupConnectionSubscriptionArguments implements MetaExpression {
 
   public void setName(StringExpression name) {
     this.name = name;
+  }
+
+  public StringExpression getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(StringExpression description) {
+    this.description = description;
   }
 
   public StringExpression getPath() {
@@ -332,13 +342,5 @@ public class GroupConnectionSubscriptionArguments implements MetaExpression {
 
   public void setBefore(String before) {
     this.before = before;
-  }
-
-  public StringExpression getDescription() {
-    return this.description;
-  }
-
-  public void setDescription(StringExpression description) {
-    this.description = description;
   }
 }

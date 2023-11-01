@@ -3,6 +3,7 @@ package io.graphence.core.dto.inputObjectType;
 import com.dslplatform.json.CompiledJson;
 import io.graphoenix.core.dto.inputObjectType.MetaInput;
 import io.graphoenix.spi.annotation.Ignore;
+import io.graphoenix.structure.dto.inputObjectType.NamedStructInput;
 import jakarta.annotation.Generated;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -15,10 +16,12 @@ import org.eclipse.microprofile.graphql.Input;
 @Input
 @Generated("io.graphoenix.java.generator.builder.TypeSpecBuilderProxy")
 @Ignore
-public class RealmMutationArguments implements MetaInput {
+public class RealmMutationArguments implements MetaInput, NamedStructInput {
   private String id;
 
   private String name;
+
+  private String description;
 
   private Boolean isDeprecated;
 
@@ -41,8 +44,6 @@ public class RealmMutationArguments implements MetaInput {
 
   private RealmExpression where;
 
-  private String description;
-
   public String getId() {
     return this.id;
   }
@@ -57,6 +58,14 @@ public class RealmMutationArguments implements MetaInput {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public String getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
   public Boolean getIsDeprecated() {
@@ -137,13 +146,5 @@ public class RealmMutationArguments implements MetaInput {
 
   public void setWhere(RealmExpression where) {
     this.where = where;
-  }
-
-  public String getDescription() {
-    return this.description;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
   }
 }

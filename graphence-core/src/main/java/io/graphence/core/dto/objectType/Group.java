@@ -4,6 +4,7 @@ import com.dslplatform.json.CompiledJson;
 import io.graphoenix.core.dto.interfaceType.Meta;
 import io.graphoenix.spi.annotation.Ignore;
 import io.graphoenix.structure.dto.interfaceType.NamedStruct;
+import io.graphoenix.structure.dto.interfaceType.TreeStruct;
 import jakarta.annotation.Generated;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -19,7 +20,7 @@ import org.eclipse.microprofile.graphql.Type;
 @CompiledJson
 @Generated("io.graphoenix.java.generator.builder.TypeSpecBuilderProxy")
 @Ignore
-public class Group implements NamedStruct, Meta {
+public class Group implements Meta, NamedStruct, TreeStruct {
   @Id
   private String id;
 
@@ -71,6 +72,12 @@ public class Group implements NamedStruct, Meta {
   private String nameMax;
 
   private String nameMin;
+
+  private Integer descriptionCount;
+
+  private String descriptionMax;
+
+  private String descriptionMin;
 
   private Integer pathCount;
 
@@ -136,12 +143,6 @@ public class Group implements NamedStruct, Meta {
 
   private Boolean syncGroupPolicy;
 
-  private Integer descriptionCount;
-
-  private String descriptionMax;
-
-  private String descriptionMin;
-
   public String getId() {
     return this.id;
   }
@@ -150,7 +151,6 @@ public class Group implements NamedStruct, Meta {
     this.id = id;
   }
 
-  @Override
   public String getName() {
     return this.name;
   }
@@ -160,7 +160,6 @@ public class Group implements NamedStruct, Meta {
     this.name = name;
   }
 
-  @Override
   public String getDescription() {
     return this.description;
   }
@@ -174,6 +173,7 @@ public class Group implements NamedStruct, Meta {
     return this.path;
   }
 
+  @Override
   public void setPath(String path) {
     this.path = path;
   }
@@ -182,6 +182,7 @@ public class Group implements NamedStruct, Meta {
     return this.deep;
   }
 
+  @Override
   public void setDeep(Integer deep) {
     this.deep = deep;
   }
@@ -226,6 +227,7 @@ public class Group implements NamedStruct, Meta {
     this.realm = realm;
   }
 
+  @Override
   public Boolean getIsDeprecated() {
     return this.isDeprecated;
   }
@@ -235,6 +237,7 @@ public class Group implements NamedStruct, Meta {
     this.isDeprecated = isDeprecated;
   }
 
+  @Override
   public Integer getVersion() {
     return this.version;
   }
@@ -244,6 +247,7 @@ public class Group implements NamedStruct, Meta {
     this.version = version;
   }
 
+  @Override
   public Integer getRealmId() {
     return this.realmId;
   }
@@ -253,6 +257,7 @@ public class Group implements NamedStruct, Meta {
     this.realmId = realmId;
   }
 
+  @Override
   public String getCreateUserId() {
     return this.createUserId;
   }
@@ -262,6 +267,7 @@ public class Group implements NamedStruct, Meta {
     this.createUserId = createUserId;
   }
 
+  @Override
   public LocalDateTime getCreateTime() {
     return this.createTime;
   }
@@ -271,6 +277,7 @@ public class Group implements NamedStruct, Meta {
     this.createTime = createTime;
   }
 
+  @Override
   public String getUpdateUserId() {
     return this.updateUserId;
   }
@@ -280,6 +287,7 @@ public class Group implements NamedStruct, Meta {
     this.updateUserId = updateUserId;
   }
 
+  @Override
   public LocalDateTime getUpdateTime() {
     return this.updateTime;
   }
@@ -289,6 +297,7 @@ public class Group implements NamedStruct, Meta {
     this.updateTime = updateTime;
   }
 
+  @Override
   public String getCreateGroupId() {
     return this.createGroupId;
   }
@@ -352,6 +361,30 @@ public class Group implements NamedStruct, Meta {
 
   public void setNameMin(String nameMin) {
     this.nameMin = nameMin;
+  }
+
+  public Integer getDescriptionCount() {
+    return this.descriptionCount;
+  }
+
+  public void setDescriptionCount(Integer descriptionCount) {
+    this.descriptionCount = descriptionCount;
+  }
+
+  public String getDescriptionMax() {
+    return this.descriptionMax;
+  }
+
+  public void setDescriptionMax(String descriptionMax) {
+    this.descriptionMax = descriptionMax;
+  }
+
+  public String getDescriptionMin() {
+    return this.descriptionMin;
+  }
+
+  public void setDescriptionMin(String descriptionMin) {
+    this.descriptionMin = descriptionMin;
   }
 
   public Integer getPathCount() {
@@ -608,29 +641,5 @@ public class Group implements NamedStruct, Meta {
 
   public void setSyncGroupPolicy(Boolean syncGroupPolicy) {
     this.syncGroupPolicy = syncGroupPolicy;
-  }
-
-  public Integer getDescriptionCount() {
-    return this.descriptionCount;
-  }
-
-  public void setDescriptionCount(Integer descriptionCount) {
-    this.descriptionCount = descriptionCount;
-  }
-
-  public String getDescriptionMax() {
-    return this.descriptionMax;
-  }
-
-  public void setDescriptionMax(String descriptionMax) {
-    this.descriptionMax = descriptionMax;
-  }
-
-  public String getDescriptionMin() {
-    return this.descriptionMin;
-  }
-
-  public void setDescriptionMin(String descriptionMin) {
-    this.descriptionMin = descriptionMin;
   }
 }

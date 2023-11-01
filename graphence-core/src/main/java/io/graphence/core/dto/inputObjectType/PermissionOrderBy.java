@@ -13,13 +13,13 @@ import org.eclipse.microprofile.graphql.Input;
 public class PermissionOrderBy {
   private Sort name;
 
+  private Sort description;
+
   private Sort field;
 
   private Sort type;
 
   private Sort permissionType;
-
-  private Sort description;
 
   private Sort isDeprecated;
 
@@ -47,6 +47,14 @@ public class PermissionOrderBy {
     this.name = name;
   }
 
+  public Sort getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(Sort description) {
+    this.description = description;
+  }
+
   public Sort getField() {
     return this.field;
   }
@@ -69,14 +77,6 @@ public class PermissionOrderBy {
 
   public void setPermissionType(Sort permissionType) {
     this.permissionType = permissionType;
-  }
-
-  public Sort getDescription() {
-    return this.description;
-  }
-
-  public void setDescription(Sort description) {
-    this.description = description;
   }
 
   public Sort getIsDeprecated() {

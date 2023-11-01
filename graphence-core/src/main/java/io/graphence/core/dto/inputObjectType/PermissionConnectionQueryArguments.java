@@ -21,13 +21,13 @@ import org.eclipse.microprofile.graphql.Input;
 public class PermissionConnectionQueryArguments implements MetaExpression {
   private StringExpression name;
 
+  private StringExpression description;
+
   private StringExpression field;
 
   private StringExpression type;
 
   private PermissionTypeExpression permissionType;
-
-  private StringExpression description;
 
   private RoleExpression roles;
 
@@ -84,6 +84,14 @@ public class PermissionConnectionQueryArguments implements MetaExpression {
     this.name = name;
   }
 
+  public StringExpression getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(StringExpression description) {
+    this.description = description;
+  }
+
   public StringExpression getField() {
     return this.field;
   }
@@ -106,14 +114,6 @@ public class PermissionConnectionQueryArguments implements MetaExpression {
 
   public void setPermissionType(PermissionTypeExpression permissionType) {
     this.permissionType = permissionType;
-  }
-
-  public StringExpression getDescription() {
-    return this.description;
-  }
-
-  public void setDescription(StringExpression description) {
-    this.description = description;
   }
 
   public RoleExpression getRoles() {

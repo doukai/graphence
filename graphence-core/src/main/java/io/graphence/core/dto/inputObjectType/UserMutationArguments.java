@@ -3,6 +3,7 @@ package io.graphence.core.dto.inputObjectType;
 import com.dslplatform.json.CompiledJson;
 import io.graphoenix.core.dto.inputObjectType.MetaInput;
 import io.graphoenix.spi.annotation.Ignore;
+import io.graphoenix.structure.dto.inputObjectType.NamedStructInput;
 import jakarta.annotation.Generated;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -16,10 +17,12 @@ import org.eclipse.microprofile.graphql.Input;
 @Input
 @Generated("io.graphoenix.java.generator.builder.TypeSpecBuilderProxy")
 @Ignore
-public class UserMutationArguments implements MetaInput {
+public class UserMutationArguments implements MetaInput, NamedStructInput {
   private String id;
 
   private String name;
+
+  private String description;
 
   private String lastName;
 
@@ -68,8 +71,6 @@ public class UserMutationArguments implements MetaInput {
 
   private UserExpression where;
 
-  private String description;
-
   public String getId() {
     return this.id;
   }
@@ -84,6 +85,14 @@ public class UserMutationArguments implements MetaInput {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public String getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
   public String getLastName() {
@@ -268,13 +277,5 @@ public class UserMutationArguments implements MetaInput {
 
   public void setWhere(UserExpression where) {
     this.where = where;
-  }
-
-  public String getDescription() {
-    return this.description;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
   }
 }

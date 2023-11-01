@@ -15,6 +15,8 @@ public class UserOrderBy {
 
   private Sort name;
 
+  private Sort description;
+
   private Sort lastName;
 
   private Sort login;
@@ -45,8 +47,6 @@ public class UserOrderBy {
 
   private Sort __typename;
 
-  private Sort description;
-
   public Sort getId() {
     return this.id;
   }
@@ -61,6 +61,14 @@ public class UserOrderBy {
 
   public void setName(Sort name) {
     this.name = name;
+  }
+
+  public Sort getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(Sort description) {
+    this.description = description;
   }
 
   public Sort getLastName() {
@@ -181,13 +189,5 @@ public class UserOrderBy {
 
   public void set__typename(Sort __typename) {
     this.__typename = __typename;
-  }
-
-  public Sort getDescription() {
-    return this.description;
-  }
-
-  public void setDescription(Sort description) {
-    this.description = description;
   }
 }

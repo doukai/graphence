@@ -20,13 +20,13 @@ import org.eclipse.microprofile.graphql.Input;
 public class PermissionListMutationArguments implements MetaInput {
   private String name;
 
+  private String description;
+
   private String field;
 
   private String type;
 
   private PermissionType permissionType;
-
-  private String description;
 
   private Collection<RoleInput> roles;
 
@@ -65,6 +65,14 @@ public class PermissionListMutationArguments implements MetaInput {
     this.name = name;
   }
 
+  public String getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
   public String getField() {
     return this.field;
   }
@@ -87,14 +95,6 @@ public class PermissionListMutationArguments implements MetaInput {
 
   public void setPermissionType(PermissionType permissionType) {
     this.permissionType = permissionType;
-  }
-
-  public String getDescription() {
-    return this.description;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
   }
 
   public Collection<RoleInput> getRoles() {

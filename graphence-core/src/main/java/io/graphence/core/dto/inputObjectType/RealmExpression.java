@@ -6,6 +6,7 @@ import io.graphoenix.core.dto.inputObjectType.IntExpression;
 import io.graphoenix.core.dto.inputObjectType.MetaExpression;
 import io.graphoenix.core.dto.inputObjectType.StringExpression;
 import io.graphoenix.spi.annotation.Ignore;
+import io.graphoenix.structure.dto.inputObjectType.NamedStructExpression;
 import jakarta.annotation.Generated;
 import java.lang.Boolean;
 import java.util.Collection;
@@ -16,10 +17,12 @@ import org.eclipse.microprofile.graphql.Input;
 @Input
 @Generated("io.graphoenix.java.generator.builder.TypeSpecBuilderProxy")
 @Ignore
-public class RealmExpression implements MetaExpression {
+public class RealmExpression implements MetaExpression, NamedStructExpression {
   private StringExpression id;
 
   private StringExpression name;
+
+  private StringExpression description;
 
   @DefaultValue("false")
   private Boolean includeDeprecated;
@@ -48,8 +51,6 @@ public class RealmExpression implements MetaExpression {
 
   private Collection<RealmExpression> exs;
 
-  private StringExpression description;
-
   public StringExpression getId() {
     return this.id;
   }
@@ -64,6 +65,14 @@ public class RealmExpression implements MetaExpression {
 
   public void setName(StringExpression name) {
     this.name = name;
+  }
+
+  public StringExpression getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(StringExpression description) {
+    this.description = description;
   }
 
   public Boolean getIncludeDeprecated() {
@@ -160,13 +169,5 @@ public class RealmExpression implements MetaExpression {
 
   public void setExs(Collection<RealmExpression> exs) {
     this.exs = exs;
-  }
-
-  public StringExpression getDescription() {
-    return this.description;
-  }
-
-  public void setDescription(StringExpression description) {
-    this.description = description;
   }
 }

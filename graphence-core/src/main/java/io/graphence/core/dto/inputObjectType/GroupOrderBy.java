@@ -15,6 +15,8 @@ public class GroupOrderBy {
 
   private Sort name;
 
+  private Sort description;
+
   private Sort path;
 
   private Sort deep;
@@ -39,8 +41,6 @@ public class GroupOrderBy {
 
   private Sort parentId;
 
-  private Sort description;
-
   public Sort getId() {
     return this.id;
   }
@@ -55,6 +55,14 @@ public class GroupOrderBy {
 
   public void setName(Sort name) {
     this.name = name;
+  }
+
+  public Sort getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(Sort description) {
+    this.description = description;
   }
 
   public Sort getPath() {
@@ -151,13 +159,5 @@ public class GroupOrderBy {
 
   public void setParentId(Sort parentId) {
     this.parentId = parentId;
-  }
-
-  public Sort getDescription() {
-    return this.description;
-  }
-
-  public void setDescription(Sort description) {
-    this.description = description;
   }
 }

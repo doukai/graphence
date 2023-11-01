@@ -4,7 +4,6 @@ import com.dslplatform.json.CompiledJson;
 import io.graphence.core.dto.enumType.PermissionType;
 import io.graphoenix.core.dto.interfaceType.Meta;
 import io.graphoenix.spi.annotation.Ignore;
-import io.graphoenix.structure.dto.interfaceType.NamedStruct;
 import jakarta.annotation.Generated;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -20,7 +19,7 @@ import org.eclipse.microprofile.graphql.Type;
 @CompiledJson
 @Generated("io.graphoenix.java.generator.builder.TypeSpecBuilderProxy")
 @Ignore
-public class Permission implements NamedStruct, Meta {
+public class Permission implements Meta {
   @Id
   @NonNull
   private String name;
@@ -64,6 +63,12 @@ public class Permission implements NamedStruct, Meta {
 
   private String nameMin;
 
+  private Integer descriptionCount;
+
+  private String descriptionMax;
+
+  private String descriptionMin;
+
   private Integer fieldCount;
 
   private String fieldMax;
@@ -75,12 +80,6 @@ public class Permission implements NamedStruct, Meta {
   private String typeMax;
 
   private String typeMin;
-
-  private Integer descriptionCount;
-
-  private String descriptionMax;
-
-  private String descriptionMin;
 
   private Role rolesAggregate;
 
@@ -104,22 +103,18 @@ public class Permission implements NamedStruct, Meta {
 
   private Boolean syncPermissionPolicy;
 
-  @Override
   public String getName() {
     return this.name;
   }
 
-  @Override
   public void setName(String name) {
     this.name = name;
   }
 
-  @Override
   public String getDescription() {
     return this.description;
   }
 
-  @Override
   public void setDescription(String description) {
     this.description = description;
   }
@@ -164,6 +159,7 @@ public class Permission implements NamedStruct, Meta {
     this.realm = realm;
   }
 
+  @Override
   public Boolean getIsDeprecated() {
     return this.isDeprecated;
   }
@@ -173,6 +169,7 @@ public class Permission implements NamedStruct, Meta {
     this.isDeprecated = isDeprecated;
   }
 
+  @Override
   public Integer getVersion() {
     return this.version;
   }
@@ -182,6 +179,7 @@ public class Permission implements NamedStruct, Meta {
     this.version = version;
   }
 
+  @Override
   public Integer getRealmId() {
     return this.realmId;
   }
@@ -191,6 +189,7 @@ public class Permission implements NamedStruct, Meta {
     this.realmId = realmId;
   }
 
+  @Override
   public String getCreateUserId() {
     return this.createUserId;
   }
@@ -200,6 +199,7 @@ public class Permission implements NamedStruct, Meta {
     this.createUserId = createUserId;
   }
 
+  @Override
   public LocalDateTime getCreateTime() {
     return this.createTime;
   }
@@ -209,6 +209,7 @@ public class Permission implements NamedStruct, Meta {
     this.createTime = createTime;
   }
 
+  @Override
   public String getUpdateUserId() {
     return this.updateUserId;
   }
@@ -218,6 +219,7 @@ public class Permission implements NamedStruct, Meta {
     this.updateUserId = updateUserId;
   }
 
+  @Override
   public LocalDateTime getUpdateTime() {
     return this.updateTime;
   }
@@ -227,6 +229,7 @@ public class Permission implements NamedStruct, Meta {
     this.updateTime = updateTime;
   }
 
+  @Override
   public String getCreateGroupId() {
     return this.createGroupId;
   }
@@ -266,6 +269,30 @@ public class Permission implements NamedStruct, Meta {
 
   public void setNameMin(String nameMin) {
     this.nameMin = nameMin;
+  }
+
+  public Integer getDescriptionCount() {
+    return this.descriptionCount;
+  }
+
+  public void setDescriptionCount(Integer descriptionCount) {
+    this.descriptionCount = descriptionCount;
+  }
+
+  public String getDescriptionMax() {
+    return this.descriptionMax;
+  }
+
+  public void setDescriptionMax(String descriptionMax) {
+    this.descriptionMax = descriptionMax;
+  }
+
+  public String getDescriptionMin() {
+    return this.descriptionMin;
+  }
+
+  public void setDescriptionMin(String descriptionMin) {
+    this.descriptionMin = descriptionMin;
   }
 
   public Integer getFieldCount() {
@@ -314,30 +341,6 @@ public class Permission implements NamedStruct, Meta {
 
   public void setTypeMin(String typeMin) {
     this.typeMin = typeMin;
-  }
-
-  public Integer getDescriptionCount() {
-    return this.descriptionCount;
-  }
-
-  public void setDescriptionCount(Integer descriptionCount) {
-    this.descriptionCount = descriptionCount;
-  }
-
-  public String getDescriptionMax() {
-    return this.descriptionMax;
-  }
-
-  public void setDescriptionMax(String descriptionMax) {
-    this.descriptionMax = descriptionMax;
-  }
-
-  public String getDescriptionMin() {
-    return this.descriptionMin;
-  }
-
-  public void setDescriptionMin(String descriptionMin) {
-    this.descriptionMin = descriptionMin;
   }
 
   public Role getRolesAggregate() {
