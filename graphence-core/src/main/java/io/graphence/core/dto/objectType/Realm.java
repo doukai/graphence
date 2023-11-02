@@ -91,6 +91,7 @@ public class Realm implements NamedStruct, Meta {
     this.description = description;
   }
 
+  @Override
   public Boolean getIsDeprecated() {
     return this.isDeprecated;
   }
@@ -100,6 +101,7 @@ public class Realm implements NamedStruct, Meta {
     this.isDeprecated = isDeprecated;
   }
 
+  @Override
   public Integer getVersion() {
     return this.version;
   }
@@ -109,6 +111,7 @@ public class Realm implements NamedStruct, Meta {
     this.version = version;
   }
 
+  @Override
   public Integer getRealmId() {
     return this.realmId;
   }
@@ -118,6 +121,7 @@ public class Realm implements NamedStruct, Meta {
     this.realmId = realmId;
   }
 
+  @Override
   public String getCreateUserId() {
     return this.createUserId;
   }
@@ -127,6 +131,7 @@ public class Realm implements NamedStruct, Meta {
     this.createUserId = createUserId;
   }
 
+  @Override
   public LocalDateTime getCreateTime() {
     return this.createTime;
   }
@@ -136,6 +141,7 @@ public class Realm implements NamedStruct, Meta {
     this.createTime = createTime;
   }
 
+  @Override
   public String getUpdateUserId() {
     return this.updateUserId;
   }
@@ -145,6 +151,7 @@ public class Realm implements NamedStruct, Meta {
     this.updateUserId = updateUserId;
   }
 
+  @Override
   public LocalDateTime getUpdateTime() {
     return this.updateTime;
   }
@@ -154,6 +161,7 @@ public class Realm implements NamedStruct, Meta {
     this.updateTime = updateTime;
   }
 
+  @Override
   public String getCreateGroupId() {
     return this.createGroupId;
   }

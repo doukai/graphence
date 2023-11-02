@@ -41,6 +41,8 @@ dependencies {
     implementation 'io.graphoenix:graphoenix-mysql:0.0.1-SNAPSHOT'
 
     runtime 'io.jsonwebtoken:jjwt-gson:0.11.5'
+    implementation group: 'io.netty', name: 'netty-resolver-dns-native-macos', version: '4.1.81.Final', classifier: 'osx-aarch_64'
+
 
     annotationProcessor project(':graphence-core')
     annotationProcessor 'io.graphoenix:graphoenix-annotation-processor:0.0.1-SNAPSHOT'

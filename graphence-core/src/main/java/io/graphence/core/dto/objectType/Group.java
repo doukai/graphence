@@ -33,6 +33,8 @@ public class Group implements Meta, NamedStruct, TreeStruct {
 
   private Integer deep;
 
+  private String parentId;
+
   private Group parent;
 
   private Collection<Group> subGroups;
@@ -85,6 +87,12 @@ public class Group implements Meta, NamedStruct, TreeStruct {
 
   private String pathMin;
 
+  private Integer parentIdCount;
+
+  private String parentIdMax;
+
+  private String parentIdMin;
+
   private Integer deepCount;
 
   private Integer deepSum;
@@ -106,18 +114,6 @@ public class Group implements Meta, NamedStruct, TreeStruct {
   private Role rolesAggregate;
 
   private RoleConnection rolesConnection;
-
-  private Integer parentId;
-
-  private Integer parentIdCount;
-
-  private Integer parentIdSum;
-
-  private Integer parentIdAvg;
-
-  private Integer parentIdMax;
-
-  private Integer parentIdMin;
 
   private Integer realmIdCount;
 
@@ -151,6 +147,7 @@ public class Group implements Meta, NamedStruct, TreeStruct {
     this.id = id;
   }
 
+  @Override
   public String getName() {
     return this.name;
   }
@@ -160,6 +157,7 @@ public class Group implements Meta, NamedStruct, TreeStruct {
     this.name = name;
   }
 
+  @Override
   public String getDescription() {
     return this.description;
   }
@@ -169,6 +167,7 @@ public class Group implements Meta, NamedStruct, TreeStruct {
     this.description = description;
   }
 
+  @Override
   public String getPath() {
     return this.path;
   }
@@ -178,6 +177,7 @@ public class Group implements Meta, NamedStruct, TreeStruct {
     this.path = path;
   }
 
+  @Override
   public Integer getDeep() {
     return this.deep;
   }
@@ -185,6 +185,16 @@ public class Group implements Meta, NamedStruct, TreeStruct {
   @Override
   public void setDeep(Integer deep) {
     this.deep = deep;
+  }
+
+  @Override
+  public String getParentId() {
+    return this.parentId;
+  }
+
+  @Override
+  public void setParentId(String parentId) {
+    this.parentId = parentId;
   }
 
   public Group getParent() {
@@ -411,6 +421,30 @@ public class Group implements Meta, NamedStruct, TreeStruct {
     this.pathMin = pathMin;
   }
 
+  public Integer getParentIdCount() {
+    return this.parentIdCount;
+  }
+
+  public void setParentIdCount(Integer parentIdCount) {
+    this.parentIdCount = parentIdCount;
+  }
+
+  public String getParentIdMax() {
+    return this.parentIdMax;
+  }
+
+  public void setParentIdMax(String parentIdMax) {
+    this.parentIdMax = parentIdMax;
+  }
+
+  public String getParentIdMin() {
+    return this.parentIdMin;
+  }
+
+  public void setParentIdMin(String parentIdMin) {
+    this.parentIdMin = parentIdMin;
+  }
+
   public Integer getDeepCount() {
     return this.deepCount;
   }
@@ -497,54 +531,6 @@ public class Group implements Meta, NamedStruct, TreeStruct {
 
   public void setRolesConnection(RoleConnection rolesConnection) {
     this.rolesConnection = rolesConnection;
-  }
-
-  public Integer getParentId() {
-    return this.parentId;
-  }
-
-  public void setParentId(Integer parentId) {
-    this.parentId = parentId;
-  }
-
-  public Integer getParentIdCount() {
-    return this.parentIdCount;
-  }
-
-  public void setParentIdCount(Integer parentIdCount) {
-    this.parentIdCount = parentIdCount;
-  }
-
-  public Integer getParentIdSum() {
-    return this.parentIdSum;
-  }
-
-  public void setParentIdSum(Integer parentIdSum) {
-    this.parentIdSum = parentIdSum;
-  }
-
-  public Integer getParentIdAvg() {
-    return this.parentIdAvg;
-  }
-
-  public void setParentIdAvg(Integer parentIdAvg) {
-    this.parentIdAvg = parentIdAvg;
-  }
-
-  public Integer getParentIdMax() {
-    return this.parentIdMax;
-  }
-
-  public void setParentIdMax(Integer parentIdMax) {
-    this.parentIdMax = parentIdMax;
-  }
-
-  public Integer getParentIdMin() {
-    return this.parentIdMin;
-  }
-
-  public void setParentIdMin(Integer parentIdMin) {
-    this.parentIdMin = parentIdMin;
   }
 
   public Integer getRealmIdCount() {

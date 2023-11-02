@@ -31,6 +31,8 @@ public class GroupListQueryArguments implements MetaExpression, NamedStructExpre
 
   private IntExpression deep;
 
+  private StringExpression parentId;
+
   private GroupExpression parent;
 
   private GroupExpression subGroups;
@@ -59,8 +61,6 @@ public class GroupListQueryArguments implements MetaExpression, NamedStructExpre
   private StringExpression createGroupId;
 
   private StringExpression __typename;
-
-  private IntExpression parentId;
 
   private UserGroupExpression userGroup;
 
@@ -126,6 +126,14 @@ public class GroupListQueryArguments implements MetaExpression, NamedStructExpre
 
   public void setDeep(IntExpression deep) {
     this.deep = deep;
+  }
+
+  public StringExpression getParentId() {
+    return this.parentId;
+  }
+
+  public void setParentId(StringExpression parentId) {
+    this.parentId = parentId;
   }
 
   public GroupExpression getParent() {
@@ -238,14 +246,6 @@ public class GroupListQueryArguments implements MetaExpression, NamedStructExpre
 
   public void set__typename(StringExpression __typename) {
     this.__typename = __typename;
-  }
-
-  public IntExpression getParentId() {
-    return this.parentId;
-  }
-
-  public void setParentId(IntExpression parentId) {
-    this.parentId = parentId;
   }
 
   public UserGroupExpression getUserGroup() {

@@ -19,6 +19,8 @@ public @interface GroupInput0 {
 
   int deep() default 0;
 
+  String parentId() default "";
+
   boolean isDeprecated() default false;
 
   int version() default 0;
@@ -37,8 +39,6 @@ public @interface GroupInput0 {
 
   String __typename() default "";
 
-  int parentId() default 0;
-
   boolean syncGroupPolicy() default false;
 
   String $id() default "";
@@ -50,6 +50,8 @@ public @interface GroupInput0 {
   String $path() default "";
 
   String $deep() default "";
+
+  String $parentId() default "";
 
   String $parent() default "";
 
@@ -90,8 +92,6 @@ public @interface GroupInput0 {
   String $rolesAggregate() default "";
 
   String $rolesConnection() default "";
-
-  String $parentId() default "";
 
   String $userGroup() default "";
 

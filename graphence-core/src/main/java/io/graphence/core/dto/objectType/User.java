@@ -161,6 +161,7 @@ public class User implements Meta, NamedStruct {
     this.id = id;
   }
 
+  @Override
   public String getName() {
     return this.name;
   }
@@ -170,6 +171,7 @@ public class User implements Meta, NamedStruct {
     this.name = name;
   }
 
+  @Override
   public String getDescription() {
     return this.description;
   }

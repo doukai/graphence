@@ -22,6 +22,8 @@ public @interface GroupExpression0 {
 
   IntExpression deep() default @IntExpression;
 
+  StringExpression parentId() default @StringExpression;
+
   BooleanExpression isDeprecated() default @BooleanExpression;
 
   IntExpression version() default @IntExpression;
@@ -39,8 +41,6 @@ public @interface GroupExpression0 {
   StringExpression createGroupId() default @StringExpression;
 
   StringExpression __typename() default @StringExpression;
-
-  IntExpression parentId() default @IntExpression;
 
   BooleanExpression syncGroupPolicy() default @BooleanExpression;
 

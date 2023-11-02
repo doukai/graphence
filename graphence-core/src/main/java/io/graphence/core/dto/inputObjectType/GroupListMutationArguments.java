@@ -29,6 +29,8 @@ public class GroupListMutationArguments implements MetaInput, NamedStructInput, 
 
   private Integer deep;
 
+  private String parentId;
+
   private GroupInput parent;
 
   private Collection<GroupInput> subGroups;
@@ -57,8 +59,6 @@ public class GroupListMutationArguments implements MetaInput, NamedStructInput, 
 
   @DefaultValue("\"Group\"")
   private String __typename;
-
-  private Integer parentId;
 
   private Collection<UserGroupInput> userGroup;
 
@@ -106,6 +106,14 @@ public class GroupListMutationArguments implements MetaInput, NamedStructInput, 
 
   public void setDeep(Integer deep) {
     this.deep = deep;
+  }
+
+  public String getParentId() {
+    return this.parentId;
+  }
+
+  public void setParentId(String parentId) {
+    this.parentId = parentId;
   }
 
   public GroupInput getParent() {
@@ -218,14 +226,6 @@ public class GroupListMutationArguments implements MetaInput, NamedStructInput, 
 
   public void set__typename(String __typename) {
     this.__typename = __typename;
-  }
-
-  public Integer getParentId() {
-    return this.parentId;
-  }
-
-  public void setParentId(Integer parentId) {
-    this.parentId = parentId;
   }
 
   public Collection<UserGroupInput> getUserGroup() {

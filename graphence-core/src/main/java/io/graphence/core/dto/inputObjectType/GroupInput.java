@@ -29,6 +29,8 @@ public class GroupInput implements MetaInput, NamedStructInput, TreeStructInput 
 
   private Integer deep;
 
+  private String parentId;
+
   private GroupInput parent;
 
   private Collection<GroupInput> subGroups;
@@ -57,8 +59,6 @@ public class GroupInput implements MetaInput, NamedStructInput, TreeStructInput 
 
   @DefaultValue("\"Group\"")
   private String __typename;
-
-  private Integer parentId;
 
   private Collection<UserGroupInput> userGroup;
 
@@ -104,6 +104,14 @@ public class GroupInput implements MetaInput, NamedStructInput, TreeStructInput 
 
   public void setDeep(Integer deep) {
     this.deep = deep;
+  }
+
+  public String getParentId() {
+    return this.parentId;
+  }
+
+  public void setParentId(String parentId) {
+    this.parentId = parentId;
   }
 
   public GroupInput getParent() {
@@ -216,14 +224,6 @@ public class GroupInput implements MetaInput, NamedStructInput, TreeStructInput 
 
   public void set__typename(String __typename) {
     this.__typename = __typename;
-  }
-
-  public Integer getParentId() {
-    return this.parentId;
-  }
-
-  public void setParentId(Integer parentId) {
-    this.parentId = parentId;
   }
 
   public Collection<UserGroupInput> getUserGroup() {

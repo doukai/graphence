@@ -21,6 +21,8 @@ public class GroupOrderBy {
 
   private Sort deep;
 
+  private Sort parentId;
+
   private Sort isDeprecated;
 
   private Sort version;
@@ -38,8 +40,6 @@ public class GroupOrderBy {
   private Sort createGroupId;
 
   private Sort __typename;
-
-  private Sort parentId;
 
   public Sort getId() {
     return this.id;
@@ -79,6 +79,14 @@ public class GroupOrderBy {
 
   public void setDeep(Sort deep) {
     this.deep = deep;
+  }
+
+  public Sort getParentId() {
+    return this.parentId;
+  }
+
+  public void setParentId(Sort parentId) {
+    this.parentId = parentId;
   }
 
   public Sort getIsDeprecated() {
@@ -151,13 +159,5 @@ public class GroupOrderBy {
 
   public void set__typename(Sort __typename) {
     this.__typename = __typename;
-  }
-
-  public Sort getParentId() {
-    return this.parentId;
-  }
-
-  public void setParentId(Sort parentId) {
-    this.parentId = parentId;
   }
 }

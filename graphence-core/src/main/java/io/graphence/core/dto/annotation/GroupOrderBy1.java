@@ -19,6 +19,8 @@ public @interface GroupOrderBy1 {
 
   Sort deep() default Sort.ASC;
 
+  Sort parentId() default Sort.ASC;
+
   Sort isDeprecated() default Sort.ASC;
 
   Sort version() default Sort.ASC;
@@ -36,8 +38,6 @@ public @interface GroupOrderBy1 {
   Sort createGroupId() default Sort.ASC;
 
   Sort __typename() default Sort.ASC;
-
-  Sort parentId() default Sort.ASC;
 
   Sort syncGroupPolicy() default Sort.ASC;
 }
