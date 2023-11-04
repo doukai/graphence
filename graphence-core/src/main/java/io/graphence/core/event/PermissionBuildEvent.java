@@ -70,7 +70,7 @@ public class PermissionBuildEvent implements ScopeEvent {
                                                                         "type", objectTypeDefinitionContext.name().getText(),
                                                                         "field", fieldDefinitionContext.name().getText(),
                                                                         "permissionType", manager.isMutationOperationType(objectTypeDefinitionContext.name().getText()) ? WRITE : READ,
-                                                                        "description", fieldDefinitionContext.description().getText(),
+                                                                        "description", DOCUMENT_UTIL.getStringValue(fieldDefinitionContext.description().StringValue()),
                                                                         "createTime", LocalDateTime.now()
                                                                 )
                                                         );
@@ -101,7 +101,7 @@ public class PermissionBuildEvent implements ScopeEvent {
                                                                         "type", objectTypeDefinitionContext.name().getText(),
                                                                         "field", fieldDefinitionContext.name().getText(),
                                                                         "permissionType", WRITE,
-                                                                        "description", fieldDefinitionContext.description().getText() + " " + WRITE,
+                                                                        "description", DOCUMENT_UTIL.getStringValue(fieldDefinitionContext.description().StringValue()) + " " + WRITE,
                                                                         "createTime", LocalDateTime.now()
                                                                 ),
                                                                 ObjectValueWithVariable.of(
@@ -109,7 +109,7 @@ public class PermissionBuildEvent implements ScopeEvent {
                                                                         "type", objectTypeDefinitionContext.name().getText(),
                                                                         "field", fieldDefinitionContext.name().getText(),
                                                                         "permissionType", READ,
-                                                                        "description", fieldDefinitionContext.description().getText() + " " + READ,
+                                                                        "description", DOCUMENT_UTIL.getStringValue(fieldDefinitionContext.description().StringValue()) + " " + READ,
                                                                         "createTime", LocalDateTime.now()
                                                                 )
                                                         );
