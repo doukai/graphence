@@ -982,15 +982,15 @@ message QueryRolePermissionConnectionRequest {
     optional string after = 25;
     optional string before = 26;
 }
-message QueryPolicyListRequest {
-    optional string selection_set = 1;
-    optional string arguments = 2;
-}
 message QueryCurrentRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
 }
 message QueryCurrentPermissionListRequest {
+    optional string selection_set = 1;
+    optional string arguments = 2;
+}
+message QueryPolicyListRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
 }

@@ -11,32 +11,65 @@ import java.lang.Override;
 import java.lang.String;
 import java.time.LocalDateTime;
 import java.util.Collection;
+import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.Id;
 import org.eclipse.microprofile.graphql.NonNull;
 import org.eclipse.microprofile.graphql.Type;
 
+/**
+ * 权限
+ */
 @Type
 @CompiledJson
 @Generated("io.graphoenix.java.generator.builder.TypeSpecBuilderProxy")
 @Ignore
+@Description("权限")
 public class Permission implements Meta {
+  /**
+   * 名称
+   */
   @Id
   @NonNull
+  @Description("名称")
   private String name;
 
+  /**
+   * 描述
+   */
+  @Description("描述")
   private String description;
 
+  /**
+   * 字段
+   */
   @NonNull
+  @Description("字段")
   private String field;
 
+  /**
+   * 实体
+   */
   @NonNull
+  @Description("实体")
   private String type;
 
+  /**
+   * 权限类型
+   */
   @NonNull
+  @Description("权限类型")
   private PermissionType permissionType;
 
+  /**
+   * 角色
+   */
+  @Description("角色")
   private Collection<Role> roles;
 
+  /**
+   * 租户
+   */
+  @Description("租户")
   private Realm realm;
 
   private Boolean isDeprecated;

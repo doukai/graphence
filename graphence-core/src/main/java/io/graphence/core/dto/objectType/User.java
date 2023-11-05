@@ -11,42 +11,99 @@ import java.lang.Override;
 import java.lang.String;
 import java.time.LocalDateTime;
 import java.util.Collection;
+import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.Id;
 import org.eclipse.microprofile.graphql.NonNull;
 import org.eclipse.microprofile.graphql.Type;
 
+/**
+ * 用户
+ */
 @Type
 @CompiledJson
 @Generated("io.graphoenix.java.generator.builder.TypeSpecBuilderProxy")
 @Ignore
+@Description("用户")
 public class User implements Meta, NamedStruct {
+  /**
+   * ID
+   */
   @Id
+  @Description("ID")
   private String id;
 
+  /**
+   * 姓名
+   */
   @NonNull
+  @Description("姓名")
   private String name;
 
+  /**
+   * 描述
+   */
+  @Description("描述")
   private String description;
 
+  /**
+   * 姓氏
+   */
+  @Description("姓氏")
   private String lastName;
 
+  /**
+   * 账号
+   */
   @NonNull
+  @Description("账号")
   private String login;
 
+  /**
+   * 盐
+   */
+  @Description("盐")
   private String salt;
 
+  /**
+   * 哈希
+   */
+  @Description("哈希")
   private String hash;
 
+  /**
+   * 邮箱
+   */
+  @Description("邮箱")
   private String email;
 
+  /**
+   * 手机号
+   */
+  @Description("手机号")
   private Collection<String> phones;
 
+  /**
+   * 禁用
+   */
+  @Description("禁用")
   private Boolean disable;
 
+  /**
+   * 组
+   */
+  @Description("组")
   private Collection<Group> groups;
 
+  /**
+   * 角色
+   */
+  @Description("角色")
   private Collection<Role> roles;
 
+  /**
+   * 租户
+   */
+  @Description("租户")
   private Realm realm;
 
   private Boolean isDeprecated;

@@ -101,11 +101,11 @@ public class Query implements Meta {
 
   private RolePermissionConnection rolePermissionConnection;
 
-  private Collection<Policy> policyList;
-
   private CurrentUser current;
 
   private Collection<String> currentPermissionList;
+
+  private Collection<Policy> policyList;
 
   @Override
   public Boolean getIsDeprecated() {
@@ -451,14 +451,6 @@ public class Query implements Meta {
     this.rolePermissionConnection = rolePermissionConnection;
   }
 
-  public Collection<Policy> getPolicyList() {
-    return this.policyList;
-  }
-
-  public void setPolicyList(Collection<Policy> policyList) {
-    this.policyList = policyList;
-  }
-
   public CurrentUser getCurrent() {
     return this.current;
   }
@@ -473,5 +465,13 @@ public class Query implements Meta {
 
   public void setCurrentPermissionList(Collection<String> currentPermissionList) {
     this.currentPermissionList = currentPermissionList;
+  }
+
+  public Collection<Policy> getPolicyList() {
+    return this.policyList;
+  }
+
+  public void setPolicyList(Collection<Policy> policyList) {
+    this.policyList = policyList;
   }
 }

@@ -12,37 +12,86 @@ import java.lang.Override;
 import java.lang.String;
 import java.time.LocalDateTime;
 import java.util.Collection;
+import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.Id;
 import org.eclipse.microprofile.graphql.NonNull;
 import org.eclipse.microprofile.graphql.Type;
 
+/**
+ * 组
+ */
 @Type
 @CompiledJson
 @Generated("io.graphoenix.java.generator.builder.TypeSpecBuilderProxy")
 @Ignore
+@Description("组")
 public class Group implements Meta, NamedStruct, TreeStruct {
+  /**
+   * ID
+   */
   @Id
+  @Description("ID")
   private String id;
 
+  /**
+   * 名称
+   */
   @NonNull
+  @Description("名称")
   private String name;
 
+  /**
+   * 描述
+   */
+  @Description("描述")
   private String description;
 
+  /**
+   * 路径
+   */
+  @Description("路径")
   private String path;
 
+  /**
+   * 层级
+   */
+  @Description("层级")
   private Integer deep;
 
+  /**
+   * 上级ID
+   */
+  @Description("上级ID")
   private String parentId;
 
+  /**
+   * 上级
+   */
+  @Description("上级")
   private Group parent;
 
+  /**
+   * 下级
+   */
+  @Description("下级")
   private Collection<Group> subGroups;
 
+  /**
+   * 用户
+   */
+  @Description("用户")
   private Collection<User> users;
 
+  /**
+   * 角色
+   */
+  @Description("角色")
   private Collection<Role> roles;
 
+  /**
+   * 租户
+   */
+  @Description("租户")
   private Realm realm;
 
   private Boolean isDeprecated;

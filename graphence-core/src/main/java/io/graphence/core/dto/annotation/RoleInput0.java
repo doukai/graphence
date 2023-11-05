@@ -111,23 +111,23 @@ public @interface RoleInput0 {
 
   String $syncRolePolicy() default "";
 
-  UserInput1[] users() default {};
+  UserInput1[] users() default @UserInput1;
 
-  GroupInput1[] groups() default {};
+  GroupInput1[] groups() default @GroupInput1;
 
-  RoleInput1[] composites() default {};
+  RoleInput1[] composites() default @RoleInput1;
 
-  PermissionInput1[] permissions() default {};
+  PermissionInput1[] permissions() default @PermissionInput1;
 
   RealmInput1 realm() default @RealmInput1;
 
-  UserRoleInput1[] userRole() default {};
+  UserRoleInput1[] userRole() default @UserRoleInput1;
 
-  GroupRoleInput1[] groupRole() default {};
+  GroupRoleInput1[] groupRole() default @GroupRoleInput1;
 
-  RoleCompositeInput1[] roleComposite() default {};
+  RoleCompositeInput1[] roleComposite() default @RoleCompositeInput1;
 
-  RolePermissionInput1[] rolePermission() default {};
+  RolePermissionInput1[] rolePermission() default @RolePermissionInput1;
 
   RoleInput1[] list() default {};
 

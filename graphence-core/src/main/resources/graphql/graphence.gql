@@ -1,61 +1,111 @@
+"用户"
 type User implements NamedStruct {
+    "ID"
     id: ID @dataType(type: "Int" autoIncrement: true)
+    "姓名"
     name: String!
+    "描述"
     description: String
+    "姓氏"
     lastName: String
+    "账号"
     login: String!
+    "盐"
     salt: String
+    "哈希"
     hash: String
+    "邮箱"
     email: String
+    "手机号"
     phones: [String] @map(from: "id" with: {type: "UserPhones" from: "userId" to: "phone"})
+    "禁用"
     disable: Boolean
+    "组"
     groups: [Group] @map(from: "id" with: {type: "UserGroup" from: "userId" to: "groupId"} to: "id")
+    "角色"
     roles: [Role] @map(from: "id" with: {type: "UserRole" from: "userId" to: "roleId"} to: "id")
+    "租户"
     realm: Realm @map(from: "realmId" to: "id" anchor: true)
 }
 
+"角色"
 type Role implements NamedStruct {
+    "ID"
     id: ID @dataType(type: "Int" autoIncrement: true)
+    "名称"
     name: String!
+    "描述"
     description: String
+    "用户"
     users: [User] @map(from: "id" with: {type: "UserRole" from: "roleId" to: "userId"} to: "id")
+    "组"
     groups: [Group] @map(from: "id" with: {type: "GroupRole" from: "roleId" to: "groupId"} to: "id")
+    "组合"
     composites: [Role] @map(from: "id" with: {type: "RoleComposite" from: "roleId" to: "compositeId"} to: "id")
+    "权限"
     permissions: [Permission] @map(from: "id" with: {type: "RolePermission" from: "roleId" to: "permissionName"} to: "name")
+    "租户"
     realm: Realm @map(from: "realmId" to: "id" anchor: true)
 }
 
+"组"
 type Group implements NamedStruct & TreeStruct {
+    "ID"
     id: ID @dataType(type: "Int" autoIncrement: true)
+    "名称"
     name: String!
+    "描述"
     description: String
+    "路径"
     path: String
+    "层级"
     deep: Int
+    "上级ID"
     parentId: String
+    "上级"
     parent: Group @map(from: "parentId" to: "id" anchor: true)
+    "下级"
     subGroups: [Group] @map(from: "id" to: "parentId")
+    "用户"
     users: [User] @map(from: "id" with: {type: "UserGroup" from: "groupId" to: "userId"} to: "id")
+    "角色"
     roles: [Role] @map(from: "id" with: {type: "GroupRole" from: "groupId" to: "roleId"} to: "id")
+    "租户"
     realm: Realm @map(from: "realmId" to: "id" anchor: true)
 }
 
+"租户"
 type Realm implements NamedStruct {
+    "ID"
     id: ID @dataType(type: "Int" autoIncrement: true)
+    "名称"
     name: String!
+    "描述"
     description: String
 }
 
+"权限"
 type Permission {
+    "名称"
     name: ID!
+    "描述"
     description: String
+    "字段"
     field: String!
+    "实体"
     type: String!
+    "权限类型"
     permissionType: PermissionType!
+    "角色"
     roles: [Role] @map(from: "name" with: {type: "RolePermission" from: "permissionName" to: "roleId"} to: "id")
+    "租户"
     realm: Realm @map(from: "realmId" to: "id" anchor: true)
 }
 
+"权限类型"
 enum PermissionType {
+    "读取"
     READ
+    "写入"
     WRITE
 }

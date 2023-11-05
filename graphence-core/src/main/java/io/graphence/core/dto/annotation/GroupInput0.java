@@ -109,17 +109,17 @@ public @interface GroupInput0 {
 
   GroupInput1 parent() default @GroupInput1;
 
-  GroupInput1[] subGroups() default {};
+  GroupInput1[] subGroups() default @GroupInput1;
 
-  UserInput1[] users() default {};
+  UserInput1[] users() default @UserInput1;
 
-  RoleInput1[] roles() default {};
+  RoleInput1[] roles() default @RoleInput1;
 
   RealmInput1 realm() default @RealmInput1;
 
-  UserGroupInput1[] userGroup() default {};
+  UserGroupInput1[] userGroup() default @UserGroupInput1;
 
-  GroupRoleInput1[] groupRole() default {};
+  GroupRoleInput1[] groupRole() default @GroupRoleInput1;
 
   GroupInput1[] list() default {};
 

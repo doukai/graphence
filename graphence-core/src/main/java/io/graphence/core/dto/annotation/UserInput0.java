@@ -121,17 +121,17 @@ public @interface UserInput0 {
 
   String $syncUserPolicy() default "";
 
-  GroupInput1[] groups() default {};
+  GroupInput1[] groups() default @GroupInput1;
 
-  RoleInput1[] roles() default {};
+  RoleInput1[] roles() default @RoleInput1;
 
   RealmInput1 realm() default @RealmInput1;
 
-  UserPhonesInput1[] userPhones() default {};
+  UserPhonesInput1[] userPhones() default @UserPhonesInput1;
 
-  UserGroupInput1[] userGroup() default {};
+  UserGroupInput1[] userGroup() default @UserGroupInput1;
 
-  UserRoleInput1[] userRole() default {};
+  UserRoleInput1[] userRole() default @UserRoleInput1;
 
   UserInput1[] list() default {};
 

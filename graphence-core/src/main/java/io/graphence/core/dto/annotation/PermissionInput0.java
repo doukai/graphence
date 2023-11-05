@@ -84,11 +84,11 @@ public @interface PermissionInput0 {
 
   String $syncPermissionPolicy() default "";
 
-  RoleInput1[] roles() default {};
+  RoleInput1[] roles() default @RoleInput1;
 
   RealmInput1 realm() default @RealmInput1;
 
-  RolePermissionInput1[] rolePermission() default {};
+  RolePermissionInput1[] rolePermission() default @RolePermissionInput1;
 
   PermissionInput1[] list() default {};
 

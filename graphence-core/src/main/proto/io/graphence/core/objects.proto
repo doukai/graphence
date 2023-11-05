@@ -9,20 +9,23 @@ import "io/graphence/core/enums.proto";
 import "io/graphoenix/core/objects.proto";
 import "google/protobuf/timestamp.proto";
 
+/**
+* 用户
+*/
 message User {
-    optional string id = 1;
-    string name = 2;
-    optional string description = 3;
-    optional string last_name = 4;
-    string login = 5;
-    optional string salt = 6;
-    optional string hash = 7;
-    optional string email = 8;
-    repeated string phones = 9;
-    optional bool disable = 10;
-    repeated Group groups = 11;
-    repeated Role roles = 12;
-    optional Realm realm = 13;
+    optional string id = 1; /* ID */
+    string name = 2; /* 姓名 */
+    optional string description = 3; /* 描述 */
+    optional string last_name = 4; /* 姓氏 */
+    string login = 5; /* 账号 */
+    optional string salt = 6; /* 盐 */
+    optional string hash = 7; /* 哈希 */
+    optional string email = 8; /* 邮箱 */
+    repeated string phones = 9; /* 手机号 */
+    optional bool disable = 10; /* 禁用 */
+    repeated Group groups = 11; /* 组 */
+    repeated Role roles = 12; /* 角色 */
+    optional Realm realm = 13; /* 租户 */
     optional bool is_deprecated = 14;
     optional int32 version = 15;
     optional int32 realm_id = 16;
@@ -76,15 +79,18 @@ message User {
     optional UserRoleConnection user_role_connection = 64;
     optional bool sync_user_policy = 65;
 }
+/**
+* 角色
+*/
 message Role {
-    optional string id = 1;
-    string name = 2;
-    optional string description = 3;
-    repeated User users = 4;
-    repeated Group groups = 5;
-    repeated Role composites = 6;
-    repeated Permission permissions = 7;
-    optional Realm realm = 8;
+    optional string id = 1; /* ID */
+    string name = 2; /* 名称 */
+    optional string description = 3; /* 描述 */
+    repeated User users = 4; /* 用户 */
+    repeated Group groups = 5; /* 组 */
+    repeated Role composites = 6; /* 组合 */
+    repeated Permission permissions = 7; /* 权限 */
+    optional Realm realm = 8; /* 租户 */
     optional bool is_deprecated = 9;
     optional int32 version = 10;
     optional int32 realm_id = 11;
@@ -130,18 +136,21 @@ message Role {
     optional RolePermissionConnection role_permission_connection = 51;
     optional bool sync_role_policy = 52;
 }
+/**
+* 组
+*/
 message Group {
-    optional string id = 1;
-    string name = 2;
-    optional string description = 3;
-    optional string path = 4;
-    optional int32 deep = 5;
-    optional string parent_id = 6;
-    optional Group parent = 7;
-    repeated Group sub_groups = 8;
-    repeated User users = 9;
-    repeated Role roles = 10;
-    optional Realm realm = 11;
+    optional string id = 1; /* ID */
+    string name = 2; /* 名称 */
+    optional string description = 3; /* 描述 */
+    optional string path = 4; /* 路径 */
+    optional int32 deep = 5; /* 层级 */
+    optional string parent_id = 6; /* 上级ID */
+    optional Group parent = 7; /* 上级 */
+    repeated Group sub_groups = 8; /* 下级 */
+    repeated User users = 9; /* 用户 */
+    repeated Role roles = 10; /* 角色 */
+    optional Realm realm = 11; /* 租户 */
     optional bool is_deprecated = 12;
     optional int32 version = 13;
     optional int32 realm_id = 14;
@@ -190,10 +199,13 @@ message Group {
     optional GroupRoleConnection group_role_connection = 57;
     optional bool sync_group_policy = 58;
 }
+/**
+* 租户
+*/
 message Realm {
-    optional string id = 1;
-    string name = 2;
-    optional string description = 3;
+    optional string id = 1; /* ID */
+    string name = 2; /* 名称 */
+    optional string description = 3; /* 描述 */
     optional bool is_deprecated = 4;
     optional int32 version = 5;
     optional int32 realm_id = 6;
@@ -213,14 +225,17 @@ message Realm {
     optional string description_max = 20;
     optional string description_min = 21;
 }
+/**
+* 权限
+*/
 message Permission {
-    string name = 1;
-    optional string description = 2;
-    string field = 3;
-    string type = 4;
-    PermissionType permission_type = 5;
-    repeated Role roles = 6;
-    optional Realm realm = 7;
+    string name = 1; /* 名称 */
+    optional string description = 2; /* 描述 */
+    string field = 3; /* 字段 */
+    string type = 4; /* 实体 */
+    PermissionType permission_type = 5; /* 权限类型 */
+    repeated Role roles = 6; /* 角色 */
+    optional Realm realm = 7; /* 租户 */
     optional bool is_deprecated = 8;
     optional int32 version = 9;
     optional int32 realm_id = 10;
@@ -522,22 +537,22 @@ message RolePermissionEdge {
     optional RolePermission node = 1;
     optional string cursor = 2;
 }
+message CurrentUser {
+    optional string last_name = 1;
+    repeated string roles = 2;
+    optional string login = 3;
+    optional string name = 4;
+    optional int32 realm_id = 5;
+    repeated string groups = 6;
+    optional string id = 7;
+}
 message Policy {
-    optional string id = 1;
-    optional string v5 = 2;
-    optional string v3 = 3;
-    optional string ptype = 4;
+    optional string v1 = 1;
+    optional string id = 2;
+    optional string ptype = 3;
+    optional string v5 = 4;
     optional string v4 = 5;
     optional string v0 = 6;
-    optional string v2 = 7;
-    optional string v1 = 8;
-}
-message CurrentUser {
-    repeated string roles = 1;
-    optional int32 realm_id = 2;
-    optional string last_name = 3;
-    optional string id = 4;
-    optional string name = 5;
-    optional string login = 6;
-    repeated string groups = 7;
+    optional string v3 = 7;
+    optional string v2 = 8;
 }
