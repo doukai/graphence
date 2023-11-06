@@ -8,8 +8,6 @@ import org.casbin.jcasbin.main.Enforcer;
 import org.casbin.jcasbin.main.SyncedEnforcer;
 import org.casbin.jcasbin.model.Model;
 
-import java.util.Objects;
-
 @ApplicationScoped
 public class CasbinProducer {
 
@@ -30,7 +28,7 @@ public class CasbinProducer {
     @ApplicationScoped
     public Model model() {
         Model model = new Model();
-        model.loadModel(Objects.requireNonNull(this.getClass().getClassLoader().getResource(config.getModel())).getFile());
+        model.loadModel(config.getModel());
         return model;
     }
 }

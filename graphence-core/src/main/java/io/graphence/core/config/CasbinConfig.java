@@ -7,7 +7,7 @@ import org.eclipse.microprofile.config.inject.ConfigProperties;
 public class CasbinConfig {
 
     @Optional
-    private String model = "model.conf";
+    private String model = "classpath:model.conf";
 
     public String getModel() {
         return model;
