@@ -26,7 +26,11 @@ public class GroupApi {
     public Mono<GroupMutationArguments> setPath(@Source GroupMutationArguments groupMutationArguments) {
         if (groupMutationArguments.getWhere() != null) {
             if (groupMutationArguments.getParent() != null) {
-                groupMutationArguments.setPath(groupMutationArguments.getParent().getPath() + groupMutationArguments.getParent().getId() + "/");
+                if (groupMutationArguments.getParent().getId() != null) {
+                    groupMutationArguments.setPath(groupMutationArguments.getParent().getPath() + groupMutationArguments.getParent().getId() + "/");
+                } else if (groupMutationArguments.getParent().getWhere().getId().getVal() != null) {
+                    groupMutationArguments.setPath(groupMutationArguments.getParent().getPath() + groupMutationArguments.getParent().getWhere().getId().getVal() + "/");
+                }
                 groupMutationArguments.setDeep(groupMutationArguments.getParent().getDeep() + 1);
                 return groupDao.getGroupById(groupMutationArguments.getWhere().getId().getVal())
                         .flatMap(group ->
@@ -50,7 +54,11 @@ public class GroupApi {
             }
         } else {
             if (groupMutationArguments.getParent() != null) {
-                groupMutationArguments.setPath(groupMutationArguments.getParent().getPath() + groupMutationArguments.getParent().getId() + "/");
+                if (groupMutationArguments.getParent().getId() != null) {
+                    groupMutationArguments.setPath(groupMutationArguments.getParent().getPath() + groupMutationArguments.getParent().getId() + "/");
+                } else if (groupMutationArguments.getParent().getWhere().getId().getVal() != null) {
+                    groupMutationArguments.setPath(groupMutationArguments.getParent().getPath() + groupMutationArguments.getParent().getWhere().getId().getVal() + "/");
+                }
                 groupMutationArguments.setDeep(groupMutationArguments.getParent().getDeep() + 1);
             } else {
                 if (groupMutationArguments.getId() == null) {
@@ -65,7 +73,11 @@ public class GroupApi {
     public Mono<GroupInput> setPath(@Source GroupInput groupInput) {
         if (groupInput.getWhere() != null) {
             if (groupInput.getParent() != null) {
-                groupInput.setPath(groupInput.getParent().getPath() + groupInput.getParent().getId() + "/");
+                if (groupInput.getParent().getId() != null) {
+                    groupInput.setPath(groupInput.getParent().getPath() + groupInput.getParent().getId() + "/");
+                } else if (groupInput.getParent().getWhere().getId().getVal() != null) {
+                    groupInput.setPath(groupInput.getParent().getPath() + groupInput.getParent().getWhere().getId().getVal() + "/");
+                }
                 groupInput.setDeep(groupInput.getParent().getDeep() + 1);
                 return groupDao.getGroupById(groupInput.getWhere().getId().getVal())
                         .flatMap(group ->
@@ -89,7 +101,11 @@ public class GroupApi {
             }
         } else {
             if (groupInput.getParent() != null) {
-                groupInput.setPath(groupInput.getParent().getPath() + groupInput.getParent().getId() + "/");
+                if (groupInput.getParent().getId() != null) {
+                    groupInput.setPath(groupInput.getParent().getPath() + groupInput.getParent().getId() + "/");
+                } else if (groupInput.getParent().getWhere().getId().getVal() != null) {
+                    groupInput.setPath(groupInput.getParent().getPath() + groupInput.getParent().getWhere().getId().getVal() + "/");
+                }
                 groupInput.setDeep(groupInput.getParent().getDeep() + 1);
             } else {
                 if (groupInput.getId() == null) {
