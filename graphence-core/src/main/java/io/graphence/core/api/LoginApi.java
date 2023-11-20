@@ -19,18 +19,17 @@ import org.eclipse.microprofile.graphql.GraphQLApi;
 import org.eclipse.microprofile.graphql.Mutation;
 import org.eclipse.microprofile.graphql.NonNull;
 import org.eclipse.microprofile.graphql.Source;
-import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import reactor.netty.http.server.HttpServerResponse;
 
 import java.util.Base64;
-import java.util.Collection;
+import java.util.Set;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import static io.graphence.core.constant.Constant.AUTHORIZATION_HEADER;
 import static io.graphence.core.constant.Constant.AUTHORIZATION_SCHEME_BEARER;
-import static io.graphence.core.error.AuthenticationErrorType.*;
+import static io.graphence.core.error.AuthenticationErrorType.AUTHENTICATION_DISABLE;
+import static io.graphence.core.error.AuthenticationErrorType.AUTHENTICATION_FAILED;
 
 
 @GraphQLApi
@@ -68,22 +67,11 @@ public class LoginApi {
                 )
                 .switchIfEmpty(Mono.error(new AuthenticationException(AUTHENTICATION_FAILED)))
 //                    .flatMap(user -> SessionScopeInstanceFactory.computeIfAbsent(CurrentUser.class, CurrentUser.of(user)).thenReturn(user))
-                .flatMap(user ->
-                        Flux.concat(
-                                        rbacPolicyDao.queryRolePermissionsList(user.getId()),
-                                        rbacPolicyDao.queryGroupPermissionsList(user.getId())
-                                                .map(groups ->
-                                                        groups.stream()
-                                                                .flatMap(group ->
-                                                                        Stream.ofNullable(group.getRoles())
-                                                                                .flatMap(Collection::stream)
-                                                                )
-                                                                .collect(Collectors.toSet())
-                                                )
-                                )
-                                .collectList()
-                                .map(permissionsList -> permissionsList.stream().flatMap(Collection::stream).flatMap(this::getPermissions).map(Permission::getName))
-                                .map(permissions -> jwtUtil.build(user, permissions.collect(Collectors.toSet())))
+                .flatMap(user -> {
+                            Set<String> roleIdSet = jwtUtil.getRoles(user).map(Role::getId).collect(Collectors.toSet());
+                            return rbacPolicyDao.queryPermissionTypeList(roleIdSet)
+                                    .map(permissions -> jwtUtil.build(user, roleIdSet, permissions.stream().map(Permission::getType).collect(Collectors.toSet())));
+                        }
                 )
                 .flatMap(token ->
                         responseProvider.get()
@@ -99,17 +87,5 @@ public class LoginApi {
             userMutationArguments.setHash(Base64.getEncoder().encodeToString(hash.getResultAsBytes()));
         }
         return userMutationArguments;
-    }
-
-    private Stream<Permission> getPermissions(Role nullableRole) {
-        return Stream.ofNullable(nullableRole)
-                .flatMap(role ->
-                        Stream.concat(
-                                role.getPermissions().stream(),
-                                Stream.ofNullable(role.getComposites())
-                                        .flatMap(Collection::stream)
-                                        .flatMap(this::getPermissions)
-                        )
-                );
     }
 }

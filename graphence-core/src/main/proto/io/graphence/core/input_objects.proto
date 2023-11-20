@@ -2805,6 +2805,9 @@ message RolePermissionConnectionSubscriptionArguments {
     optional string after = 23;
     optional string before = 24;
 }
+message Query_currentPermissionNameList_Arguments {
+    repeated string types = 1;
+}
 message Mutation_login_Arguments {
     optional string login = 1;
     optional string password = 2;

@@ -140,8 +140,11 @@ message QueryRolePermissionConnectionResponse {
 message QueryCurrentResponse {
     optional CurrentUser current = 1;
 }
-message QueryCurrentPermissionListResponse {
-    repeated string current_permission_list = 1;
+message QueryCurrentPermissionTypeListResponse {
+    repeated string current_permission_type_list = 1;
+}
+message QueryCurrentPermissionNameListResponse {
+    repeated string current_permission_name_list = 1;
 }
 message QueryPolicyListResponse {
     repeated Policy policy_list = 1;

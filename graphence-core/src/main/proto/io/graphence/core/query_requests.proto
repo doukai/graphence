@@ -986,9 +986,14 @@ message QueryCurrentRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
 }
-message QueryCurrentPermissionListRequest {
+message QueryCurrentPermissionTypeListRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
+}
+message QueryCurrentPermissionNameListRequest {
+    optional string selection_set = 1;
+    optional string arguments = 2;
+    repeated string types = 3;
 }
 message QueryPolicyListRequest {
     optional string selection_set = 1;

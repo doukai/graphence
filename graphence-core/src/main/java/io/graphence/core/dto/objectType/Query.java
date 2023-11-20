@@ -103,7 +103,9 @@ public class Query implements Meta {
 
   private CurrentUser current;
 
-  private Collection<String> currentPermissionList;
+  private Collection<String> currentPermissionTypeList;
+
+  private Collection<String> currentPermissionNameList;
 
   private Collection<Policy> policyList;
 
@@ -459,12 +461,20 @@ public class Query implements Meta {
     this.current = current;
   }
 
-  public Collection<String> getCurrentPermissionList() {
-    return this.currentPermissionList;
+  public Collection<String> getCurrentPermissionTypeList() {
+    return this.currentPermissionTypeList;
   }
 
-  public void setCurrentPermissionList(Collection<String> currentPermissionList) {
-    this.currentPermissionList = currentPermissionList;
+  public void setCurrentPermissionTypeList(Collection<String> currentPermissionTypeList) {
+    this.currentPermissionTypeList = currentPermissionTypeList;
+  }
+
+  public Collection<String> getCurrentPermissionNameList() {
+    return this.currentPermissionNameList;
+  }
+
+  public void setCurrentPermissionNameList(Collection<String> currentPermissionNameList) {
+    this.currentPermissionNameList = currentPermissionNameList;
   }
 
   public Collection<Policy> getPolicyList() {

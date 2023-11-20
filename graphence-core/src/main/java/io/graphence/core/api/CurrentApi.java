@@ -4,7 +4,6 @@ import io.graphence.core.dao.RBACPolicyDao;
 import io.graphence.core.dto.CurrentUser;
 import io.graphence.core.dto.inputObjectType.*;
 import io.graphence.core.dto.objectType.Permission;
-import io.graphence.core.dto.objectType.Role;
 import io.graphoenix.core.dto.inputObjectType.IntExpression;
 import io.graphoenix.core.dto.inputObjectType.MetaExpression;
 import io.graphoenix.core.dto.inputObjectType.MetaInput;
@@ -20,7 +19,6 @@ import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.Set;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 @GraphQLApi
 @ApplicationScoped
@@ -41,22 +39,17 @@ public class CurrentApi {
     }
 
     @Query
-    public Mono<Set<String>> currentPermissionList() {
+    public Mono<Set<String>> currentPermissionTypeList() {
         return currentUserMonoProvider.get()
-                .flatMap(currentUser -> rbacPolicyDao.queryRolePermissionsList(currentUser.getId()))
-                .map(roles -> roles.stream().flatMap(this::getPermissions).map(Permission::getName).collect(Collectors.toSet()));
+                .flatMap(currentUser -> rbacPolicyDao.queryPermissionTypeList(currentUser.getRoles()))
+                .map(permissionList -> permissionList.stream().map(Permission::getType).collect(Collectors.toSet()));
     }
 
-    private Stream<Permission> getPermissions(Role nullableRole) {
-        return Stream.ofNullable(nullableRole)
-                .flatMap(role ->
-                        Stream.concat(
-                                role.getPermissions().stream(),
-                                Stream.ofNullable(role.getComposites())
-                                        .flatMap(Collection::stream)
-                                        .flatMap(this::getPermissions)
-                        )
-                );
+    @Query
+    public Mono<Set<String>> currentPermissionNameList(Collection<String> types) {
+        return currentUserMonoProvider.get()
+                .flatMap(currentUser -> rbacPolicyDao.queryPermissionListByTypes(currentUser.getRoles(), types))
+                .map(permissionList -> permissionList.stream().map(Permission::getName).collect(Collectors.toSet()));
     }
 
     public Mono<MetaInput> invokeMetaInput(@Source MetaInput metaInput) {

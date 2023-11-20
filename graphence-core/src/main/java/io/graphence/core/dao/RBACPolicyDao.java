@@ -9,6 +9,8 @@ import io.graphoenix.spi.annotation.GraphQLOperation;
 import io.graphoenix.spi.annotation.QueryOperation;
 import reactor.core.publisher.Mono;
 
+import java.util.Collection;
+import java.util.List;
 import java.util.Set;
 
 @GraphQLOperation
@@ -33,19 +35,21 @@ public interface RBACPolicyDao {
     @PermissionExpression0(name = @IDExpression($val = "name"))
     Mono<Permission> queryPermissionByName(String name);
 
-    @QueryOperation(value = "roleList", selectionSet = "{ permissions { name } composites { permissions { name } composites { permissions { name } } } }")
-    @RoleExpression0(
-            users = @UserExpression1(
-                    id = @IDExpression($val = "userId")
-            )
+    @QueryOperation(value = "permissionList", selectionSet = "{ type }")
+    @PermissionExpression0(
+            roles = @RoleExpression1(
+                    id = @IDExpression($in = "roleIdList")
+            ),
+            groupBy = {"type"}
     )
-    Mono<Set<Role>> queryRolePermissionsList(String userId);
+    Mono<List<Permission>> queryPermissionTypeList(Collection<String> roleIdList);
 
-    @QueryOperation(value = "groupList", selectionSet = "{ roles { permissions { name } composites { permissions { name } composites { permissions { name } } } } }")
-    @GroupExpression0(
-            users = @UserExpression1(
-                    id = @IDExpression($val = "userId")
-            )
+    @QueryOperation(value = "permissionList", selectionSet = "{ name }")
+    @PermissionExpression0(
+            roles = @RoleExpression1(
+                    id = @IDExpression($in = "roleIdList")
+            ),
+            type = @StringExpression($in = "types")
     )
-    Mono<Set<Group>> queryGroupPermissionsList(String userId);
+    Mono<List<Permission>> queryPermissionListByTypes(Collection<String> roleIdList, Collection<String> types);
 }

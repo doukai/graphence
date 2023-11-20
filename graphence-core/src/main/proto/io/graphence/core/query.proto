@@ -55,6 +55,7 @@ service QueryService {
     rpc RolePermissionList (QueryRolePermissionListRequest) returns (QueryRolePermissionListResponse);
     rpc RolePermissionConnection (QueryRolePermissionConnectionRequest) returns (QueryRolePermissionConnectionResponse);
     rpc Current (QueryCurrentRequest) returns (QueryCurrentResponse);
-    rpc CurrentPermissionList (QueryCurrentPermissionListRequest) returns (QueryCurrentPermissionListResponse);
+    rpc CurrentPermissionTypeList (QueryCurrentPermissionTypeListRequest) returns (QueryCurrentPermissionTypeListResponse);
+    rpc CurrentPermissionNameList (QueryCurrentPermissionNameListRequest) returns (QueryCurrentPermissionNameListResponse);
     rpc PolicyList (QueryPolicyListRequest) returns (QueryPolicyListResponse);
 }

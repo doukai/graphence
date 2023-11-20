@@ -42,7 +42,7 @@ public class JWTUtil {
         this.key = Keys.secretKeyFor(SignatureAlgorithm.forName(jwtConfig.getAlgorithm()));
     }
 
-    public String build(User user, Set<String> permissions) {
+    public String build(User user, Set<String> roles, Set<String> permissionTypes) {
         Date issuedAt = getIssuedAt();
         return Jwts.builder()
                 .serializeToJsonWith(new GsonSerializer<>(gsonBuilder.create()))
@@ -52,8 +52,8 @@ public class JWTUtil {
                 .claim(Claims.family_name.name(), user.getLastName())
                 .claim(Claims.upn.name(), user.getRealmId())
                 .claim(Claims.groups.name(), getGroups(user))
-                .claim("roles", getRoles(user))
-                .claim("permissions", permissions.toArray(String[]::new))
+                .claim("roles", roles.toArray(String[]::new))
+                .claim("permission_types", permissionTypes.toArray(String[]::new))
                 .claim("is_root", securityConfig.getRootUser() != null && user.getLogin().equals(securityConfig.getRootUser()))
                 .setIssuedAt(issuedAt)
                 .setExpiration(getExpiration(issuedAt))
@@ -76,8 +76,24 @@ public class JWTUtil {
         return Stream.ofNullable(user.getGroups()).flatMap(Collection::stream).map(Group::getId).toArray(String[]::new);
     }
 
-    protected String[] getRoles(User user) {
-        return Stream.ofNullable(user.getRoles()).flatMap(Collection::stream).map(Role::getId).toArray(String[]::new);
+    public Stream<Role> getRoles(User user) {
+        return Stream.concat(
+                getRoles(user.getRoles()),
+                Stream.ofNullable(user.getGroups())
+                        .flatMap(Collection::stream)
+                        .flatMap(group -> getRoles(group.getRoles()))
+        );
+    }
+
+    public Stream<Role> getRoles(Collection<Role> roles) {
+        return Stream.ofNullable(roles)
+                .flatMap(Collection::stream)
+                .flatMap(role ->
+                        Stream.concat(
+                                Stream.of(role),
+                                getRoles(role.getComposites())
+                        )
+                );
     }
 
     public GraphenceJsonWebToken parser(String compactJws) throws JwtException {
