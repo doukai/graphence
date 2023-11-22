@@ -22,6 +22,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 import static io.graphence.core.casbin.adapter.RBACAdapter.SPACER;
 import static io.graphence.core.casbin.adapter.RBACAdapter.USER_PREFIX;
@@ -114,47 +115,60 @@ public class RBACFilter extends BaseRequestFilter implements ScopeEvent {
 
     protected void enforce(CurrentUser currentUser, String typeName, GraphqlParser.SelectionSetContext selectionSetContext) {
         if (selectionSetContext != null) {
-            List<GraphqlParser.SelectionContext> selectionContexts = selectionSetContext.selection().stream().flatMap(selectionContext -> manager.fragmentUnzip(typeName, selectionContext)).collect(Collectors.toList());
-            if (selectionContexts.size() > 0) {
-                ParseTree left = selectionSetContext.getChild(0);
-                ParseTree right = selectionSetContext.getChild(selectionSetContext.getChildCount() - 1);
-                IntStream.range(0, selectionSetContext.getChildCount()).forEach(index -> selectionSetContext.removeLastChild());
-                selectionSetContext.addChild((TerminalNode) left);
-                for (GraphqlParser.SelectionContext selectionContext : selectionContexts) {
-                    GraphqlParser.FieldDefinitionContext fieldDefinitionContext = manager.getField(typeName, selectionContext.field().name().getText())
-                            .orElseThrow(() -> new GraphQLErrors(FIELD_NOT_EXIST.bind(typeName, selectionContext.field().name().getText())));
+            if (typeName.endsWith(CONNECTION_SUFFIX)) {
+                selectionSetContext.selection().stream()
+                        .filter(selectionContext -> selectionContext.field().name().getText().equals("edges"))
+                        .findFirst()
+                        .flatMap(selectionContext ->
+                                Stream.ofNullable(selectionContext.field().selectionSet())
+                                        .flatMap(edgesSelectionSetContext -> edgesSelectionSetContext.selection().stream())
+                                        .filter(edgesSelectionContext -> edgesSelectionContext.field().name().getText().equals("node"))
+                                        .findFirst()
+                        )
+                        .ifPresent(selectionContext -> enforce(currentUser, typeName.substring(0, typeName.length() - CONNECTION_SUFFIX.length()), selectionContext.field().selectionSet()));
+            } else {
+                List<GraphqlParser.SelectionContext> selectionContexts = selectionSetContext.selection().stream().flatMap(selectionContext -> manager.fragmentUnzip(typeName, selectionContext)).collect(Collectors.toList());
+                if (selectionContexts.size() > 0) {
+                    ParseTree left = selectionSetContext.getChild(0);
+                    ParseTree right = selectionSetContext.getChild(selectionSetContext.getChildCount() - 1);
+                    IntStream.range(0, selectionSetContext.getChildCount()).forEach(index -> selectionSetContext.removeLastChild());
+                    selectionSetContext.addChild((TerminalNode) left);
+                    for (GraphqlParser.SelectionContext selectionContext : selectionContexts) {
+                        GraphqlParser.FieldDefinitionContext fieldDefinitionContext = manager.getField(typeName, selectionContext.field().name().getText())
+                                .orElseThrow(() -> new GraphQLErrors(FIELD_NOT_EXIST.bind(typeName, selectionContext.field().name().getText())));
 
-                    String fieldName;
-                    if (manager.isFunctionField(fieldDefinitionContext)) {
-                        fieldName = fieldDefinitionContext.directives().directive().stream()
-                                .filter(directiveContext -> directiveContext.name().getText().equals(FUNC_DIRECTIVE_NAME))
-                                .flatMap(directiveContext -> directiveContext.arguments().argument().stream()
-                                        .filter(argumentContext -> argumentContext.name().getText().equals("field"))
-                                        .filter(argumentContext -> argumentContext.valueWithVariable().StringValue() != null)
-                                        .map(argumentContext -> DOCUMENT_UTIL.getStringValue(argumentContext.valueWithVariable().StringValue())))
-                                .findFirst()
-                                .orElse(null);
-                    } else if (fieldDefinitionContext.name().getText().endsWith(AGGREGATE_SUFFIX)) {
-                        fieldName = fieldDefinitionContext.name().getText().substring(0, fieldDefinitionContext.name().getText().lastIndexOf(AGGREGATE_SUFFIX));
-                    } else if (fieldDefinitionContext.name().getText().endsWith(CONNECTION_SUFFIX)) {
-                        fieldName = fieldDefinitionContext.name().getText().substring(0, fieldDefinitionContext.name().getText().lastIndexOf(CONNECTION_SUFFIX));
-                    } else {
-                        fieldName = selectionContext.field().name().getText();
+                        String fieldName;
+                        if (manager.isFunctionField(fieldDefinitionContext)) {
+                            fieldName = fieldDefinitionContext.directives().directive().stream()
+                                    .filter(directiveContext -> directiveContext.name().getText().equals(FUNC_DIRECTIVE_NAME))
+                                    .flatMap(directiveContext -> directiveContext.arguments().argument().stream()
+                                            .filter(argumentContext -> argumentContext.name().getText().equals("field"))
+                                            .filter(argumentContext -> argumentContext.valueWithVariable().StringValue() != null)
+                                            .map(argumentContext -> DOCUMENT_UTIL.getStringValue(argumentContext.valueWithVariable().StringValue())))
+                                    .findFirst()
+                                    .orElse(null);
+                        } else if (fieldDefinitionContext.name().getText().endsWith(AGGREGATE_SUFFIX)) {
+                            fieldName = fieldDefinitionContext.name().getText().substring(0, fieldDefinitionContext.name().getText().lastIndexOf(AGGREGATE_SUFFIX));
+                        } else if (fieldDefinitionContext.name().getText().endsWith(CONNECTION_SUFFIX)) {
+                            fieldName = fieldDefinitionContext.name().getText().substring(0, fieldDefinitionContext.name().getText().lastIndexOf(CONNECTION_SUFFIX));
+                        } else {
+                            fieldName = selectionContext.field().name().getText();
+                        }
+                        if (enforcer.enforce(
+                                USER_PREFIX + currentUser.getId(),
+                                currentUser.getRealmId(),
+                                typeName + SPACER + fieldName,
+                                READ.name()
+                        )
+                        ) {
+                            selectionSetContext.addChild(selectionContext);
+                            enforce(currentUser, manager.getFieldTypeName(fieldDefinitionContext.type()), selectionContext.field().selectionSet());
+                        }
                     }
-                    if (enforcer.enforce(
-                            USER_PREFIX + currentUser.getId(),
-                            currentUser.getRealmId(),
-                            typeName + SPACER + fieldName,
-                            READ.name()
-                    )
-                    ) {
-                        selectionSetContext.addChild(selectionContext);
-                        enforce(currentUser, manager.getFieldTypeName(fieldDefinitionContext.type()), selectionContext.field().selectionSet());
+                    selectionSetContext.addChild((TerminalNode) right);
+                    if (selectionSetContext.selection().size() == 0) {
+                        throw new AuthorizationException(UN_AUTHORIZATION_READ.bind(typeName));
                     }
-                }
-                selectionSetContext.addChild((TerminalNode) right);
-                if (selectionSetContext.selection().size() == 0) {
-                    throw new AuthorizationException(UN_AUTHORIZATION_READ.bind(typeName));
                 }
             }
         }
