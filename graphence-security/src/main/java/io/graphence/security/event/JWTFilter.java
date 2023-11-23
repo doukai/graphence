@@ -45,9 +45,6 @@ public class JWTFilter extends BaseRequestFilter implements ScopeEvent {
     public Mono<Void> fireAsync(Map<String, Object> context) {
         init(manager, context);
         HttpServerRequest request = getRequest(context);
-        if (isPermitAll(context)) {
-            return Mono.empty();
-        }
         String authorization = request.requestHeaders().get(AUTHORIZATION_HEADER);
         if (authorization != null && authorization.startsWith(AUTHORIZATION_SCHEME_BEARER)) {
             String jws = authorization.substring(7);
@@ -92,6 +89,9 @@ public class JWTFilter extends BaseRequestFilter implements ScopeEvent {
                     )
                     .flatMap(currentUser -> RequestScopeInstanceFactory.computeIfAbsent(CurrentUser.class, currentUser))
                     .then();
+        }
+        if (isPermitAll(context)) {
+            return Mono.empty();
         }
         throw new AuthenticationException(UN_AUTHENTICATION);
     }
