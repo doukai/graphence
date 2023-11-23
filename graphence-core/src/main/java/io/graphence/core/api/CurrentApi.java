@@ -7,7 +7,6 @@ import io.graphence.core.dto.objectType.Permission;
 import io.graphoenix.core.dto.inputObjectType.IntExpression;
 import io.graphoenix.core.dto.inputObjectType.MetaExpression;
 import io.graphoenix.core.dto.inputObjectType.MetaInput;
-import jakarta.annotation.security.PermitAll;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.inject.Provider;
@@ -35,13 +34,11 @@ public class CurrentApi {
     }
 
     @Query
-    @PermitAll
     public Mono<CurrentUser> current() {
         return currentUserMonoProvider.get();
     }
 
     @Query
-    @PermitAll
     public Mono<Set<String>> currentPermissionTypeList() {
         return currentUserMonoProvider.get()
                 .flatMap(currentUser -> rbacPolicyDao.queryPermissionTypeList(currentUser.getRoles()))
@@ -49,7 +46,6 @@ public class CurrentApi {
     }
 
     @Query
-    @PermitAll
     public Mono<Set<String>> currentPermissionNameList(Collection<String> types) {
         return currentUserMonoProvider.get()
                 .flatMap(currentUser -> rbacPolicyDao.queryPermissionListByTypes(currentUser.getRoles(), types))

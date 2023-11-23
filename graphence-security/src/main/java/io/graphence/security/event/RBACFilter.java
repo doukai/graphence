@@ -20,12 +20,12 @@ import reactor.core.publisher.Mono;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-import static io.graphence.core.casbin.adapter.RBACAdapter.SPACER;
-import static io.graphence.core.casbin.adapter.RBACAdapter.USER_PREFIX;
+import static io.graphence.core.casbin.adapter.RBACAdapter.*;
 import static io.graphence.core.dto.enumType.PermissionType.READ;
 import static io.graphence.core.dto.enumType.PermissionType.WRITE;
 import static io.graphence.core.error.AuthorizationErrorType.UN_AUTHORIZATION_READ;
@@ -104,7 +104,7 @@ public class RBACFilter extends BaseRequestFilter implements ScopeEvent {
     protected void enforceApi(CurrentUser currentUser, String operationTypeName, GraphqlParser.SelectionContext selectionContext, PermissionType permissionType) {
         if (!enforcer.enforce(
                 USER_PREFIX + currentUser.getId(),
-                currentUser.getRealmId(),
+                Optional.ofNullable(currentUser.getRealmId()).map(String::valueOf).orElse(EMPTY),
                 operationTypeName + SPACER + selectionContext.field().name().getText(),
                 permissionType.name()
         )
@@ -156,7 +156,7 @@ public class RBACFilter extends BaseRequestFilter implements ScopeEvent {
                         }
                         if (enforcer.enforce(
                                 USER_PREFIX + currentUser.getId(),
-                                currentUser.getRealmId(),
+                                Optional.ofNullable(currentUser.getRealmId()).map(String::valueOf).orElse(EMPTY),
                                 typeName + SPACER + fieldName,
                                 READ.name()
                         )
@@ -188,7 +188,7 @@ public class RBACFilter extends BaseRequestFilter implements ScopeEvent {
                     } else {
                         if (enforcer.enforce(
                                 USER_PREFIX + currentUser.getId(),
-                                currentUser.getRealmId(),
+                                Optional.ofNullable(currentUser.getRealmId()).map(String::valueOf).orElse(EMPTY),
                                 typeName + SPACER + argumentContext.name().getText(),
                                 WRITE.name()
                         )
@@ -222,7 +222,7 @@ public class RBACFilter extends BaseRequestFilter implements ScopeEvent {
                     } else {
                         if (enforcer.enforce(
                                 USER_PREFIX + currentUser.getId(),
-                                currentUser.getRealmId(),
+                                Optional.ofNullable(currentUser.getRealmId()).map(String::valueOf).orElse(EMPTY),
                                 typeName + SPACER + objectFieldWithVariableContext.name().getText(),
                                 WRITE.name()
                         )
