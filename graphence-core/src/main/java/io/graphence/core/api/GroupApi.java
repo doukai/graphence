@@ -33,6 +33,7 @@ public class GroupApi {
                 }
                 groupMutationArguments.setDeep(groupMutationArguments.getParent().getDeep() + 1);
                 return groupDao.getGroupById(groupMutationArguments.getWhere().getId().getVal())
+                        .filter(group -> !group.getPath().equals("/"))
                         .flatMap(group ->
                                 groupDao.getGroupListByPath(group.getPath() + "%")
                                         .filter(groups -> groups.size() > 0)
@@ -42,6 +43,7 @@ public class GroupApi {
                                                                 .map(item ->
                                                                         ObjectValueWithVariable.of(
                                                                                 "id", item.getId(),
+                                                                                "name", item.getName(),
                                                                                 "path", item.getPath().replaceFirst(group.getPath(), groupMutationArguments.getPath()),
                                                                                 "deep", item.getDeep() - group.getDeep() + groupMutationArguments.getDeep()
                                                                         )
@@ -80,6 +82,7 @@ public class GroupApi {
                 }
                 groupInput.setDeep(groupInput.getParent().getDeep() + 1);
                 return groupDao.getGroupById(groupInput.getWhere().getId().getVal())
+                        .filter(group -> !group.getPath().equals("/"))
                         .flatMap(group ->
                                 groupDao.getGroupListByPath(group.getPath() + "%")
                                         .filter(groups -> groups.size() > 0)
@@ -89,6 +92,7 @@ public class GroupApi {
                                                                 .map(item ->
                                                                         ObjectValueWithVariable.of(
                                                                                 "id", item.getId(),
+                                                                                "name", item.getName(),
                                                                                 "path", item.getPath().replaceFirst(group.getPath(), groupInput.getPath()),
                                                                                 "deep", item.getDeep() - group.getDeep() + groupInput.getDeep()
                                                                         )
