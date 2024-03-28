@@ -2,14 +2,12 @@ package io.graphence.core.dto.inputObjectType;
 
 import com.dslplatform.json.CompiledJson;
 import io.graphoenix.core.dto.enumType.Sort;
-import io.graphoenix.spi.annotation.Ignore;
 import jakarta.annotation.Generated;
 import org.eclipse.microprofile.graphql.Input;
 
 @CompiledJson
 @Input
-@Generated("io.graphoenix.java.generator.builder.TypeSpecBuilderProxy")
-@Ignore
+@Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
 public class PermissionOrderBy {
   private Sort name;
 

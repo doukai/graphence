@@ -97,7 +97,12 @@ public class JWTUtil {
     }
 
     public GraphenceJsonWebToken parser(String compactJws) throws JwtException {
-        Jws<io.jsonwebtoken.Claims> claimsJws = Jwts.parserBuilder().deserializeJsonWith(new GsonDeserializer<>(gsonBuilder.create())).setSigningKey(key).build().parseClaimsJws(compactJws);
+        Jws<io.jsonwebtoken.Claims> claimsJws = Jwts
+                .parserBuilder()
+                .deserializeJsonWith(new GsonDeserializer<>(gsonBuilder.create()))
+                .setSigningKey(key)
+                .build()
+                .parseClaimsJws(compactJws);
         return new GraphenceJsonWebToken(claimsJws);
     }
 }

@@ -2,7 +2,6 @@ package io.graphence.core.dto.objectType;
 
 import com.dslplatform.json.CompiledJson;
 import io.graphoenix.core.dto.interfaceType.Meta;
-import io.graphoenix.spi.annotation.Ignore;
 import io.graphoenix.structure.dto.interfaceType.NamedStruct;
 import jakarta.annotation.Generated;
 import java.lang.Boolean;
@@ -20,8 +19,7 @@ import org.eclipse.microprofile.graphql.Type;
  */
 @Type
 @CompiledJson
-@Generated("io.graphoenix.java.generator.builder.TypeSpecBuilderProxy")
-@Ignore
+@Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
 @Description("租户")
 public class Realm implements NamedStruct, Meta {
   /**

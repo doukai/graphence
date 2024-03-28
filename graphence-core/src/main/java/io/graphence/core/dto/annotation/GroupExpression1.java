@@ -1,70 +1,118 @@
 package io.graphence.core.dto.annotation;
 
+import io.graphoenix.core.dto.annotation.IntExpression2;
+import io.graphoenix.core.dto.annotation.StringExpression2;
 import io.graphoenix.core.dto.enumType.Conditional;
+import jakarta.annotation.Generated;
 import java.lang.String;
+import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
+@Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
+@Documented
 @Retention(RetentionPolicy.SOURCE)
 @Target(ElementType.METHOD)
 public @interface GroupExpression1 {
+  StringExpression2 id() default @StringExpression2;
+
+  StringExpression2 name() default @StringExpression2;
+
+  StringExpression2 description() default @StringExpression2;
+
+  StringExpression2 path() default @StringExpression2;
+
+  IntExpression2 deep() default @IntExpression2;
+
+  StringExpression2 parentId() default @StringExpression2;
+
+  GroupExpression2 parent() default @GroupExpression2;
+
+  GroupExpression2 subGroups() default @GroupExpression2;
+
+  UserExpression2 users() default @UserExpression2;
+
+  RoleExpression2 roles() default @RoleExpression2;
+
+  RealmExpression2 realm() default @RealmExpression2;
+
+  boolean includeDeprecated() default false;
+
+  IntExpression2 version() default @IntExpression2;
+
+  IntExpression2 realmId() default @IntExpression2;
+
+  StringExpression2 createUserId() default @StringExpression2;
+
+  StringExpression2 createTime() default @StringExpression2;
+
+  StringExpression2 updateUserId() default @StringExpression2;
+
+  StringExpression2 updateTime() default @StringExpression2;
+
+  StringExpression2 createGroupId() default @StringExpression2;
+
+  StringExpression2 __typename() default @StringExpression2;
+
+  GroupUserRelationExpression2 groupUserRelation() default @GroupUserRelationExpression2;
+
+  GroupRoleRelationExpression2 groupRoleRelation() default @GroupRoleRelationExpression2;
+
+  boolean not() default false;
+
   Conditional cond() default Conditional.AND;
 
-  IDExpression id() default @IDExpression;
+  GroupExpression2[] exs() default {};
 
-  StringExpression name() default @StringExpression;
+  String $id() default "";
 
-  StringExpression description() default @StringExpression;
+  String $name() default "";
 
-  StringExpression path() default @StringExpression;
+  String $description() default "";
 
-  IntExpression deep() default @IntExpression;
+  String $path() default "";
 
-  StringExpression parentId() default @StringExpression;
+  String $deep() default "";
 
-  BooleanExpression isDeprecated() default @BooleanExpression;
+  String $parentId() default "";
 
-  IntExpression version() default @IntExpression;
+  String $parent() default "";
 
-  IntExpression realmId() default @IntExpression;
+  String $subGroups() default "";
 
-  StringExpression createUserId() default @StringExpression;
+  String $users() default "";
 
-  StringExpression createTime() default @StringExpression;
+  String $roles() default "";
 
-  StringExpression updateUserId() default @StringExpression;
+  String $realm() default "";
 
-  StringExpression updateTime() default @StringExpression;
+  String $includeDeprecated() default "";
 
-  StringExpression createGroupId() default @StringExpression;
+  String $version() default "";
 
-  StringExpression __typename() default @StringExpression;
+  String $realmId() default "";
 
-  BooleanExpression syncGroupPolicy() default @BooleanExpression;
+  String $createUserId() default "";
 
-  String[] groupBy() default {};
+  String $createTime() default "";
 
-  GroupOrderBy1 orderBy() default @GroupOrderBy1;
+  String $updateUserId() default "";
 
-  int first() default 0;
+  String $updateTime() default "";
 
-  String $first() default "";
+  String $createGroupId() default "";
 
-  int last() default 0;
+  String $__typename() default "";
 
-  String $last() default "";
+  String $groupUserRelation() default "";
 
-  int offset() default 0;
+  String $groupRoleRelation() default "";
 
-  String $offset() default "";
+  String $not() default "";
 
-  String after() default "";
+  String $cond() default "";
 
-  String before() default "";
-
-  String $after() default "";
-
-  String $before() default "";
+  String $exs() default "";
 }

@@ -1,12 +1,16 @@
 package io.graphence.core.dto.annotation;
 
 import io.graphence.core.dto.enumType.PermissionType;
+import jakarta.annotation.Generated;
 import java.lang.String;
+import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
+@Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
+@Documented
 @Retention(RetentionPolicy.SOURCE)
 @Target(ElementType.METHOD)
 public @interface PermissionInput1 {
@@ -19,6 +23,10 @@ public @interface PermissionInput1 {
   String type() default "";
 
   PermissionType permissionType() default PermissionType.READ;
+
+  RoleInput2[] roles() default {};
+
+  RealmInput2 realm() default @RealmInput2;
 
   boolean isDeprecated() default false;
 
@@ -36,9 +44,11 @@ public @interface PermissionInput1 {
 
   String createGroupId() default "";
 
-  String __typename() default "";
+  String __typename() default "Permission";
 
-  boolean syncPermissionPolicy() default false;
+  PermissionRoleRelationInput2[] permissionRoleRelation() default {};
+
+  PermissionExpression2 where() default @PermissionExpression2;
 
   String $name() default "";
 
@@ -72,15 +82,7 @@ public @interface PermissionInput1 {
 
   String $__typename() default "";
 
-  String $rolesAggregate() default "";
+  String $permissionRoleRelation() default "";
 
-  String $rolesConnection() default "";
-
-  String $rolePermission() default "";
-
-  String $rolePermissionAggregate() default "";
-
-  String $rolePermissionConnection() default "";
-
-  String $syncPermissionPolicy() default "";
+  String $where() default "";
 }

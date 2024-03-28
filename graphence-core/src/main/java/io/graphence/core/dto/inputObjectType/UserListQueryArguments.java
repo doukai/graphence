@@ -6,11 +6,11 @@ import io.graphoenix.core.dto.inputObjectType.BooleanExpression;
 import io.graphoenix.core.dto.inputObjectType.IntExpression;
 import io.graphoenix.core.dto.inputObjectType.MetaExpression;
 import io.graphoenix.core.dto.inputObjectType.StringExpression;
-import io.graphoenix.spi.annotation.Ignore;
 import io.graphoenix.structure.dto.inputObjectType.NamedStructExpression;
 import jakarta.annotation.Generated;
 import java.lang.Boolean;
 import java.lang.Integer;
+import java.lang.Override;
 import java.lang.String;
 import java.util.Collection;
 import org.eclipse.microprofile.graphql.DefaultValue;
@@ -18,9 +18,8 @@ import org.eclipse.microprofile.graphql.Input;
 
 @CompiledJson
 @Input
-@Generated("io.graphoenix.java.generator.builder.TypeSpecBuilderProxy")
-@Ignore
-public class UserListQueryArguments implements MetaExpression, NamedStructExpression {
+@Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
+public class UserListQueryArguments implements NamedStructExpression, MetaExpression {
   private StringExpression id;
 
   private StringExpression name;
@@ -66,11 +65,11 @@ public class UserListQueryArguments implements MetaExpression, NamedStructExpres
 
   private StringExpression __typename;
 
-  private UserPhonesExpression userPhones;
+  private UserPhonesRelationExpression userPhonesRelation;
 
-  private UserGroupExpression userGroup;
+  private GroupUserRelationExpression groupUserRelation;
 
-  private UserRoleExpression userRole;
+  private RoleUserRelationExpression roleUserRelation;
 
   private UserOrderBy orderBy;
 
@@ -102,18 +101,22 @@ public class UserListQueryArguments implements MetaExpression, NamedStructExpres
     this.id = id;
   }
 
+  @Override
   public StringExpression getName() {
     return this.name;
   }
 
+  @Override
   public void setName(StringExpression name) {
     this.name = name;
   }
 
+  @Override
   public StringExpression getDescription() {
     return this.description;
   }
 
+  @Override
   public void setDescription(StringExpression description) {
     this.description = description;
   }
@@ -198,66 +201,82 @@ public class UserListQueryArguments implements MetaExpression, NamedStructExpres
     this.realm = realm;
   }
 
+  @Override
   public Boolean getIncludeDeprecated() {
     return this.includeDeprecated;
   }
 
+  @Override
   public void setIncludeDeprecated(Boolean includeDeprecated) {
     this.includeDeprecated = includeDeprecated;
   }
 
+  @Override
   public IntExpression getVersion() {
     return this.version;
   }
 
+  @Override
   public void setVersion(IntExpression version) {
     this.version = version;
   }
 
+  @Override
   public IntExpression getRealmId() {
     return this.realmId;
   }
 
+  @Override
   public void setRealmId(IntExpression realmId) {
     this.realmId = realmId;
   }
 
+  @Override
   public StringExpression getCreateUserId() {
     return this.createUserId;
   }
 
+  @Override
   public void setCreateUserId(StringExpression createUserId) {
     this.createUserId = createUserId;
   }
 
+  @Override
   public StringExpression getCreateTime() {
     return this.createTime;
   }
 
+  @Override
   public void setCreateTime(StringExpression createTime) {
     this.createTime = createTime;
   }
 
+  @Override
   public StringExpression getUpdateUserId() {
     return this.updateUserId;
   }
 
+  @Override
   public void setUpdateUserId(StringExpression updateUserId) {
     this.updateUserId = updateUserId;
   }
 
+  @Override
   public StringExpression getUpdateTime() {
     return this.updateTime;
   }
 
+  @Override
   public void setUpdateTime(StringExpression updateTime) {
     this.updateTime = updateTime;
   }
 
+  @Override
   public StringExpression getCreateGroupId() {
     return this.createGroupId;
   }
 
+  @Override
   public void setCreateGroupId(StringExpression createGroupId) {
     this.createGroupId = createGroupId;
   }
@@ -270,28 +289,28 @@ public class UserListQueryArguments implements MetaExpression, NamedStructExpres
     this.__typename = __typename;
   }
 
-  public UserPhonesExpression getUserPhones() {
-    return this.userPhones;
+  public UserPhonesRelationExpression getUserPhonesRelation() {
+    return this.userPhonesRelation;
   }
 
-  public void setUserPhones(UserPhonesExpression userPhones) {
-    this.userPhones = userPhones;
+  public void setUserPhonesRelation(UserPhonesRelationExpression userPhonesRelation) {
+    this.userPhonesRelation = userPhonesRelation;
   }
 
-  public UserGroupExpression getUserGroup() {
-    return this.userGroup;
+  public GroupUserRelationExpression getGroupUserRelation() {
+    return this.groupUserRelation;
   }
 
-  public void setUserGroup(UserGroupExpression userGroup) {
-    this.userGroup = userGroup;
+  public void setGroupUserRelation(GroupUserRelationExpression groupUserRelation) {
+    this.groupUserRelation = groupUserRelation;
   }
 
-  public UserRoleExpression getUserRole() {
-    return this.userRole;
+  public RoleUserRelationExpression getRoleUserRelation() {
+    return this.roleUserRelation;
   }
 
-  public void setUserRole(UserRoleExpression userRole) {
-    this.userRole = userRole;
+  public void setRoleUserRelation(RoleUserRelationExpression roleUserRelation) {
+    this.roleUserRelation = roleUserRelation;
   }
 
   public UserOrderBy getOrderBy() {
@@ -310,26 +329,32 @@ public class UserListQueryArguments implements MetaExpression, NamedStructExpres
     this.groupBy = groupBy;
   }
 
+  @Override
   public Boolean getNot() {
     return this.not;
   }
 
+  @Override
   public void setNot(Boolean not) {
     this.not = not;
   }
 
+  @Override
   public Conditional getCond() {
     return this.cond;
   }
 
+  @Override
   public void setCond(Conditional cond) {
     this.cond = cond;
   }
 
+  @Override
   public Collection<UserExpression> getExs() {
     return this.exs;
   }
 
+  @Override
   public void setExs(Collection<UserExpression> exs) {
     this.exs = exs;
   }

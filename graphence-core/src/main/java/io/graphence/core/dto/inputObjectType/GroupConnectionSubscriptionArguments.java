@@ -5,12 +5,12 @@ import io.graphoenix.core.dto.enumType.Conditional;
 import io.graphoenix.core.dto.inputObjectType.IntExpression;
 import io.graphoenix.core.dto.inputObjectType.MetaExpression;
 import io.graphoenix.core.dto.inputObjectType.StringExpression;
-import io.graphoenix.spi.annotation.Ignore;
 import io.graphoenix.structure.dto.inputObjectType.NamedStructExpression;
 import io.graphoenix.structure.dto.inputObjectType.TreeStructExpression;
 import jakarta.annotation.Generated;
 import java.lang.Boolean;
 import java.lang.Integer;
+import java.lang.Override;
 import java.lang.String;
 import java.util.Collection;
 import org.eclipse.microprofile.graphql.DefaultValue;
@@ -18,9 +18,8 @@ import org.eclipse.microprofile.graphql.Input;
 
 @CompiledJson
 @Input
-@Generated("io.graphoenix.java.generator.builder.TypeSpecBuilderProxy")
-@Ignore
-public class GroupConnectionSubscriptionArguments implements MetaExpression, NamedStructExpression, TreeStructExpression {
+@Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
+public class GroupConnectionSubscriptionArguments implements TreeStructExpression, NamedStructExpression, MetaExpression {
   private StringExpression id;
 
   private StringExpression name;
@@ -62,9 +61,9 @@ public class GroupConnectionSubscriptionArguments implements MetaExpression, Nam
 
   private StringExpression __typename;
 
-  private UserGroupExpression userGroup;
+  private GroupUserRelationExpression groupUserRelation;
 
-  private GroupRoleExpression groupRole;
+  private GroupRoleRelationExpression groupRoleRelation;
 
   private GroupOrderBy orderBy;
 
@@ -96,42 +95,52 @@ public class GroupConnectionSubscriptionArguments implements MetaExpression, Nam
     this.id = id;
   }
 
+  @Override
   public StringExpression getName() {
     return this.name;
   }
 
+  @Override
   public void setName(StringExpression name) {
     this.name = name;
   }
 
+  @Override
   public StringExpression getDescription() {
     return this.description;
   }
 
+  @Override
   public void setDescription(StringExpression description) {
     this.description = description;
   }
 
+  @Override
   public StringExpression getPath() {
     return this.path;
   }
 
+  @Override
   public void setPath(StringExpression path) {
     this.path = path;
   }
 
+  @Override
   public IntExpression getDeep() {
     return this.deep;
   }
 
+  @Override
   public void setDeep(IntExpression deep) {
     this.deep = deep;
   }
 
+  @Override
   public StringExpression getParentId() {
     return this.parentId;
   }
 
+  @Override
   public void setParentId(StringExpression parentId) {
     this.parentId = parentId;
   }
@@ -176,66 +185,82 @@ public class GroupConnectionSubscriptionArguments implements MetaExpression, Nam
     this.realm = realm;
   }
 
+  @Override
   public Boolean getIncludeDeprecated() {
     return this.includeDeprecated;
   }
 
+  @Override
   public void setIncludeDeprecated(Boolean includeDeprecated) {
     this.includeDeprecated = includeDeprecated;
   }
 
+  @Override
   public IntExpression getVersion() {
     return this.version;
   }
 
+  @Override
   public void setVersion(IntExpression version) {
     this.version = version;
   }
 
+  @Override
   public IntExpression getRealmId() {
     return this.realmId;
   }
 
+  @Override
   public void setRealmId(IntExpression realmId) {
     this.realmId = realmId;
   }
 
+  @Override
   public StringExpression getCreateUserId() {
     return this.createUserId;
   }
 
+  @Override
   public void setCreateUserId(StringExpression createUserId) {
     this.createUserId = createUserId;
   }
 
+  @Override
   public StringExpression getCreateTime() {
     return this.createTime;
   }
 
+  @Override
   public void setCreateTime(StringExpression createTime) {
     this.createTime = createTime;
   }
 
+  @Override
   public StringExpression getUpdateUserId() {
     return this.updateUserId;
   }
 
+  @Override
   public void setUpdateUserId(StringExpression updateUserId) {
     this.updateUserId = updateUserId;
   }
 
+  @Override
   public StringExpression getUpdateTime() {
     return this.updateTime;
   }
 
+  @Override
   public void setUpdateTime(StringExpression updateTime) {
     this.updateTime = updateTime;
   }
 
+  @Override
   public StringExpression getCreateGroupId() {
     return this.createGroupId;
   }
 
+  @Override
   public void setCreateGroupId(StringExpression createGroupId) {
     this.createGroupId = createGroupId;
   }
@@ -248,20 +273,20 @@ public class GroupConnectionSubscriptionArguments implements MetaExpression, Nam
     this.__typename = __typename;
   }
 
-  public UserGroupExpression getUserGroup() {
-    return this.userGroup;
+  public GroupUserRelationExpression getGroupUserRelation() {
+    return this.groupUserRelation;
   }
 
-  public void setUserGroup(UserGroupExpression userGroup) {
-    this.userGroup = userGroup;
+  public void setGroupUserRelation(GroupUserRelationExpression groupUserRelation) {
+    this.groupUserRelation = groupUserRelation;
   }
 
-  public GroupRoleExpression getGroupRole() {
-    return this.groupRole;
+  public GroupRoleRelationExpression getGroupRoleRelation() {
+    return this.groupRoleRelation;
   }
 
-  public void setGroupRole(GroupRoleExpression groupRole) {
-    this.groupRole = groupRole;
+  public void setGroupRoleRelation(GroupRoleRelationExpression groupRoleRelation) {
+    this.groupRoleRelation = groupRoleRelation;
   }
 
   public GroupOrderBy getOrderBy() {
@@ -280,26 +305,32 @@ public class GroupConnectionSubscriptionArguments implements MetaExpression, Nam
     this.groupBy = groupBy;
   }
 
+  @Override
   public Boolean getNot() {
     return this.not;
   }
 
+  @Override
   public void setNot(Boolean not) {
     this.not = not;
   }
 
+  @Override
   public Conditional getCond() {
     return this.cond;
   }
 
+  @Override
   public void setCond(Conditional cond) {
     this.cond = cond;
   }
 
+  @Override
   public Collection<GroupExpression> getExs() {
     return this.exs;
   }
 
+  @Override
   public void setExs(Collection<GroupExpression> exs) {
     this.exs = exs;
   }

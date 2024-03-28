@@ -1,17 +1,16 @@
 package io.graphence.core.event;
 
-import com.google.auto.service.AutoService;
 import io.graphence.core.config.SecurityConfig;
-import io.graphoenix.core.context.BeanContext;
-import io.graphoenix.core.operation.Field;
-import io.graphoenix.core.operation.ObjectValueWithVariable;
-import io.graphoenix.core.operation.Operation;
-import io.graphoenix.spi.antlr.IGraphQLDocumentManager;
-import io.graphoenix.spi.handler.OperationHandler;
-import io.graphoenix.spi.handler.ScopeEvent;
+import io.graphoenix.core.handler.DocumentManager;
+import io.graphoenix.spi.graphql.common.ObjectValueWithVariable;
+import io.graphoenix.spi.graphql.operation.Field;
+import io.graphoenix.spi.graphql.operation.Operation;
+import io.graphoenix.spi.handler.MutationHandler;
+import io.nozdormu.spi.event.ScopeEvent;
 import jakarta.annotation.Priority;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.context.Initialized;
+import jakarta.inject.Inject;
 import reactor.core.publisher.Mono;
 
 import java.time.LocalDateTime;
@@ -23,22 +22,23 @@ import java.util.stream.Stream;
 import static io.graphence.core.casbin.adapter.RBACAdapter.SPACER;
 import static io.graphence.core.dto.enumType.PermissionType.READ;
 import static io.graphence.core.dto.enumType.PermissionType.WRITE;
-import static io.graphoenix.core.utils.DocumentUtil.DOCUMENT_UTIL;
-import static io.graphoenix.spi.constant.Hammurabi.*;
+import static io.graphoenix.spi.constant.Hammurabi.INPUT_VALUE_LIST_NAME;
+import static io.graphoenix.spi.constant.Hammurabi.OPERATION_MUTATION_NAME;
 
+@ApplicationScoped
 @Initialized(ApplicationScoped.class)
-@Priority(3)
-@AutoService(ScopeEvent.class)
+@Priority(400)
 public class PermissionBuildEvent implements ScopeEvent {
 
-    private final IGraphQLDocumentManager manager;
-    private final OperationHandler operationHandler;
+    private final DocumentManager documentManager;
+    private final MutationHandler mutationHandler;
     private final SecurityConfig securityConfig;
 
-    public PermissionBuildEvent() {
-        this.manager = BeanContext.get(IGraphQLDocumentManager.class);
-        this.operationHandler = BeanContext.get(OperationHandler.class);
-        this.securityConfig = BeanContext.get(SecurityConfig.class);
+    @Inject
+    public PermissionBuildEvent(DocumentManager documentManager, MutationHandler mutationHandler, SecurityConfig securityConfig) {
+        this.documentManager = documentManager;
+        this.mutationHandler = mutationHandler;
+        this.securityConfig = securityConfig;
     }
 
     @Override
@@ -47,40 +47,40 @@ public class PermissionBuildEvent implements ScopeEvent {
             return Mono.empty();
         }
         Operation operation = new Operation()
-                .setOperationType("mutation")
-                .addField(
+                .setOperationType(OPERATION_MUTATION_NAME)
+                .addSelection(
                         new Field("permissionList")
-                                .addArgument(LIST_INPUT_NAME, buildPermissionList())
-                                .addField(new Field("name"))
+                                .addArgument(INPUT_VALUE_LIST_NAME, buildPermissionList())
+                                .addSelection(new Field("name"))
                 );
-        return operationHandler.mutation(DOCUMENT_UTIL.graphqlToOperation(operation.toString())).then();
+        return mutationHandler.mutation(operation).then();
     }
 
     private List<ObjectValueWithVariable> buildPermissionList() {
-        return manager.getObjects()
-                .flatMap(objectTypeDefinitionContext ->
-                        objectTypeDefinitionContext.fieldsDefinition().fieldDefinition().stream()
-                                .flatMap(fieldDefinitionContext -> {
-                                            if (manager.isOperationType(objectTypeDefinitionContext)) {
-                                                if (manager.isInvokeField(fieldDefinitionContext)) {
-                                                    if (fieldDefinitionContext.description() != null) {
+        return documentManager.getDocument().getObjectTypes()
+                .flatMap(objectType ->
+                        objectType.getFields().stream()
+                                .flatMap(fieldDefinition -> {
+                                            if (documentManager.isOperationType(objectType)) {
+                                                if (fieldDefinition.isInvokeField()) {
+                                                    if (fieldDefinition.getDescription() != null) {
                                                         return Stream.of(
                                                                 ObjectValueWithVariable.of(
-                                                                        "name", objectTypeDefinitionContext.name().getText() + SPACER + fieldDefinitionContext.name().getText() + SPACER + (manager.isMutationOperationType(objectTypeDefinitionContext.name().getText()) ? WRITE.name() : READ.name()),
-                                                                        "type", objectTypeDefinitionContext.name().getText(),
-                                                                        "field", fieldDefinitionContext.name().getText(),
-                                                                        "permissionType", manager.isMutationOperationType(objectTypeDefinitionContext.name().getText()) ? WRITE : READ,
-                                                                        "description", DOCUMENT_UTIL.getStringValue(fieldDefinitionContext.description().StringValue()),
+                                                                        "name", objectType.getName() + SPACER + fieldDefinition.getName() + SPACER + (documentManager.isMutationOperationType(objectType) ? WRITE.name() : READ.name()),
+                                                                        "type", objectType.getName(),
+                                                                        "field", fieldDefinition.getName(),
+                                                                        "permissionType", documentManager.isMutationOperationType(objectType) ? WRITE : READ,
+                                                                        "description", fieldDefinition.getDescription(),
                                                                         "createTime", LocalDateTime.now()
                                                                 )
                                                         );
                                                     } else {
                                                         return Stream.of(
                                                                 ObjectValueWithVariable.of(
-                                                                        "name", objectTypeDefinitionContext.name().getText() + SPACER + fieldDefinitionContext.name().getText() + SPACER + (manager.isMutationOperationType(objectTypeDefinitionContext.name().getText()) ? WRITE.name() : READ.name()),
-                                                                        "type", objectTypeDefinitionContext.name().getText(),
-                                                                        "field", fieldDefinitionContext.name().getText(),
-                                                                        "permissionType", manager.isMutationOperationType(objectTypeDefinitionContext.name().getText()) ? WRITE : READ,
+                                                                        "name", objectType.getName() + SPACER + fieldDefinition.getName() + SPACER + (documentManager.isMutationOperationType(objectType) ? WRITE.name() : READ.name()),
+                                                                        "type", objectType.getName(),
+                                                                        "field", fieldDefinition.getName(),
+                                                                        "permissionType", documentManager.isMutationOperationType(objectType) ? WRITE : READ,
                                                                         "createTime", LocalDateTime.now()
                                                                 )
                                                         );
@@ -89,43 +89,43 @@ public class PermissionBuildEvent implements ScopeEvent {
                                                     return Stream.empty();
                                                 }
                                             } else {
-                                                if (manager.isNotContainerType(objectTypeDefinitionContext) &&
-                                                        manager.isNotFunctionField(fieldDefinitionContext) &&
-                                                        !fieldDefinitionContext.name().getText().endsWith(AGGREGATE_SUFFIX) &&
-                                                        !fieldDefinitionContext.name().getText().endsWith(CONNECTION_SUFFIX)
+                                                if (!objectType.isContainer() &&
+                                                        !fieldDefinition.isFunctionField() &&
+                                                        !fieldDefinition.isAggregateField() &&
+                                                        !fieldDefinition.isConnectionField()
                                                 ) {
-                                                    if (fieldDefinitionContext.description() != null) {
+                                                    if (fieldDefinition.getDescription() != null) {
                                                         return Stream.of(
                                                                 ObjectValueWithVariable.of(
-                                                                        "name", objectTypeDefinitionContext.name().getText() + SPACER + fieldDefinitionContext.name().getText() + SPACER + WRITE.name(),
-                                                                        "type", objectTypeDefinitionContext.name().getText(),
-                                                                        "field", fieldDefinitionContext.name().getText(),
+                                                                        "name", objectType.getName() + SPACER + fieldDefinition.getName() + SPACER + WRITE.name(),
+                                                                        "type", objectType.getName(),
+                                                                        "field", fieldDefinition.getName(),
                                                                         "permissionType", WRITE,
-                                                                        "description", DOCUMENT_UTIL.getStringValue(fieldDefinitionContext.description().StringValue()) + " " + WRITE,
+                                                                        "description", fieldDefinition.getDescription() + " " + WRITE,
                                                                         "createTime", LocalDateTime.now()
                                                                 ),
                                                                 ObjectValueWithVariable.of(
-                                                                        "name", objectTypeDefinitionContext.name().getText() + SPACER + fieldDefinitionContext.name().getText() + SPACER + READ.name(),
-                                                                        "type", objectTypeDefinitionContext.name().getText(),
-                                                                        "field", fieldDefinitionContext.name().getText(),
+                                                                        "name", objectType.getName() + SPACER + fieldDefinition.getName() + SPACER + READ.name(),
+                                                                        "type", objectType.getName(),
+                                                                        "field", fieldDefinition.getName(),
                                                                         "permissionType", READ,
-                                                                        "description", DOCUMENT_UTIL.getStringValue(fieldDefinitionContext.description().StringValue()) + " " + READ,
+                                                                        "description", fieldDefinition.getDescription() + " " + READ,
                                                                         "createTime", LocalDateTime.now()
                                                                 )
                                                         );
                                                     } else {
                                                         return Stream.of(
                                                                 ObjectValueWithVariable.of(
-                                                                        "name", objectTypeDefinitionContext.name().getText() + SPACER + fieldDefinitionContext.name().getText() + SPACER + WRITE.name(),
-                                                                        "type", objectTypeDefinitionContext.name().getText(),
-                                                                        "field", fieldDefinitionContext.name().getText(),
+                                                                        "name", objectType.getName() + SPACER + fieldDefinition.getName() + SPACER + WRITE.name(),
+                                                                        "type", objectType.getName(),
+                                                                        "field", fieldDefinition.getName(),
                                                                         "permissionType", WRITE,
                                                                         "createTime", LocalDateTime.now()
                                                                 ),
                                                                 ObjectValueWithVariable.of(
-                                                                        "name", objectTypeDefinitionContext.name().getText() + SPACER + fieldDefinitionContext.name().getText() + SPACER + READ.name(),
-                                                                        "type", objectTypeDefinitionContext.name().getText(),
-                                                                        "field", fieldDefinitionContext.name().getText(),
+                                                                        "name", objectType.getName() + SPACER + fieldDefinition.getName() + SPACER + READ.name(),
+                                                                        "type", objectType.getName(),
+                                                                        "field", fieldDefinition.getName(),
                                                                         "permissionType", READ,
                                                                         "createTime", LocalDateTime.now()
                                                                 )

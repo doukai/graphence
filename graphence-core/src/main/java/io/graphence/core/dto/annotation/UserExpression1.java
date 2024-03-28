@@ -1,78 +1,131 @@
 package io.graphence.core.dto.annotation;
 
+import io.graphoenix.core.dto.annotation.BooleanExpression2;
+import io.graphoenix.core.dto.annotation.IntExpression2;
+import io.graphoenix.core.dto.annotation.StringExpression2;
 import io.graphoenix.core.dto.enumType.Conditional;
+import jakarta.annotation.Generated;
 import java.lang.String;
+import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
+@Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
+@Documented
 @Retention(RetentionPolicy.SOURCE)
 @Target(ElementType.METHOD)
 public @interface UserExpression1 {
+  StringExpression2 id() default @StringExpression2;
+
+  StringExpression2 name() default @StringExpression2;
+
+  StringExpression2 description() default @StringExpression2;
+
+  StringExpression2 lastName() default @StringExpression2;
+
+  StringExpression2 login() default @StringExpression2;
+
+  StringExpression2 salt() default @StringExpression2;
+
+  StringExpression2 hash() default @StringExpression2;
+
+  StringExpression2 email() default @StringExpression2;
+
+  StringExpression2 phones() default @StringExpression2;
+
+  BooleanExpression2 disable() default @BooleanExpression2;
+
+  GroupExpression2 groups() default @GroupExpression2;
+
+  RoleExpression2 roles() default @RoleExpression2;
+
+  RealmExpression2 realm() default @RealmExpression2;
+
+  boolean includeDeprecated() default false;
+
+  IntExpression2 version() default @IntExpression2;
+
+  IntExpression2 realmId() default @IntExpression2;
+
+  StringExpression2 createUserId() default @StringExpression2;
+
+  StringExpression2 createTime() default @StringExpression2;
+
+  StringExpression2 updateUserId() default @StringExpression2;
+
+  StringExpression2 updateTime() default @StringExpression2;
+
+  StringExpression2 createGroupId() default @StringExpression2;
+
+  StringExpression2 __typename() default @StringExpression2;
+
+  UserPhonesRelationExpression2 userPhonesRelation() default @UserPhonesRelationExpression2;
+
+  GroupUserRelationExpression2 groupUserRelation() default @GroupUserRelationExpression2;
+
+  RoleUserRelationExpression2 roleUserRelation() default @RoleUserRelationExpression2;
+
+  boolean not() default false;
+
   Conditional cond() default Conditional.AND;
 
-  IDExpression id() default @IDExpression;
+  UserExpression2[] exs() default {};
 
-  StringExpression name() default @StringExpression;
+  String $id() default "";
 
-  StringExpression description() default @StringExpression;
+  String $name() default "";
 
-  StringExpression lastName() default @StringExpression;
+  String $description() default "";
 
-  StringExpression login() default @StringExpression;
+  String $lastName() default "";
 
-  StringExpression salt() default @StringExpression;
+  String $login() default "";
 
-  StringExpression hash() default @StringExpression;
+  String $salt() default "";
 
-  StringExpression email() default @StringExpression;
+  String $hash() default "";
 
-  StringExpression phones() default @StringExpression;
+  String $email() default "";
 
-  BooleanExpression disable() default @BooleanExpression;
+  String $phones() default "";
 
-  BooleanExpression isDeprecated() default @BooleanExpression;
+  String $disable() default "";
 
-  IntExpression version() default @IntExpression;
+  String $groups() default "";
 
-  IntExpression realmId() default @IntExpression;
+  String $roles() default "";
 
-  StringExpression createUserId() default @StringExpression;
+  String $realm() default "";
 
-  StringExpression createTime() default @StringExpression;
+  String $includeDeprecated() default "";
 
-  StringExpression updateUserId() default @StringExpression;
+  String $version() default "";
 
-  StringExpression updateTime() default @StringExpression;
+  String $realmId() default "";
 
-  StringExpression createGroupId() default @StringExpression;
+  String $createUserId() default "";
 
-  StringExpression __typename() default @StringExpression;
+  String $createTime() default "";
 
-  BooleanExpression syncUserPolicy() default @BooleanExpression;
+  String $updateUserId() default "";
 
-  String[] groupBy() default {};
+  String $updateTime() default "";
 
-  UserOrderBy1 orderBy() default @UserOrderBy1;
+  String $createGroupId() default "";
 
-  int first() default 0;
+  String $__typename() default "";
 
-  String $first() default "";
+  String $userPhonesRelation() default "";
 
-  int last() default 0;
+  String $groupUserRelation() default "";
 
-  String $last() default "";
+  String $roleUserRelation() default "";
 
-  int offset() default 0;
+  String $not() default "";
 
-  String $offset() default "";
+  String $cond() default "";
 
-  String after() default "";
-
-  String before() default "";
-
-  String $after() default "";
-
-  String $before() default "";
+  String $exs() default "";
 }

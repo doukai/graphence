@@ -14,13 +14,12 @@ repositories {
 
 dependencies {
     implementation project(':graphence-core')
-    implementation 'io.graphoenix:graphoenix-http-server:0.0.1-SNAPSHOT'
 
     annotationProcessor project(':graphence-core')
-    annotationProcessor 'io.graphoenix:graphoenix-inject:0.0.1-SNAPSHOT'
-    annotationProcessor 'io.graphoenix:graphoenix-interceptor:0.0.1-SNAPSHOT'
-    annotationProcessor 'io.graphoenix:graphoenix-config:0.0.1-SNAPSHOT'
-    annotationProcessor 'io.graphoenix:graphoenix-json:0.0.1-SNAPSHOT'
+    annotationProcessor 'io.nozdormu:nozdormu-inject:0.0.1-SNAPSHOT'
+    annotationProcessor 'io.nozdormu:nozdormu-async:0.0.1-SNAPSHOT'
+    annotationProcessor 'io.nozdormu:nozdormu-interceptor:0.0.1-SNAPSHOT'
+    annotationProcessor 'io.nozdormu:nozdormu-config:0.0.1-SNAPSHOT'
 
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'

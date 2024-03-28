@@ -2,7 +2,6 @@ package io.graphence.core.dto.objectType;
 
 import com.dslplatform.json.CompiledJson;
 import io.graphoenix.core.dto.interfaceType.Meta;
-import io.graphoenix.spi.annotation.Ignore;
 import io.graphoenix.structure.dto.interfaceType.NamedStruct;
 import jakarta.annotation.Generated;
 import java.lang.Boolean;
@@ -21,10 +20,9 @@ import org.eclipse.microprofile.graphql.Type;
  */
 @Type
 @CompiledJson
-@Generated("io.graphoenix.java.generator.builder.TypeSpecBuilderProxy")
-@Ignore
+@Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
 @Description("用户")
-public class User implements Meta, NamedStruct {
+public class User implements NamedStruct, Meta {
   /**
    * ID
    */
@@ -124,6 +122,32 @@ public class User implements Meta, NamedStruct {
 
   private String __typename;
 
+  private Collection<UserPhonesRelation> userPhonesRelation;
+
+  private Collection<GroupUserRelation> groupUserRelation;
+
+  private Collection<RoleUserRelation> roleUserRelation;
+
+  private Group groupsAggregate;
+
+  private GroupConnection groupsConnection;
+
+  private Role rolesAggregate;
+
+  private RoleConnection rolesConnection;
+
+  private UserPhonesRelation userPhonesRelationAggregate;
+
+  private UserPhonesRelationConnection userPhonesRelationConnection;
+
+  private GroupUserRelation groupUserRelationAggregate;
+
+  private GroupUserRelationConnection groupUserRelationConnection;
+
+  private RoleUserRelation roleUserRelationAggregate;
+
+  private RoleUserRelationConnection roleUserRelationConnection;
+
   private Integer idCount;
 
   private Integer idMax;
@@ -171,42 +195,6 @@ public class User implements Meta, NamedStruct {
   private String emailMax;
 
   private String emailMin;
-
-  private Group groupsAggregate;
-
-  private GroupConnection groupsConnection;
-
-  private Role rolesAggregate;
-
-  private RoleConnection rolesConnection;
-
-  private Integer realmIdCount;
-
-  private Integer realmIdSum;
-
-  private Integer realmIdAvg;
-
-  private Integer realmIdMax;
-
-  private Integer realmIdMin;
-
-  private Collection<UserPhones> userPhones;
-
-  private UserPhones userPhonesAggregate;
-
-  private UserPhonesConnection userPhonesConnection;
-
-  private Collection<UserGroup> userGroup;
-
-  private UserGroup userGroupAggregate;
-
-  private UserGroupConnection userGroupConnection;
-
-  private Collection<UserRole> userRole;
-
-  private UserRole userRoleAggregate;
-
-  private UserRoleConnection userRoleConnection;
 
   private Boolean syncUserPolicy;
 
@@ -406,6 +394,112 @@ public class User implements Meta, NamedStruct {
     this.__typename = __typename;
   }
 
+  public Collection<UserPhonesRelation> getUserPhonesRelation() {
+    return this.userPhonesRelation;
+  }
+
+  public void setUserPhonesRelation(Collection<UserPhonesRelation> userPhonesRelation) {
+    this.userPhonesRelation = userPhonesRelation;
+  }
+
+  public Collection<GroupUserRelation> getGroupUserRelation() {
+    return this.groupUserRelation;
+  }
+
+  public void setGroupUserRelation(Collection<GroupUserRelation> groupUserRelation) {
+    this.groupUserRelation = groupUserRelation;
+  }
+
+  public Collection<RoleUserRelation> getRoleUserRelation() {
+    return this.roleUserRelation;
+  }
+
+  public void setRoleUserRelation(Collection<RoleUserRelation> roleUserRelation) {
+    this.roleUserRelation = roleUserRelation;
+  }
+
+  public Group getGroupsAggregate() {
+    return this.groupsAggregate;
+  }
+
+  public void setGroupsAggregate(Group groupsAggregate) {
+    this.groupsAggregate = groupsAggregate;
+  }
+
+  public GroupConnection getGroupsConnection() {
+    return this.groupsConnection;
+  }
+
+  public void setGroupsConnection(GroupConnection groupsConnection) {
+    this.groupsConnection = groupsConnection;
+  }
+
+  public Role getRolesAggregate() {
+    return this.rolesAggregate;
+  }
+
+  public void setRolesAggregate(Role rolesAggregate) {
+    this.rolesAggregate = rolesAggregate;
+  }
+
+  public RoleConnection getRolesConnection() {
+    return this.rolesConnection;
+  }
+
+  public void setRolesConnection(RoleConnection rolesConnection) {
+    this.rolesConnection = rolesConnection;
+  }
+
+  public UserPhonesRelation getUserPhonesRelationAggregate() {
+    return this.userPhonesRelationAggregate;
+  }
+
+  public void setUserPhonesRelationAggregate(UserPhonesRelation userPhonesRelationAggregate) {
+    this.userPhonesRelationAggregate = userPhonesRelationAggregate;
+  }
+
+  public UserPhonesRelationConnection getUserPhonesRelationConnection() {
+    return this.userPhonesRelationConnection;
+  }
+
+  public void setUserPhonesRelationConnection(
+      UserPhonesRelationConnection userPhonesRelationConnection) {
+    this.userPhonesRelationConnection = userPhonesRelationConnection;
+  }
+
+  public GroupUserRelation getGroupUserRelationAggregate() {
+    return this.groupUserRelationAggregate;
+  }
+
+  public void setGroupUserRelationAggregate(GroupUserRelation groupUserRelationAggregate) {
+    this.groupUserRelationAggregate = groupUserRelationAggregate;
+  }
+
+  public GroupUserRelationConnection getGroupUserRelationConnection() {
+    return this.groupUserRelationConnection;
+  }
+
+  public void setGroupUserRelationConnection(
+      GroupUserRelationConnection groupUserRelationConnection) {
+    this.groupUserRelationConnection = groupUserRelationConnection;
+  }
+
+  public RoleUserRelation getRoleUserRelationAggregate() {
+    return this.roleUserRelationAggregate;
+  }
+
+  public void setRoleUserRelationAggregate(RoleUserRelation roleUserRelationAggregate) {
+    this.roleUserRelationAggregate = roleUserRelationAggregate;
+  }
+
+  public RoleUserRelationConnection getRoleUserRelationConnection() {
+    return this.roleUserRelationConnection;
+  }
+
+  public void setRoleUserRelationConnection(RoleUserRelationConnection roleUserRelationConnection) {
+    this.roleUserRelationConnection = roleUserRelationConnection;
+  }
+
   public Integer getIdCount() {
     return this.idCount;
   }
@@ -596,150 +690,6 @@ public class User implements Meta, NamedStruct {
 
   public void setEmailMin(String emailMin) {
     this.emailMin = emailMin;
-  }
-
-  public Group getGroupsAggregate() {
-    return this.groupsAggregate;
-  }
-
-  public void setGroupsAggregate(Group groupsAggregate) {
-    this.groupsAggregate = groupsAggregate;
-  }
-
-  public GroupConnection getGroupsConnection() {
-    return this.groupsConnection;
-  }
-
-  public void setGroupsConnection(GroupConnection groupsConnection) {
-    this.groupsConnection = groupsConnection;
-  }
-
-  public Role getRolesAggregate() {
-    return this.rolesAggregate;
-  }
-
-  public void setRolesAggregate(Role rolesAggregate) {
-    this.rolesAggregate = rolesAggregate;
-  }
-
-  public RoleConnection getRolesConnection() {
-    return this.rolesConnection;
-  }
-
-  public void setRolesConnection(RoleConnection rolesConnection) {
-    this.rolesConnection = rolesConnection;
-  }
-
-  public Integer getRealmIdCount() {
-    return this.realmIdCount;
-  }
-
-  public void setRealmIdCount(Integer realmIdCount) {
-    this.realmIdCount = realmIdCount;
-  }
-
-  public Integer getRealmIdSum() {
-    return this.realmIdSum;
-  }
-
-  public void setRealmIdSum(Integer realmIdSum) {
-    this.realmIdSum = realmIdSum;
-  }
-
-  public Integer getRealmIdAvg() {
-    return this.realmIdAvg;
-  }
-
-  public void setRealmIdAvg(Integer realmIdAvg) {
-    this.realmIdAvg = realmIdAvg;
-  }
-
-  public Integer getRealmIdMax() {
-    return this.realmIdMax;
-  }
-
-  public void setRealmIdMax(Integer realmIdMax) {
-    this.realmIdMax = realmIdMax;
-  }
-
-  public Integer getRealmIdMin() {
-    return this.realmIdMin;
-  }
-
-  public void setRealmIdMin(Integer realmIdMin) {
-    this.realmIdMin = realmIdMin;
-  }
-
-  public Collection<UserPhones> getUserPhones() {
-    return this.userPhones;
-  }
-
-  public void setUserPhones(Collection<UserPhones> userPhones) {
-    this.userPhones = userPhones;
-  }
-
-  public UserPhones getUserPhonesAggregate() {
-    return this.userPhonesAggregate;
-  }
-
-  public void setUserPhonesAggregate(UserPhones userPhonesAggregate) {
-    this.userPhonesAggregate = userPhonesAggregate;
-  }
-
-  public UserPhonesConnection getUserPhonesConnection() {
-    return this.userPhonesConnection;
-  }
-
-  public void setUserPhonesConnection(UserPhonesConnection userPhonesConnection) {
-    this.userPhonesConnection = userPhonesConnection;
-  }
-
-  public Collection<UserGroup> getUserGroup() {
-    return this.userGroup;
-  }
-
-  public void setUserGroup(Collection<UserGroup> userGroup) {
-    this.userGroup = userGroup;
-  }
-
-  public UserGroup getUserGroupAggregate() {
-    return this.userGroupAggregate;
-  }
-
-  public void setUserGroupAggregate(UserGroup userGroupAggregate) {
-    this.userGroupAggregate = userGroupAggregate;
-  }
-
-  public UserGroupConnection getUserGroupConnection() {
-    return this.userGroupConnection;
-  }
-
-  public void setUserGroupConnection(UserGroupConnection userGroupConnection) {
-    this.userGroupConnection = userGroupConnection;
-  }
-
-  public Collection<UserRole> getUserRole() {
-    return this.userRole;
-  }
-
-  public void setUserRole(Collection<UserRole> userRole) {
-    this.userRole = userRole;
-  }
-
-  public UserRole getUserRoleAggregate() {
-    return this.userRoleAggregate;
-  }
-
-  public void setUserRoleAggregate(UserRole userRoleAggregate) {
-    this.userRoleAggregate = userRoleAggregate;
-  }
-
-  public UserRoleConnection getUserRoleConnection() {
-    return this.userRoleConnection;
-  }
-
-  public void setUserRoleConnection(UserRoleConnection userRoleConnection) {
-    this.userRoleConnection = userRoleConnection;
   }
 
   public Boolean getSyncUserPolicy() {

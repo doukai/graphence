@@ -2,7 +2,6 @@ package io.graphence.core.dto.objectType;
 
 import com.dslplatform.json.CompiledJson;
 import io.graphoenix.core.dto.interfaceType.Meta;
-import io.graphoenix.spi.annotation.Ignore;
 import io.graphoenix.structure.dto.interfaceType.NamedStruct;
 import jakarta.annotation.Generated;
 import java.lang.Boolean;
@@ -21,10 +20,9 @@ import org.eclipse.microprofile.graphql.Type;
  */
 @Type
 @CompiledJson
-@Generated("io.graphoenix.java.generator.builder.TypeSpecBuilderProxy")
-@Ignore
+@Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
 @Description("角色")
-public class Role implements Meta, NamedStruct {
+public class Role implements NamedStruct, Meta {
   /**
    * ID
    */
@@ -93,23 +91,13 @@ public class Role implements Meta, NamedStruct {
 
   private String __typename;
 
-  private Integer idCount;
+  private Collection<RoleUserRelation> roleUserRelation;
 
-  private Integer idMax;
+  private Collection<GroupRoleRelation> groupRoleRelation;
 
-  private Integer idMin;
+  private Collection<RoleRoleRelation> roleRoleRelation;
 
-  private Integer nameCount;
-
-  private String nameMax;
-
-  private String nameMin;
-
-  private Integer descriptionCount;
-
-  private String descriptionMax;
-
-  private String descriptionMin;
+  private Collection<PermissionRoleRelation> permissionRoleRelation;
 
   private User usersAggregate;
 
@@ -127,39 +115,39 @@ public class Role implements Meta, NamedStruct {
 
   private PermissionConnection permissionsConnection;
 
-  private Integer realmIdCount;
+  private RoleUserRelation roleUserRelationAggregate;
 
-  private Integer realmIdSum;
+  private RoleUserRelationConnection roleUserRelationConnection;
 
-  private Integer realmIdAvg;
+  private GroupRoleRelation groupRoleRelationAggregate;
 
-  private Integer realmIdMax;
+  private GroupRoleRelationConnection groupRoleRelationConnection;
 
-  private Integer realmIdMin;
+  private RoleRoleRelation roleRoleRelationAggregate;
 
-  private Collection<UserRole> userRole;
+  private RoleRoleRelationConnection roleRoleRelationConnection;
 
-  private UserRole userRoleAggregate;
+  private PermissionRoleRelation permissionRoleRelationAggregate;
 
-  private UserRoleConnection userRoleConnection;
+  private PermissionRoleRelationConnection permissionRoleRelationConnection;
 
-  private Collection<GroupRole> groupRole;
+  private Integer idCount;
 
-  private GroupRole groupRoleAggregate;
+  private Integer idMax;
 
-  private GroupRoleConnection groupRoleConnection;
+  private Integer idMin;
 
-  private Collection<RoleComposite> roleComposite;
+  private Integer nameCount;
 
-  private RoleComposite roleCompositeAggregate;
+  private String nameMax;
 
-  private RoleCompositeConnection roleCompositeConnection;
+  private String nameMin;
 
-  private Collection<RolePermission> rolePermission;
+  private Integer descriptionCount;
 
-  private RolePermission rolePermissionAggregate;
+  private String descriptionMax;
 
-  private RolePermissionConnection rolePermissionConnection;
+  private String descriptionMin;
 
   private Boolean syncRolePolicy;
 
@@ -319,6 +307,169 @@ public class Role implements Meta, NamedStruct {
     this.__typename = __typename;
   }
 
+  public Collection<RoleUserRelation> getRoleUserRelation() {
+    return this.roleUserRelation;
+  }
+
+  public void setRoleUserRelation(Collection<RoleUserRelation> roleUserRelation) {
+    this.roleUserRelation = roleUserRelation;
+  }
+
+  public Collection<GroupRoleRelation> getGroupRoleRelation() {
+    return this.groupRoleRelation;
+  }
+
+  public void setGroupRoleRelation(Collection<GroupRoleRelation> groupRoleRelation) {
+    this.groupRoleRelation = groupRoleRelation;
+  }
+
+  public Collection<RoleRoleRelation> getRoleRoleRelation() {
+    return this.roleRoleRelation;
+  }
+
+  public void setRoleRoleRelation(Collection<RoleRoleRelation> roleRoleRelation) {
+    this.roleRoleRelation = roleRoleRelation;
+  }
+
+  public Collection<PermissionRoleRelation> getPermissionRoleRelation() {
+    return this.permissionRoleRelation;
+  }
+
+  public void setPermissionRoleRelation(Collection<PermissionRoleRelation> permissionRoleRelation) {
+    this.permissionRoleRelation = permissionRoleRelation;
+  }
+
+  public User getUsersAggregate() {
+    return this.usersAggregate;
+  }
+
+  public void setUsersAggregate(User usersAggregate) {
+    this.usersAggregate = usersAggregate;
+  }
+
+  public UserConnection getUsersConnection() {
+    return this.usersConnection;
+  }
+
+  public void setUsersConnection(UserConnection usersConnection) {
+    this.usersConnection = usersConnection;
+  }
+
+  public Group getGroupsAggregate() {
+    return this.groupsAggregate;
+  }
+
+  public void setGroupsAggregate(Group groupsAggregate) {
+    this.groupsAggregate = groupsAggregate;
+  }
+
+  public GroupConnection getGroupsConnection() {
+    return this.groupsConnection;
+  }
+
+  public void setGroupsConnection(GroupConnection groupsConnection) {
+    this.groupsConnection = groupsConnection;
+  }
+
+  public Role getCompositesAggregate() {
+    return this.compositesAggregate;
+  }
+
+  public void setCompositesAggregate(Role compositesAggregate) {
+    this.compositesAggregate = compositesAggregate;
+  }
+
+  public RoleConnection getCompositesConnection() {
+    return this.compositesConnection;
+  }
+
+  public void setCompositesConnection(RoleConnection compositesConnection) {
+    this.compositesConnection = compositesConnection;
+  }
+
+  public Permission getPermissionsAggregate() {
+    return this.permissionsAggregate;
+  }
+
+  public void setPermissionsAggregate(Permission permissionsAggregate) {
+    this.permissionsAggregate = permissionsAggregate;
+  }
+
+  public PermissionConnection getPermissionsConnection() {
+    return this.permissionsConnection;
+  }
+
+  public void setPermissionsConnection(PermissionConnection permissionsConnection) {
+    this.permissionsConnection = permissionsConnection;
+  }
+
+  public RoleUserRelation getRoleUserRelationAggregate() {
+    return this.roleUserRelationAggregate;
+  }
+
+  public void setRoleUserRelationAggregate(RoleUserRelation roleUserRelationAggregate) {
+    this.roleUserRelationAggregate = roleUserRelationAggregate;
+  }
+
+  public RoleUserRelationConnection getRoleUserRelationConnection() {
+    return this.roleUserRelationConnection;
+  }
+
+  public void setRoleUserRelationConnection(RoleUserRelationConnection roleUserRelationConnection) {
+    this.roleUserRelationConnection = roleUserRelationConnection;
+  }
+
+  public GroupRoleRelation getGroupRoleRelationAggregate() {
+    return this.groupRoleRelationAggregate;
+  }
+
+  public void setGroupRoleRelationAggregate(GroupRoleRelation groupRoleRelationAggregate) {
+    this.groupRoleRelationAggregate = groupRoleRelationAggregate;
+  }
+
+  public GroupRoleRelationConnection getGroupRoleRelationConnection() {
+    return this.groupRoleRelationConnection;
+  }
+
+  public void setGroupRoleRelationConnection(
+      GroupRoleRelationConnection groupRoleRelationConnection) {
+    this.groupRoleRelationConnection = groupRoleRelationConnection;
+  }
+
+  public RoleRoleRelation getRoleRoleRelationAggregate() {
+    return this.roleRoleRelationAggregate;
+  }
+
+  public void setRoleRoleRelationAggregate(RoleRoleRelation roleRoleRelationAggregate) {
+    this.roleRoleRelationAggregate = roleRoleRelationAggregate;
+  }
+
+  public RoleRoleRelationConnection getRoleRoleRelationConnection() {
+    return this.roleRoleRelationConnection;
+  }
+
+  public void setRoleRoleRelationConnection(RoleRoleRelationConnection roleRoleRelationConnection) {
+    this.roleRoleRelationConnection = roleRoleRelationConnection;
+  }
+
+  public PermissionRoleRelation getPermissionRoleRelationAggregate() {
+    return this.permissionRoleRelationAggregate;
+  }
+
+  public void setPermissionRoleRelationAggregate(
+      PermissionRoleRelation permissionRoleRelationAggregate) {
+    this.permissionRoleRelationAggregate = permissionRoleRelationAggregate;
+  }
+
+  public PermissionRoleRelationConnection getPermissionRoleRelationConnection() {
+    return this.permissionRoleRelationConnection;
+  }
+
+  public void setPermissionRoleRelationConnection(
+      PermissionRoleRelationConnection permissionRoleRelationConnection) {
+    this.permissionRoleRelationConnection = permissionRoleRelationConnection;
+  }
+
   public Integer getIdCount() {
     return this.idCount;
   }
@@ -389,206 +540,6 @@ public class Role implements Meta, NamedStruct {
 
   public void setDescriptionMin(String descriptionMin) {
     this.descriptionMin = descriptionMin;
-  }
-
-  public User getUsersAggregate() {
-    return this.usersAggregate;
-  }
-
-  public void setUsersAggregate(User usersAggregate) {
-    this.usersAggregate = usersAggregate;
-  }
-
-  public UserConnection getUsersConnection() {
-    return this.usersConnection;
-  }
-
-  public void setUsersConnection(UserConnection usersConnection) {
-    this.usersConnection = usersConnection;
-  }
-
-  public Group getGroupsAggregate() {
-    return this.groupsAggregate;
-  }
-
-  public void setGroupsAggregate(Group groupsAggregate) {
-    this.groupsAggregate = groupsAggregate;
-  }
-
-  public GroupConnection getGroupsConnection() {
-    return this.groupsConnection;
-  }
-
-  public void setGroupsConnection(GroupConnection groupsConnection) {
-    this.groupsConnection = groupsConnection;
-  }
-
-  public Role getCompositesAggregate() {
-    return this.compositesAggregate;
-  }
-
-  public void setCompositesAggregate(Role compositesAggregate) {
-    this.compositesAggregate = compositesAggregate;
-  }
-
-  public RoleConnection getCompositesConnection() {
-    return this.compositesConnection;
-  }
-
-  public void setCompositesConnection(RoleConnection compositesConnection) {
-    this.compositesConnection = compositesConnection;
-  }
-
-  public Permission getPermissionsAggregate() {
-    return this.permissionsAggregate;
-  }
-
-  public void setPermissionsAggregate(Permission permissionsAggregate) {
-    this.permissionsAggregate = permissionsAggregate;
-  }
-
-  public PermissionConnection getPermissionsConnection() {
-    return this.permissionsConnection;
-  }
-
-  public void setPermissionsConnection(PermissionConnection permissionsConnection) {
-    this.permissionsConnection = permissionsConnection;
-  }
-
-  public Integer getRealmIdCount() {
-    return this.realmIdCount;
-  }
-
-  public void setRealmIdCount(Integer realmIdCount) {
-    this.realmIdCount = realmIdCount;
-  }
-
-  public Integer getRealmIdSum() {
-    return this.realmIdSum;
-  }
-
-  public void setRealmIdSum(Integer realmIdSum) {
-    this.realmIdSum = realmIdSum;
-  }
-
-  public Integer getRealmIdAvg() {
-    return this.realmIdAvg;
-  }
-
-  public void setRealmIdAvg(Integer realmIdAvg) {
-    this.realmIdAvg = realmIdAvg;
-  }
-
-  public Integer getRealmIdMax() {
-    return this.realmIdMax;
-  }
-
-  public void setRealmIdMax(Integer realmIdMax) {
-    this.realmIdMax = realmIdMax;
-  }
-
-  public Integer getRealmIdMin() {
-    return this.realmIdMin;
-  }
-
-  public void setRealmIdMin(Integer realmIdMin) {
-    this.realmIdMin = realmIdMin;
-  }
-
-  public Collection<UserRole> getUserRole() {
-    return this.userRole;
-  }
-
-  public void setUserRole(Collection<UserRole> userRole) {
-    this.userRole = userRole;
-  }
-
-  public UserRole getUserRoleAggregate() {
-    return this.userRoleAggregate;
-  }
-
-  public void setUserRoleAggregate(UserRole userRoleAggregate) {
-    this.userRoleAggregate = userRoleAggregate;
-  }
-
-  public UserRoleConnection getUserRoleConnection() {
-    return this.userRoleConnection;
-  }
-
-  public void setUserRoleConnection(UserRoleConnection userRoleConnection) {
-    this.userRoleConnection = userRoleConnection;
-  }
-
-  public Collection<GroupRole> getGroupRole() {
-    return this.groupRole;
-  }
-
-  public void setGroupRole(Collection<GroupRole> groupRole) {
-    this.groupRole = groupRole;
-  }
-
-  public GroupRole getGroupRoleAggregate() {
-    return this.groupRoleAggregate;
-  }
-
-  public void setGroupRoleAggregate(GroupRole groupRoleAggregate) {
-    this.groupRoleAggregate = groupRoleAggregate;
-  }
-
-  public GroupRoleConnection getGroupRoleConnection() {
-    return this.groupRoleConnection;
-  }
-
-  public void setGroupRoleConnection(GroupRoleConnection groupRoleConnection) {
-    this.groupRoleConnection = groupRoleConnection;
-  }
-
-  public Collection<RoleComposite> getRoleComposite() {
-    return this.roleComposite;
-  }
-
-  public void setRoleComposite(Collection<RoleComposite> roleComposite) {
-    this.roleComposite = roleComposite;
-  }
-
-  public RoleComposite getRoleCompositeAggregate() {
-    return this.roleCompositeAggregate;
-  }
-
-  public void setRoleCompositeAggregate(RoleComposite roleCompositeAggregate) {
-    this.roleCompositeAggregate = roleCompositeAggregate;
-  }
-
-  public RoleCompositeConnection getRoleCompositeConnection() {
-    return this.roleCompositeConnection;
-  }
-
-  public void setRoleCompositeConnection(RoleCompositeConnection roleCompositeConnection) {
-    this.roleCompositeConnection = roleCompositeConnection;
-  }
-
-  public Collection<RolePermission> getRolePermission() {
-    return this.rolePermission;
-  }
-
-  public void setRolePermission(Collection<RolePermission> rolePermission) {
-    this.rolePermission = rolePermission;
-  }
-
-  public RolePermission getRolePermissionAggregate() {
-    return this.rolePermissionAggregate;
-  }
-
-  public void setRolePermissionAggregate(RolePermission rolePermissionAggregate) {
-    this.rolePermissionAggregate = rolePermissionAggregate;
-  }
-
-  public RolePermissionConnection getRolePermissionConnection() {
-    return this.rolePermissionConnection;
-  }
-
-  public void setRolePermissionConnection(RolePermissionConnection rolePermissionConnection) {
-    this.rolePermissionConnection = rolePermissionConnection;
   }
 
   public Boolean getSyncRolePolicy() {

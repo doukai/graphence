@@ -11,6 +11,7 @@ import io.graphence.core.dto.objectType.Role;
 import io.graphence.core.error.AuthenticationException;
 import io.graphence.core.utils.JWTUtil;
 import io.netty.handler.codec.http.HttpHeaderNames;
+import io.nozdormu.spi.async.Asyncable;
 import jakarta.annotation.security.PermitAll;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
@@ -34,7 +35,7 @@ import static io.graphence.core.error.AuthenticationErrorType.AUTHENTICATION_FAI
 
 @GraphQLApi
 @ApplicationScoped
-public class LoginApi {
+public class LoginApi implements Asyncable {
 
     private final SecurityConfig config;
     private final LoginDao loginDao;

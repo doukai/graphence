@@ -2,12 +2,12 @@ package io.graphence.core.dto.inputObjectType;
 
 import com.dslplatform.json.CompiledJson;
 import io.graphoenix.core.dto.inputObjectType.MetaInput;
-import io.graphoenix.spi.annotation.Ignore;
 import io.graphoenix.structure.dto.inputObjectType.NamedStructInput;
 import io.graphoenix.structure.dto.inputObjectType.TreeStructInput;
 import jakarta.annotation.Generated;
 import java.lang.Boolean;
 import java.lang.Integer;
+import java.lang.Override;
 import java.lang.String;
 import java.time.LocalDateTime;
 import java.util.Collection;
@@ -16,9 +16,8 @@ import org.eclipse.microprofile.graphql.Input;
 
 @CompiledJson
 @Input
-@Generated("io.graphoenix.java.generator.builder.TypeSpecBuilderProxy")
-@Ignore
-public class GroupInput implements MetaInput, NamedStructInput, TreeStructInput {
+@Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
+public class GroupInput implements TreeStructInput, NamedStructInput, MetaInput {
   private String id;
 
   private String name;
@@ -60,9 +59,9 @@ public class GroupInput implements MetaInput, NamedStructInput, TreeStructInput 
   @DefaultValue("\"Group\"")
   private String __typename;
 
-  private Collection<UserGroupInput> userGroup;
+  private Collection<GroupUserRelationInput> groupUserRelation;
 
-  private Collection<GroupRoleInput> groupRole;
+  private Collection<GroupRoleRelationInput> groupRoleRelation;
 
   private GroupExpression where;
 
@@ -74,42 +73,52 @@ public class GroupInput implements MetaInput, NamedStructInput, TreeStructInput 
     this.id = id;
   }
 
+  @Override
   public String getName() {
     return this.name;
   }
 
+  @Override
   public void setName(String name) {
     this.name = name;
   }
 
+  @Override
   public String getDescription() {
     return this.description;
   }
 
+  @Override
   public void setDescription(String description) {
     this.description = description;
   }
 
+  @Override
   public String getPath() {
     return this.path;
   }
 
+  @Override
   public void setPath(String path) {
     this.path = path;
   }
 
+  @Override
   public Integer getDeep() {
     return this.deep;
   }
 
+  @Override
   public void setDeep(Integer deep) {
     this.deep = deep;
   }
 
+  @Override
   public String getParentId() {
     return this.parentId;
   }
 
+  @Override
   public void setParentId(String parentId) {
     this.parentId = parentId;
   }
@@ -154,66 +163,82 @@ public class GroupInput implements MetaInput, NamedStructInput, TreeStructInput 
     this.realm = realm;
   }
 
+  @Override
   public Boolean getIsDeprecated() {
     return this.isDeprecated;
   }
 
+  @Override
   public void setIsDeprecated(Boolean isDeprecated) {
     this.isDeprecated = isDeprecated;
   }
 
+  @Override
   public Integer getVersion() {
     return this.version;
   }
 
+  @Override
   public void setVersion(Integer version) {
     this.version = version;
   }
 
+  @Override
   public Integer getRealmId() {
     return this.realmId;
   }
 
+  @Override
   public void setRealmId(Integer realmId) {
     this.realmId = realmId;
   }
 
+  @Override
   public String getCreateUserId() {
     return this.createUserId;
   }
 
+  @Override
   public void setCreateUserId(String createUserId) {
     this.createUserId = createUserId;
   }
 
+  @Override
   public LocalDateTime getCreateTime() {
     return this.createTime;
   }
 
+  @Override
   public void setCreateTime(LocalDateTime createTime) {
     this.createTime = createTime;
   }
 
+  @Override
   public String getUpdateUserId() {
     return this.updateUserId;
   }
 
+  @Override
   public void setUpdateUserId(String updateUserId) {
     this.updateUserId = updateUserId;
   }
 
+  @Override
   public LocalDateTime getUpdateTime() {
     return this.updateTime;
   }
 
+  @Override
   public void setUpdateTime(LocalDateTime updateTime) {
     this.updateTime = updateTime;
   }
 
+  @Override
   public String getCreateGroupId() {
     return this.createGroupId;
   }
 
+  @Override
   public void setCreateGroupId(String createGroupId) {
     this.createGroupId = createGroupId;
   }
@@ -226,26 +251,28 @@ public class GroupInput implements MetaInput, NamedStructInput, TreeStructInput 
     this.__typename = __typename;
   }
 
-  public Collection<UserGroupInput> getUserGroup() {
-    return this.userGroup;
+  public Collection<GroupUserRelationInput> getGroupUserRelation() {
+    return this.groupUserRelation;
   }
 
-  public void setUserGroup(Collection<UserGroupInput> userGroup) {
-    this.userGroup = userGroup;
+  public void setGroupUserRelation(Collection<GroupUserRelationInput> groupUserRelation) {
+    this.groupUserRelation = groupUserRelation;
   }
 
-  public Collection<GroupRoleInput> getGroupRole() {
-    return this.groupRole;
+  public Collection<GroupRoleRelationInput> getGroupRoleRelation() {
+    return this.groupRoleRelation;
   }
 
-  public void setGroupRole(Collection<GroupRoleInput> groupRole) {
-    this.groupRole = groupRole;
+  public void setGroupRoleRelation(Collection<GroupRoleRelationInput> groupRoleRelation) {
+    this.groupRoleRelation = groupRoleRelation;
   }
 
+  @Override
   public GroupExpression getWhere() {
     return this.where;
   }
 
+  @Override
   public void setWhere(GroupExpression where) {
     this.where = where;
   }

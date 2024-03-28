@@ -2,7 +2,6 @@ package io.graphence.core.dto.objectType;
 
 import com.dslplatform.json.CompiledJson;
 import io.graphoenix.core.dto.interfaceType.Meta;
-import io.graphoenix.spi.annotation.Ignore;
 import io.graphoenix.structure.dto.interfaceType.NamedStruct;
 import io.graphoenix.structure.dto.interfaceType.TreeStruct;
 import jakarta.annotation.Generated;
@@ -22,10 +21,9 @@ import org.eclipse.microprofile.graphql.Type;
  */
 @Type
 @CompiledJson
-@Generated("io.graphoenix.java.generator.builder.TypeSpecBuilderProxy")
-@Ignore
+@Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
 @Description("组")
-public class Group implements Meta, NamedStruct, TreeStruct {
+public class Group implements TreeStruct, NamedStruct, Meta {
   /**
    * ID
    */
@@ -112,6 +110,30 @@ public class Group implements Meta, NamedStruct, TreeStruct {
 
   private String __typename;
 
+  private Collection<GroupUserRelation> groupUserRelation;
+
+  private Collection<GroupRoleRelation> groupRoleRelation;
+
+  private Group subGroupsAggregate;
+
+  private GroupConnection subGroupsConnection;
+
+  private User usersAggregate;
+
+  private UserConnection usersConnection;
+
+  private Role rolesAggregate;
+
+  private RoleConnection rolesConnection;
+
+  private GroupUserRelation groupUserRelationAggregate;
+
+  private GroupUserRelationConnection groupUserRelationConnection;
+
+  private GroupRoleRelation groupRoleRelationAggregate;
+
+  private GroupRoleRelationConnection groupRoleRelationConnection;
+
   private Integer idCount;
 
   private Integer idMax;
@@ -151,40 +173,6 @@ public class Group implements Meta, NamedStruct, TreeStruct {
   private Integer deepMax;
 
   private Integer deepMin;
-
-  private Group subGroupsAggregate;
-
-  private GroupConnection subGroupsConnection;
-
-  private User usersAggregate;
-
-  private UserConnection usersConnection;
-
-  private Role rolesAggregate;
-
-  private RoleConnection rolesConnection;
-
-  private Integer realmIdCount;
-
-  private Integer realmIdSum;
-
-  private Integer realmIdAvg;
-
-  private Integer realmIdMax;
-
-  private Integer realmIdMin;
-
-  private Collection<UserGroup> userGroup;
-
-  private UserGroup userGroupAggregate;
-
-  private UserGroupConnection userGroupConnection;
-
-  private Collection<GroupRole> groupRole;
-
-  private GroupRole groupRoleAggregate;
-
-  private GroupRoleConnection groupRoleConnection;
 
   private Boolean syncGroupPolicy;
 
@@ -374,6 +362,104 @@ public class Group implements Meta, NamedStruct, TreeStruct {
     this.__typename = __typename;
   }
 
+  public Collection<GroupUserRelation> getGroupUserRelation() {
+    return this.groupUserRelation;
+  }
+
+  public void setGroupUserRelation(Collection<GroupUserRelation> groupUserRelation) {
+    this.groupUserRelation = groupUserRelation;
+  }
+
+  public Collection<GroupRoleRelation> getGroupRoleRelation() {
+    return this.groupRoleRelation;
+  }
+
+  public void setGroupRoleRelation(Collection<GroupRoleRelation> groupRoleRelation) {
+    this.groupRoleRelation = groupRoleRelation;
+  }
+
+  public Group getSubGroupsAggregate() {
+    return this.subGroupsAggregate;
+  }
+
+  public void setSubGroupsAggregate(Group subGroupsAggregate) {
+    this.subGroupsAggregate = subGroupsAggregate;
+  }
+
+  public GroupConnection getSubGroupsConnection() {
+    return this.subGroupsConnection;
+  }
+
+  public void setSubGroupsConnection(GroupConnection subGroupsConnection) {
+    this.subGroupsConnection = subGroupsConnection;
+  }
+
+  public User getUsersAggregate() {
+    return this.usersAggregate;
+  }
+
+  public void setUsersAggregate(User usersAggregate) {
+    this.usersAggregate = usersAggregate;
+  }
+
+  public UserConnection getUsersConnection() {
+    return this.usersConnection;
+  }
+
+  public void setUsersConnection(UserConnection usersConnection) {
+    this.usersConnection = usersConnection;
+  }
+
+  public Role getRolesAggregate() {
+    return this.rolesAggregate;
+  }
+
+  public void setRolesAggregate(Role rolesAggregate) {
+    this.rolesAggregate = rolesAggregate;
+  }
+
+  public RoleConnection getRolesConnection() {
+    return this.rolesConnection;
+  }
+
+  public void setRolesConnection(RoleConnection rolesConnection) {
+    this.rolesConnection = rolesConnection;
+  }
+
+  public GroupUserRelation getGroupUserRelationAggregate() {
+    return this.groupUserRelationAggregate;
+  }
+
+  public void setGroupUserRelationAggregate(GroupUserRelation groupUserRelationAggregate) {
+    this.groupUserRelationAggregate = groupUserRelationAggregate;
+  }
+
+  public GroupUserRelationConnection getGroupUserRelationConnection() {
+    return this.groupUserRelationConnection;
+  }
+
+  public void setGroupUserRelationConnection(
+      GroupUserRelationConnection groupUserRelationConnection) {
+    this.groupUserRelationConnection = groupUserRelationConnection;
+  }
+
+  public GroupRoleRelation getGroupRoleRelationAggregate() {
+    return this.groupRoleRelationAggregate;
+  }
+
+  public void setGroupRoleRelationAggregate(GroupRoleRelation groupRoleRelationAggregate) {
+    this.groupRoleRelationAggregate = groupRoleRelationAggregate;
+  }
+
+  public GroupRoleRelationConnection getGroupRoleRelationConnection() {
+    return this.groupRoleRelationConnection;
+  }
+
+  public void setGroupRoleRelationConnection(
+      GroupRoleRelationConnection groupRoleRelationConnection) {
+    this.groupRoleRelationConnection = groupRoleRelationConnection;
+  }
+
   public Integer getIdCount() {
     return this.idCount;
   }
@@ -532,142 +618,6 @@ public class Group implements Meta, NamedStruct, TreeStruct {
 
   public void setDeepMin(Integer deepMin) {
     this.deepMin = deepMin;
-  }
-
-  public Group getSubGroupsAggregate() {
-    return this.subGroupsAggregate;
-  }
-
-  public void setSubGroupsAggregate(Group subGroupsAggregate) {
-    this.subGroupsAggregate = subGroupsAggregate;
-  }
-
-  public GroupConnection getSubGroupsConnection() {
-    return this.subGroupsConnection;
-  }
-
-  public void setSubGroupsConnection(GroupConnection subGroupsConnection) {
-    this.subGroupsConnection = subGroupsConnection;
-  }
-
-  public User getUsersAggregate() {
-    return this.usersAggregate;
-  }
-
-  public void setUsersAggregate(User usersAggregate) {
-    this.usersAggregate = usersAggregate;
-  }
-
-  public UserConnection getUsersConnection() {
-    return this.usersConnection;
-  }
-
-  public void setUsersConnection(UserConnection usersConnection) {
-    this.usersConnection = usersConnection;
-  }
-
-  public Role getRolesAggregate() {
-    return this.rolesAggregate;
-  }
-
-  public void setRolesAggregate(Role rolesAggregate) {
-    this.rolesAggregate = rolesAggregate;
-  }
-
-  public RoleConnection getRolesConnection() {
-    return this.rolesConnection;
-  }
-
-  public void setRolesConnection(RoleConnection rolesConnection) {
-    this.rolesConnection = rolesConnection;
-  }
-
-  public Integer getRealmIdCount() {
-    return this.realmIdCount;
-  }
-
-  public void setRealmIdCount(Integer realmIdCount) {
-    this.realmIdCount = realmIdCount;
-  }
-
-  public Integer getRealmIdSum() {
-    return this.realmIdSum;
-  }
-
-  public void setRealmIdSum(Integer realmIdSum) {
-    this.realmIdSum = realmIdSum;
-  }
-
-  public Integer getRealmIdAvg() {
-    return this.realmIdAvg;
-  }
-
-  public void setRealmIdAvg(Integer realmIdAvg) {
-    this.realmIdAvg = realmIdAvg;
-  }
-
-  public Integer getRealmIdMax() {
-    return this.realmIdMax;
-  }
-
-  public void setRealmIdMax(Integer realmIdMax) {
-    this.realmIdMax = realmIdMax;
-  }
-
-  public Integer getRealmIdMin() {
-    return this.realmIdMin;
-  }
-
-  public void setRealmIdMin(Integer realmIdMin) {
-    this.realmIdMin = realmIdMin;
-  }
-
-  public Collection<UserGroup> getUserGroup() {
-    return this.userGroup;
-  }
-
-  public void setUserGroup(Collection<UserGroup> userGroup) {
-    this.userGroup = userGroup;
-  }
-
-  public UserGroup getUserGroupAggregate() {
-    return this.userGroupAggregate;
-  }
-
-  public void setUserGroupAggregate(UserGroup userGroupAggregate) {
-    this.userGroupAggregate = userGroupAggregate;
-  }
-
-  public UserGroupConnection getUserGroupConnection() {
-    return this.userGroupConnection;
-  }
-
-  public void setUserGroupConnection(UserGroupConnection userGroupConnection) {
-    this.userGroupConnection = userGroupConnection;
-  }
-
-  public Collection<GroupRole> getGroupRole() {
-    return this.groupRole;
-  }
-
-  public void setGroupRole(Collection<GroupRole> groupRole) {
-    this.groupRole = groupRole;
-  }
-
-  public GroupRole getGroupRoleAggregate() {
-    return this.groupRoleAggregate;
-  }
-
-  public void setGroupRoleAggregate(GroupRole groupRoleAggregate) {
-    this.groupRoleAggregate = groupRoleAggregate;
-  }
-
-  public GroupRoleConnection getGroupRoleConnection() {
-    return this.groupRoleConnection;
-  }
-
-  public void setGroupRoleConnection(GroupRoleConnection groupRoleConnection) {
-    this.groupRoleConnection = groupRoleConnection;
   }
 
   public Boolean getSyncGroupPolicy() {

@@ -1,38 +1,15 @@
 package io.graphence.core.dto.objectType;
 
 import com.dslplatform.json.CompiledJson;
-import io.graphoenix.core.dto.interfaceType.Meta;
-import io.graphoenix.spi.annotation.Ignore;
 import jakarta.annotation.Generated;
-import java.lang.Boolean;
-import java.lang.Integer;
-import java.lang.Override;
 import java.lang.String;
-import java.time.LocalDateTime;
 import java.util.Collection;
 import org.eclipse.microprofile.graphql.Type;
 
 @Type
 @CompiledJson
-@Generated("io.graphoenix.java.generator.builder.TypeSpecBuilderProxy")
-@Ignore
-public class Mutation implements Meta {
-  private Boolean isDeprecated;
-
-  private Integer version;
-
-  private Integer realmId;
-
-  private String createUserId;
-
-  private LocalDateTime createTime;
-
-  private String updateUserId;
-
-  private LocalDateTime updateTime;
-
-  private String createGroupId;
-
+@Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
+public class Mutation {
   private User user;
 
   private Collection<User> userList;
@@ -53,111 +30,31 @@ public class Mutation implements Meta {
 
   private Collection<Permission> permissionList;
 
-  private UserPhones userPhones;
+  private UserPhonesRelation userPhonesRelation;
 
-  private Collection<UserPhones> userPhonesList;
+  private Collection<UserPhonesRelation> userPhonesRelationList;
 
-  private UserGroup userGroup;
+  private GroupUserRelation groupUserRelation;
 
-  private Collection<UserGroup> userGroupList;
+  private Collection<GroupUserRelation> groupUserRelationList;
 
-  private UserRole userRole;
+  private RoleUserRelation roleUserRelation;
 
-  private Collection<UserRole> userRoleList;
+  private Collection<RoleUserRelation> roleUserRelationList;
 
-  private GroupRole groupRole;
+  private GroupRoleRelation groupRoleRelation;
 
-  private Collection<GroupRole> groupRoleList;
+  private Collection<GroupRoleRelation> groupRoleRelationList;
 
-  private RoleComposite roleComposite;
+  private RoleRoleRelation roleRoleRelation;
 
-  private Collection<RoleComposite> roleCompositeList;
+  private Collection<RoleRoleRelation> roleRoleRelationList;
 
-  private RolePermission rolePermission;
+  private PermissionRoleRelation permissionRoleRelation;
 
-  private Collection<RolePermission> rolePermissionList;
+  private Collection<PermissionRoleRelation> permissionRoleRelationList;
 
   private String login;
-
-  @Override
-  public Boolean getIsDeprecated() {
-    return this.isDeprecated;
-  }
-
-  @Override
-  public void setIsDeprecated(Boolean isDeprecated) {
-    this.isDeprecated = isDeprecated;
-  }
-
-  @Override
-  public Integer getVersion() {
-    return this.version;
-  }
-
-  @Override
-  public void setVersion(Integer version) {
-    this.version = version;
-  }
-
-  @Override
-  public Integer getRealmId() {
-    return this.realmId;
-  }
-
-  @Override
-  public void setRealmId(Integer realmId) {
-    this.realmId = realmId;
-  }
-
-  @Override
-  public String getCreateUserId() {
-    return this.createUserId;
-  }
-
-  @Override
-  public void setCreateUserId(String createUserId) {
-    this.createUserId = createUserId;
-  }
-
-  @Override
-  public LocalDateTime getCreateTime() {
-    return this.createTime;
-  }
-
-  @Override
-  public void setCreateTime(LocalDateTime createTime) {
-    this.createTime = createTime;
-  }
-
-  @Override
-  public String getUpdateUserId() {
-    return this.updateUserId;
-  }
-
-  @Override
-  public void setUpdateUserId(String updateUserId) {
-    this.updateUserId = updateUserId;
-  }
-
-  @Override
-  public LocalDateTime getUpdateTime() {
-    return this.updateTime;
-  }
-
-  @Override
-  public void setUpdateTime(LocalDateTime updateTime) {
-    this.updateTime = updateTime;
-  }
-
-  @Override
-  public String getCreateGroupId() {
-    return this.createGroupId;
-  }
-
-  @Override
-  public void setCreateGroupId(String createGroupId) {
-    this.createGroupId = createGroupId;
-  }
 
   public User getUser() {
     return this.user;
@@ -239,100 +136,101 @@ public class Mutation implements Meta {
     this.permissionList = permissionList;
   }
 
-  public UserPhones getUserPhones() {
-    return this.userPhones;
+  public UserPhonesRelation getUserPhonesRelation() {
+    return this.userPhonesRelation;
   }
 
-  public void setUserPhones(UserPhones userPhones) {
-    this.userPhones = userPhones;
+  public void setUserPhonesRelation(UserPhonesRelation userPhonesRelation) {
+    this.userPhonesRelation = userPhonesRelation;
   }
 
-  public Collection<UserPhones> getUserPhonesList() {
-    return this.userPhonesList;
+  public Collection<UserPhonesRelation> getUserPhonesRelationList() {
+    return this.userPhonesRelationList;
   }
 
-  public void setUserPhonesList(Collection<UserPhones> userPhonesList) {
-    this.userPhonesList = userPhonesList;
+  public void setUserPhonesRelationList(Collection<UserPhonesRelation> userPhonesRelationList) {
+    this.userPhonesRelationList = userPhonesRelationList;
   }
 
-  public UserGroup getUserGroup() {
-    return this.userGroup;
+  public GroupUserRelation getGroupUserRelation() {
+    return this.groupUserRelation;
   }
 
-  public void setUserGroup(UserGroup userGroup) {
-    this.userGroup = userGroup;
+  public void setGroupUserRelation(GroupUserRelation groupUserRelation) {
+    this.groupUserRelation = groupUserRelation;
   }
 
-  public Collection<UserGroup> getUserGroupList() {
-    return this.userGroupList;
+  public Collection<GroupUserRelation> getGroupUserRelationList() {
+    return this.groupUserRelationList;
   }
 
-  public void setUserGroupList(Collection<UserGroup> userGroupList) {
-    this.userGroupList = userGroupList;
+  public void setGroupUserRelationList(Collection<GroupUserRelation> groupUserRelationList) {
+    this.groupUserRelationList = groupUserRelationList;
   }
 
-  public UserRole getUserRole() {
-    return this.userRole;
+  public RoleUserRelation getRoleUserRelation() {
+    return this.roleUserRelation;
   }
 
-  public void setUserRole(UserRole userRole) {
-    this.userRole = userRole;
+  public void setRoleUserRelation(RoleUserRelation roleUserRelation) {
+    this.roleUserRelation = roleUserRelation;
   }
 
-  public Collection<UserRole> getUserRoleList() {
-    return this.userRoleList;
+  public Collection<RoleUserRelation> getRoleUserRelationList() {
+    return this.roleUserRelationList;
   }
 
-  public void setUserRoleList(Collection<UserRole> userRoleList) {
-    this.userRoleList = userRoleList;
+  public void setRoleUserRelationList(Collection<RoleUserRelation> roleUserRelationList) {
+    this.roleUserRelationList = roleUserRelationList;
   }
 
-  public GroupRole getGroupRole() {
-    return this.groupRole;
+  public GroupRoleRelation getGroupRoleRelation() {
+    return this.groupRoleRelation;
   }
 
-  public void setGroupRole(GroupRole groupRole) {
-    this.groupRole = groupRole;
+  public void setGroupRoleRelation(GroupRoleRelation groupRoleRelation) {
+    this.groupRoleRelation = groupRoleRelation;
   }
 
-  public Collection<GroupRole> getGroupRoleList() {
-    return this.groupRoleList;
+  public Collection<GroupRoleRelation> getGroupRoleRelationList() {
+    return this.groupRoleRelationList;
   }
 
-  public void setGroupRoleList(Collection<GroupRole> groupRoleList) {
-    this.groupRoleList = groupRoleList;
+  public void setGroupRoleRelationList(Collection<GroupRoleRelation> groupRoleRelationList) {
+    this.groupRoleRelationList = groupRoleRelationList;
   }
 
-  public RoleComposite getRoleComposite() {
-    return this.roleComposite;
+  public RoleRoleRelation getRoleRoleRelation() {
+    return this.roleRoleRelation;
   }
 
-  public void setRoleComposite(RoleComposite roleComposite) {
-    this.roleComposite = roleComposite;
+  public void setRoleRoleRelation(RoleRoleRelation roleRoleRelation) {
+    this.roleRoleRelation = roleRoleRelation;
   }
 
-  public Collection<RoleComposite> getRoleCompositeList() {
-    return this.roleCompositeList;
+  public Collection<RoleRoleRelation> getRoleRoleRelationList() {
+    return this.roleRoleRelationList;
   }
 
-  public void setRoleCompositeList(Collection<RoleComposite> roleCompositeList) {
-    this.roleCompositeList = roleCompositeList;
+  public void setRoleRoleRelationList(Collection<RoleRoleRelation> roleRoleRelationList) {
+    this.roleRoleRelationList = roleRoleRelationList;
   }
 
-  public RolePermission getRolePermission() {
-    return this.rolePermission;
+  public PermissionRoleRelation getPermissionRoleRelation() {
+    return this.permissionRoleRelation;
   }
 
-  public void setRolePermission(RolePermission rolePermission) {
-    this.rolePermission = rolePermission;
+  public void setPermissionRoleRelation(PermissionRoleRelation permissionRoleRelation) {
+    this.permissionRoleRelation = permissionRoleRelation;
   }
 
-  public Collection<RolePermission> getRolePermissionList() {
-    return this.rolePermissionList;
+  public Collection<PermissionRoleRelation> getPermissionRoleRelationList() {
+    return this.permissionRoleRelationList;
   }
 
-  public void setRolePermissionList(Collection<RolePermission> rolePermissionList) {
-    this.rolePermissionList = rolePermissionList;
+  public void setPermissionRoleRelationList(
+      Collection<PermissionRoleRelation> permissionRoleRelationList) {
+    this.permissionRoleRelationList = permissionRoleRelationList;
   }
 
   public String getLogin() {

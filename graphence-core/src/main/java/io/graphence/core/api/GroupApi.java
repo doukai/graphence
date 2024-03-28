@@ -3,18 +3,21 @@ package io.graphence.core.api;
 import io.graphence.core.dao.GroupDao;
 import io.graphence.core.dto.inputObjectType.GroupInput;
 import io.graphence.core.dto.inputObjectType.GroupMutationArguments;
-import io.graphoenix.core.operation.ObjectValueWithVariable;
+import io.graphence.core.dto.objectType.Group;
+import io.graphoenix.spi.graphql.common.ObjectValueWithVariable;
+import io.nozdormu.spi.async.Async;
+import io.nozdormu.spi.async.Asyncable;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import org.eclipse.microprofile.graphql.GraphQLApi;
 import org.eclipse.microprofile.graphql.Source;
-import reactor.core.publisher.Mono;
 
+import java.util.List;
 import java.util.stream.Collectors;
 
 @GraphQLApi
 @ApplicationScoped
-public class GroupApi {
+public class GroupApi implements Asyncable {
 
     private final GroupDao groupDao;
 
@@ -23,7 +26,8 @@ public class GroupApi {
         this.groupDao = groupDao;
     }
 
-    public Mono<GroupMutationArguments> setPath(@Source GroupMutationArguments groupMutationArguments) {
+    @Async
+    public GroupMutationArguments setPath(@Source GroupMutationArguments groupMutationArguments) {
         if (groupMutationArguments.getWhere() != null) {
             if (groupMutationArguments.getParent() != null) {
                 if (groupMutationArguments.getParent().getId() != null) {
@@ -32,27 +36,25 @@ public class GroupApi {
                     groupMutationArguments.setPath(groupMutationArguments.getParent().getPath() + groupMutationArguments.getParent().getWhere().getId().getVal() + "/");
                 }
                 groupMutationArguments.setDeep(groupMutationArguments.getParent().getDeep() + 1);
-                return groupDao.getGroupById(groupMutationArguments.getWhere().getId().getVal())
-                        .filter(group -> !group.getPath().equals("/"))
-                        .flatMap(group ->
-                                groupDao.getGroupListByPath(group.getPath() + "%")
-                                        .filter(groups -> groups.size() > 0)
-                                        .flatMap(groups ->
-                                                groupDao.updateGroupList(
-                                                        groups.stream()
-                                                                .map(item ->
-                                                                        ObjectValueWithVariable.of(
-                                                                                "id", item.getId(),
-                                                                                "name", item.getName(),
-                                                                                "path", item.getPath().replaceFirst(group.getPath(), groupMutationArguments.getPath()),
-                                                                                "deep", item.getDeep() - group.getDeep() + groupMutationArguments.getDeep()
-                                                                        )
-                                                                )
-                                                                .collect(Collectors.toList())
-                                                )
+
+                Group group = await(groupDao.getGroupById(groupMutationArguments.getWhere().getId().getVal()));
+                if (!group.getPath().equals("/")) {
+                    List<Group> groups = await(groupDao.getGroupListByPath(group.getPath() + "%"));
+                    if (!groups.isEmpty()) {
+                        List<ObjectValueWithVariable> objectValueWithVariableList = groups.stream()
+                                .map(item ->
+                                        ObjectValueWithVariable.of(
+                                                "id", item.getId(),
+                                                "name", item.getName(),
+                                                "path", item.getPath().replaceFirst(group.getPath(), groupMutationArguments.getPath()),
+                                                "deep", item.getDeep() - group.getDeep() + groupMutationArguments.getDeep()
                                         )
-                        )
-                        .thenReturn(groupMutationArguments);
+                                )
+                                .collect(Collectors.toList());
+                        await(groupDao.updateGroupList(objectValueWithVariableList));
+                    }
+                }
+                return groupMutationArguments;
             }
         } else {
             if (groupMutationArguments.getParent() != null) {
@@ -69,10 +71,11 @@ public class GroupApi {
                 }
             }
         }
-        return Mono.just(groupMutationArguments);
+        return groupMutationArguments;
     }
 
-    public Mono<GroupInput> setPath(@Source GroupInput groupInput) {
+    @Async
+    public GroupInput setPath(@Source GroupInput groupInput) {
         if (groupInput.getWhere() != null) {
             if (groupInput.getParent() != null) {
                 if (groupInput.getParent().getId() != null) {
@@ -81,27 +84,24 @@ public class GroupApi {
                     groupInput.setPath(groupInput.getParent().getPath() + groupInput.getParent().getWhere().getId().getVal() + "/");
                 }
                 groupInput.setDeep(groupInput.getParent().getDeep() + 1);
-                return groupDao.getGroupById(groupInput.getWhere().getId().getVal())
-                        .filter(group -> !group.getPath().equals("/"))
-                        .flatMap(group ->
-                                groupDao.getGroupListByPath(group.getPath() + "%")
-                                        .filter(groups -> groups.size() > 0)
-                                        .flatMap(groups ->
-                                                groupDao.updateGroupList(
-                                                        groups.stream()
-                                                                .map(item ->
-                                                                        ObjectValueWithVariable.of(
-                                                                                "id", item.getId(),
-                                                                                "name", item.getName(),
-                                                                                "path", item.getPath().replaceFirst(group.getPath(), groupInput.getPath()),
-                                                                                "deep", item.getDeep() - group.getDeep() + groupInput.getDeep()
-                                                                        )
-                                                                )
-                                                                .collect(Collectors.toList())
-                                                )
+                Group group = await(groupDao.getGroupById(groupInput.getWhere().getId().getVal()));
+                if (!group.getPath().equals("/")) {
+                    List<Group> groups = await(groupDao.getGroupListByPath(group.getPath() + "%"));
+                    if (!groups.isEmpty()) {
+                        List<ObjectValueWithVariable> objectValueWithVariableList = groups.stream()
+                                .map(item ->
+                                        ObjectValueWithVariable.of(
+                                                "id", item.getId(),
+                                                "name", item.getName(),
+                                                "path", item.getPath().replaceFirst(group.getPath(), groupInput.getPath()),
+                                                "deep", item.getDeep() - group.getDeep() + groupInput.getDeep()
                                         )
-                        )
-                        .thenReturn(groupInput);
+                                )
+                                .collect(Collectors.toList());
+                        await(groupDao.updateGroupList(objectValueWithVariableList));
+                    }
+                }
+                return groupInput;
             }
         } else {
             if (groupInput.getParent() != null) {
@@ -118,6 +118,6 @@ public class GroupApi {
                 }
             }
         }
-        return Mono.just(groupInput);
+        return groupInput;
     }
 }

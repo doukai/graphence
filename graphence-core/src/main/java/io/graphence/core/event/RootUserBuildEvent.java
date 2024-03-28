@@ -1,40 +1,40 @@
 package io.graphence.core.event;
 
-import com.google.auto.service.AutoService;
 import com.password4j.Hash;
 import com.password4j.Password;
 import io.graphence.core.config.SecurityConfig;
 import io.graphence.core.dao.LoginDao;
-import io.graphoenix.core.context.BeanContext;
-import io.graphoenix.core.operation.Arguments;
-import io.graphoenix.core.operation.Field;
-import io.graphoenix.core.operation.Operation;
-import io.graphoenix.spi.handler.OperationHandler;
-import io.graphoenix.spi.handler.ScopeEvent;
+import io.graphoenix.spi.graphql.common.Arguments;
+import io.graphoenix.spi.graphql.operation.Field;
+import io.graphoenix.spi.graphql.operation.Operation;
+import io.graphoenix.spi.handler.MutationHandler;
+import io.nozdormu.spi.event.ScopeEvent;
 import jakarta.annotation.Priority;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.context.Initialized;
+import jakarta.inject.Inject;
 import reactor.core.publisher.Mono;
 
 import java.time.LocalDateTime;
 import java.util.Base64;
 import java.util.Map;
 
-import static io.graphoenix.core.utils.DocumentUtil.DOCUMENT_UTIL;
+import static io.graphoenix.spi.constant.Hammurabi.OPERATION_MUTATION_NAME;
 
+@ApplicationScoped
 @Initialized(ApplicationScoped.class)
-@Priority(3)
-@AutoService(ScopeEvent.class)
+@Priority(400)
 public class RootUserBuildEvent implements ScopeEvent {
 
-    private final OperationHandler operationHandler;
+    private final MutationHandler mutationHandler;
     private final SecurityConfig securityConfig;
     private final LoginDao loginDao;
 
-    public RootUserBuildEvent() {
-        this.operationHandler = BeanContext.get(OperationHandler.class);
-        this.securityConfig = BeanContext.get(SecurityConfig.class);
-        this.loginDao = BeanContext.get(LoginDao.class);
+    @Inject
+    public RootUserBuildEvent(MutationHandler mutationHandler, SecurityConfig securityConfig, LoginDao loginDao) {
+        this.mutationHandler = mutationHandler;
+        this.securityConfig = securityConfig;
+        this.loginDao = loginDao;
     }
 
     @Override
@@ -65,14 +65,14 @@ public class RootUserBuildEvent implements ScopeEvent {
                 )
                 .map(arguments ->
                         new Operation()
-                                .setOperationType("mutation")
-                                .addField(
+                                .setOperationType(OPERATION_MUTATION_NAME)
+                                .addSelection(
                                         new Field("user")
                                                 .setArguments(arguments)
-                                                .addField(new Field("id"))
+                                                .addSelection(new Field("id"))
                                 )
                 )
-                .flatMap(operation -> operationHandler.mutation(DOCUMENT_UTIL.graphqlToOperation(operation.toString())))
+                .flatMap(mutationHandler::mutation)
                 .then();
     }
 }

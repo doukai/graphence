@@ -1,11 +1,15 @@
 package io.graphence.core.dto.annotation;
 
+import jakarta.annotation.Generated;
 import java.lang.String;
+import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
+@Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
+@Documented
 @Retention(RetentionPolicy.SOURCE)
 @Target(ElementType.METHOD)
 public @interface RoleInput1 {
@@ -14,6 +18,16 @@ public @interface RoleInput1 {
   String name() default "";
 
   String description() default "";
+
+  UserInput2[] users() default {};
+
+  GroupInput2[] groups() default {};
+
+  RoleInput2[] composites() default {};
+
+  PermissionInput2[] permissions() default {};
+
+  RealmInput2 realm() default @RealmInput2;
 
   boolean isDeprecated() default false;
 
@@ -31,9 +45,17 @@ public @interface RoleInput1 {
 
   String createGroupId() default "";
 
-  String __typename() default "";
+  String __typename() default "Role";
 
-  boolean syncRolePolicy() default false;
+  RoleUserRelationInput2[] roleUserRelation() default {};
+
+  GroupRoleRelationInput2[] groupRoleRelation() default {};
+
+  RoleRoleRelationInput2[] roleRoleRelation() default {};
+
+  PermissionRoleRelationInput2[] permissionRoleRelation() default {};
+
+  RoleExpression2 where() default @RoleExpression2;
 
   String $id() default "";
 
@@ -69,45 +91,13 @@ public @interface RoleInput1 {
 
   String $__typename() default "";
 
-  String $usersAggregate() default "";
+  String $roleUserRelation() default "";
 
-  String $usersConnection() default "";
+  String $groupRoleRelation() default "";
 
-  String $groupsAggregate() default "";
+  String $roleRoleRelation() default "";
 
-  String $groupsConnection() default "";
+  String $permissionRoleRelation() default "";
 
-  String $compositesAggregate() default "";
-
-  String $compositesConnection() default "";
-
-  String $permissionsAggregate() default "";
-
-  String $permissionsConnection() default "";
-
-  String $userRole() default "";
-
-  String $userRoleAggregate() default "";
-
-  String $userRoleConnection() default "";
-
-  String $groupRole() default "";
-
-  String $groupRoleAggregate() default "";
-
-  String $groupRoleConnection() default "";
-
-  String $roleComposite() default "";
-
-  String $roleCompositeAggregate() default "";
-
-  String $roleCompositeConnection() default "";
-
-  String $rolePermission() default "";
-
-  String $rolePermissionAggregate() default "";
-
-  String $rolePermissionConnection() default "";
-
-  String $syncRolePolicy() default "";
+  String $where() default "";
 }

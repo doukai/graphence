@@ -3,10 +3,10 @@ package io.graphence.core.dto.inputObjectType;
 import com.dslplatform.json.CompiledJson;
 import io.graphence.core.dto.enumType.PermissionType;
 import io.graphoenix.core.dto.inputObjectType.MetaInput;
-import io.graphoenix.spi.annotation.Ignore;
 import jakarta.annotation.Generated;
 import java.lang.Boolean;
 import java.lang.Integer;
+import java.lang.Override;
 import java.lang.String;
 import java.time.LocalDateTime;
 import java.util.Collection;
@@ -15,8 +15,7 @@ import org.eclipse.microprofile.graphql.Input;
 
 @CompiledJson
 @Input
-@Generated("io.graphoenix.java.generator.builder.TypeSpecBuilderProxy")
-@Ignore
+@Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
 public class PermissionMutationArguments implements MetaInput {
   private String name;
 
@@ -51,7 +50,7 @@ public class PermissionMutationArguments implements MetaInput {
   @DefaultValue("\"Permission\"")
   private String __typename;
 
-  private Collection<RolePermissionInput> rolePermission;
+  private Collection<PermissionRoleRelationInput> permissionRoleRelation;
 
   private PermissionExpression where;
 
@@ -119,58 +118,72 @@ public class PermissionMutationArguments implements MetaInput {
     this.isDeprecated = isDeprecated;
   }
 
+  @Override
   public Integer getVersion() {
     return this.version;
   }
 
+  @Override
   public void setVersion(Integer version) {
     this.version = version;
   }
 
+  @Override
   public Integer getRealmId() {
     return this.realmId;
   }
 
+  @Override
   public void setRealmId(Integer realmId) {
     this.realmId = realmId;
   }
 
+  @Override
   public String getCreateUserId() {
     return this.createUserId;
   }
 
+  @Override
   public void setCreateUserId(String createUserId) {
     this.createUserId = createUserId;
   }
 
+  @Override
   public LocalDateTime getCreateTime() {
     return this.createTime;
   }
 
+  @Override
   public void setCreateTime(LocalDateTime createTime) {
     this.createTime = createTime;
   }
 
+  @Override
   public String getUpdateUserId() {
     return this.updateUserId;
   }
 
+  @Override
   public void setUpdateUserId(String updateUserId) {
     this.updateUserId = updateUserId;
   }
 
+  @Override
   public LocalDateTime getUpdateTime() {
     return this.updateTime;
   }
 
+  @Override
   public void setUpdateTime(LocalDateTime updateTime) {
     this.updateTime = updateTime;
   }
 
+  @Override
   public String getCreateGroupId() {
     return this.createGroupId;
   }
 
+  @Override
   public void setCreateGroupId(String createGroupId) {
     this.createGroupId = createGroupId;
   }
@@ -183,12 +196,13 @@ public class PermissionMutationArguments implements MetaInput {
     this.__typename = __typename;
   }
 
-  public Collection<RolePermissionInput> getRolePermission() {
-    return this.rolePermission;
+  public Collection<PermissionRoleRelationInput> getPermissionRoleRelation() {
+    return this.permissionRoleRelation;
   }
 
-  public void setRolePermission(Collection<RolePermissionInput> rolePermission) {
-    this.rolePermission = rolePermission;
+  public void setPermissionRoleRelation(
+      Collection<PermissionRoleRelationInput> permissionRoleRelation) {
+    this.permissionRoleRelation = permissionRoleRelation;
   }
 
   public PermissionExpression getWhere() {

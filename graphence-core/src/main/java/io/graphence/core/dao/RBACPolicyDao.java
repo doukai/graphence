@@ -5,8 +5,10 @@ import io.graphence.core.dto.objectType.Group;
 import io.graphence.core.dto.objectType.Permission;
 import io.graphence.core.dto.objectType.Role;
 import io.graphence.core.dto.objectType.User;
+import io.graphoenix.core.dto.annotation.StringExpression1;
+import io.graphoenix.core.dto.annotation.StringExpression2;
 import io.graphoenix.spi.annotation.GraphQLOperation;
-import io.graphoenix.spi.annotation.QueryOperation;
+import io.graphoenix.spi.annotation.SelectionSet;
 import reactor.core.publisher.Mono;
 
 import java.util.Collection;
@@ -16,40 +18,42 @@ import java.util.Set;
 @GraphQLOperation
 public interface RBACPolicyDao {
 
-    @QueryOperation(value = "roleList", selectionSet = "{ id name users { id login } composites { id name } permissions { name type field permissionType } realmId }")
+    @Query(roleList = @RoleListQueryArguments())
+    @SelectionSet("{ id name users { id login } composites { id name } permissions { name type field permissionType } realmId }")
     Mono<Set<Role>> queryRoleList();
 
-    @QueryOperation(value = "role", selectionSet = "{ id name users { id login } composites { id name } permissions { name type field permissionType } realmId }")
-    @RoleExpression0(id = @IDExpression($val = "id"))
+    @Query(role = @RoleQueryArguments(id = @StringExpression1($val = "id")))
+    @SelectionSet("{ id name users { id login } composites { id name } permissions { name type field permissionType } realmId }")
     Mono<Role> queryRoleById(String id);
 
-    @QueryOperation(value = "user", selectionSet = "{ id login roles { id name } groups { roles { id name } } realmId }")
-    @UserExpression0(id = @IDExpression($val = "id"))
+    @Query(user = @UserQueryArguments(id = @StringExpression1($val = "id")))
+    @SelectionSet("{ id login roles { id name } groups { roles { id name } } realmId }")
     Mono<User> queryUserById(String id);
 
-    @QueryOperation(value = "group", selectionSet = "{ id name users { id login roles { id name } groups { roles { id name } } } realmId }")
-    @GroupExpression0(id = @IDExpression($val = "id"))
+    @Query(group = @GroupQueryArguments(id = @StringExpression1($val = "id")))
+    @SelectionSet("{ id name users { id login roles { id name } groups { roles { id name } } } realmId }")
     Mono<Group> queryGroupById(String id);
 
-    @QueryOperation(value = "permission", selectionSet = "{ name type field permissionType roles { id name realmId } }")
-    @PermissionExpression0(name = @IDExpression($val = "name"))
+    @Query(permission = @PermissionQueryArguments(name = @StringExpression1($val = "name")))
+    @SelectionSet("{ name type field permissionType roles { id name realmId } }")
     Mono<Permission> queryPermissionByName(String name);
 
-    @QueryOperation(value = "permissionList", selectionSet = "{ type }")
-    @PermissionExpression0(
+
+    @Query(permissionList = @PermissionListQueryArguments(
             roles = @RoleExpression1(
-                    id = @IDExpression($in = "roleIdList")
+                    id = @StringExpression2($arr = "roleIdList")
             ),
             groupBy = {"type"}
-    )
+    ))
+    @SelectionSet("{ type }")
     Mono<List<Permission>> queryPermissionTypeList(Collection<String> roleIdList);
 
-    @QueryOperation(value = "permissionList", selectionSet = "{ name }")
-    @PermissionExpression0(
+    @Query(permissionList = @PermissionListQueryArguments(
             roles = @RoleExpression1(
-                    id = @IDExpression($in = "roleIdList")
+                    id = @StringExpression2($arr = "roleIdList")
             ),
-            type = @StringExpression($in = "types")
-    )
+            type = @StringExpression1($arr = "types")
+    ))
+    @SelectionSet("{ name }")
     Mono<List<Permission>> queryPermissionListByTypes(Collection<String> roleIdList, Collection<String> types);
 }

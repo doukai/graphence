@@ -2,11 +2,11 @@ package io.graphence.core.dto.inputObjectType;
 
 import com.dslplatform.json.CompiledJson;
 import io.graphoenix.core.dto.inputObjectType.MetaInput;
-import io.graphoenix.spi.annotation.Ignore;
 import io.graphoenix.structure.dto.inputObjectType.NamedStructInput;
 import jakarta.annotation.Generated;
 import java.lang.Boolean;
 import java.lang.Integer;
+import java.lang.Override;
 import java.lang.String;
 import java.time.LocalDateTime;
 import java.util.Collection;
@@ -15,9 +15,8 @@ import org.eclipse.microprofile.graphql.Input;
 
 @CompiledJson
 @Input
-@Generated("io.graphoenix.java.generator.builder.TypeSpecBuilderProxy")
-@Ignore
-public class UserListMutationArguments implements MetaInput, NamedStructInput {
+@Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
+public class UserListMutationArguments implements NamedStructInput, MetaInput {
   private String id;
 
   private String name;
@@ -63,11 +62,11 @@ public class UserListMutationArguments implements MetaInput, NamedStructInput {
   @DefaultValue("\"User\"")
   private String __typename;
 
-  private Collection<UserPhonesInput> userPhones;
+  private Collection<UserPhonesRelationInput> userPhonesRelation;
 
-  private Collection<UserGroupInput> userGroup;
+  private Collection<GroupUserRelationInput> groupUserRelation;
 
-  private Collection<UserRoleInput> userRole;
+  private Collection<RoleUserRelationInput> roleUserRelation;
 
   private Collection<UserInput> list;
 
@@ -81,18 +80,22 @@ public class UserListMutationArguments implements MetaInput, NamedStructInput {
     this.id = id;
   }
 
+  @Override
   public String getName() {
     return this.name;
   }
 
+  @Override
   public void setName(String name) {
     this.name = name;
   }
 
+  @Override
   public String getDescription() {
     return this.description;
   }
 
+  @Override
   public void setDescription(String description) {
     this.description = description;
   }
@@ -177,66 +180,82 @@ public class UserListMutationArguments implements MetaInput, NamedStructInput {
     this.realm = realm;
   }
 
+  @Override
   public Boolean getIsDeprecated() {
     return this.isDeprecated;
   }
 
+  @Override
   public void setIsDeprecated(Boolean isDeprecated) {
     this.isDeprecated = isDeprecated;
   }
 
+  @Override
   public Integer getVersion() {
     return this.version;
   }
 
+  @Override
   public void setVersion(Integer version) {
     this.version = version;
   }
 
+  @Override
   public Integer getRealmId() {
     return this.realmId;
   }
 
+  @Override
   public void setRealmId(Integer realmId) {
     this.realmId = realmId;
   }
 
+  @Override
   public String getCreateUserId() {
     return this.createUserId;
   }
 
+  @Override
   public void setCreateUserId(String createUserId) {
     this.createUserId = createUserId;
   }
 
+  @Override
   public LocalDateTime getCreateTime() {
     return this.createTime;
   }
 
+  @Override
   public void setCreateTime(LocalDateTime createTime) {
     this.createTime = createTime;
   }
 
+  @Override
   public String getUpdateUserId() {
     return this.updateUserId;
   }
 
+  @Override
   public void setUpdateUserId(String updateUserId) {
     this.updateUserId = updateUserId;
   }
 
+  @Override
   public LocalDateTime getUpdateTime() {
     return this.updateTime;
   }
 
+  @Override
   public void setUpdateTime(LocalDateTime updateTime) {
     this.updateTime = updateTime;
   }
 
+  @Override
   public String getCreateGroupId() {
     return this.createGroupId;
   }
 
+  @Override
   public void setCreateGroupId(String createGroupId) {
     this.createGroupId = createGroupId;
   }
@@ -249,28 +268,28 @@ public class UserListMutationArguments implements MetaInput, NamedStructInput {
     this.__typename = __typename;
   }
 
-  public Collection<UserPhonesInput> getUserPhones() {
-    return this.userPhones;
+  public Collection<UserPhonesRelationInput> getUserPhonesRelation() {
+    return this.userPhonesRelation;
   }
 
-  public void setUserPhones(Collection<UserPhonesInput> userPhones) {
-    this.userPhones = userPhones;
+  public void setUserPhonesRelation(Collection<UserPhonesRelationInput> userPhonesRelation) {
+    this.userPhonesRelation = userPhonesRelation;
   }
 
-  public Collection<UserGroupInput> getUserGroup() {
-    return this.userGroup;
+  public Collection<GroupUserRelationInput> getGroupUserRelation() {
+    return this.groupUserRelation;
   }
 
-  public void setUserGroup(Collection<UserGroupInput> userGroup) {
-    this.userGroup = userGroup;
+  public void setGroupUserRelation(Collection<GroupUserRelationInput> groupUserRelation) {
+    this.groupUserRelation = groupUserRelation;
   }
 
-  public Collection<UserRoleInput> getUserRole() {
-    return this.userRole;
+  public Collection<RoleUserRelationInput> getRoleUserRelation() {
+    return this.roleUserRelation;
   }
 
-  public void setUserRole(Collection<UserRoleInput> userRole) {
-    this.userRole = userRole;
+  public void setRoleUserRelation(Collection<RoleUserRelationInput> roleUserRelation) {
+    this.roleUserRelation = roleUserRelation;
   }
 
   public Collection<UserInput> getList() {
@@ -281,10 +300,12 @@ public class UserListMutationArguments implements MetaInput, NamedStructInput {
     this.list = list;
   }
 
+  @Override
   public UserExpression getWhere() {
     return this.where;
   }
 
+  @Override
   public void setWhere(UserExpression where) {
     this.where = where;
   }

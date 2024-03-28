@@ -3,7 +3,6 @@ package io.graphence.core.dto.objectType;
 import com.dslplatform.json.CompiledJson;
 import io.graphence.core.dto.enumType.PermissionType;
 import io.graphoenix.core.dto.interfaceType.Meta;
-import io.graphoenix.spi.annotation.Ignore;
 import jakarta.annotation.Generated;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -21,8 +20,7 @@ import org.eclipse.microprofile.graphql.Type;
  */
 @Type
 @CompiledJson
-@Generated("io.graphoenix.java.generator.builder.TypeSpecBuilderProxy")
-@Ignore
+@Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
 @Description("权限")
 public class Permission implements Meta {
   /**
@@ -90,11 +88,21 @@ public class Permission implements Meta {
 
   private String __typename;
 
+  private Collection<PermissionRoleRelation> permissionRoleRelation;
+
+  private Role rolesAggregate;
+
+  private RoleConnection rolesConnection;
+
+  private PermissionRoleRelation permissionRoleRelationAggregate;
+
+  private PermissionRoleRelationConnection permissionRoleRelationConnection;
+
   private Integer nameCount;
 
-  private String nameMax;
+  private Integer nameMax;
 
-  private String nameMin;
+  private Integer nameMin;
 
   private Integer descriptionCount;
 
@@ -113,26 +121,6 @@ public class Permission implements Meta {
   private String typeMax;
 
   private String typeMin;
-
-  private Role rolesAggregate;
-
-  private RoleConnection rolesConnection;
-
-  private Integer realmIdCount;
-
-  private Integer realmIdSum;
-
-  private Integer realmIdAvg;
-
-  private Integer realmIdMax;
-
-  private Integer realmIdMin;
-
-  private Collection<RolePermission> rolePermission;
-
-  private RolePermission rolePermissionAggregate;
-
-  private RolePermissionConnection rolePermissionConnection;
 
   private Boolean syncPermissionPolicy;
 
@@ -280,6 +268,48 @@ public class Permission implements Meta {
     this.__typename = __typename;
   }
 
+  public Collection<PermissionRoleRelation> getPermissionRoleRelation() {
+    return this.permissionRoleRelation;
+  }
+
+  public void setPermissionRoleRelation(Collection<PermissionRoleRelation> permissionRoleRelation) {
+    this.permissionRoleRelation = permissionRoleRelation;
+  }
+
+  public Role getRolesAggregate() {
+    return this.rolesAggregate;
+  }
+
+  public void setRolesAggregate(Role rolesAggregate) {
+    this.rolesAggregate = rolesAggregate;
+  }
+
+  public RoleConnection getRolesConnection() {
+    return this.rolesConnection;
+  }
+
+  public void setRolesConnection(RoleConnection rolesConnection) {
+    this.rolesConnection = rolesConnection;
+  }
+
+  public PermissionRoleRelation getPermissionRoleRelationAggregate() {
+    return this.permissionRoleRelationAggregate;
+  }
+
+  public void setPermissionRoleRelationAggregate(
+      PermissionRoleRelation permissionRoleRelationAggregate) {
+    this.permissionRoleRelationAggregate = permissionRoleRelationAggregate;
+  }
+
+  public PermissionRoleRelationConnection getPermissionRoleRelationConnection() {
+    return this.permissionRoleRelationConnection;
+  }
+
+  public void setPermissionRoleRelationConnection(
+      PermissionRoleRelationConnection permissionRoleRelationConnection) {
+    this.permissionRoleRelationConnection = permissionRoleRelationConnection;
+  }
+
   public Integer getNameCount() {
     return this.nameCount;
   }
@@ -288,19 +318,19 @@ public class Permission implements Meta {
     this.nameCount = nameCount;
   }
 
-  public String getNameMax() {
+  public Integer getNameMax() {
     return this.nameMax;
   }
 
-  public void setNameMax(String nameMax) {
+  public void setNameMax(Integer nameMax) {
     this.nameMax = nameMax;
   }
 
-  public String getNameMin() {
+  public Integer getNameMin() {
     return this.nameMin;
   }
 
-  public void setNameMin(String nameMin) {
+  public void setNameMin(Integer nameMin) {
     this.nameMin = nameMin;
   }
 
@@ -374,86 +404,6 @@ public class Permission implements Meta {
 
   public void setTypeMin(String typeMin) {
     this.typeMin = typeMin;
-  }
-
-  public Role getRolesAggregate() {
-    return this.rolesAggregate;
-  }
-
-  public void setRolesAggregate(Role rolesAggregate) {
-    this.rolesAggregate = rolesAggregate;
-  }
-
-  public RoleConnection getRolesConnection() {
-    return this.rolesConnection;
-  }
-
-  public void setRolesConnection(RoleConnection rolesConnection) {
-    this.rolesConnection = rolesConnection;
-  }
-
-  public Integer getRealmIdCount() {
-    return this.realmIdCount;
-  }
-
-  public void setRealmIdCount(Integer realmIdCount) {
-    this.realmIdCount = realmIdCount;
-  }
-
-  public Integer getRealmIdSum() {
-    return this.realmIdSum;
-  }
-
-  public void setRealmIdSum(Integer realmIdSum) {
-    this.realmIdSum = realmIdSum;
-  }
-
-  public Integer getRealmIdAvg() {
-    return this.realmIdAvg;
-  }
-
-  public void setRealmIdAvg(Integer realmIdAvg) {
-    this.realmIdAvg = realmIdAvg;
-  }
-
-  public Integer getRealmIdMax() {
-    return this.realmIdMax;
-  }
-
-  public void setRealmIdMax(Integer realmIdMax) {
-    this.realmIdMax = realmIdMax;
-  }
-
-  public Integer getRealmIdMin() {
-    return this.realmIdMin;
-  }
-
-  public void setRealmIdMin(Integer realmIdMin) {
-    this.realmIdMin = realmIdMin;
-  }
-
-  public Collection<RolePermission> getRolePermission() {
-    return this.rolePermission;
-  }
-
-  public void setRolePermission(Collection<RolePermission> rolePermission) {
-    this.rolePermission = rolePermission;
-  }
-
-  public RolePermission getRolePermissionAggregate() {
-    return this.rolePermissionAggregate;
-  }
-
-  public void setRolePermissionAggregate(RolePermission rolePermissionAggregate) {
-    this.rolePermissionAggregate = rolePermissionAggregate;
-  }
-
-  public RolePermissionConnection getRolePermissionConnection() {
-    return this.rolePermissionConnection;
-  }
-
-  public void setRolePermissionConnection(RolePermissionConnection rolePermissionConnection) {
-    this.rolePermissionConnection = rolePermissionConnection;
   }
 
   public Boolean getSyncPermissionPolicy() {

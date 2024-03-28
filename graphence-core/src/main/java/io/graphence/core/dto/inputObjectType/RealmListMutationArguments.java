@@ -2,11 +2,11 @@ package io.graphence.core.dto.inputObjectType;
 
 import com.dslplatform.json.CompiledJson;
 import io.graphoenix.core.dto.inputObjectType.MetaInput;
-import io.graphoenix.spi.annotation.Ignore;
 import io.graphoenix.structure.dto.inputObjectType.NamedStructInput;
 import jakarta.annotation.Generated;
 import java.lang.Boolean;
 import java.lang.Integer;
+import java.lang.Override;
 import java.lang.String;
 import java.time.LocalDateTime;
 import java.util.Collection;
@@ -15,9 +15,8 @@ import org.eclipse.microprofile.graphql.Input;
 
 @CompiledJson
 @Input
-@Generated("io.graphoenix.java.generator.builder.TypeSpecBuilderProxy")
-@Ignore
-public class RealmListMutationArguments implements MetaInput, NamedStructInput {
+@Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
+public class RealmListMutationArguments implements NamedStructInput, MetaInput {
   private String id;
 
   private String name;
@@ -55,82 +54,102 @@ public class RealmListMutationArguments implements MetaInput, NamedStructInput {
     this.id = id;
   }
 
+  @Override
   public String getName() {
     return this.name;
   }
 
+  @Override
   public void setName(String name) {
     this.name = name;
   }
 
+  @Override
   public String getDescription() {
     return this.description;
   }
 
+  @Override
   public void setDescription(String description) {
     this.description = description;
   }
 
+  @Override
   public Boolean getIsDeprecated() {
     return this.isDeprecated;
   }
 
+  @Override
   public void setIsDeprecated(Boolean isDeprecated) {
     this.isDeprecated = isDeprecated;
   }
 
+  @Override
   public Integer getVersion() {
     return this.version;
   }
 
+  @Override
   public void setVersion(Integer version) {
     this.version = version;
   }
 
+  @Override
   public Integer getRealmId() {
     return this.realmId;
   }
 
+  @Override
   public void setRealmId(Integer realmId) {
     this.realmId = realmId;
   }
 
+  @Override
   public String getCreateUserId() {
     return this.createUserId;
   }
 
+  @Override
   public void setCreateUserId(String createUserId) {
     this.createUserId = createUserId;
   }
 
+  @Override
   public LocalDateTime getCreateTime() {
     return this.createTime;
   }
 
+  @Override
   public void setCreateTime(LocalDateTime createTime) {
     this.createTime = createTime;
   }
 
+  @Override
   public String getUpdateUserId() {
     return this.updateUserId;
   }
 
+  @Override
   public void setUpdateUserId(String updateUserId) {
     this.updateUserId = updateUserId;
   }
 
+  @Override
   public LocalDateTime getUpdateTime() {
     return this.updateTime;
   }
 
+  @Override
   public void setUpdateTime(LocalDateTime updateTime) {
     this.updateTime = updateTime;
   }
 
+  @Override
   public String getCreateGroupId() {
     return this.createGroupId;
   }
 
+  @Override
   public void setCreateGroupId(String createGroupId) {
     this.createGroupId = createGroupId;
   }
@@ -151,10 +170,12 @@ public class RealmListMutationArguments implements MetaInput, NamedStructInput {
     this.list = list;
   }
 
+  @Override
   public RealmExpression getWhere() {
     return this.where;
   }
 
+  @Override
   public void setWhere(RealmExpression where) {
     this.where = where;
   }

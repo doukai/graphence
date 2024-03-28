@@ -1,12 +1,10 @@
 package io.graphence.core;
 
 import io.graphence.core.dto.CurrentUser;
-import io.graphoenix.core.context.RequestScopeInstanceFactory;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.context.RequestScoped;
 //import jakarta.enterprise.context.SessionScoped;
 import jakarta.enterprise.inject.Produces;
-import reactor.core.publisher.Mono;
 
 @ApplicationScoped
 public class CurrentUserProducer {
@@ -14,7 +12,7 @@ public class CurrentUserProducer {
     @Produces
 //    @SessionScoped
     @RequestScoped
-    public Mono<CurrentUser> currentUser() {
-        return RequestScopeInstanceFactory.get(CurrentUser.class);
+    public CurrentUser currentUser() {
+        return new CurrentUser();
     }
 }

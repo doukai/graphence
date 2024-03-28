@@ -3,7 +3,7 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "io.graphence.core.grpc";
 
-package io.graphence.core.grpc;
+package io.graphence.core;
 
 import "io/graphence/core/enums.proto";
 import "io/graphence/core/objects.proto";
@@ -13,14 +13,6 @@ import "io/graphence/core/mutation_requests.proto";
 import "io/graphence/core/mutation_responses.proto";
 
 service MutationService {
-    rpc IsDeprecated (MutationIsDeprecatedRequest) returns (MutationIsDeprecatedResponse);
-    rpc Version (MutationVersionRequest) returns (MutationVersionResponse);
-    rpc RealmId (MutationRealmIdRequest) returns (MutationRealmIdResponse);
-    rpc CreateUserId (MutationCreateUserIdRequest) returns (MutationCreateUserIdResponse);
-    rpc CreateTime (MutationCreateTimeRequest) returns (MutationCreateTimeResponse);
-    rpc UpdateUserId (MutationUpdateUserIdRequest) returns (MutationUpdateUserIdResponse);
-    rpc UpdateTime (MutationUpdateTimeRequest) returns (MutationUpdateTimeResponse);
-    rpc CreateGroupId (MutationCreateGroupIdRequest) returns (MutationCreateGroupIdResponse);
     rpc User (MutationUserRequest) returns (MutationUserResponse);
     rpc UserList (MutationUserListRequest) returns (MutationUserListResponse);
     rpc Role (MutationRoleRequest) returns (MutationRoleResponse);
@@ -31,17 +23,17 @@ service MutationService {
     rpc RealmList (MutationRealmListRequest) returns (MutationRealmListResponse);
     rpc Permission (MutationPermissionRequest) returns (MutationPermissionResponse);
     rpc PermissionList (MutationPermissionListRequest) returns (MutationPermissionListResponse);
-    rpc UserPhones (MutationUserPhonesRequest) returns (MutationUserPhonesResponse);
-    rpc UserPhonesList (MutationUserPhonesListRequest) returns (MutationUserPhonesListResponse);
-    rpc UserGroup (MutationUserGroupRequest) returns (MutationUserGroupResponse);
-    rpc UserGroupList (MutationUserGroupListRequest) returns (MutationUserGroupListResponse);
-    rpc UserRole (MutationUserRoleRequest) returns (MutationUserRoleResponse);
-    rpc UserRoleList (MutationUserRoleListRequest) returns (MutationUserRoleListResponse);
-    rpc GroupRole (MutationGroupRoleRequest) returns (MutationGroupRoleResponse);
-    rpc GroupRoleList (MutationGroupRoleListRequest) returns (MutationGroupRoleListResponse);
-    rpc RoleComposite (MutationRoleCompositeRequest) returns (MutationRoleCompositeResponse);
-    rpc RoleCompositeList (MutationRoleCompositeListRequest) returns (MutationRoleCompositeListResponse);
-    rpc RolePermission (MutationRolePermissionRequest) returns (MutationRolePermissionResponse);
-    rpc RolePermissionList (MutationRolePermissionListRequest) returns (MutationRolePermissionListResponse);
+    rpc UserPhonesRelation (MutationUserPhonesRelationRequest) returns (MutationUserPhonesRelationResponse);
+    rpc UserPhonesRelationList (MutationUserPhonesRelationListRequest) returns (MutationUserPhonesRelationListResponse);
+    rpc GroupUserRelation (MutationGroupUserRelationRequest) returns (MutationGroupUserRelationResponse);
+    rpc GroupUserRelationList (MutationGroupUserRelationListRequest) returns (MutationGroupUserRelationListResponse);
+    rpc RoleUserRelation (MutationRoleUserRelationRequest) returns (MutationRoleUserRelationResponse);
+    rpc RoleUserRelationList (MutationRoleUserRelationListRequest) returns (MutationRoleUserRelationListResponse);
+    rpc GroupRoleRelation (MutationGroupRoleRelationRequest) returns (MutationGroupRoleRelationResponse);
+    rpc GroupRoleRelationList (MutationGroupRoleRelationListRequest) returns (MutationGroupRoleRelationListResponse);
+    rpc RoleRoleRelation (MutationRoleRoleRelationRequest) returns (MutationRoleRoleRelationResponse);
+    rpc RoleRoleRelationList (MutationRoleRoleRelationListRequest) returns (MutationRoleRoleRelationListResponse);
+    rpc PermissionRoleRelation (MutationPermissionRoleRelationRequest) returns (MutationPermissionRoleRelationResponse);
+    rpc PermissionRoleRelationList (MutationPermissionRoleRelationListRequest) returns (MutationPermissionRoleRelationListResponse);
     rpc Login (MutationLoginRequest) returns (MutationLoginResponse);
 }

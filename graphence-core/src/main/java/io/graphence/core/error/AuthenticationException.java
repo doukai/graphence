@@ -1,6 +1,6 @@
 package io.graphence.core.error;
 
-import io.graphoenix.core.error.GraphQLErrors;
+import io.graphoenix.spi.error.GraphQLErrors;
 
 public class AuthenticationException extends GraphQLErrors {
 

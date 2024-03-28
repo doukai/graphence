@@ -3,7 +3,7 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "io.graphence.core.dto.objectType.grpc";
 
-package io.graphence.core.grpc;
+package io.graphence.core;
 
 import "io/graphence/core/enums.proto";
 import "io/graphoenix/core/objects.proto";
@@ -13,546 +13,501 @@ import "google/protobuf/timestamp.proto";
 * 用户
 */
 message User {
-    optional string id = 1; /* ID */
-    string name = 2; /* 姓名 */
-    optional string description = 3; /* 描述 */
-    optional string last_name = 4; /* 姓氏 */
-    string login = 5; /* 账号 */
-    optional string salt = 6; /* 盐 */
-    optional string hash = 7; /* 哈希 */
-    optional string email = 8; /* 邮箱 */
+    string id = 1; /* ID */
+    optional string name = 2; /* 姓名 */
+    string description = 3; /* 描述 */
+    string last_name = 4; /* 姓氏 */
+    optional string login = 5; /* 账号 */
+    string salt = 6; /* 盐 */
+    string hash = 7; /* 哈希 */
+    string email = 8; /* 邮箱 */
     repeated string phones = 9; /* 手机号 */
-    optional bool disable = 10; /* 禁用 */
+    bool disable = 10; /* 禁用 */
     repeated Group groups = 11; /* 组 */
     repeated Role roles = 12; /* 角色 */
-    optional Realm realm = 13; /* 租户 */
-    optional bool is_deprecated = 14;
-    optional int32 version = 15;
-    optional int32 realm_id = 16;
-    optional string create_user_id = 17;
-    optional google.protobuf.Timestamp create_time = 18;
-    optional string update_user_id = 19;
-    optional google.protobuf.Timestamp update_time = 20;
-    optional string create_group_id = 21;
-    optional string intro_typename = 22;
-    optional int32 id_count = 23;
-    optional int32 id_max = 24;
-    optional int32 id_min = 25;
-    optional int32 name_count = 26;
-    optional string name_max = 27;
-    optional string name_min = 28;
-    optional int32 description_count = 29;
-    optional string description_max = 30;
-    optional string description_min = 31;
-    optional int32 last_name_count = 32;
-    optional string last_name_max = 33;
-    optional string last_name_min = 34;
-    optional int32 login_count = 35;
-    optional string login_max = 36;
-    optional string login_min = 37;
-    optional int32 salt_count = 38;
-    optional string salt_max = 39;
-    optional string salt_min = 40;
-    optional int32 hash_count = 41;
-    optional string hash_max = 42;
-    optional string hash_min = 43;
-    optional int32 email_count = 44;
-    optional string email_max = 45;
-    optional string email_min = 46;
-    optional Group groups_aggregate = 47;
-    optional GroupConnection groups_connection = 48;
-    optional Role roles_aggregate = 49;
-    optional RoleConnection roles_connection = 50;
-    optional int32 realm_id_count = 51;
-    optional int32 realm_id_sum = 52;
-    optional int32 realm_id_avg = 53;
-    optional int32 realm_id_max = 54;
-    optional int32 realm_id_min = 55;
-    repeated UserPhones user_phones = 56;
-    optional UserPhones user_phones_aggregate = 57;
-    optional UserPhonesConnection user_phones_connection = 58;
-    repeated UserGroup user_group = 59;
-    optional UserGroup user_group_aggregate = 60;
-    optional UserGroupConnection user_group_connection = 61;
-    repeated UserRole user_role = 62;
-    optional UserRole user_role_aggregate = 63;
-    optional UserRoleConnection user_role_connection = 64;
-    optional bool sync_user_policy = 65;
+    Realm realm = 13; /* 租户 */
+    bool is_deprecated = 14;
+    int32 version = 15;
+    int32 realm_id = 16;
+    string create_user_id = 17;
+    google.protobuf.Timestamp create_time = 18;
+    string update_user_id = 19;
+    google.protobuf.Timestamp update_time = 20;
+    string create_group_id = 21;
+    string intro_typename = 22;
+    repeated UserPhonesRelation user_phones_relation = 23;
+    repeated GroupUserRelation group_user_relation = 24;
+    repeated RoleUserRelation role_user_relation = 25;
+    Group groups_aggregate = 26;
+    GroupConnection groups_connection = 27;
+    Role roles_aggregate = 28;
+    RoleConnection roles_connection = 29;
+    UserPhonesRelation user_phones_relation_aggregate = 30;
+    UserPhonesRelationConnection user_phones_relation_connection = 31;
+    GroupUserRelation group_user_relation_aggregate = 32;
+    GroupUserRelationConnection group_user_relation_connection = 33;
+    RoleUserRelation role_user_relation_aggregate = 34;
+    RoleUserRelationConnection role_user_relation_connection = 35;
+    int32 id_count = 36;
+    int32 id_max = 37;
+    int32 id_min = 38;
+    int32 name_count = 39;
+    string name_max = 40;
+    string name_min = 41;
+    int32 description_count = 42;
+    string description_max = 43;
+    string description_min = 44;
+    int32 last_name_count = 45;
+    string last_name_max = 46;
+    string last_name_min = 47;
+    int32 login_count = 48;
+    string login_max = 49;
+    string login_min = 50;
+    int32 salt_count = 51;
+    string salt_max = 52;
+    string salt_min = 53;
+    int32 hash_count = 54;
+    string hash_max = 55;
+    string hash_min = 56;
+    int32 email_count = 57;
+    string email_max = 58;
+    string email_min = 59;
+    bool sync_user_policy = 60;
 }
 /**
 * 角色
 */
 message Role {
-    optional string id = 1; /* ID */
-    string name = 2; /* 名称 */
-    optional string description = 3; /* 描述 */
+    string id = 1; /* ID */
+    optional string name = 2; /* 名称 */
+    string description = 3; /* 描述 */
     repeated User users = 4; /* 用户 */
     repeated Group groups = 5; /* 组 */
     repeated Role composites = 6; /* 组合 */
     repeated Permission permissions = 7; /* 权限 */
-    optional Realm realm = 8; /* 租户 */
-    optional bool is_deprecated = 9;
-    optional int32 version = 10;
-    optional int32 realm_id = 11;
-    optional string create_user_id = 12;
-    optional google.protobuf.Timestamp create_time = 13;
-    optional string update_user_id = 14;
-    optional google.protobuf.Timestamp update_time = 15;
-    optional string create_group_id = 16;
-    optional string intro_typename = 17;
-    optional int32 id_count = 18;
-    optional int32 id_max = 19;
-    optional int32 id_min = 20;
-    optional int32 name_count = 21;
-    optional string name_max = 22;
-    optional string name_min = 23;
-    optional int32 description_count = 24;
-    optional string description_max = 25;
-    optional string description_min = 26;
-    optional User users_aggregate = 27;
-    optional UserConnection users_connection = 28;
-    optional Group groups_aggregate = 29;
-    optional GroupConnection groups_connection = 30;
-    optional Role composites_aggregate = 31;
-    optional RoleConnection composites_connection = 32;
-    optional Permission permissions_aggregate = 33;
-    optional PermissionConnection permissions_connection = 34;
-    optional int32 realm_id_count = 35;
-    optional int32 realm_id_sum = 36;
-    optional int32 realm_id_avg = 37;
-    optional int32 realm_id_max = 38;
-    optional int32 realm_id_min = 39;
-    repeated UserRole user_role = 40;
-    optional UserRole user_role_aggregate = 41;
-    optional UserRoleConnection user_role_connection = 42;
-    repeated GroupRole group_role = 43;
-    optional GroupRole group_role_aggregate = 44;
-    optional GroupRoleConnection group_role_connection = 45;
-    repeated RoleComposite role_composite = 46;
-    optional RoleComposite role_composite_aggregate = 47;
-    optional RoleCompositeConnection role_composite_connection = 48;
-    repeated RolePermission role_permission = 49;
-    optional RolePermission role_permission_aggregate = 50;
-    optional RolePermissionConnection role_permission_connection = 51;
-    optional bool sync_role_policy = 52;
+    Realm realm = 8; /* 租户 */
+    bool is_deprecated = 9;
+    int32 version = 10;
+    int32 realm_id = 11;
+    string create_user_id = 12;
+    google.protobuf.Timestamp create_time = 13;
+    string update_user_id = 14;
+    google.protobuf.Timestamp update_time = 15;
+    string create_group_id = 16;
+    string intro_typename = 17;
+    repeated RoleUserRelation role_user_relation = 18;
+    repeated GroupRoleRelation group_role_relation = 19;
+    repeated RoleRoleRelation role_role_relation = 20;
+    repeated PermissionRoleRelation permission_role_relation = 21;
+    User users_aggregate = 22;
+    UserConnection users_connection = 23;
+    Group groups_aggregate = 24;
+    GroupConnection groups_connection = 25;
+    Role composites_aggregate = 26;
+    RoleConnection composites_connection = 27;
+    Permission permissions_aggregate = 28;
+    PermissionConnection permissions_connection = 29;
+    RoleUserRelation role_user_relation_aggregate = 30;
+    RoleUserRelationConnection role_user_relation_connection = 31;
+    GroupRoleRelation group_role_relation_aggregate = 32;
+    GroupRoleRelationConnection group_role_relation_connection = 33;
+    RoleRoleRelation role_role_relation_aggregate = 34;
+    RoleRoleRelationConnection role_role_relation_connection = 35;
+    PermissionRoleRelation permission_role_relation_aggregate = 36;
+    PermissionRoleRelationConnection permission_role_relation_connection = 37;
+    int32 id_count = 38;
+    int32 id_max = 39;
+    int32 id_min = 40;
+    int32 name_count = 41;
+    string name_max = 42;
+    string name_min = 43;
+    int32 description_count = 44;
+    string description_max = 45;
+    string description_min = 46;
+    bool sync_role_policy = 47;
 }
 /**
 * 组
 */
 message Group {
-    optional string id = 1; /* ID */
-    string name = 2; /* 名称 */
-    optional string description = 3; /* 描述 */
-    optional string path = 4; /* 路径 */
-    optional int32 deep = 5; /* 层级 */
-    optional string parent_id = 6; /* 上级ID */
-    optional Group parent = 7; /* 上级 */
+    string id = 1; /* ID */
+    optional string name = 2; /* 名称 */
+    string description = 3; /* 描述 */
+    string path = 4; /* 路径 */
+    int32 deep = 5; /* 层级 */
+    string parent_id = 6; /* 上级ID */
+    Group parent = 7; /* 上级 */
     repeated Group sub_groups = 8; /* 下级 */
     repeated User users = 9; /* 用户 */
     repeated Role roles = 10; /* 角色 */
-    optional Realm realm = 11; /* 租户 */
-    optional bool is_deprecated = 12;
-    optional int32 version = 13;
-    optional int32 realm_id = 14;
-    optional string create_user_id = 15;
-    optional google.protobuf.Timestamp create_time = 16;
-    optional string update_user_id = 17;
-    optional google.protobuf.Timestamp update_time = 18;
-    optional string create_group_id = 19;
-    optional string intro_typename = 20;
-    optional int32 id_count = 21;
-    optional int32 id_max = 22;
-    optional int32 id_min = 23;
-    optional int32 name_count = 24;
-    optional string name_max = 25;
-    optional string name_min = 26;
-    optional int32 description_count = 27;
-    optional string description_max = 28;
-    optional string description_min = 29;
-    optional int32 path_count = 30;
-    optional string path_max = 31;
-    optional string path_min = 32;
-    optional int32 parent_id_count = 33;
-    optional string parent_id_max = 34;
-    optional string parent_id_min = 35;
-    optional int32 deep_count = 36;
-    optional int32 deep_sum = 37;
-    optional int32 deep_avg = 38;
-    optional int32 deep_max = 39;
-    optional int32 deep_min = 40;
-    optional Group sub_groups_aggregate = 41;
-    optional GroupConnection sub_groups_connection = 42;
-    optional User users_aggregate = 43;
-    optional UserConnection users_connection = 44;
-    optional Role roles_aggregate = 45;
-    optional RoleConnection roles_connection = 46;
-    optional int32 realm_id_count = 47;
-    optional int32 realm_id_sum = 48;
-    optional int32 realm_id_avg = 49;
-    optional int32 realm_id_max = 50;
-    optional int32 realm_id_min = 51;
-    repeated UserGroup user_group = 52;
-    optional UserGroup user_group_aggregate = 53;
-    optional UserGroupConnection user_group_connection = 54;
-    repeated GroupRole group_role = 55;
-    optional GroupRole group_role_aggregate = 56;
-    optional GroupRoleConnection group_role_connection = 57;
-    optional bool sync_group_policy = 58;
+    Realm realm = 11; /* 租户 */
+    bool is_deprecated = 12;
+    int32 version = 13;
+    int32 realm_id = 14;
+    string create_user_id = 15;
+    google.protobuf.Timestamp create_time = 16;
+    string update_user_id = 17;
+    google.protobuf.Timestamp update_time = 18;
+    string create_group_id = 19;
+    string intro_typename = 20;
+    repeated GroupUserRelation group_user_relation = 21;
+    repeated GroupRoleRelation group_role_relation = 22;
+    Group sub_groups_aggregate = 23;
+    GroupConnection sub_groups_connection = 24;
+    User users_aggregate = 25;
+    UserConnection users_connection = 26;
+    Role roles_aggregate = 27;
+    RoleConnection roles_connection = 28;
+    GroupUserRelation group_user_relation_aggregate = 29;
+    GroupUserRelationConnection group_user_relation_connection = 30;
+    GroupRoleRelation group_role_relation_aggregate = 31;
+    GroupRoleRelationConnection group_role_relation_connection = 32;
+    int32 id_count = 33;
+    int32 id_max = 34;
+    int32 id_min = 35;
+    int32 name_count = 36;
+    string name_max = 37;
+    string name_min = 38;
+    int32 description_count = 39;
+    string description_max = 40;
+    string description_min = 41;
+    int32 path_count = 42;
+    string path_max = 43;
+    string path_min = 44;
+    int32 parent_id_count = 45;
+    string parent_id_max = 46;
+    string parent_id_min = 47;
+    int32 deep_count = 48;
+    int32 deep_sum = 49;
+    int32 deep_avg = 50;
+    int32 deep_max = 51;
+    int32 deep_min = 52;
+    bool sync_group_policy = 53;
 }
 /**
 * 租户
 */
 message Realm {
-    optional string id = 1; /* ID */
-    string name = 2; /* 名称 */
-    optional string description = 3; /* 描述 */
-    optional bool is_deprecated = 4;
-    optional int32 version = 5;
-    optional int32 realm_id = 6;
-    optional string create_user_id = 7;
-    optional google.protobuf.Timestamp create_time = 8;
-    optional string update_user_id = 9;
-    optional google.protobuf.Timestamp update_time = 10;
-    optional string create_group_id = 11;
-    optional string intro_typename = 12;
-    optional int32 id_count = 13;
-    optional int32 id_max = 14;
-    optional int32 id_min = 15;
-    optional int32 name_count = 16;
-    optional string name_max = 17;
-    optional string name_min = 18;
-    optional int32 description_count = 19;
-    optional string description_max = 20;
-    optional string description_min = 21;
+    string id = 1; /* ID */
+    optional string name = 2; /* 名称 */
+    string description = 3; /* 描述 */
+    bool is_deprecated = 4;
+    int32 version = 5;
+    int32 realm_id = 6;
+    string create_user_id = 7;
+    google.protobuf.Timestamp create_time = 8;
+    string update_user_id = 9;
+    google.protobuf.Timestamp update_time = 10;
+    string create_group_id = 11;
+    string intro_typename = 12;
+    int32 id_count = 13;
+    int32 id_max = 14;
+    int32 id_min = 15;
+    int32 name_count = 16;
+    string name_max = 17;
+    string name_min = 18;
+    int32 description_count = 19;
+    string description_max = 20;
+    string description_min = 21;
 }
 /**
 * 权限
 */
 message Permission {
-    string name = 1; /* 名称 */
-    optional string description = 2; /* 描述 */
-    string field = 3; /* 字段 */
-    string type = 4; /* 实体 */
-    PermissionType permission_type = 5; /* 权限类型 */
+    optional string name = 1; /* 名称 */
+    string description = 2; /* 描述 */
+    optional string field = 3; /* 字段 */
+    optional string type = 4; /* 实体 */
+    optional PermissionType permission_type = 5; /* 权限类型 */
     repeated Role roles = 6; /* 角色 */
-    optional Realm realm = 7; /* 租户 */
-    optional bool is_deprecated = 8;
-    optional int32 version = 9;
-    optional int32 realm_id = 10;
-    optional string create_user_id = 11;
-    optional google.protobuf.Timestamp create_time = 12;
-    optional string update_user_id = 13;
-    optional google.protobuf.Timestamp update_time = 14;
-    optional string create_group_id = 15;
-    optional string intro_typename = 16;
-    optional int32 name_count = 17;
-    optional string name_max = 18;
-    optional string name_min = 19;
-    optional int32 description_count = 20;
-    optional string description_max = 21;
-    optional string description_min = 22;
-    optional int32 field_count = 23;
-    optional string field_max = 24;
-    optional string field_min = 25;
-    optional int32 type_count = 26;
-    optional string type_max = 27;
-    optional string type_min = 28;
-    optional Role roles_aggregate = 29;
-    optional RoleConnection roles_connection = 30;
-    optional int32 realm_id_count = 31;
-    optional int32 realm_id_sum = 32;
-    optional int32 realm_id_avg = 33;
-    optional int32 realm_id_max = 34;
-    optional int32 realm_id_min = 35;
-    repeated RolePermission role_permission = 36;
-    optional RolePermission role_permission_aggregate = 37;
-    optional RolePermissionConnection role_permission_connection = 38;
-    optional bool sync_permission_policy = 39;
+    Realm realm = 7; /* 租户 */
+    bool is_deprecated = 8;
+    int32 version = 9;
+    int32 realm_id = 10;
+    string create_user_id = 11;
+    google.protobuf.Timestamp create_time = 12;
+    string update_user_id = 13;
+    google.protobuf.Timestamp update_time = 14;
+    string create_group_id = 15;
+    string intro_typename = 16;
+    repeated PermissionRoleRelation permission_role_relation = 17;
+    Role roles_aggregate = 18;
+    RoleConnection roles_connection = 19;
+    PermissionRoleRelation permission_role_relation_aggregate = 20;
+    PermissionRoleRelationConnection permission_role_relation_connection = 21;
+    int32 name_count = 22;
+    int32 name_max = 23;
+    int32 name_min = 24;
+    int32 description_count = 25;
+    string description_max = 26;
+    string description_min = 27;
+    int32 field_count = 28;
+    string field_max = 29;
+    string field_min = 30;
+    int32 type_count = 31;
+    string type_max = 32;
+    string type_min = 33;
+    bool sync_permission_policy = 34;
 }
-message UserPhones {
-    optional string id = 1;
-    optional int32 user_id = 2;
-    optional User user_id_type = 3;
-    optional string phone = 4;
-    optional bool is_deprecated = 5;
-    optional int32 version = 6;
-    optional int32 realm_id = 7;
-    optional string create_user_id = 8;
-    optional google.protobuf.Timestamp create_time = 9;
-    optional string update_user_id = 10;
-    optional google.protobuf.Timestamp update_time = 11;
-    optional string create_group_id = 12;
-    optional string intro_typename = 13;
-    optional int32 id_count = 14;
-    optional int32 id_max = 15;
-    optional int32 id_min = 16;
-    optional int32 phone_count = 17;
-    optional string phone_max = 18;
-    optional string phone_min = 19;
-    optional int32 user_id_count = 20;
-    optional int32 user_id_sum = 21;
-    optional int32 user_id_avg = 22;
-    optional int32 user_id_max = 23;
-    optional int32 user_id_min = 24;
+message UserPhonesRelation {
+    string id = 1;
+    string user_ref = 2;
+    User user_ref_type = 3;
+    string phones_ref = 4;
+    bool is_deprecated = 5;
+    int32 version = 6;
+    int32 realm_id = 7;
+    string create_user_id = 8;
+    google.protobuf.Timestamp create_time = 9;
+    string update_user_id = 10;
+    google.protobuf.Timestamp update_time = 11;
+    string create_group_id = 12;
+    string intro_typename = 13;
+    int32 id_count = 14;
+    int32 id_max = 15;
+    int32 id_min = 16;
+    int32 user_ref_count = 17;
+    string user_ref_max = 18;
+    string user_ref_min = 19;
+    int32 phones_ref_count = 20;
+    string phones_ref_max = 21;
+    string phones_ref_min = 22;
 }
-message UserGroup {
-    optional string id = 1;
-    optional int32 user_id = 2;
-    optional User user_id_type = 3;
-    optional int32 group_id = 4;
-    optional Group group_id_type = 5;
-    optional bool is_deprecated = 6;
-    optional int32 version = 7;
-    optional int32 realm_id = 8;
-    optional string create_user_id = 9;
-    optional google.protobuf.Timestamp create_time = 10;
-    optional string update_user_id = 11;
-    optional google.protobuf.Timestamp update_time = 12;
-    optional string create_group_id = 13;
-    optional string intro_typename = 14;
-    optional int32 id_count = 15;
-    optional int32 id_max = 16;
-    optional int32 id_min = 17;
-    optional int32 user_id_count = 18;
-    optional int32 user_id_sum = 19;
-    optional int32 user_id_avg = 20;
-    optional int32 user_id_max = 21;
-    optional int32 user_id_min = 22;
-    optional int32 group_id_count = 23;
-    optional int32 group_id_sum = 24;
-    optional int32 group_id_avg = 25;
-    optional int32 group_id_max = 26;
-    optional int32 group_id_min = 27;
+message GroupUserRelation {
+    string id = 1;
+    string user_ref = 2;
+    User user_ref_type = 3;
+    string group_ref = 4;
+    Group group_ref_type = 5;
+    bool is_deprecated = 6;
+    int32 version = 7;
+    int32 realm_id = 8;
+    string create_user_id = 9;
+    google.protobuf.Timestamp create_time = 10;
+    string update_user_id = 11;
+    google.protobuf.Timestamp update_time = 12;
+    string create_group_id = 13;
+    string intro_typename = 14;
+    int32 id_count = 15;
+    int32 id_max = 16;
+    int32 id_min = 17;
+    int32 user_ref_count = 18;
+    string user_ref_max = 19;
+    string user_ref_min = 20;
+    int32 group_ref_count = 21;
+    string group_ref_max = 22;
+    string group_ref_min = 23;
 }
-message UserRole {
-    optional string id = 1;
-    optional int32 user_id = 2;
-    optional User user_id_type = 3;
-    optional int32 role_id = 4;
-    optional Role role_id_type = 5;
-    optional bool is_deprecated = 6;
-    optional int32 version = 7;
-    optional int32 realm_id = 8;
-    optional string create_user_id = 9;
-    optional google.protobuf.Timestamp create_time = 10;
-    optional string update_user_id = 11;
-    optional google.protobuf.Timestamp update_time = 12;
-    optional string create_group_id = 13;
-    optional string intro_typename = 14;
-    optional int32 id_count = 15;
-    optional int32 id_max = 16;
-    optional int32 id_min = 17;
-    optional int32 user_id_count = 18;
-    optional int32 user_id_sum = 19;
-    optional int32 user_id_avg = 20;
-    optional int32 user_id_max = 21;
-    optional int32 user_id_min = 22;
-    optional int32 role_id_count = 23;
-    optional int32 role_id_sum = 24;
-    optional int32 role_id_avg = 25;
-    optional int32 role_id_max = 26;
-    optional int32 role_id_min = 27;
+message RoleUserRelation {
+    string id = 1;
+    string user_ref = 2;
+    User user_ref_type = 3;
+    string role_ref = 4;
+    Role role_ref_type = 5;
+    bool is_deprecated = 6;
+    int32 version = 7;
+    int32 realm_id = 8;
+    string create_user_id = 9;
+    google.protobuf.Timestamp create_time = 10;
+    string update_user_id = 11;
+    google.protobuf.Timestamp update_time = 12;
+    string create_group_id = 13;
+    string intro_typename = 14;
+    int32 id_count = 15;
+    int32 id_max = 16;
+    int32 id_min = 17;
+    int32 user_ref_count = 18;
+    string user_ref_max = 19;
+    string user_ref_min = 20;
+    int32 role_ref_count = 21;
+    string role_ref_max = 22;
+    string role_ref_min = 23;
 }
-message GroupRole {
-    optional string id = 1;
-    optional int32 role_id = 2;
-    optional Role role_id_type = 3;
-    optional int32 group_id = 4;
-    optional Group group_id_type = 5;
-    optional bool is_deprecated = 6;
-    optional int32 version = 7;
-    optional int32 realm_id = 8;
-    optional string create_user_id = 9;
-    optional google.protobuf.Timestamp create_time = 10;
-    optional string update_user_id = 11;
-    optional google.protobuf.Timestamp update_time = 12;
-    optional string create_group_id = 13;
-    optional string intro_typename = 14;
-    optional int32 id_count = 15;
-    optional int32 id_max = 16;
-    optional int32 id_min = 17;
-    optional int32 role_id_count = 18;
-    optional int32 role_id_sum = 19;
-    optional int32 role_id_avg = 20;
-    optional int32 role_id_max = 21;
-    optional int32 role_id_min = 22;
-    optional int32 group_id_count = 23;
-    optional int32 group_id_sum = 24;
-    optional int32 group_id_avg = 25;
-    optional int32 group_id_max = 26;
-    optional int32 group_id_min = 27;
+message GroupRoleRelation {
+    string id = 1;
+    string role_ref = 2;
+    Role role_ref_type = 3;
+    string group_ref = 4;
+    Group group_ref_type = 5;
+    bool is_deprecated = 6;
+    int32 version = 7;
+    int32 realm_id = 8;
+    string create_user_id = 9;
+    google.protobuf.Timestamp create_time = 10;
+    string update_user_id = 11;
+    google.protobuf.Timestamp update_time = 12;
+    string create_group_id = 13;
+    string intro_typename = 14;
+    int32 id_count = 15;
+    int32 id_max = 16;
+    int32 id_min = 17;
+    int32 role_ref_count = 18;
+    string role_ref_max = 19;
+    string role_ref_min = 20;
+    int32 group_ref_count = 21;
+    string group_ref_max = 22;
+    string group_ref_min = 23;
 }
-message RoleComposite {
-    optional string id = 1;
-    optional int32 role_id = 2;
-    optional Role role_id_type = 3;
-    optional int32 composite_id = 4;
-    optional Role composite_id_type = 5;
-    optional bool is_deprecated = 6;
-    optional int32 version = 7;
-    optional int32 realm_id = 8;
-    optional string create_user_id = 9;
-    optional google.protobuf.Timestamp create_time = 10;
-    optional string update_user_id = 11;
-    optional google.protobuf.Timestamp update_time = 12;
-    optional string create_group_id = 13;
-    optional string intro_typename = 14;
-    optional int32 id_count = 15;
-    optional int32 id_max = 16;
-    optional int32 id_min = 17;
-    optional int32 role_id_count = 18;
-    optional int32 role_id_sum = 19;
-    optional int32 role_id_avg = 20;
-    optional int32 role_id_max = 21;
-    optional int32 role_id_min = 22;
-    optional int32 composite_id_count = 23;
-    optional int32 composite_id_sum = 24;
-    optional int32 composite_id_avg = 25;
-    optional int32 composite_id_max = 26;
-    optional int32 composite_id_min = 27;
+message RoleRoleRelation {
+    string id = 1;
+    string role_ref = 2;
+    Role role_ref_type = 3;
+    bool is_deprecated = 4;
+    int32 version = 5;
+    int32 realm_id = 6;
+    string create_user_id = 7;
+    google.protobuf.Timestamp create_time = 8;
+    string update_user_id = 9;
+    google.protobuf.Timestamp update_time = 10;
+    string create_group_id = 11;
+    string intro_typename = 12;
+    int32 id_count = 13;
+    int32 id_max = 14;
+    int32 id_min = 15;
+    int32 role_ref_count = 16;
+    string role_ref_max = 17;
+    string role_ref_min = 18;
 }
-message RolePermission {
-    optional string id = 1;
-    optional int32 role_id = 2;
-    optional Role role_id_type = 3;
-    optional string permission_name = 4;
-    optional Permission permission_name_type = 5;
-    optional bool is_deprecated = 6;
-    optional int32 version = 7;
-    optional int32 realm_id = 8;
-    optional string create_user_id = 9;
-    optional google.protobuf.Timestamp create_time = 10;
-    optional string update_user_id = 11;
-    optional google.protobuf.Timestamp update_time = 12;
-    optional string create_group_id = 13;
-    optional string intro_typename = 14;
-    optional int32 id_count = 15;
-    optional int32 id_max = 16;
-    optional int32 id_min = 17;
-    optional int32 permission_name_count = 18;
-    optional string permission_name_max = 19;
-    optional string permission_name_min = 20;
-    optional int32 role_id_count = 21;
-    optional int32 role_id_sum = 22;
-    optional int32 role_id_avg = 23;
-    optional int32 role_id_max = 24;
-    optional int32 role_id_min = 25;
+message PermissionRoleRelation {
+    string id = 1;
+    string role_ref = 2;
+    Role role_ref_type = 3;
+    string permission_ref = 4;
+    Permission permission_ref_type = 5;
+    bool is_deprecated = 6;
+    int32 version = 7;
+    int32 realm_id = 8;
+    string create_user_id = 9;
+    google.protobuf.Timestamp create_time = 10;
+    string update_user_id = 11;
+    google.protobuf.Timestamp update_time = 12;
+    string create_group_id = 13;
+    string intro_typename = 14;
+    int32 id_count = 15;
+    int32 id_max = 16;
+    int32 id_min = 17;
+    int32 role_ref_count = 18;
+    string role_ref_max = 19;
+    string role_ref_min = 20;
+    int32 permission_ref_count = 21;
+    string permission_ref_max = 22;
+    string permission_ref_min = 23;
 }
 message UserConnection {
-    optional int32 total_count = 1;
-    optional io.graphoenix.core.grpc.PageInfo page_info = 2;
+    int32 total_count = 1;
+    io.graphoenix.core.PageInfo page_info = 2;
     repeated UserEdge edges = 3;
 }
 message UserEdge {
-    optional User node = 1;
-    optional string cursor = 2;
+    User node = 1;
+    string cursor = 2;
 }
 message RoleConnection {
-    optional int32 total_count = 1;
-    optional io.graphoenix.core.grpc.PageInfo page_info = 2;
+    int32 total_count = 1;
+    io.graphoenix.core.PageInfo page_info = 2;
     repeated RoleEdge edges = 3;
 }
 message RoleEdge {
-    optional Role node = 1;
-    optional string cursor = 2;
+    Role node = 1;
+    string cursor = 2;
 }
 message GroupConnection {
-    optional int32 total_count = 1;
-    optional io.graphoenix.core.grpc.PageInfo page_info = 2;
+    int32 total_count = 1;
+    io.graphoenix.core.PageInfo page_info = 2;
     repeated GroupEdge edges = 3;
 }
 message GroupEdge {
-    optional Group node = 1;
-    optional string cursor = 2;
+    Group node = 1;
+    string cursor = 2;
 }
 message RealmConnection {
-    optional int32 total_count = 1;
-    optional io.graphoenix.core.grpc.PageInfo page_info = 2;
+    int32 total_count = 1;
+    io.graphoenix.core.PageInfo page_info = 2;
     repeated RealmEdge edges = 3;
 }
 message RealmEdge {
-    optional Realm node = 1;
-    optional string cursor = 2;
+    Realm node = 1;
+    string cursor = 2;
 }
 message PermissionConnection {
-    optional int32 total_count = 1;
-    optional io.graphoenix.core.grpc.PageInfo page_info = 2;
+    int32 total_count = 1;
+    io.graphoenix.core.PageInfo page_info = 2;
     repeated PermissionEdge edges = 3;
 }
 message PermissionEdge {
-    optional Permission node = 1;
-    optional string cursor = 2;
+    Permission node = 1;
+    string cursor = 2;
 }
-message UserPhonesConnection {
-    optional int32 total_count = 1;
-    optional io.graphoenix.core.grpc.PageInfo page_info = 2;
-    repeated UserPhonesEdge edges = 3;
+message UserPhonesRelationConnection {
+    int32 total_count = 1;
+    io.graphoenix.core.PageInfo page_info = 2;
+    repeated UserPhonesRelationEdge edges = 3;
 }
-message UserPhonesEdge {
-    optional UserPhones node = 1;
-    optional string cursor = 2;
+message UserPhonesRelationEdge {
+    UserPhonesRelation node = 1;
+    string cursor = 2;
 }
-message UserGroupConnection {
-    optional int32 total_count = 1;
-    optional io.graphoenix.core.grpc.PageInfo page_info = 2;
-    repeated UserGroupEdge edges = 3;
+message GroupUserRelationConnection {
+    int32 total_count = 1;
+    io.graphoenix.core.PageInfo page_info = 2;
+    repeated GroupUserRelationEdge edges = 3;
 }
-message UserGroupEdge {
-    optional UserGroup node = 1;
-    optional string cursor = 2;
+message GroupUserRelationEdge {
+    GroupUserRelation node = 1;
+    string cursor = 2;
 }
-message UserRoleConnection {
-    optional int32 total_count = 1;
-    optional io.graphoenix.core.grpc.PageInfo page_info = 2;
-    repeated UserRoleEdge edges = 3;
+message RoleUserRelationConnection {
+    int32 total_count = 1;
+    io.graphoenix.core.PageInfo page_info = 2;
+    repeated RoleUserRelationEdge edges = 3;
 }
-message UserRoleEdge {
-    optional UserRole node = 1;
-    optional string cursor = 2;
+message RoleUserRelationEdge {
+    RoleUserRelation node = 1;
+    string cursor = 2;
 }
-message GroupRoleConnection {
-    optional int32 total_count = 1;
-    optional io.graphoenix.core.grpc.PageInfo page_info = 2;
-    repeated GroupRoleEdge edges = 3;
+message GroupRoleRelationConnection {
+    int32 total_count = 1;
+    io.graphoenix.core.PageInfo page_info = 2;
+    repeated GroupRoleRelationEdge edges = 3;
 }
-message GroupRoleEdge {
-    optional GroupRole node = 1;
-    optional string cursor = 2;
+message GroupRoleRelationEdge {
+    GroupRoleRelation node = 1;
+    string cursor = 2;
 }
-message RoleCompositeConnection {
-    optional int32 total_count = 1;
-    optional io.graphoenix.core.grpc.PageInfo page_info = 2;
-    repeated RoleCompositeEdge edges = 3;
+message RoleRoleRelationConnection {
+    int32 total_count = 1;
+    io.graphoenix.core.PageInfo page_info = 2;
+    repeated RoleRoleRelationEdge edges = 3;
 }
-message RoleCompositeEdge {
-    optional RoleComposite node = 1;
-    optional string cursor = 2;
+message RoleRoleRelationEdge {
+    RoleRoleRelation node = 1;
+    string cursor = 2;
 }
-message RolePermissionConnection {
-    optional int32 total_count = 1;
-    optional io.graphoenix.core.grpc.PageInfo page_info = 2;
-    repeated RolePermissionEdge edges = 3;
+message PermissionRoleRelationConnection {
+    int32 total_count = 1;
+    io.graphoenix.core.PageInfo page_info = 2;
+    repeated PermissionRoleRelationEdge edges = 3;
 }
-message RolePermissionEdge {
-    optional RolePermission node = 1;
-    optional string cursor = 2;
+message PermissionRoleRelationEdge {
+    PermissionRoleRelation node = 1;
+    string cursor = 2;
 }
 message CurrentUser {
-    optional string last_name = 1;
-    repeated string roles = 2;
-    optional string login = 3;
-    repeated string groups = 4;
-    optional int32 realm_id = 5;
-    optional string id = 6;
-    optional string name = 7;
+    int32 realm_id = 1;
+    string last_name = 2;
+    repeated string roles = 3;
+    string login = 4;
+    string name = 5;
+    repeated string groups = 6;
+    string id = 7;
 }
 message Policy {
-    optional string v0 = 1;
-    optional string ptype = 2;
-    optional string v5 = 3;
-    optional string id = 4;
-    optional string v4 = 5;
-    optional string v1 = 6;
-    optional string v3 = 7;
-    optional string v2 = 8;
+    string v4 = 1;
+    string id = 2;
+    string ptype = 3;
+    string v3 = 4;
+    string v0 = 5;
+    string v2 = 6;
+    string v1 = 7;
+    string v5 = 8;
 }

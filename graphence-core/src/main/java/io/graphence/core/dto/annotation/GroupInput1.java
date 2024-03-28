@@ -1,11 +1,15 @@
 package io.graphence.core.dto.annotation;
 
+import jakarta.annotation.Generated;
 import java.lang.String;
+import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
+@Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
+@Documented
 @Retention(RetentionPolicy.SOURCE)
 @Target(ElementType.METHOD)
 public @interface GroupInput1 {
@@ -20,6 +24,16 @@ public @interface GroupInput1 {
   int deep() default 0;
 
   String parentId() default "";
+
+  GroupInput2 parent() default @GroupInput2;
+
+  GroupInput2[] subGroups() default {};
+
+  UserInput2[] users() default {};
+
+  RoleInput2[] roles() default {};
+
+  RealmInput2 realm() default @RealmInput2;
 
   boolean isDeprecated() default false;
 
@@ -37,9 +51,13 @@ public @interface GroupInput1 {
 
   String createGroupId() default "";
 
-  String __typename() default "";
+  String __typename() default "Group";
 
-  boolean syncGroupPolicy() default false;
+  GroupUserRelationInput2[] groupUserRelation() default {};
+
+  GroupRoleRelationInput2[] groupRoleRelation() default {};
+
+  GroupExpression2 where() default @GroupExpression2;
 
   String $id() default "";
 
@@ -81,29 +99,9 @@ public @interface GroupInput1 {
 
   String $__typename() default "";
 
-  String $subGroupsAggregate() default "";
+  String $groupUserRelation() default "";
 
-  String $subGroupsConnection() default "";
+  String $groupRoleRelation() default "";
 
-  String $usersAggregate() default "";
-
-  String $usersConnection() default "";
-
-  String $rolesAggregate() default "";
-
-  String $rolesConnection() default "";
-
-  String $userGroup() default "";
-
-  String $userGroupAggregate() default "";
-
-  String $userGroupConnection() default "";
-
-  String $groupRole() default "";
-
-  String $groupRoleAggregate() default "";
-
-  String $groupRoleConnection() default "";
-
-  String $syncGroupPolicy() default "";
+  String $where() default "";
 }

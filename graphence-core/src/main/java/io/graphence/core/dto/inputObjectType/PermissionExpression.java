@@ -5,17 +5,16 @@ import io.graphoenix.core.dto.enumType.Conditional;
 import io.graphoenix.core.dto.inputObjectType.IntExpression;
 import io.graphoenix.core.dto.inputObjectType.MetaExpression;
 import io.graphoenix.core.dto.inputObjectType.StringExpression;
-import io.graphoenix.spi.annotation.Ignore;
 import jakarta.annotation.Generated;
 import java.lang.Boolean;
+import java.lang.Override;
 import java.util.Collection;
 import org.eclipse.microprofile.graphql.DefaultValue;
 import org.eclipse.microprofile.graphql.Input;
 
 @CompiledJson
 @Input
-@Generated("io.graphoenix.java.generator.builder.TypeSpecBuilderProxy")
-@Ignore
+@Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
 public class PermissionExpression implements MetaExpression {
   private StringExpression name;
 
@@ -50,7 +49,7 @@ public class PermissionExpression implements MetaExpression {
 
   private StringExpression __typename;
 
-  private RolePermissionExpression rolePermission;
+  private PermissionRoleRelationExpression permissionRoleRelation;
 
   @DefaultValue("false")
   private Boolean not;
@@ -132,50 +131,62 @@ public class PermissionExpression implements MetaExpression {
     this.version = version;
   }
 
+  @Override
   public IntExpression getRealmId() {
     return this.realmId;
   }
 
+  @Override
   public void setRealmId(IntExpression realmId) {
     this.realmId = realmId;
   }
 
+  @Override
   public StringExpression getCreateUserId() {
     return this.createUserId;
   }
 
+  @Override
   public void setCreateUserId(StringExpression createUserId) {
     this.createUserId = createUserId;
   }
 
+  @Override
   public StringExpression getCreateTime() {
     return this.createTime;
   }
 
+  @Override
   public void setCreateTime(StringExpression createTime) {
     this.createTime = createTime;
   }
 
+  @Override
   public StringExpression getUpdateUserId() {
     return this.updateUserId;
   }
 
+  @Override
   public void setUpdateUserId(StringExpression updateUserId) {
     this.updateUserId = updateUserId;
   }
 
+  @Override
   public StringExpression getUpdateTime() {
     return this.updateTime;
   }
 
+  @Override
   public void setUpdateTime(StringExpression updateTime) {
     this.updateTime = updateTime;
   }
 
+  @Override
   public StringExpression getCreateGroupId() {
     return this.createGroupId;
   }
 
+  @Override
   public void setCreateGroupId(StringExpression createGroupId) {
     this.createGroupId = createGroupId;
   }
@@ -188,12 +199,12 @@ public class PermissionExpression implements MetaExpression {
     this.__typename = __typename;
   }
 
-  public RolePermissionExpression getRolePermission() {
-    return this.rolePermission;
+  public PermissionRoleRelationExpression getPermissionRoleRelation() {
+    return this.permissionRoleRelation;
   }
 
-  public void setRolePermission(RolePermissionExpression rolePermission) {
-    this.rolePermission = rolePermission;
+  public void setPermissionRoleRelation(PermissionRoleRelationExpression permissionRoleRelation) {
+    this.permissionRoleRelation = permissionRoleRelation;
   }
 
   public Boolean getNot() {
