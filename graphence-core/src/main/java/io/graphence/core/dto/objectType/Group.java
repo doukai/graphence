@@ -191,7 +191,7 @@ public class Group implements TreeStruct, NamedStruct, Meta {
 
   @Override
   public void setName(String name) {
-    this.name = name;
+    this.name = (String)name;
   }
 
   @Override
@@ -201,7 +201,7 @@ public class Group implements TreeStruct, NamedStruct, Meta {
 
   @Override
   public void setDescription(String description) {
-    this.description = description;
+    this.description = (String)description;
   }
 
   @Override
@@ -211,7 +211,7 @@ public class Group implements TreeStruct, NamedStruct, Meta {
 
   @Override
   public void setPath(String path) {
-    this.path = path;
+    this.path = (String)path;
   }
 
   @Override
@@ -221,7 +221,7 @@ public class Group implements TreeStruct, NamedStruct, Meta {
 
   @Override
   public void setDeep(Integer deep) {
-    this.deep = deep;
+    this.deep = (Integer)deep;
   }
 
   @Override
@@ -231,7 +231,7 @@ public class Group implements TreeStruct, NamedStruct, Meta {
 
   @Override
   public void setParentId(String parentId) {
-    this.parentId = parentId;
+    this.parentId = (String)parentId;
   }
 
   public Group getParent() {
@@ -281,7 +281,7 @@ public class Group implements TreeStruct, NamedStruct, Meta {
 
   @Override
   public void setIsDeprecated(Boolean isDeprecated) {
-    this.isDeprecated = isDeprecated;
+    this.isDeprecated = (Boolean)isDeprecated;
   }
 
   @Override
@@ -291,7 +291,7 @@ public class Group implements TreeStruct, NamedStruct, Meta {
 
   @Override
   public void setVersion(Integer version) {
-    this.version = version;
+    this.version = (Integer)version;
   }
 
   @Override
@@ -301,7 +301,7 @@ public class Group implements TreeStruct, NamedStruct, Meta {
 
   @Override
   public void setRealmId(Integer realmId) {
-    this.realmId = realmId;
+    this.realmId = (Integer)realmId;
   }
 
   @Override
@@ -311,7 +311,7 @@ public class Group implements TreeStruct, NamedStruct, Meta {
 
   @Override
   public void setCreateUserId(String createUserId) {
-    this.createUserId = createUserId;
+    this.createUserId = (String)createUserId;
   }
 
   @Override
@@ -321,7 +321,7 @@ public class Group implements TreeStruct, NamedStruct, Meta {
 
   @Override
   public void setCreateTime(LocalDateTime createTime) {
-    this.createTime = createTime;
+    this.createTime = (LocalDateTime)createTime;
   }
 
   @Override
@@ -331,7 +331,7 @@ public class Group implements TreeStruct, NamedStruct, Meta {
 
   @Override
   public void setUpdateUserId(String updateUserId) {
-    this.updateUserId = updateUserId;
+    this.updateUserId = (String)updateUserId;
   }
 
   @Override
@@ -341,7 +341,7 @@ public class Group implements TreeStruct, NamedStruct, Meta {
 
   @Override
   public void setUpdateTime(LocalDateTime updateTime) {
-    this.updateTime = updateTime;
+    this.updateTime = (LocalDateTime)updateTime;
   }
 
   @Override
@@ -351,7 +351,7 @@ public class Group implements TreeStruct, NamedStruct, Meta {
 
   @Override
   public void setCreateGroupId(String createGroupId) {
-    this.createGroupId = createGroupId;
+    this.createGroupId = (String)createGroupId;
   }
 
   public String get__typename() {

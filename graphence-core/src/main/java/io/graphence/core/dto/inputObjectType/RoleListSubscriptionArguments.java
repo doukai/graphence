@@ -99,7 +99,7 @@ public class RoleListSubscriptionArguments implements NamedStructExpression, Met
 
   @Override
   public void setName(StringExpression name) {
-    this.name = name;
+    this.name = (StringExpression)name;
   }
 
   @Override
@@ -109,7 +109,7 @@ public class RoleListSubscriptionArguments implements NamedStructExpression, Met
 
   @Override
   public void setDescription(StringExpression description) {
-    this.description = description;
+    this.description = (StringExpression)description;
   }
 
   public UserExpression getUsers() {
@@ -159,7 +159,7 @@ public class RoleListSubscriptionArguments implements NamedStructExpression, Met
 
   @Override
   public void setIncludeDeprecated(Boolean includeDeprecated) {
-    this.includeDeprecated = includeDeprecated;
+    this.includeDeprecated = (Boolean)includeDeprecated;
   }
 
   @Override
@@ -169,7 +169,7 @@ public class RoleListSubscriptionArguments implements NamedStructExpression, Met
 
   @Override
   public void setVersion(IntExpression version) {
-    this.version = version;
+    this.version = (IntExpression)version;
   }
 
   @Override
@@ -179,7 +179,7 @@ public class RoleListSubscriptionArguments implements NamedStructExpression, Met
 
   @Override
   public void setRealmId(IntExpression realmId) {
-    this.realmId = realmId;
+    this.realmId = (IntExpression)realmId;
   }
 
   @Override
@@ -189,7 +189,7 @@ public class RoleListSubscriptionArguments implements NamedStructExpression, Met
 
   @Override
   public void setCreateUserId(StringExpression createUserId) {
-    this.createUserId = createUserId;
+    this.createUserId = (StringExpression)createUserId;
   }
 
   @Override
@@ -199,7 +199,7 @@ public class RoleListSubscriptionArguments implements NamedStructExpression, Met
 
   @Override
   public void setCreateTime(StringExpression createTime) {
-    this.createTime = createTime;
+    this.createTime = (StringExpression)createTime;
   }
 
   @Override
@@ -209,7 +209,7 @@ public class RoleListSubscriptionArguments implements NamedStructExpression, Met
 
   @Override
   public void setUpdateUserId(StringExpression updateUserId) {
-    this.updateUserId = updateUserId;
+    this.updateUserId = (StringExpression)updateUserId;
   }
 
   @Override
@@ -219,7 +219,7 @@ public class RoleListSubscriptionArguments implements NamedStructExpression, Met
 
   @Override
   public void setUpdateTime(StringExpression updateTime) {
-    this.updateTime = updateTime;
+    this.updateTime = (StringExpression)updateTime;
   }
 
   @Override
@@ -229,7 +229,7 @@ public class RoleListSubscriptionArguments implements NamedStructExpression, Met
 
   @Override
   public void setCreateGroupId(StringExpression createGroupId) {
-    this.createGroupId = createGroupId;
+    this.createGroupId = (StringExpression)createGroupId;
   }
 
   public StringExpression get__typename() {
@@ -295,7 +295,7 @@ public class RoleListSubscriptionArguments implements NamedStructExpression, Met
 
   @Override
   public void setNot(Boolean not) {
-    this.not = not;
+    this.not = (Boolean)not;
   }
 
   @Override
@@ -305,15 +305,13 @@ public class RoleListSubscriptionArguments implements NamedStructExpression, Met
 
   @Override
   public void setCond(Conditional cond) {
-    this.cond = cond;
+    this.cond = (Conditional)cond;
   }
 
-  @Override
   public Collection<RoleExpression> getExs() {
     return this.exs;
   }
 
-  @Override
   public void setExs(Collection<RoleExpression> exs) {
     this.exs = exs;
   }

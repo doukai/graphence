@@ -9,8 +9,6 @@ package io.graphence.core;
 * 权限类型
 */
 enum PermissionType {
-    "读取"
     READ_PERMISSION_TYPE = 0; /* 读取 */
-    "写入"
     WRITE_PERMISSION_TYPE = 1; /* 写入 */
 }

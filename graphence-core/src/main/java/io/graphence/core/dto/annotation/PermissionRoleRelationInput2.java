@@ -36,4 +36,28 @@ public @interface PermissionRoleRelationInput2 {
   String createGroupId() default "";
 
   String __typename() default "PermissionRoleRelation";
+
+  String $id() default "";
+
+  String $roleRef() default "";
+
+  String $permissionRef() default "";
+
+  String $isDeprecated() default "";
+
+  String $version() default "";
+
+  String $realmId() default "";
+
+  String $createUserId() default "";
+
+  String $createTime() default "";
+
+  String $updateUserId() default "";
+
+  String $updateTime() default "";
+
+  String $createGroupId() default "";
+
+  String $__typename() default "";
 }

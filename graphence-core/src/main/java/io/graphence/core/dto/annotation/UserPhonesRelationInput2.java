@@ -36,4 +36,28 @@ public @interface UserPhonesRelationInput2 {
   String createGroupId() default "";
 
   String __typename() default "UserPhonesRelation";
+
+  String $id() default "";
+
+  String $userRef() default "";
+
+  String $phonesRef() default "";
+
+  String $isDeprecated() default "";
+
+  String $version() default "";
+
+  String $realmId() default "";
+
+  String $createUserId() default "";
+
+  String $createTime() default "";
+
+  String $updateUserId() default "";
+
+  String $updateTime() default "";
+
+  String $createGroupId() default "";
+
+  String $__typename() default "";
 }

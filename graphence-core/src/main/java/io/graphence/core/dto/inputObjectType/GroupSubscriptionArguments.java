@@ -89,7 +89,7 @@ public class GroupSubscriptionArguments implements TreeStructExpression, NamedSt
 
   @Override
   public void setName(StringExpression name) {
-    this.name = name;
+    this.name = (StringExpression)name;
   }
 
   @Override
@@ -99,7 +99,7 @@ public class GroupSubscriptionArguments implements TreeStructExpression, NamedSt
 
   @Override
   public void setDescription(StringExpression description) {
-    this.description = description;
+    this.description = (StringExpression)description;
   }
 
   @Override
@@ -109,7 +109,7 @@ public class GroupSubscriptionArguments implements TreeStructExpression, NamedSt
 
   @Override
   public void setPath(StringExpression path) {
-    this.path = path;
+    this.path = (StringExpression)path;
   }
 
   @Override
@@ -119,7 +119,7 @@ public class GroupSubscriptionArguments implements TreeStructExpression, NamedSt
 
   @Override
   public void setDeep(IntExpression deep) {
-    this.deep = deep;
+    this.deep = (IntExpression)deep;
   }
 
   @Override
@@ -129,7 +129,7 @@ public class GroupSubscriptionArguments implements TreeStructExpression, NamedSt
 
   @Override
   public void setParentId(StringExpression parentId) {
-    this.parentId = parentId;
+    this.parentId = (StringExpression)parentId;
   }
 
   public GroupExpression getParent() {
@@ -179,7 +179,7 @@ public class GroupSubscriptionArguments implements TreeStructExpression, NamedSt
 
   @Override
   public void setIncludeDeprecated(Boolean includeDeprecated) {
-    this.includeDeprecated = includeDeprecated;
+    this.includeDeprecated = (Boolean)includeDeprecated;
   }
 
   @Override
@@ -189,7 +189,7 @@ public class GroupSubscriptionArguments implements TreeStructExpression, NamedSt
 
   @Override
   public void setVersion(IntExpression version) {
-    this.version = version;
+    this.version = (IntExpression)version;
   }
 
   @Override
@@ -199,7 +199,7 @@ public class GroupSubscriptionArguments implements TreeStructExpression, NamedSt
 
   @Override
   public void setRealmId(IntExpression realmId) {
-    this.realmId = realmId;
+    this.realmId = (IntExpression)realmId;
   }
 
   @Override
@@ -209,7 +209,7 @@ public class GroupSubscriptionArguments implements TreeStructExpression, NamedSt
 
   @Override
   public void setCreateUserId(StringExpression createUserId) {
-    this.createUserId = createUserId;
+    this.createUserId = (StringExpression)createUserId;
   }
 
   @Override
@@ -219,7 +219,7 @@ public class GroupSubscriptionArguments implements TreeStructExpression, NamedSt
 
   @Override
   public void setCreateTime(StringExpression createTime) {
-    this.createTime = createTime;
+    this.createTime = (StringExpression)createTime;
   }
 
   @Override
@@ -229,7 +229,7 @@ public class GroupSubscriptionArguments implements TreeStructExpression, NamedSt
 
   @Override
   public void setUpdateUserId(StringExpression updateUserId) {
-    this.updateUserId = updateUserId;
+    this.updateUserId = (StringExpression)updateUserId;
   }
 
   @Override
@@ -239,7 +239,7 @@ public class GroupSubscriptionArguments implements TreeStructExpression, NamedSt
 
   @Override
   public void setUpdateTime(StringExpression updateTime) {
-    this.updateTime = updateTime;
+    this.updateTime = (StringExpression)updateTime;
   }
 
   @Override
@@ -249,7 +249,7 @@ public class GroupSubscriptionArguments implements TreeStructExpression, NamedSt
 
   @Override
   public void setCreateGroupId(StringExpression createGroupId) {
-    this.createGroupId = createGroupId;
+    this.createGroupId = (StringExpression)createGroupId;
   }
 
   public StringExpression get__typename() {
@@ -291,7 +291,7 @@ public class GroupSubscriptionArguments implements TreeStructExpression, NamedSt
 
   @Override
   public void setNot(Boolean not) {
-    this.not = not;
+    this.not = (Boolean)not;
   }
 
   @Override
@@ -301,15 +301,13 @@ public class GroupSubscriptionArguments implements TreeStructExpression, NamedSt
 
   @Override
   public void setCond(Conditional cond) {
-    this.cond = cond;
+    this.cond = (Conditional)cond;
   }
 
-  @Override
   public Collection<GroupExpression> getExs() {
     return this.exs;
   }
 
-  @Override
   public void setExs(Collection<GroupExpression> exs) {
     this.exs = exs;
   }

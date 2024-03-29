@@ -41,4 +41,32 @@ public @interface PermissionInput2 {
   String createGroupId() default "";
 
   String __typename() default "Permission";
+
+  String $name() default "";
+
+  String $description() default "";
+
+  String $field() default "";
+
+  String $type() default "";
+
+  String $permissionType() default "";
+
+  String $isDeprecated() default "";
+
+  String $version() default "";
+
+  String $realmId() default "";
+
+  String $createUserId() default "";
+
+  String $createTime() default "";
+
+  String $updateUserId() default "";
+
+  String $updateTime() default "";
+
+  String $createGroupId() default "";
+
+  String $__typename() default "";
 }

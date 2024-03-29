@@ -36,4 +36,28 @@ public @interface RoleInput2 {
   String createGroupId() default "";
 
   String __typename() default "Role";
+
+  String $id() default "";
+
+  String $name() default "";
+
+  String $description() default "";
+
+  String $isDeprecated() default "";
+
+  String $version() default "";
+
+  String $realmId() default "";
+
+  String $createUserId() default "";
+
+  String $createTime() default "";
+
+  String $updateUserId() default "";
+
+  String $updateTime() default "";
+
+  String $createGroupId() default "";
+
+  String $__typename() default "";
 }

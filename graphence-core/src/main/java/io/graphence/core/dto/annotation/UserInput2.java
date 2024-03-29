@@ -50,4 +50,42 @@ public @interface UserInput2 {
   String createGroupId() default "";
 
   String __typename() default "User";
+
+  String $id() default "";
+
+  String $name() default "";
+
+  String $description() default "";
+
+  String $lastName() default "";
+
+  String $login() default "";
+
+  String $salt() default "";
+
+  String $hash() default "";
+
+  String $email() default "";
+
+  String $phones() default "";
+
+  String $disable() default "";
+
+  String $isDeprecated() default "";
+
+  String $version() default "";
+
+  String $realmId() default "";
+
+  String $createUserId() default "";
+
+  String $createTime() default "";
+
+  String $updateUserId() default "";
+
+  String $updateTime() default "";
+
+  String $createGroupId() default "";
+
+  String $__typename() default "";
 }
