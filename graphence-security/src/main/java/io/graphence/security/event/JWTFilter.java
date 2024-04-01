@@ -1,17 +1,15 @@
 package io.graphence.security.event;
 
-import com.google.auto.service.AutoService;
 import com.password4j.Password;
 import io.graphence.core.dao.LoginDao;
 import io.graphence.core.dto.CurrentUser;
 import io.graphence.core.error.AuthenticationException;
 import io.graphence.core.jwt.GraphenceJsonWebToken;
 import io.graphence.core.utils.JWTUtil;
-import io.graphoenix.core.context.BeanContext;
-import io.graphoenix.core.context.RequestScopeInstanceFactory;
-import io.graphoenix.spi.antlr.IGraphQLDocumentManager;
-import io.graphoenix.spi.handler.ScopeEvent;
+import io.graphoenix.http.server.context.RequestScopeInstanceFactory;
+import io.nozdormu.spi.event.ScopeEvent;
 import jakarta.annotation.Priority;
+import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.context.Initialized;
 import jakarta.enterprise.context.RequestScoped;
 import org.eclipse.microprofile.jwt.Claims;
@@ -21,29 +19,26 @@ import reactor.netty.http.server.HttpServerRequest;
 import java.util.Base64;
 import java.util.Map;
 
-import static io.graphence.core.constant.Constant.AUTHORIZATION_HEADER;
-import static io.graphence.core.constant.Constant.AUTHORIZATION_SCHEME_BASIC;
-import static io.graphence.core.constant.Constant.AUTHORIZATION_SCHEME_BEARER;
+import static io.graphence.core.constant.Constant.*;
 import static io.graphence.core.error.AuthenticationErrorType.*;
 
+@ApplicationScoped
 @Initialized(RequestScoped.class)
 @Priority(0)
-@AutoService(ScopeEvent.class)
 public class JWTFilter extends BaseRequestFilter implements ScopeEvent {
 
     private final LoginDao loginDao;
     private final JWTUtil jwtUtil;
-    private final IGraphQLDocumentManager manager;
+    private final RequestScopeInstanceFactory requestScopeInstanceFactory;
 
-    public JWTFilter() {
-        this.loginDao = BeanContext.get(LoginDao.class);
-        this.jwtUtil = BeanContext.get(JWTUtil.class);
-        this.manager = BeanContext.get(IGraphQLDocumentManager.class);
+    public JWTFilter(LoginDao loginDao, JWTUtil jwtUtil, RequestScopeInstanceFactory requestScopeInstanceFactory) {
+        this.loginDao = loginDao;
+        this.jwtUtil = jwtUtil;
+        this.requestScopeInstanceFactory = requestScopeInstanceFactory;
     }
 
     @Override
     public Mono<Void> fireAsync(Map<String, Object> context) {
-        init(manager, context);
         HttpServerRequest request = getRequest(context);
         String authorization = request.requestHeaders().get(AUTHORIZATION_HEADER);
 
@@ -62,7 +57,7 @@ public class JWTFilter extends BaseRequestFilter implements ScopeEvent {
 
                     setCurrentUser(context, currentUser);
                     setSessionId(context, jws);
-                    return RequestScopeInstanceFactory.computeIfAbsent(CurrentUser.class, currentUser).then();
+                    return requestScopeInstanceFactory.compute(CurrentUser.class, currentUser).then();
                 } catch (Exception e) {
                     return Mono.empty();
                 }
@@ -83,7 +78,7 @@ public class JWTFilter extends BaseRequestFilter implements ScopeEvent {
 
                     setCurrentUser(context, currentUser);
                     setSessionId(context, jws);
-                    return RequestScopeInstanceFactory.computeIfAbsent(CurrentUser.class, currentUser).then();
+                    return requestScopeInstanceFactory.compute(CurrentUser.class, currentUser).then();
                 } catch (Exception e) {
                     throw new AuthenticationException(UN_AUTHENTICATION);
                 }
@@ -110,7 +105,7 @@ public class JWTFilter extends BaseRequestFilter implements ScopeEvent {
                                     setSessionId(context, token);
                                 }
                         )
-                        .flatMap(currentUser -> RequestScopeInstanceFactory.computeIfAbsent(CurrentUser.class, currentUser))
+                        .flatMap(currentUser -> requestScopeInstanceFactory.compute(CurrentUser.class, currentUser))
                         .then();
             }
             throw new AuthenticationException(UN_AUTHENTICATION);

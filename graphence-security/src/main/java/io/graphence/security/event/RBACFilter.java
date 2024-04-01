@@ -1,244 +1,264 @@
 package io.graphence.security.event;
 
-import com.google.auto.service.AutoService;
-import graphql.parser.antlr.GraphqlParser;
 import io.graphence.core.dto.CurrentUser;
 import io.graphence.core.dto.enumType.PermissionType;
-import io.graphence.core.error.AuthorizationException;
-import io.graphoenix.core.context.BeanContext;
-import io.graphoenix.core.error.GraphQLErrors;
-import io.graphoenix.spi.antlr.IGraphQLDocumentManager;
-import io.graphoenix.spi.handler.ScopeEvent;
+import io.graphoenix.core.handler.DocumentManager;
+import io.graphoenix.spi.graphql.Definition;
+import io.graphoenix.spi.graphql.common.ArrayValueWithVariable;
+import io.graphoenix.spi.graphql.common.ValueWithVariable;
+import io.graphoenix.spi.graphql.operation.Field;
+import io.graphoenix.spi.graphql.operation.Operation;
+import io.graphoenix.spi.graphql.type.FieldDefinition;
+import io.graphoenix.spi.graphql.type.ObjectType;
+import io.graphoenix.spi.handler.OperationBeforeHandler;
 import jakarta.annotation.Priority;
-import jakarta.enterprise.context.Initialized;
-import jakarta.enterprise.context.RequestScoped;
-import org.antlr.v4.runtime.tree.ParseTree;
-import org.antlr.v4.runtime.tree.TerminalNode;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
+import jakarta.inject.Provider;
+import jakarta.json.JsonValue;
 import org.casbin.jcasbin.main.Enforcer;
 import reactor.core.publisher.Mono;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.AbstractMap;
 import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 import static io.graphence.core.casbin.adapter.RBACAdapter.*;
 import static io.graphence.core.dto.enumType.PermissionType.READ;
 import static io.graphence.core.dto.enumType.PermissionType.WRITE;
-import static io.graphence.core.error.AuthorizationErrorType.UN_AUTHORIZATION_READ;
-import static io.graphence.core.error.AuthorizationErrorType.UN_AUTHORIZATION_WRITE;
-import static io.graphoenix.core.error.GraphQLErrorType.*;
-import static io.graphoenix.core.utils.DocumentUtil.DOCUMENT_UTIL;
 import static io.graphoenix.spi.constant.Hammurabi.*;
 
-@Initialized(RequestScoped.class)
-@Priority(1)
-@AutoService(ScopeEvent.class)
-public class RBACFilter extends BaseRequestFilter implements ScopeEvent {
+@ApplicationScoped
+@Priority(110)
+public class RBACFilter implements OperationBeforeHandler {
 
-    private final IGraphQLDocumentManager manager;
+    private final DocumentManager documentManager;
     private final Enforcer enforcer;
+    private final Provider<Mono<CurrentUser>> currentUserMonoProvider;
 
-    public RBACFilter() {
-        this.manager = BeanContext.get(IGraphQLDocumentManager.class);
-        this.enforcer = BeanContext.get(Enforcer.class);
+    @Inject
+    public RBACFilter(DocumentManager documentManager, Enforcer enforcer, Provider<Mono<CurrentUser>> currentUserMonoProvider) {
+        this.documentManager = documentManager;
+        this.enforcer = enforcer;
+        this.currentUserMonoProvider = currentUserMonoProvider;
     }
 
     @Override
-    public Mono<Void> fireAsync(Map<String, Object> context) {
-        if (isPermitAll(context)) {
-            return Mono.empty();
+    public Mono<Operation> handle(Operation operation, Map<String, JsonValue> variables) {
+        ObjectType operationType = documentManager.getOperationTypeOrError(operation);
+        return currentUserMonoProvider.get()
+                .map(currentUser ->
+                        operation.setSelections(
+                                operation.getFields().stream()
+                                        .map(field -> {
+                                                    if (documentManager.isMutationOperationType(operation) && field.getArguments() != null) {
+                                                        return field.setArguments(enforce(currentUser, operationType.getField(field.getName()), field.getArguments().getArguments()));
+                                                    }
+                                                    return field;
+                                                }
+                                        )
+                                        .flatMap(field -> {
+                                                    FieldDefinition fieldDefinition = operationType.getField(field.getName());
+                                                    if (fieldDefinition.isInvokeField()) {
+                                                        return enforceApi(currentUser, operationType, fieldDefinition, field, documentManager.isMutationOperationType(operation) ? WRITE : READ);
+                                                    } else if (field.getFields() != null) {
+                                                        return Stream.of(
+                                                                field.setSelections(
+                                                                        field.getFields().stream()
+                                                                                .flatMap(subField -> {
+                                                                                            ObjectType objectType = documentManager.getFieldTypeDefinition(fieldDefinition).asObject();
+                                                                                            return enforce(currentUser, objectType, objectType.getField(subField.getName()), subField);
+                                                                                        }
+                                                                                )
+                                                                                .collect(Collectors.toList())
+                                                                )
+                                                        );
+                                                    }
+                                                    return Stream.of(field);
+                                                }
+                                        )
+                                        .collect(Collectors.toList())
+                        )
+                );
+    }
+
+    protected Stream<Field> enforceApi(CurrentUser currentUser, ObjectType objectType, FieldDefinition fieldDefinition, Field field, PermissionType permissionType) {
+        if (!fieldDefinition.isDenyAll() &&
+                (fieldDefinition.isPermitAll() ||
+                        enforcer.enforce(
+                                USER_PREFIX + currentUser.getId(),
+                                Optional.ofNullable(currentUser.getRealmId()).map(String::valueOf).orElse(EMPTY),
+                                objectType.getName() + SPACER + fieldDefinition.getName(),
+                                permissionType.name()
+                        )
+                )
+        ) {
+            return Stream.of(field);
         }
-        GraphqlParser.OperationDefinitionContext operationDefinitionContext = getOperationDefinitionContext(context);
-        CurrentUser currentUser = getCurrentUser(context);
-        GraphqlParser.OperationTypeContext operationTypeContext = operationDefinitionContext.operationType();
-        if (operationTypeContext == null || operationTypeContext.QUERY() != null) {
-            String typeName = manager.getQueryOperationTypeName().orElseThrow(() -> new GraphQLErrors(QUERY_TYPE_NOT_EXIST));
-            for (GraphqlParser.SelectionContext selectionContext : operationDefinitionContext.selectionSet().selection()) {
-                if (selectionContext.field().selectionSet() != null) {
-                    GraphqlParser.FieldDefinitionContext fieldDefinitionContext = manager.getField(typeName, selectionContext.field().name().getText())
-                            .orElseThrow(() -> new GraphQLErrors(FIELD_NOT_EXIST.bind(typeName, selectionContext.field().name().getText())));
-                    if (manager.isInvokeField(fieldDefinitionContext)) {
-                        enforceApi(currentUser, typeName, selectionContext, READ);
-                    } else {
-                        enforce(currentUser, manager.getFieldTypeName(fieldDefinitionContext.type()), selectionContext.field().selectionSet());
-                    }
-                }
+        return Stream.empty();
+    }
+
+    protected Stream<Field> enforce(CurrentUser currentUser, ObjectType objectType, FieldDefinition fieldDefinition, Field field) {
+        Definition fieldTypeDefinition = documentManager.getFieldTypeDefinition(fieldDefinition);
+        if (fieldDefinition.isConnectionField()) {
+            if (!fieldDefinition.isDenyAll() &&
+                    (fieldDefinition.isPermitAll() ||
+                            enforcer.enforce(
+                                    USER_PREFIX + currentUser.getId(),
+                                    Optional.ofNullable(currentUser.getRealmId()).map(String::valueOf).orElse(EMPTY),
+                                    objectType.getName() + SPACER + fieldDefinition.getConnectionFieldOrError(),
+                                    READ.name()
+                            )
+                    )
+            ) {
+                return Stream.of(
+                        field.setSelections(
+                                field.getFields().stream()
+                                        .peek(subField -> {
+                                                    if (subField.getName().equals(FIELD_EDGES_NAME) && subField.getField(FIELD_NODE_NAME) != null) {
+                                                        Field node = subField.getField(FIELD_NODE_NAME);
+                                                        FieldDefinition originalFieldDefinition = objectType.getField(fieldDefinition.getConnectionFieldOrError());
+                                                        FieldDefinition nodeFieldDefinition = documentManager.getFieldTypeDefinition(fieldTypeDefinition.asObject().getField(FIELD_EDGES_NAME)).asObject().getField(FIELD_NODE_NAME);
+                                                        node.setSelections(
+                                                                enforce(currentUser, documentManager.getFieldTypeDefinition(originalFieldDefinition).asObject(), nodeFieldDefinition, node)
+                                                                        .collect(Collectors.toList())
+                                                        );
+                                                    }
+                                                }
+                                        )
+                                        .collect(Collectors.toList())
+                        )
+                );
             }
-        } else if (operationTypeContext.SUBSCRIPTION() != null) {
-            String typeName = manager.getSubscriptionOperationTypeName().orElseThrow(() -> new GraphQLErrors(SUBSCRIBE_TYPE_NOT_EXIST));
-            for (GraphqlParser.SelectionContext selectionContext : operationDefinitionContext.selectionSet().selection()) {
-                if (selectionContext.field().selectionSet() != null) {
-                    GraphqlParser.FieldDefinitionContext fieldDefinitionContext = manager.getField(typeName, selectionContext.field().name().getText())
-                            .orElseThrow(() -> new GraphQLErrors(FIELD_NOT_EXIST.bind(typeName, selectionContext.field().name().getText())));
-                    if (manager.isInvokeField(fieldDefinitionContext)) {
-                        enforceApi(currentUser, typeName, selectionContext, READ);
-                    } else {
-                        enforce(currentUser, manager.getFieldTypeName(fieldDefinitionContext.type()), selectionContext.field().selectionSet());
-                    }
-                }
+        } else if (fieldTypeDefinition.isObject()) {
+            String fieldName;
+            if (fieldDefinition.isAggregateField()) {
+                fieldName = fieldDefinition.getName().substring(0, fieldDefinition.getName().lastIndexOf(SUFFIX_AGGREGATE));
+            } else {
+                fieldName = fieldDefinition.getName();
             }
-        } else if (operationTypeContext.MUTATION() != null) {
-            String typeName = manager.getMutationOperationTypeName().orElseThrow(() -> new GraphQLErrors(MUTATION_TYPE_NOT_EXIST));
-            for (GraphqlParser.SelectionContext selectionContext : operationDefinitionContext.selectionSet().selection()) {
-                if (selectionContext.field().selectionSet() != null) {
-                    GraphqlParser.FieldDefinitionContext fieldDefinitionContext = manager.getField(typeName, selectionContext.field().name().getText())
-                            .orElseThrow(() -> new GraphQLErrors(FIELD_NOT_EXIST.bind(typeName, selectionContext.field().name().getText())));
-                    if (manager.isInvokeField(fieldDefinitionContext)) {
-                        enforceApi(currentUser, typeName, selectionContext, WRITE);
-                    } else {
-                        enforce(currentUser, manager.getFieldTypeName(fieldDefinitionContext.type()), selectionContext.field().selectionSet());
-                        enforce(currentUser, manager.getFieldTypeName(fieldDefinitionContext.type()), selectionContext.field().arguments());
-                    }
-                }
+            if (!fieldDefinition.isDenyAll() &&
+                    (fieldDefinition.isPermitAll() ||
+                            enforcer.enforce(
+                                    USER_PREFIX + currentUser.getId(),
+                                    Optional.ofNullable(currentUser.getRealmId()).map(String::valueOf).orElse(EMPTY),
+                                    objectType.getName() + SPACER + fieldName,
+                                    READ.name()
+                            )
+                    )
+            ) {
+                return Stream.of(
+                        field.setSelections(
+                                field.getFields().stream()
+                                        .flatMap(subField ->
+                                                enforce(currentUser, fieldTypeDefinition.asObject(), fieldTypeDefinition.asObject().getField(subField.getName()), subField)
+                                        )
+                                        .collect(Collectors.toList())
+                        )
+                );
             }
         } else {
-            throw new GraphQLErrors(UNSUPPORTED_OPERATION_TYPE);
-        }
-        return Mono.empty();
-    }
-
-    protected void enforceApi(CurrentUser currentUser, String operationTypeName, GraphqlParser.SelectionContext selectionContext, PermissionType permissionType) {
-        if (!enforcer.enforce(
-                USER_PREFIX + currentUser.getId(),
-                Optional.ofNullable(currentUser.getRealmId()).map(String::valueOf).orElse(EMPTY),
-                operationTypeName + SPACER + selectionContext.field().name().getText(),
-                permissionType.name()
-        )
-        ) {
-            throw new AuthorizationException(UN_AUTHORIZATION_READ.bind(selectionContext.field().name().getText()));
-        }
-    }
-
-    protected void enforce(CurrentUser currentUser, String typeName, GraphqlParser.SelectionSetContext selectionSetContext) {
-        if (selectionSetContext != null) {
-            if (typeName.endsWith(CONNECTION_SUFFIX)) {
-                selectionSetContext.selection().stream()
-                        .filter(selectionContext -> selectionContext.field().name().getText().equals("edges"))
-                        .findFirst()
-                        .flatMap(selectionContext ->
-                                Stream.ofNullable(selectionContext.field().selectionSet())
-                                        .flatMap(edgesSelectionSetContext -> edgesSelectionSetContext.selection().stream())
-                                        .filter(edgesSelectionContext -> edgesSelectionContext.field().name().getText().equals("node"))
-                                        .findFirst()
-                        )
-                        .ifPresent(selectionContext -> enforce(currentUser, typeName.substring(0, typeName.length() - CONNECTION_SUFFIX.length()), selectionContext.field().selectionSet()));
+            String fieldName;
+            if (fieldDefinition.isFunctionField()) {
+                fieldName = fieldDefinition.getFunctionFieldOrError();
             } else {
-                List<GraphqlParser.SelectionContext> selectionContexts = selectionSetContext.selection().stream().flatMap(selectionContext -> manager.fragmentUnzip(typeName, selectionContext)).collect(Collectors.toList());
-                if (selectionContexts.size() > 0) {
-                    ParseTree left = selectionSetContext.getChild(0);
-                    ParseTree right = selectionSetContext.getChild(selectionSetContext.getChildCount() - 1);
-                    IntStream.range(0, selectionSetContext.getChildCount()).forEach(index -> selectionSetContext.removeLastChild());
-                    selectionSetContext.addChild((TerminalNode) left);
-                    for (GraphqlParser.SelectionContext selectionContext : selectionContexts) {
-                        GraphqlParser.FieldDefinitionContext fieldDefinitionContext = manager.getField(typeName, selectionContext.field().name().getText())
-                                .orElseThrow(() -> new GraphQLErrors(FIELD_NOT_EXIST.bind(typeName, selectionContext.field().name().getText())));
-
-                        String fieldName;
-                        if (manager.isFunctionField(fieldDefinitionContext)) {
-                            fieldName = fieldDefinitionContext.directives().directive().stream()
-                                    .filter(directiveContext -> directiveContext.name().getText().equals(FUNC_DIRECTIVE_NAME))
-                                    .flatMap(directiveContext -> directiveContext.arguments().argument().stream()
-                                            .filter(argumentContext -> argumentContext.name().getText().equals("field"))
-                                            .filter(argumentContext -> argumentContext.valueWithVariable().StringValue() != null)
-                                            .map(argumentContext -> DOCUMENT_UTIL.getStringValue(argumentContext.valueWithVariable().StringValue())))
-                                    .findFirst()
-                                    .orElse(null);
-                        } else if (fieldDefinitionContext.name().getText().endsWith(AGGREGATE_SUFFIX)) {
-                            fieldName = fieldDefinitionContext.name().getText().substring(0, fieldDefinitionContext.name().getText().lastIndexOf(AGGREGATE_SUFFIX));
-                        } else if (fieldDefinitionContext.name().getText().endsWith(CONNECTION_SUFFIX)) {
-                            fieldName = fieldDefinitionContext.name().getText().substring(0, fieldDefinitionContext.name().getText().lastIndexOf(CONNECTION_SUFFIX));
-                        } else {
-                            fieldName = selectionContext.field().name().getText();
-                        }
-                        if (enforcer.enforce(
-                                USER_PREFIX + currentUser.getId(),
-                                Optional.ofNullable(currentUser.getRealmId()).map(String::valueOf).orElse(EMPTY),
-                                typeName + SPACER + fieldName,
-                                READ.name()
-                        )
-                        ) {
-                            selectionSetContext.addChild(selectionContext);
-                            enforce(currentUser, manager.getFieldTypeName(fieldDefinitionContext.type()), selectionContext.field().selectionSet());
-                        }
-                    }
-                    selectionSetContext.addChild((TerminalNode) right);
-                    if (selectionSetContext.selection().size() == 0) {
-                        throw new AuthorizationException(UN_AUTHORIZATION_READ.bind(typeName));
-                    }
-                }
+                fieldName = fieldDefinition.getName();
+            }
+            if (!fieldDefinition.isDenyAll() &&
+                    (fieldDefinition.isPermitAll() ||
+                            enforcer.enforce(
+                                    USER_PREFIX + currentUser.getId(),
+                                    Optional.ofNullable(currentUser.getRealmId()).map(String::valueOf).orElse(EMPTY),
+                                    objectType.getName() + SPACER + fieldName,
+                                    READ.name()
+                            )
+                    )
+            ) {
+                return Stream.of(field);
             }
         }
+        return Stream.empty();
     }
 
-    protected void enforce(CurrentUser currentUser, String typeName, GraphqlParser.ArgumentsContext argumentsContext) {
-        if (argumentsContext != null) {
-            List<GraphqlParser.ArgumentContext> argumentContextList = argumentsContext.argument();
-            ParseTree left = argumentsContext.getChild(0);
-            ParseTree right = argumentsContext.getChild(argumentsContext.getChildCount() - 1);
-            IntStream.range(0, argumentsContext.getChildCount()).forEach(index -> argumentsContext.removeLastChild());
-            if (argumentContextList.size() > 0) {
-                argumentsContext.addChild((TerminalNode) left);
-                for (GraphqlParser.ArgumentContext argumentContext : argumentContextList) {
-                    if (Arrays.stream(EXCLUDE_INPUT).anyMatch(name -> name.equals(argumentContext.name().getText()))) {
-                        argumentsContext.addChild(argumentContext);
-                    } else {
-                        if (enforcer.enforce(
-                                USER_PREFIX + currentUser.getId(),
-                                Optional.ofNullable(currentUser.getRealmId()).map(String::valueOf).orElse(EMPTY),
-                                typeName + SPACER + argumentContext.name().getText(),
-                                WRITE.name()
-                        )
-                        ) {
-                            argumentsContext.addChild(argumentContext);
-                            GraphqlParser.FieldDefinitionContext fieldDefinitionContext = manager.getField(typeName, argumentContext.name().getText())
-                                    .orElseThrow(() -> new GraphQLErrors(FIELD_NOT_EXIST.bind(typeName, argumentContext.name().getText())));
-                            enforce(currentUser, manager.getFieldTypeName(fieldDefinitionContext.type()), argumentContext.valueWithVariable().objectValueWithVariable());
-                        }
-                    }
-                }
-                argumentsContext.addChild((TerminalNode) right);
-                if (argumentsContext.argument().size() == 0) {
-                    throw new AuthorizationException(UN_AUTHORIZATION_WRITE.bind(typeName));
-                }
-            }
-        }
-    }
+    protected Map<String, ValueWithVariable> enforce(CurrentUser currentUser, FieldDefinition fieldDefinition, Map<String, ValueWithVariable> arguments) {
+        Definition fieldTypeDefinition = documentManager.getFieldTypeDefinition(fieldDefinition);
+        if (fieldTypeDefinition.isObject() && !fieldTypeDefinition.asObject().isContainer()) {
+            return Stream
+                    .concat(
+                            fieldTypeDefinition.asObject().getFields().stream()
+                                    .flatMap(
+                                            subFieldDefinition ->
+                                                    fieldDefinition.getArgumentOrEmpty(subFieldDefinition.getName())
+                                                            .flatMap(inputValue ->
+                                                                    Optional.ofNullable(arguments.get(inputValue.getName()))
+                                                                            .or(() -> Optional.ofNullable(inputValue.getDefaultValue()))
+                                                                            .flatMap(valueWithVariable -> {
+                                                                                        if (!subFieldDefinition.isDenyAll() &&
+                                                                                                (subFieldDefinition.isPermitAll() ||
+                                                                                                        enforcer.enforce(
+                                                                                                                USER_PREFIX + currentUser.getId(),
+                                                                                                                Optional.ofNullable(currentUser.getRealmId()).map(String::valueOf).orElse(EMPTY),
+                                                                                                                fieldTypeDefinition.getName() + SPACER + inputValue.getName(),
+                                                                                                                WRITE.name()
+                                                                                                        )
+                                                                                                )
+                                                                                        ) {
+                                                                                            if (documentManager.getFieldTypeDefinition(subFieldDefinition).isObject() || !valueWithVariable.isNull()) {
+                                                                                                if (subFieldDefinition.getType().hasList()) {
+                                                                                                    return Optional.of(
+                                                                                                            new AbstractMap.SimpleEntry<>(
+                                                                                                                    inputValue.getName(),
+                                                                                                                    (ValueWithVariable) new ArrayValueWithVariable(
+                                                                                                                            valueWithVariable.asArray().getValueWithVariables().stream()
+                                                                                                                                    .map(item -> enforce(currentUser, subFieldDefinition, item.asObject().getObjectValueWithVariable()))
+                                                                                                                                    .collect(Collectors.toList())
+                                                                                                                    )
+                                                                                                            )
+                                                                                                    );
+                                                                                                } else {
+                                                                                                    return Optional.of(
+                                                                                                            new AbstractMap.SimpleEntry<>(
+                                                                                                                    inputValue.getName(),
+                                                                                                                    ValueWithVariable.of(enforce(currentUser, subFieldDefinition, valueWithVariable.asObject().getObjectValueWithVariable()))
+                                                                                                            )
+                                                                                                    );
+                                                                                                }
+                                                                                            } else {
+                                                                                                return Optional.of(new AbstractMap.SimpleEntry<>(inputValue.getName(), valueWithVariable));
+                                                                                            }
+                                                                                        }
+                                                                                        return Optional.empty();
+                                                                                    }
+                                                                            )
+                                                            )
+                                                            .stream()
+                                    ),
+                            fieldDefinition.getArgumentOrEmpty(INPUT_VALUE_LIST_NAME).stream()
+                                    .flatMap(inputValue ->
+                                            Optional.ofNullable(arguments.get(inputValue.getName()))
+                                                    .or(() -> Optional.ofNullable(inputValue.getDefaultValue()))
+                                                    .stream()
+                                                    .map(valueWithVariable -> {
+                                                                if (!valueWithVariable.isNull()) {
+                                                                    return new AbstractMap.SimpleEntry<>(
+                                                                            inputValue.getName(),
+                                                                            (ValueWithVariable) new ArrayValueWithVariable(
+                                                                                    valueWithVariable.asArray().getValueWithVariables().stream()
+                                                                                            .map(item -> enforce(currentUser, fieldDefinition, item.asObject().getObjectValueWithVariable()))
+                                                                                            .collect(Collectors.toList())
+                                                                            )
 
-    protected void enforce(CurrentUser currentUser, String typeName, GraphqlParser.ObjectValueWithVariableContext objectValueWithVariableContext) {
-        if (objectValueWithVariableContext != null) {
-            List<GraphqlParser.ObjectFieldWithVariableContext> objectFieldWithVariableContextList = objectValueWithVariableContext.objectFieldWithVariable();
-            ParseTree left = objectValueWithVariableContext.getChild(0);
-            ParseTree right = objectValueWithVariableContext.getChild(objectValueWithVariableContext.getChildCount() - 1);
-            IntStream.range(0, objectValueWithVariableContext.getChildCount()).forEach(index -> objectValueWithVariableContext.removeLastChild());
-            if (objectFieldWithVariableContextList.size() > 0) {
-                objectValueWithVariableContext.addChild((TerminalNode) left);
-                for (GraphqlParser.ObjectFieldWithVariableContext objectFieldWithVariableContext : objectFieldWithVariableContextList) {
-                    if (Arrays.stream(EXCLUDE_INPUT).anyMatch(name -> name.equals(objectFieldWithVariableContext.name().getText()))) {
-                        objectValueWithVariableContext.addChild(objectFieldWithVariableContext);
-                    } else {
-                        if (enforcer.enforce(
-                                USER_PREFIX + currentUser.getId(),
-                                Optional.ofNullable(currentUser.getRealmId()).map(String::valueOf).orElse(EMPTY),
-                                typeName + SPACER + objectFieldWithVariableContext.name().getText(),
-                                WRITE.name()
-                        )
-                        ) {
-                            objectValueWithVariableContext.addChild(objectFieldWithVariableContext);
-                            GraphqlParser.FieldDefinitionContext fieldDefinitionContext = manager.getField(typeName, objectFieldWithVariableContext.name().getText())
-                                    .orElseThrow(() -> new GraphQLErrors(FIELD_NOT_EXIST.bind(typeName, objectFieldWithVariableContext.name().getText())));
-                            enforce(currentUser, manager.getFieldTypeName(fieldDefinitionContext.type()), objectFieldWithVariableContext.valueWithVariable().objectValueWithVariable());
-                        }
-                    }
-                }
-                objectValueWithVariableContext.addChild((TerminalNode) right);
-                if (objectValueWithVariableContext.objectFieldWithVariable().size() == 0) {
-                    throw new AuthorizationException(UN_AUTHORIZATION_WRITE.bind(typeName));
-                }
-            }
+                                                                    );
+                                                                }
+                                                                return new AbstractMap.SimpleEntry<>(inputValue.getName(), valueWithVariable);
+                                                            }
+                                                    )
+                                    )
+                    )
+                    .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
         }
+        return arguments;
     }
 }
