@@ -13,7 +13,7 @@ import java.util.Map;
 
 @ApplicationScoped
 @Initialized(ApplicationScoped.class)
-@Priority(3)
+@Priority(310)
 public class EnforcerInitializedEvent implements ScopeEvent {
 
     private final RBACPolicyDao rbacPolicyDao;

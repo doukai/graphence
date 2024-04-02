@@ -26,14 +26,6 @@ public abstract class BaseRequestFilter {
         return (Operation) context.get(OPERATION);
     }
 
-    protected boolean isPermitAll(Map<String, Object> context) {
-        return (boolean) context.get(PERMIT_ALL);
-    }
-
-    protected boolean isDenyAll(Map<String, Object> context) {
-        return (boolean) context.get(DENY_ALL);
-    }
-
     protected CurrentUser getCurrentUser(Map<String, Object> context) {
         return (CurrentUser) context.get(CURRENT_USER);
     }

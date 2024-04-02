@@ -4,7 +4,6 @@ import io.graphence.core.dto.CurrentUser;
 import io.graphence.core.dto.enumType.PermissionType;
 import io.graphoenix.core.handler.DocumentManager;
 import io.graphoenix.spi.graphql.Definition;
-import io.graphoenix.spi.graphql.common.ArrayValueWithVariable;
 import io.graphoenix.spi.graphql.common.ValueWithVariable;
 import io.graphoenix.spi.graphql.operation.Field;
 import io.graphoenix.spi.graphql.operation.Operation;
@@ -210,7 +209,7 @@ public class RBACFilter implements OperationBeforeHandler {
                                                                                                     return Optional.of(
                                                                                                             new AbstractMap.SimpleEntry<>(
                                                                                                                     inputValue.getName(),
-                                                                                                                    (ValueWithVariable) new ArrayValueWithVariable(
+                                                                                                                    ValueWithVariable.of(
                                                                                                                             valueWithVariable.asArray().getValueWithVariables().stream()
                                                                                                                                     .map(item -> enforce(currentUser, subFieldDefinition, item.asObject().getObjectValueWithVariable()))
                                                                                                                                     .collect(Collectors.toList())
@@ -221,7 +220,9 @@ public class RBACFilter implements OperationBeforeHandler {
                                                                                                     return Optional.of(
                                                                                                             new AbstractMap.SimpleEntry<>(
                                                                                                                     inputValue.getName(),
-                                                                                                                    ValueWithVariable.of(enforce(currentUser, subFieldDefinition, valueWithVariable.asObject().getObjectValueWithVariable()))
+                                                                                                                    ValueWithVariable.of(
+                                                                                                                            enforce(currentUser, subFieldDefinition, valueWithVariable.asObject().getObjectValueWithVariable())
+                                                                                                                    )
                                                                                                             )
                                                                                                     );
                                                                                                 }
@@ -239,22 +240,21 @@ public class RBACFilter implements OperationBeforeHandler {
                                     .flatMap(inputValue ->
                                             Optional.ofNullable(arguments.get(inputValue.getName()))
                                                     .or(() -> Optional.ofNullable(inputValue.getDefaultValue()))
-                                                    .stream()
                                                     .map(valueWithVariable -> {
                                                                 if (!valueWithVariable.isNull()) {
                                                                     return new AbstractMap.SimpleEntry<>(
                                                                             inputValue.getName(),
-                                                                            (ValueWithVariable) new ArrayValueWithVariable(
+                                                                            ValueWithVariable.of(
                                                                                     valueWithVariable.asArray().getValueWithVariables().stream()
                                                                                             .map(item -> enforce(currentUser, fieldDefinition, item.asObject().getObjectValueWithVariable()))
                                                                                             .collect(Collectors.toList())
                                                                             )
-
                                                                     );
                                                                 }
                                                                 return new AbstractMap.SimpleEntry<>(inputValue.getName(), valueWithVariable);
                                                             }
                                                     )
+                                                    .stream()
                                     )
                     )
                     .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
