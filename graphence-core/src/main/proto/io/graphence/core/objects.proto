@@ -492,22 +492,22 @@ message PermissionRoleRelationEdge {
     PermissionRoleRelation node = 1;
     string cursor = 2;
 }
-message Policy {
-    string v1 = 1;
-    string ptype = 2;
-    string v5 = 3;
-    string v2 = 4;
-    string v4 = 5;
-    string v0 = 6;
-    string v3 = 7;
-    string id = 8;
-}
 message CurrentUser {
-    string login = 1;
-    string id = 2;
-    string last_name = 3;
-    repeated string groups = 4;
-    repeated string roles = 5;
-    string name = 6;
-    int32 realm_id = 7;
+    string name = 1;
+    repeated string groups = 2;
+    string id = 3;
+    repeated string roles = 4;
+    int32 realm_id = 5;
+    string login = 6;
+    string last_name = 7;
+}
+message Policy {
+    string v2 = 1;
+    string v0 = 2;
+    string id = 3;
+    string v4 = 4;
+    string v1 = 5;
+    string ptype = 6;
+    string v3 = 7;
+    string v5 = 8;
 }

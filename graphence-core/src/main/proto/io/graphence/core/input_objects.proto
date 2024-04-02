@@ -2784,7 +2784,7 @@ message PermissionRoleRelationConnectionSubscriptionArguments {
     string after = 23;
     string before = 24;
 }
-message Query_currentPermissionNameList_Arguments {
+message Query_currentPermissionNameListByTypes_Arguments {
     repeated string types = 1;
 }
 message Mutation_login_Arguments {

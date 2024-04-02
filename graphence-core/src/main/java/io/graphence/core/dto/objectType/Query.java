@@ -82,7 +82,7 @@ public class Query {
 
   private Collection<String> currentPermissionTypeList;
 
-  private Collection<String> currentPermissionNameList;
+  private Collection<String> currentPermissionNameListByTypes;
 
   private Collection<Policy> policyList;
 
@@ -371,12 +371,13 @@ public class Query {
     this.currentPermissionTypeList = currentPermissionTypeList;
   }
 
-  public Collection<String> getCurrentPermissionNameList() {
-    return this.currentPermissionNameList;
+  public Collection<String> getCurrentPermissionNameListByTypes() {
+    return this.currentPermissionNameListByTypes;
   }
 
-  public void setCurrentPermissionNameList(Collection<String> currentPermissionNameList) {
-    this.currentPermissionNameList = currentPermissionNameList;
+  public void setCurrentPermissionNameListByTypes(
+      Collection<String> currentPermissionNameListByTypes) {
+    this.currentPermissionNameListByTypes = currentPermissionNameListByTypes;
   }
 
   public Collection<Policy> getPolicyList() {

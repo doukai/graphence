@@ -920,10 +920,6 @@ message QueryPermissionRoleRelationConnectionRequest {
     int32 last = 23;
     int32 offset = 24;
 }
-message QueryPolicyListRequest {
-    optional string selection_set = 1;
-    optional string arguments = 2;
-}
 message QueryCurrentRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
@@ -932,8 +928,12 @@ message QueryCurrentPermissionTypeListRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
 }
-message QueryCurrentPermissionNameListRequest {
+message QueryCurrentPermissionNameListByTypesRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
     repeated string types = 3;
+}
+message QueryPolicyListRequest {
+    optional string selection_set = 1;
+    optional string arguments = 2;
 }
