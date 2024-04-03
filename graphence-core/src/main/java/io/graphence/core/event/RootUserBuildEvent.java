@@ -46,26 +46,20 @@ public class RootUserBuildEvent implements ScopeEvent {
             return Mono.empty();
         }
         Hash hash = Password.hash(securityConfig.getRootPassword()).withBcrypt();
+        Arguments userArguments = Arguments.of(
+                "login", securityConfig.getRootUser(),
+                "name", securityConfig.getRootUser(),
+                "salt", Base64.getEncoder().encodeToString(hash.getSaltBytes()),
+                "hash", Base64.getEncoder().encodeToString(hash.getResultAsBytes()),
+                "createTime", LocalDateTime.now()
+        );
         return loginDao.getUserByLogin(securityConfig.getRootUser())
-                .map(user ->
-                        Arguments.of(
-                                "id", user.getId(),
-                                "login", securityConfig.getRootUser(),
-                                "name", securityConfig.getRootUser(),
-                                "salt", Base64.getEncoder().encodeToString(hash.getSaltBytes()),
-                                "hash", Base64.getEncoder().encodeToString(hash.getResultAsBytes()),
-                                "createTime", LocalDateTime.now()
-                        )
+                .map(user -> {
+                            userArguments.put("id", user.getId());
+                            return userArguments;
+                        }
                 )
-                .defaultIfEmpty(
-                        Arguments.of(
-                                "login", securityConfig.getRootUser(),
-                                "name", securityConfig.getRootUser(),
-                                "salt", Base64.getEncoder().encodeToString(hash.getSaltBytes()),
-                                "hash", Base64.getEncoder().encodeToString(hash.getResultAsBytes()),
-                                "createTime", LocalDateTime.now()
-                        )
-                )
+                .defaultIfEmpty(userArguments)
                 .map(arguments ->
                         new Operation()
                                 .setOperationType(OPERATION_MUTATION_NAME)
