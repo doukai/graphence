@@ -22,6 +22,7 @@ dependencies {
     implementation 'io.graphoenix:graphoenix-rabbitmq:0.0.1-SNAPSHOT'
     implementation 'io.graphoenix:graphoenix-introspection:0.0.1-SNAPSHOT'
     implementation 'io.graphoenix:graphoenix-json-schema:0.0.1-SNAPSHOT'
+    implementation 'org.mariadb:r2dbc-mariadb:1.1.4'
 
     runtime 'io.jsonwebtoken:jjwt-gson:0.11.5'
     implementation group: 'io.netty', name: 'netty-resolver-dns-native-macos', version: '4.1.81.Final', classifier: 'osx-aarch_64'

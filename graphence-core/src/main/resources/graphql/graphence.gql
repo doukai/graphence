@@ -87,7 +87,7 @@ type Realm implements NamedStruct {
 "权限"
 type Permission {
     "名称"
-    name: ID!
+    name: ID! @options(type: "String")
     "描述"
     description: String
     "字段"

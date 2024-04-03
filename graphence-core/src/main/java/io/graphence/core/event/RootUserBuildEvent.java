@@ -19,12 +19,15 @@ import java.time.LocalDateTime;
 import java.util.Base64;
 import java.util.Map;
 
+import static io.graphoenix.core.event.DocumentInitializedEvent.DOCUMENT_INITIALIZED_SCOPE_EVENT_PRIORITY;
 import static io.graphoenix.spi.constant.Hammurabi.OPERATION_MUTATION_NAME;
 
 @ApplicationScoped
 @Initialized(ApplicationScoped.class)
-@Priority(400)
+@Priority(RootUserBuildEvent.ROOT_USER_BUILD_SCOPE_EVENT_PRIORITY)
 public class RootUserBuildEvent implements ScopeEvent {
+
+    public static final int ROOT_USER_BUILD_SCOPE_EVENT_PRIORITY = DOCUMENT_INITIALIZED_SCOPE_EVENT_PRIORITY + 110;
 
     private final MutationHandler mutationHandler;
     private final SecurityConfig securityConfig;

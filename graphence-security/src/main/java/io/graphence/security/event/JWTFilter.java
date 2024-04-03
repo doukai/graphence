@@ -24,8 +24,10 @@ import static io.graphence.core.error.AuthenticationErrorType.*;
 
 @ApplicationScoped
 @Initialized(RequestScoped.class)
-@Priority(0)
+@Priority(JWTFilter.JWT_FILTER_SCOPE_EVENT_PRIORITY)
 public class JWTFilter extends BaseRequestFilter implements ScopeEvent {
+
+    public static final int JWT_FILTER_SCOPE_EVENT_PRIORITY = 0;
 
     private final LoginDao loginDao;
     private final JWTUtil jwtUtil;

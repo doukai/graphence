@@ -22,13 +22,16 @@ import java.util.stream.Stream;
 import static io.graphence.core.casbin.adapter.RBACAdapter.SPACER;
 import static io.graphence.core.dto.enumType.PermissionType.READ;
 import static io.graphence.core.dto.enumType.PermissionType.WRITE;
+import static io.graphoenix.core.event.DocumentInitializedEvent.DOCUMENT_INITIALIZED_SCOPE_EVENT_PRIORITY;
 import static io.graphoenix.spi.constant.Hammurabi.INPUT_VALUE_LIST_NAME;
 import static io.graphoenix.spi.constant.Hammurabi.OPERATION_MUTATION_NAME;
 
 @ApplicationScoped
 @Initialized(ApplicationScoped.class)
-@Priority(400)
+@Priority(PermissionBuildEvent.PERMISSION_BUILD_SCOPE_EVENT_PRIORITY)
 public class PermissionBuildEvent implements ScopeEvent {
+
+    public static final int PERMISSION_BUILD_SCOPE_EVENT_PRIORITY = DOCUMENT_INITIALIZED_SCOPE_EVENT_PRIORITY + 120;
 
     private final DocumentManager documentManager;
     private final MutationHandler mutationHandler;

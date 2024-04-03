@@ -11,10 +11,14 @@ import reactor.core.publisher.Mono;
 
 import java.util.Map;
 
+import static io.graphence.core.event.PermissionBuildEvent.PERMISSION_BUILD_SCOPE_EVENT_PRIORITY;
+
 @ApplicationScoped
 @Initialized(ApplicationScoped.class)
-@Priority(310)
+@Priority(EnforcerInitializedEvent.ENFORCER_INITIALIZED_SCOPE_EVENT_PRIORITY)
 public class EnforcerInitializedEvent implements ScopeEvent {
+
+    public static final int ENFORCER_INITIALIZED_SCOPE_EVENT_PRIORITY = PERMISSION_BUILD_SCOPE_EVENT_PRIORITY + 10;
 
     private final RBACPolicyDao rbacPolicyDao;
     private final RBACAdapter rbacAdapter;

@@ -27,11 +27,14 @@ import java.util.stream.Stream;
 import static io.graphence.core.casbin.adapter.RBACAdapter.*;
 import static io.graphence.core.dto.enumType.PermissionType.READ;
 import static io.graphence.core.dto.enumType.PermissionType.WRITE;
+import static io.graphoenix.core.handler.before.FragmentHandler.FRAGMENT_HANDLER_PRIORITY;
 import static io.graphoenix.spi.constant.Hammurabi.*;
 
 @ApplicationScoped
-@Priority(110)
+@Priority(RBACFilter.RBAC_FILTER_PRIORITY)
 public class RBACFilter implements OperationBeforeHandler {
+
+    public static final int RBAC_FILTER_PRIORITY = FRAGMENT_HANDLER_PRIORITY + 10;
 
     private final DocumentManager documentManager;
     private final Enforcer enforcer;
@@ -51,13 +54,6 @@ public class RBACFilter implements OperationBeforeHandler {
                 .map(currentUser ->
                         operation.setSelections(
                                 operation.getFields().stream()
-                                        .map(field -> {
-                                                    if (documentManager.isMutationOperationType(operation) && field.getArguments() != null) {
-                                                        return field.setArguments(enforce(currentUser, operationType.getField(field.getName()), field.getArguments().getArguments()));
-                                                    }
-                                                    return field;
-                                                }
-                                        )
                                         .flatMap(field -> {
                                                     FieldDefinition fieldDefinition = operationType.getField(field.getName());
                                                     if (fieldDefinition.isInvokeField()) {
@@ -76,6 +72,24 @@ public class RBACFilter implements OperationBeforeHandler {
                                                         );
                                                     }
                                                     return Stream.of(field);
+                                                }
+                                        )
+                                        .map(field -> {
+                                                    if (documentManager.isMutationOperationType(operation) && field.getArguments() != null) {
+                                                        return field.setArguments(enforce(currentUser, operationType.getField(field.getName()), field.getArguments().getArguments()));
+                                                    }
+                                                    return field;
+                                                }
+                                        )
+                                        .collect(Collectors.toList())
+                        )
+                )
+                .defaultIfEmpty(
+                        operation.setSelections(
+                                operation.getFields().stream()
+                                        .filter(field -> {
+                                                    FieldDefinition fieldDefinition = operationType.getField(field.getName());
+                                                    return !fieldDefinition.isDenyAll() && fieldDefinition.isPermitAll();
                                                 }
                                         )
                                         .collect(Collectors.toList())
