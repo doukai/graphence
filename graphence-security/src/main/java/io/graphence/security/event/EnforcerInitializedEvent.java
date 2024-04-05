@@ -6,6 +6,7 @@ import io.nozdormu.spi.event.ScopeEvent;
 import jakarta.annotation.Priority;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.context.Initialized;
+import jakarta.inject.Inject;
 import org.casbin.jcasbin.main.Enforcer;
 import reactor.core.publisher.Mono;
 
@@ -24,6 +25,7 @@ public class EnforcerInitializedEvent implements ScopeEvent {
     private final RBACAdapter rbacAdapter;
     private final Enforcer enforcer;
 
+    @Inject
     public EnforcerInitializedEvent(RBACPolicyDao rbacPolicyDao, io.graphence.core.casbin.adapter.RBACAdapter rbacAdapter, Enforcer enforcer) {
         this.rbacPolicyDao = rbacPolicyDao;
         this.rbacAdapter = rbacAdapter;

@@ -12,6 +12,7 @@ import jakarta.annotation.Priority;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.context.Initialized;
 import jakarta.enterprise.context.RequestScoped;
+import jakarta.inject.Inject;
 import org.eclipse.microprofile.jwt.Claims;
 import reactor.core.publisher.Mono;
 import reactor.netty.http.server.HttpServerRequest;
@@ -33,6 +34,7 @@ public class JWTFilter extends BaseRequestFilter implements ScopeEvent {
     private final JWTUtil jwtUtil;
     private final RequestScopeInstanceFactory requestScopeInstanceFactory;
 
+    @Inject
     public JWTFilter(LoginDao loginDao, JWTUtil jwtUtil, RequestScopeInstanceFactory requestScopeInstanceFactory) {
         this.loginDao = loginDao;
         this.jwtUtil = jwtUtil;

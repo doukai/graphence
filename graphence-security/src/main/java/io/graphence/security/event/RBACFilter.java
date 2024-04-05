@@ -84,15 +84,19 @@ public class RBACFilter implements OperationBeforeHandler {
                                         .collect(Collectors.toList())
                         )
                 )
-                .defaultIfEmpty(
-                        operation.setSelections(
-                                operation.getFields().stream()
-                                        .filter(field -> {
-                                                    FieldDefinition fieldDefinition = operationType.getField(field.getName());
-                                                    return !fieldDefinition.isDenyAll() && fieldDefinition.isPermitAll();
-                                                }
+                .switchIfEmpty(
+                        Mono.defer(() ->
+                                Mono.just(
+                                        operation.setSelections(
+                                                operation.getFields().stream()
+                                                        .filter(field -> {
+                                                                    FieldDefinition fieldDefinition = operationType.getField(field.getName());
+                                                                    return !fieldDefinition.isDenyAll() && fieldDefinition.isPermitAll();
+                                                                }
+                                                        )
+                                                        .collect(Collectors.toList())
                                         )
-                                        .collect(Collectors.toList())
+                                )
                         )
                 );
     }
