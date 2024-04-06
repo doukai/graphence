@@ -20,11 +20,11 @@ public class GroupRoleRelation implements Meta {
 
   private String roleRef;
 
-  private Role roleRefType;
+  private Role role;
 
   private String groupRef;
 
-  private Group groupRefType;
+  private Group group;
 
   private Boolean isDeprecated;
 
@@ -78,12 +78,12 @@ public class GroupRoleRelation implements Meta {
     this.roleRef = roleRef;
   }
 
-  public Role getRoleRefType() {
-    return this.roleRefType;
+  public Role getRole() {
+    return this.role;
   }
 
-  public void setRoleRefType(Role roleRefType) {
-    this.roleRefType = roleRefType;
+  public void setRole(Role role) {
+    this.role = role;
   }
 
   public String getGroupRef() {
@@ -94,12 +94,12 @@ public class GroupRoleRelation implements Meta {
     this.groupRef = groupRef;
   }
 
-  public Group getGroupRefType() {
-    return this.groupRefType;
+  public Group getGroup() {
+    return this.group;
   }
 
-  public void setGroupRefType(Group groupRefType) {
-    this.groupRefType = groupRefType;
+  public void setGroup(Group group) {
+    this.group = group;
   }
 
   @Override

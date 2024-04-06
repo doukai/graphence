@@ -51,7 +51,7 @@ public @interface RoleListMutationArguments {
 
   GroupRoleRelationInput1[] groupRoleRelation() default {};
 
-  RoleRoleRelationInput1[] roleRoleRelation() default {};
+  RoleCompositeRelationInput1[] roleCompositeRelation() default {};
 
   PermissionRoleRelationInput1[] permissionRoleRelation() default {};
 
@@ -97,7 +97,7 @@ public @interface RoleListMutationArguments {
 
   String $groupRoleRelation() default "";
 
-  String $roleRoleRelation() default "";
+  String $roleCompositeRelation() default "";
 
   String $permissionRoleRelation() default "";
 

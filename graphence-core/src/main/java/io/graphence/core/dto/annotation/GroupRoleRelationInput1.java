@@ -17,11 +17,11 @@ public @interface GroupRoleRelationInput1 {
 
   String roleRef() default "";
 
-  RoleInput2 roleRefType() default @RoleInput2;
+  RoleInput2 role() default @RoleInput2;
 
   String groupRef() default "";
 
-  GroupInput2 groupRefType() default @GroupInput2;
+  GroupInput2 group() default @GroupInput2;
 
   boolean isDeprecated() default false;
 
@@ -47,11 +47,11 @@ public @interface GroupRoleRelationInput1 {
 
   String $roleRef() default "";
 
-  String $roleRefType() default "";
+  String $role() default "";
 
   String $groupRef() default "";
 
-  String $groupRefType() default "";
+  String $group() default "";
 
   String $isDeprecated() default "";
 

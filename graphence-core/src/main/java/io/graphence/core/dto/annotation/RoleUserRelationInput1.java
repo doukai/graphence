@@ -17,11 +17,11 @@ public @interface RoleUserRelationInput1 {
 
   String userRef() default "";
 
-  UserInput2 userRefType() default @UserInput2;
+  UserInput2 user() default @UserInput2;
 
   String roleRef() default "";
 
-  RoleInput2 roleRefType() default @RoleInput2;
+  RoleInput2 role() default @RoleInput2;
 
   boolean isDeprecated() default false;
 
@@ -47,11 +47,11 @@ public @interface RoleUserRelationInput1 {
 
   String $userRef() default "";
 
-  String $userRefType() default "";
+  String $user() default "";
 
   String $roleRef() default "";
 
-  String $roleRefType() default "";
+  String $role() default "";
 
   String $isDeprecated() default "";
 

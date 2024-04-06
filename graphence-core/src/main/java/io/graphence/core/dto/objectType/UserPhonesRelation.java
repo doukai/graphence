@@ -20,7 +20,7 @@ public class UserPhonesRelation implements Meta {
 
   private String userRef;
 
-  private User userRefType;
+  private User user;
 
   private String phonesRef;
 
@@ -76,12 +76,12 @@ public class UserPhonesRelation implements Meta {
     this.userRef = userRef;
   }
 
-  public User getUserRefType() {
-    return this.userRefType;
+  public User getUser() {
+    return this.user;
   }
 
-  public void setUserRefType(User userRefType) {
-    this.userRefType = userRefType;
+  public void setUser(User user) {
+    this.user = user;
   }
 
   public String getPhonesRef() {

@@ -66,11 +66,11 @@ public class Query {
 
   private GroupRoleRelationConnection groupRoleRelationConnection;
 
-  private RoleRoleRelation roleRoleRelation;
+  private RoleCompositeRelation roleCompositeRelation;
 
-  private Collection<RoleRoleRelation> roleRoleRelationList;
+  private Collection<RoleCompositeRelation> roleCompositeRelationList;
 
-  private RoleRoleRelationConnection roleRoleRelationConnection;
+  private RoleCompositeRelationConnection roleCompositeRelationConnection;
 
   private PermissionRoleRelation permissionRoleRelation;
 
@@ -305,28 +305,30 @@ public class Query {
     this.groupRoleRelationConnection = groupRoleRelationConnection;
   }
 
-  public RoleRoleRelation getRoleRoleRelation() {
-    return this.roleRoleRelation;
+  public RoleCompositeRelation getRoleCompositeRelation() {
+    return this.roleCompositeRelation;
   }
 
-  public void setRoleRoleRelation(RoleRoleRelation roleRoleRelation) {
-    this.roleRoleRelation = roleRoleRelation;
+  public void setRoleCompositeRelation(RoleCompositeRelation roleCompositeRelation) {
+    this.roleCompositeRelation = roleCompositeRelation;
   }
 
-  public Collection<RoleRoleRelation> getRoleRoleRelationList() {
-    return this.roleRoleRelationList;
+  public Collection<RoleCompositeRelation> getRoleCompositeRelationList() {
+    return this.roleCompositeRelationList;
   }
 
-  public void setRoleRoleRelationList(Collection<RoleRoleRelation> roleRoleRelationList) {
-    this.roleRoleRelationList = roleRoleRelationList;
+  public void setRoleCompositeRelationList(
+      Collection<RoleCompositeRelation> roleCompositeRelationList) {
+    this.roleCompositeRelationList = roleCompositeRelationList;
   }
 
-  public RoleRoleRelationConnection getRoleRoleRelationConnection() {
-    return this.roleRoleRelationConnection;
+  public RoleCompositeRelationConnection getRoleCompositeRelationConnection() {
+    return this.roleCompositeRelationConnection;
   }
 
-  public void setRoleRoleRelationConnection(RoleRoleRelationConnection roleRoleRelationConnection) {
-    this.roleRoleRelationConnection = roleRoleRelationConnection;
+  public void setRoleCompositeRelationConnection(
+      RoleCompositeRelationConnection roleCompositeRelationConnection) {
+    this.roleCompositeRelationConnection = roleCompositeRelationConnection;
   }
 
   public PermissionRoleRelation getPermissionRoleRelation() {

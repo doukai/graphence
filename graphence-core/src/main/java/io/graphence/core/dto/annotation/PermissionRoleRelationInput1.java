@@ -17,11 +17,11 @@ public @interface PermissionRoleRelationInput1 {
 
   String roleRef() default "";
 
-  RoleInput2 roleRefType() default @RoleInput2;
+  RoleInput2 role() default @RoleInput2;
 
   String permissionRef() default "";
 
-  PermissionInput2 permissionRefType() default @PermissionInput2;
+  PermissionInput2 permission() default @PermissionInput2;
 
   boolean isDeprecated() default false;
 
@@ -47,11 +47,11 @@ public @interface PermissionRoleRelationInput1 {
 
   String $roleRef() default "";
 
-  String $roleRefType() default "";
+  String $role() default "";
 
   String $permissionRef() default "";
 
-  String $permissionRefType() default "";
+  String $permission() default "";
 
   String $isDeprecated() default "";
 

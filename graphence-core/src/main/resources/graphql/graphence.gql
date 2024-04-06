@@ -41,7 +41,7 @@ type Role implements NamedStruct {
     "组"
     groups: [Group]
     "组合"
-    composites: [Role]
+    composites: [Role] @map(from: "id" with: {type: "RoleCompositeRelation" from: "roleRef" to: "compositeRef"} to: "id")
     "权限"
     permissions: [Permission]
     "租户"

@@ -94,7 +94,7 @@ message MutationRoleRequest {
     string intro_typename = 19;
     repeated RoleUserRelationInput role_user_relation = 20;
     repeated GroupRoleRelationInput group_role_relation = 21;
-    repeated RoleRoleRelationInput role_role_relation = 22;
+    repeated RoleCompositeRelationInput role_composite_relation = 22;
     repeated PermissionRoleRelationInput permission_role_relation = 23;
     RoleExpression where = 24;
 }
@@ -120,7 +120,7 @@ message MutationRoleListRequest {
     string intro_typename = 19;
     repeated RoleUserRelationInput role_user_relation = 20;
     repeated GroupRoleRelationInput group_role_relation = 21;
-    repeated RoleRoleRelationInput role_role_relation = 22;
+    repeated RoleCompositeRelationInput role_composite_relation = 22;
     repeated PermissionRoleRelationInput permission_role_relation = 23;
     repeated RoleInput list = 24;
     RoleExpression where = 25;
@@ -265,7 +265,7 @@ message MutationUserPhonesRelationRequest {
     optional string arguments = 2;
     string id = 3;
     string user_ref = 4;
-    UserInput user_ref_type = 5;
+    UserInput user = 5;
     string phones_ref = 6;
     bool is_deprecated = 7;
     int32 version = 8;
@@ -283,7 +283,7 @@ message MutationUserPhonesRelationListRequest {
     optional string arguments = 2;
     string id = 3;
     string user_ref = 4;
-    UserInput user_ref_type = 5;
+    UserInput user = 5;
     string phones_ref = 6;
     bool is_deprecated = 7;
     int32 version = 8;
@@ -302,9 +302,9 @@ message MutationGroupUserRelationRequest {
     optional string arguments = 2;
     string id = 3;
     string user_ref = 4;
-    UserInput user_ref_type = 5;
+    UserInput user = 5;
     string group_ref = 6;
-    GroupInput group_ref_type = 7;
+    GroupInput group = 7;
     bool is_deprecated = 8;
     int32 version = 9;
     int32 realm_id = 10;
@@ -321,9 +321,9 @@ message MutationGroupUserRelationListRequest {
     optional string arguments = 2;
     string id = 3;
     string user_ref = 4;
-    UserInput user_ref_type = 5;
+    UserInput user = 5;
     string group_ref = 6;
-    GroupInput group_ref_type = 7;
+    GroupInput group = 7;
     bool is_deprecated = 8;
     int32 version = 9;
     int32 realm_id = 10;
@@ -341,9 +341,9 @@ message MutationRoleUserRelationRequest {
     optional string arguments = 2;
     string id = 3;
     string user_ref = 4;
-    UserInput user_ref_type = 5;
+    UserInput user = 5;
     string role_ref = 6;
-    RoleInput role_ref_type = 7;
+    RoleInput role = 7;
     bool is_deprecated = 8;
     int32 version = 9;
     int32 realm_id = 10;
@@ -360,9 +360,9 @@ message MutationRoleUserRelationListRequest {
     optional string arguments = 2;
     string id = 3;
     string user_ref = 4;
-    UserInput user_ref_type = 5;
+    UserInput user = 5;
     string role_ref = 6;
-    RoleInput role_ref_type = 7;
+    RoleInput role = 7;
     bool is_deprecated = 8;
     int32 version = 9;
     int32 realm_id = 10;
@@ -380,9 +380,9 @@ message MutationGroupRoleRelationRequest {
     optional string arguments = 2;
     string id = 3;
     string role_ref = 4;
-    RoleInput role_ref_type = 5;
+    RoleInput role = 5;
     string group_ref = 6;
-    GroupInput group_ref_type = 7;
+    GroupInput group = 7;
     bool is_deprecated = 8;
     int32 version = 9;
     int32 realm_id = 10;
@@ -399,9 +399,9 @@ message MutationGroupRoleRelationListRequest {
     optional string arguments = 2;
     string id = 3;
     string role_ref = 4;
-    RoleInput role_ref_type = 5;
+    RoleInput role = 5;
     string group_ref = 6;
-    GroupInput group_ref_type = 7;
+    GroupInput group = 7;
     bool is_deprecated = 8;
     int32 version = 9;
     int32 realm_id = 10;
@@ -414,49 +414,53 @@ message MutationGroupRoleRelationListRequest {
     repeated GroupRoleRelationInput list = 17;
     GroupRoleRelationExpression where = 18;
 }
-message MutationRoleRoleRelationRequest {
+message MutationRoleCompositeRelationRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
     string id = 3;
     string role_ref = 4;
-    RoleInput role_ref_type = 5;
-    bool is_deprecated = 6;
-    int32 version = 7;
-    int32 realm_id = 8;
-    string create_user_id = 9;
-    google.protobuf.Timestamp create_time = 10;
-    string update_user_id = 11;
-    google.protobuf.Timestamp update_time = 12;
-    string create_group_id = 13;
-    string intro_typename = 14;
-    RoleRoleRelationExpression where = 15;
+    RoleInput role = 5;
+    string composite_ref = 6;
+    RoleInput composite = 7;
+    bool is_deprecated = 8;
+    int32 version = 9;
+    int32 realm_id = 10;
+    string create_user_id = 11;
+    google.protobuf.Timestamp create_time = 12;
+    string update_user_id = 13;
+    google.protobuf.Timestamp update_time = 14;
+    string create_group_id = 15;
+    string intro_typename = 16;
+    RoleCompositeRelationExpression where = 17;
 }
-message MutationRoleRoleRelationListRequest {
+message MutationRoleCompositeRelationListRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
     string id = 3;
     string role_ref = 4;
-    RoleInput role_ref_type = 5;
-    bool is_deprecated = 6;
-    int32 version = 7;
-    int32 realm_id = 8;
-    string create_user_id = 9;
-    google.protobuf.Timestamp create_time = 10;
-    string update_user_id = 11;
-    google.protobuf.Timestamp update_time = 12;
-    string create_group_id = 13;
-    string intro_typename = 14;
-    repeated RoleRoleRelationInput list = 15;
-    RoleRoleRelationExpression where = 16;
+    RoleInput role = 5;
+    string composite_ref = 6;
+    RoleInput composite = 7;
+    bool is_deprecated = 8;
+    int32 version = 9;
+    int32 realm_id = 10;
+    string create_user_id = 11;
+    google.protobuf.Timestamp create_time = 12;
+    string update_user_id = 13;
+    google.protobuf.Timestamp update_time = 14;
+    string create_group_id = 15;
+    string intro_typename = 16;
+    repeated RoleCompositeRelationInput list = 17;
+    RoleCompositeRelationExpression where = 18;
 }
 message MutationPermissionRoleRelationRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
     string id = 3;
     string role_ref = 4;
-    RoleInput role_ref_type = 5;
+    RoleInput role = 5;
     string permission_ref = 6;
-    PermissionInput permission_ref_type = 7;
+    PermissionInput permission = 7;
     bool is_deprecated = 8;
     int32 version = 9;
     int32 realm_id = 10;
@@ -473,9 +477,9 @@ message MutationPermissionRoleRelationListRequest {
     optional string arguments = 2;
     string id = 3;
     string role_ref = 4;
-    RoleInput role_ref_type = 5;
+    RoleInput role = 5;
     string permission_ref = 6;
-    PermissionInput permission_ref_type = 7;
+    PermissionInput permission = 7;
     bool is_deprecated = 8;
     int32 version = 9;
     int32 realm_id = 10;

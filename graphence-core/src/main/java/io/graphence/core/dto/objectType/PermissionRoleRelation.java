@@ -20,11 +20,11 @@ public class PermissionRoleRelation implements Meta {
 
   private String roleRef;
 
-  private Role roleRefType;
+  private Role role;
 
   private String permissionRef;
 
-  private Permission permissionRefType;
+  private Permission permission;
 
   private Boolean isDeprecated;
 
@@ -78,12 +78,12 @@ public class PermissionRoleRelation implements Meta {
     this.roleRef = roleRef;
   }
 
-  public Role getRoleRefType() {
-    return this.roleRefType;
+  public Role getRole() {
+    return this.role;
   }
 
-  public void setRoleRefType(Role roleRefType) {
-    this.roleRefType = roleRefType;
+  public void setRole(Role role) {
+    this.role = role;
   }
 
   public String getPermissionRef() {
@@ -94,12 +94,12 @@ public class PermissionRoleRelation implements Meta {
     this.permissionRef = permissionRef;
   }
 
-  public Permission getPermissionRefType() {
-    return this.permissionRefType;
+  public Permission getPermission() {
+    return this.permission;
   }
 
-  public void setPermissionRefType(Permission permissionRefType) {
-    this.permissionRefType = permissionRefType;
+  public void setPermission(Permission permission) {
+    this.permission = permission;
   }
 
   @Override

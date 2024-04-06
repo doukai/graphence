@@ -54,7 +54,8 @@ public @interface RoleExpression1 {
 
   GroupRoleRelationExpression2 groupRoleRelation() default @GroupRoleRelationExpression2;
 
-  RoleRoleRelationExpression2 roleRoleRelation() default @RoleRoleRelationExpression2;
+  RoleCompositeRelationExpression2 roleCompositeRelation(
+      ) default @RoleCompositeRelationExpression2;
 
   PermissionRoleRelationExpression2 permissionRoleRelation(
       ) default @PermissionRoleRelationExpression2;
@@ -103,7 +104,7 @@ public @interface RoleExpression1 {
 
   String $groupRoleRelation() default "";
 
-  String $roleRoleRelation() default "";
+  String $roleCompositeRelation() default "";
 
   String $permissionRoleRelation() default "";
 

@@ -20,11 +20,11 @@ public @interface PermissionRoleRelationExpression1 {
 
   StringExpression2 roleRef() default @StringExpression2;
 
-  RoleExpression2 roleRefType() default @RoleExpression2;
+  RoleExpression2 role() default @RoleExpression2;
 
   StringExpression2 permissionRef() default @StringExpression2;
 
-  PermissionExpression2 permissionRefType() default @PermissionExpression2;
+  PermissionExpression2 permission() default @PermissionExpression2;
 
   boolean includeDeprecated() default false;
 
@@ -54,11 +54,11 @@ public @interface PermissionRoleRelationExpression1 {
 
   String $roleRef() default "";
 
-  String $roleRefType() default "";
+  String $role() default "";
 
   String $permissionRef() default "";
 
-  String $permissionRefType() default "";
+  String $permission() default "";
 
   String $includeDeprecated() default "";
 

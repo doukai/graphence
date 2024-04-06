@@ -19,11 +19,11 @@ public class GroupUserRelationMutationArguments implements MetaInput {
 
   private String userRef;
 
-  private UserInput userRefType;
+  private UserInput user;
 
   private String groupRef;
 
-  private GroupInput groupRefType;
+  private GroupInput group;
 
   private Boolean isDeprecated;
 
@@ -62,12 +62,12 @@ public class GroupUserRelationMutationArguments implements MetaInput {
     this.userRef = userRef;
   }
 
-  public UserInput getUserRefType() {
-    return this.userRefType;
+  public UserInput getUser() {
+    return this.user;
   }
 
-  public void setUserRefType(UserInput userRefType) {
-    this.userRefType = userRefType;
+  public void setUser(UserInput user) {
+    this.user = user;
   }
 
   public String getGroupRef() {
@@ -78,12 +78,12 @@ public class GroupUserRelationMutationArguments implements MetaInput {
     this.groupRef = groupRef;
   }
 
-  public GroupInput getGroupRefType() {
-    return this.groupRefType;
+  public GroupInput getGroup() {
+    return this.group;
   }
 
-  public void setGroupRefType(GroupInput groupRefType) {
-    this.groupRefType = groupRefType;
+  public void setGroup(GroupInput group) {
+    this.group = group;
   }
 
   public Boolean getIsDeprecated() {

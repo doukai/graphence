@@ -65,11 +65,11 @@ message MutationGroupRoleRelationResponse {
 message MutationGroupRoleRelationListResponse {
     repeated GroupRoleRelation group_role_relation_list = 1;
 }
-message MutationRoleRoleRelationResponse {
-    RoleRoleRelation role_role_relation = 1;
+message MutationRoleCompositeRelationResponse {
+    RoleCompositeRelation role_composite_relation = 1;
 }
-message MutationRoleRoleRelationListResponse {
-    repeated RoleRoleRelation role_role_relation_list = 1;
+message MutationRoleCompositeRelationListResponse {
+    repeated RoleCompositeRelation role_composite_relation_list = 1;
 }
 message MutationPermissionRoleRelationResponse {
     PermissionRoleRelation permission_role_relation = 1;

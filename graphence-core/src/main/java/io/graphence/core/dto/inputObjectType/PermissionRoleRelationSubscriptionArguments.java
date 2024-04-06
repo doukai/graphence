@@ -21,11 +21,11 @@ public class PermissionRoleRelationSubscriptionArguments implements MetaExpressi
 
   private StringExpression roleRef;
 
-  private RoleExpression roleRefType;
+  private RoleExpression role;
 
   private StringExpression permissionRef;
 
-  private PermissionExpression permissionRefType;
+  private PermissionExpression permission;
 
   @DefaultValue("false")
   private Boolean includeDeprecated;
@@ -72,12 +72,12 @@ public class PermissionRoleRelationSubscriptionArguments implements MetaExpressi
     this.roleRef = roleRef;
   }
 
-  public RoleExpression getRoleRefType() {
-    return this.roleRefType;
+  public RoleExpression getRole() {
+    return this.role;
   }
 
-  public void setRoleRefType(RoleExpression roleRefType) {
-    this.roleRefType = roleRefType;
+  public void setRole(RoleExpression role) {
+    this.role = role;
   }
 
   public StringExpression getPermissionRef() {
@@ -88,12 +88,12 @@ public class PermissionRoleRelationSubscriptionArguments implements MetaExpressi
     this.permissionRef = permissionRef;
   }
 
-  public PermissionExpression getPermissionRefType() {
-    return this.permissionRefType;
+  public PermissionExpression getPermission() {
+    return this.permission;
   }
 
-  public void setPermissionRefType(PermissionExpression permissionRefType) {
-    this.permissionRefType = permissionRefType;
+  public void setPermission(PermissionExpression permission) {
+    this.permission = permission;
   }
 
   public Boolean getIncludeDeprecated() {

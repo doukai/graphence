@@ -93,14 +93,14 @@ message QueryGroupRoleRelationListResponse {
 message QueryGroupRoleRelationConnectionResponse {
     GroupRoleRelationConnection group_role_relation_connection = 1;
 }
-message QueryRoleRoleRelationResponse {
-    RoleRoleRelation role_role_relation = 1;
+message QueryRoleCompositeRelationResponse {
+    RoleCompositeRelation role_composite_relation = 1;
 }
-message QueryRoleRoleRelationListResponse {
-    repeated RoleRoleRelation role_role_relation_list = 1;
+message QueryRoleCompositeRelationListResponse {
+    repeated RoleCompositeRelation role_composite_relation_list = 1;
 }
-message QueryRoleRoleRelationConnectionResponse {
-    RoleRoleRelationConnection role_role_relation_connection = 1;
+message QueryRoleCompositeRelationConnectionResponse {
+    RoleCompositeRelationConnection role_composite_relation_connection = 1;
 }
 message QueryPermissionRoleRelationResponse {
     PermissionRoleRelation permission_role_relation = 1;

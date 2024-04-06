@@ -20,11 +20,11 @@ public class RoleUserRelation implements Meta {
 
   private String userRef;
 
-  private User userRefType;
+  private User user;
 
   private String roleRef;
 
-  private Role roleRefType;
+  private Role role;
 
   private Boolean isDeprecated;
 
@@ -78,12 +78,12 @@ public class RoleUserRelation implements Meta {
     this.userRef = userRef;
   }
 
-  public User getUserRefType() {
-    return this.userRefType;
+  public User getUser() {
+    return this.user;
   }
 
-  public void setUserRefType(User userRefType) {
-    this.userRefType = userRefType;
+  public void setUser(User user) {
+    this.user = user;
   }
 
   public String getRoleRef() {
@@ -94,12 +94,12 @@ public class RoleUserRelation implements Meta {
     this.roleRef = roleRef;
   }
 
-  public Role getRoleRefType() {
-    return this.roleRefType;
+  public Role getRole() {
+    return this.role;
   }
 
-  public void setRoleRefType(Role roleRefType) {
-    this.roleRefType = roleRefType;
+  public void setRole(Role role) {
+    this.role = role;
   }
 
   @Override

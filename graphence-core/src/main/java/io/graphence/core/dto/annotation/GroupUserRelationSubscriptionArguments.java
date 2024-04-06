@@ -20,11 +20,11 @@ public @interface GroupUserRelationSubscriptionArguments {
 
   StringExpression1 userRef() default @StringExpression1;
 
-  UserExpression1 userRefType() default @UserExpression1;
+  UserExpression1 user() default @UserExpression1;
 
   StringExpression1 groupRef() default @StringExpression1;
 
-  GroupExpression1 groupRefType() default @GroupExpression1;
+  GroupExpression1 group() default @GroupExpression1;
 
   boolean includeDeprecated() default false;
 
@@ -56,11 +56,11 @@ public @interface GroupUserRelationSubscriptionArguments {
 
   String $userRef() default "";
 
-  String $userRefType() default "";
+  String $user() default "";
 
   String $groupRef() default "";
 
-  String $groupRefType() default "";
+  String $group() default "";
 
   String $includeDeprecated() default "";
 

@@ -20,11 +20,11 @@ public class GroupUserRelation implements Meta {
 
   private String userRef;
 
-  private User userRefType;
+  private User user;
 
   private String groupRef;
 
-  private Group groupRefType;
+  private Group group;
 
   private Boolean isDeprecated;
 
@@ -78,12 +78,12 @@ public class GroupUserRelation implements Meta {
     this.userRef = userRef;
   }
 
-  public User getUserRefType() {
-    return this.userRefType;
+  public User getUser() {
+    return this.user;
   }
 
-  public void setUserRefType(User userRefType) {
-    this.userRefType = userRefType;
+  public void setUser(User user) {
+    this.user = user;
   }
 
   public String getGroupRef() {
@@ -94,12 +94,12 @@ public class GroupUserRelation implements Meta {
     this.groupRef = groupRef;
   }
 
-  public Group getGroupRefType() {
-    return this.groupRefType;
+  public Group getGroup() {
+    return this.group;
   }
 
-  public void setGroupRefType(Group groupRefType) {
-    this.groupRefType = groupRefType;
+  public void setGroup(Group group) {
+    this.group = group;
   }
 
   @Override

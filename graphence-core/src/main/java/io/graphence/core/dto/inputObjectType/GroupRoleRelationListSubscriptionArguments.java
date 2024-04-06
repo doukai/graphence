@@ -22,11 +22,11 @@ public class GroupRoleRelationListSubscriptionArguments implements MetaExpressio
 
   private StringExpression roleRef;
 
-  private RoleExpression roleRefType;
+  private RoleExpression role;
 
   private StringExpression groupRef;
 
-  private GroupExpression groupRefType;
+  private GroupExpression group;
 
   @DefaultValue("false")
   private Boolean includeDeprecated;
@@ -85,12 +85,12 @@ public class GroupRoleRelationListSubscriptionArguments implements MetaExpressio
     this.roleRef = roleRef;
   }
 
-  public RoleExpression getRoleRefType() {
-    return this.roleRefType;
+  public RoleExpression getRole() {
+    return this.role;
   }
 
-  public void setRoleRefType(RoleExpression roleRefType) {
-    this.roleRefType = roleRefType;
+  public void setRole(RoleExpression role) {
+    this.role = role;
   }
 
   public StringExpression getGroupRef() {
@@ -101,12 +101,12 @@ public class GroupRoleRelationListSubscriptionArguments implements MetaExpressio
     this.groupRef = groupRef;
   }
 
-  public GroupExpression getGroupRefType() {
-    return this.groupRefType;
+  public GroupExpression getGroup() {
+    return this.group;
   }
 
-  public void setGroupRefType(GroupExpression groupRefType) {
-    this.groupRefType = groupRefType;
+  public void setGroup(GroupExpression group) {
+    this.group = group;
   }
 
   public Boolean getIncludeDeprecated() {

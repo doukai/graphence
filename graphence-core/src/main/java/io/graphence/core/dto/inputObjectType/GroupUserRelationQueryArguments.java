@@ -21,11 +21,11 @@ public class GroupUserRelationQueryArguments implements MetaExpression {
 
   private StringExpression userRef;
 
-  private UserExpression userRefType;
+  private UserExpression user;
 
   private StringExpression groupRef;
 
-  private GroupExpression groupRefType;
+  private GroupExpression group;
 
   @DefaultValue("false")
   private Boolean includeDeprecated;
@@ -72,12 +72,12 @@ public class GroupUserRelationQueryArguments implements MetaExpression {
     this.userRef = userRef;
   }
 
-  public UserExpression getUserRefType() {
-    return this.userRefType;
+  public UserExpression getUser() {
+    return this.user;
   }
 
-  public void setUserRefType(UserExpression userRefType) {
-    this.userRefType = userRefType;
+  public void setUser(UserExpression user) {
+    this.user = user;
   }
 
   public StringExpression getGroupRef() {
@@ -88,12 +88,12 @@ public class GroupUserRelationQueryArguments implements MetaExpression {
     this.groupRef = groupRef;
   }
 
-  public GroupExpression getGroupRefType() {
-    return this.groupRefType;
+  public GroupExpression getGroup() {
+    return this.group;
   }
 
-  public void setGroupRefType(GroupExpression groupRefType) {
-    this.groupRefType = groupRefType;
+  public void setGroup(GroupExpression group) {
+    this.group = group;
   }
 
   public Boolean getIncludeDeprecated() {

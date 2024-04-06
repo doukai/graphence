@@ -31,8 +31,8 @@ service MutationService {
     rpc RoleUserRelationList (MutationRoleUserRelationListRequest) returns (MutationRoleUserRelationListResponse);
     rpc GroupRoleRelation (MutationGroupRoleRelationRequest) returns (MutationGroupRoleRelationResponse);
     rpc GroupRoleRelationList (MutationGroupRoleRelationListRequest) returns (MutationGroupRoleRelationListResponse);
-    rpc RoleRoleRelation (MutationRoleRoleRelationRequest) returns (MutationRoleRoleRelationResponse);
-    rpc RoleRoleRelationList (MutationRoleRoleRelationListRequest) returns (MutationRoleRoleRelationListResponse);
+    rpc RoleCompositeRelation (MutationRoleCompositeRelationRequest) returns (MutationRoleCompositeRelationResponse);
+    rpc RoleCompositeRelationList (MutationRoleCompositeRelationListRequest) returns (MutationRoleCompositeRelationListResponse);
     rpc PermissionRoleRelation (MutationPermissionRoleRelationRequest) returns (MutationPermissionRoleRelationResponse);
     rpc PermissionRoleRelationList (MutationPermissionRoleRelationListRequest) returns (MutationPermissionRoleRelationListResponse);
     rpc Login (MutationLoginRequest) returns (MutationLoginResponse);

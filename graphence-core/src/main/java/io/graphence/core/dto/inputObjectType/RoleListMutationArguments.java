@@ -56,7 +56,7 @@ public class RoleListMutationArguments implements NamedStructInput, MetaInput {
 
   private Collection<GroupRoleRelationInput> groupRoleRelation;
 
-  private Collection<RoleRoleRelationInput> roleRoleRelation;
+  private Collection<RoleCompositeRelationInput> roleCompositeRelation;
 
   private Collection<PermissionRoleRelationInput> permissionRoleRelation;
 
@@ -236,12 +236,13 @@ public class RoleListMutationArguments implements NamedStructInput, MetaInput {
     this.groupRoleRelation = groupRoleRelation;
   }
 
-  public Collection<RoleRoleRelationInput> getRoleRoleRelation() {
-    return this.roleRoleRelation;
+  public Collection<RoleCompositeRelationInput> getRoleCompositeRelation() {
+    return this.roleCompositeRelation;
   }
 
-  public void setRoleRoleRelation(Collection<RoleRoleRelationInput> roleRoleRelation) {
-    this.roleRoleRelation = roleRoleRelation;
+  public void setRoleCompositeRelation(
+      Collection<RoleCompositeRelationInput> roleCompositeRelation) {
+    this.roleCompositeRelation = roleCompositeRelation;
   }
 
   public Collection<PermissionRoleRelationInput> getPermissionRoleRelation() {

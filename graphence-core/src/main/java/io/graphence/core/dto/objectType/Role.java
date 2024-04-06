@@ -95,7 +95,7 @@ public class Role implements NamedStruct, Meta {
 
   private Collection<GroupRoleRelation> groupRoleRelation;
 
-  private Collection<RoleRoleRelation> roleRoleRelation;
+  private Collection<RoleCompositeRelation> roleCompositeRelation;
 
   private Collection<PermissionRoleRelation> permissionRoleRelation;
 
@@ -123,9 +123,9 @@ public class Role implements NamedStruct, Meta {
 
   private GroupRoleRelationConnection groupRoleRelationConnection;
 
-  private RoleRoleRelation roleRoleRelationAggregate;
+  private RoleCompositeRelation roleCompositeRelationAggregate;
 
-  private RoleRoleRelationConnection roleRoleRelationConnection;
+  private RoleCompositeRelationConnection roleCompositeRelationConnection;
 
   private PermissionRoleRelation permissionRoleRelationAggregate;
 
@@ -323,12 +323,12 @@ public class Role implements NamedStruct, Meta {
     this.groupRoleRelation = groupRoleRelation;
   }
 
-  public Collection<RoleRoleRelation> getRoleRoleRelation() {
-    return this.roleRoleRelation;
+  public Collection<RoleCompositeRelation> getRoleCompositeRelation() {
+    return this.roleCompositeRelation;
   }
 
-  public void setRoleRoleRelation(Collection<RoleRoleRelation> roleRoleRelation) {
-    this.roleRoleRelation = roleRoleRelation;
+  public void setRoleCompositeRelation(Collection<RoleCompositeRelation> roleCompositeRelation) {
+    this.roleCompositeRelation = roleCompositeRelation;
   }
 
   public Collection<PermissionRoleRelation> getPermissionRoleRelation() {
@@ -436,20 +436,22 @@ public class Role implements NamedStruct, Meta {
     this.groupRoleRelationConnection = groupRoleRelationConnection;
   }
 
-  public RoleRoleRelation getRoleRoleRelationAggregate() {
-    return this.roleRoleRelationAggregate;
+  public RoleCompositeRelation getRoleCompositeRelationAggregate() {
+    return this.roleCompositeRelationAggregate;
   }
 
-  public void setRoleRoleRelationAggregate(RoleRoleRelation roleRoleRelationAggregate) {
-    this.roleRoleRelationAggregate = roleRoleRelationAggregate;
+  public void setRoleCompositeRelationAggregate(
+      RoleCompositeRelation roleCompositeRelationAggregate) {
+    this.roleCompositeRelationAggregate = roleCompositeRelationAggregate;
   }
 
-  public RoleRoleRelationConnection getRoleRoleRelationConnection() {
-    return this.roleRoleRelationConnection;
+  public RoleCompositeRelationConnection getRoleCompositeRelationConnection() {
+    return this.roleCompositeRelationConnection;
   }
 
-  public void setRoleRoleRelationConnection(RoleRoleRelationConnection roleRoleRelationConnection) {
-    this.roleRoleRelationConnection = roleRoleRelationConnection;
+  public void setRoleCompositeRelationConnection(
+      RoleCompositeRelationConnection roleCompositeRelationConnection) {
+    this.roleCompositeRelationConnection = roleCompositeRelationConnection;
   }
 
   public PermissionRoleRelation getPermissionRoleRelationAggregate() {

@@ -46,9 +46,9 @@ public class Mutation {
 
   private Collection<GroupRoleRelation> groupRoleRelationList;
 
-  private RoleRoleRelation roleRoleRelation;
+  private RoleCompositeRelation roleCompositeRelation;
 
-  private Collection<RoleRoleRelation> roleRoleRelationList;
+  private Collection<RoleCompositeRelation> roleCompositeRelationList;
 
   private PermissionRoleRelation permissionRoleRelation;
 
@@ -200,20 +200,21 @@ public class Mutation {
     this.groupRoleRelationList = groupRoleRelationList;
   }
 
-  public RoleRoleRelation getRoleRoleRelation() {
-    return this.roleRoleRelation;
+  public RoleCompositeRelation getRoleCompositeRelation() {
+    return this.roleCompositeRelation;
   }
 
-  public void setRoleRoleRelation(RoleRoleRelation roleRoleRelation) {
-    this.roleRoleRelation = roleRoleRelation;
+  public void setRoleCompositeRelation(RoleCompositeRelation roleCompositeRelation) {
+    this.roleCompositeRelation = roleCompositeRelation;
   }
 
-  public Collection<RoleRoleRelation> getRoleRoleRelationList() {
-    return this.roleRoleRelationList;
+  public Collection<RoleCompositeRelation> getRoleCompositeRelationList() {
+    return this.roleCompositeRelationList;
   }
 
-  public void setRoleRoleRelationList(Collection<RoleRoleRelation> roleRoleRelationList) {
-    this.roleRoleRelationList = roleRoleRelationList;
+  public void setRoleCompositeRelationList(
+      Collection<RoleCompositeRelation> roleCompositeRelationList) {
+    this.roleCompositeRelationList = roleCompositeRelationList;
   }
 
   public PermissionRoleRelation getPermissionRoleRelation() {

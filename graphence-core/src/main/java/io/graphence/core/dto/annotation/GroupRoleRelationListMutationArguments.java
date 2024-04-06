@@ -17,11 +17,11 @@ public @interface GroupRoleRelationListMutationArguments {
 
   String roleRef() default "";
 
-  RoleInput1 roleRefType() default @RoleInput1;
+  RoleInput1 role() default @RoleInput1;
 
   String groupRef() default "";
 
-  GroupInput1 groupRefType() default @GroupInput1;
+  GroupInput1 group() default @GroupInput1;
 
   boolean isDeprecated() default false;
 
@@ -49,11 +49,11 @@ public @interface GroupRoleRelationListMutationArguments {
 
   String $roleRef() default "";
 
-  String $roleRefType() default "";
+  String $role() default "";
 
   String $groupRef() default "";
 
-  String $groupRefType() default "";
+  String $group() default "";
 
   String $isDeprecated() default "";
 

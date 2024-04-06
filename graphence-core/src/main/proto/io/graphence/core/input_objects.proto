@@ -108,7 +108,7 @@ message RoleExpression {
     io.graphoenix.core.StringExpression intro_typename = 17;
     RoleUserRelationExpression role_user_relation = 18;
     GroupRoleRelationExpression group_role_relation = 19;
-    RoleRoleRelationExpression role_role_relation = 20;
+    RoleCompositeRelationExpression role_composite_relation = 20;
     PermissionRoleRelationExpression permission_role_relation = 21;
     bool not = 22;
     io.graphoenix.core.Conditional cond = 23;
@@ -134,7 +134,7 @@ message RoleInput {
     string intro_typename = 17;
     repeated RoleUserRelationInput role_user_relation = 18;
     repeated GroupRoleRelationInput group_role_relation = 19;
-    repeated RoleRoleRelationInput role_role_relation = 20;
+    repeated RoleCompositeRelationInput role_composite_relation = 20;
     repeated PermissionRoleRelationInput permission_role_relation = 21;
     RoleExpression where = 22;
 }
@@ -328,7 +328,7 @@ message PermissionOrderBy {
 message UserPhonesRelationExpression {
     io.graphoenix.core.StringExpression id = 1;
     io.graphoenix.core.StringExpression user_ref = 2;
-    UserExpression user_ref_type = 3;
+    UserExpression user = 3;
     io.graphoenix.core.StringExpression phones_ref = 4;
     bool include_deprecated = 5;
     io.graphoenix.core.IntExpression version = 6;
@@ -346,7 +346,7 @@ message UserPhonesRelationExpression {
 message UserPhonesRelationInput {
     string id = 1;
     string user_ref = 2;
-    UserInput user_ref_type = 3;
+    UserInput user = 3;
     string phones_ref = 4;
     bool is_deprecated = 5;
     int32 version = 6;
@@ -376,9 +376,9 @@ message UserPhonesRelationOrderBy {
 message GroupUserRelationExpression {
     io.graphoenix.core.StringExpression id = 1;
     io.graphoenix.core.StringExpression user_ref = 2;
-    UserExpression user_ref_type = 3;
+    UserExpression user = 3;
     io.graphoenix.core.StringExpression group_ref = 4;
-    GroupExpression group_ref_type = 5;
+    GroupExpression group = 5;
     bool include_deprecated = 6;
     io.graphoenix.core.IntExpression version = 7;
     io.graphoenix.core.IntExpression realm_id = 8;
@@ -395,9 +395,9 @@ message GroupUserRelationExpression {
 message GroupUserRelationInput {
     string id = 1;
     string user_ref = 2;
-    UserInput user_ref_type = 3;
+    UserInput user = 3;
     string group_ref = 4;
-    GroupInput group_ref_type = 5;
+    GroupInput group = 5;
     bool is_deprecated = 6;
     int32 version = 7;
     int32 realm_id = 8;
@@ -426,9 +426,9 @@ message GroupUserRelationOrderBy {
 message RoleUserRelationExpression {
     io.graphoenix.core.StringExpression id = 1;
     io.graphoenix.core.StringExpression user_ref = 2;
-    UserExpression user_ref_type = 3;
+    UserExpression user = 3;
     io.graphoenix.core.StringExpression role_ref = 4;
-    RoleExpression role_ref_type = 5;
+    RoleExpression role = 5;
     bool include_deprecated = 6;
     io.graphoenix.core.IntExpression version = 7;
     io.graphoenix.core.IntExpression realm_id = 8;
@@ -445,9 +445,9 @@ message RoleUserRelationExpression {
 message RoleUserRelationInput {
     string id = 1;
     string user_ref = 2;
-    UserInput user_ref_type = 3;
+    UserInput user = 3;
     string role_ref = 4;
-    RoleInput role_ref_type = 5;
+    RoleInput role = 5;
     bool is_deprecated = 6;
     int32 version = 7;
     int32 realm_id = 8;
@@ -476,9 +476,9 @@ message RoleUserRelationOrderBy {
 message GroupRoleRelationExpression {
     io.graphoenix.core.StringExpression id = 1;
     io.graphoenix.core.StringExpression role_ref = 2;
-    RoleExpression role_ref_type = 3;
+    RoleExpression role = 3;
     io.graphoenix.core.StringExpression group_ref = 4;
-    GroupExpression group_ref_type = 5;
+    GroupExpression group = 5;
     bool include_deprecated = 6;
     io.graphoenix.core.IntExpression version = 7;
     io.graphoenix.core.IntExpression realm_id = 8;
@@ -495,9 +495,9 @@ message GroupRoleRelationExpression {
 message GroupRoleRelationInput {
     string id = 1;
     string role_ref = 2;
-    RoleInput role_ref_type = 3;
+    RoleInput role = 3;
     string group_ref = 4;
-    GroupInput group_ref_type = 5;
+    GroupInput group = 5;
     bool is_deprecated = 6;
     int32 version = 7;
     int32 realm_id = 8;
@@ -523,57 +523,62 @@ message GroupRoleRelationOrderBy {
     io.graphoenix.core.Sort create_group_id = 11;
     io.graphoenix.core.Sort intro_typename = 12;
 }
-message RoleRoleRelationExpression {
+message RoleCompositeRelationExpression {
     io.graphoenix.core.StringExpression id = 1;
     io.graphoenix.core.StringExpression role_ref = 2;
-    RoleExpression role_ref_type = 3;
-    bool include_deprecated = 4;
-    io.graphoenix.core.IntExpression version = 5;
-    io.graphoenix.core.IntExpression realm_id = 6;
-    io.graphoenix.core.StringExpression create_user_id = 7;
-    io.graphoenix.core.StringExpression create_time = 8;
-    io.graphoenix.core.StringExpression update_user_id = 9;
-    io.graphoenix.core.StringExpression update_time = 10;
-    io.graphoenix.core.StringExpression create_group_id = 11;
-    io.graphoenix.core.StringExpression intro_typename = 12;
-    bool not = 13;
-    io.graphoenix.core.Conditional cond = 14;
-    repeated RoleRoleRelationExpression exs = 15;
+    RoleExpression role = 3;
+    io.graphoenix.core.StringExpression composite_ref = 4;
+    RoleExpression composite = 5;
+    bool include_deprecated = 6;
+    io.graphoenix.core.IntExpression version = 7;
+    io.graphoenix.core.IntExpression realm_id = 8;
+    io.graphoenix.core.StringExpression create_user_id = 9;
+    io.graphoenix.core.StringExpression create_time = 10;
+    io.graphoenix.core.StringExpression update_user_id = 11;
+    io.graphoenix.core.StringExpression update_time = 12;
+    io.graphoenix.core.StringExpression create_group_id = 13;
+    io.graphoenix.core.StringExpression intro_typename = 14;
+    bool not = 15;
+    io.graphoenix.core.Conditional cond = 16;
+    repeated RoleCompositeRelationExpression exs = 17;
 }
-message RoleRoleRelationInput {
+message RoleCompositeRelationInput {
     string id = 1;
     string role_ref = 2;
-    RoleInput role_ref_type = 3;
-    bool is_deprecated = 4;
-    int32 version = 5;
-    int32 realm_id = 6;
-    string create_user_id = 7;
-    google.protobuf.Timestamp create_time = 8;
-    string update_user_id = 9;
-    google.protobuf.Timestamp update_time = 10;
-    string create_group_id = 11;
-    string intro_typename = 12;
-    RoleRoleRelationExpression where = 13;
+    RoleInput role = 3;
+    string composite_ref = 4;
+    RoleInput composite = 5;
+    bool is_deprecated = 6;
+    int32 version = 7;
+    int32 realm_id = 8;
+    string create_user_id = 9;
+    google.protobuf.Timestamp create_time = 10;
+    string update_user_id = 11;
+    google.protobuf.Timestamp update_time = 12;
+    string create_group_id = 13;
+    string intro_typename = 14;
+    RoleCompositeRelationExpression where = 15;
 }
-message RoleRoleRelationOrderBy {
+message RoleCompositeRelationOrderBy {
     io.graphoenix.core.Sort id = 1;
     io.graphoenix.core.Sort role_ref = 2;
-    io.graphoenix.core.Sort is_deprecated = 3;
-    io.graphoenix.core.Sort version = 4;
-    io.graphoenix.core.Sort realm_id = 5;
-    io.graphoenix.core.Sort create_user_id = 6;
-    io.graphoenix.core.Sort create_time = 7;
-    io.graphoenix.core.Sort update_user_id = 8;
-    io.graphoenix.core.Sort update_time = 9;
-    io.graphoenix.core.Sort create_group_id = 10;
-    io.graphoenix.core.Sort intro_typename = 11;
+    io.graphoenix.core.Sort composite_ref = 3;
+    io.graphoenix.core.Sort is_deprecated = 4;
+    io.graphoenix.core.Sort version = 5;
+    io.graphoenix.core.Sort realm_id = 6;
+    io.graphoenix.core.Sort create_user_id = 7;
+    io.graphoenix.core.Sort create_time = 8;
+    io.graphoenix.core.Sort update_user_id = 9;
+    io.graphoenix.core.Sort update_time = 10;
+    io.graphoenix.core.Sort create_group_id = 11;
+    io.graphoenix.core.Sort intro_typename = 12;
 }
 message PermissionRoleRelationExpression {
     io.graphoenix.core.StringExpression id = 1;
     io.graphoenix.core.StringExpression role_ref = 2;
-    RoleExpression role_ref_type = 3;
+    RoleExpression role = 3;
     io.graphoenix.core.StringExpression permission_ref = 4;
-    PermissionExpression permission_ref_type = 5;
+    PermissionExpression permission = 5;
     bool include_deprecated = 6;
     io.graphoenix.core.IntExpression version = 7;
     io.graphoenix.core.IntExpression realm_id = 8;
@@ -590,9 +595,9 @@ message PermissionRoleRelationExpression {
 message PermissionRoleRelationInput {
     string id = 1;
     string role_ref = 2;
-    RoleInput role_ref_type = 3;
+    RoleInput role = 3;
     string permission_ref = 4;
-    PermissionInput permission_ref_type = 5;
+    PermissionInput permission = 5;
     bool is_deprecated = 6;
     int32 version = 7;
     int32 realm_id = 8;
@@ -748,7 +753,7 @@ message RoleQueryArguments {
     io.graphoenix.core.StringExpression intro_typename = 17;
     RoleUserRelationExpression role_user_relation = 18;
     GroupRoleRelationExpression group_role_relation = 19;
-    RoleRoleRelationExpression role_role_relation = 20;
+    RoleCompositeRelationExpression role_composite_relation = 20;
     PermissionRoleRelationExpression permission_role_relation = 21;
     repeated string group_by = 22;
     bool not = 23;
@@ -775,7 +780,7 @@ message RoleListQueryArguments {
     io.graphoenix.core.StringExpression intro_typename = 17;
     RoleUserRelationExpression role_user_relation = 18;
     GroupRoleRelationExpression group_role_relation = 19;
-    RoleRoleRelationExpression role_role_relation = 20;
+    RoleCompositeRelationExpression role_composite_relation = 20;
     PermissionRoleRelationExpression permission_role_relation = 21;
     RoleOrderBy order_by = 22;
     repeated string group_by = 23;
@@ -808,7 +813,7 @@ message RoleConnectionQueryArguments {
     io.graphoenix.core.StringExpression intro_typename = 17;
     RoleUserRelationExpression role_user_relation = 18;
     GroupRoleRelationExpression group_role_relation = 19;
-    RoleRoleRelationExpression role_role_relation = 20;
+    RoleCompositeRelationExpression role_composite_relation = 20;
     PermissionRoleRelationExpression permission_role_relation = 21;
     RoleOrderBy order_by = 22;
     repeated string group_by = 23;
@@ -1067,7 +1072,7 @@ message PermissionConnectionQueryArguments {
 message UserPhonesRelationQueryArguments {
     io.graphoenix.core.StringExpression id = 1;
     io.graphoenix.core.StringExpression user_ref = 2;
-    UserExpression user_ref_type = 3;
+    UserExpression user = 3;
     io.graphoenix.core.StringExpression phones_ref = 4;
     bool include_deprecated = 5;
     io.graphoenix.core.IntExpression version = 6;
@@ -1086,7 +1091,7 @@ message UserPhonesRelationQueryArguments {
 message UserPhonesRelationListQueryArguments {
     io.graphoenix.core.StringExpression id = 1;
     io.graphoenix.core.StringExpression user_ref = 2;
-    UserExpression user_ref_type = 3;
+    UserExpression user = 3;
     io.graphoenix.core.StringExpression phones_ref = 4;
     bool include_deprecated = 5;
     io.graphoenix.core.IntExpression version = 6;
@@ -1111,7 +1116,7 @@ message UserPhonesRelationListQueryArguments {
 message UserPhonesRelationConnectionQueryArguments {
     io.graphoenix.core.StringExpression id = 1;
     io.graphoenix.core.StringExpression user_ref = 2;
-    UserExpression user_ref_type = 3;
+    UserExpression user = 3;
     io.graphoenix.core.StringExpression phones_ref = 4;
     bool include_deprecated = 5;
     io.graphoenix.core.IntExpression version = 6;
@@ -1136,9 +1141,9 @@ message UserPhonesRelationConnectionQueryArguments {
 message GroupUserRelationQueryArguments {
     io.graphoenix.core.StringExpression id = 1;
     io.graphoenix.core.StringExpression user_ref = 2;
-    UserExpression user_ref_type = 3;
+    UserExpression user = 3;
     io.graphoenix.core.StringExpression group_ref = 4;
-    GroupExpression group_ref_type = 5;
+    GroupExpression group = 5;
     bool include_deprecated = 6;
     io.graphoenix.core.IntExpression version = 7;
     io.graphoenix.core.IntExpression realm_id = 8;
@@ -1156,9 +1161,9 @@ message GroupUserRelationQueryArguments {
 message GroupUserRelationListQueryArguments {
     io.graphoenix.core.StringExpression id = 1;
     io.graphoenix.core.StringExpression user_ref = 2;
-    UserExpression user_ref_type = 3;
+    UserExpression user = 3;
     io.graphoenix.core.StringExpression group_ref = 4;
-    GroupExpression group_ref_type = 5;
+    GroupExpression group = 5;
     bool include_deprecated = 6;
     io.graphoenix.core.IntExpression version = 7;
     io.graphoenix.core.IntExpression realm_id = 8;
@@ -1182,9 +1187,9 @@ message GroupUserRelationListQueryArguments {
 message GroupUserRelationConnectionQueryArguments {
     io.graphoenix.core.StringExpression id = 1;
     io.graphoenix.core.StringExpression user_ref = 2;
-    UserExpression user_ref_type = 3;
+    UserExpression user = 3;
     io.graphoenix.core.StringExpression group_ref = 4;
-    GroupExpression group_ref_type = 5;
+    GroupExpression group = 5;
     bool include_deprecated = 6;
     io.graphoenix.core.IntExpression version = 7;
     io.graphoenix.core.IntExpression realm_id = 8;
@@ -1208,9 +1213,9 @@ message GroupUserRelationConnectionQueryArguments {
 message RoleUserRelationQueryArguments {
     io.graphoenix.core.StringExpression id = 1;
     io.graphoenix.core.StringExpression user_ref = 2;
-    UserExpression user_ref_type = 3;
+    UserExpression user = 3;
     io.graphoenix.core.StringExpression role_ref = 4;
-    RoleExpression role_ref_type = 5;
+    RoleExpression role = 5;
     bool include_deprecated = 6;
     io.graphoenix.core.IntExpression version = 7;
     io.graphoenix.core.IntExpression realm_id = 8;
@@ -1228,9 +1233,9 @@ message RoleUserRelationQueryArguments {
 message RoleUserRelationListQueryArguments {
     io.graphoenix.core.StringExpression id = 1;
     io.graphoenix.core.StringExpression user_ref = 2;
-    UserExpression user_ref_type = 3;
+    UserExpression user = 3;
     io.graphoenix.core.StringExpression role_ref = 4;
-    RoleExpression role_ref_type = 5;
+    RoleExpression role = 5;
     bool include_deprecated = 6;
     io.graphoenix.core.IntExpression version = 7;
     io.graphoenix.core.IntExpression realm_id = 8;
@@ -1254,9 +1259,9 @@ message RoleUserRelationListQueryArguments {
 message RoleUserRelationConnectionQueryArguments {
     io.graphoenix.core.StringExpression id = 1;
     io.graphoenix.core.StringExpression user_ref = 2;
-    UserExpression user_ref_type = 3;
+    UserExpression user = 3;
     io.graphoenix.core.StringExpression role_ref = 4;
-    RoleExpression role_ref_type = 5;
+    RoleExpression role = 5;
     bool include_deprecated = 6;
     io.graphoenix.core.IntExpression version = 7;
     io.graphoenix.core.IntExpression realm_id = 8;
@@ -1280,9 +1285,9 @@ message RoleUserRelationConnectionQueryArguments {
 message GroupRoleRelationQueryArguments {
     io.graphoenix.core.StringExpression id = 1;
     io.graphoenix.core.StringExpression role_ref = 2;
-    RoleExpression role_ref_type = 3;
+    RoleExpression role = 3;
     io.graphoenix.core.StringExpression group_ref = 4;
-    GroupExpression group_ref_type = 5;
+    GroupExpression group = 5;
     bool include_deprecated = 6;
     io.graphoenix.core.IntExpression version = 7;
     io.graphoenix.core.IntExpression realm_id = 8;
@@ -1300,9 +1305,9 @@ message GroupRoleRelationQueryArguments {
 message GroupRoleRelationListQueryArguments {
     io.graphoenix.core.StringExpression id = 1;
     io.graphoenix.core.StringExpression role_ref = 2;
-    RoleExpression role_ref_type = 3;
+    RoleExpression role = 3;
     io.graphoenix.core.StringExpression group_ref = 4;
-    GroupExpression group_ref_type = 5;
+    GroupExpression group = 5;
     bool include_deprecated = 6;
     io.graphoenix.core.IntExpression version = 7;
     io.graphoenix.core.IntExpression realm_id = 8;
@@ -1326,9 +1331,9 @@ message GroupRoleRelationListQueryArguments {
 message GroupRoleRelationConnectionQueryArguments {
     io.graphoenix.core.StringExpression id = 1;
     io.graphoenix.core.StringExpression role_ref = 2;
-    RoleExpression role_ref_type = 3;
+    RoleExpression role = 3;
     io.graphoenix.core.StringExpression group_ref = 4;
-    GroupExpression group_ref_type = 5;
+    GroupExpression group = 5;
     bool include_deprecated = 6;
     io.graphoenix.core.IntExpression version = 7;
     io.graphoenix.core.IntExpression realm_id = 8;
@@ -1349,78 +1354,84 @@ message GroupRoleRelationConnectionQueryArguments {
     string after = 23;
     string before = 24;
 }
-message RoleRoleRelationQueryArguments {
+message RoleCompositeRelationQueryArguments {
     io.graphoenix.core.StringExpression id = 1;
     io.graphoenix.core.StringExpression role_ref = 2;
-    RoleExpression role_ref_type = 3;
-    bool include_deprecated = 4;
-    io.graphoenix.core.IntExpression version = 5;
-    io.graphoenix.core.IntExpression realm_id = 6;
-    io.graphoenix.core.StringExpression create_user_id = 7;
-    io.graphoenix.core.StringExpression create_time = 8;
-    io.graphoenix.core.StringExpression update_user_id = 9;
-    io.graphoenix.core.StringExpression update_time = 10;
-    io.graphoenix.core.StringExpression create_group_id = 11;
-    io.graphoenix.core.StringExpression intro_typename = 12;
-    repeated string group_by = 13;
-    bool not = 14;
-    io.graphoenix.core.Conditional cond = 15;
-    repeated RoleRoleRelationExpression exs = 16;
+    RoleExpression role = 3;
+    io.graphoenix.core.StringExpression composite_ref = 4;
+    RoleExpression composite = 5;
+    bool include_deprecated = 6;
+    io.graphoenix.core.IntExpression version = 7;
+    io.graphoenix.core.IntExpression realm_id = 8;
+    io.graphoenix.core.StringExpression create_user_id = 9;
+    io.graphoenix.core.StringExpression create_time = 10;
+    io.graphoenix.core.StringExpression update_user_id = 11;
+    io.graphoenix.core.StringExpression update_time = 12;
+    io.graphoenix.core.StringExpression create_group_id = 13;
+    io.graphoenix.core.StringExpression intro_typename = 14;
+    repeated string group_by = 15;
+    bool not = 16;
+    io.graphoenix.core.Conditional cond = 17;
+    repeated RoleCompositeRelationExpression exs = 18;
 }
-message RoleRoleRelationListQueryArguments {
+message RoleCompositeRelationListQueryArguments {
     io.graphoenix.core.StringExpression id = 1;
     io.graphoenix.core.StringExpression role_ref = 2;
-    RoleExpression role_ref_type = 3;
-    bool include_deprecated = 4;
-    io.graphoenix.core.IntExpression version = 5;
-    io.graphoenix.core.IntExpression realm_id = 6;
-    io.graphoenix.core.StringExpression create_user_id = 7;
-    io.graphoenix.core.StringExpression create_time = 8;
-    io.graphoenix.core.StringExpression update_user_id = 9;
-    io.graphoenix.core.StringExpression update_time = 10;
-    io.graphoenix.core.StringExpression create_group_id = 11;
-    io.graphoenix.core.StringExpression intro_typename = 12;
-    RoleRoleRelationOrderBy order_by = 13;
-    repeated string group_by = 14;
-    bool not = 15;
-    io.graphoenix.core.Conditional cond = 16;
-    repeated RoleRoleRelationExpression exs = 17;
-    int32 first = 18;
-    int32 last = 19;
-    int32 offset = 20;
-    string after = 21;
-    string before = 22;
+    RoleExpression role = 3;
+    io.graphoenix.core.StringExpression composite_ref = 4;
+    RoleExpression composite = 5;
+    bool include_deprecated = 6;
+    io.graphoenix.core.IntExpression version = 7;
+    io.graphoenix.core.IntExpression realm_id = 8;
+    io.graphoenix.core.StringExpression create_user_id = 9;
+    io.graphoenix.core.StringExpression create_time = 10;
+    io.graphoenix.core.StringExpression update_user_id = 11;
+    io.graphoenix.core.StringExpression update_time = 12;
+    io.graphoenix.core.StringExpression create_group_id = 13;
+    io.graphoenix.core.StringExpression intro_typename = 14;
+    RoleCompositeRelationOrderBy order_by = 15;
+    repeated string group_by = 16;
+    bool not = 17;
+    io.graphoenix.core.Conditional cond = 18;
+    repeated RoleCompositeRelationExpression exs = 19;
+    int32 first = 20;
+    int32 last = 21;
+    int32 offset = 22;
+    string after = 23;
+    string before = 24;
 }
-message RoleRoleRelationConnectionQueryArguments {
+message RoleCompositeRelationConnectionQueryArguments {
     io.graphoenix.core.StringExpression id = 1;
     io.graphoenix.core.StringExpression role_ref = 2;
-    RoleExpression role_ref_type = 3;
-    bool include_deprecated = 4;
-    io.graphoenix.core.IntExpression version = 5;
-    io.graphoenix.core.IntExpression realm_id = 6;
-    io.graphoenix.core.StringExpression create_user_id = 7;
-    io.graphoenix.core.StringExpression create_time = 8;
-    io.graphoenix.core.StringExpression update_user_id = 9;
-    io.graphoenix.core.StringExpression update_time = 10;
-    io.graphoenix.core.StringExpression create_group_id = 11;
-    io.graphoenix.core.StringExpression intro_typename = 12;
-    RoleRoleRelationOrderBy order_by = 13;
-    repeated string group_by = 14;
-    bool not = 15;
-    io.graphoenix.core.Conditional cond = 16;
-    repeated RoleRoleRelationExpression exs = 17;
-    int32 first = 18;
-    int32 last = 19;
-    int32 offset = 20;
-    string after = 21;
-    string before = 22;
+    RoleExpression role = 3;
+    io.graphoenix.core.StringExpression composite_ref = 4;
+    RoleExpression composite = 5;
+    bool include_deprecated = 6;
+    io.graphoenix.core.IntExpression version = 7;
+    io.graphoenix.core.IntExpression realm_id = 8;
+    io.graphoenix.core.StringExpression create_user_id = 9;
+    io.graphoenix.core.StringExpression create_time = 10;
+    io.graphoenix.core.StringExpression update_user_id = 11;
+    io.graphoenix.core.StringExpression update_time = 12;
+    io.graphoenix.core.StringExpression create_group_id = 13;
+    io.graphoenix.core.StringExpression intro_typename = 14;
+    RoleCompositeRelationOrderBy order_by = 15;
+    repeated string group_by = 16;
+    bool not = 17;
+    io.graphoenix.core.Conditional cond = 18;
+    repeated RoleCompositeRelationExpression exs = 19;
+    int32 first = 20;
+    int32 last = 21;
+    int32 offset = 22;
+    string after = 23;
+    string before = 24;
 }
 message PermissionRoleRelationQueryArguments {
     io.graphoenix.core.StringExpression id = 1;
     io.graphoenix.core.StringExpression role_ref = 2;
-    RoleExpression role_ref_type = 3;
+    RoleExpression role = 3;
     io.graphoenix.core.StringExpression permission_ref = 4;
-    PermissionExpression permission_ref_type = 5;
+    PermissionExpression permission = 5;
     bool include_deprecated = 6;
     io.graphoenix.core.IntExpression version = 7;
     io.graphoenix.core.IntExpression realm_id = 8;
@@ -1438,9 +1449,9 @@ message PermissionRoleRelationQueryArguments {
 message PermissionRoleRelationListQueryArguments {
     io.graphoenix.core.StringExpression id = 1;
     io.graphoenix.core.StringExpression role_ref = 2;
-    RoleExpression role_ref_type = 3;
+    RoleExpression role = 3;
     io.graphoenix.core.StringExpression permission_ref = 4;
-    PermissionExpression permission_ref_type = 5;
+    PermissionExpression permission = 5;
     bool include_deprecated = 6;
     io.graphoenix.core.IntExpression version = 7;
     io.graphoenix.core.IntExpression realm_id = 8;
@@ -1464,9 +1475,9 @@ message PermissionRoleRelationListQueryArguments {
 message PermissionRoleRelationConnectionQueryArguments {
     io.graphoenix.core.StringExpression id = 1;
     io.graphoenix.core.StringExpression role_ref = 2;
-    RoleExpression role_ref_type = 3;
+    RoleExpression role = 3;
     io.graphoenix.core.StringExpression permission_ref = 4;
-    PermissionExpression permission_ref_type = 5;
+    PermissionExpression permission = 5;
     bool include_deprecated = 6;
     io.graphoenix.core.IntExpression version = 7;
     io.graphoenix.core.IntExpression realm_id = 8;
@@ -1564,7 +1575,7 @@ message RoleMutationArguments {
     string intro_typename = 17;
     repeated RoleUserRelationInput role_user_relation = 18;
     repeated GroupRoleRelationInput group_role_relation = 19;
-    repeated RoleRoleRelationInput role_role_relation = 20;
+    repeated RoleCompositeRelationInput role_composite_relation = 20;
     repeated PermissionRoleRelationInput permission_role_relation = 21;
     RoleExpression where = 22;
 }
@@ -1588,7 +1599,7 @@ message RoleListMutationArguments {
     string intro_typename = 17;
     repeated RoleUserRelationInput role_user_relation = 18;
     repeated GroupRoleRelationInput group_role_relation = 19;
-    repeated RoleRoleRelationInput role_role_relation = 20;
+    repeated RoleCompositeRelationInput role_composite_relation = 20;
     repeated PermissionRoleRelationInput permission_role_relation = 21;
     repeated RoleInput list = 22;
     RoleExpression where = 23;
@@ -1719,7 +1730,7 @@ message PermissionListMutationArguments {
 message UserPhonesRelationMutationArguments {
     string id = 1;
     string user_ref = 2;
-    UserInput user_ref_type = 3;
+    UserInput user = 3;
     string phones_ref = 4;
     bool is_deprecated = 5;
     int32 version = 6;
@@ -1735,7 +1746,7 @@ message UserPhonesRelationMutationArguments {
 message UserPhonesRelationListMutationArguments {
     string id = 1;
     string user_ref = 2;
-    UserInput user_ref_type = 3;
+    UserInput user = 3;
     string phones_ref = 4;
     bool is_deprecated = 5;
     int32 version = 6;
@@ -1752,9 +1763,9 @@ message UserPhonesRelationListMutationArguments {
 message GroupUserRelationMutationArguments {
     string id = 1;
     string user_ref = 2;
-    UserInput user_ref_type = 3;
+    UserInput user = 3;
     string group_ref = 4;
-    GroupInput group_ref_type = 5;
+    GroupInput group = 5;
     bool is_deprecated = 6;
     int32 version = 7;
     int32 realm_id = 8;
@@ -1769,9 +1780,9 @@ message GroupUserRelationMutationArguments {
 message GroupUserRelationListMutationArguments {
     string id = 1;
     string user_ref = 2;
-    UserInput user_ref_type = 3;
+    UserInput user = 3;
     string group_ref = 4;
-    GroupInput group_ref_type = 5;
+    GroupInput group = 5;
     bool is_deprecated = 6;
     int32 version = 7;
     int32 realm_id = 8;
@@ -1787,9 +1798,9 @@ message GroupUserRelationListMutationArguments {
 message RoleUserRelationMutationArguments {
     string id = 1;
     string user_ref = 2;
-    UserInput user_ref_type = 3;
+    UserInput user = 3;
     string role_ref = 4;
-    RoleInput role_ref_type = 5;
+    RoleInput role = 5;
     bool is_deprecated = 6;
     int32 version = 7;
     int32 realm_id = 8;
@@ -1804,9 +1815,9 @@ message RoleUserRelationMutationArguments {
 message RoleUserRelationListMutationArguments {
     string id = 1;
     string user_ref = 2;
-    UserInput user_ref_type = 3;
+    UserInput user = 3;
     string role_ref = 4;
-    RoleInput role_ref_type = 5;
+    RoleInput role = 5;
     bool is_deprecated = 6;
     int32 version = 7;
     int32 realm_id = 8;
@@ -1822,9 +1833,9 @@ message RoleUserRelationListMutationArguments {
 message GroupRoleRelationMutationArguments {
     string id = 1;
     string role_ref = 2;
-    RoleInput role_ref_type = 3;
+    RoleInput role = 3;
     string group_ref = 4;
-    GroupInput group_ref_type = 5;
+    GroupInput group = 5;
     bool is_deprecated = 6;
     int32 version = 7;
     int32 realm_id = 8;
@@ -1839,9 +1850,9 @@ message GroupRoleRelationMutationArguments {
 message GroupRoleRelationListMutationArguments {
     string id = 1;
     string role_ref = 2;
-    RoleInput role_ref_type = 3;
+    RoleInput role = 3;
     string group_ref = 4;
-    GroupInput group_ref_type = 5;
+    GroupInput group = 5;
     bool is_deprecated = 6;
     int32 version = 7;
     int32 realm_id = 8;
@@ -1854,43 +1865,47 @@ message GroupRoleRelationListMutationArguments {
     repeated GroupRoleRelationInput list = 15;
     GroupRoleRelationExpression where = 16;
 }
-message RoleRoleRelationMutationArguments {
+message RoleCompositeRelationMutationArguments {
     string id = 1;
     string role_ref = 2;
-    RoleInput role_ref_type = 3;
-    bool is_deprecated = 4;
-    int32 version = 5;
-    int32 realm_id = 6;
-    string create_user_id = 7;
-    google.protobuf.Timestamp create_time = 8;
-    string update_user_id = 9;
-    google.protobuf.Timestamp update_time = 10;
-    string create_group_id = 11;
-    string intro_typename = 12;
-    RoleRoleRelationExpression where = 13;
+    RoleInput role = 3;
+    string composite_ref = 4;
+    RoleInput composite = 5;
+    bool is_deprecated = 6;
+    int32 version = 7;
+    int32 realm_id = 8;
+    string create_user_id = 9;
+    google.protobuf.Timestamp create_time = 10;
+    string update_user_id = 11;
+    google.protobuf.Timestamp update_time = 12;
+    string create_group_id = 13;
+    string intro_typename = 14;
+    RoleCompositeRelationExpression where = 15;
 }
-message RoleRoleRelationListMutationArguments {
+message RoleCompositeRelationListMutationArguments {
     string id = 1;
     string role_ref = 2;
-    RoleInput role_ref_type = 3;
-    bool is_deprecated = 4;
-    int32 version = 5;
-    int32 realm_id = 6;
-    string create_user_id = 7;
-    google.protobuf.Timestamp create_time = 8;
-    string update_user_id = 9;
-    google.protobuf.Timestamp update_time = 10;
-    string create_group_id = 11;
-    string intro_typename = 12;
-    repeated RoleRoleRelationInput list = 13;
-    RoleRoleRelationExpression where = 14;
+    RoleInput role = 3;
+    string composite_ref = 4;
+    RoleInput composite = 5;
+    bool is_deprecated = 6;
+    int32 version = 7;
+    int32 realm_id = 8;
+    string create_user_id = 9;
+    google.protobuf.Timestamp create_time = 10;
+    string update_user_id = 11;
+    google.protobuf.Timestamp update_time = 12;
+    string create_group_id = 13;
+    string intro_typename = 14;
+    repeated RoleCompositeRelationInput list = 15;
+    RoleCompositeRelationExpression where = 16;
 }
 message PermissionRoleRelationMutationArguments {
     string id = 1;
     string role_ref = 2;
-    RoleInput role_ref_type = 3;
+    RoleInput role = 3;
     string permission_ref = 4;
-    PermissionInput permission_ref_type = 5;
+    PermissionInput permission = 5;
     bool is_deprecated = 6;
     int32 version = 7;
     int32 realm_id = 8;
@@ -1905,9 +1920,9 @@ message PermissionRoleRelationMutationArguments {
 message PermissionRoleRelationListMutationArguments {
     string id = 1;
     string role_ref = 2;
-    RoleInput role_ref_type = 3;
+    RoleInput role = 3;
     string permission_ref = 4;
-    PermissionInput permission_ref_type = 5;
+    PermissionInput permission = 5;
     bool is_deprecated = 6;
     int32 version = 7;
     int32 realm_id = 8;
@@ -2045,7 +2060,7 @@ message RoleSubscriptionArguments {
     io.graphoenix.core.StringExpression intro_typename = 17;
     RoleUserRelationExpression role_user_relation = 18;
     GroupRoleRelationExpression group_role_relation = 19;
-    RoleRoleRelationExpression role_role_relation = 20;
+    RoleCompositeRelationExpression role_composite_relation = 20;
     PermissionRoleRelationExpression permission_role_relation = 21;
     repeated string group_by = 22;
     bool not = 23;
@@ -2072,7 +2087,7 @@ message RoleListSubscriptionArguments {
     io.graphoenix.core.StringExpression intro_typename = 17;
     RoleUserRelationExpression role_user_relation = 18;
     GroupRoleRelationExpression group_role_relation = 19;
-    RoleRoleRelationExpression role_role_relation = 20;
+    RoleCompositeRelationExpression role_composite_relation = 20;
     PermissionRoleRelationExpression permission_role_relation = 21;
     RoleOrderBy order_by = 22;
     repeated string group_by = 23;
@@ -2105,7 +2120,7 @@ message RoleConnectionSubscriptionArguments {
     io.graphoenix.core.StringExpression intro_typename = 17;
     RoleUserRelationExpression role_user_relation = 18;
     GroupRoleRelationExpression group_role_relation = 19;
-    RoleRoleRelationExpression role_role_relation = 20;
+    RoleCompositeRelationExpression role_composite_relation = 20;
     PermissionRoleRelationExpression permission_role_relation = 21;
     RoleOrderBy order_by = 22;
     repeated string group_by = 23;
@@ -2364,7 +2379,7 @@ message PermissionConnectionSubscriptionArguments {
 message UserPhonesRelationSubscriptionArguments {
     io.graphoenix.core.StringExpression id = 1;
     io.graphoenix.core.StringExpression user_ref = 2;
-    UserExpression user_ref_type = 3;
+    UserExpression user = 3;
     io.graphoenix.core.StringExpression phones_ref = 4;
     bool include_deprecated = 5;
     io.graphoenix.core.IntExpression version = 6;
@@ -2383,7 +2398,7 @@ message UserPhonesRelationSubscriptionArguments {
 message UserPhonesRelationListSubscriptionArguments {
     io.graphoenix.core.StringExpression id = 1;
     io.graphoenix.core.StringExpression user_ref = 2;
-    UserExpression user_ref_type = 3;
+    UserExpression user = 3;
     io.graphoenix.core.StringExpression phones_ref = 4;
     bool include_deprecated = 5;
     io.graphoenix.core.IntExpression version = 6;
@@ -2408,7 +2423,7 @@ message UserPhonesRelationListSubscriptionArguments {
 message UserPhonesRelationConnectionSubscriptionArguments {
     io.graphoenix.core.StringExpression id = 1;
     io.graphoenix.core.StringExpression user_ref = 2;
-    UserExpression user_ref_type = 3;
+    UserExpression user = 3;
     io.graphoenix.core.StringExpression phones_ref = 4;
     bool include_deprecated = 5;
     io.graphoenix.core.IntExpression version = 6;
@@ -2433,9 +2448,9 @@ message UserPhonesRelationConnectionSubscriptionArguments {
 message GroupUserRelationSubscriptionArguments {
     io.graphoenix.core.StringExpression id = 1;
     io.graphoenix.core.StringExpression user_ref = 2;
-    UserExpression user_ref_type = 3;
+    UserExpression user = 3;
     io.graphoenix.core.StringExpression group_ref = 4;
-    GroupExpression group_ref_type = 5;
+    GroupExpression group = 5;
     bool include_deprecated = 6;
     io.graphoenix.core.IntExpression version = 7;
     io.graphoenix.core.IntExpression realm_id = 8;
@@ -2453,9 +2468,9 @@ message GroupUserRelationSubscriptionArguments {
 message GroupUserRelationListSubscriptionArguments {
     io.graphoenix.core.StringExpression id = 1;
     io.graphoenix.core.StringExpression user_ref = 2;
-    UserExpression user_ref_type = 3;
+    UserExpression user = 3;
     io.graphoenix.core.StringExpression group_ref = 4;
-    GroupExpression group_ref_type = 5;
+    GroupExpression group = 5;
     bool include_deprecated = 6;
     io.graphoenix.core.IntExpression version = 7;
     io.graphoenix.core.IntExpression realm_id = 8;
@@ -2479,9 +2494,9 @@ message GroupUserRelationListSubscriptionArguments {
 message GroupUserRelationConnectionSubscriptionArguments {
     io.graphoenix.core.StringExpression id = 1;
     io.graphoenix.core.StringExpression user_ref = 2;
-    UserExpression user_ref_type = 3;
+    UserExpression user = 3;
     io.graphoenix.core.StringExpression group_ref = 4;
-    GroupExpression group_ref_type = 5;
+    GroupExpression group = 5;
     bool include_deprecated = 6;
     io.graphoenix.core.IntExpression version = 7;
     io.graphoenix.core.IntExpression realm_id = 8;
@@ -2505,9 +2520,9 @@ message GroupUserRelationConnectionSubscriptionArguments {
 message RoleUserRelationSubscriptionArguments {
     io.graphoenix.core.StringExpression id = 1;
     io.graphoenix.core.StringExpression user_ref = 2;
-    UserExpression user_ref_type = 3;
+    UserExpression user = 3;
     io.graphoenix.core.StringExpression role_ref = 4;
-    RoleExpression role_ref_type = 5;
+    RoleExpression role = 5;
     bool include_deprecated = 6;
     io.graphoenix.core.IntExpression version = 7;
     io.graphoenix.core.IntExpression realm_id = 8;
@@ -2525,9 +2540,9 @@ message RoleUserRelationSubscriptionArguments {
 message RoleUserRelationListSubscriptionArguments {
     io.graphoenix.core.StringExpression id = 1;
     io.graphoenix.core.StringExpression user_ref = 2;
-    UserExpression user_ref_type = 3;
+    UserExpression user = 3;
     io.graphoenix.core.StringExpression role_ref = 4;
-    RoleExpression role_ref_type = 5;
+    RoleExpression role = 5;
     bool include_deprecated = 6;
     io.graphoenix.core.IntExpression version = 7;
     io.graphoenix.core.IntExpression realm_id = 8;
@@ -2551,9 +2566,9 @@ message RoleUserRelationListSubscriptionArguments {
 message RoleUserRelationConnectionSubscriptionArguments {
     io.graphoenix.core.StringExpression id = 1;
     io.graphoenix.core.StringExpression user_ref = 2;
-    UserExpression user_ref_type = 3;
+    UserExpression user = 3;
     io.graphoenix.core.StringExpression role_ref = 4;
-    RoleExpression role_ref_type = 5;
+    RoleExpression role = 5;
     bool include_deprecated = 6;
     io.graphoenix.core.IntExpression version = 7;
     io.graphoenix.core.IntExpression realm_id = 8;
@@ -2577,9 +2592,9 @@ message RoleUserRelationConnectionSubscriptionArguments {
 message GroupRoleRelationSubscriptionArguments {
     io.graphoenix.core.StringExpression id = 1;
     io.graphoenix.core.StringExpression role_ref = 2;
-    RoleExpression role_ref_type = 3;
+    RoleExpression role = 3;
     io.graphoenix.core.StringExpression group_ref = 4;
-    GroupExpression group_ref_type = 5;
+    GroupExpression group = 5;
     bool include_deprecated = 6;
     io.graphoenix.core.IntExpression version = 7;
     io.graphoenix.core.IntExpression realm_id = 8;
@@ -2597,9 +2612,9 @@ message GroupRoleRelationSubscriptionArguments {
 message GroupRoleRelationListSubscriptionArguments {
     io.graphoenix.core.StringExpression id = 1;
     io.graphoenix.core.StringExpression role_ref = 2;
-    RoleExpression role_ref_type = 3;
+    RoleExpression role = 3;
     io.graphoenix.core.StringExpression group_ref = 4;
-    GroupExpression group_ref_type = 5;
+    GroupExpression group = 5;
     bool include_deprecated = 6;
     io.graphoenix.core.IntExpression version = 7;
     io.graphoenix.core.IntExpression realm_id = 8;
@@ -2623,9 +2638,9 @@ message GroupRoleRelationListSubscriptionArguments {
 message GroupRoleRelationConnectionSubscriptionArguments {
     io.graphoenix.core.StringExpression id = 1;
     io.graphoenix.core.StringExpression role_ref = 2;
-    RoleExpression role_ref_type = 3;
+    RoleExpression role = 3;
     io.graphoenix.core.StringExpression group_ref = 4;
-    GroupExpression group_ref_type = 5;
+    GroupExpression group = 5;
     bool include_deprecated = 6;
     io.graphoenix.core.IntExpression version = 7;
     io.graphoenix.core.IntExpression realm_id = 8;
@@ -2646,78 +2661,84 @@ message GroupRoleRelationConnectionSubscriptionArguments {
     string after = 23;
     string before = 24;
 }
-message RoleRoleRelationSubscriptionArguments {
+message RoleCompositeRelationSubscriptionArguments {
     io.graphoenix.core.StringExpression id = 1;
     io.graphoenix.core.StringExpression role_ref = 2;
-    RoleExpression role_ref_type = 3;
-    bool include_deprecated = 4;
-    io.graphoenix.core.IntExpression version = 5;
-    io.graphoenix.core.IntExpression realm_id = 6;
-    io.graphoenix.core.StringExpression create_user_id = 7;
-    io.graphoenix.core.StringExpression create_time = 8;
-    io.graphoenix.core.StringExpression update_user_id = 9;
-    io.graphoenix.core.StringExpression update_time = 10;
-    io.graphoenix.core.StringExpression create_group_id = 11;
-    io.graphoenix.core.StringExpression intro_typename = 12;
-    repeated string group_by = 13;
-    bool not = 14;
-    io.graphoenix.core.Conditional cond = 15;
-    repeated RoleRoleRelationExpression exs = 16;
+    RoleExpression role = 3;
+    io.graphoenix.core.StringExpression composite_ref = 4;
+    RoleExpression composite = 5;
+    bool include_deprecated = 6;
+    io.graphoenix.core.IntExpression version = 7;
+    io.graphoenix.core.IntExpression realm_id = 8;
+    io.graphoenix.core.StringExpression create_user_id = 9;
+    io.graphoenix.core.StringExpression create_time = 10;
+    io.graphoenix.core.StringExpression update_user_id = 11;
+    io.graphoenix.core.StringExpression update_time = 12;
+    io.graphoenix.core.StringExpression create_group_id = 13;
+    io.graphoenix.core.StringExpression intro_typename = 14;
+    repeated string group_by = 15;
+    bool not = 16;
+    io.graphoenix.core.Conditional cond = 17;
+    repeated RoleCompositeRelationExpression exs = 18;
 }
-message RoleRoleRelationListSubscriptionArguments {
+message RoleCompositeRelationListSubscriptionArguments {
     io.graphoenix.core.StringExpression id = 1;
     io.graphoenix.core.StringExpression role_ref = 2;
-    RoleExpression role_ref_type = 3;
-    bool include_deprecated = 4;
-    io.graphoenix.core.IntExpression version = 5;
-    io.graphoenix.core.IntExpression realm_id = 6;
-    io.graphoenix.core.StringExpression create_user_id = 7;
-    io.graphoenix.core.StringExpression create_time = 8;
-    io.graphoenix.core.StringExpression update_user_id = 9;
-    io.graphoenix.core.StringExpression update_time = 10;
-    io.graphoenix.core.StringExpression create_group_id = 11;
-    io.graphoenix.core.StringExpression intro_typename = 12;
-    RoleRoleRelationOrderBy order_by = 13;
-    repeated string group_by = 14;
-    bool not = 15;
-    io.graphoenix.core.Conditional cond = 16;
-    repeated RoleRoleRelationExpression exs = 17;
-    int32 first = 18;
-    int32 last = 19;
-    int32 offset = 20;
-    string after = 21;
-    string before = 22;
+    RoleExpression role = 3;
+    io.graphoenix.core.StringExpression composite_ref = 4;
+    RoleExpression composite = 5;
+    bool include_deprecated = 6;
+    io.graphoenix.core.IntExpression version = 7;
+    io.graphoenix.core.IntExpression realm_id = 8;
+    io.graphoenix.core.StringExpression create_user_id = 9;
+    io.graphoenix.core.StringExpression create_time = 10;
+    io.graphoenix.core.StringExpression update_user_id = 11;
+    io.graphoenix.core.StringExpression update_time = 12;
+    io.graphoenix.core.StringExpression create_group_id = 13;
+    io.graphoenix.core.StringExpression intro_typename = 14;
+    RoleCompositeRelationOrderBy order_by = 15;
+    repeated string group_by = 16;
+    bool not = 17;
+    io.graphoenix.core.Conditional cond = 18;
+    repeated RoleCompositeRelationExpression exs = 19;
+    int32 first = 20;
+    int32 last = 21;
+    int32 offset = 22;
+    string after = 23;
+    string before = 24;
 }
-message RoleRoleRelationConnectionSubscriptionArguments {
+message RoleCompositeRelationConnectionSubscriptionArguments {
     io.graphoenix.core.StringExpression id = 1;
     io.graphoenix.core.StringExpression role_ref = 2;
-    RoleExpression role_ref_type = 3;
-    bool include_deprecated = 4;
-    io.graphoenix.core.IntExpression version = 5;
-    io.graphoenix.core.IntExpression realm_id = 6;
-    io.graphoenix.core.StringExpression create_user_id = 7;
-    io.graphoenix.core.StringExpression create_time = 8;
-    io.graphoenix.core.StringExpression update_user_id = 9;
-    io.graphoenix.core.StringExpression update_time = 10;
-    io.graphoenix.core.StringExpression create_group_id = 11;
-    io.graphoenix.core.StringExpression intro_typename = 12;
-    RoleRoleRelationOrderBy order_by = 13;
-    repeated string group_by = 14;
-    bool not = 15;
-    io.graphoenix.core.Conditional cond = 16;
-    repeated RoleRoleRelationExpression exs = 17;
-    int32 first = 18;
-    int32 last = 19;
-    int32 offset = 20;
-    string after = 21;
-    string before = 22;
+    RoleExpression role = 3;
+    io.graphoenix.core.StringExpression composite_ref = 4;
+    RoleExpression composite = 5;
+    bool include_deprecated = 6;
+    io.graphoenix.core.IntExpression version = 7;
+    io.graphoenix.core.IntExpression realm_id = 8;
+    io.graphoenix.core.StringExpression create_user_id = 9;
+    io.graphoenix.core.StringExpression create_time = 10;
+    io.graphoenix.core.StringExpression update_user_id = 11;
+    io.graphoenix.core.StringExpression update_time = 12;
+    io.graphoenix.core.StringExpression create_group_id = 13;
+    io.graphoenix.core.StringExpression intro_typename = 14;
+    RoleCompositeRelationOrderBy order_by = 15;
+    repeated string group_by = 16;
+    bool not = 17;
+    io.graphoenix.core.Conditional cond = 18;
+    repeated RoleCompositeRelationExpression exs = 19;
+    int32 first = 20;
+    int32 last = 21;
+    int32 offset = 22;
+    string after = 23;
+    string before = 24;
 }
 message PermissionRoleRelationSubscriptionArguments {
     io.graphoenix.core.StringExpression id = 1;
     io.graphoenix.core.StringExpression role_ref = 2;
-    RoleExpression role_ref_type = 3;
+    RoleExpression role = 3;
     io.graphoenix.core.StringExpression permission_ref = 4;
-    PermissionExpression permission_ref_type = 5;
+    PermissionExpression permission = 5;
     bool include_deprecated = 6;
     io.graphoenix.core.IntExpression version = 7;
     io.graphoenix.core.IntExpression realm_id = 8;
@@ -2735,9 +2756,9 @@ message PermissionRoleRelationSubscriptionArguments {
 message PermissionRoleRelationListSubscriptionArguments {
     io.graphoenix.core.StringExpression id = 1;
     io.graphoenix.core.StringExpression role_ref = 2;
-    RoleExpression role_ref_type = 3;
+    RoleExpression role = 3;
     io.graphoenix.core.StringExpression permission_ref = 4;
-    PermissionExpression permission_ref_type = 5;
+    PermissionExpression permission = 5;
     bool include_deprecated = 6;
     io.graphoenix.core.IntExpression version = 7;
     io.graphoenix.core.IntExpression realm_id = 8;
@@ -2761,9 +2782,9 @@ message PermissionRoleRelationListSubscriptionArguments {
 message PermissionRoleRelationConnectionSubscriptionArguments {
     io.graphoenix.core.StringExpression id = 1;
     io.graphoenix.core.StringExpression role_ref = 2;
-    RoleExpression role_ref_type = 3;
+    RoleExpression role = 3;
     io.graphoenix.core.StringExpression permission_ref = 4;
-    PermissionExpression permission_ref_type = 5;
+    PermissionExpression permission = 5;
     bool include_deprecated = 6;
     io.graphoenix.core.IntExpression version = 7;
     io.graphoenix.core.IntExpression realm_id = 8;

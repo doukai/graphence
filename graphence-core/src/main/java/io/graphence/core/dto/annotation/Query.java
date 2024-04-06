@@ -75,13 +75,14 @@ public @interface Query {
   GroupRoleRelationConnectionQueryArguments groupRoleRelationConnection(
       ) default @GroupRoleRelationConnectionQueryArguments;
 
-  RoleRoleRelationQueryArguments roleRoleRelation() default @RoleRoleRelationQueryArguments;
+  RoleCompositeRelationQueryArguments roleCompositeRelation(
+      ) default @RoleCompositeRelationQueryArguments;
 
-  RoleRoleRelationListQueryArguments roleRoleRelationList(
-      ) default @RoleRoleRelationListQueryArguments;
+  RoleCompositeRelationListQueryArguments roleCompositeRelationList(
+      ) default @RoleCompositeRelationListQueryArguments;
 
-  RoleRoleRelationConnectionQueryArguments roleRoleRelationConnection(
-      ) default @RoleRoleRelationConnectionQueryArguments;
+  RoleCompositeRelationConnectionQueryArguments roleCompositeRelationConnection(
+      ) default @RoleCompositeRelationConnectionQueryArguments;
 
   PermissionRoleRelationQueryArguments permissionRoleRelation(
       ) default @PermissionRoleRelationQueryArguments;

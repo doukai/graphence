@@ -97,7 +97,7 @@ message Role {
     string intro_typename = 17;
     repeated RoleUserRelation role_user_relation = 18;
     repeated GroupRoleRelation group_role_relation = 19;
-    repeated RoleRoleRelation role_role_relation = 20;
+    repeated RoleCompositeRelation role_composite_relation = 20;
     repeated PermissionRoleRelation permission_role_relation = 21;
     User users_aggregate = 22;
     UserConnection users_connection = 23;
@@ -111,8 +111,8 @@ message Role {
     RoleUserRelationConnection role_user_relation_connection = 31;
     GroupRoleRelation group_role_relation_aggregate = 32;
     GroupRoleRelationConnection group_role_relation_connection = 33;
-    RoleRoleRelation role_role_relation_aggregate = 34;
-    RoleRoleRelationConnection role_role_relation_connection = 35;
+    RoleCompositeRelation role_composite_relation_aggregate = 34;
+    RoleCompositeRelationConnection role_composite_relation_connection = 35;
     PermissionRoleRelation permission_role_relation_aggregate = 36;
     PermissionRoleRelationConnection permission_role_relation_connection = 37;
     int32 id_count = 38;
@@ -236,8 +236,8 @@ message Permission {
     PermissionRoleRelation permission_role_relation_aggregate = 20;
     PermissionRoleRelationConnection permission_role_relation_connection = 21;
     int32 name_count = 22;
-    int32 name_max = 23;
-    int32 name_min = 24;
+    string name_max = 23;
+    string name_min = 24;
     int32 description_count = 25;
     string description_max = 26;
     string description_min = 27;
@@ -252,7 +252,7 @@ message Permission {
 message UserPhonesRelation {
     string id = 1;
     string user_ref = 2;
-    User user_ref_type = 3;
+    User user = 3;
     string phones_ref = 4;
     bool is_deprecated = 5;
     int32 version = 6;
@@ -276,9 +276,9 @@ message UserPhonesRelation {
 message GroupUserRelation {
     string id = 1;
     string user_ref = 2;
-    User user_ref_type = 3;
+    User user = 3;
     string group_ref = 4;
-    Group group_ref_type = 5;
+    Group group = 5;
     bool is_deprecated = 6;
     int32 version = 7;
     int32 realm_id = 8;
@@ -301,9 +301,9 @@ message GroupUserRelation {
 message RoleUserRelation {
     string id = 1;
     string user_ref = 2;
-    User user_ref_type = 3;
+    User user = 3;
     string role_ref = 4;
-    Role role_ref_type = 5;
+    Role role = 5;
     bool is_deprecated = 6;
     int32 version = 7;
     int32 realm_id = 8;
@@ -326,9 +326,9 @@ message RoleUserRelation {
 message GroupRoleRelation {
     string id = 1;
     string role_ref = 2;
-    Role role_ref_type = 3;
+    Role role = 3;
     string group_ref = 4;
-    Group group_ref_type = 5;
+    Group group = 5;
     bool is_deprecated = 6;
     int32 version = 7;
     int32 realm_id = 8;
@@ -348,32 +348,37 @@ message GroupRoleRelation {
     string group_ref_max = 22;
     string group_ref_min = 23;
 }
-message RoleRoleRelation {
+message RoleCompositeRelation {
     string id = 1;
     string role_ref = 2;
-    Role role_ref_type = 3;
-    bool is_deprecated = 4;
-    int32 version = 5;
-    int32 realm_id = 6;
-    string create_user_id = 7;
-    google.protobuf.Timestamp create_time = 8;
-    string update_user_id = 9;
-    google.protobuf.Timestamp update_time = 10;
-    string create_group_id = 11;
-    string intro_typename = 12;
-    int32 id_count = 13;
-    int32 id_max = 14;
-    int32 id_min = 15;
-    int32 role_ref_count = 16;
-    string role_ref_max = 17;
-    string role_ref_min = 18;
+    Role role = 3;
+    string composite_ref = 4;
+    Role composite = 5;
+    bool is_deprecated = 6;
+    int32 version = 7;
+    int32 realm_id = 8;
+    string create_user_id = 9;
+    google.protobuf.Timestamp create_time = 10;
+    string update_user_id = 11;
+    google.protobuf.Timestamp update_time = 12;
+    string create_group_id = 13;
+    string intro_typename = 14;
+    int32 id_count = 15;
+    int32 id_max = 16;
+    int32 id_min = 17;
+    int32 role_ref_count = 18;
+    string role_ref_max = 19;
+    string role_ref_min = 20;
+    int32 composite_ref_count = 21;
+    string composite_ref_max = 22;
+    string composite_ref_min = 23;
 }
 message PermissionRoleRelation {
     string id = 1;
     string role_ref = 2;
-    Role role_ref_type = 3;
+    Role role = 3;
     string permission_ref = 4;
-    Permission permission_ref_type = 5;
+    Permission permission = 5;
     bool is_deprecated = 6;
     int32 version = 7;
     int32 realm_id = 8;
@@ -474,13 +479,13 @@ message GroupRoleRelationEdge {
     GroupRoleRelation node = 1;
     string cursor = 2;
 }
-message RoleRoleRelationConnection {
+message RoleCompositeRelationConnection {
     int32 total_count = 1;
     io.graphoenix.core.PageInfo page_info = 2;
-    repeated RoleRoleRelationEdge edges = 3;
+    repeated RoleCompositeRelationEdge edges = 3;
 }
-message RoleRoleRelationEdge {
-    RoleRoleRelation node = 1;
+message RoleCompositeRelationEdge {
+    RoleCompositeRelation node = 1;
     string cursor = 2;
 }
 message PermissionRoleRelationConnection {
@@ -493,21 +498,21 @@ message PermissionRoleRelationEdge {
     string cursor = 2;
 }
 message CurrentUser {
-    string name = 1;
-    repeated string groups = 2;
-    string id = 3;
-    repeated string roles = 4;
-    int32 realm_id = 5;
-    string login = 6;
-    string last_name = 7;
+    int32 realm_id = 1;
+    string id = 2;
+    string login = 3;
+    string name = 4;
+    string last_name = 5;
+    repeated string groups = 6;
+    repeated string roles = 7;
 }
 message Policy {
-    string v2 = 1;
-    string v0 = 2;
-    string id = 3;
-    string v4 = 4;
-    string v1 = 5;
-    string ptype = 6;
+    string ptype = 1;
+    string v1 = 2;
+    string v2 = 3;
+    string id = 4;
+    string v5 = 5;
+    string v0 = 6;
     string v3 = 7;
-    string v5 = 8;
+    string v4 = 8;
 }

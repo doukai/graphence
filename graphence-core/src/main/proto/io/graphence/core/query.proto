@@ -40,9 +40,9 @@ service QueryService {
     rpc GroupRoleRelation (QueryGroupRoleRelationRequest) returns (QueryGroupRoleRelationResponse);
     rpc GroupRoleRelationList (QueryGroupRoleRelationListRequest) returns (QueryGroupRoleRelationListResponse);
     rpc GroupRoleRelationConnection (QueryGroupRoleRelationConnectionRequest) returns (QueryGroupRoleRelationConnectionResponse);
-    rpc RoleRoleRelation (QueryRoleRoleRelationRequest) returns (QueryRoleRoleRelationResponse);
-    rpc RoleRoleRelationList (QueryRoleRoleRelationListRequest) returns (QueryRoleRoleRelationListResponse);
-    rpc RoleRoleRelationConnection (QueryRoleRoleRelationConnectionRequest) returns (QueryRoleRoleRelationConnectionResponse);
+    rpc RoleCompositeRelation (QueryRoleCompositeRelationRequest) returns (QueryRoleCompositeRelationResponse);
+    rpc RoleCompositeRelationList (QueryRoleCompositeRelationListRequest) returns (QueryRoleCompositeRelationListResponse);
+    rpc RoleCompositeRelationConnection (QueryRoleCompositeRelationConnectionRequest) returns (QueryRoleCompositeRelationConnectionResponse);
     rpc PermissionRoleRelation (QueryPermissionRoleRelationRequest) returns (QueryPermissionRoleRelationResponse);
     rpc PermissionRoleRelationList (QueryPermissionRoleRelationListRequest) returns (QueryPermissionRoleRelationListResponse);
     rpc PermissionRoleRelationConnection (QueryPermissionRoleRelationConnectionRequest) returns (QueryPermissionRoleRelationConnectionResponse);

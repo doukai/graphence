@@ -57,7 +57,7 @@ public class RoleQueryArguments implements NamedStructExpression, MetaExpression
 
   private GroupRoleRelationExpression groupRoleRelation;
 
-  private RoleRoleRelationExpression roleRoleRelation;
+  private RoleCompositeRelationExpression roleCompositeRelation;
 
   private PermissionRoleRelationExpression permissionRoleRelation;
 
@@ -243,12 +243,12 @@ public class RoleQueryArguments implements NamedStructExpression, MetaExpression
     this.groupRoleRelation = groupRoleRelation;
   }
 
-  public RoleRoleRelationExpression getRoleRoleRelation() {
-    return this.roleRoleRelation;
+  public RoleCompositeRelationExpression getRoleCompositeRelation() {
+    return this.roleCompositeRelation;
   }
 
-  public void setRoleRoleRelation(RoleRoleRelationExpression roleRoleRelation) {
-    this.roleRoleRelation = roleRoleRelation;
+  public void setRoleCompositeRelation(RoleCompositeRelationExpression roleCompositeRelation) {
+    this.roleCompositeRelation = roleCompositeRelation;
   }
 
   public PermissionRoleRelationExpression getPermissionRoleRelation() {

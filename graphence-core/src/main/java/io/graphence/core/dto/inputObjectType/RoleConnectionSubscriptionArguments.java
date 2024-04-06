@@ -58,7 +58,7 @@ public class RoleConnectionSubscriptionArguments implements NamedStructExpressio
 
   private GroupRoleRelationExpression groupRoleRelation;
 
-  private RoleRoleRelationExpression roleRoleRelation;
+  private RoleCompositeRelationExpression roleCompositeRelation;
 
   private PermissionRoleRelationExpression permissionRoleRelation;
 
@@ -256,12 +256,12 @@ public class RoleConnectionSubscriptionArguments implements NamedStructExpressio
     this.groupRoleRelation = groupRoleRelation;
   }
 
-  public RoleRoleRelationExpression getRoleRoleRelation() {
-    return this.roleRoleRelation;
+  public RoleCompositeRelationExpression getRoleCompositeRelation() {
+    return this.roleCompositeRelation;
   }
 
-  public void setRoleRoleRelation(RoleRoleRelationExpression roleRoleRelation) {
-    this.roleRoleRelation = roleRoleRelation;
+  public void setRoleCompositeRelation(RoleCompositeRelationExpression roleCompositeRelation) {
+    this.roleCompositeRelation = roleCompositeRelation;
   }
 
   public PermissionRoleRelationExpression getPermissionRoleRelation() {

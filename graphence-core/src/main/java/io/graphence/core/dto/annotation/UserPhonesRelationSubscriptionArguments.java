@@ -20,7 +20,7 @@ public @interface UserPhonesRelationSubscriptionArguments {
 
   StringExpression1 userRef() default @StringExpression1;
 
-  UserExpression1 userRefType() default @UserExpression1;
+  UserExpression1 user() default @UserExpression1;
 
   StringExpression1 phonesRef() default @StringExpression1;
 
@@ -54,7 +54,7 @@ public @interface UserPhonesRelationSubscriptionArguments {
 
   String $userRef() default "";
 
-  String $userRefType() default "";
+  String $user() default "";
 
   String $phonesRef() default "";
 

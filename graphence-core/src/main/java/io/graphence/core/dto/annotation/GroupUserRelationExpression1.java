@@ -20,11 +20,11 @@ public @interface GroupUserRelationExpression1 {
 
   StringExpression2 userRef() default @StringExpression2;
 
-  UserExpression2 userRefType() default @UserExpression2;
+  UserExpression2 user() default @UserExpression2;
 
   StringExpression2 groupRef() default @StringExpression2;
 
-  GroupExpression2 groupRefType() default @GroupExpression2;
+  GroupExpression2 group() default @GroupExpression2;
 
   boolean includeDeprecated() default false;
 
@@ -54,11 +54,11 @@ public @interface GroupUserRelationExpression1 {
 
   String $userRef() default "";
 
-  String $userRefType() default "";
+  String $user() default "";
 
   String $groupRef() default "";
 
-  String $groupRefType() default "";
+  String $group() default "";
 
   String $includeDeprecated() default "";
 

@@ -17,11 +17,11 @@ public @interface GroupUserRelationInput {
 
   String userRef() default "";
 
-  UserInput1 userRefType() default @UserInput1;
+  UserInput1 user() default @UserInput1;
 
   String groupRef() default "";
 
-  GroupInput1 groupRefType() default @GroupInput1;
+  GroupInput1 group() default @GroupInput1;
 
   boolean isDeprecated() default false;
 
@@ -47,11 +47,11 @@ public @interface GroupUserRelationInput {
 
   String $userRef() default "";
 
-  String $userRefType() default "";
+  String $user() default "";
 
   String $groupRef() default "";
 
-  String $groupRefType() default "";
+  String $group() default "";
 
   String $isDeprecated() default "";
 

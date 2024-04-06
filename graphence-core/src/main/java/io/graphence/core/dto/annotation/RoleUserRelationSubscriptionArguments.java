@@ -20,11 +20,11 @@ public @interface RoleUserRelationSubscriptionArguments {
 
   StringExpression1 userRef() default @StringExpression1;
 
-  UserExpression1 userRefType() default @UserExpression1;
+  UserExpression1 user() default @UserExpression1;
 
   StringExpression1 roleRef() default @StringExpression1;
 
-  RoleExpression1 roleRefType() default @RoleExpression1;
+  RoleExpression1 role() default @RoleExpression1;
 
   boolean includeDeprecated() default false;
 
@@ -56,11 +56,11 @@ public @interface RoleUserRelationSubscriptionArguments {
 
   String $userRef() default "";
 
-  String $userRefType() default "";
+  String $user() default "";
 
   String $roleRef() default "";
 
-  String $roleRefType() default "";
+  String $role() default "";
 
   String $includeDeprecated() default "";
 

@@ -81,14 +81,14 @@ public @interface Subscription {
   GroupRoleRelationConnectionSubscriptionArguments groupRoleRelationConnection(
       ) default @GroupRoleRelationConnectionSubscriptionArguments;
 
-  RoleRoleRelationSubscriptionArguments roleRoleRelation(
-      ) default @RoleRoleRelationSubscriptionArguments;
+  RoleCompositeRelationSubscriptionArguments roleCompositeRelation(
+      ) default @RoleCompositeRelationSubscriptionArguments;
 
-  RoleRoleRelationListSubscriptionArguments roleRoleRelationList(
-      ) default @RoleRoleRelationListSubscriptionArguments;
+  RoleCompositeRelationListSubscriptionArguments roleCompositeRelationList(
+      ) default @RoleCompositeRelationListSubscriptionArguments;
 
-  RoleRoleRelationConnectionSubscriptionArguments roleRoleRelationConnection(
-      ) default @RoleRoleRelationConnectionSubscriptionArguments;
+  RoleCompositeRelationConnectionSubscriptionArguments roleCompositeRelationConnection(
+      ) default @RoleCompositeRelationConnectionSubscriptionArguments;
 
   PermissionRoleRelationSubscriptionArguments permissionRoleRelation(
       ) default @PermissionRoleRelationSubscriptionArguments;

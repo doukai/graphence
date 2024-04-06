@@ -20,7 +20,7 @@ public class UserPhonesRelationListMutationArguments implements MetaInput {
 
   private String userRef;
 
-  private UserInput userRefType;
+  private UserInput user;
 
   private String phonesRef;
 
@@ -63,12 +63,12 @@ public class UserPhonesRelationListMutationArguments implements MetaInput {
     this.userRef = userRef;
   }
 
-  public UserInput getUserRefType() {
-    return this.userRefType;
+  public UserInput getUser() {
+    return this.user;
   }
 
-  public void setUserRefType(UserInput userRefType) {
-    this.userRefType = userRefType;
+  public void setUser(UserInput user) {
+    this.user = user;
   }
 
   public String getPhonesRef() {

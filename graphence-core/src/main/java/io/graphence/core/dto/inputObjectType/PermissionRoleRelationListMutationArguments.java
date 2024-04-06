@@ -20,11 +20,11 @@ public class PermissionRoleRelationListMutationArguments implements MetaInput {
 
   private String roleRef;
 
-  private RoleInput roleRefType;
+  private RoleInput role;
 
   private String permissionRef;
 
-  private PermissionInput permissionRefType;
+  private PermissionInput permission;
 
   private Boolean isDeprecated;
 
@@ -65,12 +65,12 @@ public class PermissionRoleRelationListMutationArguments implements MetaInput {
     this.roleRef = roleRef;
   }
 
-  public RoleInput getRoleRefType() {
-    return this.roleRefType;
+  public RoleInput getRole() {
+    return this.role;
   }
 
-  public void setRoleRefType(RoleInput roleRefType) {
-    this.roleRefType = roleRefType;
+  public void setRole(RoleInput role) {
+    this.role = role;
   }
 
   public String getPermissionRef() {
@@ -81,12 +81,12 @@ public class PermissionRoleRelationListMutationArguments implements MetaInput {
     this.permissionRef = permissionRef;
   }
 
-  public PermissionInput getPermissionRefType() {
-    return this.permissionRefType;
+  public PermissionInput getPermission() {
+    return this.permission;
   }
 
-  public void setPermissionRefType(PermissionInput permissionRefType) {
-    this.permissionRefType = permissionRefType;
+  public void setPermission(PermissionInput permission) {
+    this.permission = permission;
   }
 
   public Boolean getIsDeprecated() {

@@ -17,7 +17,7 @@ public @interface UserPhonesRelationInput1 {
 
   String userRef() default "";
 
-  UserInput2 userRefType() default @UserInput2;
+  UserInput2 user() default @UserInput2;
 
   String phonesRef() default "";
 
@@ -45,7 +45,7 @@ public @interface UserPhonesRelationInput1 {
 
   String $userRef() default "";
 
-  String $userRefType() default "";
+  String $user() default "";
 
   String $phonesRef() default "";
 

@@ -17,11 +17,11 @@ public @interface PermissionRoleRelationMutationArguments {
 
   String roleRef() default "";
 
-  RoleInput1 roleRefType() default @RoleInput1;
+  RoleInput1 role() default @RoleInput1;
 
   String permissionRef() default "";
 
-  PermissionInput1 permissionRefType() default @PermissionInput1;
+  PermissionInput1 permission() default @PermissionInput1;
 
   boolean isDeprecated() default false;
 
@@ -47,11 +47,11 @@ public @interface PermissionRoleRelationMutationArguments {
 
   String $roleRef() default "";
 
-  String $roleRefType() default "";
+  String $role() default "";
 
   String $permissionRef() default "";
 
-  String $permissionRefType() default "";
+  String $permission() default "";
 
   String $isDeprecated() default "";
 

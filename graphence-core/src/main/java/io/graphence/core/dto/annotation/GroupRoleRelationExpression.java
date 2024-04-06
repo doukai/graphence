@@ -20,11 +20,11 @@ public @interface GroupRoleRelationExpression {
 
   StringExpression1 roleRef() default @StringExpression1;
 
-  RoleExpression1 roleRefType() default @RoleExpression1;
+  RoleExpression1 role() default @RoleExpression1;
 
   StringExpression1 groupRef() default @StringExpression1;
 
-  GroupExpression1 groupRefType() default @GroupExpression1;
+  GroupExpression1 group() default @GroupExpression1;
 
   boolean includeDeprecated() default false;
 
@@ -54,11 +54,11 @@ public @interface GroupRoleRelationExpression {
 
   String $roleRef() default "";
 
-  String $roleRefType() default "";
+  String $role() default "";
 
   String $groupRef() default "";
 
-  String $groupRefType() default "";
+  String $group() default "";
 
   String $includeDeprecated() default "";
 

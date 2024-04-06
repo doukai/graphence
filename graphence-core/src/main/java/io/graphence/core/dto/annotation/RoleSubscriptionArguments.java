@@ -54,7 +54,8 @@ public @interface RoleSubscriptionArguments {
 
   GroupRoleRelationExpression1 groupRoleRelation() default @GroupRoleRelationExpression1;
 
-  RoleRoleRelationExpression1 roleRoleRelation() default @RoleRoleRelationExpression1;
+  RoleCompositeRelationExpression1 roleCompositeRelation(
+      ) default @RoleCompositeRelationExpression1;
 
   PermissionRoleRelationExpression1 permissionRoleRelation(
       ) default @PermissionRoleRelationExpression1;
@@ -105,7 +106,7 @@ public @interface RoleSubscriptionArguments {
 
   String $groupRoleRelation() default "";
 
-  String $roleRoleRelation() default "";
+  String $roleCompositeRelation() default "";
 
   String $permissionRoleRelation() default "";
 

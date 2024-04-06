@@ -20,11 +20,11 @@ public @interface PermissionRoleRelationSubscriptionArguments {
 
   StringExpression1 roleRef() default @StringExpression1;
 
-  RoleExpression1 roleRefType() default @RoleExpression1;
+  RoleExpression1 role() default @RoleExpression1;
 
   StringExpression1 permissionRef() default @StringExpression1;
 
-  PermissionExpression1 permissionRefType() default @PermissionExpression1;
+  PermissionExpression1 permission() default @PermissionExpression1;
 
   boolean includeDeprecated() default false;
 
@@ -56,11 +56,11 @@ public @interface PermissionRoleRelationSubscriptionArguments {
 
   String $roleRef() default "";
 
-  String $roleRefType() default "";
+  String $role() default "";
 
   String $permissionRef() default "";
 
-  String $permissionRefType() default "";
+  String $permission() default "";
 
   String $includeDeprecated() default "";
 

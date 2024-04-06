@@ -51,7 +51,7 @@ public @interface RoleInput {
 
   GroupRoleRelationInput1[] groupRoleRelation() default {};
 
-  RoleRoleRelationInput1[] roleRoleRelation() default {};
+  RoleCompositeRelationInput1[] roleCompositeRelation() default {};
 
   PermissionRoleRelationInput1[] permissionRoleRelation() default {};
 
@@ -95,7 +95,7 @@ public @interface RoleInput {
 
   String $groupRoleRelation() default "";
 
-  String $roleRoleRelation() default "";
+  String $roleCompositeRelation() default "";
 
   String $permissionRoleRelation() default "";
 

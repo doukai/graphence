@@ -19,11 +19,11 @@ public class GroupRoleRelationInput implements MetaInput {
 
   private String roleRef;
 
-  private RoleInput roleRefType;
+  private RoleInput role;
 
   private String groupRef;
 
-  private GroupInput groupRefType;
+  private GroupInput group;
 
   private Boolean isDeprecated;
 
@@ -62,12 +62,12 @@ public class GroupRoleRelationInput implements MetaInput {
     this.roleRef = roleRef;
   }
 
-  public RoleInput getRoleRefType() {
-    return this.roleRefType;
+  public RoleInput getRole() {
+    return this.role;
   }
 
-  public void setRoleRefType(RoleInput roleRefType) {
-    this.roleRefType = roleRefType;
+  public void setRole(RoleInput role) {
+    this.role = role;
   }
 
   public String getGroupRef() {
@@ -78,12 +78,12 @@ public class GroupRoleRelationInput implements MetaInput {
     this.groupRef = groupRef;
   }
 
-  public GroupInput getGroupRefType() {
-    return this.groupRefType;
+  public GroupInput getGroup() {
+    return this.group;
   }
 
-  public void setGroupRefType(GroupInput groupRefType) {
-    this.groupRefType = groupRefType;
+  public void setGroup(GroupInput group) {
+    this.group = group;
   }
 
   public Boolean getIsDeprecated() {
