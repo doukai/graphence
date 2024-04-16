@@ -10,12 +10,12 @@ import io.graphence.core.dto.objectType.Permission;
 import io.graphence.core.dto.objectType.Role;
 import io.graphence.core.error.AuthenticationException;
 import io.graphence.core.utils.JWTUtil;
+import io.graphoenix.http.server.context.RequestScopeInstanceFactory;
 import io.netty.handler.codec.http.HttpHeaderNames;
 import io.nozdormu.spi.async.Asyncable;
 import jakarta.annotation.security.PermitAll;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
-import jakarta.inject.Provider;
 import org.eclipse.microprofile.graphql.GraphQLApi;
 import org.eclipse.microprofile.graphql.Mutation;
 import org.eclipse.microprofile.graphql.NonNull;
@@ -24,6 +24,7 @@ import reactor.core.publisher.Mono;
 import reactor.netty.http.server.HttpServerResponse;
 
 import java.util.Base64;
+import java.util.Collections;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -40,16 +41,16 @@ public class LoginApi implements Asyncable {
     private final SecurityConfig config;
     private final LoginDao loginDao;
     private final JWTUtil jwtUtil;
-    private final Provider<Mono<HttpServerResponse>> responseProvider;
     private final RBACPolicyDao rbacPolicyDao;
+    private final RequestScopeInstanceFactory requestScopeInstanceFactory;
 
     @Inject
-    public LoginApi(SecurityConfig config, LoginDao loginDao, JWTUtil jwtUtil, Provider<Mono<HttpServerResponse>> responseProvider, RBACPolicyDao rbacPolicyDao) {
+    public LoginApi(SecurityConfig config, LoginDao loginDao, JWTUtil jwtUtil, RequestScopeInstanceFactory requestScopeInstanceFactory, RBACPolicyDao rbacPolicyDao) {
         this.config = config;
         this.loginDao = loginDao;
         this.jwtUtil = jwtUtil;
-        this.responseProvider = responseProvider;
         this.rbacPolicyDao = rbacPolicyDao;
+        this.requestScopeInstanceFactory = requestScopeInstanceFactory;
     }
 
     @Mutation
@@ -71,11 +72,12 @@ public class LoginApi implements Asyncable {
                 .flatMap(user -> {
                             Set<String> roleIdSet = jwtUtil.getRoles(user).map(Role::getId).collect(Collectors.toSet());
                             return rbacPolicyDao.queryPermissionTypeList(roleIdSet)
-                                    .map(permissions -> jwtUtil.build(user, roleIdSet, permissions.stream().map(Permission::getType).collect(Collectors.toSet())));
+                                    .map(permissions -> jwtUtil.build(user, roleIdSet, permissions.stream().map(Permission::getType).collect(Collectors.toSet())))
+                                    .switchIfEmpty(Mono.defer(() -> Mono.just(jwtUtil.build(user, roleIdSet, Collections.emptySet()))));
                         }
                 )
                 .flatMap(token ->
-                        responseProvider.get()
+                        requestScopeInstanceFactory.get(HttpServerResponse.class)
                                 .map(response -> response.addHeader(HttpHeaderNames.SET_COOKIE, AUTHORIZATION_HEADER + "=" + AUTHORIZATION_SCHEME_BEARER + " " + token))
                                 .thenReturn(token)
                 );

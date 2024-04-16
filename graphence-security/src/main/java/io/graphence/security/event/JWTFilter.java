@@ -6,7 +6,10 @@ import io.graphence.core.dto.CurrentUser;
 import io.graphence.core.error.AuthenticationException;
 import io.graphence.core.jwt.GraphenceJsonWebToken;
 import io.graphence.core.utils.JWTUtil;
+import io.graphoenix.core.handler.DocumentManager;
 import io.graphoenix.http.server.context.RequestScopeInstanceFactory;
+import io.graphoenix.spi.graphql.operation.Operation;
+import io.graphoenix.spi.graphql.type.ObjectType;
 import io.nozdormu.spi.event.ScopeEvent;
 import jakarta.annotation.Priority;
 import jakarta.enterprise.context.ApplicationScoped;
@@ -30,12 +33,14 @@ public class JWTFilter extends BaseRequestFilter implements ScopeEvent {
 
     public static final int JWT_FILTER_SCOPE_EVENT_PRIORITY = 0;
 
+    private final DocumentManager documentManager;
     private final LoginDao loginDao;
     private final JWTUtil jwtUtil;
     private final RequestScopeInstanceFactory requestScopeInstanceFactory;
 
     @Inject
-    public JWTFilter(LoginDao loginDao, JWTUtil jwtUtil, RequestScopeInstanceFactory requestScopeInstanceFactory) {
+    public JWTFilter(DocumentManager documentManager, LoginDao loginDao, JWTUtil jwtUtil, RequestScopeInstanceFactory requestScopeInstanceFactory) {
+        this.documentManager = documentManager;
         this.loginDao = loginDao;
         this.jwtUtil = jwtUtil;
         this.requestScopeInstanceFactory = requestScopeInstanceFactory;
@@ -45,7 +50,6 @@ public class JWTFilter extends BaseRequestFilter implements ScopeEvent {
     public Mono<Void> fireAsync(Map<String, Object> context) {
         HttpServerRequest request = getRequest(context);
         String authorization = request.requestHeaders().get(AUTHORIZATION_HEADER);
-
         if (authorization != null && authorization.startsWith(AUTHORIZATION_SCHEME_BEARER)) {
             String jws = authorization.substring(7);
             try {
@@ -89,6 +93,11 @@ public class JWTFilter extends BaseRequestFilter implements ScopeEvent {
                     )
                     .flatMap(currentUser -> requestScopeInstanceFactory.compute(CurrentUser.class, currentUser))
                     .then();
+        }
+        Operation operation = getOperation(context);
+        ObjectType operationType = documentManager.getOperationTypeOrError(operation);
+        if (operation.getFields().stream().anyMatch(field -> operationType.getField(field.getName()).isPermitAll())) {
+            return Mono.empty();
         }
         throw new AuthenticationException(UN_AUTHENTICATION);
     }
