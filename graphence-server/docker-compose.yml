@@ -1,0 +1,29 @@
+version: "3.8"
+
+services:
+  graphence-mariadb:
+    container_name: graphence-mariadb
+    image: mariadb:10.6
+    restart: unless-stopped
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: graphence
+      MYSQL_USER: graphence
+      MYSQL_PASSWORD: 123456
+      MYSQL_HOST : '%'
+    networks:
+      - graphence-net
+
+  graphence-rabbitmq:
+    container_name: graphence-rabbitmq
+    image: rabbitmq:3
+    restart: unless-stopped
+    ports:
+      - "5672:5672"
+    networks:
+      - graphence-net
+
+networks:
+  graphence-net:
