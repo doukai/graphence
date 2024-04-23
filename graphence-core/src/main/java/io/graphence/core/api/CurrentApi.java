@@ -18,7 +18,6 @@ import org.eclipse.microprofile.graphql.Query;
 import org.eclipse.microprofile.graphql.Source;
 import reactor.core.publisher.Mono;
 
-import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -68,15 +67,6 @@ public class CurrentApi implements Asyncable {
 
     @Async
     public MetaInput invokeMetaInput(@Source MetaInput metaInput) {
-        LocalDateTime now = LocalDateTime.now();
-        if (metaInput.getCreateTime() == null) {
-            metaInput.setCreateTime(now);
-            metaInput.setVersion(0);
-        } else {
-            metaInput.setUpdateTime(now);
-            metaInput.setVersion(metaInput.getVersion() + 1);
-        }
-
         CurrentUser currentUser = await(currentUserMonoProvider.get());
         if (!(metaInput instanceof RealmInput ||
                 metaInput instanceof RealmMutationArguments ||

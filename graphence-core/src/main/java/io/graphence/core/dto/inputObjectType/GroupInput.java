@@ -1,6 +1,7 @@
 package io.graphence.core.dto.inputObjectType;
 
 import com.dslplatform.json.CompiledJson;
+import io.graphoenix.core.dto.inputObjectType.MetaExpression;
 import io.graphoenix.core.dto.inputObjectType.MetaInput;
 import io.graphoenix.structure.dto.inputObjectType.NamedStructInput;
 import io.graphoenix.structure.dto.inputObjectType.TreeStructInput;
@@ -267,11 +268,13 @@ public class GroupInput implements TreeStructInput, NamedStructInput, MetaInput 
     this.groupRoleRelation = groupRoleRelation;
   }
 
+  @Override
   public GroupExpression getWhere() {
     return this.where;
   }
 
-  public void setWhere(GroupExpression where) {
-    this.where = where;
+  @Override
+  public void setWhere(MetaExpression where) {
+    this.where = (GroupExpression)where;
   }
 }
