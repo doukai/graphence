@@ -1,7 +1,6 @@
 package io.graphence.core.dto.inputObjectType;
 
 import com.dslplatform.json.CompiledJson;
-import io.graphoenix.core.dto.inputObjectType.MetaExpression;
 import io.graphoenix.core.dto.inputObjectType.MetaInput;
 import io.graphoenix.structure.dto.inputObjectType.NamedStructInput;
 import jakarta.annotation.Generated;
@@ -263,13 +262,11 @@ public class RoleListMutationArguments implements NamedStructInput, MetaInput {
     this.list = list;
   }
 
-  @Override
   public RoleExpression getWhere() {
     return this.where;
   }
 
-  @Override
-  public void setWhere(MetaExpression where) {
-    this.where = (RoleExpression)where;
+  public void setWhere(RoleExpression where) {
+    this.where = where;
   }
 }

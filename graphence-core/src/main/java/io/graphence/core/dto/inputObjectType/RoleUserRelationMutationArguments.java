@@ -1,7 +1,6 @@
 package io.graphence.core.dto.inputObjectType;
 
 import com.dslplatform.json.CompiledJson;
-import io.graphoenix.core.dto.inputObjectType.MetaExpression;
 import io.graphoenix.core.dto.inputObjectType.MetaInput;
 import jakarta.annotation.Generated;
 import java.lang.Boolean;
@@ -173,13 +172,11 @@ public class RoleUserRelationMutationArguments implements MetaInput {
     this.__typename = __typename;
   }
 
-  @Override
   public RoleUserRelationExpression getWhere() {
     return this.where;
   }
 
-  @Override
-  public void setWhere(MetaExpression where) {
-    this.where = (RoleUserRelationExpression)where;
+  public void setWhere(RoleUserRelationExpression where) {
+    this.where = where;
   }
 }

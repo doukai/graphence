@@ -1,7 +1,6 @@
 package io.graphence.core.dto.inputObjectType;
 
 import com.dslplatform.json.CompiledJson;
-import io.graphoenix.core.dto.inputObjectType.MetaExpression;
 import io.graphoenix.core.dto.inputObjectType.MetaInput;
 import io.graphoenix.structure.dto.inputObjectType.NamedStructInput;
 import jakarta.annotation.Generated;
@@ -291,13 +290,11 @@ public class UserInput implements NamedStructInput, MetaInput {
     this.roleUserRelation = roleUserRelation;
   }
 
-  @Override
   public UserExpression getWhere() {
     return this.where;
   }
 
-  @Override
-  public void setWhere(MetaExpression where) {
-    this.where = (UserExpression)where;
+  public void setWhere(UserExpression where) {
+    this.where = where;
   }
 }

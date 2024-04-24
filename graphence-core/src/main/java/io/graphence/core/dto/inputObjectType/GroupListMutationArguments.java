@@ -1,7 +1,6 @@
 package io.graphence.core.dto.inputObjectType;
 
 import com.dslplatform.json.CompiledJson;
-import io.graphoenix.core.dto.inputObjectType.MetaExpression;
 import io.graphoenix.core.dto.inputObjectType.MetaInput;
 import io.graphoenix.structure.dto.inputObjectType.NamedStructInput;
 import io.graphoenix.structure.dto.inputObjectType.TreeStructInput;
@@ -278,13 +277,11 @@ public class GroupListMutationArguments implements TreeStructInput, NamedStructI
     this.list = list;
   }
 
-  @Override
   public GroupExpression getWhere() {
     return this.where;
   }
 
-  @Override
-  public void setWhere(MetaExpression where) {
-    this.where = (GroupExpression)where;
+  public void setWhere(GroupExpression where) {
+    this.where = where;
   }
 }

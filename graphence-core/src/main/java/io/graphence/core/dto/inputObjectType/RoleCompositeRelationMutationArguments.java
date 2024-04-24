@@ -1,7 +1,6 @@
 package io.graphence.core.dto.inputObjectType;
 
 import com.dslplatform.json.CompiledJson;
-import io.graphoenix.core.dto.inputObjectType.MetaExpression;
 import io.graphoenix.core.dto.inputObjectType.MetaInput;
 import jakarta.annotation.Generated;
 import java.lang.Boolean;
@@ -173,13 +172,11 @@ public class RoleCompositeRelationMutationArguments implements MetaInput {
     this.__typename = __typename;
   }
 
-  @Override
   public RoleCompositeRelationExpression getWhere() {
     return this.where;
   }
 
-  @Override
-  public void setWhere(MetaExpression where) {
-    this.where = (RoleCompositeRelationExpression)where;
+  public void setWhere(RoleCompositeRelationExpression where) {
+    this.where = where;
   }
 }
