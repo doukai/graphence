@@ -53,7 +53,7 @@ public class RootUserBuildEvent implements ScopeEvent {
                 "hash", Base64.getEncoder().encodeToString(hash.getResultAsBytes()),
                 "createTime", LocalDateTime.now()
         );
-        return loginDao.getUserByLogin(securityConfig.getRootUser())
+        return loginDao.getUserIdByLogin(securityConfig.getRootUser())
                 .map(user -> {
                             userArguments.put("id", user.getId());
                             return userArguments;

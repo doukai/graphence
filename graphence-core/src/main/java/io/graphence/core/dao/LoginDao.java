@@ -14,4 +14,8 @@ public interface LoginDao {
     @Query(user = @UserQueryArguments(login = @StringExpression1($val = "login")))
     @SelectionSet("{ id name lastName login salt hash email disable groups { id name path deep roles { id name composites { id name composites { id name } } } } roles { id name composites { id name composites { id name } } } realmId }")
     Mono<User> getUserByLogin(String login);
+
+    @Query(user = @UserQueryArguments(login = @StringExpression1($val = "login")))
+    @SelectionSet("{ id }")
+    Mono<User> getUserIdByLogin(String login);
 }
