@@ -40,6 +40,7 @@ public class GroupInput implements TreeStructInput, NamedStructInput, MetaInput 
 
   private RealmInput realm;
 
+  @DefaultValue("false")
   private Boolean isDeprecated;
 
   private Integer version;

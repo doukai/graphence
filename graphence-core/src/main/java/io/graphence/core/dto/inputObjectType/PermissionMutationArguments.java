@@ -31,6 +31,7 @@ public class PermissionMutationArguments implements MetaInput {
 
   private RealmInput realm;
 
+  @DefaultValue("false")
   private Boolean isDeprecated;
 
   private Integer version;

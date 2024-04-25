@@ -25,6 +25,7 @@ public class RoleUserRelationInput implements MetaInput {
 
   private RoleInput role;
 
+  @DefaultValue("false")
   private Boolean isDeprecated;
 
   private Integer version;

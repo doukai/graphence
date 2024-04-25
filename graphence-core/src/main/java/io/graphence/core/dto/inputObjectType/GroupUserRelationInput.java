@@ -25,6 +25,7 @@ public class GroupUserRelationInput implements MetaInput {
 
   private GroupInput group;
 
+  @DefaultValue("false")
   private Boolean isDeprecated;
 
   private Integer version;

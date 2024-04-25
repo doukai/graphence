@@ -13,7 +13,7 @@ repositories {
 
 dependencies {
     implementation project(':graphence-core')
-//    implementation project(':graphence-security')
+    implementation project(':graphence-security')
     implementation 'io.graphoenix:graphoenix-gossip:0.0.1-SNAPSHOT'
     implementation 'io.graphoenix:graphoenix-http-server:0.0.1-SNAPSHOT'
     implementation 'io.graphoenix:graphoenix-grpc-server:0.0.1-SNAPSHOT'

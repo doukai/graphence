@@ -23,6 +23,7 @@ public class UserPhonesRelationInput implements MetaInput {
 
   private String phonesRef;
 
+  @DefaultValue("false")
   private Boolean isDeprecated;
 
   private Integer version;

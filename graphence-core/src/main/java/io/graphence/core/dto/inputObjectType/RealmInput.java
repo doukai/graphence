@@ -22,6 +22,7 @@ public class RealmInput implements NamedStructInput, MetaInput {
 
   private String description;
 
+  @DefaultValue("false")
   private Boolean isDeprecated;
 
   private Integer version;

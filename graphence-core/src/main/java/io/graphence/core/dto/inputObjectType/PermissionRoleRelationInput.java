@@ -25,6 +25,7 @@ public class PermissionRoleRelationInput implements MetaInput {
 
   private PermissionInput permission;
 
+  @DefaultValue("false")
   private Boolean isDeprecated;
 
   private Integer version;

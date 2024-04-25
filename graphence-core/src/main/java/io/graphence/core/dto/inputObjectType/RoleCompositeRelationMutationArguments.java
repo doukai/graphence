@@ -25,6 +25,7 @@ public class RoleCompositeRelationMutationArguments implements MetaInput {
 
   private RoleInput composite;
 
+  @DefaultValue("false")
   private Boolean isDeprecated;
 
   private Integer version;

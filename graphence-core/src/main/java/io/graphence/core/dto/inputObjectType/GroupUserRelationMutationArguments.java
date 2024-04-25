@@ -25,6 +25,7 @@ public class GroupUserRelationMutationArguments implements MetaInput {
 
   private GroupInput group;
 
+  @DefaultValue("false")
   private Boolean isDeprecated;
 
   private Integer version;

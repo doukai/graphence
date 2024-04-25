@@ -25,6 +25,7 @@ public class RoleUserRelationMutationArguments implements MetaInput {
 
   private RoleInput role;
 
+  @DefaultValue("false")
   private Boolean isDeprecated;
 
   private Integer version;
