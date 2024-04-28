@@ -137,9 +137,12 @@ public class RBACFilter implements OperationBeforeHandler {
                                                     if (subField.getName().equals(FIELD_EDGES_NAME) && subField.getField(FIELD_NODE_NAME) != null) {
                                                         Field node = subField.getField(FIELD_NODE_NAME);
                                                         FieldDefinition originalFieldDefinition = objectType.getField(fieldDefinition.getConnectionFieldOrError());
-                                                        FieldDefinition nodeFieldDefinition = documentManager.getFieldTypeDefinition(fieldTypeDefinition.asObject().getField(FIELD_EDGES_NAME)).asObject().getField(FIELD_NODE_NAME);
+                                                        Definition originalFieldTypeDefinition = documentManager.getFieldTypeDefinition(originalFieldDefinition);
                                                         node.setSelections(
-                                                                enforce(currentUser, documentManager.getFieldTypeDefinition(originalFieldDefinition).asObject(), nodeFieldDefinition, node)
+                                                                node.getFields().stream()
+                                                                        .flatMap(nodeSubField ->
+                                                                                enforce(currentUser, originalFieldTypeDefinition.asObject(), originalFieldTypeDefinition.asObject().getField(nodeSubField.getName()), nodeSubField)
+                                                                        )
                                                                         .collect(Collectors.toList())
                                                         );
                                                     }

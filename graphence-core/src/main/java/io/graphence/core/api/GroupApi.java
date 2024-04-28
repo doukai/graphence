@@ -31,12 +31,14 @@ public class GroupApi implements Asyncable {
         if (groupMutationArguments.getWhere() != null) {
             if (groupMutationArguments.getParent() != null) {
                 if (groupMutationArguments.getParent().getId() != null) {
-                    groupMutationArguments.setPath(groupMutationArguments.getParent().getPath() + groupMutationArguments.getParent().getId() + "/");
+                    Group parentGroup = await(groupDao.getGroupById(groupMutationArguments.getParent().getId()));
+                    groupMutationArguments.setPath(parentGroup.getPath() + parentGroup.getId() + "/");
+                    groupMutationArguments.setDeep(parentGroup.getDeep() + 1);
                 } else if (groupMutationArguments.getParent().getWhere().getId().getVal() != null) {
-                    groupMutationArguments.setPath(groupMutationArguments.getParent().getPath() + groupMutationArguments.getParent().getWhere().getId().getVal() + "/");
+                    Group parentGroup = await(groupDao.getGroupById(groupMutationArguments.getParent().getWhere().getId().getVal()));
+                    groupMutationArguments.setPath(parentGroup.getPath() + parentGroup.getId() + "/");
+                    groupMutationArguments.setDeep(parentGroup.getDeep() + 1);
                 }
-                groupMutationArguments.setDeep(groupMutationArguments.getParent().getDeep() + 1);
-
                 Group group = await(groupDao.getGroupById(groupMutationArguments.getWhere().getId().getVal()));
                 if (!group.getPath().equals("/")) {
                     List<Group> groups = await(groupDao.getGroupListByPath(group.getPath() + "%"));
@@ -59,11 +61,14 @@ public class GroupApi implements Asyncable {
         } else {
             if (groupMutationArguments.getParent() != null) {
                 if (groupMutationArguments.getParent().getId() != null) {
-                    groupMutationArguments.setPath(groupMutationArguments.getParent().getPath() + groupMutationArguments.getParent().getId() + "/");
+                    Group parentGroup = await(groupDao.getGroupById(groupMutationArguments.getParent().getId()));
+                    groupMutationArguments.setPath(parentGroup.getPath() + parentGroup.getId() + "/");
+                    groupMutationArguments.setDeep(parentGroup.getDeep() + 1);
                 } else if (groupMutationArguments.getParent().getWhere().getId().getVal() != null) {
-                    groupMutationArguments.setPath(groupMutationArguments.getParent().getPath() + groupMutationArguments.getParent().getWhere().getId().getVal() + "/");
+                    Group parentGroup = await(groupDao.getGroupById(groupMutationArguments.getParent().getWhere().getId().getVal()));
+                    groupMutationArguments.setPath(parentGroup.getPath() + parentGroup.getId() + "/");
+                    groupMutationArguments.setDeep(parentGroup.getDeep() + 1);
                 }
-                groupMutationArguments.setDeep(groupMutationArguments.getParent().getDeep() + 1);
             } else {
                 if (groupMutationArguments.getId() == null) {
                     groupMutationArguments.setDeep(0);
@@ -79,11 +84,14 @@ public class GroupApi implements Asyncable {
         if (groupInput.getWhere() != null) {
             if (groupInput.getParent() != null) {
                 if (groupInput.getParent().getId() != null) {
-                    groupInput.setPath(groupInput.getParent().getPath() + groupInput.getParent().getId() + "/");
+                    Group parentGroup = await(groupDao.getGroupById(groupInput.getParent().getId()));
+                    groupInput.setPath(parentGroup.getPath() + parentGroup.getId() + "/");
+                    groupInput.setDeep(parentGroup.getDeep() + 1);
                 } else if (groupInput.getParent().getWhere().getId().getVal() != null) {
-                    groupInput.setPath(groupInput.getParent().getPath() + groupInput.getParent().getWhere().getId().getVal() + "/");
+                    Group parentGroup = await(groupDao.getGroupById(groupInput.getParent().getWhere().getId().getVal()));
+                    groupInput.setPath(parentGroup.getPath() + parentGroup.getId() + "/");
+                    groupInput.setDeep(parentGroup.getDeep() + 1);
                 }
-                groupInput.setDeep(groupInput.getParent().getDeep() + 1);
                 Group group = await(groupDao.getGroupById(groupInput.getWhere().getId().getVal()));
                 if (!group.getPath().equals("/")) {
                     List<Group> groups = await(groupDao.getGroupListByPath(group.getPath() + "%"));
@@ -106,11 +114,14 @@ public class GroupApi implements Asyncable {
         } else {
             if (groupInput.getParent() != null) {
                 if (groupInput.getParent().getId() != null) {
-                    groupInput.setPath(groupInput.getParent().getPath() + groupInput.getParent().getId() + "/");
+                    Group parentGroup = await(groupDao.getGroupById(groupInput.getParent().getId()));
+                    groupInput.setPath(parentGroup.getPath() + parentGroup.getId() + "/");
+                    groupInput.setDeep(parentGroup.getDeep() + 1);
                 } else if (groupInput.getParent().getWhere().getId().getVal() != null) {
-                    groupInput.setPath(groupInput.getParent().getPath() + groupInput.getParent().getWhere().getId().getVal() + "/");
+                    Group parentGroup = await(groupDao.getGroupById(groupInput.getParent().getWhere().getId().getVal()));
+                    groupInput.setPath(parentGroup.getPath() + parentGroup.getId() + "/");
+                    groupInput.setDeep(parentGroup.getDeep() + 1);
                 }
-                groupInput.setDeep(groupInput.getParent().getDeep() + 1);
             } else {
                 if (groupInput.getId() == null) {
                     groupInput.setDeep(0);
