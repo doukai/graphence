@@ -43,7 +43,7 @@ public class GroupApi implements Asyncable {
                 if (!group.getPath().equals("/")) {
                     List<Group> groups = await(groupDao.getGroupListByPath(group.getPath() + "%"));
                     if (!groups.isEmpty()) {
-                        List<ObjectValueWithVariable> orginalSubList = groups.stream()
+                        List<ObjectValueWithVariable> originalSubList = groups.stream()
                                 .map(item ->
                                         ObjectValueWithVariable.of(
                                                 "id", item.getId(),
@@ -53,7 +53,7 @@ public class GroupApi implements Asyncable {
                                         )
                                 )
                                 .collect(Collectors.toList());
-                        await(groupDao.updateGroupList(orginalSubList));
+                        await(groupDao.updateGroupList(originalSubList));
                     }
                 }
             }
@@ -94,8 +94,8 @@ public class GroupApi implements Asyncable {
                     groupMutationArguments.setPath("/");
                 }
             }
+            return groupMutationArguments;
         }
-        return groupMutationArguments;
     }
 
     @Async
@@ -115,7 +115,7 @@ public class GroupApi implements Asyncable {
                 if (!group.getPath().equals("/")) {
                     List<Group> groups = await(groupDao.getGroupListByPath(group.getPath() + "%"));
                     if (!groups.isEmpty()) {
-                        List<ObjectValueWithVariable> orginalSubList = groups.stream()
+                        List<ObjectValueWithVariable> originalSubList = groups.stream()
                                 .map(item ->
                                         ObjectValueWithVariable.of(
                                                 "id", item.getId(),
@@ -125,7 +125,7 @@ public class GroupApi implements Asyncable {
                                         )
                                 )
                                 .collect(Collectors.toList());
-                        await(groupDao.updateGroupList(orginalSubList));
+                        await(groupDao.updateGroupList(originalSubList));
                     }
                 }
             }
@@ -166,7 +166,7 @@ public class GroupApi implements Asyncable {
                     groupInput.setPath("/");
                 }
             }
+            return groupInput;
         }
-        return groupInput;
     }
 }
