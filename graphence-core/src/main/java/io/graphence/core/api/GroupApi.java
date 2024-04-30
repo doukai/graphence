@@ -130,23 +130,45 @@ public class GroupApi implements Asyncable {
                 }
             }
             if (groupInput.getSubGroups() != null) {
-                List<ObjectValueWithVariable> subList = groupInput.getSubGroups().stream()
-                        .map(item -> {
-                                    ObjectValueWithVariable objectValueWithVariable = ObjectValueWithVariable.of(
-                                            "name", item.getName(),
-                                            "path", item.getPath().replaceFirst(group.getPath(), groupInput.getPath()),
-                                            "deep", item.getDeep() - group.getDeep() + groupInput.getDeep()
-                                    );
-                                    if (item.getId() != null) {
-                                        objectValueWithVariable.put("id", item.getId());
-                                    } else if (item.getWhere().getId().getVal() != null) {
-                                        objectValueWithVariable.put("id", item.getWhere().getId().getVal());
-                                    }
-                                    return objectValueWithVariable;
-                                }
-                        )
-                        .collect(Collectors.toList());
-                await(groupDao.updateGroupList(subList));
+                for (GroupInput subGroupInput : groupInput.getSubGroups()) {
+                    if (subGroupInput.getId() != null) {
+                        Group subGroup = await(groupDao.getGroupById(subGroupInput.getId()));
+                        subGroupInput.setPath(group.getPath() + group.getId() + "/");
+                        subGroupInput.setDeep(group.getDeep() + 1);
+                        List<Group> subSubGroups = await(groupDao.getGroupListByPath(subGroup.getPath() + "%"));
+                        if (!subSubGroups.isEmpty()) {
+                            List<ObjectValueWithVariable> originalSubSubList = subSubGroups.stream()
+                                    .map(item ->
+                                            ObjectValueWithVariable.of(
+                                                    "id", item.getId(),
+                                                    "name", item.getName(),
+                                                    "path", item.getPath().replaceFirst(subGroup.getPath(), subGroupInput.getPath()),
+                                                    "deep", item.getDeep() - subGroup.getDeep() + subGroupInput.getDeep()
+                                            )
+                                    )
+                                    .collect(Collectors.toList());
+                            await(groupDao.updateGroupList(originalSubSubList));
+                        }
+                    } else if (subGroupInput.getWhere().getId().getVal() != null) {
+                        Group subGroup = await(groupDao.getGroupById(subGroupInput.getWhere().getId().getVal()));
+                        subGroupInput.setPath(group.getPath() + group.getId() + "/");
+                        subGroupInput.setDeep(group.getDeep() + 1);
+                        List<Group> subSubGroups = await(groupDao.getGroupListByPath(subGroup.getPath() + "%"));
+                        if (!subSubGroups.isEmpty()) {
+                            List<ObjectValueWithVariable> originalSubSubList = subSubGroups.stream()
+                                    .map(item ->
+                                            ObjectValueWithVariable.of(
+                                                    "id", item.getId(),
+                                                    "name", item.getName(),
+                                                    "path", item.getPath().replaceFirst(subGroup.getPath(), subGroupInput.getPath()),
+                                                    "deep", item.getDeep() - subGroup.getDeep() + subGroupInput.getDeep()
+                                            )
+                                    )
+                                    .collect(Collectors.toList());
+                            await(groupDao.updateGroupList(originalSubSubList));
+                        }
+                    }
+                }
             }
             return groupInput;
         } else {
