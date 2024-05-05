@@ -6,7 +6,6 @@ import io.graphoenix.core.dto.annotation.StringExpression1;
 import io.graphoenix.core.dto.enumType.Operator;
 import io.graphoenix.spi.annotation.GraphQLOperation;
 import io.graphoenix.spi.annotation.SelectionSet;
-import io.graphoenix.spi.graphql.common.ObjectValueWithVariable;
 import reactor.core.publisher.Mono;
 
 import java.util.List;
@@ -23,5 +22,5 @@ public interface GroupDao {
 
     @Mutation(groupList = @GroupListMutationArguments($list = "groupList"))
     @SelectionSet("{ id }")
-    Mono<List<Group>> updateGroupList(List<ObjectValueWithVariable> groupList);
+    Mono<List<Group>> updateGroupList(List<Group> groupList);
 }

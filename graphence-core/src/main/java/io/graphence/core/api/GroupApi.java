@@ -4,7 +4,6 @@ import io.graphence.core.dao.GroupDao;
 import io.graphence.core.dto.inputObjectType.GroupInput;
 import io.graphence.core.dto.inputObjectType.GroupMutationArguments;
 import io.graphence.core.dto.objectType.Group;
-import io.graphoenix.spi.graphql.common.ObjectValueWithVariable;
 import io.nozdormu.spi.async.Async;
 import io.nozdormu.spi.async.Asyncable;
 import jakarta.enterprise.context.ApplicationScoped;
@@ -35,25 +34,20 @@ public class GroupApi implements Asyncable {
                 groupMutationArguments.setDeep(parentGroup.getDeep() + 1);
                 if (groupMutationArguments.getId() != null || groupMutationArguments.getWhere().getId().getVal() != null) {
                     Group group = await(groupDao.getGroupById(groupMutationArguments.getId() != null ? groupMutationArguments.getId() : groupMutationArguments.getWhere().getId().getVal()));
-                    if (!group.getPath().equals("/")) {
-                        List<Group> groups = await(groupDao.getGroupListByPath(group.getPath() + "%"));
-                        if (!groups.isEmpty()) {
-                            List<ObjectValueWithVariable> originalSubList = groups.stream()
-                                    .map(subGroup ->
-                                            ObjectValueWithVariable.of(
-                                                    "id", subGroup.getId(),
-                                                    "name", subGroup.getName(),
-                                                    "path", subGroup.getPath().replaceFirst(group.getPath(), groupMutationArguments.getPath()),
-                                                    "deep", subGroup.getDeep() - group.getDeep() + groupMutationArguments.getDeep()
-                                            )
-                                    )
-                                    .collect(Collectors.toList());
-                            await(groupDao.updateGroupList(originalSubList));
-                        }
+                    List<Group> groups = await(groupDao.getGroupListByPath(group.getPath() + group.getId() + "/%"));
+                    if (!groups.isEmpty()) {
+                        List<Group> originalSubList = groups.stream()
+                                .peek(subSubGroup -> {
+                                            subSubGroup.setPath(subSubGroup.getPath().replaceFirst(group.getPath(), groupMutationArguments.getPath()));
+                                            subSubGroup.setDeep(subSubGroup.getDeep() - group.getDeep() + groupMutationArguments.getDeep());
+                                        }
+                                )
+                                .collect(Collectors.toList());
+                        await(groupDao.updateGroupList(originalSubList));
                     }
                 }
             }
-        } else if (groupMutationArguments.getId() == null) {
+        } else if (groupMutationArguments.getId() == null && groupMutationArguments.getWhere() == null) {
             groupMutationArguments.setDeep(0);
             groupMutationArguments.setPath("/");
         }
@@ -66,16 +60,13 @@ public class GroupApi implements Asyncable {
                     subGroupInput.setDeep(groupForSub.getDeep() + 1);
                     if (subGroupInput.getId() != null || subGroupInput.getWhere().getId().getVal() != null) {
                         Group subGroup = await(groupDao.getGroupById(subGroupInput.getId() != null ? subGroupInput.getId() : subGroupInput.getWhere().getId().getVal()));
-                        List<Group> subSubGroups = await(groupDao.getGroupListByPath(subGroup.getPath() + "%"));
+                        List<Group> subSubGroups = await(groupDao.getGroupListByPath(subGroup.getPath() + subGroup.getId() + "/%"));
                         if (!subSubGroups.isEmpty()) {
-                            List<ObjectValueWithVariable> originalSubSubList = subSubGroups.stream()
-                                    .map(subSubGroup ->
-                                            ObjectValueWithVariable.of(
-                                                    "id", subSubGroup.getId(),
-                                                    "name", subSubGroup.getName(),
-                                                    "path", subSubGroup.getPath().replaceFirst(subGroup.getPath(), subGroupInput.getPath()),
-                                                    "deep", subSubGroup.getDeep() - subGroup.getDeep() + subGroupInput.getDeep()
-                                            )
+                            List<Group> originalSubSubList = subSubGroups.stream()
+                                    .peek(subSubGroup -> {
+                                                subSubGroup.setPath(subSubGroup.getPath().replaceFirst(subGroup.getPath(), subGroupInput.getPath()));
+                                                subSubGroup.setDeep(subSubGroup.getDeep() - subGroup.getDeep() + subGroupInput.getDeep());
+                                            }
                                     )
                                     .collect(Collectors.toList());
                             await(groupDao.updateGroupList(originalSubSubList));
@@ -97,16 +88,13 @@ public class GroupApi implements Asyncable {
                 if (groupInput.getId() != null || groupInput.getWhere().getId().getVal() != null) {
                     Group group = await(groupDao.getGroupById(groupInput.getId() != null ? groupInput.getId() : groupInput.getWhere().getId().getVal()));
                     if (!group.getPath().equals("/")) {
-                        List<Group> groups = await(groupDao.getGroupListByPath(group.getPath() + "%"));
+                        List<Group> groups = await(groupDao.getGroupListByPath(group.getPath() + group.getId() + "/%"));
                         if (!groups.isEmpty()) {
-                            List<ObjectValueWithVariable> originalSubList = groups.stream()
-                                    .map(subGroup ->
-                                            ObjectValueWithVariable.of(
-                                                    "id", subGroup.getId(),
-                                                    "name", subGroup.getName(),
-                                                    "path", subGroup.getPath().replaceFirst(group.getPath(), groupInput.getPath()),
-                                                    "deep", subGroup.getDeep() - group.getDeep() + groupInput.getDeep()
-                                            )
+                            List<Group> originalSubList = groups.stream()
+                                    .peek(subSubGroup -> {
+                                                subSubGroup.setPath(subSubGroup.getPath().replaceFirst(group.getPath(), groupInput.getPath()));
+                                                subSubGroup.setDeep(subSubGroup.getDeep() - group.getDeep() + groupInput.getDeep());
+                                            }
                                     )
                                     .collect(Collectors.toList());
                             await(groupDao.updateGroupList(originalSubList));
@@ -114,7 +102,7 @@ public class GroupApi implements Asyncable {
                     }
                 }
             }
-        } else if (groupInput.getId() == null) {
+        } else if (groupInput.getId() == null && groupInput.getWhere() == null) {
             groupInput.setDeep(0);
             groupInput.setPath("/");
         }
@@ -127,16 +115,13 @@ public class GroupApi implements Asyncable {
                     subGroupInput.setDeep(groupForSub.getDeep() + 1);
                     if (subGroupInput.getId() != null || subGroupInput.getWhere().getId().getVal() != null) {
                         Group subGroup = await(groupDao.getGroupById(subGroupInput.getId() != null ? subGroupInput.getId() : subGroupInput.getWhere().getId().getVal()));
-                        List<Group> subSubGroups = await(groupDao.getGroupListByPath(subGroup.getPath() + "%"));
+                        List<Group> subSubGroups = await(groupDao.getGroupListByPath(subGroup.getPath() + subGroup.getId() + "/%"));
                         if (!subSubGroups.isEmpty()) {
-                            List<ObjectValueWithVariable> originalSubSubList = subSubGroups.stream()
-                                    .map(subSubGroup ->
-                                            ObjectValueWithVariable.of(
-                                                    "id", subSubGroup.getId(),
-                                                    "name", subSubGroup.getName(),
-                                                    "path", subSubGroup.getPath().replaceFirst(subGroup.getPath(), subGroupInput.getPath()),
-                                                    "deep", subSubGroup.getDeep() - subGroup.getDeep() + subGroupInput.getDeep()
-                                            )
+                            List<Group> originalSubSubList = subSubGroups.stream()
+                                    .peek(subSubGroup -> {
+                                                subSubGroup.setPath(subSubGroup.getPath().replaceFirst(subGroup.getPath(), subGroupInput.getPath()));
+                                                subSubGroup.setDeep(subSubGroup.getDeep() - subGroup.getDeep() + subGroupInput.getDeep());
+                                            }
                                     )
                                     .collect(Collectors.toList());
                             await(groupDao.updateGroupList(originalSubSubList));
