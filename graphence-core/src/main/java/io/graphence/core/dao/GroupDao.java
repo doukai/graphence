@@ -17,6 +17,9 @@ public interface GroupDao {
     @SelectionSet("{ id path deep }")
     Mono<Group> getGroupById(String id);
 
+    @Query(groupList = @GroupListQueryArguments(parentId = @StringExpression1($val = "parentId")))
+    Mono<List<Group>> getGroupListByParentId(String parentId);
+
     @Query(groupList = @GroupListQueryArguments(path = @StringExpression1(opr = Operator.LK, $val = "path")))
     Mono<List<Group>> getGroupListByPath(String path);
 
