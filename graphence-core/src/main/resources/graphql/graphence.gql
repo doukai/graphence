@@ -3,13 +3,13 @@ type User implements NamedStruct {
     "ID"
     id: ID
     "姓名"
-    name: String!
+    name: String! @options(unique: true)
     "描述"
     description: String
     "姓氏"
     lastName: String
     "账号"
-    login: String!
+    login: String! @options(unique: true)
     "盐"
     salt: String
     "哈希"
@@ -33,7 +33,7 @@ type Role implements NamedStruct {
     "ID"
     id: ID
     "名称"
-    name: String!
+    name: String! @options(unique: true)
     "描述"
     description: String
     "用户"
@@ -53,7 +53,7 @@ type Group implements NamedStruct & TreeStruct {
     "ID"
     id: ID
     "名称"
-    name: String!
+    name: String! @options(unique: true)
     "描述"
     description: String
     "路径"
@@ -79,7 +79,7 @@ type Realm implements NamedStruct {
     "ID"
     id: ID
     "名称"
-    name: String!
+    name: String! @options(unique: true)
     "描述"
     description: String
 }
