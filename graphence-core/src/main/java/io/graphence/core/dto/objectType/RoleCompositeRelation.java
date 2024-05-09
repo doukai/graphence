@@ -26,7 +26,7 @@ public class RoleCompositeRelation implements Meta {
 
   private Role composite;
 
-  private Boolean isDeprecated;
+  private Boolean isDeprecated = false;
 
   private Integer version;
 
@@ -42,7 +42,7 @@ public class RoleCompositeRelation implements Meta {
 
   private String createGroupId;
 
-  private String __typename;
+  private String __typename = "RoleCompositeRelation";
 
   private Integer idCount;
 

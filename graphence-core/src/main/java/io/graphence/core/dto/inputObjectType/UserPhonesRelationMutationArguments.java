@@ -24,7 +24,7 @@ public class UserPhonesRelationMutationArguments implements MetaInput {
   private String phonesRef;
 
   @DefaultValue("false")
-  private Boolean isDeprecated;
+  private Boolean isDeprecated = false;
 
   private Integer version;
 
@@ -41,7 +41,9 @@ public class UserPhonesRelationMutationArguments implements MetaInput {
   private String createGroupId;
 
   @DefaultValue("\"UserPhonesRelation\"")
-  private String __typename;
+  private String __typename = "UserPhonesRelation";
+
+  private UserPhonesRelationInput input;
 
   private UserPhonesRelationExpression where;
 
@@ -161,6 +163,14 @@ public class UserPhonesRelationMutationArguments implements MetaInput {
 
   public void set__typename(String __typename) {
     this.__typename = __typename;
+  }
+
+  public UserPhonesRelationInput getInput() {
+    return this.input;
+  }
+
+  public void setInput(UserPhonesRelationInput input) {
+    this.input = input;
   }
 
   public UserPhonesRelationExpression getWhere() {

@@ -73,7 +73,7 @@ public class Role implements NamedStruct, Meta {
   @Description("租户")
   private Realm realm;
 
-  private Boolean isDeprecated;
+  private Boolean isDeprecated = false;
 
   private Integer version;
 
@@ -89,7 +89,7 @@ public class Role implements NamedStruct, Meta {
 
   private String createGroupId;
 
-  private String __typename;
+  private String __typename = "Role";
 
   private Collection<RoleUserRelation> roleUserRelation;
 

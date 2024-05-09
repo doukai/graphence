@@ -92,7 +92,7 @@ public class Group implements TreeStruct, NamedStruct, Meta {
   @Description("租户")
   private Realm realm;
 
-  private Boolean isDeprecated;
+  private Boolean isDeprecated = false;
 
   private Integer version;
 
@@ -108,7 +108,7 @@ public class Group implements TreeStruct, NamedStruct, Meta {
 
   private String createGroupId;
 
-  private String __typename;
+  private String __typename = "Group";
 
   private Collection<GroupUserRelation> groupUserRelation;
 

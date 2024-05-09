@@ -43,7 +43,7 @@ public class GroupConnectionSubscriptionArguments implements TreeStructExpressio
   private RealmExpression realm;
 
   @DefaultValue("false")
-  private Boolean includeDeprecated;
+  private Boolean includeDeprecated = false;
 
   private IntExpression version;
 
@@ -70,10 +70,10 @@ public class GroupConnectionSubscriptionArguments implements TreeStructExpressio
   private Collection<String> groupBy;
 
   @DefaultValue("false")
-  private Boolean not;
+  private Boolean not = false;
 
   @DefaultValue("AND")
-  private Conditional cond;
+  private Conditional cond = Conditional.AND;
 
   private Collection<GroupExpression> exs;
 

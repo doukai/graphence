@@ -32,7 +32,7 @@ public class PermissionInput implements MetaInput {
   private RealmInput realm;
 
   @DefaultValue("false")
-  private Boolean isDeprecated;
+  private Boolean isDeprecated = false;
 
   private Integer version;
 
@@ -49,7 +49,7 @@ public class PermissionInput implements MetaInput {
   private String createGroupId;
 
   @DefaultValue("\"Permission\"")
-  private String __typename;
+  private String __typename = "Permission";
 
   private Collection<PermissionRoleRelationInput> permissionRoleRelation;
 

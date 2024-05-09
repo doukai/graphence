@@ -41,6 +41,8 @@ public @interface RoleCompositeRelationMutationArguments {
 
   String __typename() default "RoleCompositeRelation";
 
+  RoleCompositeRelationInput1 input() default @RoleCompositeRelationInput1;
+
   RoleCompositeRelationExpression1 where() default @RoleCompositeRelationExpression1;
 
   String $id() default "";
@@ -70,6 +72,8 @@ public @interface RoleCompositeRelationMutationArguments {
   String $createGroupId() default "";
 
   String $__typename() default "";
+
+  String $input() default "";
 
   String $where() default "";
 }

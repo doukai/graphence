@@ -26,7 +26,7 @@ public class RoleCompositeRelationMutationArguments implements MetaInput {
   private RoleInput composite;
 
   @DefaultValue("false")
-  private Boolean isDeprecated;
+  private Boolean isDeprecated = false;
 
   private Integer version;
 
@@ -43,7 +43,9 @@ public class RoleCompositeRelationMutationArguments implements MetaInput {
   private String createGroupId;
 
   @DefaultValue("\"RoleCompositeRelation\"")
-  private String __typename;
+  private String __typename = "RoleCompositeRelation";
+
+  private RoleCompositeRelationInput input;
 
   private RoleCompositeRelationExpression where;
 
@@ -171,6 +173,14 @@ public class RoleCompositeRelationMutationArguments implements MetaInput {
 
   public void set__typename(String __typename) {
     this.__typename = __typename;
+  }
+
+  public RoleCompositeRelationInput getInput() {
+    return this.input;
+  }
+
+  public void setInput(RoleCompositeRelationInput input) {
+    this.input = input;
   }
 
   public RoleCompositeRelationExpression getWhere() {

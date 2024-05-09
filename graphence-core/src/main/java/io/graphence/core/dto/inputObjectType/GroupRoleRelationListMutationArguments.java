@@ -27,7 +27,7 @@ public class GroupRoleRelationListMutationArguments implements MetaInput {
   private GroupInput group;
 
   @DefaultValue("false")
-  private Boolean isDeprecated;
+  private Boolean isDeprecated = false;
 
   private Integer version;
 
@@ -44,7 +44,7 @@ public class GroupRoleRelationListMutationArguments implements MetaInput {
   private String createGroupId;
 
   @DefaultValue("\"GroupRoleRelation\"")
-  private String __typename;
+  private String __typename = "GroupRoleRelation";
 
   private Collection<GroupRoleRelationInput> list;
 

@@ -23,7 +23,7 @@ public class RealmMutationArguments implements NamedStructInput, MetaInput {
   private String description;
 
   @DefaultValue("false")
-  private Boolean isDeprecated;
+  private Boolean isDeprecated = false;
 
   private Integer version;
 
@@ -40,7 +40,9 @@ public class RealmMutationArguments implements NamedStructInput, MetaInput {
   private String createGroupId;
 
   @DefaultValue("\"Realm\"")
-  private String __typename;
+  private String __typename = "Realm";
+
+  private RealmInput input;
 
   private RealmExpression where;
 
@@ -158,6 +160,14 @@ public class RealmMutationArguments implements NamedStructInput, MetaInput {
 
   public void set__typename(String __typename) {
     this.__typename = __typename;
+  }
+
+  public RealmInput getInput() {
+    return this.input;
+  }
+
+  public void setInput(RealmInput input) {
+    this.input = input;
   }
 
   public RealmExpression getWhere() {

@@ -32,7 +32,7 @@ public class PermissionMutationArguments implements MetaInput {
   private RealmInput realm;
 
   @DefaultValue("false")
-  private Boolean isDeprecated;
+  private Boolean isDeprecated = false;
 
   private Integer version;
 
@@ -49,9 +49,11 @@ public class PermissionMutationArguments implements MetaInput {
   private String createGroupId;
 
   @DefaultValue("\"Permission\"")
-  private String __typename;
+  private String __typename = "Permission";
 
   private Collection<PermissionRoleRelationInput> permissionRoleRelation;
+
+  private PermissionInput input;
 
   private PermissionExpression where;
 
@@ -204,6 +206,14 @@ public class PermissionMutationArguments implements MetaInput {
   public void setPermissionRoleRelation(
       Collection<PermissionRoleRelationInput> permissionRoleRelation) {
     this.permissionRoleRelation = permissionRoleRelation;
+  }
+
+  public PermissionInput getInput() {
+    return this.input;
+  }
+
+  public void setInput(PermissionInput input) {
+    this.input = input;
   }
 
   public PermissionExpression getWhere() {

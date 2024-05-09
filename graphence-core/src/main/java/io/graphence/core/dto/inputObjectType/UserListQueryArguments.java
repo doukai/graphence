@@ -47,7 +47,7 @@ public class UserListQueryArguments implements NamedStructExpression, MetaExpres
   private RealmExpression realm;
 
   @DefaultValue("false")
-  private Boolean includeDeprecated;
+  private Boolean includeDeprecated = false;
 
   private IntExpression version;
 
@@ -76,10 +76,10 @@ public class UserListQueryArguments implements NamedStructExpression, MetaExpres
   private Collection<String> groupBy;
 
   @DefaultValue("false")
-  private Boolean not;
+  private Boolean not = false;
 
   @DefaultValue("AND")
-  private Conditional cond;
+  private Conditional cond = Conditional.AND;
 
   private Collection<UserExpression> exs;
 

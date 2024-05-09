@@ -26,7 +26,7 @@ public class PermissionRoleRelation implements Meta {
 
   private Permission permission;
 
-  private Boolean isDeprecated;
+  private Boolean isDeprecated = false;
 
   private Integer version;
 
@@ -42,7 +42,7 @@ public class PermissionRoleRelation implements Meta {
 
   private String createGroupId;
 
-  private String __typename;
+  private String __typename = "PermissionRoleRelation";
 
   private Integer idCount;
 

@@ -104,7 +104,7 @@ public class User implements NamedStruct, Meta {
   @Description("租户")
   private Realm realm;
 
-  private Boolean isDeprecated;
+  private Boolean isDeprecated = false;
 
   private Integer version;
 
@@ -120,7 +120,7 @@ public class User implements NamedStruct, Meta {
 
   private String createGroupId;
 
-  private String __typename;
+  private String __typename = "User";
 
   private Collection<UserPhonesRelation> userPhonesRelation;
 

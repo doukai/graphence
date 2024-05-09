@@ -44,7 +44,7 @@ public class UserMutationArguments implements NamedStructInput, MetaInput {
   private RealmInput realm;
 
   @DefaultValue("false")
-  private Boolean isDeprecated;
+  private Boolean isDeprecated = false;
 
   private Integer version;
 
@@ -61,13 +61,15 @@ public class UserMutationArguments implements NamedStructInput, MetaInput {
   private String createGroupId;
 
   @DefaultValue("\"User\"")
-  private String __typename;
+  private String __typename = "User";
 
   private Collection<UserPhonesRelationInput> userPhonesRelation;
 
   private Collection<GroupUserRelationInput> groupUserRelation;
 
   private Collection<RoleUserRelationInput> roleUserRelation;
+
+  private UserInput input;
 
   private UserExpression where;
 
@@ -289,6 +291,14 @@ public class UserMutationArguments implements NamedStructInput, MetaInput {
 
   public void setRoleUserRelation(Collection<RoleUserRelationInput> roleUserRelation) {
     this.roleUserRelation = roleUserRelation;
+  }
+
+  public UserInput getInput() {
+    return this.input;
+  }
+
+  public void setInput(UserInput input) {
+    this.input = input;
   }
 
   public UserExpression getWhere() {

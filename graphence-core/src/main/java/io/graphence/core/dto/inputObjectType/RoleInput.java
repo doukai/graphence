@@ -34,7 +34,7 @@ public class RoleInput implements NamedStructInput, MetaInput {
   private RealmInput realm;
 
   @DefaultValue("false")
-  private Boolean isDeprecated;
+  private Boolean isDeprecated = false;
 
   private Integer version;
 
@@ -51,7 +51,7 @@ public class RoleInput implements NamedStructInput, MetaInput {
   private String createGroupId;
 
   @DefaultValue("\"Role\"")
-  private String __typename;
+  private String __typename = "Role";
 
   private Collection<RoleUserRelationInput> roleUserRelation;
 

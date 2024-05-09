@@ -34,7 +34,7 @@ public class RoleMutationArguments implements NamedStructInput, MetaInput {
   private RealmInput realm;
 
   @DefaultValue("false")
-  private Boolean isDeprecated;
+  private Boolean isDeprecated = false;
 
   private Integer version;
 
@@ -51,7 +51,7 @@ public class RoleMutationArguments implements NamedStructInput, MetaInput {
   private String createGroupId;
 
   @DefaultValue("\"Role\"")
-  private String __typename;
+  private String __typename = "Role";
 
   private Collection<RoleUserRelationInput> roleUserRelation;
 
@@ -60,6 +60,8 @@ public class RoleMutationArguments implements NamedStructInput, MetaInput {
   private Collection<RoleCompositeRelationInput> roleCompositeRelation;
 
   private Collection<PermissionRoleRelationInput> permissionRoleRelation;
+
+  private RoleInput input;
 
   private RoleExpression where;
 
@@ -251,6 +253,14 @@ public class RoleMutationArguments implements NamedStructInput, MetaInput {
   public void setPermissionRoleRelation(
       Collection<PermissionRoleRelationInput> permissionRoleRelation) {
     this.permissionRoleRelation = permissionRoleRelation;
+  }
+
+  public RoleInput getInput() {
+    return this.input;
+  }
+
+  public void setInput(RoleInput input) {
+    this.input = input;
   }
 
   public RoleExpression getWhere() {

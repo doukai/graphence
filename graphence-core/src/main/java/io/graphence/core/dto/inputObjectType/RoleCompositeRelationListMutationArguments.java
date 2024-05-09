@@ -27,7 +27,7 @@ public class RoleCompositeRelationListMutationArguments implements MetaInput {
   private RoleInput composite;
 
   @DefaultValue("false")
-  private Boolean isDeprecated;
+  private Boolean isDeprecated = false;
 
   private Integer version;
 
@@ -44,7 +44,7 @@ public class RoleCompositeRelationListMutationArguments implements MetaInput {
   private String createGroupId;
 
   @DefaultValue("\"RoleCompositeRelation\"")
-  private String __typename;
+  private String __typename = "RoleCompositeRelation";
 
   private Collection<RoleCompositeRelationInput> list;
 

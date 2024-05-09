@@ -23,7 +23,7 @@ public class RealmInput implements NamedStructInput, MetaInput {
   private String description;
 
   @DefaultValue("false")
-  private Boolean isDeprecated;
+  private Boolean isDeprecated = false;
 
   private Integer version;
 
@@ -40,7 +40,7 @@ public class RealmInput implements NamedStructInput, MetaInput {
   private String createGroupId;
 
   @DefaultValue("\"Realm\"")
-  private String __typename;
+  private String __typename = "Realm";
 
   private RealmExpression where;
 

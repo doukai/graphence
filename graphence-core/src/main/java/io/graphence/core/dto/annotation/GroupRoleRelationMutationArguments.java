@@ -41,6 +41,8 @@ public @interface GroupRoleRelationMutationArguments {
 
   String __typename() default "GroupRoleRelation";
 
+  GroupRoleRelationInput1 input() default @GroupRoleRelationInput1;
+
   GroupRoleRelationExpression1 where() default @GroupRoleRelationExpression1;
 
   String $id() default "";
@@ -70,6 +72,8 @@ public @interface GroupRoleRelationMutationArguments {
   String $createGroupId() default "";
 
   String $__typename() default "";
+
+  String $input() default "";
 
   String $where() default "";
 }

@@ -26,7 +26,7 @@ public class GroupRoleRelation implements Meta {
 
   private Group group;
 
-  private Boolean isDeprecated;
+  private Boolean isDeprecated = false;
 
   private Integer version;
 
@@ -42,7 +42,7 @@ public class GroupRoleRelation implements Meta {
 
   private String createGroupId;
 
-  private String __typename;
+  private String __typename = "GroupRoleRelation";
 
   private Integer idCount;
 

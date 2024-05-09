@@ -39,7 +39,8 @@ message MutationUserRequest {
     repeated UserPhonesRelationInput user_phones_relation = 25;
     repeated GroupUserRelationInput group_user_relation = 26;
     repeated RoleUserRelationInput role_user_relation = 27;
-    UserExpression where = 28;
+    UserInput input = 28;
+    UserExpression where = 29;
 }
 message MutationUserListRequest {
     optional string selection_set = 1;
@@ -96,7 +97,8 @@ message MutationRoleRequest {
     repeated GroupRoleRelationInput group_role_relation = 21;
     repeated RoleCompositeRelationInput role_composite_relation = 22;
     repeated PermissionRoleRelationInput permission_role_relation = 23;
-    RoleExpression where = 24;
+    RoleInput input = 24;
+    RoleExpression where = 25;
 }
 message MutationRoleListRequest {
     optional string selection_set = 1;
@@ -150,7 +152,8 @@ message MutationGroupRequest {
     string intro_typename = 22;
     repeated GroupUserRelationInput group_user_relation = 23;
     repeated GroupRoleRelationInput group_role_relation = 24;
-    GroupExpression where = 25;
+    GroupInput input = 25;
+    GroupExpression where = 26;
 }
 message MutationGroupListRequest {
     optional string selection_set = 1;
@@ -195,7 +198,8 @@ message MutationRealmRequest {
     google.protobuf.Timestamp update_time = 12;
     string create_group_id = 13;
     string intro_typename = 14;
-    RealmExpression where = 15;
+    RealmInput input = 15;
+    RealmExpression where = 16;
 }
 message MutationRealmListRequest {
     optional string selection_set = 1;
@@ -235,7 +239,8 @@ message MutationPermissionRequest {
     string create_group_id = 17;
     string intro_typename = 18;
     repeated PermissionRoleRelationInput permission_role_relation = 19;
-    PermissionExpression where = 20;
+    PermissionInput input = 20;
+    PermissionExpression where = 21;
 }
 message MutationPermissionListRequest {
     optional string selection_set = 1;
@@ -276,7 +281,8 @@ message MutationUserPhonesRelationRequest {
     google.protobuf.Timestamp update_time = 13;
     string create_group_id = 14;
     string intro_typename = 15;
-    UserPhonesRelationExpression where = 16;
+    UserPhonesRelationInput input = 16;
+    UserPhonesRelationExpression where = 17;
 }
 message MutationUserPhonesRelationListRequest {
     optional string selection_set = 1;
@@ -314,7 +320,8 @@ message MutationGroupUserRelationRequest {
     google.protobuf.Timestamp update_time = 14;
     string create_group_id = 15;
     string intro_typename = 16;
-    GroupUserRelationExpression where = 17;
+    GroupUserRelationInput input = 17;
+    GroupUserRelationExpression where = 18;
 }
 message MutationGroupUserRelationListRequest {
     optional string selection_set = 1;
@@ -353,7 +360,8 @@ message MutationRoleUserRelationRequest {
     google.protobuf.Timestamp update_time = 14;
     string create_group_id = 15;
     string intro_typename = 16;
-    RoleUserRelationExpression where = 17;
+    RoleUserRelationInput input = 17;
+    RoleUserRelationExpression where = 18;
 }
 message MutationRoleUserRelationListRequest {
     optional string selection_set = 1;
@@ -392,7 +400,8 @@ message MutationGroupRoleRelationRequest {
     google.protobuf.Timestamp update_time = 14;
     string create_group_id = 15;
     string intro_typename = 16;
-    GroupRoleRelationExpression where = 17;
+    GroupRoleRelationInput input = 17;
+    GroupRoleRelationExpression where = 18;
 }
 message MutationGroupRoleRelationListRequest {
     optional string selection_set = 1;
@@ -431,7 +440,8 @@ message MutationRoleCompositeRelationRequest {
     google.protobuf.Timestamp update_time = 14;
     string create_group_id = 15;
     string intro_typename = 16;
-    RoleCompositeRelationExpression where = 17;
+    RoleCompositeRelationInput input = 17;
+    RoleCompositeRelationExpression where = 18;
 }
 message MutationRoleCompositeRelationListRequest {
     optional string selection_set = 1;
@@ -470,7 +480,8 @@ message MutationPermissionRoleRelationRequest {
     google.protobuf.Timestamp update_time = 14;
     string create_group_id = 15;
     string intro_typename = 16;
-    PermissionRoleRelationExpression where = 17;
+    PermissionRoleRelationInput input = 17;
+    PermissionRoleRelationExpression where = 18;
 }
 message MutationPermissionRoleRelationListRequest {
     optional string selection_set = 1;

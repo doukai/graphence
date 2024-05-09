@@ -26,7 +26,7 @@ public class RoleUserRelation implements Meta {
 
   private Role role;
 
-  private Boolean isDeprecated;
+  private Boolean isDeprecated = false;
 
   private Integer version;
 
@@ -42,7 +42,7 @@ public class RoleUserRelation implements Meta {
 
   private String createGroupId;
 
-  private String __typename;
+  private String __typename = "RoleUserRelation";
 
   private Integer idCount;
 

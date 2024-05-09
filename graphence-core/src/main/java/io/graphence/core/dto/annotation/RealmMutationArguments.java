@@ -37,6 +37,8 @@ public @interface RealmMutationArguments {
 
   String __typename() default "Realm";
 
+  RealmInput1 input() default @RealmInput1;
+
   RealmExpression1 where() default @RealmExpression1;
 
   String $id() default "";
@@ -62,6 +64,8 @@ public @interface RealmMutationArguments {
   String $createGroupId() default "";
 
   String $__typename() default "";
+
+  String $input() default "";
 
   String $where() default "";
 }

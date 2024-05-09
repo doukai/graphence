@@ -70,7 +70,7 @@ public class Permission implements Meta {
   @Description("租户")
   private Realm realm;
 
-  private Boolean isDeprecated;
+  private Boolean isDeprecated = false;
 
   private Integer version;
 
@@ -86,7 +86,7 @@ public class Permission implements Meta {
 
   private String createGroupId;
 
-  private String __typename;
+  private String __typename = "Permission";
 
   private Collection<PermissionRoleRelation> permissionRoleRelation;
 

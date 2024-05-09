@@ -46,8 +46,8 @@ service QueryService {
     rpc PermissionRoleRelation (QueryPermissionRoleRelationRequest) returns (QueryPermissionRoleRelationResponse);
     rpc PermissionRoleRelationList (QueryPermissionRoleRelationListRequest) returns (QueryPermissionRoleRelationListResponse);
     rpc PermissionRoleRelationConnection (QueryPermissionRoleRelationConnectionRequest) returns (QueryPermissionRoleRelationConnectionResponse);
-    rpc PolicyList (QueryPolicyListRequest) returns (QueryPolicyListResponse);
     rpc Current (QueryCurrentRequest) returns (QueryCurrentResponse);
     rpc CurrentPermissionTypeList (QueryCurrentPermissionTypeListRequest) returns (QueryCurrentPermissionTypeListResponse);
     rpc CurrentPermissionNameListByTypes (QueryCurrentPermissionNameListByTypesRequest) returns (QueryCurrentPermissionNameListByTypesResponse);
+    rpc PolicyList (QueryPolicyListRequest) returns (QueryPolicyListResponse);
 }

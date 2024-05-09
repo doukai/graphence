@@ -63,6 +63,8 @@ public @interface UserMutationArguments {
 
   RoleUserRelationInput1[] roleUserRelation() default {};
 
+  UserInput1 input() default @UserInput1;
+
   UserExpression1 where() default @UserExpression1;
 
   String $id() default "";
@@ -114,6 +116,8 @@ public @interface UserMutationArguments {
   String $groupUserRelation() default "";
 
   String $roleUserRelation() default "";
+
+  String $input() default "";
 
   String $where() default "";
 }

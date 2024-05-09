@@ -25,7 +25,7 @@ public class RealmSubscriptionArguments implements NamedStructExpression, MetaEx
   private StringExpression description;
 
   @DefaultValue("false")
-  private Boolean includeDeprecated;
+  private Boolean includeDeprecated = false;
 
   private IntExpression version;
 
@@ -46,10 +46,10 @@ public class RealmSubscriptionArguments implements NamedStructExpression, MetaEx
   private Collection<String> groupBy;
 
   @DefaultValue("false")
-  private Boolean not;
+  private Boolean not = false;
 
   @DefaultValue("AND")
-  private Conditional cond;
+  private Conditional cond = Conditional.AND;
 
   private Collection<RealmExpression> exs;
 

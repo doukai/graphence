@@ -26,7 +26,7 @@ public class RoleUserRelationInput implements MetaInput {
   private RoleInput role;
 
   @DefaultValue("false")
-  private Boolean isDeprecated;
+  private Boolean isDeprecated = false;
 
   private Integer version;
 
@@ -43,7 +43,7 @@ public class RoleUserRelationInput implements MetaInput {
   private String createGroupId;
 
   @DefaultValue("\"RoleUserRelation\"")
-  private String __typename;
+  private String __typename = "RoleUserRelation";
 
   private RoleUserRelationExpression where;
 

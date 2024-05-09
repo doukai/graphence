@@ -44,7 +44,7 @@ public class UserInput implements NamedStructInput, MetaInput {
   private RealmInput realm;
 
   @DefaultValue("false")
-  private Boolean isDeprecated;
+  private Boolean isDeprecated = false;
 
   private Integer version;
 
@@ -61,7 +61,7 @@ public class UserInput implements NamedStructInput, MetaInput {
   private String createGroupId;
 
   @DefaultValue("\"User\"")
-  private String __typename;
+  private String __typename = "User";
 
   private Collection<UserPhonesRelationInput> userPhonesRelation;
 

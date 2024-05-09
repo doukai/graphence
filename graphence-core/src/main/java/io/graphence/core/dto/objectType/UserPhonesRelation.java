@@ -24,7 +24,7 @@ public class UserPhonesRelation implements Meta {
 
   private String phonesRef;
 
-  private Boolean isDeprecated;
+  private Boolean isDeprecated = false;
 
   private Integer version;
 
@@ -40,7 +40,7 @@ public class UserPhonesRelation implements Meta {
 
   private String createGroupId;
 
-  private String __typename;
+  private String __typename = "UserPhonesRelation";
 
   private Integer idCount;
 

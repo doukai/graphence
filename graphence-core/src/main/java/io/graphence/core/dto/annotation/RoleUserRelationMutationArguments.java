@@ -41,6 +41,8 @@ public @interface RoleUserRelationMutationArguments {
 
   String __typename() default "RoleUserRelation";
 
+  RoleUserRelationInput1 input() default @RoleUserRelationInput1;
+
   RoleUserRelationExpression1 where() default @RoleUserRelationExpression1;
 
   String $id() default "";
@@ -70,6 +72,8 @@ public @interface RoleUserRelationMutationArguments {
   String $createGroupId() default "";
 
   String $__typename() default "";
+
+  String $input() default "";
 
   String $where() default "";
 }

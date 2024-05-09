@@ -26,7 +26,7 @@ public class GroupUserRelationMutationArguments implements MetaInput {
   private GroupInput group;
 
   @DefaultValue("false")
-  private Boolean isDeprecated;
+  private Boolean isDeprecated = false;
 
   private Integer version;
 
@@ -43,7 +43,9 @@ public class GroupUserRelationMutationArguments implements MetaInput {
   private String createGroupId;
 
   @DefaultValue("\"GroupUserRelation\"")
-  private String __typename;
+  private String __typename = "GroupUserRelation";
+
+  private GroupUserRelationInput input;
 
   private GroupUserRelationExpression where;
 
@@ -171,6 +173,14 @@ public class GroupUserRelationMutationArguments implements MetaInput {
 
   public void set__typename(String __typename) {
     this.__typename = __typename;
+  }
+
+  public GroupUserRelationInput getInput() {
+    return this.input;
+  }
+
+  public void setInput(GroupUserRelationInput input) {
+    this.input = input;
   }
 
   public GroupUserRelationExpression getWhere() {

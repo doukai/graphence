@@ -48,6 +48,8 @@ public @interface PermissionMutationArguments {
 
   PermissionRoleRelationInput1[] permissionRoleRelation() default {};
 
+  PermissionInput1 input() default @PermissionInput1;
+
   PermissionExpression1 where() default @PermissionExpression1;
 
   String $name() default "";
@@ -83,6 +85,8 @@ public @interface PermissionMutationArguments {
   String $__typename() default "";
 
   String $permissionRoleRelation() default "";
+
+  String $input() default "";
 
   String $where() default "";
 }

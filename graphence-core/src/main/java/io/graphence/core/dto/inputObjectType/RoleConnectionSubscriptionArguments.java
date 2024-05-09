@@ -36,7 +36,7 @@ public class RoleConnectionSubscriptionArguments implements NamedStructExpressio
   private RealmExpression realm;
 
   @DefaultValue("false")
-  private Boolean includeDeprecated;
+  private Boolean includeDeprecated = false;
 
   private IntExpression version;
 
@@ -67,10 +67,10 @@ public class RoleConnectionSubscriptionArguments implements NamedStructExpressio
   private Collection<String> groupBy;
 
   @DefaultValue("false")
-  private Boolean not;
+  private Boolean not = false;
 
   @DefaultValue("AND")
-  private Conditional cond;
+  private Conditional cond = Conditional.AND;
 
   private Collection<RoleExpression> exs;
 

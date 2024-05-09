@@ -25,7 +25,7 @@ public class UserPhonesRelationListMutationArguments implements MetaInput {
   private String phonesRef;
 
   @DefaultValue("false")
-  private Boolean isDeprecated;
+  private Boolean isDeprecated = false;
 
   private Integer version;
 
@@ -42,7 +42,7 @@ public class UserPhonesRelationListMutationArguments implements MetaInput {
   private String createGroupId;
 
   @DefaultValue("\"UserPhonesRelation\"")
-  private String __typename;
+  private String __typename = "UserPhonesRelation";
 
   private Collection<UserPhonesRelationInput> list;
 

@@ -42,7 +42,7 @@ public class Realm implements NamedStruct, Meta {
   @Description("描述")
   private String description;
 
-  private Boolean isDeprecated;
+  private Boolean isDeprecated = false;
 
   private Integer version;
 
@@ -58,7 +58,7 @@ public class Realm implements NamedStruct, Meta {
 
   private String createGroupId;
 
-  private String __typename;
+  private String __typename = "Realm";
 
   private Integer idCount;
 

@@ -41,7 +41,7 @@ public class GroupMutationArguments implements TreeStructInput, NamedStructInput
   private RealmInput realm;
 
   @DefaultValue("false")
-  private Boolean isDeprecated;
+  private Boolean isDeprecated = false;
 
   private Integer version;
 
@@ -58,11 +58,13 @@ public class GroupMutationArguments implements TreeStructInput, NamedStructInput
   private String createGroupId;
 
   @DefaultValue("\"Group\"")
-  private String __typename;
+  private String __typename = "Group";
 
   private Collection<GroupUserRelationInput> groupUserRelation;
 
   private Collection<GroupRoleRelationInput> groupRoleRelation;
+
+  private GroupInput input;
 
   private GroupExpression where;
 
@@ -266,6 +268,14 @@ public class GroupMutationArguments implements TreeStructInput, NamedStructInput
 
   public void setGroupRoleRelation(Collection<GroupRoleRelationInput> groupRoleRelation) {
     this.groupRoleRelation = groupRoleRelation;
+  }
+
+  public GroupInput getInput() {
+    return this.input;
+  }
+
+  public void setInput(GroupInput input) {
+    this.input = input;
   }
 
   public GroupExpression getWhere() {

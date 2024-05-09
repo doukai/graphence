@@ -39,6 +39,8 @@ public @interface UserPhonesRelationMutationArguments {
 
   String __typename() default "UserPhonesRelation";
 
+  UserPhonesRelationInput1 input() default @UserPhonesRelationInput1;
+
   UserPhonesRelationExpression1 where() default @UserPhonesRelationExpression1;
 
   String $id() default "";
@@ -66,6 +68,8 @@ public @interface UserPhonesRelationMutationArguments {
   String $createGroupId() default "";
 
   String $__typename() default "";
+
+  String $input() default "";
 
   String $where() default "";
 }

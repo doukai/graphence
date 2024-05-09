@@ -41,7 +41,7 @@ public class GroupListMutationArguments implements TreeStructInput, NamedStructI
   private RealmInput realm;
 
   @DefaultValue("false")
-  private Boolean isDeprecated;
+  private Boolean isDeprecated = false;
 
   private Integer version;
 
@@ -58,7 +58,7 @@ public class GroupListMutationArguments implements TreeStructInput, NamedStructI
   private String createGroupId;
 
   @DefaultValue("\"Group\"")
-  private String __typename;
+  private String __typename = "Group";
 
   private Collection<GroupUserRelationInput> groupUserRelation;
 

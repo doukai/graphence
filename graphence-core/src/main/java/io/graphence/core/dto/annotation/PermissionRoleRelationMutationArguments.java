@@ -41,6 +41,8 @@ public @interface PermissionRoleRelationMutationArguments {
 
   String __typename() default "PermissionRoleRelation";
 
+  PermissionRoleRelationInput1 input() default @PermissionRoleRelationInput1;
+
   PermissionRoleRelationExpression1 where() default @PermissionRoleRelationExpression1;
 
   String $id() default "";
@@ -70,6 +72,8 @@ public @interface PermissionRoleRelationMutationArguments {
   String $createGroupId() default "";
 
   String $__typename() default "";
+
+  String $input() default "";
 
   String $where() default "";
 }

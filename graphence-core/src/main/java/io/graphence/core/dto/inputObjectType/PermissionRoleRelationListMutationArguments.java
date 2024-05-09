@@ -27,7 +27,7 @@ public class PermissionRoleRelationListMutationArguments implements MetaInput {
   private PermissionInput permission;
 
   @DefaultValue("false")
-  private Boolean isDeprecated;
+  private Boolean isDeprecated = false;
 
   private Integer version;
 
@@ -44,7 +44,7 @@ public class PermissionRoleRelationListMutationArguments implements MetaInput {
   private String createGroupId;
 
   @DefaultValue("\"PermissionRoleRelation\"")
-  private String __typename;
+  private String __typename = "PermissionRoleRelation";
 
   private Collection<PermissionRoleRelationInput> list;
 

@@ -65,7 +65,7 @@ public class CurrentApi implements Asyncable {
                 );
     }
 
-    @Async
+    @Async(defaultIfEmpty = "metaInput")
     public MetaInput invokeMetaInput(@Source MetaInput metaInput) {
         CurrentUser currentUser = await(currentUserMonoProvider.get());
         if (!(metaInput instanceof RealmInput ||
@@ -87,7 +87,7 @@ public class CurrentApi implements Asyncable {
         return metaInput;
     }
 
-    @Async
+    @Async(defaultIfEmpty = "metaExpression")
     public MetaExpression invokeMetaExpression(@Source MetaExpression metaExpression) {
         CurrentUser currentUser = await(currentUserMonoProvider.get());
         if (!(metaExpression instanceof RealmExpression ||

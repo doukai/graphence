@@ -26,7 +26,7 @@ public class GroupUserRelationInput implements MetaInput {
   private GroupInput group;
 
   @DefaultValue("false")
-  private Boolean isDeprecated;
+  private Boolean isDeprecated = false;
 
   private Integer version;
 
@@ -43,7 +43,7 @@ public class GroupUserRelationInput implements MetaInput {
   private String createGroupId;
 
   @DefaultValue("\"GroupUserRelation\"")
-  private String __typename;
+  private String __typename = "GroupUserRelation";
 
   private GroupUserRelationExpression where;
 
