@@ -1,23 +1,23 @@
 "用户"
 type User implements NamedStruct {
     "ID"
-    id: ID
+    id: ID @jsonSchema(maxLength: 50)
     "姓名"
-    name: String! @options(unique: true)
+    name: String! @options(unique: true) @jsonSchema(maxLength: 20)
     "描述"
-    description: String
+    description: String @jsonSchema(maxLength: 100)
     "姓氏"
-    lastName: String
+    lastName: String @jsonSchema(maxLength: 20)
     "账号"
-    login: String! @options(unique: true)
+    login: String! @options(unique: true) @jsonSchema(maxLength: 20)
     "盐"
     salt: String
     "哈希"
     hash: String
     "邮箱"
-    email: String
+    email: String @jsonSchema(maxLength: 50)
     "手机号"
-    phones: [String]
+    phones: [String] @jsonSchema(maxLength: 11)
     "禁用"
     disable: Boolean
     "组"
@@ -31,11 +31,11 @@ type User implements NamedStruct {
 "角色"
 type Role implements NamedStruct {
     "ID"
-    id: ID
+    id: ID @jsonSchema(maxLength: 50)
     "名称"
-    name: String! @options(unique: true)
+    name: String! @options(unique: true) @jsonSchema(maxLength: 20)
     "描述"
-    description: String
+    description: String @jsonSchema(maxLength: 100)
     "用户"
     users: [User]
     "组"
@@ -51,15 +51,15 @@ type Role implements NamedStruct {
 "组"
 type Group implements NamedStruct & TreeStruct {
     "ID"
-    id: ID
+    id: ID @jsonSchema(maxLength: 50)
     "名称"
-    name: String! @options(unique: true)
+    name: String! @options(unique: true) @jsonSchema(maxLength: 20)
     "描述"
-    description: String
+    description: String @jsonSchema(maxLength: 100)
     "路径"
     path: String
     "层级"
-    deep: Int
+    deep: Int @jsonSchema(maxLength: 2)
     "上级ID"
     parentId: String
     "上级"
@@ -77,9 +77,9 @@ type Group implements NamedStruct & TreeStruct {
 "租户"
 type Realm implements NamedStruct {
     "ID"
-    id: ID
+    id: ID @jsonSchema(maxLength: 50)
     "名称"
-    name: String! @options(unique: true)
+    name: String! @options(unique: true) @jsonSchema(maxLength: 20)
     "描述"
     description: String
 }
@@ -87,13 +87,13 @@ type Realm implements NamedStruct {
 "权限"
 type Permission {
     "名称"
-    name: ID! @options(type: "String")
+    name: ID! @options(type: "String") @jsonSchema(maxLength: 50)
     "描述"
-    description: String
+    description: String @jsonSchema(maxLength: 100)
     "字段"
-    field: String!
+    field: String! @jsonSchema(maxLength: 50)
     "实体"
-    type: String!
+    type: String! @jsonSchema(maxLength: 50)
     "权限类型"
     permissionType: PermissionType!
     "角色"
