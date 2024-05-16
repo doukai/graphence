@@ -48,14 +48,11 @@ public class JWTFilter extends BaseRequestFilter implements ScopeEvent {
 
     @Override
     public Mono<Void> fireAsync(Map<String, Object> context) {
-        Operation operation = getOperation(context);
-        ObjectType operationType = documentManager.getOperationTypeOrError(operation);
-        if (operation.getFields().stream().anyMatch(field -> operationType.getField(field.getName()).isPermitAll())) {
-            return Mono.empty();
-        }
-
         HttpServerRequest request = getRequest(context);
         String authorization = request.requestHeaders().get(AUTHORIZATION_HEADER);
+        Operation operation = getOperation(context);
+        ObjectType operationType = documentManager.getOperationTypeOrError(operation);
+
         if (authorization != null && authorization.startsWith(AUTHORIZATION_SCHEME_BEARER)) {
             String jws = authorization.substring(7);
             try {
@@ -72,6 +69,9 @@ public class JWTFilter extends BaseRequestFilter implements ScopeEvent {
                 setSessionId(context, jws);
                 return requestScopeInstanceFactory.compute(CurrentUser.class, currentUser).then();
             } catch (Exception e) {
+                if (operation.getFields().stream().anyMatch(field -> operationType.getField(field.getName()).isPermitAll())) {
+                    return Mono.empty();
+                }
                 throw new AuthenticationException(UN_AUTHENTICATION);
             }
         } else if (authorization != null && authorization.startsWith(AUTHORIZATION_SCHEME_BASIC)) {
@@ -99,6 +99,9 @@ public class JWTFilter extends BaseRequestFilter implements ScopeEvent {
                     )
                     .flatMap(currentUser -> requestScopeInstanceFactory.compute(CurrentUser.class, currentUser))
                     .then();
+        }
+        if (operation.getFields().stream().anyMatch(field -> operationType.getField(field.getName()).isPermitAll())) {
+            return Mono.empty();
         }
         throw new AuthenticationException(UN_AUTHENTICATION);
     }

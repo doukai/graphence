@@ -61,12 +61,7 @@ public class RBACFilter implements OperationBeforeHandler {
                                                     } else if (field.getFields() != null) {
                                                         return Stream.of(
                                                                 field.setSelections(
-                                                                        field.getFields().stream()
-                                                                                .flatMap(subField -> {
-                                                                                            ObjectType objectType = documentManager.getFieldTypeDefinition(fieldDefinition).asObject();
-                                                                                            return enforce(currentUser, objectType, objectType.getField(subField.getName()), subField);
-                                                                                        }
-                                                                                )
+                                                                        enforce(currentUser, operationType, fieldDefinition, field)
                                                                                 .collect(Collectors.toList())
                                                                 )
                                                         );
@@ -120,15 +115,16 @@ public class RBACFilter implements OperationBeforeHandler {
     protected Stream<Field> enforce(CurrentUser currentUser, ObjectType objectType, FieldDefinition fieldDefinition, Field field) {
         Definition fieldTypeDefinition = documentManager.getFieldTypeDefinition(fieldDefinition);
         if (fieldDefinition.isConnectionField()) {
-            if (!fieldDefinition.isDenyAll() &&
-                    (fieldDefinition.isPermitAll() ||
-                            enforcer.enforce(
-                                    USER_PREFIX + currentUser.getId(),
-                                    Optional.ofNullable(currentUser.getRealmId()).map(String::valueOf).orElse(EMPTY),
-                                    objectType.getName() + SPACER + fieldDefinition.getConnectionFieldOrError(),
-                                    READ.name()
+            if (documentManager.isOperationType(objectType) ||
+                    !fieldDefinition.isDenyAll() &&
+                            (fieldDefinition.isPermitAll() ||
+                                    enforcer.enforce(
+                                            USER_PREFIX + currentUser.getId(),
+                                            Optional.ofNullable(currentUser.getRealmId()).map(String::valueOf).orElse(EMPTY),
+                                            objectType.getName() + SPACER + fieldDefinition.getConnectionFieldOrError(),
+                                            READ.name()
+                                    )
                             )
-                    )
             ) {
                 return Stream.of(
                         field.setSelections(
@@ -159,15 +155,16 @@ public class RBACFilter implements OperationBeforeHandler {
             } else {
                 fieldName = fieldDefinition.getName();
             }
-            if (!fieldDefinition.isDenyAll() &&
-                    (fieldDefinition.isPermitAll() ||
-                            enforcer.enforce(
-                                    USER_PREFIX + currentUser.getId(),
-                                    Optional.ofNullable(currentUser.getRealmId()).map(String::valueOf).orElse(EMPTY),
-                                    objectType.getName() + SPACER + fieldName,
-                                    READ.name()
+            if (documentManager.isOperationType(objectType) ||
+                    !fieldDefinition.isDenyAll() &&
+                            (fieldDefinition.isPermitAll() ||
+                                    enforcer.enforce(
+                                            USER_PREFIX + currentUser.getId(),
+                                            Optional.ofNullable(currentUser.getRealmId()).map(String::valueOf).orElse(EMPTY),
+                                            objectType.getName() + SPACER + fieldName,
+                                            READ.name()
+                                    )
                             )
-                    )
             ) {
                 return Stream.of(
                         field.setSelections(
