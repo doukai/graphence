@@ -3,14 +3,12 @@ package io.graphence.core.api;
 import com.google.common.collect.Streams;
 import io.graphence.core.casbin.adapter.Policy;
 import io.graphence.core.dao.RBACPolicyDao;
-import io.graphence.core.dto.objectType.Group;
-import io.graphence.core.dto.objectType.Permission;
-import io.graphence.core.dto.objectType.Role;
-import io.graphence.core.dto.objectType.User;
+import io.graphence.core.dto.objectType.*;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import org.casbin.jcasbin.main.Enforcer;
 import org.eclipse.microprofile.graphql.GraphQLApi;
+import org.eclipse.microprofile.graphql.Mutation;
 import org.eclipse.microprofile.graphql.Query;
 import org.eclipse.microprofile.graphql.Source;
 import reactor.core.publisher.Mono;
@@ -254,6 +252,43 @@ public class RBACEnforcerApi {
                                             .map(Policy::toStringList)
                                             .collect(Collectors.toList())
                             );
+                            return true;
+                        }
+                )
+                .onErrorReturn(false);
+    }
+
+    @Mutation
+    public Mono<Boolean> syncPermissionRoleRelationPolicy(String roleId, List<String> permissionNameList, List<String> removedPermissionNameList) {
+        return rbacPolicyDao.queryRoleRealmById(roleId)
+                .map(role -> {
+                            for (String removedPermissionName : removedPermissionNameList) {
+                                String[] permissionNamePart = removedPermissionName.split(SPACER);
+                                enforcer.removeFilteredPolicy(
+                                        0,
+                                        ROLE_PREFIX + role.getId(),
+                                        Optional.ofNullable(role.getRealmId()).map(String::valueOf).orElse(EMPTY),
+                                        permissionNamePart[0] + SPACER + permissionNamePart[1],
+                                        permissionNamePart[2]
+                                );
+                            }
+
+                            for (String permissionName : permissionNameList) {
+                                String[] permissionNamePart = permissionName.split(SPACER);
+                                if (!enforcer.hasPolicy(
+                                        ROLE_PREFIX + role.getId(),
+                                        Optional.ofNullable(role.getRealmId()).map(String::valueOf).orElse(EMPTY),
+                                        permissionNamePart[0] + SPACER + permissionNamePart[1],
+                                        permissionNamePart[2])
+                                ) {
+                                    enforcer.addPolicy(
+                                            ROLE_PREFIX + role.getId(),
+                                            Optional.ofNullable(role.getRealmId()).map(String::valueOf).orElse(EMPTY),
+                                            permissionNamePart[0] + SPACER + permissionNamePart[1],
+                                            permissionNamePart[2]
+                                    );
+                                }
+                            }
                             return true;
                         }
                 )

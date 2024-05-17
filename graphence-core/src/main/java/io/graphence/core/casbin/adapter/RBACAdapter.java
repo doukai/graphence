@@ -1,6 +1,7 @@
 package io.graphence.core.casbin.adapter;
 
 import com.google.common.collect.Streams;
+import io.graphence.core.dto.objectType.Group;
 import io.graphence.core.dto.objectType.Role;
 import jakarta.enterprise.context.ApplicationScoped;
 import org.casbin.jcasbin.model.Model;
@@ -17,11 +18,13 @@ import java.util.stream.Stream;
 @ApplicationScoped
 public class RBACAdapter implements Adapter {
 
-    public static final String USER_PREFIX = "U::";
-
-    public static final String ROLE_PREFIX = "R::";
-
     public static final String SPACER = "::";
+
+    public static final String USER_PREFIX = "U" + SPACER;
+
+    public static final String ROLE_PREFIX = "R" + SPACER;
+
+    public static final String GROUP_PREFIX = "G" + SPACER;
 
     public static final String P_TYPE = "p";
 
@@ -30,6 +33,8 @@ public class RBACAdapter implements Adapter {
     public static final String EMPTY = "";
 
     private Set<Role> roles;
+
+    private Set<Group> groups;
 
     public RBACAdapter setRoles(Set<Role> roles) {
         this.roles = roles;
@@ -66,18 +71,14 @@ public class RBACAdapter implements Adapter {
                                     )
                     );
 
-            Stream<Policy> groupUserPolicyStream = roles.stream()
+            Stream<Policy> groupPolicyStream = roles.stream()
                     .flatMap(role ->
                             Stream.ofNullable(role.getGroups())
                                     .flatMap(Collection::stream)
-                                    .flatMap(group ->
-                                            Stream.ofNullable(group.getUsers())
-                                                    .flatMap(Collection::stream)
-                                    )
-                                    .map(user ->
+                                    .map(group ->
                                             new Policy()
                                                     .setPtype(G_TYPE)
-                                                    .setV0(USER_PREFIX + user.getId())
+                                                    .setV0(GROUP_PREFIX + group.getId())
                                                     .setV1(ROLE_PREFIX + role.getId())
                                                     .setV2(Optional.ofNullable(role.getRealmId()).map(String::valueOf).orElse(EMPTY))
                                     )
@@ -96,7 +97,20 @@ public class RBACAdapter implements Adapter {
                                     )
                     );
 
-            Streams.concat(permissionPolicyStream, userPolicyStream, groupUserPolicyStream, roleCompositesPolicyStream)
+            Stream<Policy> userGroupPolicyStream = groups.stream()
+                    .flatMap(group ->
+                            Stream.ofNullable(group.getUsers())
+                                    .flatMap(Collection::stream)
+                                    .map(user ->
+                                            new Policy()
+                                                    .setPtype(G_TYPE)
+                                                    .setV0(USER_PREFIX + user.getId())
+                                                    .setV1(GROUP_PREFIX + group.getId())
+                                                    .setV2(Optional.ofNullable(group.getRealmId()).map(String::valueOf).orElse(EMPTY))
+                                    )
+                    );
+
+            Streams.concat(permissionPolicyStream, userPolicyStream, groupPolicyStream, roleCompositesPolicyStream, userGroupPolicyStream)
                     .map(Policy::toString)
                     .distinct()
                     .forEach(line -> Helper.loadPolicyLine(line, model));

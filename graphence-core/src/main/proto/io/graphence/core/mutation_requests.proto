@@ -503,6 +503,13 @@ message MutationPermissionRoleRelationListRequest {
     repeated PermissionRoleRelationInput list = 17;
     PermissionRoleRelationExpression where = 18;
 }
+message MutationSyncPermissionRoleRelationPolicyRequest {
+    optional string selection_set = 1;
+    optional string arguments = 2;
+    string role_id = 3;
+    repeated string permission_name_list = 4;
+    repeated string removed_permission_name_list = 5;
+}
 message MutationLoginRequest {
     optional string selection_set = 1;
     optional string arguments = 2;

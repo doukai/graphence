@@ -1,6 +1,7 @@
 package io.graphence.core.casbin.adapter;
 
 import com.dslplatform.json.CompiledJson;
+import com.dslplatform.json.JsonAttribute;
 import org.eclipse.microprofile.graphql.Type;
 
 import java.util.ArrayList;
@@ -62,6 +63,7 @@ public class Policy {
         return this;
     }
 
+    @JsonAttribute(name = "v0")
     public String getV0() {
         return v0;
     }
@@ -71,6 +73,7 @@ public class Policy {
         return this;
     }
 
+    @JsonAttribute(name = "v1")
     public String getV1() {
         return v1;
     }
@@ -80,6 +83,7 @@ public class Policy {
         return this;
     }
 
+    @JsonAttribute(name = "v2")
     public String getV2() {
         return v2;
     }
@@ -89,6 +93,7 @@ public class Policy {
         return this;
     }
 
+    @JsonAttribute(name = "v3")
     public String getV3() {
         return v3;
     }
@@ -98,6 +103,7 @@ public class Policy {
         return this;
     }
 
+    @JsonAttribute(name = "v4")
     public String getV4() {
         return v4;
     }
@@ -107,6 +113,7 @@ public class Policy {
         return this;
     }
 
+    @JsonAttribute(name = "v5")
     public String getV5() {
         return v5;
     }

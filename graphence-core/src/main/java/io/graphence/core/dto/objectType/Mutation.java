@@ -2,6 +2,7 @@ package io.graphence.core.dto.objectType;
 
 import com.dslplatform.json.CompiledJson;
 import jakarta.annotation.Generated;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Collection;
 import org.eclipse.microprofile.graphql.Type;
@@ -53,6 +54,8 @@ public class Mutation {
   private PermissionRoleRelation permissionRoleRelation;
 
   private Collection<PermissionRoleRelation> permissionRoleRelationList;
+
+  private Boolean syncPermissionRoleRelationPolicy;
 
   private String login;
 
@@ -232,6 +235,14 @@ public class Mutation {
   public void setPermissionRoleRelationList(
       Collection<PermissionRoleRelation> permissionRoleRelationList) {
     this.permissionRoleRelationList = permissionRoleRelationList;
+  }
+
+  public Boolean getSyncPermissionRoleRelationPolicy() {
+    return this.syncPermissionRoleRelationPolicy;
+  }
+
+  public void setSyncPermissionRoleRelationPolicy(Boolean syncPermissionRoleRelationPolicy) {
+    this.syncPermissionRoleRelationPolicy = syncPermissionRoleRelationPolicy;
   }
 
   public String getLogin() {

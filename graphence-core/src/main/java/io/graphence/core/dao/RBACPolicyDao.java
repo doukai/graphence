@@ -19,12 +19,20 @@ import java.util.Set;
 public interface RBACPolicyDao {
 
     @Query(roleList = @RoleListQueryArguments())
-    @SelectionSet("{ id name users { id login } composites { id name } permissions { name type field permissionType } realmId }")
+    @SelectionSet("{ id name users { id login } composites { id name } groups { id name } permissions { name type field permissionType } realmId }")
     Mono<Set<Role>> queryRoleList();
 
+    @Query(groupList = @GroupListQueryArguments())
+    @SelectionSet("{ id name users { id login } realmId }")
+    Mono<Set<Group>> queryGroupList();
+
     @Query(role = @RoleQueryArguments(id = @StringExpression1($val = "id")))
-    @SelectionSet("{ id name users { id login } composites { id name } permissions { name type field permissionType } realmId }")
+    @SelectionSet("{ id name users { id login } composites { id name } groups { id name } permissions { name type field permissionType } realmId }")
     Mono<Role> queryRoleById(String id);
+
+    @Query(role = @RoleQueryArguments(id = @StringExpression1($val = "id")))
+    @SelectionSet("{ id name realmId }")
+    Mono<Role> queryRoleRealmById(String id);
 
     @Query(user = @UserQueryArguments(id = @StringExpression1($val = "id")))
     @SelectionSet("{ id login roles { id name } groups { roles { id name } } realmId }")

@@ -19,6 +19,7 @@ import org.casbin.jcasbin.main.Enforcer;
 import reactor.core.publisher.Mono;
 
 import java.util.AbstractMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -59,12 +60,7 @@ public class RBACFilter implements OperationBeforeHandler {
                                                     if (fieldDefinition.isInvokeField()) {
                                                         return enforceApi(currentUser, operationType, fieldDefinition, field, documentManager.isMutationOperationType(operation) ? WRITE : READ);
                                                     } else if (field.getFields() != null) {
-                                                        return Stream.of(
-                                                                field.setSelections(
-                                                                        enforce(currentUser, operationType, fieldDefinition, field)
-                                                                                .collect(Collectors.toList())
-                                                                )
-                                                        );
+                                                        return enforce(currentUser, operationType, fieldDefinition, field);
                                                     }
                                                     return Stream.of(field);
                                                 }
@@ -129,19 +125,24 @@ public class RBACFilter implements OperationBeforeHandler {
                 return Stream.of(
                         field.setSelections(
                                 field.getFields().stream()
-                                        .peek(subField -> {
+                                        .flatMap(subField -> {
                                                     if (subField.getName().equals(FIELD_EDGES_NAME) && subField.getField(FIELD_NODE_NAME) != null) {
                                                         Field node = subField.getField(FIELD_NODE_NAME);
                                                         FieldDefinition originalFieldDefinition = objectType.getField(fieldDefinition.getConnectionFieldOrError());
                                                         Definition originalFieldTypeDefinition = documentManager.getFieldTypeDefinition(originalFieldDefinition);
-                                                        node.setSelections(
-                                                                node.getFields().stream()
-                                                                        .flatMap(nodeSubField ->
-                                                                                enforce(currentUser, originalFieldTypeDefinition.asObject(), originalFieldTypeDefinition.asObject().getField(nodeSubField.getName()), nodeSubField)
-                                                                        )
-                                                                        .collect(Collectors.toList())
-                                                        );
+                                                        List<Field> fieldList = node.getFields().stream()
+                                                                .flatMap(nodeSubField ->
+                                                                        enforce(currentUser, originalFieldTypeDefinition.asObject(), originalFieldTypeDefinition.asObject().getField(nodeSubField.getName()), nodeSubField)
+                                                                )
+                                                                .collect(Collectors.toList());
+                                                        if (fieldList.isEmpty()) {
+                                                            return Stream.empty();
+                                                        } else {
+                                                            node.setSelections(fieldList);
+                                                            return Stream.of(subField);
+                                                        }
                                                     }
+                                                    return Stream.of(subField);
                                                 }
                                         )
                                         .collect(Collectors.toList())
@@ -166,15 +167,16 @@ public class RBACFilter implements OperationBeforeHandler {
                                     )
                             )
             ) {
-                return Stream.of(
-                        field.setSelections(
-                                field.getFields().stream()
-                                        .flatMap(subField ->
-                                                enforce(currentUser, fieldTypeDefinition.asObject(), fieldTypeDefinition.asObject().getField(subField.getName()), subField)
-                                        )
-                                        .collect(Collectors.toList())
+                List<Field> fieldList = field.getFields().stream()
+                        .flatMap(subField ->
+                                enforce(currentUser, fieldTypeDefinition.asObject(), fieldTypeDefinition.asObject().getField(subField.getName()), subField)
                         )
-                );
+                        .collect(Collectors.toList());
+                if (fieldList.isEmpty()) {
+                    return Stream.empty();
+                } else {
+                    return Stream.of(field.setSelections(fieldList));
+                }
             }
         } else {
             String fieldName;
