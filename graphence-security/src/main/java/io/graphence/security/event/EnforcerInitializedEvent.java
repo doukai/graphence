@@ -35,7 +35,12 @@ public class EnforcerInitializedEvent implements ScopeEvent {
     @Override
     public Mono<Void> fireAsync(Map<String, Object> context) {
         return rbacPolicyDao.queryRoleList()
-                .map(rbacAdapter::setRoles)
+                .flatMap(roles ->
+                        rbacPolicyDao.queryGroupList()
+                                .map(groups ->
+                                        rbacAdapter.setRoles(roles, groups)
+                                )
+                )
                 .doOnSuccess(enforcer::setAdapter)
                 .doOnSuccess(adapter -> enforcer.loadPolicy())
                 .then();

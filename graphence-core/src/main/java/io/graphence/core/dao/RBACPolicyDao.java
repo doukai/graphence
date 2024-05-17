@@ -35,18 +35,17 @@ public interface RBACPolicyDao {
     Mono<Role> queryRoleRealmById(String id);
 
     @Query(user = @UserQueryArguments(id = @StringExpression1($val = "id")))
-    @SelectionSet("{ id login roles { id name } groups { roles { id name } } realmId }")
+    @SelectionSet("{ id login roles { id name } groups { id name } realmId }")
     Mono<User> queryUserById(String id);
 
     @Query(group = @GroupQueryArguments(id = @StringExpression1($val = "id")))
-    @SelectionSet("{ id name users { id login roles { id name } groups { roles { id name } } } realmId }")
+    @SelectionSet("{ id name users { id login } roles { id name } realmId }")
     Mono<Group> queryGroupById(String id);
 
     @Query(permission = @PermissionQueryArguments(name = @StringExpression1($val = "name")))
     @SelectionSet("{ name type field permissionType roles { id name realmId } }")
     Mono<Permission> queryPermissionByName(String name);
-
-
+    
     @Query(permissionList = @PermissionListQueryArguments(
             roles = @RoleExpression1(
                     id = @StringExpression2($arr = "roleIdList")

@@ -65,7 +65,7 @@ public class PermissionBuildEvent implements ScopeEvent {
                         objectType.getFields().stream()
                                 .flatMap(fieldDefinition -> {
                                             if (documentManager.isOperationType(objectType)) {
-                                                if (fieldDefinition.isInvokeField()) {
+                                                if (fieldDefinition.isInvokeField() && !fieldDefinition.isPermitAll() && !fieldDefinition.isDenyAll()) {
                                                     if (fieldDefinition.getDescription() != null) {
                                                         return Stream.of(
                                                                 ObjectValueWithVariable.of(
@@ -93,6 +93,8 @@ public class PermissionBuildEvent implements ScopeEvent {
                                                 }
                                             } else {
                                                 if (!objectType.isContainer() &&
+                                                        !objectType.isPermitAll() &&
+                                                        !objectType.isDenyAll() &&
                                                         !fieldDefinition.isFunctionField() &&
                                                         !fieldDefinition.isAggregateField() &&
                                                         !fieldDefinition.isConnectionField()
