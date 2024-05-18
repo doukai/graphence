@@ -1,9 +1,12 @@
 package io.graphence.core.api;
 
 import io.graphence.core.dao.RBACPolicyDao;
+import io.graphence.core.dao.UserDao;
 import io.graphence.core.dto.CurrentUser;
+import io.graphence.core.dto.annotation.Mutation;
 import io.graphence.core.dto.inputObjectType.*;
 import io.graphence.core.dto.objectType.Permission;
+import io.graphence.core.dto.objectType.User;
 import io.graphoenix.core.dto.inputObjectType.IntExpression;
 import io.graphoenix.core.dto.inputObjectType.MetaExpression;
 import io.graphoenix.core.dto.inputObjectType.MetaInput;
@@ -28,17 +31,26 @@ public class CurrentApi implements Asyncable {
 
     private final Provider<Mono<CurrentUser>> currentUserMonoProvider;
     private final RBACPolicyDao rbacPolicyDao;
+    private final UserDao userDao;
 
     @Inject
-    public CurrentApi(Provider<Mono<CurrentUser>> currentUserMonoProvider, RBACPolicyDao rbacPolicyDao) {
+    public CurrentApi(Provider<Mono<CurrentUser>> currentUserMonoProvider, RBACPolicyDao rbacPolicyDao, UserDao userDao) {
         this.currentUserMonoProvider = currentUserMonoProvider;
         this.rbacPolicyDao = rbacPolicyDao;
+        this.userDao = userDao;
     }
 
     @Query
     @PermitAll
     public Mono<CurrentUser> current() {
         return currentUserMonoProvider.get();
+    }
+
+    @Query
+    @PermitAll
+    public Mono<User> currentUser() {
+        return currentUserMonoProvider.get()
+                .flatMap(currentUser -> userDao.getUserById(currentUser.getId()));
     }
 
     @Query
@@ -63,6 +75,14 @@ public class CurrentApi implements Asyncable {
                                 .map(Permission::getName)
                                 .collect(Collectors.toSet())
                 );
+    }
+
+    @Mutation
+    @PermitAll
+    public Mono<User> currentUserUpdate(UserInput userInput) {
+        return currentUserMonoProvider.get()
+                .doOnSuccess(currentUser -> userInput.setId(currentUser.getId()))
+                .flatMap(currentUser -> userDao.updateUser(userInput));
     }
 
     @Async(defaultIfEmpty = "metaInput")

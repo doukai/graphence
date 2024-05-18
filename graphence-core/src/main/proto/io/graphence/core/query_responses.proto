@@ -111,15 +111,18 @@ message QueryPermissionRoleRelationListResponse {
 message QueryPermissionRoleRelationConnectionResponse {
     PermissionRoleRelationConnection permission_role_relation_connection = 1;
 }
-message QueryPolicyListResponse {
-    repeated Policy policy_list = 1;
-}
 message QueryCurrentResponse {
     CurrentUser current = 1;
+}
+message QueryCurrentUserResponse {
+    User current_user = 1;
 }
 message QueryCurrentPermissionTypeListResponse {
     repeated string current_permission_type_list = 1;
 }
 message QueryCurrentPermissionNameListByTypesResponse {
     repeated string current_permission_name_list_by_types = 1;
+}
+message QueryPolicyListResponse {
+    repeated Policy policy_list = 1;
 }

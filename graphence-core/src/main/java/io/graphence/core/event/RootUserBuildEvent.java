@@ -38,7 +38,7 @@ public class RootUserBuildEvent implements ScopeEvent {
             return Mono.empty();
         }
         Hash hash = Password.hash(securityConfig.getRootPassword()).withBcrypt();
-        return userDao.getUserIdByLogin(securityConfig.getRootUser())
+        return userDao.getUserByLogin(securityConfig.getRootUser())
                 .map(user -> {
                             user.setName(securityConfig.getRootUser());
                             user.setSalt(Base64.getEncoder().encodeToString(hash.getSaltBytes()));

@@ -118,36 +118,45 @@ public class RBACFilter implements OperationBeforeHandler {
                                             USER_PREFIX + currentUser.getId(),
                                             Optional.ofNullable(currentUser.getRealmId()).map(String::valueOf).orElse(EMPTY),
                                             objectType.getName() + SPACER + fieldDefinition.getConnectionFieldOrError(),
+                                            WRITE.name()
+                                    ) ||
+                                    enforcer.enforce(
+                                            USER_PREFIX + currentUser.getId(),
+                                            Optional.ofNullable(currentUser.getRealmId()).map(String::valueOf).orElse(EMPTY),
+                                            objectType.getName() + SPACER + fieldDefinition.getConnectionFieldOrError(),
                                             READ.name()
                                     )
                             )
             ) {
-                return Stream.of(
-                        field.setSelections(
-                                field.getFields().stream()
-                                        .flatMap(subField -> {
-                                                    if (subField.getName().equals(FIELD_EDGES_NAME) && subField.getField(FIELD_NODE_NAME) != null) {
-                                                        Field node = subField.getField(FIELD_NODE_NAME);
-                                                        FieldDefinition originalFieldDefinition = objectType.getField(fieldDefinition.getConnectionFieldOrError());
-                                                        Definition originalFieldTypeDefinition = documentManager.getFieldTypeDefinition(originalFieldDefinition);
-                                                        List<Field> fieldList = node.getFields().stream()
-                                                                .flatMap(nodeSubField ->
-                                                                        enforce(currentUser, originalFieldTypeDefinition.asObject(), originalFieldTypeDefinition.asObject().getField(nodeSubField.getName()), nodeSubField)
-                                                                )
-                                                                .collect(Collectors.toList());
-                                                        if (fieldList.isEmpty()) {
-                                                            return Stream.empty();
-                                                        } else {
-                                                            node.setSelections(fieldList);
-                                                            return Stream.of(subField);
-                                                        }
-                                                    }
+                field.setSelections(
+                        field.getFields().stream()
+                                .flatMap(subField -> {
+                                            if (subField.getName().equals(FIELD_EDGES_NAME) && subField.getField(FIELD_NODE_NAME) != null) {
+                                                Field node = subField.getField(FIELD_NODE_NAME);
+                                                FieldDefinition originalFieldDefinition = objectType.getField(fieldDefinition.getConnectionFieldOrError());
+                                                Definition originalFieldTypeDefinition = documentManager.getFieldTypeDefinition(originalFieldDefinition);
+                                                List<Field> fieldList = node.getFields().stream()
+                                                        .flatMap(nodeSubField ->
+                                                                enforce(currentUser, originalFieldTypeDefinition.asObject(), originalFieldTypeDefinition.asObject().getField(nodeSubField.getName()), nodeSubField)
+                                                        )
+                                                        .collect(Collectors.toList());
+                                                if (fieldList.isEmpty()) {
+                                                    return Stream.empty();
+                                                } else {
+                                                    node.setSelections(fieldList);
                                                     return Stream.of(subField);
                                                 }
-                                        )
-                                        .collect(Collectors.toList())
-                        )
+                                            }
+                                            return Stream.of(subField);
+                                        }
+                                )
+                                .collect(Collectors.toList())
                 );
+                if (field.getField(FIELD_EDGES_NAME) != null) {
+                    return Stream.of(field);
+                } else {
+                    return Stream.empty();
+                }
             }
         } else if (fieldTypeDefinition.isObject()) {
             String fieldName;
@@ -159,6 +168,12 @@ public class RBACFilter implements OperationBeforeHandler {
             if (documentManager.isOperationType(objectType) ||
                     !fieldDefinition.isDenyAll() &&
                             (fieldDefinition.isPermitAll() ||
+                                    enforcer.enforce(
+                                            USER_PREFIX + currentUser.getId(),
+                                            Optional.ofNullable(currentUser.getRealmId()).map(String::valueOf).orElse(EMPTY),
+                                            objectType.getName() + SPACER + fieldName,
+                                            WRITE.name()
+                                    ) ||
                                     enforcer.enforce(
                                             USER_PREFIX + currentUser.getId(),
                                             Optional.ofNullable(currentUser.getRealmId()).map(String::valueOf).orElse(EMPTY),
@@ -187,6 +202,12 @@ public class RBACFilter implements OperationBeforeHandler {
             }
             if (!fieldDefinition.isDenyAll() &&
                     (fieldDefinition.isPermitAll() ||
+                            enforcer.enforce(
+                                    USER_PREFIX + currentUser.getId(),
+                                    Optional.ofNullable(currentUser.getRealmId()).map(String::valueOf).orElse(EMPTY),
+                                    objectType.getName() + SPACER + fieldName,
+                                    WRITE.name()
+                            ) ||
                             enforcer.enforce(
                                     USER_PREFIX + currentUser.getId(),
                                     Optional.ofNullable(currentUser.getRealmId()).map(String::valueOf).orElse(EMPTY),
