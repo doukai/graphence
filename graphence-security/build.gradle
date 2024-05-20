@@ -1,8 +1,8 @@
 plugins {
     id 'java'
+    id 'maven-publish'
 }
 
-apply plugin: 'maven'
 group 'io.graphoenix.graphence'
 version '0.0.1-SNAPSHOT'
 
