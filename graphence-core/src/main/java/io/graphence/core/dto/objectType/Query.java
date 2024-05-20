@@ -78,6 +78,8 @@ public class Query {
 
   private PermissionRoleRelationConnection permissionRoleRelationConnection;
 
+  private Collection<Policy> policyList;
+
   private CurrentUser current;
 
   private User currentUser;
@@ -85,8 +87,6 @@ public class Query {
   private Collection<String> currentPermissionTypeList;
 
   private Collection<String> currentPermissionNameListByTypes;
-
-  private Collection<Policy> policyList;
 
   public User getUser() {
     return this.user;
@@ -359,6 +359,14 @@ public class Query {
     this.permissionRoleRelationConnection = permissionRoleRelationConnection;
   }
 
+  public Collection<Policy> getPolicyList() {
+    return this.policyList;
+  }
+
+  public void setPolicyList(Collection<Policy> policyList) {
+    this.policyList = policyList;
+  }
+
   public CurrentUser getCurrent() {
     return this.current;
   }
@@ -390,13 +398,5 @@ public class Query {
   public void setCurrentPermissionNameListByTypes(
       Collection<String> currentPermissionNameListByTypes) {
     this.currentPermissionNameListByTypes = currentPermissionNameListByTypes;
-  }
-
-  public Collection<Policy> getPolicyList() {
-    return this.policyList;
-  }
-
-  public void setPolicyList(Collection<Policy> policyList) {
-    this.policyList = policyList;
   }
 }

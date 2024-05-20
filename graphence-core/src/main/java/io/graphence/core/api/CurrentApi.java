@@ -1,11 +1,14 @@
 package io.graphence.core.api;
 
+import com.password4j.Hash;
+import com.password4j.Password;
 import io.graphence.core.dao.RBACPolicyDao;
 import io.graphence.core.dao.UserDao;
 import io.graphence.core.dto.CurrentUser;
 import io.graphence.core.dto.inputObjectType.*;
 import io.graphence.core.dto.objectType.Permission;
 import io.graphence.core.dto.objectType.User;
+import io.graphence.core.error.AuthenticationException;
 import io.graphoenix.core.dto.inputObjectType.IntExpression;
 import io.graphoenix.core.dto.inputObjectType.MetaExpression;
 import io.graphoenix.core.dto.inputObjectType.MetaInput;
@@ -15,15 +18,15 @@ import jakarta.annotation.security.PermitAll;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.inject.Provider;
-import org.eclipse.microprofile.graphql.GraphQLApi;
-import org.eclipse.microprofile.graphql.Mutation;
-import org.eclipse.microprofile.graphql.Query;
-import org.eclipse.microprofile.graphql.Source;
+import org.eclipse.microprofile.graphql.*;
 import reactor.core.publisher.Mono;
 
+import java.util.Base64;
 import java.util.Collection;
 import java.util.Set;
 import java.util.stream.Collectors;
+
+import static io.graphence.core.error.AuthenticationErrorType.AUTHENTICATION_FAILED;
 
 @GraphQLApi
 @ApplicationScoped
@@ -79,10 +82,26 @@ public class CurrentApi implements Asyncable {
 
     @Mutation
     @PermitAll
-    public Mono<User> currentUserUpdate(UserInput userInput) {
+    public Mono<User> currentUserUpdate(@NonNull UserInput userInput) {
         return currentUserMonoProvider.get()
                 .doOnSuccess(currentUser -> userInput.setId(currentUser.getId()))
                 .flatMap(currentUser -> userDao.updateUser(userInput));
+    }
+
+    @Mutation
+    @PermitAll
+    public Mono<User> currentUserResetPassword(@NonNull String password, @NonNull String newPassword) {
+        return currentUserMonoProvider.get()
+                .flatMap(currentUser -> userDao.getUserById(currentUser.getId()))
+                .flatMap(user -> {
+                            if (Password.check(password, new String(Base64.getDecoder().decode(user.getHash()))).addSalt(Base64.getDecoder().decode(user.getSalt())).withBcrypt()) {
+                                Hash hash = Password.hash(newPassword).withBcrypt();
+                                return userDao.resetPassword(user.getId(), Base64.getEncoder().encodeToString(hash.getSaltBytes()), Base64.getEncoder().encodeToString(hash.getResultAsBytes()));
+                            } else {
+                                return Mono.error(new AuthenticationException(AUTHENTICATION_FAILED));
+                            }
+                        }
+                );
     }
 
     @Async(defaultIfEmpty = "metaInput")
