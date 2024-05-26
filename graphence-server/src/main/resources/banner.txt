@@ -5,6 +5,3 @@
 [34m'  '--'  ||  |  \ '-'  || '-' '|  | |  \   --.|  ||  \ `--.\   --. [0m
 [34m `------' `--'   `--`--'|  |-' `--' `--'`----'`--''--'`---' `----' [0m
 [34m                        `--'                                       [0m
-[34mDatabase : ${GP-Database}[0m
-[34mProtocol : ${GP-Protocol}[0m
-[34mPowered by Graphoenix ${GP-Version}[0m
