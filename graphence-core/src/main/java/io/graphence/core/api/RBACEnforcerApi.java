@@ -2,7 +2,7 @@ package io.graphence.core.api;
 
 import com.google.common.collect.Streams;
 import io.graphence.core.casbin.adapter.Policy;
-import io.graphence.core.dao.RBACPolicyDao;
+import io.graphence.core.repository.RBACPolicyRepository;
 import io.graphence.core.dto.objectType.*;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
@@ -26,12 +26,12 @@ import static io.graphence.core.casbin.adapter.RBACAdapter.*;
 public class RBACEnforcerApi {
 
     private final Enforcer enforcer;
-    private final RBACPolicyDao rbacPolicyDao;
+    private final RBACPolicyRepository rbacPolicyRepository;
 
     @Inject
-    public RBACEnforcerApi(Enforcer enforcer, RBACPolicyDao rbacPolicyDao) {
+    public RBACEnforcerApi(Enforcer enforcer, RBACPolicyRepository rbacPolicyRepository) {
         this.enforcer = enforcer;
-        this.rbacPolicyDao = rbacPolicyDao;
+        this.rbacPolicyRepository = rbacPolicyRepository;
     }
 
     @Query
@@ -43,7 +43,7 @@ public class RBACEnforcerApi {
     }
 
     public Mono<Boolean> syncRolePolicy(@Source Role role) {
-        return rbacPolicyDao.queryRoleById(role.getId())
+        return rbacPolicyRepository.queryRoleById(role.getId())
                 .map(syncRole -> {
                             enforcer.removeFilteredPolicy(
                                     0,
@@ -124,7 +124,7 @@ public class RBACEnforcerApi {
     }
 
     public Mono<Boolean> syncUserPolicy(@Source User user) {
-        return rbacPolicyDao.queryUserById(user.getId())
+        return rbacPolicyRepository.queryUserById(user.getId())
                 .map(syncUser -> {
                             enforcer.removeFilteredGroupingPolicy(
                                     0,
@@ -165,7 +165,7 @@ public class RBACEnforcerApi {
     }
 
     public Mono<Boolean> syncGroupPolicy(@Source Group group) {
-        return rbacPolicyDao.queryGroupById(group.getId())
+        return rbacPolicyRepository.queryGroupById(group.getId())
                 .map(syncGroup -> {
                             enforcer.removeFilteredGroupingPolicy(
                                     0,
@@ -213,7 +213,7 @@ public class RBACEnforcerApi {
     }
 
     public Mono<Boolean> syncPermissionPolicy(@Source Permission permission) {
-        return rbacPolicyDao.queryPermissionByName(permission.getName())
+        return rbacPolicyRepository.queryPermissionByName(permission.getName())
                 .map(syncPermission -> {
                             enforcer.removeFilteredPolicy(
                                     0,
@@ -245,7 +245,7 @@ public class RBACEnforcerApi {
 
     @Mutation
     public Mono<Boolean> syncPermissionRoleRelationPolicy(String roleId, List<String> permissionNameList, List<String> removedPermissionNameList) {
-        return rbacPolicyDao.queryRoleRealmById(roleId)
+        return rbacPolicyRepository.queryRoleRealmById(roleId)
                 .map(role -> {
                             for (String removedPermissionName : removedPermissionNameList) {
                                 String[] permissionNamePart = removedPermissionName.split(SPACER);

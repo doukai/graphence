@@ -1,4 +1,4 @@
-package io.graphence.core.dao;
+package io.graphence.core.repository;
 
 import io.graphence.core.dto.annotation.*;
 import io.graphence.core.dto.objectType.Group;
@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Set;
 
 @GraphQLOperation
-public interface RBACPolicyDao {
+public interface RBACPolicyRepository {
 
     @Query(roleList = @RoleListQueryArguments())
     @SelectionSet("{ id name users { id login } composites { id name } groups { id name } permissions { name type field permissionType } realmId }")

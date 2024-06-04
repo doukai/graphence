@@ -3,8 +3,8 @@ package io.graphence.core.api;
 import com.password4j.Hash;
 import com.password4j.Password;
 import io.graphence.core.config.SecurityConfig;
-import io.graphence.core.dao.LoginDao;
-import io.graphence.core.dao.RBACPolicyDao;
+import io.graphence.core.repository.LoginRepository;
+import io.graphence.core.repository.RBACPolicyRepository;
 import io.graphence.core.dto.inputObjectType.UserMutationArguments;
 import io.graphence.core.dto.objectType.Permission;
 import io.graphence.core.dto.objectType.Role;
@@ -39,24 +39,24 @@ import static io.graphence.core.error.AuthenticationErrorType.AUTHENTICATION_FAI
 public class LoginApi implements Asyncable {
 
     private final SecurityConfig config;
-    private final LoginDao loginDao;
+    private final LoginRepository loginRepository;
     private final JWTUtil jwtUtil;
-    private final RBACPolicyDao rbacPolicyDao;
+    private final RBACPolicyRepository rbacPolicyRepository;
     private final RequestScopeInstanceFactory requestScopeInstanceFactory;
 
     @Inject
-    public LoginApi(SecurityConfig config, LoginDao loginDao, JWTUtil jwtUtil, RequestScopeInstanceFactory requestScopeInstanceFactory, RBACPolicyDao rbacPolicyDao) {
+    public LoginApi(SecurityConfig config, LoginRepository loginRepository, JWTUtil jwtUtil, RequestScopeInstanceFactory requestScopeInstanceFactory, RBACPolicyRepository rbacPolicyRepository) {
         this.config = config;
-        this.loginDao = loginDao;
+        this.loginRepository = loginRepository;
         this.jwtUtil = jwtUtil;
-        this.rbacPolicyDao = rbacPolicyDao;
+        this.rbacPolicyRepository = rbacPolicyRepository;
         this.requestScopeInstanceFactory = requestScopeInstanceFactory;
     }
 
     @Mutation
     @PermitAll
     public Mono<String> login(@NonNull String login, @NonNull String password) {
-        return loginDao.getUserByLogin(login)
+        return loginRepository.getUserByLogin(login)
                 .flatMap(user -> {
                             if (user.getDisable()) {
                                 return Mono.error(new AuthenticationException(AUTHENTICATION_DISABLE));
@@ -71,7 +71,7 @@ public class LoginApi implements Asyncable {
 //                    .flatMap(user -> SessionScopeInstanceFactory.computeIfAbsent(CurrentUser.class, CurrentUser.of(user)).thenReturn(user))
                 .flatMap(user -> {
                             Set<String> roleIdSet = jwtUtil.getRoles(user).map(Role::getId).collect(Collectors.toSet());
-                            return rbacPolicyDao.queryPermissionTypeList(roleIdSet)
+                            return rbacPolicyRepository.queryPermissionTypeList(roleIdSet)
                                     .map(permissions -> jwtUtil.build(user, roleIdSet, permissions.stream().map(Permission::getType).collect(Collectors.toSet())))
                                     .switchIfEmpty(Mono.defer(() -> Mono.just(jwtUtil.build(user, roleIdSet, Collections.emptySet()))));
                         }

@@ -1,4 +1,4 @@
-package io.graphence.core.dao;
+package io.graphence.core.repository;
 
 import io.graphence.core.dto.annotation.*;
 import io.graphence.core.dto.objectType.Group;
@@ -11,7 +11,7 @@ import reactor.core.publisher.Mono;
 import java.util.List;
 
 @GraphQLOperation
-public interface GroupDao {
+public interface GroupRepository {
 
     @Query(group = @GroupQueryArguments(id = @StringExpression1($val = "id")))
     @SelectionSet("{ id path deep }")

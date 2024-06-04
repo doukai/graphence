@@ -2,8 +2,8 @@ package io.graphence.core.api;
 
 import com.password4j.Hash;
 import com.password4j.Password;
-import io.graphence.core.dao.RBACPolicyDao;
-import io.graphence.core.dao.UserDao;
+import io.graphence.core.repository.RBACPolicyRepository;
+import io.graphence.core.repository.UserRepository;
 import io.graphence.core.dto.CurrentUser;
 import io.graphence.core.dto.inputObjectType.*;
 import io.graphence.core.dto.objectType.Permission;
@@ -33,14 +33,14 @@ import static io.graphence.core.error.AuthenticationErrorType.AUTHENTICATION_FAI
 public class CurrentApi implements Asyncable {
 
     private final Provider<Mono<CurrentUser>> currentUserMonoProvider;
-    private final RBACPolicyDao rbacPolicyDao;
-    private final UserDao userDao;
+    private final RBACPolicyRepository rbacPolicyRepository;
+    private final UserRepository userRepository;
 
     @Inject
-    public CurrentApi(Provider<Mono<CurrentUser>> currentUserMonoProvider, RBACPolicyDao rbacPolicyDao, UserDao userDao) {
+    public CurrentApi(Provider<Mono<CurrentUser>> currentUserMonoProvider, RBACPolicyRepository rbacPolicyRepository, UserRepository userRepository) {
         this.currentUserMonoProvider = currentUserMonoProvider;
-        this.rbacPolicyDao = rbacPolicyDao;
-        this.userDao = userDao;
+        this.rbacPolicyRepository = rbacPolicyRepository;
+        this.userRepository = userRepository;
     }
 
     @Query
@@ -53,14 +53,14 @@ public class CurrentApi implements Asyncable {
     @PermitAll
     public Mono<User> currentUser() {
         return currentUserMonoProvider.get()
-                .flatMap(currentUser -> userDao.getUserById(currentUser.getId()));
+                .flatMap(currentUser -> userRepository.getUserById(currentUser.getId()));
     }
 
     @Query
     @PermitAll
     public Mono<Set<String>> currentPermissionTypeList() {
         return currentUserMonoProvider.get()
-                .flatMap(currentUser -> rbacPolicyDao.queryPermissionTypeList(currentUser.getRoles()))
+                .flatMap(currentUser -> rbacPolicyRepository.queryPermissionTypeList(currentUser.getRoles()))
                 .map(permissionList ->
                         permissionList.stream()
                                 .map(Permission::getType)
@@ -72,7 +72,7 @@ public class CurrentApi implements Asyncable {
     @PermitAll
     public Mono<Set<String>> currentPermissionNameListByTypes(Collection<String> types) {
         return currentUserMonoProvider.get()
-                .flatMap(currentUser -> rbacPolicyDao.queryPermissionListByTypes(currentUser.getRoles(), types))
+                .flatMap(currentUser -> rbacPolicyRepository.queryPermissionListByTypes(currentUser.getRoles(), types))
                 .map(permissionList ->
                         permissionList.stream()
                                 .map(Permission::getName)
@@ -85,18 +85,18 @@ public class CurrentApi implements Asyncable {
     public Mono<User> currentUserUpdate(@NonNull UserInput userInput) {
         return currentUserMonoProvider.get()
                 .doOnSuccess(currentUser -> userInput.setId(currentUser.getId()))
-                .flatMap(currentUser -> userDao.updateUser(userInput));
+                .flatMap(currentUser -> userRepository.updateUser(userInput));
     }
 
     @Mutation
     @PermitAll
     public Mono<User> currentUserResetPassword(@NonNull String password, @NonNull String newPassword) {
         return currentUserMonoProvider.get()
-                .flatMap(currentUser -> userDao.getUserById(currentUser.getId()))
+                .flatMap(currentUser -> userRepository.getUserById(currentUser.getId()))
                 .flatMap(user -> {
                             if (Password.check(password, new String(Base64.getDecoder().decode(user.getHash()))).addSalt(Base64.getDecoder().decode(user.getSalt())).withBcrypt()) {
                                 Hash hash = Password.hash(newPassword).withBcrypt();
-                                return userDao.resetPassword(user.getId(), Base64.getEncoder().encodeToString(hash.getSaltBytes()), Base64.getEncoder().encodeToString(hash.getResultAsBytes()));
+                                return userRepository.resetPassword(user.getId(), Base64.getEncoder().encodeToString(hash.getSaltBytes()), Base64.getEncoder().encodeToString(hash.getResultAsBytes()));
                             } else {
                                 return Mono.error(new AuthenticationException(AUTHENTICATION_FAILED));
                             }

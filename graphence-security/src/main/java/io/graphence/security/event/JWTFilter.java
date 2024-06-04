@@ -1,7 +1,7 @@
 package io.graphence.security.event;
 
 import com.password4j.Password;
-import io.graphence.core.dao.LoginDao;
+import io.graphence.core.repository.LoginRepository;
 import io.graphence.core.dto.CurrentUser;
 import io.graphence.core.error.AuthenticationException;
 import io.graphence.core.jwt.GraphenceJsonWebToken;
@@ -34,14 +34,14 @@ public class JWTFilter extends BaseRequestFilter implements ScopeEvent {
     public static final int JWT_FILTER_SCOPE_EVENT_PRIORITY = 0;
 
     private final DocumentManager documentManager;
-    private final LoginDao loginDao;
+    private final LoginRepository loginRepository;
     private final JWTUtil jwtUtil;
     private final RequestScopeInstanceFactory requestScopeInstanceFactory;
 
     @Inject
-    public JWTFilter(DocumentManager documentManager, LoginDao loginDao, JWTUtil jwtUtil, RequestScopeInstanceFactory requestScopeInstanceFactory) {
+    public JWTFilter(DocumentManager documentManager, LoginRepository loginRepository, JWTUtil jwtUtil, RequestScopeInstanceFactory requestScopeInstanceFactory) {
         this.documentManager = documentManager;
-        this.loginDao = loginDao;
+        this.loginRepository = loginRepository;
         this.jwtUtil = jwtUtil;
         this.requestScopeInstanceFactory = requestScopeInstanceFactory;
     }
@@ -79,7 +79,7 @@ public class JWTFilter extends BaseRequestFilter implements ScopeEvent {
             String[] tokenDecode = new String(Base64.getDecoder().decode(token)).split(":");
             String login = tokenDecode[0];
             String password = tokenDecode[1];
-            return loginDao.getUserByLogin(login)
+            return loginRepository.getUserByLogin(login)
                     .flatMap(user -> {
                                 if (user.getDisable()) {
                                     return Mono.error(new AuthenticationException(AUTHENTICATION_DISABLE));

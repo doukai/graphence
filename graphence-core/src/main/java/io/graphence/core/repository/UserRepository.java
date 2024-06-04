@@ -1,4 +1,4 @@
-package io.graphence.core.dao;
+package io.graphence.core.repository;
 
 import io.graphence.core.dto.annotation.*;
 import io.graphence.core.dto.inputObjectType.UserInput;
@@ -10,7 +10,7 @@ import io.graphoenix.spi.annotation.SelectionSet;
 import reactor.core.publisher.Mono;
 
 @GraphQLOperation
-public interface UserDao {
+public interface UserRepository {
 
     @Query(user = @UserQueryArguments(login = @StringExpression1($val = "login")))
     Mono<User> getUserByLogin(String login);
