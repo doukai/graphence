@@ -1,4 +1,4 @@
-package io.graphence.server;
+package io.graphence.core;
 
 import io.graphoenix.spi.annotation.Application;
 
