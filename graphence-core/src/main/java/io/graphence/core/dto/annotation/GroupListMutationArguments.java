@@ -25,15 +25,15 @@ public @interface GroupListMutationArguments {
 
   String parentId() default "";
 
-  GroupInput1 parent() default @GroupInput1;
+  GroupInput parent() default @GroupInput;
 
-  GroupInput1[] subGroups() default {};
+  GroupInput[] subGroups() default {};
 
-  UserInput1[] users() default {};
+  UserInput[] users() default {};
 
-  RoleInput1[] roles() default {};
+  RoleInput[] roles() default {};
 
-  RealmInput1 realm() default @RealmInput1;
+  RealmInput realm() default @RealmInput;
 
   boolean isDeprecated() default false;
 
@@ -53,13 +53,13 @@ public @interface GroupListMutationArguments {
 
   String __typename() default "Group";
 
-  GroupUserRelationInput1[] groupUserRelation() default {};
+  GroupUserRelationInput[] groupUserRelation() default {};
 
-  GroupRoleRelationInput1[] groupRoleRelation() default {};
+  GroupRoleRelationInput[] groupRoleRelation() default {};
 
-  GroupInput1[] list() default {};
+  GroupInput[] list() default {};
 
-  GroupExpression1 where() default @GroupExpression1;
+  GroupExpression where() default @GroupExpression;
 
   String $id() default "";
 

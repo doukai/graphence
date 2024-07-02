@@ -37,9 +37,9 @@ public @interface RealmMutationArguments {
 
   String __typename() default "Realm";
 
-  RealmInput1 input() default @RealmInput1;
+  RealmInput input() default @RealmInput;
 
-  RealmExpression1 where() default @RealmExpression1;
+  RealmExpression where() default @RealmExpression;
 
   String $id() default "";
 

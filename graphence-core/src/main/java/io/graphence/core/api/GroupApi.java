@@ -26,7 +26,7 @@ public class GroupApi implements Asyncable {
     }
 
     @Async
-    public GroupMutationArguments setPath(@Source GroupMutationArguments groupMutationArguments) {
+    public GroupMutationArguments syncPathAndDeep(@Source GroupMutationArguments groupMutationArguments) {
         if (groupMutationArguments.getParent() != null) {
             if (groupMutationArguments.getParent().getId() != null || groupMutationArguments.getParent().getWhere() != null && groupMutationArguments.getParent().getWhere().getId().getVal() != null) {
                 Group parentGroup = await(groupRepository.getGroupById(groupMutationArguments.getParent().getId() != null ? groupMutationArguments.getParent().getId() : groupMutationArguments.getParent().getWhere().getId().getVal()));
@@ -114,7 +114,7 @@ public class GroupApi implements Asyncable {
     }
 
     @Async
-    public GroupInput setPath(@Source GroupInput groupInput) {
+    public GroupInput syncPathAndDeep(@Source GroupInput groupInput) {
         if (groupInput.getParent() != null) {
             if (groupInput.getParent().getId() != null || groupInput.getParent().getWhere() != null && groupInput.getParent().getWhere().getId().getVal() != null) {
                 Group parentGroup = await(groupRepository.getGroupById(groupInput.getParent().getId() != null ? groupInput.getParent().getId() : groupInput.getParent().getWhere().getId().getVal()));

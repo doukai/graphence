@@ -17,11 +17,11 @@ public @interface GroupRoleRelationListMutationArguments {
 
   String roleRef() default "";
 
-  RoleInput1 role() default @RoleInput1;
+  RoleInput role() default @RoleInput;
 
   String groupRef() default "";
 
-  GroupInput1 group() default @GroupInput1;
+  GroupInput group() default @GroupInput;
 
   boolean isDeprecated() default false;
 
@@ -41,9 +41,9 @@ public @interface GroupRoleRelationListMutationArguments {
 
   String __typename() default "GroupRoleRelation";
 
-  GroupRoleRelationInput1[] list() default {};
+  GroupRoleRelationInput[] list() default {};
 
-  GroupRoleRelationExpression1 where() default @GroupRoleRelationExpression1;
+  GroupRoleRelationExpression where() default @GroupRoleRelationExpression;
 
   String $id() default "";
 

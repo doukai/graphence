@@ -19,15 +19,15 @@ public @interface RoleListMutationArguments {
 
   String description() default "";
 
-  UserInput1[] users() default {};
+  UserInput[] users() default {};
 
-  GroupInput1[] groups() default {};
+  GroupInput[] groups() default {};
 
-  RoleInput1[] composites() default {};
+  RoleInput[] composites() default {};
 
-  PermissionInput1[] permissions() default {};
+  PermissionInput[] permissions() default {};
 
-  RealmInput1 realm() default @RealmInput1;
+  RealmInput realm() default @RealmInput;
 
   boolean isDeprecated() default false;
 
@@ -47,17 +47,17 @@ public @interface RoleListMutationArguments {
 
   String __typename() default "Role";
 
-  RoleUserRelationInput1[] roleUserRelation() default {};
+  RoleUserRelationInput[] roleUserRelation() default {};
 
-  GroupRoleRelationInput1[] groupRoleRelation() default {};
+  GroupRoleRelationInput[] groupRoleRelation() default {};
 
-  RoleCompositeRelationInput1[] roleCompositeRelation() default {};
+  RoleCompositeRelationInput[] roleCompositeRelation() default {};
 
-  PermissionRoleRelationInput1[] permissionRoleRelation() default {};
+  PermissionRoleRelationInput[] permissionRoleRelation() default {};
 
-  RoleInput1[] list() default {};
+  RoleInput[] list() default {};
 
-  RoleExpression1 where() default @RoleExpression1;
+  RoleExpression where() default @RoleExpression;
 
   String $id() default "";
 

@@ -24,9 +24,9 @@ public @interface PermissionMutationArguments {
 
   PermissionType permissionType() default PermissionType.READ;
 
-  RoleInput1[] roles() default {};
+  RoleInput[] roles() default {};
 
-  RealmInput1 realm() default @RealmInput1;
+  RealmInput realm() default @RealmInput;
 
   boolean isDeprecated() default false;
 
@@ -46,11 +46,11 @@ public @interface PermissionMutationArguments {
 
   String __typename() default "Permission";
 
-  PermissionRoleRelationInput1[] permissionRoleRelation() default {};
+  PermissionRoleRelationInput[] permissionRoleRelation() default {};
 
-  PermissionInput1 input() default @PermissionInput1;
+  PermissionInput input() default @PermissionInput;
 
-  PermissionExpression1 where() default @PermissionExpression1;
+  PermissionExpression where() default @PermissionExpression;
 
   String $name() default "";
 

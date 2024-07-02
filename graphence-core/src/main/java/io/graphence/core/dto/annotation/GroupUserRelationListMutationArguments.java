@@ -17,11 +17,11 @@ public @interface GroupUserRelationListMutationArguments {
 
   String userRef() default "";
 
-  UserInput1 user() default @UserInput1;
+  UserInput user() default @UserInput;
 
   String groupRef() default "";
 
-  GroupInput1 group() default @GroupInput1;
+  GroupInput group() default @GroupInput;
 
   boolean isDeprecated() default false;
 
@@ -41,9 +41,9 @@ public @interface GroupUserRelationListMutationArguments {
 
   String __typename() default "GroupUserRelation";
 
-  GroupUserRelationInput1[] list() default {};
+  GroupUserRelationInput[] list() default {};
 
-  GroupUserRelationExpression1 where() default @GroupUserRelationExpression1;
+  GroupUserRelationExpression where() default @GroupUserRelationExpression;
 
   String $id() default "";
 

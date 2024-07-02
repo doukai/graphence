@@ -1,7 +1,7 @@
 package io.graphence.core.dto.annotation;
 
-import io.graphoenix.core.dto.annotation.IntExpression2;
-import io.graphoenix.core.dto.annotation.StringExpression2;
+import io.graphoenix.core.dto.annotation.IntExpression;
+import io.graphoenix.core.dto.annotation.StringExpression;
 import io.graphoenix.core.dto.enumType.Conditional;
 import jakarta.annotation.Generated;
 import java.lang.String;
@@ -16,11 +16,11 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.SOURCE)
 @Target(ElementType.METHOD)
 public @interface RoleExpression1 {
-  StringExpression2 id() default @StringExpression2;
+  StringExpression id() default @StringExpression;
 
-  StringExpression2 name() default @StringExpression2;
+  StringExpression name() default @StringExpression;
 
-  StringExpression2 description() default @StringExpression2;
+  StringExpression description() default @StringExpression;
 
   UserExpression2 users() default @UserExpression2;
 
@@ -34,21 +34,21 @@ public @interface RoleExpression1 {
 
   boolean includeDeprecated() default false;
 
-  IntExpression2 version() default @IntExpression2;
+  IntExpression version() default @IntExpression;
 
-  IntExpression2 realmId() default @IntExpression2;
+  IntExpression realmId() default @IntExpression;
 
-  StringExpression2 createUserId() default @StringExpression2;
+  StringExpression createUserId() default @StringExpression;
 
-  StringExpression2 createTime() default @StringExpression2;
+  StringExpression createTime() default @StringExpression;
 
-  StringExpression2 updateUserId() default @StringExpression2;
+  StringExpression updateUserId() default @StringExpression;
 
-  StringExpression2 updateTime() default @StringExpression2;
+  StringExpression updateTime() default @StringExpression;
 
-  StringExpression2 createGroupId() default @StringExpression2;
+  StringExpression createGroupId() default @StringExpression;
 
-  StringExpression2 __typename() default @StringExpression2;
+  StringExpression __typename() default @StringExpression;
 
   RoleUserRelationExpression2 roleUserRelation() default @RoleUserRelationExpression2;
 

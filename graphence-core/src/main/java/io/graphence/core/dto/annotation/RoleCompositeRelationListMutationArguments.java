@@ -17,11 +17,11 @@ public @interface RoleCompositeRelationListMutationArguments {
 
   String roleRef() default "";
 
-  RoleInput1 role() default @RoleInput1;
+  RoleInput role() default @RoleInput;
 
   String compositeRef() default "";
 
-  RoleInput1 composite() default @RoleInput1;
+  RoleInput composite() default @RoleInput;
 
   boolean isDeprecated() default false;
 
@@ -41,9 +41,9 @@ public @interface RoleCompositeRelationListMutationArguments {
 
   String __typename() default "RoleCompositeRelation";
 
-  RoleCompositeRelationInput1[] list() default {};
+  RoleCompositeRelationInput[] list() default {};
 
-  RoleCompositeRelationExpression1 where() default @RoleCompositeRelationExpression1;
+  RoleCompositeRelationExpression where() default @RoleCompositeRelationExpression;
 
   String $id() default "";
 

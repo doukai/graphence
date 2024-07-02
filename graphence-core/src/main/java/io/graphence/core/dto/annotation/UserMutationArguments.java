@@ -33,11 +33,11 @@ public @interface UserMutationArguments {
 
   boolean disable() default false;
 
-  GroupInput1[] groups() default {};
+  GroupInput[] groups() default {};
 
-  RoleInput1[] roles() default {};
+  RoleInput[] roles() default {};
 
-  RealmInput1 realm() default @RealmInput1;
+  RealmInput realm() default @RealmInput;
 
   boolean isDeprecated() default false;
 
@@ -57,15 +57,15 @@ public @interface UserMutationArguments {
 
   String __typename() default "User";
 
-  UserPhonesRelationInput1[] userPhonesRelation() default {};
+  UserPhonesRelationInput[] userPhonesRelation() default {};
 
-  GroupUserRelationInput1[] groupUserRelation() default {};
+  GroupUserRelationInput[] groupUserRelation() default {};
 
-  RoleUserRelationInput1[] roleUserRelation() default {};
+  RoleUserRelationInput[] roleUserRelation() default {};
 
-  UserInput1 input() default @UserInput1;
+  UserInput input() default @UserInput;
 
-  UserExpression1 where() default @UserExpression1;
+  UserExpression where() default @UserExpression;
 
   String $id() default "";
 

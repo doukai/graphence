@@ -5,8 +5,7 @@ import io.graphence.core.dto.objectType.Group;
 import io.graphence.core.dto.objectType.Permission;
 import io.graphence.core.dto.objectType.Role;
 import io.graphence.core.dto.objectType.User;
-import io.graphoenix.core.dto.annotation.StringExpression1;
-import io.graphoenix.core.dto.annotation.StringExpression2;
+import io.graphoenix.core.dto.annotation.StringExpression;
 import io.graphoenix.spi.annotation.GraphQLOperation;
 import io.graphoenix.spi.annotation.SelectionSet;
 import reactor.core.publisher.Mono;
@@ -26,29 +25,29 @@ public interface RBACPolicyRepository {
     @SelectionSet("{ id name users { id login } realmId }")
     Mono<Set<Group>> queryGroupList();
 
-    @Query(role = @RoleQueryArguments(id = @StringExpression1($val = "id")))
+    @Query(role = @RoleQueryArguments(id = @StringExpression($val = "id")))
     @SelectionSet("{ id name users { id login } composites { id name } groups { id name } permissions { name type field permissionType } realmId }")
     Mono<Role> queryRoleById(String id);
 
-    @Query(role = @RoleQueryArguments(id = @StringExpression1($val = "id")))
+    @Query(role = @RoleQueryArguments(id = @StringExpression($val = "id")))
     @SelectionSet("{ id name realmId }")
     Mono<Role> queryRoleRealmById(String id);
 
-    @Query(user = @UserQueryArguments(id = @StringExpression1($val = "id")))
+    @Query(user = @UserQueryArguments(id = @StringExpression($val = "id")))
     @SelectionSet("{ id login roles { id name } groups { id name } realmId }")
     Mono<User> queryUserById(String id);
 
-    @Query(group = @GroupQueryArguments(id = @StringExpression1($val = "id")))
+    @Query(group = @GroupQueryArguments(id = @StringExpression($val = "id")))
     @SelectionSet("{ id name users { id login } roles { id name } realmId }")
     Mono<Group> queryGroupById(String id);
 
-    @Query(permission = @PermissionQueryArguments(name = @StringExpression1($val = "name")))
+    @Query(permission = @PermissionQueryArguments(name = @StringExpression($val = "name")))
     @SelectionSet("{ name type field permissionType roles { id name realmId } }")
     Mono<Permission> queryPermissionByName(String name);
-    
+
     @Query(permissionList = @PermissionListQueryArguments(
-            roles = @RoleExpression1(
-                    id = @StringExpression2($arr = "roleIdList")
+            roles = @RoleExpression(
+                    id = @StringExpression($arr = "roleIdList")
             ),
             groupBy = {"type"}
     ))
@@ -56,11 +55,11 @@ public interface RBACPolicyRepository {
     Mono<List<Permission>> queryPermissionTypeList(Collection<String> roleIdList);
 
     @Query(permissionList = @PermissionListQueryArguments(
-            roles = @RoleExpression1(
-                    id = @StringExpression2($arr = "roleIdList")
+            roles = @RoleExpression(
+                    id = @StringExpression($arr = "roleIdList")
             ),
-            type = @StringExpression1($arr = "types")
+            type = @StringExpression($arr = "types")
     ))
     @SelectionSet("{ name }")
-    Mono<List<Permission>> queryPermissionListByTypes(Collection<String> roleIdList, Collection<String> types);
+    Mono<List<Permission>> queryPermissionNameListByTypes(Collection<String> roleIdList, Collection<String> types);
 }

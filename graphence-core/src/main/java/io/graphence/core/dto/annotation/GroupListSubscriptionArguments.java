@@ -1,7 +1,7 @@
 package io.graphence.core.dto.annotation;
 
-import io.graphoenix.core.dto.annotation.IntExpression1;
-import io.graphoenix.core.dto.annotation.StringExpression1;
+import io.graphoenix.core.dto.annotation.IntExpression;
+import io.graphoenix.core.dto.annotation.StringExpression;
 import io.graphoenix.core.dto.enumType.Conditional;
 import jakarta.annotation.Generated;
 import java.lang.String;
@@ -16,51 +16,51 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.SOURCE)
 @Target(ElementType.METHOD)
 public @interface GroupListSubscriptionArguments {
-  StringExpression1 id() default @StringExpression1;
+  StringExpression id() default @StringExpression;
 
-  StringExpression1 name() default @StringExpression1;
+  StringExpression name() default @StringExpression;
 
-  StringExpression1 description() default @StringExpression1;
+  StringExpression description() default @StringExpression;
 
-  StringExpression1 path() default @StringExpression1;
+  StringExpression path() default @StringExpression;
 
-  IntExpression1 deep() default @IntExpression1;
+  IntExpression deep() default @IntExpression;
 
-  StringExpression1 parentId() default @StringExpression1;
+  StringExpression parentId() default @StringExpression;
 
-  GroupExpression1 parent() default @GroupExpression1;
+  GroupExpression parent() default @GroupExpression;
 
-  GroupExpression1 subGroups() default @GroupExpression1;
+  GroupExpression subGroups() default @GroupExpression;
 
-  UserExpression1 users() default @UserExpression1;
+  UserExpression users() default @UserExpression;
 
-  RoleExpression1 roles() default @RoleExpression1;
+  RoleExpression roles() default @RoleExpression;
 
-  RealmExpression1 realm() default @RealmExpression1;
+  RealmExpression realm() default @RealmExpression;
 
   boolean includeDeprecated() default false;
 
-  IntExpression1 version() default @IntExpression1;
+  IntExpression version() default @IntExpression;
 
-  IntExpression1 realmId() default @IntExpression1;
+  IntExpression realmId() default @IntExpression;
 
-  StringExpression1 createUserId() default @StringExpression1;
+  StringExpression createUserId() default @StringExpression;
 
-  StringExpression1 createTime() default @StringExpression1;
+  StringExpression createTime() default @StringExpression;
 
-  StringExpression1 updateUserId() default @StringExpression1;
+  StringExpression updateUserId() default @StringExpression;
 
-  StringExpression1 updateTime() default @StringExpression1;
+  StringExpression updateTime() default @StringExpression;
 
-  StringExpression1 createGroupId() default @StringExpression1;
+  StringExpression createGroupId() default @StringExpression;
 
-  StringExpression1 __typename() default @StringExpression1;
+  StringExpression __typename() default @StringExpression;
 
-  GroupUserRelationExpression1 groupUserRelation() default @GroupUserRelationExpression1;
+  GroupUserRelationExpression groupUserRelation() default @GroupUserRelationExpression;
 
-  GroupRoleRelationExpression1 groupRoleRelation() default @GroupRoleRelationExpression1;
+  GroupRoleRelationExpression groupRoleRelation() default @GroupRoleRelationExpression;
 
-  GroupOrderBy1 orderBy() default @GroupOrderBy1;
+  GroupOrderBy orderBy() default @GroupOrderBy;
 
   String[] groupBy() default {};
 
@@ -68,7 +68,7 @@ public @interface GroupListSubscriptionArguments {
 
   Conditional cond() default Conditional.AND;
 
-  GroupExpression1[] exs() default {};
+  GroupExpression[] exs() default {};
 
   int first() default 0;
 

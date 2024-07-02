@@ -17,11 +17,11 @@ public @interface RoleUserRelationListMutationArguments {
 
   String userRef() default "";
 
-  UserInput1 user() default @UserInput1;
+  UserInput user() default @UserInput;
 
   String roleRef() default "";
 
-  RoleInput1 role() default @RoleInput1;
+  RoleInput role() default @RoleInput;
 
   boolean isDeprecated() default false;
 
@@ -41,9 +41,9 @@ public @interface RoleUserRelationListMutationArguments {
 
   String __typename() default "RoleUserRelation";
 
-  RoleUserRelationInput1[] list() default {};
+  RoleUserRelationInput[] list() default {};
 
-  RoleUserRelationExpression1 where() default @RoleUserRelationExpression1;
+  RoleUserRelationExpression where() default @RoleUserRelationExpression;
 
   String $id() default "";
 
