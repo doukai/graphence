@@ -11,6 +11,7 @@ public class JWTConfig {
 
     @Optional
     private String algorithm = "HS256";
+
     @Optional
     private Integer validityPeriod = 60 * 60;
 
