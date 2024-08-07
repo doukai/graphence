@@ -10,7 +10,7 @@ buildscript {
 }
 
 plugins {
-    id 'java'
+    id 'java-library'
     id 'com.google.protobuf' version '0.9.1'
     id 'maven-publish'
 }
@@ -53,7 +53,7 @@ sourceSets {
     }
 }
 
-group 'io.graphoenix.graphence'
+group 'io.graphoenix'
 version '0.0.1-SNAPSHOT'
 
 repositories {
@@ -63,25 +63,25 @@ repositories {
 }
 
 dependencies {
-    compile 'io.graphoenix:graphoenix-core:0.0.1-SNAPSHOT'
-    compile 'io.graphoenix:graphoenix-json:0.0.1-SNAPSHOT'
-    compile 'io.graphoenix:graphoenix-http-server:0.0.1-SNAPSHOT'
-    compile 'io.graphoenix:graphoenix-structure:0.0.1-SNAPSHOT'
-    compile 'io.graphoenix:graphoenix-java:0.0.1-SNAPSHOT'
-    compile 'io.nozdormu:nozdormu-inject:0.0.1-SNAPSHOT'
-    compile 'io.nozdormu:nozdormu-async:0.0.1-SNAPSHOT'
-    compile 'io.nozdormu:nozdormu-interceptor:0.0.1-SNAPSHOT'
-    compile 'io.nozdormu:nozdormu-config:0.0.1-SNAPSHOT'
-    compile 'com.aventrix.jnanoid:jnanoid:2.0.0'
-    compile 'org.casbin:jcasbin:1.41.0'
-    compile 'org.eclipse.microprofile.jwt:microprofile-jwt-auth-api:2.1'
-    compile 'io.jsonwebtoken:jjwt-api:0.11.5'
-    compile 'io.jsonwebtoken:jjwt-impl:0.11.5'
-    compile 'io.jsonwebtoken:jjwt-gson:0.11.5'
-    compile 'com.password4j:password4j:1.7.2'
+    api 'org.graphoenix:graphoenix-core:0.1.0'
+    api 'org.graphoenix:graphoenix-json:0.1.0'
+    api 'org.graphoenix:graphoenix-http-server:0.1.0'
+    api 'org.graphoenix:graphoenix-structure:0.1.0'
+    api 'org.graphoenix:graphoenix-java:0.1.0'
+    api 'org.graphoenix:nozdormu-inject:0.1.0'
+    api 'org.graphoenix:nozdormu-async:0.1.0'
+    api 'org.graphoenix:nozdormu-interceptor:0.1.0'
+    api 'org.graphoenix:nozdormu-config:0.1.0'
+    api 'com.aventrix.jnanoid:jnanoid:2.0.0'
+    api 'org.casbin:jcasbin:1.41.0'
+    api 'org.eclipse.microprofile.jwt:microprofile-jwt-auth-api:2.1'
+    api 'io.jsonwebtoken:jjwt-api:0.11.5'
+    api 'io.jsonwebtoken:jjwt-impl:0.11.5'
+    api 'io.jsonwebtoken:jjwt-gson:0.11.5'
+    api 'com.password4j:password4j:1.7.2'
     implementation 'com.google.guava:guava:31.1-jre'
 
-    runtime 'io.jsonwebtoken:jjwt-gson:0.11.5'
+    runtimeOnly 'io.jsonwebtoken:jjwt-gson:0.11.5'
 
     runtimeOnly 'io.grpc:grpc-netty-shaded:1.52.1'
     implementation 'io.grpc:grpc-protobuf:1.52.1'
@@ -90,22 +90,22 @@ dependencies {
 
     compileOnly 'org.apache.tomcat:annotations-api:6.0.53' // necessary for Java 9+
 
-    annotationProcessor 'io.graphoenix:graphoenix-annotation-processor:0.0.1-SNAPSHOT'
-    annotationProcessor 'io.graphoenix:graphoenix-json:0.0.1-SNAPSHOT'
-    annotationProcessor 'io.graphoenix:graphoenix-http-server:0.0.1-SNAPSHOT'
-    annotationProcessor 'io.graphoenix:graphoenix-introspection:0.0.1-SNAPSHOT'
-    annotationProcessor 'io.graphoenix:graphoenix-structure:0.0.1-SNAPSHOT'
-    annotationProcessor 'io.nozdormu:nozdormu-inject:0.0.1-SNAPSHOT'
-    annotationProcessor 'io.nozdormu:nozdormu-async:0.0.1-SNAPSHOT'
-    annotationProcessor 'io.nozdormu:nozdormu-interceptor:0.0.1-SNAPSHOT'
-    annotationProcessor 'io.nozdormu:nozdormu-config:0.0.1-SNAPSHOT'
+    annotationProcessor 'org.graphoenix:graphoenix-annotation-processor:0.1.0'
+    annotationProcessor 'org.graphoenix:graphoenix-json:0.1.0'
+    annotationProcessor 'org.graphoenix:graphoenix-http-server:0.1.0'
+    annotationProcessor 'org.graphoenix:graphoenix-introspection:0.1.0'
+    annotationProcessor 'org.graphoenix:graphoenix-structure:0.1.0'
+    annotationProcessor 'org.graphoenix:nozdormu-inject:0.1.0'
+    annotationProcessor 'org.graphoenix:nozdormu-async:0.1.0'
+    annotationProcessor 'org.graphoenix:nozdormu-interceptor:0.1.0'
+    annotationProcessor 'org.graphoenix:nozdormu-config:0.1.0'
     annotationProcessor 'org.casbin:jcasbin:1.33.1'
     annotationProcessor 'io.jsonwebtoken:jjwt-impl:0.11.5'
     annotationProcessor 'io.jsonwebtoken:jjwt-gson:0.11.5'
 
-    protobuf 'io.graphoenix:graphoenix-core:0.0.1-SNAPSHOT'
-    protobuf 'io.graphoenix:graphoenix-introspection:0.0.1-SNAPSHOT'
-    protobuf 'io.graphoenix:graphoenix-structure:0.0.1-SNAPSHOT'
+    protobuf 'org.graphoenix:graphoenix-core:0.1.0'
+    protobuf 'org.graphoenix:graphoenix-introspection:0.1.0'
+    protobuf 'org.graphoenix:graphoenix-structure:0.1.0'
 
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.2'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.2'
