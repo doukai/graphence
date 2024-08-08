@@ -1,6 +1,7 @@
 package io.graphence.security.event;
 
 import com.password4j.Password;
+import io.graphence.core.config.SecurityConfig;
 import io.graphence.core.repository.LoginRepository;
 import io.graphence.core.dto.CurrentUser;
 import io.graphence.core.error.AuthenticationException;
@@ -35,13 +36,15 @@ public class JWTFilter extends BaseRequestFilter implements ScopeEvent {
 
     private final DocumentManager documentManager;
     private final LoginRepository loginRepository;
+    private final SecurityConfig securityConfig;
     private final JWTUtil jwtUtil;
     private final RequestScopeInstanceFactory requestScopeInstanceFactory;
 
     @Inject
-    public JWTFilter(DocumentManager documentManager, LoginRepository loginRepository, JWTUtil jwtUtil, RequestScopeInstanceFactory requestScopeInstanceFactory) {
+    public JWTFilter(DocumentManager documentManager, LoginRepository loginRepository, SecurityConfig securityConfig, JWTUtil jwtUtil, RequestScopeInstanceFactory requestScopeInstanceFactory) {
         this.documentManager = documentManager;
         this.loginRepository = loginRepository;
+        this.securityConfig = securityConfig;
         this.jwtUtil = jwtUtil;
         this.requestScopeInstanceFactory = requestScopeInstanceFactory;
     }
@@ -74,7 +77,7 @@ public class JWTFilter extends BaseRequestFilter implements ScopeEvent {
                 }
                 throw new AuthenticationException(UN_AUTHENTICATION);
             }
-        } else if (authorization != null && authorization.startsWith(AUTHORIZATION_SCHEME_BASIC)) {
+        } else if (authorization != null && securityConfig.getBasicAuthentication() && authorization.startsWith(AUTHORIZATION_SCHEME_BASIC)) {
             String token = authorization.substring(6);
             String[] tokenDecode = new String(Base64.getDecoder().decode(token)).split(":");
             String login = tokenDecode[0];

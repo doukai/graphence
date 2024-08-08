@@ -68,7 +68,6 @@ public class LoginApi implements Asyncable {
                         }
                 )
                 .switchIfEmpty(Mono.error(new AuthenticationException(AUTHENTICATION_FAILED)))
-//                    .flatMap(user -> SessionScopeInstanceFactory.computeIfAbsent(CurrentUser.class, CurrentUser.of(user)).thenReturn(user))
                 .flatMap(user -> {
                             Set<String> roleIdSet = jwtUtil.getRoles(user).map(Role::getId).collect(Collectors.toSet());
                             return rbacPolicyRepository.queryPermissionTypeList(roleIdSet)

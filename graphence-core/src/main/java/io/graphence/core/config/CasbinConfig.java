@@ -9,11 +9,22 @@ public class CasbinConfig {
     @Optional
     private String model = "model.conf";
 
+    @Optional
+    private String policy;
+
     public String getModel() {
         return model;
     }
 
     public void setModel(String model) {
         this.model = model;
+    }
+
+    public String getPolicy() {
+        return policy;
+    }
+
+    public void setPolicy(String policy) {
+        this.policy = policy;
     }
 }

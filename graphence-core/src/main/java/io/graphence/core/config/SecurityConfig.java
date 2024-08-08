@@ -18,6 +18,9 @@ public class SecurityConfig {
     @Optional
     private String rootPassword;
 
+    @Optional
+    private Boolean basicAuthentication = false;
+
     public String getInitialPassword() {
         return initialPassword;
     }
@@ -48,5 +51,13 @@ public class SecurityConfig {
 
     public void setRootPassword(String rootPassword) {
         this.rootPassword = rootPassword;
+    }
+
+    public Boolean getBasicAuthentication() {
+        return basicAuthentication;
+    }
+
+    public void setBasicAuthentication(Boolean basicAuthentication) {
+        this.basicAuthentication = basicAuthentication;
     }
 }

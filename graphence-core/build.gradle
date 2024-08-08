@@ -63,25 +63,25 @@ repositories {
 }
 
 dependencies {
-    api 'org.graphoenix:graphoenix-core:0.1.0'
-    api 'org.graphoenix:graphoenix-json:0.1.0'
-    api 'org.graphoenix:graphoenix-http-server:0.1.0'
-    api 'org.graphoenix:graphoenix-structure:0.1.0'
-    api 'org.graphoenix:graphoenix-java:0.1.0'
-    api 'org.graphoenix:nozdormu-inject:0.1.0'
-    api 'org.graphoenix:nozdormu-async:0.1.0'
-    api 'org.graphoenix:nozdormu-interceptor:0.1.0'
-    api 'org.graphoenix:nozdormu-config:0.1.0'
-    api 'com.aventrix.jnanoid:jnanoid:2.0.0'
-    api 'org.casbin:jcasbin:1.41.0'
     api 'org.eclipse.microprofile.jwt:microprofile-jwt-auth-api:2.1'
+    api 'org.casbin:jcasbin:1.41.0'
     api 'io.jsonwebtoken:jjwt-api:0.11.5'
-    api 'io.jsonwebtoken:jjwt-impl:0.11.5'
-    api 'io.jsonwebtoken:jjwt-gson:0.11.5'
     api 'com.password4j:password4j:1.7.2'
+
+    implementation 'org.graphoenix:graphoenix-core:0.1.0'
+    implementation 'org.graphoenix:graphoenix-json:0.1.0'
+    implementation 'org.graphoenix:graphoenix-http-server:0.1.1'
+    implementation 'org.graphoenix:graphoenix-structure:0.1.0'
+    implementation 'org.graphoenix:graphoenix-java:0.1.0'
+    implementation 'org.graphoenix:nozdormu-inject:0.1.0'
+    implementation 'org.graphoenix:nozdormu-async:0.1.0'
+    implementation 'org.graphoenix:nozdormu-interceptor:0.1.0'
+    implementation 'org.graphoenix:nozdormu-config:0.1.0'
+    implementation 'com.aventrix.jnanoid:jnanoid:2.0.0'
     implementation 'com.google.guava:guava:31.1-jre'
 
-    runtimeOnly 'io.jsonwebtoken:jjwt-gson:0.11.5'
+    runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.11.5'
+    runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.11.5'
 
     runtimeOnly 'io.grpc:grpc-netty-shaded:1.52.1'
     implementation 'io.grpc:grpc-protobuf:1.52.1'
@@ -92,7 +92,7 @@ dependencies {
 
     annotationProcessor 'org.graphoenix:graphoenix-annotation-processor:0.1.0'
     annotationProcessor 'org.graphoenix:graphoenix-json:0.1.0'
-    annotationProcessor 'org.graphoenix:graphoenix-http-server:0.1.0'
+    annotationProcessor 'org.graphoenix:graphoenix-http-server:0.1.1'
     annotationProcessor 'org.graphoenix:graphoenix-introspection:0.1.0'
     annotationProcessor 'org.graphoenix:graphoenix-structure:0.1.0'
     annotationProcessor 'org.graphoenix:nozdormu-inject:0.1.0'
@@ -100,8 +100,6 @@ dependencies {
     annotationProcessor 'org.graphoenix:nozdormu-interceptor:0.1.0'
     annotationProcessor 'org.graphoenix:nozdormu-config:0.1.0'
     annotationProcessor 'org.casbin:jcasbin:1.33.1'
-    annotationProcessor 'io.jsonwebtoken:jjwt-impl:0.11.5'
-    annotationProcessor 'io.jsonwebtoken:jjwt-gson:0.11.5'
 
     protobuf 'org.graphoenix:graphoenix-core:0.1.0'
     protobuf 'org.graphoenix:graphoenix-introspection:0.1.0'

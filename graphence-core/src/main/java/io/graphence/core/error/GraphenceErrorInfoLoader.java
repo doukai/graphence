@@ -15,7 +15,7 @@ import org.casbin.jcasbin.exception.CasbinPolicyFileNotFoundException;
 import static io.graphence.core.error.AuthenticationErrorType.AUTHENTICATION_FAILED;
 import static io.graphence.core.error.AuthorizationErrorType.AUTHORIZATION_FAILED;
 
-@AutoService(ErrorInfo.class)
+@AutoService(ErrorInfoLoader.class)
 public class GraphenceErrorInfoLoader implements ErrorInfoLoader {
 
     @Override

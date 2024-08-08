@@ -1,6 +1,5 @@
 package io.graphence.core.utils;
 
-import com.google.gson.GsonBuilder;
 import io.graphence.core.config.JWTConfig;
 import io.graphence.core.config.SecurityConfig;
 import io.graphence.core.dto.objectType.Group;
@@ -11,8 +10,6 @@ import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
-import io.jsonwebtoken.gson.io.GsonDeserializer;
-import io.jsonwebtoken.gson.io.GsonSerializer;
 import io.jsonwebtoken.security.Keys;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
@@ -30,7 +27,6 @@ public class JWTUtil {
 
     private final JWTConfig jwtConfig;
     private final SecurityConfig securityConfig;
-    private final GsonBuilder gsonBuilder;
 
     private final Key key;
 
@@ -38,14 +34,12 @@ public class JWTUtil {
     public JWTUtil(JWTConfig jwtConfig, SecurityConfig securityConfig) {
         this.jwtConfig = jwtConfig;
         this.securityConfig = securityConfig;
-        this.gsonBuilder = new GsonBuilder().disableHtmlEscaping();
         this.key = Keys.secretKeyFor(SignatureAlgorithm.forName(jwtConfig.getAlgorithm()));
     }
 
     public String build(User user, Set<String> roles, Set<String> permissionTypes) {
         Date issuedAt = getIssuedAt();
         return Jwts.builder()
-                .serializeToJsonWith(new GsonSerializer<>(gsonBuilder.create()))
                 .setIssuer(jwtConfig.getIssuer())
                 .setSubject(user.getId())
                 .claim(Claims.full_name.name(), user.getName())
@@ -99,7 +93,6 @@ public class JWTUtil {
     public GraphenceJsonWebToken parser(String compactJws) throws JwtException {
         Jws<io.jsonwebtoken.Claims> claimsJws = Jwts
                 .parserBuilder()
-                .deserializeJsonWith(new GsonDeserializer<>(gsonBuilder.create()))
                 .setSigningKey(key)
                 .build()
                 .parseClaimsJws(compactJws);
