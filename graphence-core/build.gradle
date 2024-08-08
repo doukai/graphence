@@ -1,11 +1,14 @@
 buildscript {
+    configurations {
+        implementation.exclude group: 'com.github.javaparser', module: 'javaparser-core'
+    }
     repositories {
         mavenLocal()
         jcenter()
         gradlePluginPortal()
     }
     dependencies {
-        classpath 'io.graphoenix:graphoenix-gradle-plugin:0.0.1-SNAPSHOT'
+        classpath 'org.graphoenix:graphoenix-gradle-plugin:0.1.0-SNAPSHOT'
     }
 }
 
@@ -79,6 +82,7 @@ dependencies {
     implementation 'org.graphoenix:nozdormu-config:0.1.0'
     implementation 'com.aventrix.jnanoid:jnanoid:2.0.0'
     implementation 'com.google.guava:guava:31.1-jre'
+    implementation 'org.graphoenix:graphoenix-gradle-plugin:0.1.0-SNAPSHOT'
 
     runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.11.5'
     runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.11.5'

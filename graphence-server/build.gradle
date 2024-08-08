@@ -35,6 +35,7 @@ dependencies {
     runtimeOnly 'org.mariadb:r2dbc-mariadb:1.1.4'
 
     annotationProcessor project(':graphence-core')
+    annotationProcessor project(':graphence-security')
     annotationProcessor 'org.graphoenix:graphoenix-annotation-processor:0.1.0'
     annotationProcessor 'org.graphoenix:graphoenix-sql:0.1.0'
     annotationProcessor 'org.graphoenix:graphoenix-http-server:0.1.1'
