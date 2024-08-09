@@ -1,14 +1,6 @@
 buildscript {
-    configurations {
-        implementation.exclude group: 'com.github.javaparser', module: 'javaparser-core'
-    }
     repositories {
-        mavenLocal()
         jcenter()
-        gradlePluginPortal()
-    }
-    dependencies {
-        classpath 'org.graphoenix:graphoenix-gradle-plugin:0.1.0-SNAPSHOT'
     }
 }
 
@@ -16,9 +8,8 @@ plugins {
     id 'java-library'
     id 'com.google.protobuf' version '0.9.1'
     id 'maven-publish'
+    id "org.graphoenix" version "0.1.1"
 }
-
-apply plugin: 'io.graphoenix'
 
 protobuf {
     protoc {
