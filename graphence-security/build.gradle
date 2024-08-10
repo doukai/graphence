@@ -4,12 +4,16 @@ plugins {
 }
 
 group 'org.graphoenix'
-version '0.0.1-SNAPSHOT'
+version '0.1.0'
 
 repositories {
     mavenCentral()
     jcenter()
-    mavenLocal()
+}
+
+java {
+    withJavadocJar()
+    withSourcesJar()
 }
 
 dependencies {
@@ -36,7 +40,63 @@ test {
 publishing {
     publications {
         maven(MavenPublication) {
+            groupId = 'org.graphoenix'
+            artifactId = 'graphence-security'
+
             from components.java
+
+            pom {
+                name = 'graphence-security'
+                description = 'graphence-security'
+                url = 'https://github.com/doukai/graphence'
+                inceptionYear = '2023'
+                licenses {
+                    license {
+                        name = 'MIT'
+                        url = 'https://spdx.org/licenses/MIT.html'
+                    }
+                }
+                developers {
+                    developer {
+                        id = 'doukai'
+                        name = 'Dou Kai'
+                    }
+                }
+                scm {
+                    url = 'https://github.com/doukai/graphence'
+                    connection = 'scm:git://github.com:doukai/graphence.git'
+                    developerConnection = 'scm:git://github.com:doukai/graphence.git'
+                }
+            }
+        }
+    }
+
+    repositories {
+        maven {
+            url = layout.buildDirectory.dir('staging-deploy')
+        }
+    }
+}
+
+tasks.build.doFirst {
+    mkdir "$buildDir/jreleaser"
+}
+
+jreleaser {
+    gitRootSearch = true
+    signing {
+        active = 'ALWAYS'
+        armored = true
+    }
+    deploy {
+        maven {
+            mavenCentral {
+                sonatype {
+                    active = 'ALWAYS'
+                    url = 'https://central.sonatype.com/api/v1/publisher'
+                    stagingRepository('build/staging-deploy')
+                }
+            }
         }
     }
 }
