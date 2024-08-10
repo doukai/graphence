@@ -7,7 +7,7 @@ import org.eclipse.microprofile.config.inject.ConfigProperties;
 public class JWTConfig {
 
     @Optional
-    private String issuer = "http://graphoenix.io";
+    private String issuer = "http://graphoenix.org";
 
     @Optional
     private String algorithm = "HS256";

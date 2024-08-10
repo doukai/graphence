@@ -24,7 +24,6 @@ dependencies {
     implementation 'org.graphoenix:graphoenix-introspection:0.1.0'
     implementation 'org.graphoenix:graphoenix-json-schema:0.1.0'
     implementation 'org.graphoenix:graphoenix-structure:0.1.0'
-    implementation 'org.graphoenix:graphoenix-admin:0.1.0'
     implementation 'org.graphoenix:nozdormu-inject:0.1.0'
     implementation 'org.graphoenix:nozdormu-async:0.1.0'
     implementation 'org.graphoenix:nozdormu-interceptor:0.1.0'
