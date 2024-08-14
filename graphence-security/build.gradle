@@ -14,19 +14,19 @@ repositories {
 
 dependencies {
     implementation project(':graphence-core')
-    implementation 'org.graphoenix:graphoenix-core:0.1.0'
-    implementation 'org.graphoenix:graphoenix-http-server:0.1.1'
-    implementation 'org.graphoenix:graphoenix-structure:0.1.0'
+    implementation 'org.graphoenix:graphoenix-core:0.1.1'
+    implementation 'org.graphoenix:graphoenix-http-server:0.1.2'
+    implementation 'org.graphoenix:graphoenix-structure:0.1.1'
     implementation 'org.graphoenix:nozdormu-inject:0.1.0'
 
     annotationProcessor project(':graphence-core')
-    annotationProcessor 'org.graphoenix:graphoenix-core:0.1.0'
-    annotationProcessor 'org.graphoenix:graphoenix-http-server:0.1.1'
-    annotationProcessor 'org.graphoenix:graphoenix-structure:0.1.0'
+    annotationProcessor 'org.graphoenix:graphoenix-core:0.1.1'
+    annotationProcessor 'org.graphoenix:graphoenix-http-server:0.1.2'
+    annotationProcessor 'org.graphoenix:graphoenix-structure:0.1.1'
     annotationProcessor 'org.graphoenix:nozdormu-inject:0.1.0'
 
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.2'
 }
 
 test {
