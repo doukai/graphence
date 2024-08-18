@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'com.github.johnrengelman.shadow' version '6.1.0'
 }
 
 group 'org.graphoenix'
@@ -29,7 +30,7 @@ dependencies {
     implementation 'org.graphoenix:nozdormu-interceptor:0.1.0-SNAPSHOT'
     implementation 'org.graphoenix:nozdormu-config:0.1.0-SNAPSHOT'
 
-    implementation group: 'io.netty', name: 'netty-resolver-dns-native-macos', version: '4.1.81.Final', classifier: 'osx-aarch_64'
+//    implementation group: 'io.netty', name: 'netty-resolver-dns-native-macos', version: '4.1.81.Final', classifier: 'osx-aarch_64'
 
     runtimeOnly 'org.mariadb:r2dbc-mariadb:1.1.4'
 
@@ -56,4 +57,14 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'io.graphence.core.App'
+    }
+}
+
+shadowJar {
+    mergeServiceFiles()
 }

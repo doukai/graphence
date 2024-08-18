@@ -1,29 +1,60 @@
 version: "3.8"
 
 services:
-  graphence-mariadb:
-    container_name: graphence-mariadb
+  gp-mariadb:
+    container_name: gp-mariadb
     image: mariadb:10.6
+    command:
+      --bind-address=0.0.0.0
+      --group_concat_max_len=4294967295
     restart: unless-stopped
     ports:
       - "3306:3306"
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: graphence
-      MYSQL_USER: graphence
-      MYSQL_PASSWORD: 123456
-      MYSQL_HOST : '%'
+      MARIADB_DATABASE: graphence
+      MARIADB_ROOT_PASSWORD: root
+      MARIADB_ROOT_HOST: "%"
     networks:
-      - graphence-net
+      - gp-net
 
-  graphence-rabbitmq:
-    container_name: graphence-rabbitmq
+  gp-rabbitmq:
+    container_name: gp-rabbitmq
     image: rabbitmq:3
     restart: unless-stopped
     ports:
       - "5672:5672"
     networks:
-      - graphence-net
+      - gp-net
+
+  gp-server:
+    container_name: gp-server
+    image: gp-server
+    restart: unless-stopped
+    depends_on:
+      - gp-mariadb
+      - gp-rabbitmq
+    ports:
+      - "8080:8080"
+    environment:
+      MYSQL_HOST: gp-mariadb
+      RABBIT_HOST: gp-rabbitmq
+      MYSQL_URER: root
+      MYSQL_PASS: root
+    networks:
+      - gp-net
+
+  gp-svelte:
+    container_name: gp-svelte
+    image: gp-svelte
+    restart: unless-stopped
+    depends_on:
+      - gp-server
+    ports:
+      - "3000:3000"
+    environment:
+      PUBLIC_GRAPHQL_URL: http://gp-server:8080/graphql
+    networks:
+      - gp-net
 
 networks:
-  graphence-net:
+  gp-net:
