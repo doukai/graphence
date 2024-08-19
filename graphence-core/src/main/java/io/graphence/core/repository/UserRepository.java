@@ -12,9 +12,11 @@ import reactor.core.publisher.Mono;
 public interface UserRepository {
 
     @Query(user = @UserQueryArguments(login = @StringExpression($val = "login")))
+    @SelectionSet("{ id }")
     Mono<User> getUserByLogin(String login);
 
     @Query(user = @UserQueryArguments(id = @StringExpression($val = "id")))
+    @SelectionSet("{ id name lastName email phones }")
     Mono<User> getUserById(String id);
 
     @Mutation(user = @UserMutationArguments($input = "user"))
