@@ -85,7 +85,9 @@ public class CurrentApi implements Asyncable {
     public Mono<User> currentUserUpdate(@NonNull UserInput userInput) {
         return currentUserMonoProvider.get()
                 .doOnSuccess(currentUser -> userInput.setId(currentUser.getId()))
-                .flatMap(currentUser -> userRepository.updateUser(userInput));
+                .flatMap(currentUser ->
+                        userRepository.updateUserPhones(userInput.getId(), userInput.getPhones())
+                );
     }
 
     @Mutation
