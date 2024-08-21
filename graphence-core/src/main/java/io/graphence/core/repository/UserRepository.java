@@ -9,7 +9,6 @@ import io.graphoenix.spi.annotation.SelectionSet;
 import reactor.core.publisher.Mono;
 
 import java.util.Collection;
-import java.util.List;
 
 @GraphQLOperation
 public interface UserRepository {

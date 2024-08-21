@@ -87,8 +87,9 @@ public class CurrentApi implements Asyncable {
                 .doOnSuccess(currentUser -> userInput.setId(currentUser.getId()))
                 .flatMap(currentUser ->
                         userRepository.updateUser(userInput)
-                                        .flatMap(user ->  userRepository.updateUserPhones(userInput.getId(), userInput.getPhones()))
-
+                                .flatMap(user ->
+                                        userRepository.updateUserPhones(userInput.getId(), userInput.getPhones())
+                                )
                 );
     }
 
