@@ -3,8 +3,8 @@ package io.graphence.core.event;
 import com.password4j.Hash;
 import com.password4j.Password;
 import io.graphence.core.config.SecurityConfig;
+import io.graphence.core.dto.inputObjectType.UserInput;
 import io.graphence.core.repository.UserRepository;
-import io.graphence.core.dto.objectType.User;
 import io.nozdormu.spi.event.ScopeEvent;
 import jakarta.annotation.Priority;
 import jakarta.enterprise.context.ApplicationScoped;
@@ -38,25 +38,18 @@ public class RootUserBuildEvent implements ScopeEvent {
             return Mono.empty();
         }
         Hash hash = Password.hash(securityConfig.getRootPassword()).withBcrypt();
-        return userRepository.getUserByLogin(securityConfig.getRootUser())
+        UserInput userInput = new UserInput();
+        userInput.setLogin(securityConfig.getRootUser());
+        userInput.setName(securityConfig.getRootUser());
+        userInput.setSalt(Base64.getEncoder().encodeToString(hash.getSaltBytes()));
+        userInput.setHash(Base64.getEncoder().encodeToString(hash.getResultAsBytes()));
+        return userRepository.getUserIdByLogin(securityConfig.getRootUser())
                 .map(user -> {
-                            user.setName(securityConfig.getRootUser());
-                            user.setSalt(Base64.getEncoder().encodeToString(hash.getSaltBytes()));
-                            user.setHash(Base64.getEncoder().encodeToString(hash.getResultAsBytes()));
-                            return user;
+                            userInput.setId(user.getId());
+                            return userInput;
                         }
                 )
-                .switchIfEmpty(
-                        Mono.defer(() -> {
-                                    User user = new User();
-                                    user.setLogin(securityConfig.getRootUser());
-                                    user.setName(securityConfig.getRootUser());
-                                    user.setSalt(Base64.getEncoder().encodeToString(hash.getSaltBytes()));
-                                    user.setHash(Base64.getEncoder().encodeToString(hash.getResultAsBytes()));
-                                    return Mono.just(user);
-                                }
-                        )
-                )
+                .defaultIfEmpty(userInput)
                 .flatMap(userRepository::updateUser)
                 .then();
     }
