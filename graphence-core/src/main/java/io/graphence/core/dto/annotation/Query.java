@@ -92,4 +92,12 @@ public @interface Query {
 
   PermissionRoleRelationConnectionQueryArguments permissionRoleRelationConnection(
       ) default @PermissionRoleRelationConnectionQueryArguments;
+
+  FileUserRelationQueryArguments fileUserRelation() default @FileUserRelationQueryArguments;
+
+  FileUserRelationListQueryArguments fileUserRelationList(
+      ) default @FileUserRelationListQueryArguments;
+
+  FileUserRelationConnectionQueryArguments fileUserRelationConnection(
+      ) default @FileUserRelationConnectionQueryArguments;
 }

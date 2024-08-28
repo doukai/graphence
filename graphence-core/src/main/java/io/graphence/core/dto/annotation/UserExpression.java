@@ -4,6 +4,7 @@ import io.graphoenix.core.dto.annotation.BooleanExpression;
 import io.graphoenix.core.dto.annotation.IntExpression;
 import io.graphoenix.core.dto.annotation.StringExpression;
 import io.graphoenix.core.dto.enumType.Conditional;
+import io.graphoenix.file.dto.annotation.FileExpression1;
 import jakarta.annotation.Generated;
 import java.lang.String;
 import java.lang.annotation.Documented;
@@ -33,6 +34,8 @@ public @interface UserExpression {
 
   StringExpression email() default @StringExpression;
 
+  FileExpression1 avatar() default @FileExpression1;
+
   StringExpression phones() default @StringExpression;
 
   BooleanExpression disable() default @BooleanExpression;
@@ -60,6 +63,8 @@ public @interface UserExpression {
   StringExpression createGroupId() default @StringExpression;
 
   StringExpression __typename() default @StringExpression;
+
+  FileUserRelationExpression1 fileUserRelation() default @FileUserRelationExpression1;
 
   UserPhonesRelationExpression1 userPhonesRelation() default @UserPhonesRelationExpression1;
 
@@ -89,6 +94,8 @@ public @interface UserExpression {
 
   String $email() default "";
 
+  String $avatar() default "";
+
   String $phones() default "";
 
   String $disable() default "";
@@ -116,6 +123,8 @@ public @interface UserExpression {
   String $createGroupId() default "";
 
   String $__typename() default "";
+
+  String $fileUserRelation() default "";
 
   String $userPhonesRelation() default "";
 

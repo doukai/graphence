@@ -66,4 +66,9 @@ public @interface Mutation {
 
   PermissionRoleRelationListMutationArguments permissionRoleRelationList(
       ) default @PermissionRoleRelationListMutationArguments;
+
+  FileUserRelationMutationArguments fileUserRelation() default @FileUserRelationMutationArguments;
+
+  FileUserRelationListMutationArguments fileUserRelationList(
+      ) default @FileUserRelationListMutationArguments;
 }

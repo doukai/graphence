@@ -78,6 +78,12 @@ public class Query {
 
   private PermissionRoleRelationConnection permissionRoleRelationConnection;
 
+  private FileUserRelation fileUserRelation;
+
+  private Collection<FileUserRelation> fileUserRelationList;
+
+  private FileUserRelationConnection fileUserRelationConnection;
+
   private CurrentUser current;
 
   private User currentUser;
@@ -357,6 +363,30 @@ public class Query {
   public void setPermissionRoleRelationConnection(
       PermissionRoleRelationConnection permissionRoleRelationConnection) {
     this.permissionRoleRelationConnection = permissionRoleRelationConnection;
+  }
+
+  public FileUserRelation getFileUserRelation() {
+    return this.fileUserRelation;
+  }
+
+  public void setFileUserRelation(FileUserRelation fileUserRelation) {
+    this.fileUserRelation = fileUserRelation;
+  }
+
+  public Collection<FileUserRelation> getFileUserRelationList() {
+    return this.fileUserRelationList;
+  }
+
+  public void setFileUserRelationList(Collection<FileUserRelation> fileUserRelationList) {
+    this.fileUserRelationList = fileUserRelationList;
+  }
+
+  public FileUserRelationConnection getFileUserRelationConnection() {
+    return this.fileUserRelationConnection;
+  }
+
+  public void setFileUserRelationConnection(FileUserRelationConnection fileUserRelationConnection) {
+    this.fileUserRelationConnection = fileUserRelationConnection;
   }
 
   public CurrentUser getCurrent() {

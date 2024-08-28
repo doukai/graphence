@@ -1,5 +1,6 @@
 package io.graphence.core.dto.annotation;
 
+import io.graphoenix.file.dto.annotation.FileInput;
 import jakarta.annotation.Generated;
 import java.lang.String;
 import java.lang.annotation.Documented;
@@ -29,6 +30,8 @@ public @interface UserMutationArguments {
 
   String email() default "";
 
+  FileInput avatar() default @FileInput;
+
   String[] phones() default {};
 
   boolean disable() default false;
@@ -57,6 +60,8 @@ public @interface UserMutationArguments {
 
   String __typename() default "User";
 
+  FileUserRelationInput[] fileUserRelation() default {};
+
   UserPhonesRelationInput[] userPhonesRelation() default {};
 
   GroupUserRelationInput[] groupUserRelation() default {};
@@ -82,6 +87,8 @@ public @interface UserMutationArguments {
   String $hash() default "";
 
   String $email() default "";
+
+  String $avatar() default "";
 
   String $phones() default "";
 
@@ -110,6 +117,8 @@ public @interface UserMutationArguments {
   String $createGroupId() default "";
 
   String $__typename() default "";
+
+  String $fileUserRelation() default "";
 
   String $userPhonesRelation() default "";
 

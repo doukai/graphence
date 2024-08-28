@@ -55,6 +55,10 @@ public class Mutation {
 
   private Collection<PermissionRoleRelation> permissionRoleRelationList;
 
+  private FileUserRelation fileUserRelation;
+
+  private Collection<FileUserRelation> fileUserRelationList;
+
   private User currentUserUpdate;
 
   private User currentUserResetPassword;
@@ -239,6 +243,22 @@ public class Mutation {
   public void setPermissionRoleRelationList(
       Collection<PermissionRoleRelation> permissionRoleRelationList) {
     this.permissionRoleRelationList = permissionRoleRelationList;
+  }
+
+  public FileUserRelation getFileUserRelation() {
+    return this.fileUserRelation;
+  }
+
+  public void setFileUserRelation(FileUserRelation fileUserRelation) {
+    this.fileUserRelation = fileUserRelation;
+  }
+
+  public Collection<FileUserRelation> getFileUserRelationList() {
+    return this.fileUserRelationList;
+  }
+
+  public void setFileUserRelationList(Collection<FileUserRelation> fileUserRelationList) {
+    this.fileUserRelationList = fileUserRelationList;
   }
 
   public User getCurrentUserUpdate() {

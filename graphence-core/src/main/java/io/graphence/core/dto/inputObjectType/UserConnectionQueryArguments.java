@@ -6,6 +6,7 @@ import io.graphoenix.core.dto.inputObjectType.BooleanExpression;
 import io.graphoenix.core.dto.inputObjectType.IntExpression;
 import io.graphoenix.core.dto.inputObjectType.MetaExpression;
 import io.graphoenix.core.dto.inputObjectType.StringExpression;
+import io.graphoenix.file.dto.inputObjectType.FileExpression;
 import io.graphoenix.structure.dto.inputObjectType.NamedStructExpression;
 import jakarta.annotation.Generated;
 import java.lang.Boolean;
@@ -36,6 +37,8 @@ public class UserConnectionQueryArguments implements NamedStructExpression, Meta
 
   private StringExpression email;
 
+  private FileExpression avatar;
+
   private StringExpression phones;
 
   private BooleanExpression disable;
@@ -64,6 +67,8 @@ public class UserConnectionQueryArguments implements NamedStructExpression, Meta
   private StringExpression createGroupId;
 
   private StringExpression __typename;
+
+  private FileUserRelationExpression fileUserRelation;
 
   private UserPhonesRelationExpression userPhonesRelation;
 
@@ -159,6 +164,14 @@ public class UserConnectionQueryArguments implements NamedStructExpression, Meta
 
   public void setEmail(StringExpression email) {
     this.email = email;
+  }
+
+  public FileExpression getAvatar() {
+    return this.avatar;
+  }
+
+  public void setAvatar(FileExpression avatar) {
+    this.avatar = avatar;
   }
 
   public StringExpression getPhones() {
@@ -287,6 +300,14 @@ public class UserConnectionQueryArguments implements NamedStructExpression, Meta
 
   public void set__typename(StringExpression __typename) {
     this.__typename = __typename;
+  }
+
+  public FileUserRelationExpression getFileUserRelation() {
+    return this.fileUserRelation;
+  }
+
+  public void setFileUserRelation(FileUserRelationExpression fileUserRelation) {
+    this.fileUserRelation = fileUserRelation;
   }
 
   public UserPhonesRelationExpression getUserPhonesRelation() {

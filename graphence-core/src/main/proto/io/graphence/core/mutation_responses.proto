@@ -9,6 +9,7 @@ import "io/graphence/core/enums.proto";
 import "io/graphence/core/objects.proto";
 import "io/graphence/core/interfaces.proto";
 import "io/graphence/core/input_objects.proto";
+import "io/graphoenix/file/input_objects.proto";
 import "google/protobuf/timestamp.proto";
 
 message MutationUserResponse {
@@ -77,15 +78,21 @@ message MutationPermissionRoleRelationResponse {
 message MutationPermissionRoleRelationListResponse {
     repeated PermissionRoleRelation permission_role_relation_list = 1;
 }
+message MutationFileUserRelationResponse {
+    FileUserRelation file_user_relation = 1;
+}
+message MutationFileUserRelationListResponse {
+    repeated FileUserRelation file_user_relation_list = 1;
+}
 message MutationCurrentUserUpdateResponse {
     User current_user_update = 1;
 }
 message MutationCurrentUserResetPasswordResponse {
     User current_user_reset_password = 1;
 }
-message MutationSyncPermissionRoleRelationPolicyResponse {
-    bool sync_permission_role_relation_policy = 1;
-}
 message MutationLoginResponse {
     string login = 1;
+}
+message MutationSyncPermissionRoleRelationPolicyResponse {
+    bool sync_permission_role_relation_policy = 1;
 }

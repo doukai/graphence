@@ -11,6 +11,7 @@ import "io/graphence/core/interfaces.proto";
 import "io/graphence/core/input_objects.proto";
 import "io/graphoenix/core/enums.proto";
 import "io/graphoenix/core/input_objects.proto";
+import "io/graphoenix/file/input_objects.proto";
 
 message QueryUserResponse {
     User user = 1;
@@ -110,6 +111,15 @@ message QueryPermissionRoleRelationListResponse {
 }
 message QueryPermissionRoleRelationConnectionResponse {
     PermissionRoleRelationConnection permission_role_relation_connection = 1;
+}
+message QueryFileUserRelationResponse {
+    FileUserRelation file_user_relation = 1;
+}
+message QueryFileUserRelationListResponse {
+    repeated FileUserRelation file_user_relation_list = 1;
+}
+message QueryFileUserRelationConnectionResponse {
+    FileUserRelationConnection file_user_relation_connection = 1;
 }
 message QueryCurrentResponse {
     CurrentUser current = 1;

@@ -98,4 +98,13 @@ public @interface Subscription {
 
   PermissionRoleRelationConnectionSubscriptionArguments permissionRoleRelationConnection(
       ) default @PermissionRoleRelationConnectionSubscriptionArguments;
+
+  FileUserRelationSubscriptionArguments fileUserRelation(
+      ) default @FileUserRelationSubscriptionArguments;
+
+  FileUserRelationListSubscriptionArguments fileUserRelationList(
+      ) default @FileUserRelationListSubscriptionArguments;
+
+  FileUserRelationConnectionSubscriptionArguments fileUserRelationConnection(
+      ) default @FileUserRelationConnectionSubscriptionArguments;
 }

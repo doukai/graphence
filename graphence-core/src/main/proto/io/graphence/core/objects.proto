@@ -6,6 +6,7 @@ option java_package = "io.graphence.core.dto.objectType.grpc";
 package io.graphence.core;
 
 import "io/graphence/core/enums.proto";
+import "io/graphoenix/file/objects.proto";
 import "io/graphoenix/core/objects.proto";
 import "google/protobuf/timestamp.proto";
 
@@ -21,58 +22,60 @@ message User {
     string salt = 6; /* 盐 */
     string hash = 7; /* 哈希 */
     string email = 8; /* 邮箱 */
-    repeated string phones = 9; /* 手机号 */
-    bool disable = 10; /* 禁用 */
-    repeated Group groups = 11; /* 组 */
-    repeated Role roles = 12; /* 角色 */
-    Realm realm = 13; /* 租户 */
-    bool is_deprecated = 14;
-    int32 version = 15;
-    int32 realm_id = 16;
-    string create_user_id = 17;
-    google.protobuf.Timestamp create_time = 18;
-    string update_user_id = 19;
-    google.protobuf.Timestamp update_time = 20;
-    string create_group_id = 21;
-    string intro_typename = 22;
-    repeated UserPhonesRelation user_phones_relation = 23;
-    repeated GroupUserRelation group_user_relation = 24;
-    repeated RoleUserRelation role_user_relation = 25;
-    Group groups_aggregate = 26;
-    GroupConnection groups_connection = 27;
-    Role roles_aggregate = 28;
-    RoleConnection roles_connection = 29;
-    UserPhonesRelation user_phones_relation_aggregate = 30;
-    UserPhonesRelationConnection user_phones_relation_connection = 31;
-    GroupUserRelation group_user_relation_aggregate = 32;
-    GroupUserRelationConnection group_user_relation_connection = 33;
-    RoleUserRelation role_user_relation_aggregate = 34;
-    RoleUserRelationConnection role_user_relation_connection = 35;
-    int32 id_count = 36;
-    int32 id_max = 37;
-    int32 id_min = 38;
-    int32 name_count = 39;
-    string name_max = 40;
-    string name_min = 41;
-    int32 description_count = 42;
-    string description_max = 43;
-    string description_min = 44;
-    int32 last_name_count = 45;
-    string last_name_max = 46;
-    string last_name_min = 47;
-    int32 login_count = 48;
-    string login_max = 49;
-    string login_min = 50;
-    int32 salt_count = 51;
-    string salt_max = 52;
-    string salt_min = 53;
-    int32 hash_count = 54;
-    string hash_max = 55;
-    string hash_min = 56;
-    int32 email_count = 57;
-    string email_max = 58;
-    string email_min = 59;
-    bool sync_user_policy = 60;
+    io.graphoenix.file.File avatar = 9; /* 头像 */
+    repeated string phones = 10; /* 手机号 */
+    bool disable = 11; /* 禁用 */
+    repeated Group groups = 12; /* 组 */
+    repeated Role roles = 13; /* 角色 */
+    Realm realm = 14; /* 租户 */
+    bool is_deprecated = 15;
+    int32 version = 16;
+    int32 realm_id = 17;
+    string create_user_id = 18;
+    google.protobuf.Timestamp create_time = 19;
+    string update_user_id = 20;
+    google.protobuf.Timestamp update_time = 21;
+    string create_group_id = 22;
+    string intro_typename = 23;
+    repeated FileUserRelation file_user_relation = 24;
+    repeated UserPhonesRelation user_phones_relation = 25;
+    repeated GroupUserRelation group_user_relation = 26;
+    repeated RoleUserRelation role_user_relation = 27;
+    Group groups_aggregate = 28;
+    GroupConnection groups_connection = 29;
+    Role roles_aggregate = 30;
+    RoleConnection roles_connection = 31;
+    UserPhonesRelation user_phones_relation_aggregate = 32;
+    UserPhonesRelationConnection user_phones_relation_connection = 33;
+    GroupUserRelation group_user_relation_aggregate = 34;
+    GroupUserRelationConnection group_user_relation_connection = 35;
+    RoleUserRelation role_user_relation_aggregate = 36;
+    RoleUserRelationConnection role_user_relation_connection = 37;
+    int32 id_count = 38;
+    int32 id_max = 39;
+    int32 id_min = 40;
+    int32 name_count = 41;
+    string name_max = 42;
+    string name_min = 43;
+    int32 description_count = 44;
+    string description_max = 45;
+    string description_min = 46;
+    int32 last_name_count = 47;
+    string last_name_max = 48;
+    string last_name_min = 49;
+    int32 login_count = 50;
+    string login_max = 51;
+    string login_min = 52;
+    int32 salt_count = 53;
+    string salt_max = 54;
+    string salt_min = 55;
+    int32 hash_count = 56;
+    string hash_max = 57;
+    string hash_min = 58;
+    int32 email_count = 59;
+    string email_max = 60;
+    string email_min = 61;
+    bool sync_user_policy = 62;
 }
 /**
 * 角色
@@ -398,6 +401,31 @@ message PermissionRoleRelation {
     string permission_ref_max = 22;
     string permission_ref_min = 23;
 }
+message FileUserRelation {
+    string id = 1;
+    string user_ref = 2;
+    User user = 3;
+    string file_ref = 4;
+    io.graphoenix.file.File file = 5;
+    bool is_deprecated = 6;
+    int32 version = 7;
+    int32 realm_id = 8;
+    string create_user_id = 9;
+    google.protobuf.Timestamp create_time = 10;
+    string update_user_id = 11;
+    google.protobuf.Timestamp update_time = 12;
+    string create_group_id = 13;
+    string intro_typename = 14;
+    int32 id_count = 15;
+    int32 id_max = 16;
+    int32 id_min = 17;
+    int32 user_ref_count = 18;
+    string user_ref_max = 19;
+    string user_ref_min = 20;
+    int32 file_ref_count = 21;
+    string file_ref_max = 22;
+    string file_ref_min = 23;
+}
 message UserConnection {
     int32 total_count = 1;
     io.graphoenix.core.PageInfo page_info = 2;
@@ -497,22 +525,31 @@ message PermissionRoleRelationEdge {
     PermissionRoleRelation node = 1;
     string cursor = 2;
 }
+message FileUserRelationConnection {
+    int32 total_count = 1;
+    io.graphoenix.core.PageInfo page_info = 2;
+    repeated FileUserRelationEdge edges = 3;
+}
+message FileUserRelationEdge {
+    FileUserRelation node = 1;
+    string cursor = 2;
+}
 message Policy {
-    string v2 = 1;
-    string v3 = 2;
+    string id = 1;
+    string v5 = 2;
     string v0 = 3;
-    string id = 4;
-    string v1 = 5;
-    string ptype = 6;
-    string v4 = 7;
-    string v5 = 8;
+    string v4 = 4;
+    string v2 = 5;
+    string v1 = 6;
+    string v3 = 7;
+    string ptype = 8;
 }
 message CurrentUser {
-    string last_name = 1;
-    string id = 2;
-    repeated string groups = 3;
-    string login = 4;
-    int32 realm_id = 5;
-    repeated string roles = 6;
-    string name = 7;
+    repeated string groups = 1;
+    string last_name = 2;
+    repeated string roles = 3;
+    int32 realm_id = 4;
+    string name = 5;
+    string id = 6;
+    string login = 7;
 }

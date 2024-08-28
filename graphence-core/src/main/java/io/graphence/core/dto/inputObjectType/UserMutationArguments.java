@@ -2,6 +2,7 @@ package io.graphence.core.dto.inputObjectType;
 
 import com.dslplatform.json.CompiledJson;
 import io.graphoenix.core.dto.inputObjectType.MetaInput;
+import io.graphoenix.file.dto.inputObjectType.FileInput;
 import io.graphoenix.structure.dto.inputObjectType.NamedStructInput;
 import jakarta.annotation.Generated;
 import java.lang.Boolean;
@@ -33,6 +34,8 @@ public class UserMutationArguments implements NamedStructInput, MetaInput {
 
   private String email;
 
+  private FileInput avatar;
+
   private Collection<String> phones;
 
   private Boolean disable;
@@ -62,6 +65,8 @@ public class UserMutationArguments implements NamedStructInput, MetaInput {
 
   @DefaultValue("\"User\"")
   private String __typename = "User";
+
+  private Collection<FileUserRelationInput> fileUserRelation;
 
   private Collection<UserPhonesRelationInput> userPhonesRelation;
 
@@ -139,6 +144,14 @@ public class UserMutationArguments implements NamedStructInput, MetaInput {
 
   public void setEmail(String email) {
     this.email = email;
+  }
+
+  public FileInput getAvatar() {
+    return this.avatar;
+  }
+
+  public void setAvatar(FileInput avatar) {
+    this.avatar = avatar;
   }
 
   public Collection<String> getPhones() {
@@ -267,6 +280,14 @@ public class UserMutationArguments implements NamedStructInput, MetaInput {
 
   public void set__typename(String __typename) {
     this.__typename = __typename;
+  }
+
+  public Collection<FileUserRelationInput> getFileUserRelation() {
+    return this.fileUserRelation;
+  }
+
+  public void setFileUserRelation(Collection<FileUserRelationInput> fileUserRelation) {
+    this.fileUserRelation = fileUserRelation;
   }
 
   public Collection<UserPhonesRelationInput> getUserPhonesRelation() {
