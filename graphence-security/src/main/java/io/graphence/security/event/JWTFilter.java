@@ -53,8 +53,6 @@ public class JWTFilter extends BaseRequestFilter implements ScopeEvent {
     public Mono<Void> fireAsync(Map<String, Object> context) {
         HttpServerRequest request = getRequest(context);
         String authorization = request.requestHeaders().get(AUTHORIZATION_HEADER);
-        Operation operation = getOperation(context);
-        ObjectType operationType = documentManager.getOperationTypeOrError(operation);
 
         if (authorization != null && authorization.startsWith(AUTHORIZATION_SCHEME_BEARER)) {
             String jws = authorization.substring(7);
@@ -72,8 +70,12 @@ public class JWTFilter extends BaseRequestFilter implements ScopeEvent {
                 setSessionId(context, jws);
                 return requestScopeInstanceFactory.compute(CurrentUser.class, currentUser).then();
             } catch (Exception e) {
-                if (operation.getFields().stream().anyMatch(field -> operationType.getField(field.getName()).isPermitAll())) {
-                    return Mono.empty();
+                Operation operation = getOperation(context);
+                if (operation != null) {
+                    ObjectType operationType = documentManager.getOperationTypeOrError(operation);
+                    if (operation.getFields().stream().anyMatch(field -> operationType.getField(field.getName()).isPermitAll())) {
+                        return Mono.empty();
+                    }
                 }
                 throw new AuthenticationException(UN_AUTHENTICATION);
             }
@@ -103,8 +105,12 @@ public class JWTFilter extends BaseRequestFilter implements ScopeEvent {
                     .flatMap(currentUser -> requestScopeInstanceFactory.compute(CurrentUser.class, currentUser))
                     .then();
         }
-        if (operation.getFields().stream().anyMatch(field -> operationType.getField(field.getName()).isPermitAll())) {
-            return Mono.empty();
+        Operation operation = getOperation(context);
+        if (operation != null) {
+            ObjectType operationType = documentManager.getOperationTypeOrError(operation);
+            if (operation.getFields().stream().anyMatch(field -> operationType.getField(field.getName()).isPermitAll())) {
+                return Mono.empty();
+            }
         }
         throw new AuthenticationException(UN_AUTHENTICATION);
     }
