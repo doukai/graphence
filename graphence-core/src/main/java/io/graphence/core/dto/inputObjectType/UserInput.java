@@ -34,7 +34,7 @@ public class UserInput implements NamedStructInput, MetaInput {
 
   private String email;
 
-  private FileInput avatar;
+  private Collection<FileInput> files;
 
   private Collection<String> phones;
 
@@ -144,12 +144,12 @@ public class UserInput implements NamedStructInput, MetaInput {
     this.email = email;
   }
 
-  public FileInput getAvatar() {
-    return this.avatar;
+  public Collection<FileInput> getFiles() {
+    return this.files;
   }
 
-  public void setAvatar(FileInput avatar) {
-    this.avatar = avatar;
+  public void setFiles(Collection<FileInput> files) {
+    this.files = files;
   }
 
   public Collection<String> getPhones() {

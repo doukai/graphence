@@ -20,7 +20,7 @@ message UserExpression {
     io.graphoenix.core.StringExpression salt = 6;
     io.graphoenix.core.StringExpression hash = 7;
     io.graphoenix.core.StringExpression email = 8;
-    io.graphoenix.file.FileExpression avatar = 9;
+    io.graphoenix.file.FileExpression files = 9;
     io.graphoenix.core.StringExpression phones = 10;
     io.graphoenix.core.BooleanExpression disable = 11;
     GroupExpression groups = 12;
@@ -52,7 +52,7 @@ message UserInput {
     string salt = 6;
     string hash = 7;
     string email = 8;
-    io.graphoenix.file.FileInput avatar = 9;
+    repeated io.graphoenix.file.FileInput files = 9;
     repeated string phones = 10;
     bool disable = 11;
     repeated GroupInput groups = 12;
@@ -692,7 +692,7 @@ message UserQueryArguments {
     io.graphoenix.core.StringExpression salt = 6;
     io.graphoenix.core.StringExpression hash = 7;
     io.graphoenix.core.StringExpression email = 8;
-    io.graphoenix.file.FileExpression avatar = 9;
+    io.graphoenix.file.FileExpression files = 9;
     io.graphoenix.core.StringExpression phones = 10;
     io.graphoenix.core.BooleanExpression disable = 11;
     GroupExpression groups = 12;
@@ -725,7 +725,7 @@ message UserListQueryArguments {
     io.graphoenix.core.StringExpression salt = 6;
     io.graphoenix.core.StringExpression hash = 7;
     io.graphoenix.core.StringExpression email = 8;
-    io.graphoenix.file.FileExpression avatar = 9;
+    io.graphoenix.file.FileExpression files = 9;
     io.graphoenix.core.StringExpression phones = 10;
     io.graphoenix.core.BooleanExpression disable = 11;
     GroupExpression groups = 12;
@@ -764,7 +764,7 @@ message UserConnectionQueryArguments {
     io.graphoenix.core.StringExpression salt = 6;
     io.graphoenix.core.StringExpression hash = 7;
     io.graphoenix.core.StringExpression email = 8;
-    io.graphoenix.file.FileExpression avatar = 9;
+    io.graphoenix.file.FileExpression files = 9;
     io.graphoenix.core.StringExpression phones = 10;
     io.graphoenix.core.BooleanExpression disable = 11;
     GroupExpression groups = 12;
@@ -1640,7 +1640,7 @@ message UserMutationArguments {
     string salt = 6;
     string hash = 7;
     string email = 8;
-    io.graphoenix.file.FileInput avatar = 9;
+    repeated io.graphoenix.file.FileInput files = 9;
     repeated string phones = 10;
     bool disable = 11;
     repeated GroupInput groups = 12;
@@ -1671,7 +1671,7 @@ message UserListMutationArguments {
     string salt = 6;
     string hash = 7;
     string email = 8;
-    io.graphoenix.file.FileInput avatar = 9;
+    repeated io.graphoenix.file.FileInput files = 9;
     repeated string phones = 10;
     bool disable = 11;
     repeated GroupInput groups = 12;
@@ -2128,7 +2128,7 @@ message UserSubscriptionArguments {
     io.graphoenix.core.StringExpression salt = 6;
     io.graphoenix.core.StringExpression hash = 7;
     io.graphoenix.core.StringExpression email = 8;
-    io.graphoenix.file.FileExpression avatar = 9;
+    io.graphoenix.file.FileExpression files = 9;
     io.graphoenix.core.StringExpression phones = 10;
     io.graphoenix.core.BooleanExpression disable = 11;
     GroupExpression groups = 12;
@@ -2161,7 +2161,7 @@ message UserListSubscriptionArguments {
     io.graphoenix.core.StringExpression salt = 6;
     io.graphoenix.core.StringExpression hash = 7;
     io.graphoenix.core.StringExpression email = 8;
-    io.graphoenix.file.FileExpression avatar = 9;
+    io.graphoenix.file.FileExpression files = 9;
     io.graphoenix.core.StringExpression phones = 10;
     io.graphoenix.core.BooleanExpression disable = 11;
     GroupExpression groups = 12;
@@ -2200,7 +2200,7 @@ message UserConnectionSubscriptionArguments {
     io.graphoenix.core.StringExpression salt = 6;
     io.graphoenix.core.StringExpression hash = 7;
     io.graphoenix.core.StringExpression email = 8;
-    io.graphoenix.file.FileExpression avatar = 9;
+    io.graphoenix.file.FileExpression files = 9;
     io.graphoenix.core.StringExpression phones = 10;
     io.graphoenix.core.BooleanExpression disable = 11;
     GroupExpression groups = 12;
@@ -3070,6 +3070,11 @@ message FileUserRelationConnectionSubscriptionArguments {
 message Query_currentPermissionNameListByTypes_Arguments {
     repeated string types = 1;
 }
+message Mutation_syncPermissionRoleRelationPolicy_Arguments {
+    string role_id = 1;
+    repeated string permission_name_list = 2;
+    repeated string removed_permission_name_list = 3;
+}
 message Mutation_currentUserUpdate_Arguments {
     UserInput user_input = 1;
 }
@@ -3080,9 +3085,4 @@ message Mutation_currentUserResetPassword_Arguments {
 message Mutation_login_Arguments {
     string login = 1;
     string password = 2;
-}
-message Mutation_syncPermissionRoleRelationPolicy_Arguments {
-    string role_id = 1;
-    repeated string permission_name_list = 2;
-    repeated string removed_permission_name_list = 3;
 }

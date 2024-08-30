@@ -30,7 +30,7 @@ public @interface UserInput {
 
   String email() default "";
 
-  FileInput1 avatar() default @FileInput1;
+  FileInput1[] files() default {};
 
   String[] phones() default {};
 
@@ -86,7 +86,7 @@ public @interface UserInput {
 
   String $email() default "";
 
-  String $avatar() default "";
+  String $files() default "";
 
   String $phones() default "";
 

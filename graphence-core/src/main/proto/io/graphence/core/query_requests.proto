@@ -24,7 +24,7 @@ message QueryUserRequest {
     io.graphoenix.core.StringExpression salt = 8;
     io.graphoenix.core.StringExpression hash = 9;
     io.graphoenix.core.StringExpression email = 10;
-    io.graphoenix.file.FileExpression avatar = 11;
+    io.graphoenix.file.FileExpression files = 11;
     io.graphoenix.core.StringExpression phones = 12;
     io.graphoenix.core.BooleanExpression disable = 13;
     GroupExpression groups = 14;
@@ -59,7 +59,7 @@ message QueryUserListRequest {
     io.graphoenix.core.StringExpression salt = 8;
     io.graphoenix.core.StringExpression hash = 9;
     io.graphoenix.core.StringExpression email = 10;
-    io.graphoenix.file.FileExpression avatar = 11;
+    io.graphoenix.file.FileExpression files = 11;
     io.graphoenix.core.StringExpression phones = 12;
     io.graphoenix.core.BooleanExpression disable = 13;
     GroupExpression groups = 14;
@@ -100,7 +100,7 @@ message QueryUserConnectionRequest {
     io.graphoenix.core.StringExpression salt = 8;
     io.graphoenix.core.StringExpression hash = 9;
     io.graphoenix.core.StringExpression email = 10;
-    io.graphoenix.file.FileExpression avatar = 11;
+    io.graphoenix.file.FileExpression files = 11;
     io.graphoenix.core.StringExpression phones = 12;
     io.graphoenix.core.BooleanExpression disable = 13;
     GroupExpression groups = 14;
@@ -1033,6 +1033,10 @@ message QueryFileUserRelationConnectionRequest {
     string after = 25;
     string before = 26;
 }
+message QueryPolicyListRequest {
+    optional string selection_set = 1;
+    optional string arguments = 2;
+}
 message QueryCurrentRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
@@ -1049,8 +1053,4 @@ message QueryCurrentPermissionNameListByTypesRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
     repeated string types = 3;
-}
-message QueryPolicyListRequest {
-    optional string selection_set = 1;
-    optional string arguments = 2;
 }

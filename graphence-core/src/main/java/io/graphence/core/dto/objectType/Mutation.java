@@ -59,11 +59,11 @@ public class Mutation {
 
   private Collection<FileUserRelation> fileUserRelationList;
 
+  private Boolean syncPermissionRoleRelationPolicy;
+
   private User currentUserUpdate;
 
   private User currentUserResetPassword;
-
-  private Boolean syncPermissionRoleRelationPolicy;
 
   private String login;
 
@@ -261,6 +261,14 @@ public class Mutation {
     this.fileUserRelationList = fileUserRelationList;
   }
 
+  public Boolean getSyncPermissionRoleRelationPolicy() {
+    return this.syncPermissionRoleRelationPolicy;
+  }
+
+  public void setSyncPermissionRoleRelationPolicy(Boolean syncPermissionRoleRelationPolicy) {
+    this.syncPermissionRoleRelationPolicy = syncPermissionRoleRelationPolicy;
+  }
+
   public User getCurrentUserUpdate() {
     return this.currentUserUpdate;
   }
@@ -275,14 +283,6 @@ public class Mutation {
 
   public void setCurrentUserResetPassword(User currentUserResetPassword) {
     this.currentUserResetPassword = currentUserResetPassword;
-  }
-
-  public Boolean getSyncPermissionRoleRelationPolicy() {
-    return this.syncPermissionRoleRelationPolicy;
-  }
-
-  public void setSyncPermissionRoleRelationPolicy(Boolean syncPermissionRoleRelationPolicy) {
-    this.syncPermissionRoleRelationPolicy = syncPermissionRoleRelationPolicy;
   }
 
   public String getLogin() {

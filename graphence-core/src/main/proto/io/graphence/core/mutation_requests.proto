@@ -23,7 +23,7 @@ message MutationUserRequest {
     string salt = 8;
     string hash = 9;
     string email = 10;
-    io.graphoenix.file.FileInput avatar = 11;
+    repeated io.graphoenix.file.FileInput files = 11;
     repeated string phones = 12;
     bool disable = 13;
     repeated GroupInput groups = 14;
@@ -56,7 +56,7 @@ message MutationUserListRequest {
     string salt = 8;
     string hash = 9;
     string email = 10;
-    io.graphoenix.file.FileInput avatar = 11;
+    repeated io.graphoenix.file.FileInput files = 11;
     repeated string phones = 12;
     bool disable = 13;
     repeated GroupInput groups = 14;
@@ -548,6 +548,13 @@ message MutationFileUserRelationListRequest {
     repeated FileUserRelationInput list = 17;
     FileUserRelationExpression where = 18;
 }
+message MutationSyncPermissionRoleRelationPolicyRequest {
+    optional string selection_set = 1;
+    optional string arguments = 2;
+    string role_id = 3;
+    repeated string permission_name_list = 4;
+    repeated string removed_permission_name_list = 5;
+}
 message MutationCurrentUserUpdateRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
@@ -564,11 +571,4 @@ message MutationLoginRequest {
     optional string arguments = 2;
     string login = 3;
     string password = 4;
-}
-message MutationSyncPermissionRoleRelationPolicyRequest {
-    optional string selection_set = 1;
-    optional string arguments = 2;
-    string role_id = 3;
-    repeated string permission_name_list = 4;
-    repeated string removed_permission_name_list = 5;
 }

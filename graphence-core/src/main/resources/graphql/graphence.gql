@@ -16,8 +16,8 @@ type User implements NamedStruct {
     hash: String
     "邮箱"
     email: String @jsonSchema(maxLength: 50)
-    "头像"
-    avatar: File
+    "文件"
+    files: [File]
     "手机号"
     phones: [String] @jsonSchema(maxLength: 11)
     "禁用"

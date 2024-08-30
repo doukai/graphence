@@ -76,10 +76,10 @@ public class User implements NamedStruct, Meta {
   private String email;
 
   /**
-   * 头像
+   * 文件
    */
-  @Description("头像")
-  private File avatar;
+  @Description("文件")
+  private Collection<File> files;
 
   /**
    * 手机号
@@ -275,12 +275,12 @@ public class User implements NamedStruct, Meta {
     this.email = email;
   }
 
-  public File getAvatar() {
-    return this.avatar;
+  public Collection<File> getFiles() {
+    return this.files;
   }
 
-  public void setAvatar(File avatar) {
-    this.avatar = avatar;
+  public void setFiles(Collection<File> files) {
+    this.files = files;
   }
 
   public Collection<String> getPhones() {

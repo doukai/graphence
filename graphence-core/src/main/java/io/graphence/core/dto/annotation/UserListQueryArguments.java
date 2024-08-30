@@ -34,7 +34,7 @@ public @interface UserListQueryArguments {
 
   StringExpression email() default @StringExpression;
 
-  FileExpression avatar() default @FileExpression;
+  FileExpression files() default @FileExpression;
 
   StringExpression phones() default @StringExpression;
 
@@ -108,7 +108,7 @@ public @interface UserListQueryArguments {
 
   String $email() default "";
 
-  String $avatar() default "";
+  String $files() default "";
 
   String $phones() default "";
 

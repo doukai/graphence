@@ -4,6 +4,7 @@ import com.dslplatform.json.CompiledJson;
 import io.graphence.core.dto.objectType.Group;
 import io.graphence.core.dto.objectType.Role;
 import io.graphence.core.dto.objectType.User;
+import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.Type;
 
 import java.util.Collection;
@@ -13,20 +14,28 @@ import java.util.stream.Stream;
 
 @Type
 @CompiledJson
+@Description("当前用户")
 public class CurrentUser {
 
+    @Description("ID")
     private String id;
 
+    @Description("姓名")
     private String name;
 
+    @Description("姓氏")
     private String lastName;
 
+    @Description("账号")
     private String login;
 
+    @Description("租户ID")
     private Integer realmId;
 
+    @Description("组")
     private List<String> groups;
 
+    @Description("角色")
     private List<String> roles;
 
     public String getId() {

@@ -30,7 +30,7 @@ public @interface UserListMutationArguments {
 
   String email() default "";
 
-  FileInput avatar() default @FileInput;
+  FileInput[] files() default {};
 
   String[] phones() default {};
 
@@ -88,7 +88,7 @@ public @interface UserListMutationArguments {
 
   String $email() default "";
 
-  String $avatar() default "";
+  String $files() default "";
 
   String $phones() default "";
 

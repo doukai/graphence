@@ -36,7 +36,7 @@ public class UserQueryArguments implements NamedStructExpression, MetaExpression
 
   private StringExpression email;
 
-  private FileExpression avatar;
+  private FileExpression files;
 
   private StringExpression phones;
 
@@ -153,12 +153,12 @@ public class UserQueryArguments implements NamedStructExpression, MetaExpression
     this.email = email;
   }
 
-  public FileExpression getAvatar() {
-    return this.avatar;
+  public FileExpression getFiles() {
+    return this.files;
   }
 
-  public void setAvatar(FileExpression avatar) {
-    this.avatar = avatar;
+  public void setFiles(FileExpression files) {
+    this.files = files;
   }
 
   public StringExpression getPhones() {

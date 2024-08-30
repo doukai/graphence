@@ -22,7 +22,7 @@ message User {
     string salt = 6; /* 盐 */
     string hash = 7; /* 哈希 */
     string email = 8; /* 邮箱 */
-    io.graphoenix.file.File avatar = 9; /* 头像 */
+    repeated io.graphoenix.file.File files = 9; /* 文件 */
     repeated string phones = 10; /* 手机号 */
     bool disable = 11; /* 禁用 */
     repeated Group groups = 12; /* 组 */
@@ -534,22 +534,22 @@ message FileUserRelationEdge {
     FileUserRelation node = 1;
     string cursor = 2;
 }
-message Policy {
-    string id = 1;
-    string v5 = 2;
-    string v0 = 3;
-    string v4 = 4;
-    string v2 = 5;
-    string v1 = 6;
-    string v3 = 7;
-    string ptype = 8;
-}
 message CurrentUser {
-    repeated string groups = 1;
-    string last_name = 2;
-    repeated string roles = 3;
-    int32 realm_id = 4;
-    string name = 5;
-    string id = 6;
-    string login = 7;
+    string name = 1;
+    string id = 2;
+    int32 realm_id = 3;
+    repeated string groups = 4;
+    string last_name = 5;
+    string login = 6;
+    repeated string roles = 7;
+}
+message Policy {
+    string v0 = 1;
+    string v2 = 2;
+    string v4 = 3;
+    string v3 = 4;
+    string v1 = 5;
+    string ptype = 6;
+    string v5 = 7;
+    string id = 8;
 }

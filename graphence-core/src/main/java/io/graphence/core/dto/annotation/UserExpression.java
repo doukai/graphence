@@ -34,7 +34,7 @@ public @interface UserExpression {
 
   StringExpression email() default @StringExpression;
 
-  FileExpression1 avatar() default @FileExpression1;
+  FileExpression1 files() default @FileExpression1;
 
   StringExpression phones() default @StringExpression;
 
@@ -94,7 +94,7 @@ public @interface UserExpression {
 
   String $email() default "";
 
-  String $avatar() default "";
+  String $files() default "";
 
   String $phones() default "";
 
