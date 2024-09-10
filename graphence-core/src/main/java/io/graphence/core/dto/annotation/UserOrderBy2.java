@@ -13,28 +13,26 @@ import java.lang.annotation.Target;
 @Documented
 @Retention(RetentionPolicy.SOURCE)
 @Target(ElementType.METHOD)
-public @interface GroupOrderBy {
+public @interface UserOrderBy2 {
   Sort id() default Sort.ASC;
 
   Sort name() default Sort.ASC;
 
   Sort description() default Sort.ASC;
 
-  Sort path() default Sort.ASC;
+  Sort lastName() default Sort.ASC;
 
-  Sort deep() default Sort.ASC;
+  Sort login() default Sort.ASC;
 
-  Sort parentId() default Sort.ASC;
+  Sort salt() default Sort.ASC;
 
-  GroupOrderBy1 parent() default @GroupOrderBy1;
+  Sort hash() default Sort.ASC;
 
-  GroupOrderBy1 subGroups() default @GroupOrderBy1;
+  Sort email() default Sort.ASC;
 
-  UserOrderBy1 users() default @UserOrderBy1;
+  Sort phones() default Sort.ASC;
 
-  RoleOrderBy1 roles() default @RoleOrderBy1;
-
-  RealmOrderBy realm() default @RealmOrderBy;
+  Sort disable() default Sort.ASC;
 
   Sort isDeprecated() default Sort.ASC;
 
@@ -54,10 +52,6 @@ public @interface GroupOrderBy {
 
   Sort __typename() default Sort.ASC;
 
-  GroupUserRelationOrderBy1 groupUserRelation() default @GroupUserRelationOrderBy1;
-
-  GroupRoleRelationOrderBy1 groupRoleRelation() default @GroupRoleRelationOrderBy1;
-
   Sort idCount() default Sort.ASC;
 
   Sort idMax() default Sort.ASC;
@@ -76,27 +70,35 @@ public @interface GroupOrderBy {
 
   Sort descriptionMin() default Sort.ASC;
 
-  Sort pathCount() default Sort.ASC;
+  Sort lastNameCount() default Sort.ASC;
 
-  Sort pathMax() default Sort.ASC;
+  Sort lastNameMax() default Sort.ASC;
 
-  Sort pathMin() default Sort.ASC;
+  Sort lastNameMin() default Sort.ASC;
 
-  Sort parentIdCount() default Sort.ASC;
+  Sort loginCount() default Sort.ASC;
 
-  Sort parentIdMax() default Sort.ASC;
+  Sort loginMax() default Sort.ASC;
 
-  Sort parentIdMin() default Sort.ASC;
+  Sort loginMin() default Sort.ASC;
 
-  Sort deepCount() default Sort.ASC;
+  Sort saltCount() default Sort.ASC;
 
-  Sort deepSum() default Sort.ASC;
+  Sort saltMax() default Sort.ASC;
 
-  Sort deepAvg() default Sort.ASC;
+  Sort saltMin() default Sort.ASC;
 
-  Sort deepMax() default Sort.ASC;
+  Sort hashCount() default Sort.ASC;
 
-  Sort deepMin() default Sort.ASC;
+  Sort hashMax() default Sort.ASC;
+
+  Sort hashMin() default Sort.ASC;
+
+  Sort emailCount() default Sort.ASC;
+
+  Sort emailMax() default Sort.ASC;
+
+  Sort emailMin() default Sort.ASC;
 
   String $id() default "";
 
@@ -104,21 +106,19 @@ public @interface GroupOrderBy {
 
   String $description() default "";
 
-  String $path() default "";
+  String $lastName() default "";
 
-  String $deep() default "";
+  String $login() default "";
 
-  String $parentId() default "";
+  String $salt() default "";
 
-  String $parent() default "";
+  String $hash() default "";
 
-  String $subGroups() default "";
+  String $email() default "";
 
-  String $users() default "";
+  String $phones() default "";
 
-  String $roles() default "";
-
-  String $realm() default "";
+  String $disable() default "";
 
   String $isDeprecated() default "";
 
@@ -138,10 +138,6 @@ public @interface GroupOrderBy {
 
   String $__typename() default "";
 
-  String $groupUserRelation() default "";
-
-  String $groupRoleRelation() default "";
-
   String $idCount() default "";
 
   String $idMax() default "";
@@ -160,25 +156,33 @@ public @interface GroupOrderBy {
 
   String $descriptionMin() default "";
 
-  String $pathCount() default "";
+  String $lastNameCount() default "";
 
-  String $pathMax() default "";
+  String $lastNameMax() default "";
 
-  String $pathMin() default "";
+  String $lastNameMin() default "";
 
-  String $parentIdCount() default "";
+  String $loginCount() default "";
 
-  String $parentIdMax() default "";
+  String $loginMax() default "";
 
-  String $parentIdMin() default "";
+  String $loginMin() default "";
 
-  String $deepCount() default "";
+  String $saltCount() default "";
 
-  String $deepSum() default "";
+  String $saltMax() default "";
 
-  String $deepAvg() default "";
+  String $saltMin() default "";
 
-  String $deepMax() default "";
+  String $hashCount() default "";
 
-  String $deepMin() default "";
+  String $hashMax() default "";
+
+  String $hashMin() default "";
+
+  String $emailCount() default "";
+
+  String $emailMax() default "";
+
+  String $emailMin() default "";
 }

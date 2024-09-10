@@ -18,7 +18,11 @@ public @interface PermissionRoleRelationOrderBy {
 
   Sort roleRef() default Sort.ASC;
 
+  RoleOrderBy1 role() default @RoleOrderBy1;
+
   Sort permissionRef() default Sort.ASC;
+
+  PermissionOrderBy1 permission() default @PermissionOrderBy1;
 
   Sort isDeprecated() default Sort.ASC;
 
@@ -38,11 +42,33 @@ public @interface PermissionRoleRelationOrderBy {
 
   Sort __typename() default Sort.ASC;
 
+  Sort idCount() default Sort.ASC;
+
+  Sort idMax() default Sort.ASC;
+
+  Sort idMin() default Sort.ASC;
+
+  Sort roleRefCount() default Sort.ASC;
+
+  Sort roleRefMax() default Sort.ASC;
+
+  Sort roleRefMin() default Sort.ASC;
+
+  Sort permissionRefCount() default Sort.ASC;
+
+  Sort permissionRefMax() default Sort.ASC;
+
+  Sort permissionRefMin() default Sort.ASC;
+
   String $id() default "";
 
   String $roleRef() default "";
 
+  String $role() default "";
+
   String $permissionRef() default "";
+
+  String $permission() default "";
 
   String $isDeprecated() default "";
 
@@ -61,4 +87,22 @@ public @interface PermissionRoleRelationOrderBy {
   String $createGroupId() default "";
 
   String $__typename() default "";
+
+  String $idCount() default "";
+
+  String $idMax() default "";
+
+  String $idMin() default "";
+
+  String $roleRefCount() default "";
+
+  String $roleRefMax() default "";
+
+  String $roleRefMin() default "";
+
+  String $permissionRefCount() default "";
+
+  String $permissionRefMax() default "";
+
+  String $permissionRefMin() default "";
 }

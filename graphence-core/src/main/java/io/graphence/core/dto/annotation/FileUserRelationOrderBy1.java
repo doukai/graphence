@@ -14,12 +14,12 @@ import java.lang.annotation.Target;
 @Documented
 @Retention(RetentionPolicy.SOURCE)
 @Target(ElementType.METHOD)
-public @interface FileUserRelationOrderBy {
+public @interface FileUserRelationOrderBy1 {
   Sort id() default Sort.ASC;
 
   Sort userRef() default Sort.ASC;
 
-  UserOrderBy1 user() default @UserOrderBy1;
+  UserOrderBy2 user() default @UserOrderBy2;
 
   Sort fileRef() default Sort.ASC;
 

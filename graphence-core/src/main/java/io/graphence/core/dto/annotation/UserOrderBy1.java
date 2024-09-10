@@ -14,7 +14,7 @@ import java.lang.annotation.Target;
 @Documented
 @Retention(RetentionPolicy.SOURCE)
 @Target(ElementType.METHOD)
-public @interface UserOrderBy {
+public @interface UserOrderBy1 {
   Sort id() default Sort.ASC;
 
   Sort name() default Sort.ASC;
@@ -37,9 +37,9 @@ public @interface UserOrderBy {
 
   Sort disable() default Sort.ASC;
 
-  GroupOrderBy1 groups() default @GroupOrderBy1;
+  GroupOrderBy2 groups() default @GroupOrderBy2;
 
-  RoleOrderBy1 roles() default @RoleOrderBy1;
+  RoleOrderBy2 roles() default @RoleOrderBy2;
 
   RealmOrderBy realm() default @RealmOrderBy;
 
@@ -61,13 +61,13 @@ public @interface UserOrderBy {
 
   Sort __typename() default Sort.ASC;
 
-  FileUserRelationOrderBy1 fileUserRelation() default @FileUserRelationOrderBy1;
+  FileUserRelationOrderBy2 fileUserRelation() default @FileUserRelationOrderBy2;
 
-  UserPhonesRelationOrderBy1 userPhonesRelation() default @UserPhonesRelationOrderBy1;
+  UserPhonesRelationOrderBy2 userPhonesRelation() default @UserPhonesRelationOrderBy2;
 
-  GroupUserRelationOrderBy1 groupUserRelation() default @GroupUserRelationOrderBy1;
+  GroupUserRelationOrderBy2 groupUserRelation() default @GroupUserRelationOrderBy2;
 
-  RoleUserRelationOrderBy1 roleUserRelation() default @RoleUserRelationOrderBy1;
+  RoleUserRelationOrderBy2 roleUserRelation() default @RoleUserRelationOrderBy2;
 
   Sort idCount() default Sort.ASC;
 

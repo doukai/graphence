@@ -38,6 +38,24 @@ public @interface RealmOrderBy {
 
   Sort __typename() default Sort.ASC;
 
+  Sort idCount() default Sort.ASC;
+
+  Sort idMax() default Sort.ASC;
+
+  Sort idMin() default Sort.ASC;
+
+  Sort nameCount() default Sort.ASC;
+
+  Sort nameMax() default Sort.ASC;
+
+  Sort nameMin() default Sort.ASC;
+
+  Sort descriptionCount() default Sort.ASC;
+
+  Sort descriptionMax() default Sort.ASC;
+
+  Sort descriptionMin() default Sort.ASC;
+
   String $id() default "";
 
   String $name() default "";
@@ -61,4 +79,22 @@ public @interface RealmOrderBy {
   String $createGroupId() default "";
 
   String $__typename() default "";
+
+  String $idCount() default "";
+
+  String $idMax() default "";
+
+  String $idMin() default "";
+
+  String $nameCount() default "";
+
+  String $nameMax() default "";
+
+  String $nameMin() default "";
+
+  String $descriptionCount() default "";
+
+  String $descriptionMax() default "";
+
+  String $descriptionMin() default "";
 }

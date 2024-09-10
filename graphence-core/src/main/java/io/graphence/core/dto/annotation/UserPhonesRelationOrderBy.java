@@ -18,6 +18,8 @@ public @interface UserPhonesRelationOrderBy {
 
   Sort userRef() default Sort.ASC;
 
+  UserOrderBy1 user() default @UserOrderBy1;
+
   Sort phonesRef() default Sort.ASC;
 
   Sort isDeprecated() default Sort.ASC;
@@ -38,9 +40,29 @@ public @interface UserPhonesRelationOrderBy {
 
   Sort __typename() default Sort.ASC;
 
+  Sort idCount() default Sort.ASC;
+
+  Sort idMax() default Sort.ASC;
+
+  Sort idMin() default Sort.ASC;
+
+  Sort userRefCount() default Sort.ASC;
+
+  Sort userRefMax() default Sort.ASC;
+
+  Sort userRefMin() default Sort.ASC;
+
+  Sort phonesRefCount() default Sort.ASC;
+
+  Sort phonesRefMax() default Sort.ASC;
+
+  Sort phonesRefMin() default Sort.ASC;
+
   String $id() default "";
 
   String $userRef() default "";
+
+  String $user() default "";
 
   String $phonesRef() default "";
 
@@ -61,4 +83,22 @@ public @interface UserPhonesRelationOrderBy {
   String $createGroupId() default "";
 
   String $__typename() default "";
+
+  String $idCount() default "";
+
+  String $idMax() default "";
+
+  String $idMin() default "";
+
+  String $userRefCount() default "";
+
+  String $userRefMax() default "";
+
+  String $userRefMin() default "";
+
+  String $phonesRefCount() default "";
+
+  String $phonesRefMax() default "";
+
+  String $phonesRefMin() default "";
 }

@@ -13,6 +13,8 @@ public class UserPhonesRelationOrderBy {
 
   private Sort userRef;
 
+  private UserOrderBy user;
+
   private Sort phonesRef;
 
   private Sort isDeprecated;
@@ -33,6 +35,24 @@ public class UserPhonesRelationOrderBy {
 
   private Sort __typename;
 
+  private Sort idCount;
+
+  private Sort idMax;
+
+  private Sort idMin;
+
+  private Sort userRefCount;
+
+  private Sort userRefMax;
+
+  private Sort userRefMin;
+
+  private Sort phonesRefCount;
+
+  private Sort phonesRefMax;
+
+  private Sort phonesRefMin;
+
   public Sort getId() {
     return this.id;
   }
@@ -47,6 +67,14 @@ public class UserPhonesRelationOrderBy {
 
   public void setUserRef(Sort userRef) {
     this.userRef = userRef;
+  }
+
+  public UserOrderBy getUser() {
+    return this.user;
+  }
+
+  public void setUser(UserOrderBy user) {
+    this.user = user;
   }
 
   public Sort getPhonesRef() {
@@ -127,5 +155,77 @@ public class UserPhonesRelationOrderBy {
 
   public void set__typename(Sort __typename) {
     this.__typename = __typename;
+  }
+
+  public Sort getIdCount() {
+    return this.idCount;
+  }
+
+  public void setIdCount(Sort idCount) {
+    this.idCount = idCount;
+  }
+
+  public Sort getIdMax() {
+    return this.idMax;
+  }
+
+  public void setIdMax(Sort idMax) {
+    this.idMax = idMax;
+  }
+
+  public Sort getIdMin() {
+    return this.idMin;
+  }
+
+  public void setIdMin(Sort idMin) {
+    this.idMin = idMin;
+  }
+
+  public Sort getUserRefCount() {
+    return this.userRefCount;
+  }
+
+  public void setUserRefCount(Sort userRefCount) {
+    this.userRefCount = userRefCount;
+  }
+
+  public Sort getUserRefMax() {
+    return this.userRefMax;
+  }
+
+  public void setUserRefMax(Sort userRefMax) {
+    this.userRefMax = userRefMax;
+  }
+
+  public Sort getUserRefMin() {
+    return this.userRefMin;
+  }
+
+  public void setUserRefMin(Sort userRefMin) {
+    this.userRefMin = userRefMin;
+  }
+
+  public Sort getPhonesRefCount() {
+    return this.phonesRefCount;
+  }
+
+  public void setPhonesRefCount(Sort phonesRefCount) {
+    this.phonesRefCount = phonesRefCount;
+  }
+
+  public Sort getPhonesRefMax() {
+    return this.phonesRefMax;
+  }
+
+  public void setPhonesRefMax(Sort phonesRefMax) {
+    this.phonesRefMax = phonesRefMax;
+  }
+
+  public Sort getPhonesRefMin() {
+    return this.phonesRefMin;
+  }
+
+  public void setPhonesRefMin(Sort phonesRefMin) {
+    this.phonesRefMin = phonesRefMin;
   }
 }

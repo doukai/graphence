@@ -33,6 +33,24 @@ public class RealmOrderBy {
 
   private Sort __typename;
 
+  private Sort idCount;
+
+  private Sort idMax;
+
+  private Sort idMin;
+
+  private Sort nameCount;
+
+  private Sort nameMax;
+
+  private Sort nameMin;
+
+  private Sort descriptionCount;
+
+  private Sort descriptionMax;
+
+  private Sort descriptionMin;
+
   public Sort getId() {
     return this.id;
   }
@@ -127,5 +145,77 @@ public class RealmOrderBy {
 
   public void set__typename(Sort __typename) {
     this.__typename = __typename;
+  }
+
+  public Sort getIdCount() {
+    return this.idCount;
+  }
+
+  public void setIdCount(Sort idCount) {
+    this.idCount = idCount;
+  }
+
+  public Sort getIdMax() {
+    return this.idMax;
+  }
+
+  public void setIdMax(Sort idMax) {
+    this.idMax = idMax;
+  }
+
+  public Sort getIdMin() {
+    return this.idMin;
+  }
+
+  public void setIdMin(Sort idMin) {
+    this.idMin = idMin;
+  }
+
+  public Sort getNameCount() {
+    return this.nameCount;
+  }
+
+  public void setNameCount(Sort nameCount) {
+    this.nameCount = nameCount;
+  }
+
+  public Sort getNameMax() {
+    return this.nameMax;
+  }
+
+  public void setNameMax(Sort nameMax) {
+    this.nameMax = nameMax;
+  }
+
+  public Sort getNameMin() {
+    return this.nameMin;
+  }
+
+  public void setNameMin(Sort nameMin) {
+    this.nameMin = nameMin;
+  }
+
+  public Sort getDescriptionCount() {
+    return this.descriptionCount;
+  }
+
+  public void setDescriptionCount(Sort descriptionCount) {
+    this.descriptionCount = descriptionCount;
+  }
+
+  public Sort getDescriptionMax() {
+    return this.descriptionMax;
+  }
+
+  public void setDescriptionMax(Sort descriptionMax) {
+    this.descriptionMax = descriptionMax;
+  }
+
+  public Sort getDescriptionMin() {
+    return this.descriptionMin;
+  }
+
+  public void setDescriptionMin(Sort descriptionMin) {
+    this.descriptionMin = descriptionMin;
   }
 }

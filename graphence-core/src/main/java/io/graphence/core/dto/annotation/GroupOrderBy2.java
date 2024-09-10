@@ -13,7 +13,7 @@ import java.lang.annotation.Target;
 @Documented
 @Retention(RetentionPolicy.SOURCE)
 @Target(ElementType.METHOD)
-public @interface GroupOrderBy {
+public @interface GroupOrderBy2 {
   Sort id() default Sort.ASC;
 
   Sort name() default Sort.ASC;
@@ -25,16 +25,6 @@ public @interface GroupOrderBy {
   Sort deep() default Sort.ASC;
 
   Sort parentId() default Sort.ASC;
-
-  GroupOrderBy1 parent() default @GroupOrderBy1;
-
-  GroupOrderBy1 subGroups() default @GroupOrderBy1;
-
-  UserOrderBy1 users() default @UserOrderBy1;
-
-  RoleOrderBy1 roles() default @RoleOrderBy1;
-
-  RealmOrderBy realm() default @RealmOrderBy;
 
   Sort isDeprecated() default Sort.ASC;
 
@@ -53,10 +43,6 @@ public @interface GroupOrderBy {
   Sort createGroupId() default Sort.ASC;
 
   Sort __typename() default Sort.ASC;
-
-  GroupUserRelationOrderBy1 groupUserRelation() default @GroupUserRelationOrderBy1;
-
-  GroupRoleRelationOrderBy1 groupRoleRelation() default @GroupRoleRelationOrderBy1;
 
   Sort idCount() default Sort.ASC;
 
@@ -110,16 +96,6 @@ public @interface GroupOrderBy {
 
   String $parentId() default "";
 
-  String $parent() default "";
-
-  String $subGroups() default "";
-
-  String $users() default "";
-
-  String $roles() default "";
-
-  String $realm() default "";
-
   String $isDeprecated() default "";
 
   String $version() default "";
@@ -137,10 +113,6 @@ public @interface GroupOrderBy {
   String $createGroupId() default "";
 
   String $__typename() default "";
-
-  String $groupUserRelation() default "";
-
-  String $groupRoleRelation() default "";
 
   String $idCount() default "";
 

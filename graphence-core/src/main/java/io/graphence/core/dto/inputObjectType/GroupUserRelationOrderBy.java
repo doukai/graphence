@@ -13,7 +13,11 @@ public class GroupUserRelationOrderBy {
 
   private Sort userRef;
 
+  private UserOrderBy user;
+
   private Sort groupRef;
+
+  private GroupOrderBy group;
 
   private Sort isDeprecated;
 
@@ -33,6 +37,24 @@ public class GroupUserRelationOrderBy {
 
   private Sort __typename;
 
+  private Sort idCount;
+
+  private Sort idMax;
+
+  private Sort idMin;
+
+  private Sort userRefCount;
+
+  private Sort userRefMax;
+
+  private Sort userRefMin;
+
+  private Sort groupRefCount;
+
+  private Sort groupRefMax;
+
+  private Sort groupRefMin;
+
   public Sort getId() {
     return this.id;
   }
@@ -49,12 +71,28 @@ public class GroupUserRelationOrderBy {
     this.userRef = userRef;
   }
 
+  public UserOrderBy getUser() {
+    return this.user;
+  }
+
+  public void setUser(UserOrderBy user) {
+    this.user = user;
+  }
+
   public Sort getGroupRef() {
     return this.groupRef;
   }
 
   public void setGroupRef(Sort groupRef) {
     this.groupRef = groupRef;
+  }
+
+  public GroupOrderBy getGroup() {
+    return this.group;
+  }
+
+  public void setGroup(GroupOrderBy group) {
+    this.group = group;
   }
 
   public Sort getIsDeprecated() {
@@ -127,5 +165,77 @@ public class GroupUserRelationOrderBy {
 
   public void set__typename(Sort __typename) {
     this.__typename = __typename;
+  }
+
+  public Sort getIdCount() {
+    return this.idCount;
+  }
+
+  public void setIdCount(Sort idCount) {
+    this.idCount = idCount;
+  }
+
+  public Sort getIdMax() {
+    return this.idMax;
+  }
+
+  public void setIdMax(Sort idMax) {
+    this.idMax = idMax;
+  }
+
+  public Sort getIdMin() {
+    return this.idMin;
+  }
+
+  public void setIdMin(Sort idMin) {
+    this.idMin = idMin;
+  }
+
+  public Sort getUserRefCount() {
+    return this.userRefCount;
+  }
+
+  public void setUserRefCount(Sort userRefCount) {
+    this.userRefCount = userRefCount;
+  }
+
+  public Sort getUserRefMax() {
+    return this.userRefMax;
+  }
+
+  public void setUserRefMax(Sort userRefMax) {
+    this.userRefMax = userRefMax;
+  }
+
+  public Sort getUserRefMin() {
+    return this.userRefMin;
+  }
+
+  public void setUserRefMin(Sort userRefMin) {
+    this.userRefMin = userRefMin;
+  }
+
+  public Sort getGroupRefCount() {
+    return this.groupRefCount;
+  }
+
+  public void setGroupRefCount(Sort groupRefCount) {
+    this.groupRefCount = groupRefCount;
+  }
+
+  public Sort getGroupRefMax() {
+    return this.groupRefMax;
+  }
+
+  public void setGroupRefMax(Sort groupRefMax) {
+    this.groupRefMax = groupRefMax;
+  }
+
+  public Sort getGroupRefMin() {
+    return this.groupRefMin;
+  }
+
+  public void setGroupRefMin(Sort groupRefMin) {
+    this.groupRefMin = groupRefMin;
   }
 }

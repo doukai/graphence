@@ -18,7 +18,11 @@ public @interface GroupUserRelationOrderBy {
 
   Sort userRef() default Sort.ASC;
 
+  UserOrderBy1 user() default @UserOrderBy1;
+
   Sort groupRef() default Sort.ASC;
+
+  GroupOrderBy1 group() default @GroupOrderBy1;
 
   Sort isDeprecated() default Sort.ASC;
 
@@ -38,11 +42,33 @@ public @interface GroupUserRelationOrderBy {
 
   Sort __typename() default Sort.ASC;
 
+  Sort idCount() default Sort.ASC;
+
+  Sort idMax() default Sort.ASC;
+
+  Sort idMin() default Sort.ASC;
+
+  Sort userRefCount() default Sort.ASC;
+
+  Sort userRefMax() default Sort.ASC;
+
+  Sort userRefMin() default Sort.ASC;
+
+  Sort groupRefCount() default Sort.ASC;
+
+  Sort groupRefMax() default Sort.ASC;
+
+  Sort groupRefMin() default Sort.ASC;
+
   String $id() default "";
 
   String $userRef() default "";
 
+  String $user() default "";
+
   String $groupRef() default "";
+
+  String $group() default "";
 
   String $isDeprecated() default "";
 
@@ -61,4 +87,22 @@ public @interface GroupUserRelationOrderBy {
   String $createGroupId() default "";
 
   String $__typename() default "";
+
+  String $idCount() default "";
+
+  String $idMax() default "";
+
+  String $idMin() default "";
+
+  String $userRefCount() default "";
+
+  String $userRefMax() default "";
+
+  String $userRefMin() default "";
+
+  String $groupRefCount() default "";
+
+  String $groupRefMax() default "";
+
+  String $groupRefMin() default "";
 }

@@ -20,6 +20,16 @@ public @interface RoleOrderBy {
 
   Sort description() default Sort.ASC;
 
+  UserOrderBy1 users() default @UserOrderBy1;
+
+  GroupOrderBy1 groups() default @GroupOrderBy1;
+
+  RoleOrderBy1 composites() default @RoleOrderBy1;
+
+  PermissionOrderBy1 permissions() default @PermissionOrderBy1;
+
+  RealmOrderBy realm() default @RealmOrderBy;
+
   Sort isDeprecated() default Sort.ASC;
 
   Sort version() default Sort.ASC;
@@ -38,11 +48,47 @@ public @interface RoleOrderBy {
 
   Sort __typename() default Sort.ASC;
 
+  RoleUserRelationOrderBy1 roleUserRelation() default @RoleUserRelationOrderBy1;
+
+  GroupRoleRelationOrderBy1 groupRoleRelation() default @GroupRoleRelationOrderBy1;
+
+  RoleCompositeRelationOrderBy1 roleCompositeRelation() default @RoleCompositeRelationOrderBy1;
+
+  PermissionRoleRelationOrderBy1 permissionRoleRelation() default @PermissionRoleRelationOrderBy1;
+
+  Sort idCount() default Sort.ASC;
+
+  Sort idMax() default Sort.ASC;
+
+  Sort idMin() default Sort.ASC;
+
+  Sort nameCount() default Sort.ASC;
+
+  Sort nameMax() default Sort.ASC;
+
+  Sort nameMin() default Sort.ASC;
+
+  Sort descriptionCount() default Sort.ASC;
+
+  Sort descriptionMax() default Sort.ASC;
+
+  Sort descriptionMin() default Sort.ASC;
+
   String $id() default "";
 
   String $name() default "";
 
   String $description() default "";
+
+  String $users() default "";
+
+  String $groups() default "";
+
+  String $composites() default "";
+
+  String $permissions() default "";
+
+  String $realm() default "";
 
   String $isDeprecated() default "";
 
@@ -61,4 +107,30 @@ public @interface RoleOrderBy {
   String $createGroupId() default "";
 
   String $__typename() default "";
+
+  String $roleUserRelation() default "";
+
+  String $groupRoleRelation() default "";
+
+  String $roleCompositeRelation() default "";
+
+  String $permissionRoleRelation() default "";
+
+  String $idCount() default "";
+
+  String $idMax() default "";
+
+  String $idMin() default "";
+
+  String $nameCount() default "";
+
+  String $nameMax() default "";
+
+  String $nameMin() default "";
+
+  String $descriptionCount() default "";
+
+  String $descriptionMax() default "";
+
+  String $descriptionMin() default "";
 }

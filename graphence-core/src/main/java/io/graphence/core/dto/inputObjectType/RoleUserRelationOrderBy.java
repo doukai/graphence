@@ -13,7 +13,11 @@ public class RoleUserRelationOrderBy {
 
   private Sort userRef;
 
+  private UserOrderBy user;
+
   private Sort roleRef;
+
+  private RoleOrderBy role;
 
   private Sort isDeprecated;
 
@@ -33,6 +37,24 @@ public class RoleUserRelationOrderBy {
 
   private Sort __typename;
 
+  private Sort idCount;
+
+  private Sort idMax;
+
+  private Sort idMin;
+
+  private Sort userRefCount;
+
+  private Sort userRefMax;
+
+  private Sort userRefMin;
+
+  private Sort roleRefCount;
+
+  private Sort roleRefMax;
+
+  private Sort roleRefMin;
+
   public Sort getId() {
     return this.id;
   }
@@ -49,12 +71,28 @@ public class RoleUserRelationOrderBy {
     this.userRef = userRef;
   }
 
+  public UserOrderBy getUser() {
+    return this.user;
+  }
+
+  public void setUser(UserOrderBy user) {
+    this.user = user;
+  }
+
   public Sort getRoleRef() {
     return this.roleRef;
   }
 
   public void setRoleRef(Sort roleRef) {
     this.roleRef = roleRef;
+  }
+
+  public RoleOrderBy getRole() {
+    return this.role;
+  }
+
+  public void setRole(RoleOrderBy role) {
+    this.role = role;
   }
 
   public Sort getIsDeprecated() {
@@ -127,5 +165,77 @@ public class RoleUserRelationOrderBy {
 
   public void set__typename(Sort __typename) {
     this.__typename = __typename;
+  }
+
+  public Sort getIdCount() {
+    return this.idCount;
+  }
+
+  public void setIdCount(Sort idCount) {
+    this.idCount = idCount;
+  }
+
+  public Sort getIdMax() {
+    return this.idMax;
+  }
+
+  public void setIdMax(Sort idMax) {
+    this.idMax = idMax;
+  }
+
+  public Sort getIdMin() {
+    return this.idMin;
+  }
+
+  public void setIdMin(Sort idMin) {
+    this.idMin = idMin;
+  }
+
+  public Sort getUserRefCount() {
+    return this.userRefCount;
+  }
+
+  public void setUserRefCount(Sort userRefCount) {
+    this.userRefCount = userRefCount;
+  }
+
+  public Sort getUserRefMax() {
+    return this.userRefMax;
+  }
+
+  public void setUserRefMax(Sort userRefMax) {
+    this.userRefMax = userRefMax;
+  }
+
+  public Sort getUserRefMin() {
+    return this.userRefMin;
+  }
+
+  public void setUserRefMin(Sort userRefMin) {
+    this.userRefMin = userRefMin;
+  }
+
+  public Sort getRoleRefCount() {
+    return this.roleRefCount;
+  }
+
+  public void setRoleRefCount(Sort roleRefCount) {
+    this.roleRefCount = roleRefCount;
+  }
+
+  public Sort getRoleRefMax() {
+    return this.roleRefMax;
+  }
+
+  public void setRoleRefMax(Sort roleRefMax) {
+    this.roleRefMax = roleRefMax;
+  }
+
+  public Sort getRoleRefMin() {
+    return this.roleRefMin;
+  }
+
+  public void setRoleRefMin(Sort roleRefMin) {
+    this.roleRefMin = roleRefMin;
   }
 }

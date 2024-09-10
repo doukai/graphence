@@ -1,7 +1,6 @@
 package io.graphence.core.dto.annotation;
 
 import io.graphoenix.core.dto.enumType.Sort;
-import io.graphoenix.file.dto.annotation.FileOrderBy;
 import jakarta.annotation.Generated;
 import java.lang.String;
 import java.lang.annotation.Documented;
@@ -14,16 +13,14 @@ import java.lang.annotation.Target;
 @Documented
 @Retention(RetentionPolicy.SOURCE)
 @Target(ElementType.METHOD)
-public @interface FileUserRelationOrderBy {
+public @interface UserPhonesRelationOrderBy1 {
   Sort id() default Sort.ASC;
 
   Sort userRef() default Sort.ASC;
 
-  UserOrderBy1 user() default @UserOrderBy1;
+  UserOrderBy2 user() default @UserOrderBy2;
 
-  Sort fileRef() default Sort.ASC;
-
-  FileOrderBy file() default @FileOrderBy;
+  Sort phonesRef() default Sort.ASC;
 
   Sort isDeprecated() default Sort.ASC;
 
@@ -55,11 +52,11 @@ public @interface FileUserRelationOrderBy {
 
   Sort userRefMin() default Sort.ASC;
 
-  Sort fileRefCount() default Sort.ASC;
+  Sort phonesRefCount() default Sort.ASC;
 
-  Sort fileRefMax() default Sort.ASC;
+  Sort phonesRefMax() default Sort.ASC;
 
-  Sort fileRefMin() default Sort.ASC;
+  Sort phonesRefMin() default Sort.ASC;
 
   String $id() default "";
 
@@ -67,9 +64,7 @@ public @interface FileUserRelationOrderBy {
 
   String $user() default "";
 
-  String $fileRef() default "";
-
-  String $file() default "";
+  String $phonesRef() default "";
 
   String $isDeprecated() default "";
 
@@ -101,9 +96,9 @@ public @interface FileUserRelationOrderBy {
 
   String $userRefMin() default "";
 
-  String $fileRefCount() default "";
+  String $phonesRefCount() default "";
 
-  String $fileRefMax() default "";
+  String $phonesRefMax() default "";
 
-  String $fileRefMin() default "";
+  String $phonesRefMin() default "";
 }

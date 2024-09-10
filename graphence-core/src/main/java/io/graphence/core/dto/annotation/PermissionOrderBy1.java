@@ -13,26 +13,18 @@ import java.lang.annotation.Target;
 @Documented
 @Retention(RetentionPolicy.SOURCE)
 @Target(ElementType.METHOD)
-public @interface GroupOrderBy {
-  Sort id() default Sort.ASC;
-
+public @interface PermissionOrderBy1 {
   Sort name() default Sort.ASC;
 
   Sort description() default Sort.ASC;
 
-  Sort path() default Sort.ASC;
+  Sort field() default Sort.ASC;
 
-  Sort deep() default Sort.ASC;
+  Sort type() default Sort.ASC;
 
-  Sort parentId() default Sort.ASC;
+  Sort permissionType() default Sort.ASC;
 
-  GroupOrderBy1 parent() default @GroupOrderBy1;
-
-  GroupOrderBy1 subGroups() default @GroupOrderBy1;
-
-  UserOrderBy1 users() default @UserOrderBy1;
-
-  RoleOrderBy1 roles() default @RoleOrderBy1;
+  RoleOrderBy2 roles() default @RoleOrderBy2;
 
   RealmOrderBy realm() default @RealmOrderBy;
 
@@ -54,15 +46,7 @@ public @interface GroupOrderBy {
 
   Sort __typename() default Sort.ASC;
 
-  GroupUserRelationOrderBy1 groupUserRelation() default @GroupUserRelationOrderBy1;
-
-  GroupRoleRelationOrderBy1 groupRoleRelation() default @GroupRoleRelationOrderBy1;
-
-  Sort idCount() default Sort.ASC;
-
-  Sort idMax() default Sort.ASC;
-
-  Sort idMin() default Sort.ASC;
+  PermissionRoleRelationOrderBy2 permissionRoleRelation() default @PermissionRoleRelationOrderBy2;
 
   Sort nameCount() default Sort.ASC;
 
@@ -76,45 +60,27 @@ public @interface GroupOrderBy {
 
   Sort descriptionMin() default Sort.ASC;
 
-  Sort pathCount() default Sort.ASC;
+  Sort fieldCount() default Sort.ASC;
 
-  Sort pathMax() default Sort.ASC;
+  Sort fieldMax() default Sort.ASC;
 
-  Sort pathMin() default Sort.ASC;
+  Sort fieldMin() default Sort.ASC;
 
-  Sort parentIdCount() default Sort.ASC;
+  Sort typeCount() default Sort.ASC;
 
-  Sort parentIdMax() default Sort.ASC;
+  Sort typeMax() default Sort.ASC;
 
-  Sort parentIdMin() default Sort.ASC;
-
-  Sort deepCount() default Sort.ASC;
-
-  Sort deepSum() default Sort.ASC;
-
-  Sort deepAvg() default Sort.ASC;
-
-  Sort deepMax() default Sort.ASC;
-
-  Sort deepMin() default Sort.ASC;
-
-  String $id() default "";
+  Sort typeMin() default Sort.ASC;
 
   String $name() default "";
 
   String $description() default "";
 
-  String $path() default "";
+  String $field() default "";
 
-  String $deep() default "";
+  String $type() default "";
 
-  String $parentId() default "";
-
-  String $parent() default "";
-
-  String $subGroups() default "";
-
-  String $users() default "";
+  String $permissionType() default "";
 
   String $roles() default "";
 
@@ -138,15 +104,7 @@ public @interface GroupOrderBy {
 
   String $__typename() default "";
 
-  String $groupUserRelation() default "";
-
-  String $groupRoleRelation() default "";
-
-  String $idCount() default "";
-
-  String $idMax() default "";
-
-  String $idMin() default "";
+  String $permissionRoleRelation() default "";
 
   String $nameCount() default "";
 
@@ -160,25 +118,15 @@ public @interface GroupOrderBy {
 
   String $descriptionMin() default "";
 
-  String $pathCount() default "";
+  String $fieldCount() default "";
 
-  String $pathMax() default "";
+  String $fieldMax() default "";
 
-  String $pathMin() default "";
+  String $fieldMin() default "";
 
-  String $parentIdCount() default "";
+  String $typeCount() default "";
 
-  String $parentIdMax() default "";
+  String $typeMax() default "";
 
-  String $parentIdMin() default "";
-
-  String $deepCount() default "";
-
-  String $deepSum() default "";
-
-  String $deepAvg() default "";
-
-  String $deepMax() default "";
-
-  String $deepMin() default "";
+  String $typeMin() default "";
 }

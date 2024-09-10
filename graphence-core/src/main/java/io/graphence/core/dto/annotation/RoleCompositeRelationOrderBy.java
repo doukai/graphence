@@ -18,7 +18,11 @@ public @interface RoleCompositeRelationOrderBy {
 
   Sort roleRef() default Sort.ASC;
 
+  RoleOrderBy1 role() default @RoleOrderBy1;
+
   Sort compositeRef() default Sort.ASC;
+
+  RoleOrderBy1 composite() default @RoleOrderBy1;
 
   Sort isDeprecated() default Sort.ASC;
 
@@ -38,11 +42,33 @@ public @interface RoleCompositeRelationOrderBy {
 
   Sort __typename() default Sort.ASC;
 
+  Sort idCount() default Sort.ASC;
+
+  Sort idMax() default Sort.ASC;
+
+  Sort idMin() default Sort.ASC;
+
+  Sort roleRefCount() default Sort.ASC;
+
+  Sort roleRefMax() default Sort.ASC;
+
+  Sort roleRefMin() default Sort.ASC;
+
+  Sort compositeRefCount() default Sort.ASC;
+
+  Sort compositeRefMax() default Sort.ASC;
+
+  Sort compositeRefMin() default Sort.ASC;
+
   String $id() default "";
 
   String $roleRef() default "";
 
+  String $role() default "";
+
   String $compositeRef() default "";
+
+  String $composite() default "";
 
   String $isDeprecated() default "";
 
@@ -61,4 +87,22 @@ public @interface RoleCompositeRelationOrderBy {
   String $createGroupId() default "";
 
   String $__typename() default "";
+
+  String $idCount() default "";
+
+  String $idMax() default "";
+
+  String $idMin() default "";
+
+  String $roleRefCount() default "";
+
+  String $roleRefMax() default "";
+
+  String $roleRefMin() default "";
+
+  String $compositeRefCount() default "";
+
+  String $compositeRefMax() default "";
+
+  String $compositeRefMin() default "";
 }

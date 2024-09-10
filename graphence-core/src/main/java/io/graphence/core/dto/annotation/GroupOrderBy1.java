@@ -13,7 +13,7 @@ import java.lang.annotation.Target;
 @Documented
 @Retention(RetentionPolicy.SOURCE)
 @Target(ElementType.METHOD)
-public @interface GroupOrderBy {
+public @interface GroupOrderBy1 {
   Sort id() default Sort.ASC;
 
   Sort name() default Sort.ASC;
@@ -26,13 +26,13 @@ public @interface GroupOrderBy {
 
   Sort parentId() default Sort.ASC;
 
-  GroupOrderBy1 parent() default @GroupOrderBy1;
+  GroupOrderBy2 parent() default @GroupOrderBy2;
 
-  GroupOrderBy1 subGroups() default @GroupOrderBy1;
+  GroupOrderBy2 subGroups() default @GroupOrderBy2;
 
-  UserOrderBy1 users() default @UserOrderBy1;
+  UserOrderBy2 users() default @UserOrderBy2;
 
-  RoleOrderBy1 roles() default @RoleOrderBy1;
+  RoleOrderBy2 roles() default @RoleOrderBy2;
 
   RealmOrderBy realm() default @RealmOrderBy;
 
@@ -54,9 +54,9 @@ public @interface GroupOrderBy {
 
   Sort __typename() default Sort.ASC;
 
-  GroupUserRelationOrderBy1 groupUserRelation() default @GroupUserRelationOrderBy1;
+  GroupUserRelationOrderBy2 groupUserRelation() default @GroupUserRelationOrderBy2;
 
-  GroupRoleRelationOrderBy1 groupRoleRelation() default @GroupRoleRelationOrderBy1;
+  GroupRoleRelationOrderBy2 groupRoleRelation() default @GroupRoleRelationOrderBy2;
 
   Sort idCount() default Sort.ASC;
 

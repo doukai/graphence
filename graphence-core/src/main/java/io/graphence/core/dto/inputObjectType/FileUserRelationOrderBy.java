@@ -2,6 +2,7 @@ package io.graphence.core.dto.inputObjectType;
 
 import com.dslplatform.json.CompiledJson;
 import io.graphoenix.core.dto.enumType.Sort;
+import io.graphoenix.file.dto.inputObjectType.FileOrderBy;
 import jakarta.annotation.Generated;
 import org.eclipse.microprofile.graphql.Input;
 
@@ -13,7 +14,11 @@ public class FileUserRelationOrderBy {
 
   private Sort userRef;
 
+  private UserOrderBy user;
+
   private Sort fileRef;
+
+  private FileOrderBy file;
 
   private Sort isDeprecated;
 
@@ -33,6 +38,24 @@ public class FileUserRelationOrderBy {
 
   private Sort __typename;
 
+  private Sort idCount;
+
+  private Sort idMax;
+
+  private Sort idMin;
+
+  private Sort userRefCount;
+
+  private Sort userRefMax;
+
+  private Sort userRefMin;
+
+  private Sort fileRefCount;
+
+  private Sort fileRefMax;
+
+  private Sort fileRefMin;
+
   public Sort getId() {
     return this.id;
   }
@@ -49,12 +72,28 @@ public class FileUserRelationOrderBy {
     this.userRef = userRef;
   }
 
+  public UserOrderBy getUser() {
+    return this.user;
+  }
+
+  public void setUser(UserOrderBy user) {
+    this.user = user;
+  }
+
   public Sort getFileRef() {
     return this.fileRef;
   }
 
   public void setFileRef(Sort fileRef) {
     this.fileRef = fileRef;
+  }
+
+  public FileOrderBy getFile() {
+    return this.file;
+  }
+
+  public void setFile(FileOrderBy file) {
+    this.file = file;
   }
 
   public Sort getIsDeprecated() {
@@ -127,5 +166,77 @@ public class FileUserRelationOrderBy {
 
   public void set__typename(Sort __typename) {
     this.__typename = __typename;
+  }
+
+  public Sort getIdCount() {
+    return this.idCount;
+  }
+
+  public void setIdCount(Sort idCount) {
+    this.idCount = idCount;
+  }
+
+  public Sort getIdMax() {
+    return this.idMax;
+  }
+
+  public void setIdMax(Sort idMax) {
+    this.idMax = idMax;
+  }
+
+  public Sort getIdMin() {
+    return this.idMin;
+  }
+
+  public void setIdMin(Sort idMin) {
+    this.idMin = idMin;
+  }
+
+  public Sort getUserRefCount() {
+    return this.userRefCount;
+  }
+
+  public void setUserRefCount(Sort userRefCount) {
+    this.userRefCount = userRefCount;
+  }
+
+  public Sort getUserRefMax() {
+    return this.userRefMax;
+  }
+
+  public void setUserRefMax(Sort userRefMax) {
+    this.userRefMax = userRefMax;
+  }
+
+  public Sort getUserRefMin() {
+    return this.userRefMin;
+  }
+
+  public void setUserRefMin(Sort userRefMin) {
+    this.userRefMin = userRefMin;
+  }
+
+  public Sort getFileRefCount() {
+    return this.fileRefCount;
+  }
+
+  public void setFileRefCount(Sort fileRefCount) {
+    this.fileRefCount = fileRefCount;
+  }
+
+  public Sort getFileRefMax() {
+    return this.fileRefMax;
+  }
+
+  public void setFileRefMax(Sort fileRefMax) {
+    this.fileRefMax = fileRefMax;
+  }
+
+  public Sort getFileRefMin() {
+    return this.fileRefMin;
+  }
+
+  public void setFileRefMin(Sort fileRefMin) {
+    this.fileRefMin = fileRefMin;
   }
 }

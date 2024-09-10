@@ -1,7 +1,6 @@
 package io.graphence.core.dto.annotation;
 
 import io.graphoenix.core.dto.enumType.Sort;
-import io.graphoenix.file.dto.annotation.FileOrderBy;
 import jakarta.annotation.Generated;
 import java.lang.String;
 import java.lang.annotation.Documented;
@@ -14,16 +13,12 @@ import java.lang.annotation.Target;
 @Documented
 @Retention(RetentionPolicy.SOURCE)
 @Target(ElementType.METHOD)
-public @interface FileUserRelationOrderBy {
+public @interface RoleUserRelationOrderBy2 {
   Sort id() default Sort.ASC;
 
   Sort userRef() default Sort.ASC;
 
-  UserOrderBy1 user() default @UserOrderBy1;
-
-  Sort fileRef() default Sort.ASC;
-
-  FileOrderBy file() default @FileOrderBy;
+  Sort roleRef() default Sort.ASC;
 
   Sort isDeprecated() default Sort.ASC;
 
@@ -55,21 +50,17 @@ public @interface FileUserRelationOrderBy {
 
   Sort userRefMin() default Sort.ASC;
 
-  Sort fileRefCount() default Sort.ASC;
+  Sort roleRefCount() default Sort.ASC;
 
-  Sort fileRefMax() default Sort.ASC;
+  Sort roleRefMax() default Sort.ASC;
 
-  Sort fileRefMin() default Sort.ASC;
+  Sort roleRefMin() default Sort.ASC;
 
   String $id() default "";
 
   String $userRef() default "";
 
-  String $user() default "";
-
-  String $fileRef() default "";
-
-  String $file() default "";
+  String $roleRef() default "";
 
   String $isDeprecated() default "";
 
@@ -101,9 +92,9 @@ public @interface FileUserRelationOrderBy {
 
   String $userRefMin() default "";
 
-  String $fileRefCount() default "";
+  String $roleRefCount() default "";
 
-  String $fileRefMax() default "";
+  String $roleRefMax() default "";
 
-  String $fileRefMin() default "";
+  String $roleRefMin() default "";
 }

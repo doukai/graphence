@@ -18,7 +18,11 @@ public @interface RoleUserRelationOrderBy {
 
   Sort userRef() default Sort.ASC;
 
+  UserOrderBy1 user() default @UserOrderBy1;
+
   Sort roleRef() default Sort.ASC;
+
+  RoleOrderBy1 role() default @RoleOrderBy1;
 
   Sort isDeprecated() default Sort.ASC;
 
@@ -38,11 +42,33 @@ public @interface RoleUserRelationOrderBy {
 
   Sort __typename() default Sort.ASC;
 
+  Sort idCount() default Sort.ASC;
+
+  Sort idMax() default Sort.ASC;
+
+  Sort idMin() default Sort.ASC;
+
+  Sort userRefCount() default Sort.ASC;
+
+  Sort userRefMax() default Sort.ASC;
+
+  Sort userRefMin() default Sort.ASC;
+
+  Sort roleRefCount() default Sort.ASC;
+
+  Sort roleRefMax() default Sort.ASC;
+
+  Sort roleRefMin() default Sort.ASC;
+
   String $id() default "";
 
   String $userRef() default "";
 
+  String $user() default "";
+
   String $roleRef() default "";
+
+  String $role() default "";
 
   String $isDeprecated() default "";
 
@@ -61,4 +87,22 @@ public @interface RoleUserRelationOrderBy {
   String $createGroupId() default "";
 
   String $__typename() default "";
+
+  String $idCount() default "";
+
+  String $idMax() default "";
+
+  String $idMin() default "";
+
+  String $userRefCount() default "";
+
+  String $userRefMax() default "";
+
+  String $userRefMin() default "";
+
+  String $roleRefCount() default "";
+
+  String $roleRefMax() default "";
+
+  String $roleRefMin() default "";
 }

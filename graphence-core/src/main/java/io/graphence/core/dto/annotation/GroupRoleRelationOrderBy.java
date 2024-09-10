@@ -18,7 +18,11 @@ public @interface GroupRoleRelationOrderBy {
 
   Sort roleRef() default Sort.ASC;
 
+  RoleOrderBy1 role() default @RoleOrderBy1;
+
   Sort groupRef() default Sort.ASC;
+
+  GroupOrderBy1 group() default @GroupOrderBy1;
 
   Sort isDeprecated() default Sort.ASC;
 
@@ -38,11 +42,33 @@ public @interface GroupRoleRelationOrderBy {
 
   Sort __typename() default Sort.ASC;
 
+  Sort idCount() default Sort.ASC;
+
+  Sort idMax() default Sort.ASC;
+
+  Sort idMin() default Sort.ASC;
+
+  Sort roleRefCount() default Sort.ASC;
+
+  Sort roleRefMax() default Sort.ASC;
+
+  Sort roleRefMin() default Sort.ASC;
+
+  Sort groupRefCount() default Sort.ASC;
+
+  Sort groupRefMax() default Sort.ASC;
+
+  Sort groupRefMin() default Sort.ASC;
+
   String $id() default "";
 
   String $roleRef() default "";
 
+  String $role() default "";
+
   String $groupRef() default "";
+
+  String $group() default "";
 
   String $isDeprecated() default "";
 
@@ -61,4 +87,22 @@ public @interface GroupRoleRelationOrderBy {
   String $createGroupId() default "";
 
   String $__typename() default "";
+
+  String $idCount() default "";
+
+  String $idMax() default "";
+
+  String $idMin() default "";
+
+  String $roleRefCount() default "";
+
+  String $roleRefMax() default "";
+
+  String $roleRefMin() default "";
+
+  String $groupRefCount() default "";
+
+  String $groupRefMax() default "";
+
+  String $groupRefMin() default "";
 }

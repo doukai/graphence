@@ -13,7 +13,7 @@ import java.lang.annotation.Target;
 @Documented
 @Retention(RetentionPolicy.SOURCE)
 @Target(ElementType.METHOD)
-public @interface PermissionOrderBy {
+public @interface PermissionOrderBy2 {
   Sort name() default Sort.ASC;
 
   Sort description() default Sort.ASC;
@@ -23,10 +23,6 @@ public @interface PermissionOrderBy {
   Sort type() default Sort.ASC;
 
   Sort permissionType() default Sort.ASC;
-
-  RoleOrderBy1 roles() default @RoleOrderBy1;
-
-  RealmOrderBy realm() default @RealmOrderBy;
 
   Sort isDeprecated() default Sort.ASC;
 
@@ -45,8 +41,6 @@ public @interface PermissionOrderBy {
   Sort createGroupId() default Sort.ASC;
 
   Sort __typename() default Sort.ASC;
-
-  PermissionRoleRelationOrderBy1 permissionRoleRelation() default @PermissionRoleRelationOrderBy1;
 
   Sort nameCount() default Sort.ASC;
 
@@ -82,10 +76,6 @@ public @interface PermissionOrderBy {
 
   String $permissionType() default "";
 
-  String $roles() default "";
-
-  String $realm() default "";
-
   String $isDeprecated() default "";
 
   String $version() default "";
@@ -103,8 +93,6 @@ public @interface PermissionOrderBy {
   String $createGroupId() default "";
 
   String $__typename() default "";
-
-  String $permissionRoleRelation() default "";
 
   String $nameCount() default "";
 

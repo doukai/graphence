@@ -1,7 +1,6 @@
 package io.graphence.core.dto.annotation;
 
 import io.graphoenix.core.dto.enumType.Sort;
-import io.graphoenix.file.dto.annotation.FileOrderBy;
 import jakarta.annotation.Generated;
 import java.lang.String;
 import java.lang.annotation.Documented;
@@ -14,16 +13,16 @@ import java.lang.annotation.Target;
 @Documented
 @Retention(RetentionPolicy.SOURCE)
 @Target(ElementType.METHOD)
-public @interface FileUserRelationOrderBy {
+public @interface PermissionRoleRelationOrderBy1 {
   Sort id() default Sort.ASC;
 
-  Sort userRef() default Sort.ASC;
+  Sort roleRef() default Sort.ASC;
 
-  UserOrderBy1 user() default @UserOrderBy1;
+  RoleOrderBy2 role() default @RoleOrderBy2;
 
-  Sort fileRef() default Sort.ASC;
+  Sort permissionRef() default Sort.ASC;
 
-  FileOrderBy file() default @FileOrderBy;
+  PermissionOrderBy2 permission() default @PermissionOrderBy2;
 
   Sort isDeprecated() default Sort.ASC;
 
@@ -49,27 +48,27 @@ public @interface FileUserRelationOrderBy {
 
   Sort idMin() default Sort.ASC;
 
-  Sort userRefCount() default Sort.ASC;
+  Sort roleRefCount() default Sort.ASC;
 
-  Sort userRefMax() default Sort.ASC;
+  Sort roleRefMax() default Sort.ASC;
 
-  Sort userRefMin() default Sort.ASC;
+  Sort roleRefMin() default Sort.ASC;
 
-  Sort fileRefCount() default Sort.ASC;
+  Sort permissionRefCount() default Sort.ASC;
 
-  Sort fileRefMax() default Sort.ASC;
+  Sort permissionRefMax() default Sort.ASC;
 
-  Sort fileRefMin() default Sort.ASC;
+  Sort permissionRefMin() default Sort.ASC;
 
   String $id() default "";
 
-  String $userRef() default "";
+  String $roleRef() default "";
 
-  String $user() default "";
+  String $role() default "";
 
-  String $fileRef() default "";
+  String $permissionRef() default "";
 
-  String $file() default "";
+  String $permission() default "";
 
   String $isDeprecated() default "";
 
@@ -95,15 +94,15 @@ public @interface FileUserRelationOrderBy {
 
   String $idMin() default "";
 
-  String $userRefCount() default "";
+  String $roleRefCount() default "";
 
-  String $userRefMax() default "";
+  String $roleRefMax() default "";
 
-  String $userRefMin() default "";
+  String $roleRefMin() default "";
 
-  String $fileRefCount() default "";
+  String $permissionRefCount() default "";
 
-  String $fileRefMax() default "";
+  String $permissionRefMax() default "";
 
-  String $fileRefMin() default "";
+  String $permissionRefMin() default "";
 }

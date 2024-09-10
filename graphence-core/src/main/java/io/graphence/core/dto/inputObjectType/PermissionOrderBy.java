@@ -19,6 +19,10 @@ public class PermissionOrderBy {
 
   private Sort permissionType;
 
+  private RoleOrderBy roles;
+
+  private RealmOrderBy realm;
+
   private Sort isDeprecated;
 
   private Sort version;
@@ -36,6 +40,32 @@ public class PermissionOrderBy {
   private Sort createGroupId;
 
   private Sort __typename;
+
+  private PermissionRoleRelationOrderBy permissionRoleRelation;
+
+  private Sort nameCount;
+
+  private Sort nameMax;
+
+  private Sort nameMin;
+
+  private Sort descriptionCount;
+
+  private Sort descriptionMax;
+
+  private Sort descriptionMin;
+
+  private Sort fieldCount;
+
+  private Sort fieldMax;
+
+  private Sort fieldMin;
+
+  private Sort typeCount;
+
+  private Sort typeMax;
+
+  private Sort typeMin;
 
   public Sort getName() {
     return this.name;
@@ -75,6 +105,22 @@ public class PermissionOrderBy {
 
   public void setPermissionType(Sort permissionType) {
     this.permissionType = permissionType;
+  }
+
+  public RoleOrderBy getRoles() {
+    return this.roles;
+  }
+
+  public void setRoles(RoleOrderBy roles) {
+    this.roles = roles;
+  }
+
+  public RealmOrderBy getRealm() {
+    return this.realm;
+  }
+
+  public void setRealm(RealmOrderBy realm) {
+    this.realm = realm;
   }
 
   public Sort getIsDeprecated() {
@@ -147,5 +193,109 @@ public class PermissionOrderBy {
 
   public void set__typename(Sort __typename) {
     this.__typename = __typename;
+  }
+
+  public PermissionRoleRelationOrderBy getPermissionRoleRelation() {
+    return this.permissionRoleRelation;
+  }
+
+  public void setPermissionRoleRelation(PermissionRoleRelationOrderBy permissionRoleRelation) {
+    this.permissionRoleRelation = permissionRoleRelation;
+  }
+
+  public Sort getNameCount() {
+    return this.nameCount;
+  }
+
+  public void setNameCount(Sort nameCount) {
+    this.nameCount = nameCount;
+  }
+
+  public Sort getNameMax() {
+    return this.nameMax;
+  }
+
+  public void setNameMax(Sort nameMax) {
+    this.nameMax = nameMax;
+  }
+
+  public Sort getNameMin() {
+    return this.nameMin;
+  }
+
+  public void setNameMin(Sort nameMin) {
+    this.nameMin = nameMin;
+  }
+
+  public Sort getDescriptionCount() {
+    return this.descriptionCount;
+  }
+
+  public void setDescriptionCount(Sort descriptionCount) {
+    this.descriptionCount = descriptionCount;
+  }
+
+  public Sort getDescriptionMax() {
+    return this.descriptionMax;
+  }
+
+  public void setDescriptionMax(Sort descriptionMax) {
+    this.descriptionMax = descriptionMax;
+  }
+
+  public Sort getDescriptionMin() {
+    return this.descriptionMin;
+  }
+
+  public void setDescriptionMin(Sort descriptionMin) {
+    this.descriptionMin = descriptionMin;
+  }
+
+  public Sort getFieldCount() {
+    return this.fieldCount;
+  }
+
+  public void setFieldCount(Sort fieldCount) {
+    this.fieldCount = fieldCount;
+  }
+
+  public Sort getFieldMax() {
+    return this.fieldMax;
+  }
+
+  public void setFieldMax(Sort fieldMax) {
+    this.fieldMax = fieldMax;
+  }
+
+  public Sort getFieldMin() {
+    return this.fieldMin;
+  }
+
+  public void setFieldMin(Sort fieldMin) {
+    this.fieldMin = fieldMin;
+  }
+
+  public Sort getTypeCount() {
+    return this.typeCount;
+  }
+
+  public void setTypeCount(Sort typeCount) {
+    this.typeCount = typeCount;
+  }
+
+  public Sort getTypeMax() {
+    return this.typeMax;
+  }
+
+  public void setTypeMax(Sort typeMax) {
+    this.typeMax = typeMax;
+  }
+
+  public Sort getTypeMin() {
+    return this.typeMin;
+  }
+
+  public void setTypeMin(Sort typeMin) {
+    this.typeMin = typeMin;
   }
 }
