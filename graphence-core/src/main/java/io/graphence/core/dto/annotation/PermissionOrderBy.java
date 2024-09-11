@@ -48,6 +48,11 @@ public @interface PermissionOrderBy {
 
   PermissionRoleRelationOrderBy1 permissionRoleRelation() default @PermissionRoleRelationOrderBy1;
 
+  RoleOrderBy1 rolesAggregate() default @RoleOrderBy1;
+
+  PermissionRoleRelationOrderBy1 permissionRoleRelationAggregate(
+      ) default @PermissionRoleRelationOrderBy1;
+
   Sort nameCount() default Sort.ASC;
 
   Sort nameMax() default Sort.ASC;
@@ -105,6 +110,10 @@ public @interface PermissionOrderBy {
   String $__typename() default "";
 
   String $permissionRoleRelation() default "";
+
+  String $rolesAggregate() default "";
+
+  String $permissionRoleRelationAggregate() default "";
 
   String $nameCount() default "";
 

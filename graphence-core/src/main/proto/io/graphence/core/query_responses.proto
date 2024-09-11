@@ -121,9 +121,6 @@ message QueryFileUserRelationListResponse {
 message QueryFileUserRelationConnectionResponse {
     FileUserRelationConnection file_user_relation_connection = 1;
 }
-message QueryPolicyListResponse {
-    repeated Policy policy_list = 1;
-}
 message QueryCurrentResponse {
     CurrentUser current = 1;
 }
@@ -135,4 +132,7 @@ message QueryCurrentPermissionTypeListResponse {
 }
 message QueryCurrentPermissionNameListByTypesResponse {
     repeated string current_permission_name_list_by_types = 1;
+}
+message QueryPolicyListResponse {
+    repeated Policy policy_list = 1;
 }

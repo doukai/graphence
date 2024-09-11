@@ -101,30 +101,35 @@ message UserOrderBy {
     UserPhonesRelationOrderBy user_phones_relation = 25;
     GroupUserRelationOrderBy group_user_relation = 26;
     RoleUserRelationOrderBy role_user_relation = 27;
-    io.graphoenix.core.Sort id_count = 28;
-    io.graphoenix.core.Sort id_max = 29;
-    io.graphoenix.core.Sort id_min = 30;
-    io.graphoenix.core.Sort name_count = 31;
-    io.graphoenix.core.Sort name_max = 32;
-    io.graphoenix.core.Sort name_min = 33;
-    io.graphoenix.core.Sort description_count = 34;
-    io.graphoenix.core.Sort description_max = 35;
-    io.graphoenix.core.Sort description_min = 36;
-    io.graphoenix.core.Sort last_name_count = 37;
-    io.graphoenix.core.Sort last_name_max = 38;
-    io.graphoenix.core.Sort last_name_min = 39;
-    io.graphoenix.core.Sort login_count = 40;
-    io.graphoenix.core.Sort login_max = 41;
-    io.graphoenix.core.Sort login_min = 42;
-    io.graphoenix.core.Sort salt_count = 43;
-    io.graphoenix.core.Sort salt_max = 44;
-    io.graphoenix.core.Sort salt_min = 45;
-    io.graphoenix.core.Sort hash_count = 46;
-    io.graphoenix.core.Sort hash_max = 47;
-    io.graphoenix.core.Sort hash_min = 48;
-    io.graphoenix.core.Sort email_count = 49;
-    io.graphoenix.core.Sort email_max = 50;
-    io.graphoenix.core.Sort email_min = 51;
+    GroupOrderBy groups_aggregate = 28;
+    RoleOrderBy roles_aggregate = 29;
+    UserPhonesRelationOrderBy user_phones_relation_aggregate = 30;
+    GroupUserRelationOrderBy group_user_relation_aggregate = 31;
+    RoleUserRelationOrderBy role_user_relation_aggregate = 32;
+    io.graphoenix.core.Sort id_count = 33;
+    io.graphoenix.core.Sort id_max = 34;
+    io.graphoenix.core.Sort id_min = 35;
+    io.graphoenix.core.Sort name_count = 36;
+    io.graphoenix.core.Sort name_max = 37;
+    io.graphoenix.core.Sort name_min = 38;
+    io.graphoenix.core.Sort description_count = 39;
+    io.graphoenix.core.Sort description_max = 40;
+    io.graphoenix.core.Sort description_min = 41;
+    io.graphoenix.core.Sort last_name_count = 42;
+    io.graphoenix.core.Sort last_name_max = 43;
+    io.graphoenix.core.Sort last_name_min = 44;
+    io.graphoenix.core.Sort login_count = 45;
+    io.graphoenix.core.Sort login_max = 46;
+    io.graphoenix.core.Sort login_min = 47;
+    io.graphoenix.core.Sort salt_count = 48;
+    io.graphoenix.core.Sort salt_max = 49;
+    io.graphoenix.core.Sort salt_min = 50;
+    io.graphoenix.core.Sort hash_count = 51;
+    io.graphoenix.core.Sort hash_max = 52;
+    io.graphoenix.core.Sort hash_min = 53;
+    io.graphoenix.core.Sort email_count = 54;
+    io.graphoenix.core.Sort email_max = 55;
+    io.graphoenix.core.Sort email_min = 56;
 }
 message RoleExpression {
     io.graphoenix.core.StringExpression id = 1;
@@ -198,15 +203,23 @@ message RoleOrderBy {
     GroupRoleRelationOrderBy group_role_relation = 19;
     RoleCompositeRelationOrderBy role_composite_relation = 20;
     PermissionRoleRelationOrderBy permission_role_relation = 21;
-    io.graphoenix.core.Sort id_count = 22;
-    io.graphoenix.core.Sort id_max = 23;
-    io.graphoenix.core.Sort id_min = 24;
-    io.graphoenix.core.Sort name_count = 25;
-    io.graphoenix.core.Sort name_max = 26;
-    io.graphoenix.core.Sort name_min = 27;
-    io.graphoenix.core.Sort description_count = 28;
-    io.graphoenix.core.Sort description_max = 29;
-    io.graphoenix.core.Sort description_min = 30;
+    UserOrderBy users_aggregate = 22;
+    GroupOrderBy groups_aggregate = 23;
+    RoleOrderBy composites_aggregate = 24;
+    PermissionOrderBy permissions_aggregate = 25;
+    RoleUserRelationOrderBy role_user_relation_aggregate = 26;
+    GroupRoleRelationOrderBy group_role_relation_aggregate = 27;
+    RoleCompositeRelationOrderBy role_composite_relation_aggregate = 28;
+    PermissionRoleRelationOrderBy permission_role_relation_aggregate = 29;
+    io.graphoenix.core.Sort id_count = 30;
+    io.graphoenix.core.Sort id_max = 31;
+    io.graphoenix.core.Sort id_min = 32;
+    io.graphoenix.core.Sort name_count = 33;
+    io.graphoenix.core.Sort name_max = 34;
+    io.graphoenix.core.Sort name_min = 35;
+    io.graphoenix.core.Sort description_count = 36;
+    io.graphoenix.core.Sort description_max = 37;
+    io.graphoenix.core.Sort description_min = 38;
 }
 message GroupExpression {
     io.graphoenix.core.StringExpression id = 1;
@@ -283,26 +296,31 @@ message GroupOrderBy {
     io.graphoenix.core.Sort intro_typename = 20;
     GroupUserRelationOrderBy group_user_relation = 21;
     GroupRoleRelationOrderBy group_role_relation = 22;
-    io.graphoenix.core.Sort id_count = 23;
-    io.graphoenix.core.Sort id_max = 24;
-    io.graphoenix.core.Sort id_min = 25;
-    io.graphoenix.core.Sort name_count = 26;
-    io.graphoenix.core.Sort name_max = 27;
-    io.graphoenix.core.Sort name_min = 28;
-    io.graphoenix.core.Sort description_count = 29;
-    io.graphoenix.core.Sort description_max = 30;
-    io.graphoenix.core.Sort description_min = 31;
-    io.graphoenix.core.Sort path_count = 32;
-    io.graphoenix.core.Sort path_max = 33;
-    io.graphoenix.core.Sort path_min = 34;
-    io.graphoenix.core.Sort parent_id_count = 35;
-    io.graphoenix.core.Sort parent_id_max = 36;
-    io.graphoenix.core.Sort parent_id_min = 37;
-    io.graphoenix.core.Sort deep_count = 38;
-    io.graphoenix.core.Sort deep_sum = 39;
-    io.graphoenix.core.Sort deep_avg = 40;
-    io.graphoenix.core.Sort deep_max = 41;
-    io.graphoenix.core.Sort deep_min = 42;
+    GroupOrderBy sub_groups_aggregate = 23;
+    UserOrderBy users_aggregate = 24;
+    RoleOrderBy roles_aggregate = 25;
+    GroupUserRelationOrderBy group_user_relation_aggregate = 26;
+    GroupRoleRelationOrderBy group_role_relation_aggregate = 27;
+    io.graphoenix.core.Sort id_count = 28;
+    io.graphoenix.core.Sort id_max = 29;
+    io.graphoenix.core.Sort id_min = 30;
+    io.graphoenix.core.Sort name_count = 31;
+    io.graphoenix.core.Sort name_max = 32;
+    io.graphoenix.core.Sort name_min = 33;
+    io.graphoenix.core.Sort description_count = 34;
+    io.graphoenix.core.Sort description_max = 35;
+    io.graphoenix.core.Sort description_min = 36;
+    io.graphoenix.core.Sort path_count = 37;
+    io.graphoenix.core.Sort path_max = 38;
+    io.graphoenix.core.Sort path_min = 39;
+    io.graphoenix.core.Sort parent_id_count = 40;
+    io.graphoenix.core.Sort parent_id_max = 41;
+    io.graphoenix.core.Sort parent_id_min = 42;
+    io.graphoenix.core.Sort deep_count = 43;
+    io.graphoenix.core.Sort deep_sum = 44;
+    io.graphoenix.core.Sort deep_avg = 45;
+    io.graphoenix.core.Sort deep_max = 46;
+    io.graphoenix.core.Sort deep_min = 47;
 }
 message RealmExpression {
     io.graphoenix.core.StringExpression id = 1;
@@ -419,18 +437,20 @@ message PermissionOrderBy {
     io.graphoenix.core.Sort create_group_id = 15;
     io.graphoenix.core.Sort intro_typename = 16;
     PermissionRoleRelationOrderBy permission_role_relation = 17;
-    io.graphoenix.core.Sort name_count = 18;
-    io.graphoenix.core.Sort name_max = 19;
-    io.graphoenix.core.Sort name_min = 20;
-    io.graphoenix.core.Sort description_count = 21;
-    io.graphoenix.core.Sort description_max = 22;
-    io.graphoenix.core.Sort description_min = 23;
-    io.graphoenix.core.Sort field_count = 24;
-    io.graphoenix.core.Sort field_max = 25;
-    io.graphoenix.core.Sort field_min = 26;
-    io.graphoenix.core.Sort type_count = 27;
-    io.graphoenix.core.Sort type_max = 28;
-    io.graphoenix.core.Sort type_min = 29;
+    RoleOrderBy roles_aggregate = 18;
+    PermissionRoleRelationOrderBy permission_role_relation_aggregate = 19;
+    io.graphoenix.core.Sort name_count = 20;
+    io.graphoenix.core.Sort name_max = 21;
+    io.graphoenix.core.Sort name_min = 22;
+    io.graphoenix.core.Sort description_count = 23;
+    io.graphoenix.core.Sort description_max = 24;
+    io.graphoenix.core.Sort description_min = 25;
+    io.graphoenix.core.Sort field_count = 26;
+    io.graphoenix.core.Sort field_max = 27;
+    io.graphoenix.core.Sort field_min = 28;
+    io.graphoenix.core.Sort type_count = 29;
+    io.graphoenix.core.Sort type_max = 30;
+    io.graphoenix.core.Sort type_min = 31;
 }
 message UserPhonesRelationExpression {
     io.graphoenix.core.StringExpression id = 1;
@@ -3248,11 +3268,6 @@ message FileUserRelationConnectionSubscriptionArguments {
 message Query_currentPermissionNameListByTypes_Arguments {
     repeated string types = 1;
 }
-message Mutation_syncPermissionRoleRelationPolicy_Arguments {
-    string role_id = 1;
-    repeated string permission_name_list = 2;
-    repeated string removed_permission_name_list = 3;
-}
 message Mutation_currentUserUpdate_Arguments {
     UserInput user_input = 1;
 }
@@ -3263,4 +3278,9 @@ message Mutation_currentUserResetPassword_Arguments {
 message Mutation_login_Arguments {
     string login = 1;
     string password = 2;
+}
+message Mutation_syncPermissionRoleRelationPolicy_Arguments {
+    string role_id = 1;
+    repeated string permission_name_list = 2;
+    repeated string removed_permission_name_list = 3;
 }

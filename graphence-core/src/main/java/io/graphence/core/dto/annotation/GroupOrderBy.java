@@ -58,6 +58,16 @@ public @interface GroupOrderBy {
 
   GroupRoleRelationOrderBy1 groupRoleRelation() default @GroupRoleRelationOrderBy1;
 
+  GroupOrderBy1 subGroupsAggregate() default @GroupOrderBy1;
+
+  UserOrderBy1 usersAggregate() default @UserOrderBy1;
+
+  RoleOrderBy1 rolesAggregate() default @RoleOrderBy1;
+
+  GroupUserRelationOrderBy1 groupUserRelationAggregate() default @GroupUserRelationOrderBy1;
+
+  GroupRoleRelationOrderBy1 groupRoleRelationAggregate() default @GroupRoleRelationOrderBy1;
+
   Sort idCount() default Sort.ASC;
 
   Sort idMax() default Sort.ASC;
@@ -141,6 +151,16 @@ public @interface GroupOrderBy {
   String $groupUserRelation() default "";
 
   String $groupRoleRelation() default "";
+
+  String $subGroupsAggregate() default "";
+
+  String $usersAggregate() default "";
+
+  String $rolesAggregate() default "";
+
+  String $groupUserRelationAggregate() default "";
+
+  String $groupRoleRelationAggregate() default "";
 
   String $idCount() default "";
 

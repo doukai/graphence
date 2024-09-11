@@ -51,6 +51,22 @@ public class RoleOrderBy {
 
   private PermissionRoleRelationOrderBy permissionRoleRelation;
 
+  private UserOrderBy usersAggregate;
+
+  private GroupOrderBy groupsAggregate;
+
+  private RoleOrderBy compositesAggregate;
+
+  private PermissionOrderBy permissionsAggregate;
+
+  private RoleUserRelationOrderBy roleUserRelationAggregate;
+
+  private GroupRoleRelationOrderBy groupRoleRelationAggregate;
+
+  private RoleCompositeRelationOrderBy roleCompositeRelationAggregate;
+
+  private PermissionRoleRelationOrderBy permissionRoleRelationAggregate;
+
   private Sort idCount;
 
   private Sort idMax;
@@ -235,6 +251,72 @@ public class RoleOrderBy {
 
   public void setPermissionRoleRelation(PermissionRoleRelationOrderBy permissionRoleRelation) {
     this.permissionRoleRelation = permissionRoleRelation;
+  }
+
+  public UserOrderBy getUsersAggregate() {
+    return this.usersAggregate;
+  }
+
+  public void setUsersAggregate(UserOrderBy usersAggregate) {
+    this.usersAggregate = usersAggregate;
+  }
+
+  public GroupOrderBy getGroupsAggregate() {
+    return this.groupsAggregate;
+  }
+
+  public void setGroupsAggregate(GroupOrderBy groupsAggregate) {
+    this.groupsAggregate = groupsAggregate;
+  }
+
+  public RoleOrderBy getCompositesAggregate() {
+    return this.compositesAggregate;
+  }
+
+  public void setCompositesAggregate(RoleOrderBy compositesAggregate) {
+    this.compositesAggregate = compositesAggregate;
+  }
+
+  public PermissionOrderBy getPermissionsAggregate() {
+    return this.permissionsAggregate;
+  }
+
+  public void setPermissionsAggregate(PermissionOrderBy permissionsAggregate) {
+    this.permissionsAggregate = permissionsAggregate;
+  }
+
+  public RoleUserRelationOrderBy getRoleUserRelationAggregate() {
+    return this.roleUserRelationAggregate;
+  }
+
+  public void setRoleUserRelationAggregate(RoleUserRelationOrderBy roleUserRelationAggregate) {
+    this.roleUserRelationAggregate = roleUserRelationAggregate;
+  }
+
+  public GroupRoleRelationOrderBy getGroupRoleRelationAggregate() {
+    return this.groupRoleRelationAggregate;
+  }
+
+  public void setGroupRoleRelationAggregate(GroupRoleRelationOrderBy groupRoleRelationAggregate) {
+    this.groupRoleRelationAggregate = groupRoleRelationAggregate;
+  }
+
+  public RoleCompositeRelationOrderBy getRoleCompositeRelationAggregate() {
+    return this.roleCompositeRelationAggregate;
+  }
+
+  public void setRoleCompositeRelationAggregate(
+      RoleCompositeRelationOrderBy roleCompositeRelationAggregate) {
+    this.roleCompositeRelationAggregate = roleCompositeRelationAggregate;
+  }
+
+  public PermissionRoleRelationOrderBy getPermissionRoleRelationAggregate() {
+    return this.permissionRoleRelationAggregate;
+  }
+
+  public void setPermissionRoleRelationAggregate(
+      PermissionRoleRelationOrderBy permissionRoleRelationAggregate) {
+    this.permissionRoleRelationAggregate = permissionRoleRelationAggregate;
   }
 
   public Sort getIdCount() {

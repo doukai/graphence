@@ -534,22 +534,22 @@ message FileUserRelationEdge {
     FileUserRelation node = 1;
     string cursor = 2;
 }
-message CurrentUser {
-    string login = 1;
-    string name = 2;
-    repeated string groups = 3;
-    string last_name = 4;
-    string id = 5;
-    int32 realm_id = 6;
-    repeated string roles = 7;
-}
 message Policy {
-    string v3 = 1;
+    string v1 = 1;
     string v2 = 2;
     string v4 = 3;
-    string id = 4;
-    string v0 = 5;
-    string ptype = 6;
-    string v5 = 7;
-    string v1 = 8;
+    string v0 = 4;
+    string v5 = 5;
+    string id = 6;
+    string v3 = 7;
+    string ptype = 8;
+}
+message CurrentUser {
+    string last_name = 1;
+    repeated string roles = 2;
+    repeated string groups = 3;
+    string login = 4;
+    int32 realm_id = 5;
+    string name = 6;
+    string id = 7;
 }

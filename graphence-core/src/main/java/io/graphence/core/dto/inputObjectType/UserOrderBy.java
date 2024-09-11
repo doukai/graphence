@@ -64,6 +64,16 @@ public class UserOrderBy {
 
   private RoleUserRelationOrderBy roleUserRelation;
 
+  private GroupOrderBy groupsAggregate;
+
+  private RoleOrderBy rolesAggregate;
+
+  private UserPhonesRelationOrderBy userPhonesRelationAggregate;
+
+  private GroupUserRelationOrderBy groupUserRelationAggregate;
+
+  private RoleUserRelationOrderBy roleUserRelationAggregate;
+
   private Sort idCount;
 
   private Sort idMax;
@@ -326,6 +336,47 @@ public class UserOrderBy {
 
   public void setRoleUserRelation(RoleUserRelationOrderBy roleUserRelation) {
     this.roleUserRelation = roleUserRelation;
+  }
+
+  public GroupOrderBy getGroupsAggregate() {
+    return this.groupsAggregate;
+  }
+
+  public void setGroupsAggregate(GroupOrderBy groupsAggregate) {
+    this.groupsAggregate = groupsAggregate;
+  }
+
+  public RoleOrderBy getRolesAggregate() {
+    return this.rolesAggregate;
+  }
+
+  public void setRolesAggregate(RoleOrderBy rolesAggregate) {
+    this.rolesAggregate = rolesAggregate;
+  }
+
+  public UserPhonesRelationOrderBy getUserPhonesRelationAggregate() {
+    return this.userPhonesRelationAggregate;
+  }
+
+  public void setUserPhonesRelationAggregate(
+      UserPhonesRelationOrderBy userPhonesRelationAggregate) {
+    this.userPhonesRelationAggregate = userPhonesRelationAggregate;
+  }
+
+  public GroupUserRelationOrderBy getGroupUserRelationAggregate() {
+    return this.groupUserRelationAggregate;
+  }
+
+  public void setGroupUserRelationAggregate(GroupUserRelationOrderBy groupUserRelationAggregate) {
+    this.groupUserRelationAggregate = groupUserRelationAggregate;
+  }
+
+  public RoleUserRelationOrderBy getRoleUserRelationAggregate() {
+    return this.roleUserRelationAggregate;
+  }
+
+  public void setRoleUserRelationAggregate(RoleUserRelationOrderBy roleUserRelationAggregate) {
+    this.roleUserRelationAggregate = roleUserRelationAggregate;
   }
 
   public Sort getIdCount() {

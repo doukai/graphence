@@ -548,13 +548,6 @@ message MutationFileUserRelationListRequest {
     repeated FileUserRelationInput list = 17;
     FileUserRelationExpression where = 18;
 }
-message MutationSyncPermissionRoleRelationPolicyRequest {
-    optional string selection_set = 1;
-    optional string arguments = 2;
-    string role_id = 3;
-    repeated string permission_name_list = 4;
-    repeated string removed_permission_name_list = 5;
-}
 message MutationCurrentUserUpdateRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
@@ -571,4 +564,11 @@ message MutationLoginRequest {
     optional string arguments = 2;
     string login = 3;
     string password = 4;
+}
+message MutationSyncPermissionRoleRelationPolicyRequest {
+    optional string selection_set = 1;
+    optional string arguments = 2;
+    string role_id = 3;
+    repeated string permission_name_list = 4;
+    repeated string removed_permission_name_list = 5;
 }

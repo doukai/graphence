@@ -43,6 +43,10 @@ public class PermissionOrderBy {
 
   private PermissionRoleRelationOrderBy permissionRoleRelation;
 
+  private RoleOrderBy rolesAggregate;
+
+  private PermissionRoleRelationOrderBy permissionRoleRelationAggregate;
+
   private Sort nameCount;
 
   private Sort nameMax;
@@ -201,6 +205,23 @@ public class PermissionOrderBy {
 
   public void setPermissionRoleRelation(PermissionRoleRelationOrderBy permissionRoleRelation) {
     this.permissionRoleRelation = permissionRoleRelation;
+  }
+
+  public RoleOrderBy getRolesAggregate() {
+    return this.rolesAggregate;
+  }
+
+  public void setRolesAggregate(RoleOrderBy rolesAggregate) {
+    this.rolesAggregate = rolesAggregate;
+  }
+
+  public PermissionRoleRelationOrderBy getPermissionRoleRelationAggregate() {
+    return this.permissionRoleRelationAggregate;
+  }
+
+  public void setPermissionRoleRelationAggregate(
+      PermissionRoleRelationOrderBy permissionRoleRelationAggregate) {
+    this.permissionRoleRelationAggregate = permissionRoleRelationAggregate;
   }
 
   public Sort getNameCount() {

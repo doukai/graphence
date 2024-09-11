@@ -69,6 +69,16 @@ public @interface UserOrderBy1 {
 
   RoleUserRelationOrderBy2 roleUserRelation() default @RoleUserRelationOrderBy2;
 
+  GroupOrderBy2 groupsAggregate() default @GroupOrderBy2;
+
+  RoleOrderBy2 rolesAggregate() default @RoleOrderBy2;
+
+  UserPhonesRelationOrderBy2 userPhonesRelationAggregate() default @UserPhonesRelationOrderBy2;
+
+  GroupUserRelationOrderBy2 groupUserRelationAggregate() default @GroupUserRelationOrderBy2;
+
+  RoleUserRelationOrderBy2 roleUserRelationAggregate() default @RoleUserRelationOrderBy2;
+
   Sort idCount() default Sort.ASC;
 
   Sort idMax() default Sort.ASC;
@@ -170,6 +180,16 @@ public @interface UserOrderBy1 {
   String $groupUserRelation() default "";
 
   String $roleUserRelation() default "";
+
+  String $groupsAggregate() default "";
+
+  String $rolesAggregate() default "";
+
+  String $userPhonesRelationAggregate() default "";
+
+  String $groupUserRelationAggregate() default "";
+
+  String $roleUserRelationAggregate() default "";
 
   String $idCount() default "";
 

@@ -56,6 +56,24 @@ public @interface RoleOrderBy {
 
   PermissionRoleRelationOrderBy1 permissionRoleRelation() default @PermissionRoleRelationOrderBy1;
 
+  UserOrderBy1 usersAggregate() default @UserOrderBy1;
+
+  GroupOrderBy1 groupsAggregate() default @GroupOrderBy1;
+
+  RoleOrderBy1 compositesAggregate() default @RoleOrderBy1;
+
+  PermissionOrderBy1 permissionsAggregate() default @PermissionOrderBy1;
+
+  RoleUserRelationOrderBy1 roleUserRelationAggregate() default @RoleUserRelationOrderBy1;
+
+  GroupRoleRelationOrderBy1 groupRoleRelationAggregate() default @GroupRoleRelationOrderBy1;
+
+  RoleCompositeRelationOrderBy1 roleCompositeRelationAggregate(
+      ) default @RoleCompositeRelationOrderBy1;
+
+  PermissionRoleRelationOrderBy1 permissionRoleRelationAggregate(
+      ) default @PermissionRoleRelationOrderBy1;
+
   Sort idCount() default Sort.ASC;
 
   Sort idMax() default Sort.ASC;
@@ -115,6 +133,22 @@ public @interface RoleOrderBy {
   String $roleCompositeRelation() default "";
 
   String $permissionRoleRelation() default "";
+
+  String $usersAggregate() default "";
+
+  String $groupsAggregate() default "";
+
+  String $compositesAggregate() default "";
+
+  String $permissionsAggregate() default "";
+
+  String $roleUserRelationAggregate() default "";
+
+  String $groupRoleRelationAggregate() default "";
+
+  String $roleCompositeRelationAggregate() default "";
+
+  String $permissionRoleRelationAggregate() default "";
 
   String $idCount() default "";
 
