@@ -66,6 +66,12 @@ public @interface PermissionOrderBy2 {
 
   Sort typeMin() default Sort.ASC;
 
+  Sort permissionTypeCount() default Sort.ASC;
+
+  Sort permissionTypeMax() default Sort.ASC;
+
+  Sort permissionTypeMin() default Sort.ASC;
+
   String $name() default "";
 
   String $description() default "";
@@ -117,4 +123,10 @@ public @interface PermissionOrderBy2 {
   String $typeMax() default "";
 
   String $typeMin() default "";
+
+  String $permissionTypeCount() default "";
+
+  String $permissionTypeMax() default "";
+
+  String $permissionTypeMin() default "";
 }

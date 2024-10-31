@@ -1,7 +1,6 @@
 buildscript {
     repositories {
         mavenLocal()
-        jcenter()
         gradlePluginPortal()
     }
     dependencies {
@@ -52,7 +51,6 @@ version '0.1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
-    jcenter()
     mavenLocal()
 }
 

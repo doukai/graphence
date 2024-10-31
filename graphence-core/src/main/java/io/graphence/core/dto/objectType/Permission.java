@@ -122,6 +122,12 @@ public class Permission implements Meta {
 
   private String typeMin;
 
+  private Integer permissionTypeCount;
+
+  private PermissionType permissionTypeMax;
+
+  private PermissionType permissionTypeMin;
+
   private Boolean syncPermissionPolicy;
 
   public String getName() {
@@ -404,6 +410,30 @@ public class Permission implements Meta {
 
   public void setTypeMin(String typeMin) {
     this.typeMin = typeMin;
+  }
+
+  public Integer getPermissionTypeCount() {
+    return this.permissionTypeCount;
+  }
+
+  public void setPermissionTypeCount(Integer permissionTypeCount) {
+    this.permissionTypeCount = permissionTypeCount;
+  }
+
+  public PermissionType getPermissionTypeMax() {
+    return this.permissionTypeMax;
+  }
+
+  public void setPermissionTypeMax(PermissionType permissionTypeMax) {
+    this.permissionTypeMax = permissionTypeMax;
+  }
+
+  public PermissionType getPermissionTypeMin() {
+    return this.permissionTypeMin;
+  }
+
+  public void setPermissionTypeMin(PermissionType permissionTypeMin) {
+    this.permissionTypeMin = permissionTypeMin;
   }
 
   public Boolean getSyncPermissionPolicy() {

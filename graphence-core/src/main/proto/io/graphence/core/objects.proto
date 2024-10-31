@@ -250,7 +250,10 @@ message Permission {
     int32 type_count = 31;
     string type_max = 32;
     string type_min = 33;
-    bool sync_permission_policy = 34;
+    int32 permission_type_count = 34;
+    PermissionType permission_type_max = 35;
+    PermissionType permission_type_min = 36;
+    bool sync_permission_policy = 37;
 }
 message UserPhonesRelation {
     string id = 1;
@@ -534,22 +537,22 @@ message FileUserRelationEdge {
     FileUserRelation node = 1;
     string cursor = 2;
 }
-message Policy {
-    string v1 = 1;
-    string v2 = 2;
-    string v4 = 3;
-    string v0 = 4;
-    string v5 = 5;
-    string id = 6;
-    string v3 = 7;
-    string ptype = 8;
-}
 message CurrentUser {
-    string last_name = 1;
-    repeated string roles = 2;
-    repeated string groups = 3;
-    string login = 4;
-    int32 realm_id = 5;
-    string name = 6;
-    string id = 7;
+    string login = 1;
+    repeated string groups = 2;
+    string id = 3;
+    int32 realm_id = 4;
+    string name = 5;
+    repeated string roles = 6;
+    string last_name = 7;
+}
+message Policy {
+    string ptype = 1;
+    string v0 = 2;
+    string v1 = 3;
+    string v5 = 4;
+    string v2 = 5;
+    string id = 6;
+    string v4 = 7;
+    string v3 = 8;
 }

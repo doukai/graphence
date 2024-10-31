@@ -71,6 +71,12 @@ public class PermissionOrderBy {
 
   private Sort typeMin;
 
+  private Sort permissionTypeCount;
+
+  private Sort permissionTypeMax;
+
+  private Sort permissionTypeMin;
+
   public Sort getName() {
     return this.name;
   }
@@ -318,5 +324,29 @@ public class PermissionOrderBy {
 
   public void setTypeMin(Sort typeMin) {
     this.typeMin = typeMin;
+  }
+
+  public Sort getPermissionTypeCount() {
+    return this.permissionTypeCount;
+  }
+
+  public void setPermissionTypeCount(Sort permissionTypeCount) {
+    this.permissionTypeCount = permissionTypeCount;
+  }
+
+  public Sort getPermissionTypeMax() {
+    return this.permissionTypeMax;
+  }
+
+  public void setPermissionTypeMax(Sort permissionTypeMax) {
+    this.permissionTypeMax = permissionTypeMax;
+  }
+
+  public Sort getPermissionTypeMin() {
+    return this.permissionTypeMin;
+  }
+
+  public void setPermissionTypeMin(Sort permissionTypeMin) {
+    this.permissionTypeMin = permissionTypeMin;
   }
 }

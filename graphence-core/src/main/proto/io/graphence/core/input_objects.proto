@@ -451,6 +451,9 @@ message PermissionOrderBy {
     io.graphoenix.core.Sort type_count = 29;
     io.graphoenix.core.Sort type_max = 30;
     io.graphoenix.core.Sort type_min = 31;
+    io.graphoenix.core.Sort permission_type_count = 32;
+    io.graphoenix.core.Sort permission_type_max = 33;
+    io.graphoenix.core.Sort permission_type_min = 34;
 }
 message UserPhonesRelationExpression {
     io.graphoenix.core.StringExpression id = 1;
@@ -3268,6 +3271,11 @@ message FileUserRelationConnectionSubscriptionArguments {
 message Query_currentPermissionNameListByTypes_Arguments {
     repeated string types = 1;
 }
+message Mutation_syncPermissionRoleRelationPolicy_Arguments {
+    string role_id = 1;
+    repeated string permission_name_list = 2;
+    repeated string removed_permission_name_list = 3;
+}
 message Mutation_currentUserUpdate_Arguments {
     UserInput user_input = 1;
 }
@@ -3278,9 +3286,4 @@ message Mutation_currentUserResetPassword_Arguments {
 message Mutation_login_Arguments {
     string login = 1;
     string password = 2;
-}
-message Mutation_syncPermissionRoleRelationPolicy_Arguments {
-    string role_id = 1;
-    repeated string permission_name_list = 2;
-    repeated string removed_permission_name_list = 3;
 }
