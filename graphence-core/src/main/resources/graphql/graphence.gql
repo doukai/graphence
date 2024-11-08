@@ -53,7 +53,7 @@ type Role implements NamedStruct {
 "组"
 type Group implements NamedStruct & TreeStruct {
     "ID"
-    id: ID @jsonSchema(maxLength: 50)
+    id: ID @jsonSchema(maxLength: 50) @encry(type: "hash") @decry(type: "hash") @encry2(type: "hash") @decry2(type: "hash")
     "名称"
     name: String! @options(unique: true) @jsonSchema(maxLength: 20)
     "描述"
@@ -111,3 +111,11 @@ enum PermissionType {
     "写入"
     WRITE
 }
+
+directive @encry(type: String!) on FIELD_DEFINITION
+
+directive @decry(type: String!) on FIELD_DEFINITION
+
+directive @encry2(type: String!) on FIELD_DEFINITION
+
+directive @decry2(type: String!) on FIELD_DEFINITION
