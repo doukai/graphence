@@ -8,6 +8,8 @@ import io.graphence.core.repository.GroupRepository;
 import io.graphence.core.dto.inputObjectType.GroupInput;
 import io.graphence.core.dto.inputObjectType.GroupMutationArguments;
 import io.graphence.core.dto.objectType.Group;
+import io.graphoenix.core.dto.inputObjectType.StringExpression;
+import io.graphoenix.spi.annotation.OnExpression;
 import io.graphoenix.spi.annotation.OnField;
 import io.graphoenix.spi.annotation.OnInputValue;
 import io.nozdormu.spi.async.Async;
@@ -21,7 +23,6 @@ import reactor.core.publisher.Mono;
 
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 import java.util.stream.Collectors;
 
 @GraphQLApi
@@ -231,5 +232,10 @@ public class GroupApi implements Asyncable {
     @OnField
     public Mono<String> decry2Id(@Decry2 String id, Map<String, JsonValue> a) {
         return Mono.just(id);
+    }
+
+    @OnExpression
+    public Mono<StringExpression> encry2IdExpression(@Encry2 StringExpression stringExpression) {
+        return Mono.just(stringExpression);
     }
 }
