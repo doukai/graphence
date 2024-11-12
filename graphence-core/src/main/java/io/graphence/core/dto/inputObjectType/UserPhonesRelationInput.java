@@ -9,40 +9,101 @@ import java.lang.Override;
 import java.lang.String;
 import java.time.LocalDateTime;
 import org.eclipse.microprofile.graphql.DefaultValue;
+import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.Input;
 
+/**
+ * 用户 手机号 关系 变更内容
+ */
 @CompiledJson
 @Input
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
+@Description("用户 手机号 关系 变更内容")
 public class UserPhonesRelationInput implements MetaInput {
+  /**
+   * ID
+   */
+  @Description("ID")
   private String id;
 
+  /**
+   * 用户 引用
+   */
+  @Description("用户 引用")
   private String userRef;
 
+  /**
+   * 用户
+   */
+  @Description("用户")
   private UserInput user;
 
+  /**
+   * 手机号 引用
+   */
+  @Description("手机号 引用")
   private String phonesRef;
 
+  /**
+   * 已移除
+   */
   @DefaultValue("false")
+  @Description("已移除")
   private Boolean isDeprecated = false;
 
+  /**
+   * 版本
+   */
+  @Description("版本")
   private Integer version;
 
+  /**
+   * 域
+   */
+  @Description("域")
   private Integer realmId;
 
+  /**
+   * 创建者
+   */
+  @Description("创建者")
   private String createUserId;
 
+  /**
+   * 创建时间
+   */
+  @Description("创建时间")
   private LocalDateTime createTime;
 
+  /**
+   * 更新者
+   */
+  @Description("更新者")
   private String updateUserId;
 
+  /**
+   * 更新时间
+   */
+  @Description("更新时间")
   private LocalDateTime updateTime;
 
+  /**
+   * 创建组
+   */
+  @Description("创建组")
   private String createGroupId;
 
+  /**
+   * 所属类型
+   */
   @DefaultValue("\"UserPhonesRelation\"")
+  @Description("所属类型")
   private String __typename = "UserPhonesRelation";
 
+  /**
+   * 匹配条件
+   */
+  @Description("匹配条件")
   private UserPhonesRelationExpression where;
 
   public String getId() {

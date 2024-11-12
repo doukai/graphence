@@ -125,7 +125,7 @@ message QueryPolicyListResponse {
     repeated Policy policy_list = 1;
 }
 message QueryCurrentResponse {
-    CurrentUser current = 1;
+    Current current = 1;
 }
 message QueryCurrentUserResponse {
     User current_user = 1;

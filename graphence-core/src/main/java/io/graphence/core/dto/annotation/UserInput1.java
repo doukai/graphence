@@ -8,66 +8,183 @@ import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
+import org.eclipse.microprofile.graphql.Description;
 
+/**
+ * 用户 变更内容
+ */
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
 @Documented
 @Retention(RetentionPolicy.SOURCE)
 @Target(ElementType.METHOD)
+@Description("用户 变更内容")
 public @interface UserInput1 {
+  /**
+   * ID
+   */
+  @Description("ID")
   String id() default "";
 
+  /**
+   * 姓名
+   */
+  @Description("姓名")
   String name() default "";
 
+  /**
+   * 描述
+   */
+  @Description("描述")
   String description() default "";
 
+  /**
+   * 姓氏
+   */
+  @Description("姓氏")
   String lastName() default "";
 
+  /**
+   * 账号
+   */
+  @Description("账号")
   String login() default "";
 
+  /**
+   * 盐
+   */
+  @Description("盐")
   String salt() default "";
 
+  /**
+   * 哈希
+   */
+  @Description("哈希")
   String hash() default "";
 
+  /**
+   * 邮箱
+   */
+  @Description("邮箱")
   String email() default "";
 
-  FileInput2[] files() default {};
+  /**
+   * 头像
+   */
+  @Description("头像")
+  FileInput2 avatar() default @FileInput2;
 
+  /**
+   * 手机号
+   */
+  @Description("手机号")
   String[] phones() default {};
 
+  /**
+   * 禁用
+   */
+  @Description("禁用")
   boolean disable() default false;
 
+  /**
+   * 组
+   */
+  @Description("组")
   GroupInput2[] groups() default {};
 
+  /**
+   * 角色
+   */
+  @Description("角色")
   RoleInput2[] roles() default {};
 
+  /**
+   * 租户
+   */
+  @Description("租户")
   RealmInput2 realm() default @RealmInput2;
 
+  /**
+   * 已移除
+   */
+  @Description("已移除")
   boolean isDeprecated() default false;
 
+  /**
+   * 版本
+   */
+  @Description("版本")
   int version() default 0;
 
+  /**
+   * 域
+   */
+  @Description("域")
   int realmId() default 0;
 
+  /**
+   * 创建者
+   */
+  @Description("创建者")
   String createUserId() default "";
 
+  /**
+   * 创建时间
+   */
+  @Description("创建时间")
   String createTime() default "";
 
+  /**
+   * 更新者
+   */
+  @Description("更新者")
   String updateUserId() default "";
 
+  /**
+   * 更新时间
+   */
+  @Description("更新时间")
   String updateTime() default "";
 
+  /**
+   * 创建组
+   */
+  @Description("创建组")
   String createGroupId() default "";
 
+  /**
+   * 所属类型
+   */
+  @Description("所属类型")
   String __typename() default "User";
 
+  /**
+   * 用户 文件 关系
+   */
+  @Description("用户 文件 关系")
   FileUserRelationInput2[] fileUserRelation() default {};
 
+  /**
+   * 用户 手机号 关系
+   */
+  @Description("用户 手机号 关系")
   UserPhonesRelationInput2[] userPhonesRelation() default {};
 
+  /**
+   * 用户 组 关系
+   */
+  @Description("用户 组 关系")
   GroupUserRelationInput2[] groupUserRelation() default {};
 
+  /**
+   * 用户 角色 关系
+   */
+  @Description("用户 角色 关系")
   RoleUserRelationInput2[] roleUserRelation() default {};
 
+  /**
+   * 匹配条件
+   */
+  @Description("匹配条件")
   UserExpression2 where() default @UserExpression2;
 
   String $id() default "";
@@ -86,7 +203,7 @@ public @interface UserInput1 {
 
   String $email() default "";
 
-  String $files() default "";
+  String $avatar() default "";
 
   String $phones() default "";
 

@@ -11,49 +11,126 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Collection;
 import org.eclipse.microprofile.graphql.DefaultValue;
+import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.Input;
 
+/**
+ * 角色 权限 关系 查询参数
+ */
 @CompiledJson
 @Input
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
+@Description("角色 权限 关系 查询参数")
 public class PermissionRoleRelationQueryArguments implements MetaExpression {
+  /**
+   * ID
+   */
+  @Description("ID")
   private StringExpression id;
 
+  /**
+   * 角色 引用
+   */
+  @Description("角色 引用")
   private StringExpression roleRef;
 
+  /**
+   * 角色
+   */
+  @Description("角色")
   private RoleExpression role;
 
+  /**
+   * 权限 引用
+   */
+  @Description("权限 引用")
   private StringExpression permissionRef;
 
+  /**
+   * 权限
+   */
+  @Description("权限")
   private PermissionExpression permission;
 
+  /**
+   * 包含已移除
+   */
   @DefaultValue("false")
+  @Description("包含已移除")
   private Boolean includeDeprecated = false;
 
+  /**
+   * 版本
+   */
+  @Description("版本")
   private IntExpression version;
 
+  /**
+   * 域
+   */
+  @Description("域")
   private IntExpression realmId;
 
+  /**
+   * 创建者
+   */
+  @Description("创建者")
   private StringExpression createUserId;
 
+  /**
+   * 创建时间
+   */
+  @Description("创建时间")
   private StringExpression createTime;
 
+  /**
+   * 更新者
+   */
+  @Description("更新者")
   private StringExpression updateUserId;
 
+  /**
+   * 更新时间
+   */
+  @Description("更新时间")
   private StringExpression updateTime;
 
+  /**
+   * 创建组
+   */
+  @Description("创建组")
   private StringExpression createGroupId;
 
+  /**
+   * 所属类型
+   */
+  @Description("所属类型")
   private StringExpression __typename;
 
+  /**
+   * 分组
+   */
+  @Description("分组")
   private Collection<String> groupBy;
 
+  /**
+   * 取非
+   */
   @DefaultValue("false")
+  @Description("取非")
   private Boolean not = false;
 
+  /**
+   * 与/或
+   */
   @DefaultValue("AND")
+  @Description("与/或")
   private Conditional cond = Conditional.AND;
 
+  /**
+   * 查询表达式组
+   */
+  @Description("查询表达式组")
   private Collection<PermissionRoleRelationExpression> exs;
 
   public StringExpression getId() {

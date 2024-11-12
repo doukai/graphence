@@ -12,61 +12,162 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Collection;
 import org.eclipse.microprofile.graphql.DefaultValue;
+import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.Input;
 
+/**
+ * 角色 角色 关系列表 订阅参数
+ */
 @CompiledJson
 @Input
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
+@Description("角色 角色 关系列表 订阅参数")
 public class RoleCompositeRelationListSubscriptionArguments implements MetaExpression {
+  /**
+   * ID
+   */
+  @Description("ID")
   private StringExpression id;
 
+  /**
+   * 角色 引用
+   */
+  @Description("角色 引用")
   private StringExpression roleRef;
 
+  /**
+   * 角色
+   */
+  @Description("角色")
   private RoleExpression role;
 
+  /**
+   * 角色 引用
+   */
+  @Description("角色 引用")
   private StringExpression compositeRef;
 
+  /**
+   * 角色
+   */
+  @Description("角色")
   private RoleExpression composite;
 
+  /**
+   * 包含已移除
+   */
   @DefaultValue("false")
+  @Description("包含已移除")
   private Boolean includeDeprecated = false;
 
+  /**
+   * 版本
+   */
+  @Description("版本")
   private IntExpression version;
 
+  /**
+   * 域
+   */
+  @Description("域")
   private IntExpression realmId;
 
+  /**
+   * 创建者
+   */
+  @Description("创建者")
   private StringExpression createUserId;
 
+  /**
+   * 创建时间
+   */
+  @Description("创建时间")
   private StringExpression createTime;
 
+  /**
+   * 更新者
+   */
+  @Description("更新者")
   private StringExpression updateUserId;
 
+  /**
+   * 更新时间
+   */
+  @Description("更新时间")
   private StringExpression updateTime;
 
+  /**
+   * 创建组
+   */
+  @Description("创建组")
   private StringExpression createGroupId;
 
+  /**
+   * 所属类型
+   */
+  @Description("所属类型")
   private StringExpression __typename;
 
+  /**
+   * 排序
+   */
+  @Description("排序")
   private RoleCompositeRelationOrderBy orderBy;
 
+  /**
+   * 分组
+   */
+  @Description("分组")
   private Collection<String> groupBy;
 
+  /**
+   * 取非
+   */
   @DefaultValue("false")
+  @Description("取非")
   private Boolean not = false;
 
+  /**
+   * 与/或
+   */
   @DefaultValue("AND")
+  @Description("与/或")
   private Conditional cond = Conditional.AND;
 
+  /**
+   * 查询表达式组
+   */
+  @Description("查询表达式组")
   private Collection<RoleCompositeRelationExpression> exs;
 
+  /**
+   * 前...条数
+   */
+  @Description("前...条数")
   private Integer first;
 
+  /**
+   * 变更内容列表
+   */
+  @Description("变更内容列表")
   private Integer last;
 
+  /**
+   * 偏移条数
+   */
+  @Description("偏移条数")
   private Integer offset;
 
+  /**
+   * 取...之后
+   */
+  @Description("取...之后")
   private String after;
 
+  /**
+   * 取...之前
+   */
+  @Description("取...之前")
   private String before;
 
   public StringExpression getId() {

@@ -13,7 +13,7 @@ repositories {
 
 dependencies {
     implementation project(':graphence-core')
-//    implementation project(':graphence-security')
+    implementation project(':graphence-security')
     implementation 'org.graphoenix:graphoenix-core:0.1.0-SNAPSHOT'
     implementation 'org.graphoenix:graphoenix-gossip:0.1.0-SNAPSHOT'
     implementation 'org.graphoenix:graphoenix-http-server:0.1.0-SNAPSHOT'
@@ -25,7 +25,7 @@ dependencies {
     implementation 'org.graphoenix:graphoenix-json-schema:0.1.0-SNAPSHOT'
     implementation 'org.graphoenix:graphoenix-file-local:0.1.0-SNAPSHOT'
     implementation 'org.graphoenix:graphoenix-structure:0.1.0-SNAPSHOT'
-    implementation 'org.graphoenix:graphoenix-admin:0.1.0-SNAPSHOT'
+//    implementation 'org.graphoenix:graphoenix-admin:0.1.0-SNAPSHOT'
     implementation 'org.graphoenix:nozdormu-inject:0.1.0-SNAPSHOT'
     implementation 'org.graphoenix:nozdormu-async:0.1.0-SNAPSHOT'
     implementation 'org.graphoenix:nozdormu-interceptor:0.1.0-SNAPSHOT'

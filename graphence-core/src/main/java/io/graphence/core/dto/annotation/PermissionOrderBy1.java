@@ -8,79 +8,220 @@ import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
+import org.eclipse.microprofile.graphql.Description;
 
+/**
+ * 权限 排序
+ */
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
 @Documented
 @Retention(RetentionPolicy.SOURCE)
 @Target(ElementType.METHOD)
+@Description("权限 排序")
 public @interface PermissionOrderBy1 {
+  /**
+   * 名称
+   */
+  @Description("名称")
   Sort name() default Sort.ASC;
 
+  /**
+   * 描述
+   */
+  @Description("描述")
   Sort description() default Sort.ASC;
 
+  /**
+   * 字段
+   */
+  @Description("字段")
   Sort field() default Sort.ASC;
 
+  /**
+   * 实体
+   */
+  @Description("实体")
   Sort type() default Sort.ASC;
 
+  /**
+   * 权限类型
+   */
+  @Description("权限类型")
   Sort permissionType() default Sort.ASC;
 
+  /**
+   * 角色
+   */
+  @Description("角色")
   RoleOrderBy2 roles() default @RoleOrderBy2;
 
+  /**
+   * 租户
+   */
+  @Description("租户")
   RealmOrderBy realm() default @RealmOrderBy;
 
+  /**
+   * 已移除
+   */
+  @Description("已移除")
   Sort isDeprecated() default Sort.ASC;
 
+  /**
+   * 版本
+   */
+  @Description("版本")
   Sort version() default Sort.ASC;
 
+  /**
+   * 域
+   */
+  @Description("域")
   Sort realmId() default Sort.ASC;
 
+  /**
+   * 创建者
+   */
+  @Description("创建者")
   Sort createUserId() default Sort.ASC;
 
+  /**
+   * 创建时间
+   */
+  @Description("创建时间")
   Sort createTime() default Sort.ASC;
 
+  /**
+   * 更新者
+   */
+  @Description("更新者")
   Sort updateUserId() default Sort.ASC;
 
+  /**
+   * 更新时间
+   */
+  @Description("更新时间")
   Sort updateTime() default Sort.ASC;
 
+  /**
+   * 创建组
+   */
+  @Description("创建组")
   Sort createGroupId() default Sort.ASC;
 
+  /**
+   * 所属类型
+   */
+  @Description("所属类型")
   Sort __typename() default Sort.ASC;
 
+  /**
+   * 角色 权限 关系
+   */
+  @Description("角色 权限 关系")
   PermissionRoleRelationOrderBy2 permissionRoleRelation() default @PermissionRoleRelationOrderBy2;
 
+  /**
+   * 角色 统计字段
+   */
+  @Description("角色 统计字段")
   RoleOrderBy2 rolesAggregate() default @RoleOrderBy2;
 
+  /**
+   * 角色 权限 关系 统计字段
+   */
+  @Description("角色 权限 关系 统计字段")
   PermissionRoleRelationOrderBy2 permissionRoleRelationAggregate(
       ) default @PermissionRoleRelationOrderBy2;
 
+  /**
+   * 权限 数量
+   */
+  @Description("权限 数量")
   Sort nameCount() default Sort.ASC;
 
+  /**
+   * 名称 最大值
+   */
+  @Description("名称 最大值")
   Sort nameMax() default Sort.ASC;
 
+  /**
+   * 名称 最小值
+   */
+  @Description("名称 最小值")
   Sort nameMin() default Sort.ASC;
 
+  /**
+   * 描述 数量
+   */
+  @Description("描述 数量")
   Sort descriptionCount() default Sort.ASC;
 
+  /**
+   * 描述 最大值
+   */
+  @Description("描述 最大值")
   Sort descriptionMax() default Sort.ASC;
 
+  /**
+   * 描述 最小值
+   */
+  @Description("描述 最小值")
   Sort descriptionMin() default Sort.ASC;
 
+  /**
+   * 字段 数量
+   */
+  @Description("字段 数量")
   Sort fieldCount() default Sort.ASC;
 
+  /**
+   * 字段 最大值
+   */
+  @Description("字段 最大值")
   Sort fieldMax() default Sort.ASC;
 
+  /**
+   * 字段 最小值
+   */
+  @Description("字段 最小值")
   Sort fieldMin() default Sort.ASC;
 
+  /**
+   * 实体 数量
+   */
+  @Description("实体 数量")
   Sort typeCount() default Sort.ASC;
 
+  /**
+   * 实体 最大值
+   */
+  @Description("实体 最大值")
   Sort typeMax() default Sort.ASC;
 
+  /**
+   * 实体 最小值
+   */
+  @Description("实体 最小值")
   Sort typeMin() default Sort.ASC;
 
+  /**
+   * 权限类型 数量
+   */
+  @Description("权限类型 数量")
   Sort permissionTypeCount() default Sort.ASC;
 
+  /**
+   * 权限类型 最大值
+   */
+  @Description("权限类型 最大值")
   Sort permissionTypeMax() default Sort.ASC;
 
+  /**
+   * 权限类型 最小值
+   */
+  @Description("权限类型 最小值")
   Sort permissionTypeMin() default Sort.ASC;
 
   String $name() default "";

@@ -12,58 +12,155 @@ import java.lang.String;
 import java.time.LocalDateTime;
 import java.util.Collection;
 import org.eclipse.microprofile.graphql.DefaultValue;
+import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.Input;
 
+/**
+ * 组 变更内容
+ */
 @CompiledJson
 @Input
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
+@Description("组 变更内容")
 public class GroupInput implements TreeStructInput, NamedStructInput, MetaInput {
+  /**
+   * ID
+   */
+  @Description("ID")
   private String id;
 
+  /**
+   * 名称
+   */
+  @Description("名称")
   private String name;
 
+  /**
+   * 描述
+   */
+  @Description("描述")
   private String description;
 
+  /**
+   * 路径
+   */
+  @Description("路径")
   private String path;
 
+  /**
+   * 层级
+   */
+  @Description("层级")
   private Integer deep;
 
+  /**
+   * 上级ID
+   */
+  @Description("上级ID")
   private String parentId;
 
+  /**
+   * 上级
+   */
+  @Description("上级")
   private GroupInput parent;
 
+  /**
+   * 下级
+   */
+  @Description("下级")
   private Collection<GroupInput> subGroups;
 
+  /**
+   * 用户
+   */
+  @Description("用户")
   private Collection<UserInput> users;
 
+  /**
+   * 角色
+   */
+  @Description("角色")
   private Collection<RoleInput> roles;
 
+  /**
+   * 租户
+   */
+  @Description("租户")
   private RealmInput realm;
 
+  /**
+   * 已移除
+   */
   @DefaultValue("false")
+  @Description("已移除")
   private Boolean isDeprecated = false;
 
+  /**
+   * 版本
+   */
+  @Description("版本")
   private Integer version;
 
+  /**
+   * 域
+   */
+  @Description("域")
   private Integer realmId;
 
+  /**
+   * 创建者
+   */
+  @Description("创建者")
   private String createUserId;
 
+  /**
+   * 创建时间
+   */
+  @Description("创建时间")
   private LocalDateTime createTime;
 
+  /**
+   * 更新者
+   */
+  @Description("更新者")
   private String updateUserId;
 
+  /**
+   * 更新时间
+   */
+  @Description("更新时间")
   private LocalDateTime updateTime;
 
+  /**
+   * 创建组
+   */
+  @Description("创建组")
   private String createGroupId;
 
+  /**
+   * 所属类型
+   */
   @DefaultValue("\"Group\"")
+  @Description("所属类型")
   private String __typename = "Group";
 
+  /**
+   * 用户 组 关系
+   */
+  @Description("用户 组 关系")
   private Collection<GroupUserRelationInput> groupUserRelation;
 
+  /**
+   * 角色 组 关系
+   */
+  @Description("角色 组 关系")
   private Collection<GroupRoleRelationInput> groupRoleRelation;
 
+  /**
+   * 匹配条件
+   */
+  @Description("匹配条件")
   private GroupExpression where;
 
   public String getId() {

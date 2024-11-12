@@ -92,86 +92,250 @@ public class Group implements TreeStruct, NamedStruct, Meta {
   @Description("租户")
   private Realm realm;
 
+  /**
+   * 已移除
+   */
+  @Description("已移除")
   private Boolean isDeprecated = false;
 
+  /**
+   * 版本
+   */
+  @Description("版本")
   private Integer version;
 
+  /**
+   * 域
+   */
+  @Description("域")
   private Integer realmId;
 
+  /**
+   * 创建者
+   */
+  @Description("创建者")
   private String createUserId;
 
+  /**
+   * 创建时间
+   */
+  @Description("创建时间")
   private LocalDateTime createTime;
 
+  /**
+   * 更新者
+   */
+  @Description("更新者")
   private String updateUserId;
 
+  /**
+   * 更新时间
+   */
+  @Description("更新时间")
   private LocalDateTime updateTime;
 
+  /**
+   * 创建组
+   */
+  @Description("创建组")
   private String createGroupId;
 
+  /**
+   * 所属类型
+   */
+  @Description("所属类型")
   private String __typename = "Group";
 
+  /**
+   * 用户 组 关系
+   */
+  @Description("用户 组 关系")
   private Collection<GroupUserRelation> groupUserRelation;
 
+  /**
+   * 角色 组 关系
+   */
+  @Description("角色 组 关系")
   private Collection<GroupRoleRelation> groupRoleRelation;
 
+  /**
+   * 下级 统计字段
+   */
+  @Description("下级 统计字段")
   private Group subGroupsAggregate;
 
+  /**
+   * 下级 连接
+   */
+  @Description("下级 连接")
   private GroupConnection subGroupsConnection;
 
+  /**
+   * 用户 统计字段
+   */
+  @Description("用户 统计字段")
   private User usersAggregate;
 
+  /**
+   * 用户 连接
+   */
+  @Description("用户 连接")
   private UserConnection usersConnection;
 
+  /**
+   * 角色 统计字段
+   */
+  @Description("角色 统计字段")
   private Role rolesAggregate;
 
+  /**
+   * 角色 连接
+   */
+  @Description("角色 连接")
   private RoleConnection rolesConnection;
 
+  /**
+   * 用户 组 关系 统计字段
+   */
+  @Description("用户 组 关系 统计字段")
   private GroupUserRelation groupUserRelationAggregate;
 
+  /**
+   * 用户 组 关系 连接
+   */
+  @Description("用户 组 关系 连接")
   private GroupUserRelationConnection groupUserRelationConnection;
 
+  /**
+   * 角色 组 关系 统计字段
+   */
+  @Description("角色 组 关系 统计字段")
   private GroupRoleRelation groupRoleRelationAggregate;
 
+  /**
+   * 角色 组 关系 连接
+   */
+  @Description("角色 组 关系 连接")
   private GroupRoleRelationConnection groupRoleRelationConnection;
 
+  /**
+   * 组 数量
+   */
+  @Description("组 数量")
   private Integer idCount;
 
+  /**
+   * ID 最大值
+   */
+  @Description("ID 最大值")
   private Integer idMax;
 
+  /**
+   * ID 最小值
+   */
+  @Description("ID 最小值")
   private Integer idMin;
 
+  /**
+   * 名称 数量
+   */
+  @Description("名称 数量")
   private Integer nameCount;
 
+  /**
+   * 名称 最大值
+   */
+  @Description("名称 最大值")
   private String nameMax;
 
+  /**
+   * 名称 最小值
+   */
+  @Description("名称 最小值")
   private String nameMin;
 
+  /**
+   * 描述 数量
+   */
+  @Description("描述 数量")
   private Integer descriptionCount;
 
+  /**
+   * 描述 最大值
+   */
+  @Description("描述 最大值")
   private String descriptionMax;
 
+  /**
+   * 描述 最小值
+   */
+  @Description("描述 最小值")
   private String descriptionMin;
 
+  /**
+   * 路径 数量
+   */
+  @Description("路径 数量")
   private Integer pathCount;
 
+  /**
+   * 路径 最大值
+   */
+  @Description("路径 最大值")
   private String pathMax;
 
+  /**
+   * 路径 最小值
+   */
+  @Description("路径 最小值")
   private String pathMin;
 
+  /**
+   * 上级ID 数量
+   */
+  @Description("上级ID 数量")
   private Integer parentIdCount;
 
+  /**
+   * 上级ID 最大值
+   */
+  @Description("上级ID 最大值")
   private String parentIdMax;
 
+  /**
+   * 上级ID 最小值
+   */
+  @Description("上级ID 最小值")
   private String parentIdMin;
 
+  /**
+   * 层级 数量
+   */
+  @Description("层级 数量")
   private Integer deepCount;
 
+  /**
+   * 层级 合计
+   */
+  @Description("层级 合计")
   private Integer deepSum;
 
+  /**
+   * 层级 平均值
+   */
+  @Description("层级 平均值")
   private Integer deepAvg;
 
+  /**
+   * 层级 最大值
+   */
+  @Description("层级 最大值")
   private Integer deepMax;
 
+  /**
+   * 层级 最小值
+   */
+  @Description("层级 最小值")
   private Integer deepMin;
 
   private Boolean syncGroupPolicy;

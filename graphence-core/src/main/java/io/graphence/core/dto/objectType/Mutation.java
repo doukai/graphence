@@ -5,67 +5,168 @@ import jakarta.annotation.Generated;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Collection;
+import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.Type;
 
+/**
+ * Mutation
+ */
 @Type
 @CompiledJson
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
+@Description("Mutation")
 public class Mutation {
+  /**
+   * 用户 变更接口
+   */
+  @Description("用户 变更接口")
   private User user;
 
+  /**
+   * 用户列表 变更接口
+   */
+  @Description("用户列表 变更接口")
   private Collection<User> userList;
 
+  /**
+   * 角色 变更接口
+   */
+  @Description("角色 变更接口")
   private Role role;
 
+  /**
+   * 角色列表 变更接口
+   */
+  @Description("角色列表 变更接口")
   private Collection<Role> roleList;
 
+  /**
+   * 组 变更接口
+   */
+  @Description("组 变更接口")
   private Group group;
 
+  /**
+   * 组列表 变更接口
+   */
+  @Description("组列表 变更接口")
   private Collection<Group> groupList;
 
+  /**
+   * 租户 变更接口
+   */
+  @Description("租户 变更接口")
   private Realm realm;
 
+  /**
+   * 租户列表 变更接口
+   */
+  @Description("租户列表 变更接口")
   private Collection<Realm> realmList;
 
+  /**
+   * 权限 变更接口
+   */
+  @Description("权限 变更接口")
   private Permission permission;
 
+  /**
+   * 权限列表 变更接口
+   */
+  @Description("权限列表 变更接口")
   private Collection<Permission> permissionList;
 
+  /**
+   * 用户 手机号 关系 变更接口
+   */
+  @Description("用户 手机号 关系 变更接口")
   private UserPhonesRelation userPhonesRelation;
 
+  /**
+   * 用户 手机号 关系列表 变更接口
+   */
+  @Description("用户 手机号 关系列表 变更接口")
   private Collection<UserPhonesRelation> userPhonesRelationList;
 
+  /**
+   * 用户 组 关系 变更接口
+   */
+  @Description("用户 组 关系 变更接口")
   private GroupUserRelation groupUserRelation;
 
+  /**
+   * 用户 组 关系列表 变更接口
+   */
+  @Description("用户 组 关系列表 变更接口")
   private Collection<GroupUserRelation> groupUserRelationList;
 
+  /**
+   * 用户 角色 关系 变更接口
+   */
+  @Description("用户 角色 关系 变更接口")
   private RoleUserRelation roleUserRelation;
 
+  /**
+   * 用户 角色 关系列表 变更接口
+   */
+  @Description("用户 角色 关系列表 变更接口")
   private Collection<RoleUserRelation> roleUserRelationList;
 
+  /**
+   * 角色 组 关系 变更接口
+   */
+  @Description("角色 组 关系 变更接口")
   private GroupRoleRelation groupRoleRelation;
 
+  /**
+   * 角色 组 关系列表 变更接口
+   */
+  @Description("角色 组 关系列表 变更接口")
   private Collection<GroupRoleRelation> groupRoleRelationList;
 
+  /**
+   * 角色 角色 关系 变更接口
+   */
+  @Description("角色 角色 关系 变更接口")
   private RoleCompositeRelation roleCompositeRelation;
 
+  /**
+   * 角色 角色 关系列表 变更接口
+   */
+  @Description("角色 角色 关系列表 变更接口")
   private Collection<RoleCompositeRelation> roleCompositeRelationList;
 
+  /**
+   * 角色 权限 关系 变更接口
+   */
+  @Description("角色 权限 关系 变更接口")
   private PermissionRoleRelation permissionRoleRelation;
 
+  /**
+   * 角色 权限 关系列表 变更接口
+   */
+  @Description("角色 权限 关系列表 变更接口")
   private Collection<PermissionRoleRelation> permissionRoleRelationList;
 
+  /**
+   * 用户 文件 关系 变更接口
+   */
+  @Description("用户 文件 关系 变更接口")
   private FileUserRelation fileUserRelation;
 
+  /**
+   * 用户 文件 关系列表 变更接口
+   */
+  @Description("用户 文件 关系列表 变更接口")
   private Collection<FileUserRelation> fileUserRelationList;
 
-  private Boolean syncPermissionRoleRelationPolicy;
+  private String login;
 
   private User currentUserUpdate;
 
   private User currentUserResetPassword;
 
-  private String login;
+  private Boolean syncPermissionRoleRelationPolicy;
 
   public User getUser() {
     return this.user;
@@ -261,12 +362,12 @@ public class Mutation {
     this.fileUserRelationList = fileUserRelationList;
   }
 
-  public Boolean getSyncPermissionRoleRelationPolicy() {
-    return this.syncPermissionRoleRelationPolicy;
+  public String getLogin() {
+    return this.login;
   }
 
-  public void setSyncPermissionRoleRelationPolicy(Boolean syncPermissionRoleRelationPolicy) {
-    this.syncPermissionRoleRelationPolicy = syncPermissionRoleRelationPolicy;
+  public void setLogin(String login) {
+    this.login = login;
   }
 
   public User getCurrentUserUpdate() {
@@ -285,11 +386,11 @@ public class Mutation {
     this.currentUserResetPassword = currentUserResetPassword;
   }
 
-  public String getLogin() {
-    return this.login;
+  public Boolean getSyncPermissionRoleRelationPolicy() {
+    return this.syncPermissionRoleRelationPolicy;
   }
 
-  public void setLogin(String login) {
-    this.login = login;
+  public void setSyncPermissionRoleRelationPolicy(Boolean syncPermissionRoleRelationPolicy) {
+    this.syncPermissionRoleRelationPolicy = syncPermissionRoleRelationPolicy;
   }
 }

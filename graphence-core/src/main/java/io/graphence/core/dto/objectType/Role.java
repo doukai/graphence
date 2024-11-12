@@ -73,80 +73,232 @@ public class Role implements NamedStruct, Meta {
   @Description("租户")
   private Realm realm;
 
+  /**
+   * 已移除
+   */
+  @Description("已移除")
   private Boolean isDeprecated = false;
 
+  /**
+   * 版本
+   */
+  @Description("版本")
   private Integer version;
 
+  /**
+   * 域
+   */
+  @Description("域")
   private Integer realmId;
 
+  /**
+   * 创建者
+   */
+  @Description("创建者")
   private String createUserId;
 
+  /**
+   * 创建时间
+   */
+  @Description("创建时间")
   private LocalDateTime createTime;
 
+  /**
+   * 更新者
+   */
+  @Description("更新者")
   private String updateUserId;
 
+  /**
+   * 更新时间
+   */
+  @Description("更新时间")
   private LocalDateTime updateTime;
 
+  /**
+   * 创建组
+   */
+  @Description("创建组")
   private String createGroupId;
 
+  /**
+   * 所属类型
+   */
+  @Description("所属类型")
   private String __typename = "Role";
 
+  /**
+   * 用户 角色 关系
+   */
+  @Description("用户 角色 关系")
   private Collection<RoleUserRelation> roleUserRelation;
 
+  /**
+   * 角色 组 关系
+   */
+  @Description("角色 组 关系")
   private Collection<GroupRoleRelation> groupRoleRelation;
 
+  /**
+   * 角色 角色 关系
+   */
+  @Description("角色 角色 关系")
   private Collection<RoleCompositeRelation> roleCompositeRelation;
 
+  /**
+   * 角色 权限 关系
+   */
+  @Description("角色 权限 关系")
   private Collection<PermissionRoleRelation> permissionRoleRelation;
 
+  /**
+   * 用户 统计字段
+   */
+  @Description("用户 统计字段")
   private User usersAggregate;
 
+  /**
+   * 用户 连接
+   */
+  @Description("用户 连接")
   private UserConnection usersConnection;
 
+  /**
+   * 组 统计字段
+   */
+  @Description("组 统计字段")
   private Group groupsAggregate;
 
+  /**
+   * 组 连接
+   */
+  @Description("组 连接")
   private GroupConnection groupsConnection;
 
+  /**
+   * 组合 统计字段
+   */
+  @Description("组合 统计字段")
   private Role compositesAggregate;
 
+  /**
+   * 组合 连接
+   */
+  @Description("组合 连接")
   private RoleConnection compositesConnection;
 
+  /**
+   * 权限 统计字段
+   */
+  @Description("权限 统计字段")
   private Permission permissionsAggregate;
 
+  /**
+   * 权限 连接
+   */
+  @Description("权限 连接")
   private PermissionConnection permissionsConnection;
 
+  /**
+   * 用户 角色 关系 统计字段
+   */
+  @Description("用户 角色 关系 统计字段")
   private RoleUserRelation roleUserRelationAggregate;
 
+  /**
+   * 用户 角色 关系 连接
+   */
+  @Description("用户 角色 关系 连接")
   private RoleUserRelationConnection roleUserRelationConnection;
 
+  /**
+   * 角色 组 关系 统计字段
+   */
+  @Description("角色 组 关系 统计字段")
   private GroupRoleRelation groupRoleRelationAggregate;
 
+  /**
+   * 角色 组 关系 连接
+   */
+  @Description("角色 组 关系 连接")
   private GroupRoleRelationConnection groupRoleRelationConnection;
 
+  /**
+   * 角色 角色 关系 统计字段
+   */
+  @Description("角色 角色 关系 统计字段")
   private RoleCompositeRelation roleCompositeRelationAggregate;
 
+  /**
+   * 角色 角色 关系 连接
+   */
+  @Description("角色 角色 关系 连接")
   private RoleCompositeRelationConnection roleCompositeRelationConnection;
 
+  /**
+   * 角色 权限 关系 统计字段
+   */
+  @Description("角色 权限 关系 统计字段")
   private PermissionRoleRelation permissionRoleRelationAggregate;
 
+  /**
+   * 角色 权限 关系 连接
+   */
+  @Description("角色 权限 关系 连接")
   private PermissionRoleRelationConnection permissionRoleRelationConnection;
 
+  /**
+   * 角色 数量
+   */
+  @Description("角色 数量")
   private Integer idCount;
 
+  /**
+   * ID 最大值
+   */
+  @Description("ID 最大值")
   private Integer idMax;
 
+  /**
+   * ID 最小值
+   */
+  @Description("ID 最小值")
   private Integer idMin;
 
+  /**
+   * 名称 数量
+   */
+  @Description("名称 数量")
   private Integer nameCount;
 
+  /**
+   * 名称 最大值
+   */
+  @Description("名称 最大值")
   private String nameMax;
 
+  /**
+   * 名称 最小值
+   */
+  @Description("名称 最小值")
   private String nameMin;
 
+  /**
+   * 描述 数量
+   */
+  @Description("描述 数量")
   private Integer descriptionCount;
 
+  /**
+   * 描述 最大值
+   */
+  @Description("描述 最大值")
   private String descriptionMax;
 
+  /**
+   * 描述 最小值
+   */
+  @Description("描述 最小值")
   private String descriptionMin;
 
   private Boolean syncRolePolicy;

@@ -3,82 +3,231 @@ package io.graphence.core.dto.objectType;
 import com.dslplatform.json.CompiledJson;
 import jakarta.annotation.Generated;
 import java.util.Collection;
+import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.Type;
 
+/**
+ * Subscription
+ */
 @Type
 @CompiledJson
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
+@Description("Subscription")
 public class Subscription {
+  /**
+   * 用户 订阅接口
+   */
+  @Description("用户 订阅接口")
   private User user;
 
+  /**
+   * 用户列表 订阅接口
+   */
+  @Description("用户列表 订阅接口")
   private Collection<User> userList;
 
+  /**
+   * 用户连接 订阅接口
+   */
+  @Description("用户连接 订阅接口")
   private UserConnection userConnection;
 
+  /**
+   * 角色 订阅接口
+   */
+  @Description("角色 订阅接口")
   private Role role;
 
+  /**
+   * 角色列表 订阅接口
+   */
+  @Description("角色列表 订阅接口")
   private Collection<Role> roleList;
 
+  /**
+   * 角色连接 订阅接口
+   */
+  @Description("角色连接 订阅接口")
   private RoleConnection roleConnection;
 
+  /**
+   * 组 订阅接口
+   */
+  @Description("组 订阅接口")
   private Group group;
 
+  /**
+   * 组列表 订阅接口
+   */
+  @Description("组列表 订阅接口")
   private Collection<Group> groupList;
 
+  /**
+   * 组连接 订阅接口
+   */
+  @Description("组连接 订阅接口")
   private GroupConnection groupConnection;
 
+  /**
+   * 租户 订阅接口
+   */
+  @Description("租户 订阅接口")
   private Realm realm;
 
+  /**
+   * 租户列表 订阅接口
+   */
+  @Description("租户列表 订阅接口")
   private Collection<Realm> realmList;
 
+  /**
+   * 租户连接 订阅接口
+   */
+  @Description("租户连接 订阅接口")
   private RealmConnection realmConnection;
 
+  /**
+   * 权限 订阅接口
+   */
+  @Description("权限 订阅接口")
   private Permission permission;
 
+  /**
+   * 权限列表 订阅接口
+   */
+  @Description("权限列表 订阅接口")
   private Collection<Permission> permissionList;
 
+  /**
+   * 权限连接 订阅接口
+   */
+  @Description("权限连接 订阅接口")
   private PermissionConnection permissionConnection;
 
+  /**
+   * 用户 手机号 关系 订阅接口
+   */
+  @Description("用户 手机号 关系 订阅接口")
   private UserPhonesRelation userPhonesRelation;
 
+  /**
+   * 用户 手机号 关系列表 订阅接口
+   */
+  @Description("用户 手机号 关系列表 订阅接口")
   private Collection<UserPhonesRelation> userPhonesRelationList;
 
+  /**
+   * 用户 手机号 关系连接 订阅接口
+   */
+  @Description("用户 手机号 关系连接 订阅接口")
   private UserPhonesRelationConnection userPhonesRelationConnection;
 
+  /**
+   * 用户 组 关系 订阅接口
+   */
+  @Description("用户 组 关系 订阅接口")
   private GroupUserRelation groupUserRelation;
 
+  /**
+   * 用户 组 关系列表 订阅接口
+   */
+  @Description("用户 组 关系列表 订阅接口")
   private Collection<GroupUserRelation> groupUserRelationList;
 
+  /**
+   * 用户 组 关系连接 订阅接口
+   */
+  @Description("用户 组 关系连接 订阅接口")
   private GroupUserRelationConnection groupUserRelationConnection;
 
+  /**
+   * 用户 角色 关系 订阅接口
+   */
+  @Description("用户 角色 关系 订阅接口")
   private RoleUserRelation roleUserRelation;
 
+  /**
+   * 用户 角色 关系列表 订阅接口
+   */
+  @Description("用户 角色 关系列表 订阅接口")
   private Collection<RoleUserRelation> roleUserRelationList;
 
+  /**
+   * 用户 角色 关系连接 订阅接口
+   */
+  @Description("用户 角色 关系连接 订阅接口")
   private RoleUserRelationConnection roleUserRelationConnection;
 
+  /**
+   * 角色 组 关系 订阅接口
+   */
+  @Description("角色 组 关系 订阅接口")
   private GroupRoleRelation groupRoleRelation;
 
+  /**
+   * 角色 组 关系列表 订阅接口
+   */
+  @Description("角色 组 关系列表 订阅接口")
   private Collection<GroupRoleRelation> groupRoleRelationList;
 
+  /**
+   * 角色 组 关系连接 订阅接口
+   */
+  @Description("角色 组 关系连接 订阅接口")
   private GroupRoleRelationConnection groupRoleRelationConnection;
 
+  /**
+   * 角色 角色 关系 订阅接口
+   */
+  @Description("角色 角色 关系 订阅接口")
   private RoleCompositeRelation roleCompositeRelation;
 
+  /**
+   * 角色 角色 关系列表 订阅接口
+   */
+  @Description("角色 角色 关系列表 订阅接口")
   private Collection<RoleCompositeRelation> roleCompositeRelationList;
 
+  /**
+   * 角色 角色 关系连接 订阅接口
+   */
+  @Description("角色 角色 关系连接 订阅接口")
   private RoleCompositeRelationConnection roleCompositeRelationConnection;
 
+  /**
+   * 角色 权限 关系 订阅接口
+   */
+  @Description("角色 权限 关系 订阅接口")
   private PermissionRoleRelation permissionRoleRelation;
 
+  /**
+   * 角色 权限 关系列表 订阅接口
+   */
+  @Description("角色 权限 关系列表 订阅接口")
   private Collection<PermissionRoleRelation> permissionRoleRelationList;
 
+  /**
+   * 角色 权限 关系连接 订阅接口
+   */
+  @Description("角色 权限 关系连接 订阅接口")
   private PermissionRoleRelationConnection permissionRoleRelationConnection;
 
+  /**
+   * 用户 文件 关系 订阅接口
+   */
+  @Description("用户 文件 关系 订阅接口")
   private FileUserRelation fileUserRelation;
 
+  /**
+   * 用户 文件 关系列表 订阅接口
+   */
+  @Description("用户 文件 关系列表 订阅接口")
   private Collection<FileUserRelation> fileUserRelationList;
 
+  /**
+   * 用户 文件 关系连接 订阅接口
+   */
+  @Description("用户 文件 关系连接 订阅接口")
   private FileUserRelationConnection fileUserRelationConnection;
 
   public User getUser() {

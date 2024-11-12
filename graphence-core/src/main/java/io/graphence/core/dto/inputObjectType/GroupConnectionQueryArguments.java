@@ -14,77 +14,210 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Collection;
 import org.eclipse.microprofile.graphql.DefaultValue;
+import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.Input;
 
+/**
+ * 组连接 查询参数
+ */
 @CompiledJson
 @Input
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
+@Description("组连接 查询参数")
 public class GroupConnectionQueryArguments implements TreeStructExpression, NamedStructExpression, MetaExpression {
+  /**
+   * ID
+   */
+  @Description("ID")
   private StringExpression id;
 
+  /**
+   * 名称
+   */
+  @Description("名称")
   private StringExpression name;
 
+  /**
+   * 描述
+   */
+  @Description("描述")
   private StringExpression description;
 
+  /**
+   * 路径
+   */
+  @Description("路径")
   private StringExpression path;
 
+  /**
+   * 层级
+   */
+  @Description("层级")
   private IntExpression deep;
 
+  /**
+   * 上级ID
+   */
+  @Description("上级ID")
   private StringExpression parentId;
 
+  /**
+   * 上级
+   */
+  @Description("上级")
   private GroupExpression parent;
 
+  /**
+   * 下级
+   */
+  @Description("下级")
   private GroupExpression subGroups;
 
+  /**
+   * 用户
+   */
+  @Description("用户")
   private UserExpression users;
 
+  /**
+   * 角色
+   */
+  @Description("角色")
   private RoleExpression roles;
 
+  /**
+   * 租户
+   */
+  @Description("租户")
   private RealmExpression realm;
 
+  /**
+   * 包含已移除
+   */
   @DefaultValue("false")
+  @Description("包含已移除")
   private Boolean includeDeprecated = false;
 
+  /**
+   * 版本
+   */
+  @Description("版本")
   private IntExpression version;
 
+  /**
+   * 域
+   */
+  @Description("域")
   private IntExpression realmId;
 
+  /**
+   * 创建者
+   */
+  @Description("创建者")
   private StringExpression createUserId;
 
+  /**
+   * 创建时间
+   */
+  @Description("创建时间")
   private StringExpression createTime;
 
+  /**
+   * 更新者
+   */
+  @Description("更新者")
   private StringExpression updateUserId;
 
+  /**
+   * 更新时间
+   */
+  @Description("更新时间")
   private StringExpression updateTime;
 
+  /**
+   * 创建组
+   */
+  @Description("创建组")
   private StringExpression createGroupId;
 
+  /**
+   * 所属类型
+   */
+  @Description("所属类型")
   private StringExpression __typename;
 
+  /**
+   * 用户 组 关系
+   */
+  @Description("用户 组 关系")
   private GroupUserRelationExpression groupUserRelation;
 
+  /**
+   * 角色 组 关系
+   */
+  @Description("角色 组 关系")
   private GroupRoleRelationExpression groupRoleRelation;
 
+  /**
+   * 排序
+   */
+  @Description("排序")
   private GroupOrderBy orderBy;
 
+  /**
+   * 分组
+   */
+  @Description("分组")
   private Collection<String> groupBy;
 
+  /**
+   * 取非
+   */
   @DefaultValue("false")
+  @Description("取非")
   private Boolean not = false;
 
+  /**
+   * 与/或
+   */
   @DefaultValue("AND")
+  @Description("与/或")
   private Conditional cond = Conditional.AND;
 
+  /**
+   * 查询表达式组
+   */
+  @Description("查询表达式组")
   private Collection<GroupExpression> exs;
 
+  /**
+   * 前...条数
+   */
+  @Description("前...条数")
   private Integer first;
 
+  /**
+   * 后...条数
+   */
+  @Description("后...条数")
   private Integer last;
 
+  /**
+   * 偏移条数
+   */
+  @Description("偏移条数")
   private Integer offset;
 
+  /**
+   * 取...之后
+   */
+  @Description("取...之后")
   private String after;
 
+  /**
+   * 取...之前
+   */
+  @Description("取...之前")
   private String before;
 
   public StringExpression getId() {

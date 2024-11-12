@@ -4,122 +4,351 @@ import com.dslplatform.json.CompiledJson;
 import io.graphoenix.core.dto.enumType.Sort;
 import io.graphoenix.file.dto.inputObjectType.FileOrderBy;
 import jakarta.annotation.Generated;
+import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.Input;
 
+/**
+ * 用户 排序
+ */
 @CompiledJson
 @Input
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
+@Description("用户 排序")
 public class UserOrderBy {
+  /**
+   * ID
+   */
+  @Description("ID")
   private Sort id;
 
+  /**
+   * 姓名
+   */
+  @Description("姓名")
   private Sort name;
 
+  /**
+   * 描述
+   */
+  @Description("描述")
   private Sort description;
 
+  /**
+   * 姓氏
+   */
+  @Description("姓氏")
   private Sort lastName;
 
+  /**
+   * 账号
+   */
+  @Description("账号")
   private Sort login;
 
+  /**
+   * 盐
+   */
+  @Description("盐")
   private Sort salt;
 
+  /**
+   * 哈希
+   */
+  @Description("哈希")
   private Sort hash;
 
+  /**
+   * 邮箱
+   */
+  @Description("邮箱")
   private Sort email;
 
-  private FileOrderBy files;
+  /**
+   * 头像
+   */
+  @Description("头像")
+  private FileOrderBy avatar;
 
+  /**
+   * 手机号
+   */
+  @Description("手机号")
   private Sort phones;
 
+  /**
+   * 禁用
+   */
+  @Description("禁用")
   private Sort disable;
 
+  /**
+   * 组
+   */
+  @Description("组")
   private GroupOrderBy groups;
 
+  /**
+   * 角色
+   */
+  @Description("角色")
   private RoleOrderBy roles;
 
+  /**
+   * 租户
+   */
+  @Description("租户")
   private RealmOrderBy realm;
 
+  /**
+   * 已移除
+   */
+  @Description("已移除")
   private Sort isDeprecated;
 
+  /**
+   * 版本
+   */
+  @Description("版本")
   private Sort version;
 
+  /**
+   * 域
+   */
+  @Description("域")
   private Sort realmId;
 
+  /**
+   * 创建者
+   */
+  @Description("创建者")
   private Sort createUserId;
 
+  /**
+   * 创建时间
+   */
+  @Description("创建时间")
   private Sort createTime;
 
+  /**
+   * 更新者
+   */
+  @Description("更新者")
   private Sort updateUserId;
 
+  /**
+   * 更新时间
+   */
+  @Description("更新时间")
   private Sort updateTime;
 
+  /**
+   * 创建组
+   */
+  @Description("创建组")
   private Sort createGroupId;
 
+  /**
+   * 所属类型
+   */
+  @Description("所属类型")
   private Sort __typename;
 
+  /**
+   * 用户 文件 关系
+   */
+  @Description("用户 文件 关系")
   private FileUserRelationOrderBy fileUserRelation;
 
+  /**
+   * 用户 手机号 关系
+   */
+  @Description("用户 手机号 关系")
   private UserPhonesRelationOrderBy userPhonesRelation;
 
+  /**
+   * 用户 组 关系
+   */
+  @Description("用户 组 关系")
   private GroupUserRelationOrderBy groupUserRelation;
 
+  /**
+   * 用户 角色 关系
+   */
+  @Description("用户 角色 关系")
   private RoleUserRelationOrderBy roleUserRelation;
 
+  /**
+   * 组 统计字段
+   */
+  @Description("组 统计字段")
   private GroupOrderBy groupsAggregate;
 
+  /**
+   * 角色 统计字段
+   */
+  @Description("角色 统计字段")
   private RoleOrderBy rolesAggregate;
 
+  /**
+   * 用户 手机号 关系 统计字段
+   */
+  @Description("用户 手机号 关系 统计字段")
   private UserPhonesRelationOrderBy userPhonesRelationAggregate;
 
+  /**
+   * 用户 组 关系 统计字段
+   */
+  @Description("用户 组 关系 统计字段")
   private GroupUserRelationOrderBy groupUserRelationAggregate;
 
+  /**
+   * 用户 角色 关系 统计字段
+   */
+  @Description("用户 角色 关系 统计字段")
   private RoleUserRelationOrderBy roleUserRelationAggregate;
 
+  /**
+   * 用户 数量
+   */
+  @Description("用户 数量")
   private Sort idCount;
 
+  /**
+   * ID 最大值
+   */
+  @Description("ID 最大值")
   private Sort idMax;
 
+  /**
+   * ID 最小值
+   */
+  @Description("ID 最小值")
   private Sort idMin;
 
+  /**
+   * 姓名 数量
+   */
+  @Description("姓名 数量")
   private Sort nameCount;
 
+  /**
+   * 姓名 最大值
+   */
+  @Description("姓名 最大值")
   private Sort nameMax;
 
+  /**
+   * 姓名 最小值
+   */
+  @Description("姓名 最小值")
   private Sort nameMin;
 
+  /**
+   * 描述 数量
+   */
+  @Description("描述 数量")
   private Sort descriptionCount;
 
+  /**
+   * 描述 最大值
+   */
+  @Description("描述 最大值")
   private Sort descriptionMax;
 
+  /**
+   * 描述 最小值
+   */
+  @Description("描述 最小值")
   private Sort descriptionMin;
 
+  /**
+   * 姓氏 数量
+   */
+  @Description("姓氏 数量")
   private Sort lastNameCount;
 
+  /**
+   * 姓氏 最大值
+   */
+  @Description("姓氏 最大值")
   private Sort lastNameMax;
 
+  /**
+   * 姓氏 最小值
+   */
+  @Description("姓氏 最小值")
   private Sort lastNameMin;
 
+  /**
+   * 账号 数量
+   */
+  @Description("账号 数量")
   private Sort loginCount;
 
+  /**
+   * 账号 最大值
+   */
+  @Description("账号 最大值")
   private Sort loginMax;
 
+  /**
+   * 账号 最小值
+   */
+  @Description("账号 最小值")
   private Sort loginMin;
 
+  /**
+   * 盐 数量
+   */
+  @Description("盐 数量")
   private Sort saltCount;
 
+  /**
+   * 盐 最大值
+   */
+  @Description("盐 最大值")
   private Sort saltMax;
 
+  /**
+   * 盐 最小值
+   */
+  @Description("盐 最小值")
   private Sort saltMin;
 
+  /**
+   * 哈希 数量
+   */
+  @Description("哈希 数量")
   private Sort hashCount;
 
+  /**
+   * 哈希 最大值
+   */
+  @Description("哈希 最大值")
   private Sort hashMax;
 
+  /**
+   * 哈希 最小值
+   */
+  @Description("哈希 最小值")
   private Sort hashMin;
 
+  /**
+   * 邮箱 数量
+   */
+  @Description("邮箱 数量")
   private Sort emailCount;
 
+  /**
+   * 邮箱 最大值
+   */
+  @Description("邮箱 最大值")
   private Sort emailMax;
 
+  /**
+   * 邮箱 最小值
+   */
+  @Description("邮箱 最小值")
   private Sort emailMin;
 
   public Sort getId() {
@@ -186,12 +415,12 @@ public class UserOrderBy {
     this.email = email;
   }
 
-  public FileOrderBy getFiles() {
-    return this.files;
+  public FileOrderBy getAvatar() {
+    return this.avatar;
   }
 
-  public void setFiles(FileOrderBy files) {
-    this.files = files;
+  public void setAvatar(FileOrderBy avatar) {
+    this.avatar = avatar;
   }
 
   public Sort getPhones() {

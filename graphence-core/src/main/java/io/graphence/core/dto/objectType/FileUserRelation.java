@@ -9,58 +9,155 @@ import java.lang.Integer;
 import java.lang.Override;
 import java.lang.String;
 import java.time.LocalDateTime;
+import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.Id;
 import org.eclipse.microprofile.graphql.Type;
 
+/**
+ * 用户 文件 关系
+ */
 @Type
 @CompiledJson
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
+@Description("用户 文件 关系")
 public class FileUserRelation implements Meta {
+  /**
+   * ID
+   */
   @Id
+  @Description("ID")
   private String id;
 
+  /**
+   * 用户 引用
+   */
+  @Description("用户 引用")
   private String userRef;
 
+  /**
+   * 用户
+   */
+  @Description("用户")
   private User user;
 
+  /**
+   * 文件 引用
+   */
+  @Description("文件 引用")
   private String fileRef;
 
+  /**
+   * 文件
+   */
+  @Description("文件")
   private File file;
 
+  /**
+   * 已移除
+   */
+  @Description("已移除")
   private Boolean isDeprecated = false;
 
+  /**
+   * 版本
+   */
+  @Description("版本")
   private Integer version;
 
+  /**
+   * 域
+   */
+  @Description("域")
   private Integer realmId;
 
+  /**
+   * 创建者
+   */
+  @Description("创建者")
   private String createUserId;
 
+  /**
+   * 创建时间
+   */
+  @Description("创建时间")
   private LocalDateTime createTime;
 
+  /**
+   * 更新者
+   */
+  @Description("更新者")
   private String updateUserId;
 
+  /**
+   * 更新时间
+   */
+  @Description("更新时间")
   private LocalDateTime updateTime;
 
+  /**
+   * 创建组
+   */
+  @Description("创建组")
   private String createGroupId;
 
+  /**
+   * 所属类型
+   */
+  @Description("所属类型")
   private String __typename = "FileUserRelation";
 
+  /**
+   * 用户 文件 关系 数量
+   */
+  @Description("用户 文件 关系 数量")
   private Integer idCount;
 
+  /**
+   * ID 最大值
+   */
+  @Description("ID 最大值")
   private Integer idMax;
 
+  /**
+   * ID 最小值
+   */
+  @Description("ID 最小值")
   private Integer idMin;
 
+  /**
+   * 用户 引用 数量
+   */
+  @Description("用户 引用 数量")
   private Integer userRefCount;
 
+  /**
+   * 用户 引用 最大值
+   */
+  @Description("用户 引用 最大值")
   private String userRefMax;
 
+  /**
+   * 用户 引用 最小值
+   */
+  @Description("用户 引用 最小值")
   private String userRefMin;
 
+  /**
+   * 文件 引用 数量
+   */
+  @Description("文件 引用 数量")
   private Integer fileRefCount;
 
+  /**
+   * 文件 引用 最大值
+   */
+  @Description("文件 引用 最大值")
   private String fileRefMax;
 
+  /**
+   * 文件 引用 最小值
+   */
+  @Description("文件 引用 最小值")
   private String fileRefMin;
 
   public String getId() {

@@ -3,78 +3,219 @@ package io.graphence.core.dto.inputObjectType;
 import com.dslplatform.json.CompiledJson;
 import io.graphoenix.core.dto.enumType.Sort;
 import jakarta.annotation.Generated;
+import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.Input;
 
+/**
+ * 权限 排序
+ */
 @CompiledJson
 @Input
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
+@Description("权限 排序")
 public class PermissionOrderBy {
+  /**
+   * 名称
+   */
+  @Description("名称")
   private Sort name;
 
+  /**
+   * 描述
+   */
+  @Description("描述")
   private Sort description;
 
+  /**
+   * 字段
+   */
+  @Description("字段")
   private Sort field;
 
+  /**
+   * 实体
+   */
+  @Description("实体")
   private Sort type;
 
+  /**
+   * 权限类型
+   */
+  @Description("权限类型")
   private Sort permissionType;
 
+  /**
+   * 角色
+   */
+  @Description("角色")
   private RoleOrderBy roles;
 
+  /**
+   * 租户
+   */
+  @Description("租户")
   private RealmOrderBy realm;
 
+  /**
+   * 已移除
+   */
+  @Description("已移除")
   private Sort isDeprecated;
 
+  /**
+   * 版本
+   */
+  @Description("版本")
   private Sort version;
 
+  /**
+   * 域
+   */
+  @Description("域")
   private Sort realmId;
 
+  /**
+   * 创建者
+   */
+  @Description("创建者")
   private Sort createUserId;
 
+  /**
+   * 创建时间
+   */
+  @Description("创建时间")
   private Sort createTime;
 
+  /**
+   * 更新者
+   */
+  @Description("更新者")
   private Sort updateUserId;
 
+  /**
+   * 更新时间
+   */
+  @Description("更新时间")
   private Sort updateTime;
 
+  /**
+   * 创建组
+   */
+  @Description("创建组")
   private Sort createGroupId;
 
+  /**
+   * 所属类型
+   */
+  @Description("所属类型")
   private Sort __typename;
 
+  /**
+   * 角色 权限 关系
+   */
+  @Description("角色 权限 关系")
   private PermissionRoleRelationOrderBy permissionRoleRelation;
 
+  /**
+   * 角色 统计字段
+   */
+  @Description("角色 统计字段")
   private RoleOrderBy rolesAggregate;
 
+  /**
+   * 角色 权限 关系 统计字段
+   */
+  @Description("角色 权限 关系 统计字段")
   private PermissionRoleRelationOrderBy permissionRoleRelationAggregate;
 
+  /**
+   * 权限 数量
+   */
+  @Description("权限 数量")
   private Sort nameCount;
 
+  /**
+   * 名称 最大值
+   */
+  @Description("名称 最大值")
   private Sort nameMax;
 
+  /**
+   * 名称 最小值
+   */
+  @Description("名称 最小值")
   private Sort nameMin;
 
+  /**
+   * 描述 数量
+   */
+  @Description("描述 数量")
   private Sort descriptionCount;
 
+  /**
+   * 描述 最大值
+   */
+  @Description("描述 最大值")
   private Sort descriptionMax;
 
+  /**
+   * 描述 最小值
+   */
+  @Description("描述 最小值")
   private Sort descriptionMin;
 
+  /**
+   * 字段 数量
+   */
+  @Description("字段 数量")
   private Sort fieldCount;
 
+  /**
+   * 字段 最大值
+   */
+  @Description("字段 最大值")
   private Sort fieldMax;
 
+  /**
+   * 字段 最小值
+   */
+  @Description("字段 最小值")
   private Sort fieldMin;
 
+  /**
+   * 实体 数量
+   */
+  @Description("实体 数量")
   private Sort typeCount;
 
+  /**
+   * 实体 最大值
+   */
+  @Description("实体 最大值")
   private Sort typeMax;
 
+  /**
+   * 实体 最小值
+   */
+  @Description("实体 最小值")
   private Sort typeMin;
 
+  /**
+   * 权限类型 数量
+   */
+  @Description("权限类型 数量")
   private Sort permissionTypeCount;
 
+  /**
+   * 权限类型 最大值
+   */
+  @Description("权限类型 最大值")
   private Sort permissionTypeMax;
 
+  /**
+   * 权限类型 最小值
+   */
+  @Description("权限类型 最小值")
   private Sort permissionTypeMin;
 
   public Sort getName() {

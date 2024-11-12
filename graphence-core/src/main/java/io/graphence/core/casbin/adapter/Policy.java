@@ -2,6 +2,7 @@ package io.graphence.core.casbin.adapter;
 
 import com.dslplatform.json.CompiledJson;
 import com.dslplatform.json.JsonAttribute;
+import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.Type;
 
 import java.util.ArrayList;
@@ -9,9 +10,10 @@ import java.util.List;
 
 @Type
 @CompiledJson
+@Description("Policy")
 public class Policy {
     private String id;
-    private String ptype;
+    private String policy;
     private String v0;
     private String v1;
     private String v2;
@@ -22,10 +24,10 @@ public class Policy {
     public Policy() {
     }
 
-    public Policy(String ptype, List<String> line) {
-        this.ptype = ptype;
-        this.id = ptype + "," + String.join(",", line);
-        if (line.size() >= 1 && line.get(0) != null) {
+    public Policy(String policy, List<String> line) {
+        this.policy = policy;
+        this.id = policy + "-" + String.join("-", line);
+        if (!line.isEmpty() && line.get(0) != null) {
             v0 = line.get(0);
         }
         if (line.size() >= 2 && line.get(1) != null) {
@@ -54,12 +56,12 @@ public class Policy {
         return this;
     }
 
-    public String getPtype() {
-        return ptype;
+    public String getPolicy() {
+        return policy;
     }
 
-    public Policy setPtype(String ptype) {
-        this.ptype = ptype;
+    public Policy setPolicy(String policy) {
+        this.policy = policy;
         return this;
     }
 
@@ -125,26 +127,7 @@ public class Policy {
 
     @Override
     public String toString() {
-        String lineText = getPtype();
-        if (getV0() != null) {
-            lineText += ", " + getV0();
-        }
-        if (getV1() != null) {
-            lineText += ", " + getV1();
-        }
-        if (getV2() != null) {
-            lineText += ", " + getV2();
-        }
-        if (getV3() != null) {
-            lineText += ", " + getV3();
-        }
-        if (getV4() != null) {
-            lineText += ", " + getV4();
-        }
-        if (getV5() != null) {
-            lineText += ", " + getV5();
-        }
-        return lineText;
+        return getPolicy() + ", " + String.join(", ", toStringList());
     }
 
     public List<String> toStringList() {

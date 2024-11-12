@@ -14,8 +14,8 @@ import java.util.stream.Stream;
 
 @Type
 @CompiledJson
-@Description("当前用户")
-public class CurrentUser {
+@Description("Current")
+public class Current {
 
     @Description("ID")
     private String id;
@@ -42,7 +42,7 @@ public class CurrentUser {
         return id;
     }
 
-    public CurrentUser setId(String id) {
+    public Current setId(String id) {
         this.id = id;
         return this;
     }
@@ -51,7 +51,7 @@ public class CurrentUser {
         return name;
     }
 
-    public CurrentUser setName(String name) {
+    public Current setName(String name) {
         this.name = name;
         return this;
     }
@@ -60,7 +60,7 @@ public class CurrentUser {
         return lastName;
     }
 
-    public CurrentUser setLastName(String lastName) {
+    public Current setLastName(String lastName) {
         this.lastName = lastName;
         return this;
     }
@@ -69,7 +69,7 @@ public class CurrentUser {
         return login;
     }
 
-    public CurrentUser setLogin(String login) {
+    public Current setLogin(String login) {
         this.login = login;
         return this;
     }
@@ -78,7 +78,7 @@ public class CurrentUser {
         return realmId;
     }
 
-    public CurrentUser setRealmId(Integer realmId) {
+    public Current setRealmId(Integer realmId) {
         this.realmId = realmId;
         return this;
     }
@@ -87,7 +87,7 @@ public class CurrentUser {
         return groups;
     }
 
-    public CurrentUser setGroups(List<String> groups) {
+    public Current setGroups(List<String> groups) {
         this.groups = groups;
         return this;
     }
@@ -96,13 +96,13 @@ public class CurrentUser {
         return roles;
     }
 
-    public CurrentUser setRoles(List<String> roles) {
+    public Current setRoles(List<String> roles) {
         this.roles = roles;
         return this;
     }
 
-    public static CurrentUser of(User user) {
-        return new CurrentUser()
+    public static Current of(User user) {
+        return new Current()
                 .setId(user.getId())
                 .setLogin(user.getLogin())
                 .setRealmId(user.getRealmId())

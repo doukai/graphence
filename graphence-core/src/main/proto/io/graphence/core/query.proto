@@ -12,43 +12,46 @@ import "io/graphence/core/input_objects.proto";
 import "io/graphence/core/query_requests.proto";
 import "io/graphence/core/query_responses.proto";
 
+/**
+* Query
+*/
 service QueryService {
-    rpc User (QueryUserRequest) returns (QueryUserResponse);
-    rpc UserList (QueryUserListRequest) returns (QueryUserListResponse);
-    rpc UserConnection (QueryUserConnectionRequest) returns (QueryUserConnectionResponse);
-    rpc Role (QueryRoleRequest) returns (QueryRoleResponse);
-    rpc RoleList (QueryRoleListRequest) returns (QueryRoleListResponse);
-    rpc RoleConnection (QueryRoleConnectionRequest) returns (QueryRoleConnectionResponse);
-    rpc Group (QueryGroupRequest) returns (QueryGroupResponse);
-    rpc GroupList (QueryGroupListRequest) returns (QueryGroupListResponse);
-    rpc GroupConnection (QueryGroupConnectionRequest) returns (QueryGroupConnectionResponse);
-    rpc Realm (QueryRealmRequest) returns (QueryRealmResponse);
-    rpc RealmList (QueryRealmListRequest) returns (QueryRealmListResponse);
-    rpc RealmConnection (QueryRealmConnectionRequest) returns (QueryRealmConnectionResponse);
-    rpc Permission (QueryPermissionRequest) returns (QueryPermissionResponse);
-    rpc PermissionList (QueryPermissionListRequest) returns (QueryPermissionListResponse);
-    rpc PermissionConnection (QueryPermissionConnectionRequest) returns (QueryPermissionConnectionResponse);
-    rpc UserPhonesRelation (QueryUserPhonesRelationRequest) returns (QueryUserPhonesRelationResponse);
-    rpc UserPhonesRelationList (QueryUserPhonesRelationListRequest) returns (QueryUserPhonesRelationListResponse);
-    rpc UserPhonesRelationConnection (QueryUserPhonesRelationConnectionRequest) returns (QueryUserPhonesRelationConnectionResponse);
-    rpc GroupUserRelation (QueryGroupUserRelationRequest) returns (QueryGroupUserRelationResponse);
-    rpc GroupUserRelationList (QueryGroupUserRelationListRequest) returns (QueryGroupUserRelationListResponse);
-    rpc GroupUserRelationConnection (QueryGroupUserRelationConnectionRequest) returns (QueryGroupUserRelationConnectionResponse);
-    rpc RoleUserRelation (QueryRoleUserRelationRequest) returns (QueryRoleUserRelationResponse);
-    rpc RoleUserRelationList (QueryRoleUserRelationListRequest) returns (QueryRoleUserRelationListResponse);
-    rpc RoleUserRelationConnection (QueryRoleUserRelationConnectionRequest) returns (QueryRoleUserRelationConnectionResponse);
-    rpc GroupRoleRelation (QueryGroupRoleRelationRequest) returns (QueryGroupRoleRelationResponse);
-    rpc GroupRoleRelationList (QueryGroupRoleRelationListRequest) returns (QueryGroupRoleRelationListResponse);
-    rpc GroupRoleRelationConnection (QueryGroupRoleRelationConnectionRequest) returns (QueryGroupRoleRelationConnectionResponse);
-    rpc RoleCompositeRelation (QueryRoleCompositeRelationRequest) returns (QueryRoleCompositeRelationResponse);
-    rpc RoleCompositeRelationList (QueryRoleCompositeRelationListRequest) returns (QueryRoleCompositeRelationListResponse);
-    rpc RoleCompositeRelationConnection (QueryRoleCompositeRelationConnectionRequest) returns (QueryRoleCompositeRelationConnectionResponse);
-    rpc PermissionRoleRelation (QueryPermissionRoleRelationRequest) returns (QueryPermissionRoleRelationResponse);
-    rpc PermissionRoleRelationList (QueryPermissionRoleRelationListRequest) returns (QueryPermissionRoleRelationListResponse);
-    rpc PermissionRoleRelationConnection (QueryPermissionRoleRelationConnectionRequest) returns (QueryPermissionRoleRelationConnectionResponse);
-    rpc FileUserRelation (QueryFileUserRelationRequest) returns (QueryFileUserRelationResponse);
-    rpc FileUserRelationList (QueryFileUserRelationListRequest) returns (QueryFileUserRelationListResponse);
-    rpc FileUserRelationConnection (QueryFileUserRelationConnectionRequest) returns (QueryFileUserRelationConnectionResponse);
+    rpc User (QueryUserRequest) returns (QueryUserResponse); /* 用户 查询接口 */
+    rpc UserList (QueryUserListRequest) returns (QueryUserListResponse); /* 用户列表 查询接口 */
+    rpc UserConnection (QueryUserConnectionRequest) returns (QueryUserConnectionResponse); /* 用户连接 查询接口 */
+    rpc Role (QueryRoleRequest) returns (QueryRoleResponse); /* 角色 查询接口 */
+    rpc RoleList (QueryRoleListRequest) returns (QueryRoleListResponse); /* 角色列表 查询接口 */
+    rpc RoleConnection (QueryRoleConnectionRequest) returns (QueryRoleConnectionResponse); /* 角色连接 查询接口 */
+    rpc Group (QueryGroupRequest) returns (QueryGroupResponse); /* 组 查询接口 */
+    rpc GroupList (QueryGroupListRequest) returns (QueryGroupListResponse); /* 组列表 查询接口 */
+    rpc GroupConnection (QueryGroupConnectionRequest) returns (QueryGroupConnectionResponse); /* 组连接 查询接口 */
+    rpc Realm (QueryRealmRequest) returns (QueryRealmResponse); /* 租户 查询接口 */
+    rpc RealmList (QueryRealmListRequest) returns (QueryRealmListResponse); /* 租户列表 查询接口 */
+    rpc RealmConnection (QueryRealmConnectionRequest) returns (QueryRealmConnectionResponse); /* 租户连接 查询接口 */
+    rpc Permission (QueryPermissionRequest) returns (QueryPermissionResponse); /* 权限 查询接口 */
+    rpc PermissionList (QueryPermissionListRequest) returns (QueryPermissionListResponse); /* 权限列表 查询接口 */
+    rpc PermissionConnection (QueryPermissionConnectionRequest) returns (QueryPermissionConnectionResponse); /* 权限连接 查询接口 */
+    rpc UserPhonesRelation (QueryUserPhonesRelationRequest) returns (QueryUserPhonesRelationResponse); /* 用户 手机号 关系 查询接口 */
+    rpc UserPhonesRelationList (QueryUserPhonesRelationListRequest) returns (QueryUserPhonesRelationListResponse); /* 用户 手机号 关系列表 查询接口 */
+    rpc UserPhonesRelationConnection (QueryUserPhonesRelationConnectionRequest) returns (QueryUserPhonesRelationConnectionResponse); /* 用户 手机号 关系连接 查询接口 */
+    rpc GroupUserRelation (QueryGroupUserRelationRequest) returns (QueryGroupUserRelationResponse); /* 用户 组 关系 查询接口 */
+    rpc GroupUserRelationList (QueryGroupUserRelationListRequest) returns (QueryGroupUserRelationListResponse); /* 用户 组 关系列表 查询接口 */
+    rpc GroupUserRelationConnection (QueryGroupUserRelationConnectionRequest) returns (QueryGroupUserRelationConnectionResponse); /* 用户 组 关系连接 查询接口 */
+    rpc RoleUserRelation (QueryRoleUserRelationRequest) returns (QueryRoleUserRelationResponse); /* 用户 角色 关系 查询接口 */
+    rpc RoleUserRelationList (QueryRoleUserRelationListRequest) returns (QueryRoleUserRelationListResponse); /* 用户 角色 关系列表 查询接口 */
+    rpc RoleUserRelationConnection (QueryRoleUserRelationConnectionRequest) returns (QueryRoleUserRelationConnectionResponse); /* 用户 角色 关系连接 查询接口 */
+    rpc GroupRoleRelation (QueryGroupRoleRelationRequest) returns (QueryGroupRoleRelationResponse); /* 角色 组 关系 查询接口 */
+    rpc GroupRoleRelationList (QueryGroupRoleRelationListRequest) returns (QueryGroupRoleRelationListResponse); /* 角色 组 关系列表 查询接口 */
+    rpc GroupRoleRelationConnection (QueryGroupRoleRelationConnectionRequest) returns (QueryGroupRoleRelationConnectionResponse); /* 角色 组 关系连接 查询接口 */
+    rpc RoleCompositeRelation (QueryRoleCompositeRelationRequest) returns (QueryRoleCompositeRelationResponse); /* 角色 角色 关系 查询接口 */
+    rpc RoleCompositeRelationList (QueryRoleCompositeRelationListRequest) returns (QueryRoleCompositeRelationListResponse); /* 角色 角色 关系列表 查询接口 */
+    rpc RoleCompositeRelationConnection (QueryRoleCompositeRelationConnectionRequest) returns (QueryRoleCompositeRelationConnectionResponse); /* 角色 角色 关系连接 查询接口 */
+    rpc PermissionRoleRelation (QueryPermissionRoleRelationRequest) returns (QueryPermissionRoleRelationResponse); /* 角色 权限 关系 查询接口 */
+    rpc PermissionRoleRelationList (QueryPermissionRoleRelationListRequest) returns (QueryPermissionRoleRelationListResponse); /* 角色 权限 关系列表 查询接口 */
+    rpc PermissionRoleRelationConnection (QueryPermissionRoleRelationConnectionRequest) returns (QueryPermissionRoleRelationConnectionResponse); /* 角色 权限 关系连接 查询接口 */
+    rpc FileUserRelation (QueryFileUserRelationRequest) returns (QueryFileUserRelationResponse); /* 用户 文件 关系 查询接口 */
+    rpc FileUserRelationList (QueryFileUserRelationListRequest) returns (QueryFileUserRelationListResponse); /* 用户 文件 关系列表 查询接口 */
+    rpc FileUserRelationConnection (QueryFileUserRelationConnectionRequest) returns (QueryFileUserRelationConnectionResponse); /* 用户 文件 关系连接 查询接口 */
     rpc PolicyList (QueryPolicyListRequest) returns (QueryPolicyListResponse);
     rpc Current (QueryCurrentRequest) returns (QueryCurrentResponse);
     rpc CurrentUser (QueryCurrentUserRequest) returns (QueryCurrentUserResponse);

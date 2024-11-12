@@ -8,58 +8,155 @@ import java.lang.Integer;
 import java.lang.Override;
 import java.lang.String;
 import java.time.LocalDateTime;
+import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.Id;
 import org.eclipse.microprofile.graphql.Type;
 
+/**
+ * 角色 组 关系
+ */
 @Type
 @CompiledJson
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
+@Description("角色 组 关系")
 public class GroupRoleRelation implements Meta {
+  /**
+   * ID
+   */
   @Id
+  @Description("ID")
   private String id;
 
+  /**
+   * 角色 引用
+   */
+  @Description("角色 引用")
   private String roleRef;
 
+  /**
+   * 角色
+   */
+  @Description("角色")
   private Role role;
 
+  /**
+   * 组 引用
+   */
+  @Description("组 引用")
   private String groupRef;
 
+  /**
+   * 组
+   */
+  @Description("组")
   private Group group;
 
+  /**
+   * 已移除
+   */
+  @Description("已移除")
   private Boolean isDeprecated = false;
 
+  /**
+   * 版本
+   */
+  @Description("版本")
   private Integer version;
 
+  /**
+   * 域
+   */
+  @Description("域")
   private Integer realmId;
 
+  /**
+   * 创建者
+   */
+  @Description("创建者")
   private String createUserId;
 
+  /**
+   * 创建时间
+   */
+  @Description("创建时间")
   private LocalDateTime createTime;
 
+  /**
+   * 更新者
+   */
+  @Description("更新者")
   private String updateUserId;
 
+  /**
+   * 更新时间
+   */
+  @Description("更新时间")
   private LocalDateTime updateTime;
 
+  /**
+   * 创建组
+   */
+  @Description("创建组")
   private String createGroupId;
 
+  /**
+   * 所属类型
+   */
+  @Description("所属类型")
   private String __typename = "GroupRoleRelation";
 
+  /**
+   * 角色 组 关系 数量
+   */
+  @Description("角色 组 关系 数量")
   private Integer idCount;
 
+  /**
+   * ID 最大值
+   */
+  @Description("ID 最大值")
   private Integer idMax;
 
+  /**
+   * ID 最小值
+   */
+  @Description("ID 最小值")
   private Integer idMin;
 
+  /**
+   * 角色 引用 数量
+   */
+  @Description("角色 引用 数量")
   private Integer roleRefCount;
 
+  /**
+   * 角色 引用 最大值
+   */
+  @Description("角色 引用 最大值")
   private String roleRefMax;
 
+  /**
+   * 角色 引用 最小值
+   */
+  @Description("角色 引用 最小值")
   private String roleRefMin;
 
+  /**
+   * 组 引用 数量
+   */
+  @Description("组 引用 数量")
   private Integer groupRefCount;
 
+  /**
+   * 组 引用 最大值
+   */
+  @Description("组 引用 最大值")
   private String groupRefMax;
 
+  /**
+   * 组 引用 最小值
+   */
+  @Description("组 引用 最小值")
   private String groupRefMin;
 
   public String getId() {

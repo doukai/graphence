@@ -76,10 +76,10 @@ public class User implements NamedStruct, Meta {
   private String email;
 
   /**
-   * 文件
+   * 头像
    */
-  @Description("文件")
-  private Collection<File> files;
+  @Description("头像")
+  private File avatar;
 
   /**
    * 手机号
@@ -111,98 +111,286 @@ public class User implements NamedStruct, Meta {
   @Description("租户")
   private Realm realm;
 
+  /**
+   * 已移除
+   */
+  @Description("已移除")
   private Boolean isDeprecated = false;
 
+  /**
+   * 版本
+   */
+  @Description("版本")
   private Integer version;
 
+  /**
+   * 域
+   */
+  @Description("域")
   private Integer realmId;
 
+  /**
+   * 创建者
+   */
+  @Description("创建者")
   private String createUserId;
 
+  /**
+   * 创建时间
+   */
+  @Description("创建时间")
   private LocalDateTime createTime;
 
+  /**
+   * 更新者
+   */
+  @Description("更新者")
   private String updateUserId;
 
+  /**
+   * 更新时间
+   */
+  @Description("更新时间")
   private LocalDateTime updateTime;
 
+  /**
+   * 创建组
+   */
+  @Description("创建组")
   private String createGroupId;
 
+  /**
+   * 所属类型
+   */
+  @Description("所属类型")
   private String __typename = "User";
 
+  /**
+   * 用户 文件 关系
+   */
+  @Description("用户 文件 关系")
   private Collection<FileUserRelation> fileUserRelation;
 
+  /**
+   * 用户 手机号 关系
+   */
+  @Description("用户 手机号 关系")
   private Collection<UserPhonesRelation> userPhonesRelation;
 
+  /**
+   * 用户 组 关系
+   */
+  @Description("用户 组 关系")
   private Collection<GroupUserRelation> groupUserRelation;
 
+  /**
+   * 用户 角色 关系
+   */
+  @Description("用户 角色 关系")
   private Collection<RoleUserRelation> roleUserRelation;
 
+  /**
+   * 组 统计字段
+   */
+  @Description("组 统计字段")
   private Group groupsAggregate;
 
+  /**
+   * 组 连接
+   */
+  @Description("组 连接")
   private GroupConnection groupsConnection;
 
+  /**
+   * 角色 统计字段
+   */
+  @Description("角色 统计字段")
   private Role rolesAggregate;
 
+  /**
+   * 角色 连接
+   */
+  @Description("角色 连接")
   private RoleConnection rolesConnection;
 
+  /**
+   * 用户 手机号 关系 统计字段
+   */
+  @Description("用户 手机号 关系 统计字段")
   private UserPhonesRelation userPhonesRelationAggregate;
 
+  /**
+   * 用户 手机号 关系 连接
+   */
+  @Description("用户 手机号 关系 连接")
   private UserPhonesRelationConnection userPhonesRelationConnection;
 
+  /**
+   * 用户 组 关系 统计字段
+   */
+  @Description("用户 组 关系 统计字段")
   private GroupUserRelation groupUserRelationAggregate;
 
+  /**
+   * 用户 组 关系 连接
+   */
+  @Description("用户 组 关系 连接")
   private GroupUserRelationConnection groupUserRelationConnection;
 
+  /**
+   * 用户 角色 关系 统计字段
+   */
+  @Description("用户 角色 关系 统计字段")
   private RoleUserRelation roleUserRelationAggregate;
 
+  /**
+   * 用户 角色 关系 连接
+   */
+  @Description("用户 角色 关系 连接")
   private RoleUserRelationConnection roleUserRelationConnection;
 
+  /**
+   * 用户 数量
+   */
+  @Description("用户 数量")
   private Integer idCount;
 
+  /**
+   * ID 最大值
+   */
+  @Description("ID 最大值")
   private Integer idMax;
 
+  /**
+   * ID 最小值
+   */
+  @Description("ID 最小值")
   private Integer idMin;
 
+  /**
+   * 姓名 数量
+   */
+  @Description("姓名 数量")
   private Integer nameCount;
 
+  /**
+   * 姓名 最大值
+   */
+  @Description("姓名 最大值")
   private String nameMax;
 
+  /**
+   * 姓名 最小值
+   */
+  @Description("姓名 最小值")
   private String nameMin;
 
+  /**
+   * 描述 数量
+   */
+  @Description("描述 数量")
   private Integer descriptionCount;
 
+  /**
+   * 描述 最大值
+   */
+  @Description("描述 最大值")
   private String descriptionMax;
 
+  /**
+   * 描述 最小值
+   */
+  @Description("描述 最小值")
   private String descriptionMin;
 
+  /**
+   * 姓氏 数量
+   */
+  @Description("姓氏 数量")
   private Integer lastNameCount;
 
+  /**
+   * 姓氏 最大值
+   */
+  @Description("姓氏 最大值")
   private String lastNameMax;
 
+  /**
+   * 姓氏 最小值
+   */
+  @Description("姓氏 最小值")
   private String lastNameMin;
 
+  /**
+   * 账号 数量
+   */
+  @Description("账号 数量")
   private Integer loginCount;
 
+  /**
+   * 账号 最大值
+   */
+  @Description("账号 最大值")
   private String loginMax;
 
+  /**
+   * 账号 最小值
+   */
+  @Description("账号 最小值")
   private String loginMin;
 
+  /**
+   * 盐 数量
+   */
+  @Description("盐 数量")
   private Integer saltCount;
 
+  /**
+   * 盐 最大值
+   */
+  @Description("盐 最大值")
   private String saltMax;
 
+  /**
+   * 盐 最小值
+   */
+  @Description("盐 最小值")
   private String saltMin;
 
+  /**
+   * 哈希 数量
+   */
+  @Description("哈希 数量")
   private Integer hashCount;
 
+  /**
+   * 哈希 最大值
+   */
+  @Description("哈希 最大值")
   private String hashMax;
 
+  /**
+   * 哈希 最小值
+   */
+  @Description("哈希 最小值")
   private String hashMin;
 
+  /**
+   * 邮箱 数量
+   */
+  @Description("邮箱 数量")
   private Integer emailCount;
 
+  /**
+   * 邮箱 最大值
+   */
+  @Description("邮箱 最大值")
   private String emailMax;
 
+  /**
+   * 邮箱 最小值
+   */
+  @Description("邮箱 最小值")
   private String emailMin;
 
   private Boolean syncUserPolicy;
@@ -275,12 +463,12 @@ public class User implements NamedStruct, Meta {
     this.email = email;
   }
 
-  public Collection<File> getFiles() {
-    return this.files;
+  public File getAvatar() {
+    return this.avatar;
   }
 
-  public void setFiles(Collection<File> files) {
-    this.files = files;
+  public void setAvatar(File avatar) {
+    this.avatar = avatar;
   }
 
   public Collection<String> getPhones() {

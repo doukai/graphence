@@ -11,61 +11,162 @@ import java.lang.Boolean;
 import java.lang.Override;
 import java.util.Collection;
 import org.eclipse.microprofile.graphql.DefaultValue;
+import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.Input;
 
+/**
+ * 角色 查询表达式
+ */
 @CompiledJson
 @Input
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
+@Description("角色 查询表达式")
 public class RoleExpression implements NamedStructExpression, MetaExpression {
+  /**
+   * ID
+   */
+  @Description("ID")
   private StringExpression id;
 
+  /**
+   * 名称
+   */
+  @Description("名称")
   private StringExpression name;
 
+  /**
+   * 描述
+   */
+  @Description("描述")
   private StringExpression description;
 
+  /**
+   * 用户
+   */
+  @Description("用户")
   private UserExpression users;
 
+  /**
+   * 组
+   */
+  @Description("组")
   private GroupExpression groups;
 
+  /**
+   * 组合
+   */
+  @Description("组合")
   private RoleExpression composites;
 
+  /**
+   * 权限
+   */
+  @Description("权限")
   private PermissionExpression permissions;
 
+  /**
+   * 租户
+   */
+  @Description("租户")
   private RealmExpression realm;
 
+  /**
+   * 包含已移除
+   */
   @DefaultValue("false")
+  @Description("包含已移除")
   private Boolean includeDeprecated = false;
 
+  /**
+   * 版本
+   */
+  @Description("版本")
   private IntExpression version;
 
+  /**
+   * 域
+   */
+  @Description("域")
   private IntExpression realmId;
 
+  /**
+   * 创建者
+   */
+  @Description("创建者")
   private StringExpression createUserId;
 
+  /**
+   * 创建时间
+   */
+  @Description("创建时间")
   private StringExpression createTime;
 
+  /**
+   * 更新者
+   */
+  @Description("更新者")
   private StringExpression updateUserId;
 
+  /**
+   * 更新时间
+   */
+  @Description("更新时间")
   private StringExpression updateTime;
 
+  /**
+   * 创建组
+   */
+  @Description("创建组")
   private StringExpression createGroupId;
 
+  /**
+   * 所属类型
+   */
+  @Description("所属类型")
   private StringExpression __typename;
 
+  /**
+   * 用户 角色 关系
+   */
+  @Description("用户 角色 关系")
   private RoleUserRelationExpression roleUserRelation;
 
+  /**
+   * 角色 组 关系
+   */
+  @Description("角色 组 关系")
   private GroupRoleRelationExpression groupRoleRelation;
 
+  /**
+   * 角色 角色 关系
+   */
+  @Description("角色 角色 关系")
   private RoleCompositeRelationExpression roleCompositeRelation;
 
+  /**
+   * 角色 权限 关系
+   */
+  @Description("角色 权限 关系")
   private PermissionRoleRelationExpression permissionRoleRelation;
 
+  /**
+   * 取非
+   */
   @DefaultValue("false")
+  @Description("取非")
   private Boolean not = false;
 
+  /**
+   * 与/或
+   */
   @DefaultValue("AND")
+  @Description("与/或")
   private Conditional cond = Conditional.AND;
 
+  /**
+   * 查询表达式组
+   */
+  @Description("查询表达式组")
   private Collection<RoleExpression> exs;
 
   public StringExpression getId() {

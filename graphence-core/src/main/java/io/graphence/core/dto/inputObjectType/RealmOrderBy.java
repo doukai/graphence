@@ -3,52 +3,141 @@ package io.graphence.core.dto.inputObjectType;
 import com.dslplatform.json.CompiledJson;
 import io.graphoenix.core.dto.enumType.Sort;
 import jakarta.annotation.Generated;
+import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.Input;
 
+/**
+ * 租户 排序
+ */
 @CompiledJson
 @Input
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
+@Description("租户 排序")
 public class RealmOrderBy {
+  /**
+   * ID
+   */
+  @Description("ID")
   private Sort id;
 
+  /**
+   * 名称
+   */
+  @Description("名称")
   private Sort name;
 
+  /**
+   * 描述
+   */
+  @Description("描述")
   private Sort description;
 
+  /**
+   * 已移除
+   */
+  @Description("已移除")
   private Sort isDeprecated;
 
+  /**
+   * 版本
+   */
+  @Description("版本")
   private Sort version;
 
+  /**
+   * 域
+   */
+  @Description("域")
   private Sort realmId;
 
+  /**
+   * 创建者
+   */
+  @Description("创建者")
   private Sort createUserId;
 
+  /**
+   * 创建时间
+   */
+  @Description("创建时间")
   private Sort createTime;
 
+  /**
+   * 更新者
+   */
+  @Description("更新者")
   private Sort updateUserId;
 
+  /**
+   * 更新时间
+   */
+  @Description("更新时间")
   private Sort updateTime;
 
+  /**
+   * 创建组
+   */
+  @Description("创建组")
   private Sort createGroupId;
 
+  /**
+   * 所属类型
+   */
+  @Description("所属类型")
   private Sort __typename;
 
+  /**
+   * 租户 数量
+   */
+  @Description("租户 数量")
   private Sort idCount;
 
+  /**
+   * ID 最大值
+   */
+  @Description("ID 最大值")
   private Sort idMax;
 
+  /**
+   * ID 最小值
+   */
+  @Description("ID 最小值")
   private Sort idMin;
 
+  /**
+   * 名称 数量
+   */
+  @Description("名称 数量")
   private Sort nameCount;
 
+  /**
+   * 名称 最大值
+   */
+  @Description("名称 最大值")
   private Sort nameMax;
 
+  /**
+   * 名称 最小值
+   */
+  @Description("名称 最小值")
   private Sort nameMin;
 
+  /**
+   * 描述 数量
+   */
+  @Description("描述 数量")
   private Sort descriptionCount;
 
+  /**
+   * 描述 最大值
+   */
+  @Description("描述 最大值")
   private Sort descriptionMax;
 
+  /**
+   * 描述 最小值
+   */
+  @Description("描述 最小值")
   private Sort descriptionMin;
 
   public Sort getId() {

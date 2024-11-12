@@ -10,40 +10,101 @@ import java.lang.Override;
 import java.lang.String;
 import java.time.LocalDateTime;
 import org.eclipse.microprofile.graphql.DefaultValue;
+import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.Input;
 
+/**
+ * 租户 变更参数
+ */
 @CompiledJson
 @Input
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
+@Description("租户 变更参数")
 public class RealmMutationArguments implements NamedStructInput, MetaInput {
+  /**
+   * ID
+   */
+  @Description("ID")
   private String id;
 
+  /**
+   * 名称
+   */
+  @Description("名称")
   private String name;
 
+  /**
+   * 描述
+   */
+  @Description("描述")
   private String description;
 
+  /**
+   * 已移除
+   */
   @DefaultValue("false")
+  @Description("已移除")
   private Boolean isDeprecated = false;
 
+  /**
+   * 版本
+   */
+  @Description("版本")
   private Integer version;
 
+  /**
+   * 域
+   */
+  @Description("域")
   private Integer realmId;
 
+  /**
+   * 创建者
+   */
+  @Description("创建者")
   private String createUserId;
 
+  /**
+   * 创建时间
+   */
+  @Description("创建时间")
   private LocalDateTime createTime;
 
+  /**
+   * 更新者
+   */
+  @Description("更新者")
   private String updateUserId;
 
+  /**
+   * 更新时间
+   */
+  @Description("更新时间")
   private LocalDateTime updateTime;
 
+  /**
+   * 创建组
+   */
+  @Description("创建组")
   private String createGroupId;
 
+  /**
+   * 所属类型
+   */
   @DefaultValue("\"Realm\"")
+  @Description("所属类型")
   private String __typename = "Realm";
 
+  /**
+   * 变更内容
+   */
+  @Description("变更内容")
   private RealmInput input;
 
+  /**
+   * 匹配条件
+   */
+  @Description("匹配条件")
   private RealmExpression where;
 
   public String getId() {

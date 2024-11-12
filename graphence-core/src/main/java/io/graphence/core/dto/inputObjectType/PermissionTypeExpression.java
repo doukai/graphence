@@ -6,17 +6,34 @@ import io.graphoenix.core.dto.enumType.Operator;
 import jakarta.annotation.Generated;
 import java.util.Collection;
 import org.eclipse.microprofile.graphql.DefaultValue;
+import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.Input;
 
+/**
+ * 权限类型 查询表达式
+ */
 @CompiledJson
 @Input
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
+@Description("权限类型 查询表达式")
 public class PermissionTypeExpression {
+  /**
+   * 条件
+   */
   @DefaultValue("EQ")
+  @Description("条件")
   private Operator opr = Operator.EQ;
 
+  /**
+   * 值
+   */
+  @Description("值")
   private PermissionType val;
 
+  /**
+   * 组
+   */
+  @Description("组")
   private Collection<PermissionType> arr;
 
   public Operator getOpr() {

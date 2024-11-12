@@ -1,6 +1,6 @@
-package io.graphence.core;
+package io.graphence.core.produces;
 
-import io.graphence.core.dto.CurrentUser;
+import io.graphence.core.dto.Current;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.enterprise.inject.Produces;
@@ -10,7 +10,7 @@ public class CurrentUserProducer {
 
     @Produces
     @RequestScoped
-    public CurrentUser currentUser() {
-        return new CurrentUser();
+    public Current currentUser() {
+        return new Current();
     }
 }

@@ -1,6 +1,6 @@
 package io.graphence.security.event;
 
-import io.graphence.core.dto.CurrentUser;
+import io.graphence.core.dto.Current;
 import io.graphoenix.spi.graphql.operation.Operation;
 import reactor.netty.http.server.HttpServerRequest;
 import reactor.netty.http.server.HttpServerResponse;
@@ -26,12 +26,12 @@ public abstract class BaseRequestFilter {
         return (Operation) context.get(OPERATION);
     }
 
-    protected CurrentUser getCurrentUser(Map<String, Object> context) {
-        return (CurrentUser) context.get(CURRENT_USER);
+    protected Current getCurrentUser(Map<String, Object> context) {
+        return (Current) context.get(CURRENT_USER);
     }
 
-    protected void setCurrentUser(Map<String, Object> context, CurrentUser currentUser) {
-        context.put(CURRENT_USER, currentUser);
+    protected void setCurrentUser(Map<String, Object> context, Current current) {
+        context.put(CURRENT_USER, current);
     }
 
     protected String getRequestId(Map<String, Object> context) {

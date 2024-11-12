@@ -3,7 +3,7 @@ package io.graphence.security.event;
 import com.password4j.Password;
 import io.graphence.core.config.SecurityConfig;
 import io.graphence.core.repository.LoginRepository;
-import io.graphence.core.dto.CurrentUser;
+import io.graphence.core.dto.Current;
 import io.graphence.core.error.AuthenticationException;
 import io.graphence.core.jwt.GraphenceJsonWebToken;
 import io.graphence.core.utils.JWTUtil;
@@ -58,7 +58,7 @@ public class JWTFilter extends BaseRequestFilter implements ScopeEvent {
             String jws = authorization.substring(7);
             try {
                 GraphenceJsonWebToken jsonWebToken = jwtUtil.parser(jws);
-                CurrentUser currentUser = new CurrentUser()
+                Current current = new Current()
                         .setId(jsonWebToken.getSubject())
                         .setName(jsonWebToken.getClaim(Claims.full_name))
                         .setLastName(jsonWebToken.getClaim(Claims.family_name))
@@ -66,9 +66,9 @@ public class JWTFilter extends BaseRequestFilter implements ScopeEvent {
                         .setGroups(jsonWebToken.getClaim(Claims.groups))
                         .setRoles(jsonWebToken.getClaim("roles"));
 
-                setCurrentUser(context, currentUser);
+                setCurrentUser(context, current);
                 setSessionId(context, jws);
-                return requestScopeInstanceFactory.compute(CurrentUser.class, currentUser).then();
+                return requestScopeInstanceFactory.compute(Current.class, current).then();
             } catch (Exception e) {
                 Operation operation = getOperation(context);
                 if (operation != null) {
@@ -96,13 +96,13 @@ public class JWTFilter extends BaseRequestFilter implements ScopeEvent {
                             }
                     )
                     .switchIfEmpty(Mono.error(new AuthenticationException(AUTHENTICATION_FAILED)))
-                    .map(CurrentUser::of)
+                    .map(Current::of)
                     .doOnSuccess(currentUser -> {
                                 setCurrentUser(context, currentUser);
                                 setSessionId(context, token);
                             }
                     )
-                    .flatMap(currentUser -> requestScopeInstanceFactory.compute(CurrentUser.class, currentUser))
+                    .flatMap(currentUser -> requestScopeInstanceFactory.compute(Current.class, currentUser))
                     .then();
         }
         Operation operation = getOperation(context);

@@ -11,50 +11,131 @@ import java.lang.String;
 import java.time.LocalDateTime;
 import java.util.Collection;
 import org.eclipse.microprofile.graphql.DefaultValue;
+import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.Input;
 
+/**
+ * 权限 变更参数
+ */
 @CompiledJson
 @Input
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
+@Description("权限 变更参数")
 public class PermissionMutationArguments implements MetaInput {
+  /**
+   * 名称
+   */
+  @Description("名称")
   private String name;
 
+  /**
+   * 描述
+   */
+  @Description("描述")
   private String description;
 
+  /**
+   * 字段
+   */
+  @Description("字段")
   private String field;
 
+  /**
+   * 实体
+   */
+  @Description("实体")
   private String type;
 
+  /**
+   * 权限类型
+   */
+  @Description("权限类型")
   private PermissionType permissionType;
 
+  /**
+   * 角色
+   */
+  @Description("角色")
   private Collection<RoleInput> roles;
 
+  /**
+   * 租户
+   */
+  @Description("租户")
   private RealmInput realm;
 
+  /**
+   * 已移除
+   */
   @DefaultValue("false")
+  @Description("已移除")
   private Boolean isDeprecated = false;
 
+  /**
+   * 版本
+   */
+  @Description("版本")
   private Integer version;
 
+  /**
+   * 域
+   */
+  @Description("域")
   private Integer realmId;
 
+  /**
+   * 创建者
+   */
+  @Description("创建者")
   private String createUserId;
 
+  /**
+   * 创建时间
+   */
+  @Description("创建时间")
   private LocalDateTime createTime;
 
+  /**
+   * 更新者
+   */
+  @Description("更新者")
   private String updateUserId;
 
+  /**
+   * 更新时间
+   */
+  @Description("更新时间")
   private LocalDateTime updateTime;
 
+  /**
+   * 创建组
+   */
+  @Description("创建组")
   private String createGroupId;
 
+  /**
+   * 所属类型
+   */
   @DefaultValue("\"Permission\"")
+  @Description("所属类型")
   private String __typename = "Permission";
 
+  /**
+   * 角色 权限 关系
+   */
+  @Description("角色 权限 关系")
   private Collection<PermissionRoleRelationInput> permissionRoleRelation;
 
+  /**
+   * 变更内容
+   */
+  @Description("变更内容")
   private PermissionInput input;
 
+  /**
+   * 匹配条件
+   */
+  @Description("匹配条件")
   private PermissionExpression where;
 
   public String getName() {

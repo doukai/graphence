@@ -4,56 +4,153 @@ import com.dslplatform.json.CompiledJson;
 import io.graphoenix.core.dto.enumType.Sort;
 import io.graphoenix.file.dto.inputObjectType.FileOrderBy;
 import jakarta.annotation.Generated;
+import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.Input;
 
+/**
+ * 用户 文件 关系 排序
+ */
 @CompiledJson
 @Input
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
+@Description("用户 文件 关系 排序")
 public class FileUserRelationOrderBy {
+  /**
+   * ID
+   */
+  @Description("ID")
   private Sort id;
 
+  /**
+   * 用户 引用
+   */
+  @Description("用户 引用")
   private Sort userRef;
 
+  /**
+   * 用户
+   */
+  @Description("用户")
   private UserOrderBy user;
 
+  /**
+   * 文件 引用
+   */
+  @Description("文件 引用")
   private Sort fileRef;
 
+  /**
+   * 文件
+   */
+  @Description("文件")
   private FileOrderBy file;
 
+  /**
+   * 已移除
+   */
+  @Description("已移除")
   private Sort isDeprecated;
 
+  /**
+   * 版本
+   */
+  @Description("版本")
   private Sort version;
 
+  /**
+   * 域
+   */
+  @Description("域")
   private Sort realmId;
 
+  /**
+   * 创建者
+   */
+  @Description("创建者")
   private Sort createUserId;
 
+  /**
+   * 创建时间
+   */
+  @Description("创建时间")
   private Sort createTime;
 
+  /**
+   * 更新者
+   */
+  @Description("更新者")
   private Sort updateUserId;
 
+  /**
+   * 更新时间
+   */
+  @Description("更新时间")
   private Sort updateTime;
 
+  /**
+   * 创建组
+   */
+  @Description("创建组")
   private Sort createGroupId;
 
+  /**
+   * 所属类型
+   */
+  @Description("所属类型")
   private Sort __typename;
 
+  /**
+   * 用户 文件 关系 数量
+   */
+  @Description("用户 文件 关系 数量")
   private Sort idCount;
 
+  /**
+   * ID 最大值
+   */
+  @Description("ID 最大值")
   private Sort idMax;
 
+  /**
+   * ID 最小值
+   */
+  @Description("ID 最小值")
   private Sort idMin;
 
+  /**
+   * 用户 引用 数量
+   */
+  @Description("用户 引用 数量")
   private Sort userRefCount;
 
+  /**
+   * 用户 引用 最大值
+   */
+  @Description("用户 引用 最大值")
   private Sort userRefMax;
 
+  /**
+   * 用户 引用 最小值
+   */
+  @Description("用户 引用 最小值")
   private Sort userRefMin;
 
+  /**
+   * 文件 引用 数量
+   */
+  @Description("文件 引用 数量")
   private Sort fileRefCount;
 
+  /**
+   * 文件 引用 最大值
+   */
+  @Description("文件 引用 最大值")
   private Sort fileRefMax;
 
+  /**
+   * 文件 引用 最小值
+   */
+  @Description("文件 引用 最小值")
   private Sort fileRefMin;
 
   public Sort getId() {

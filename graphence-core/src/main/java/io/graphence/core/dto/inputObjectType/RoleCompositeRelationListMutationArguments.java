@@ -10,44 +10,113 @@ import java.lang.String;
 import java.time.LocalDateTime;
 import java.util.Collection;
 import org.eclipse.microprofile.graphql.DefaultValue;
+import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.Input;
 
+/**
+ * 角色 角色 关系列表 变更参数 
+ */
 @CompiledJson
 @Input
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
+@Description("角色 角色 关系列表 变更参数 ")
 public class RoleCompositeRelationListMutationArguments implements MetaInput {
+  /**
+   * ID
+   */
+  @Description("ID")
   private String id;
 
+  /**
+   * 角色 引用
+   */
+  @Description("角色 引用")
   private String roleRef;
 
+  /**
+   * 角色
+   */
+  @Description("角色")
   private RoleInput role;
 
+  /**
+   * 角色 引用
+   */
+  @Description("角色 引用")
   private String compositeRef;
 
+  /**
+   * 角色
+   */
+  @Description("角色")
   private RoleInput composite;
 
+  /**
+   * 已移除
+   */
   @DefaultValue("false")
+  @Description("已移除")
   private Boolean isDeprecated = false;
 
+  /**
+   * 版本
+   */
+  @Description("版本")
   private Integer version;
 
+  /**
+   * 域
+   */
+  @Description("域")
   private Integer realmId;
 
+  /**
+   * 创建者
+   */
+  @Description("创建者")
   private String createUserId;
 
+  /**
+   * 创建时间
+   */
+  @Description("创建时间")
   private LocalDateTime createTime;
 
+  /**
+   * 更新者
+   */
+  @Description("更新者")
   private String updateUserId;
 
+  /**
+   * 更新时间
+   */
+  @Description("更新时间")
   private LocalDateTime updateTime;
 
+  /**
+   * 创建组
+   */
+  @Description("创建组")
   private String createGroupId;
 
+  /**
+   * 所属类型
+   */
   @DefaultValue("\"RoleCompositeRelation\"")
+  @Description("所属类型")
   private String __typename = "RoleCompositeRelation";
 
+  /**
+   * 变更内容列表
+   */
+  @Description("变更内容列表")
   private Collection<RoleCompositeRelationInput> list;
 
+  /**
+   * 匹配条件
+   */
+  @Description("匹配条件")
   private RoleCompositeRelationExpression where;
 
   public String getId() {

@@ -13,73 +13,198 @@ import java.lang.Boolean;
 import java.lang.Override;
 import java.util.Collection;
 import org.eclipse.microprofile.graphql.DefaultValue;
+import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.Input;
 
+/**
+ * 用户 查询表达式
+ */
 @CompiledJson
 @Input
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
+@Description("用户 查询表达式")
 public class UserExpression implements NamedStructExpression, MetaExpression {
+  /**
+   * ID
+   */
+  @Description("ID")
   private StringExpression id;
 
+  /**
+   * 姓名
+   */
+  @Description("姓名")
   private StringExpression name;
 
+  /**
+   * 描述
+   */
+  @Description("描述")
   private StringExpression description;
 
+  /**
+   * 姓氏
+   */
+  @Description("姓氏")
   private StringExpression lastName;
 
+  /**
+   * 账号
+   */
+  @Description("账号")
   private StringExpression login;
 
+  /**
+   * 盐
+   */
+  @Description("盐")
   private StringExpression salt;
 
+  /**
+   * 哈希
+   */
+  @Description("哈希")
   private StringExpression hash;
 
+  /**
+   * 邮箱
+   */
+  @Description("邮箱")
   private StringExpression email;
 
-  private FileExpression files;
+  /**
+   * 头像
+   */
+  @Description("头像")
+  private FileExpression avatar;
 
+  /**
+   * 手机号
+   */
+  @Description("手机号")
   private StringExpression phones;
 
+  /**
+   * 禁用
+   */
+  @Description("禁用")
   private BooleanExpression disable;
 
+  /**
+   * 组
+   */
+  @Description("组")
   private GroupExpression groups;
 
+  /**
+   * 角色
+   */
+  @Description("角色")
   private RoleExpression roles;
 
+  /**
+   * 租户
+   */
+  @Description("租户")
   private RealmExpression realm;
 
+  /**
+   * 包含已移除
+   */
   @DefaultValue("false")
+  @Description("包含已移除")
   private Boolean includeDeprecated = false;
 
+  /**
+   * 版本
+   */
+  @Description("版本")
   private IntExpression version;
 
+  /**
+   * 域
+   */
+  @Description("域")
   private IntExpression realmId;
 
+  /**
+   * 创建者
+   */
+  @Description("创建者")
   private StringExpression createUserId;
 
+  /**
+   * 创建时间
+   */
+  @Description("创建时间")
   private StringExpression createTime;
 
+  /**
+   * 更新者
+   */
+  @Description("更新者")
   private StringExpression updateUserId;
 
+  /**
+   * 更新时间
+   */
+  @Description("更新时间")
   private StringExpression updateTime;
 
+  /**
+   * 创建组
+   */
+  @Description("创建组")
   private StringExpression createGroupId;
 
+  /**
+   * 所属类型
+   */
+  @Description("所属类型")
   private StringExpression __typename;
 
+  /**
+   * 用户 文件 关系
+   */
+  @Description("用户 文件 关系")
   private FileUserRelationExpression fileUserRelation;
 
+  /**
+   * 用户 手机号 关系
+   */
+  @Description("用户 手机号 关系")
   private UserPhonesRelationExpression userPhonesRelation;
 
+  /**
+   * 用户 组 关系
+   */
+  @Description("用户 组 关系")
   private GroupUserRelationExpression groupUserRelation;
 
+  /**
+   * 用户 角色 关系
+   */
+  @Description("用户 角色 关系")
   private RoleUserRelationExpression roleUserRelation;
 
+  /**
+   * 取非
+   */
   @DefaultValue("false")
+  @Description("取非")
   private Boolean not = false;
 
+  /**
+   * 与/或
+   */
   @DefaultValue("AND")
+  @Description("与/或")
   private Conditional cond = Conditional.AND;
 
+  /**
+   * 查询表达式组
+   */
+  @Description("查询表达式组")
   private Collection<UserExpression> exs;
 
   public StringExpression getId() {
@@ -150,12 +275,12 @@ public class UserExpression implements NamedStructExpression, MetaExpression {
     this.email = email;
   }
 
-  public FileExpression getFiles() {
-    return this.files;
+  public FileExpression getAvatar() {
+    return this.avatar;
   }
 
-  public void setFiles(FileExpression files) {
-    this.files = files;
+  public void setAvatar(FileExpression avatar) {
+    this.avatar = avatar;
   }
 
   public StringExpression getPhones() {

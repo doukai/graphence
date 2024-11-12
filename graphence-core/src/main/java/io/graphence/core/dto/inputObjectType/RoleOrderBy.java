@@ -3,86 +3,243 @@ package io.graphence.core.dto.inputObjectType;
 import com.dslplatform.json.CompiledJson;
 import io.graphoenix.core.dto.enumType.Sort;
 import jakarta.annotation.Generated;
+import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.Input;
 
+/**
+ * 角色 排序
+ */
 @CompiledJson
 @Input
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
+@Description("角色 排序")
 public class RoleOrderBy {
+  /**
+   * ID
+   */
+  @Description("ID")
   private Sort id;
 
+  /**
+   * 名称
+   */
+  @Description("名称")
   private Sort name;
 
+  /**
+   * 描述
+   */
+  @Description("描述")
   private Sort description;
 
+  /**
+   * 用户
+   */
+  @Description("用户")
   private UserOrderBy users;
 
+  /**
+   * 组
+   */
+  @Description("组")
   private GroupOrderBy groups;
 
+  /**
+   * 组合
+   */
+  @Description("组合")
   private RoleOrderBy composites;
 
+  /**
+   * 权限
+   */
+  @Description("权限")
   private PermissionOrderBy permissions;
 
+  /**
+   * 租户
+   */
+  @Description("租户")
   private RealmOrderBy realm;
 
+  /**
+   * 已移除
+   */
+  @Description("已移除")
   private Sort isDeprecated;
 
+  /**
+   * 版本
+   */
+  @Description("版本")
   private Sort version;
 
+  /**
+   * 域
+   */
+  @Description("域")
   private Sort realmId;
 
+  /**
+   * 创建者
+   */
+  @Description("创建者")
   private Sort createUserId;
 
+  /**
+   * 创建时间
+   */
+  @Description("创建时间")
   private Sort createTime;
 
+  /**
+   * 更新者
+   */
+  @Description("更新者")
   private Sort updateUserId;
 
+  /**
+   * 更新时间
+   */
+  @Description("更新时间")
   private Sort updateTime;
 
+  /**
+   * 创建组
+   */
+  @Description("创建组")
   private Sort createGroupId;
 
+  /**
+   * 所属类型
+   */
+  @Description("所属类型")
   private Sort __typename;
 
+  /**
+   * 用户 角色 关系
+   */
+  @Description("用户 角色 关系")
   private RoleUserRelationOrderBy roleUserRelation;
 
+  /**
+   * 角色 组 关系
+   */
+  @Description("角色 组 关系")
   private GroupRoleRelationOrderBy groupRoleRelation;
 
+  /**
+   * 角色 角色 关系
+   */
+  @Description("角色 角色 关系")
   private RoleCompositeRelationOrderBy roleCompositeRelation;
 
+  /**
+   * 角色 权限 关系
+   */
+  @Description("角色 权限 关系")
   private PermissionRoleRelationOrderBy permissionRoleRelation;
 
+  /**
+   * 用户 统计字段
+   */
+  @Description("用户 统计字段")
   private UserOrderBy usersAggregate;
 
+  /**
+   * 组 统计字段
+   */
+  @Description("组 统计字段")
   private GroupOrderBy groupsAggregate;
 
+  /**
+   * 组合 统计字段
+   */
+  @Description("组合 统计字段")
   private RoleOrderBy compositesAggregate;
 
+  /**
+   * 权限 统计字段
+   */
+  @Description("权限 统计字段")
   private PermissionOrderBy permissionsAggregate;
 
+  /**
+   * 用户 角色 关系 统计字段
+   */
+  @Description("用户 角色 关系 统计字段")
   private RoleUserRelationOrderBy roleUserRelationAggregate;
 
+  /**
+   * 角色 组 关系 统计字段
+   */
+  @Description("角色 组 关系 统计字段")
   private GroupRoleRelationOrderBy groupRoleRelationAggregate;
 
+  /**
+   * 角色 角色 关系 统计字段
+   */
+  @Description("角色 角色 关系 统计字段")
   private RoleCompositeRelationOrderBy roleCompositeRelationAggregate;
 
+  /**
+   * 角色 权限 关系 统计字段
+   */
+  @Description("角色 权限 关系 统计字段")
   private PermissionRoleRelationOrderBy permissionRoleRelationAggregate;
 
+  /**
+   * 角色 数量
+   */
+  @Description("角色 数量")
   private Sort idCount;
 
+  /**
+   * ID 最大值
+   */
+  @Description("ID 最大值")
   private Sort idMax;
 
+  /**
+   * ID 最小值
+   */
+  @Description("ID 最小值")
   private Sort idMin;
 
+  /**
+   * 名称 数量
+   */
+  @Description("名称 数量")
   private Sort nameCount;
 
+  /**
+   * 名称 最大值
+   */
+  @Description("名称 最大值")
   private Sort nameMax;
 
+  /**
+   * 名称 最小值
+   */
+  @Description("名称 最小值")
   private Sort nameMin;
 
+  /**
+   * 描述 数量
+   */
+  @Description("描述 数量")
   private Sort descriptionCount;
 
+  /**
+   * 描述 最大值
+   */
+  @Description("描述 最大值")
   private Sort descriptionMax;
 
+  /**
+   * 描述 最小值
+   */
+  @Description("描述 最小值")
   private Sort descriptionMin;
 
   public Sort getId() {

@@ -22,59 +22,59 @@ message User {
     string salt = 6; /* 盐 */
     string hash = 7; /* 哈希 */
     string email = 8; /* 邮箱 */
-    repeated io.graphoenix.file.File files = 9; /* 文件 */
+    io.graphoenix.file.File avatar = 9; /* 头像 */
     repeated string phones = 10; /* 手机号 */
     bool disable = 11; /* 禁用 */
     repeated Group groups = 12; /* 组 */
     repeated Role roles = 13; /* 角色 */
     Realm realm = 14; /* 租户 */
-    bool is_deprecated = 15;
-    int32 version = 16;
-    int32 realm_id = 17;
-    string create_user_id = 18;
-    google.protobuf.Timestamp create_time = 19;
-    string update_user_id = 20;
-    google.protobuf.Timestamp update_time = 21;
-    string create_group_id = 22;
-    string intro_typename = 23;
-    repeated FileUserRelation file_user_relation = 24;
-    repeated UserPhonesRelation user_phones_relation = 25;
-    repeated GroupUserRelation group_user_relation = 26;
-    repeated RoleUserRelation role_user_relation = 27;
-    Group groups_aggregate = 28;
-    GroupConnection groups_connection = 29;
-    Role roles_aggregate = 30;
-    RoleConnection roles_connection = 31;
-    UserPhonesRelation user_phones_relation_aggregate = 32;
-    UserPhonesRelationConnection user_phones_relation_connection = 33;
-    GroupUserRelation group_user_relation_aggregate = 34;
-    GroupUserRelationConnection group_user_relation_connection = 35;
-    RoleUserRelation role_user_relation_aggregate = 36;
-    RoleUserRelationConnection role_user_relation_connection = 37;
-    int32 id_count = 38;
-    int32 id_max = 39;
-    int32 id_min = 40;
-    int32 name_count = 41;
-    string name_max = 42;
-    string name_min = 43;
-    int32 description_count = 44;
-    string description_max = 45;
-    string description_min = 46;
-    int32 last_name_count = 47;
-    string last_name_max = 48;
-    string last_name_min = 49;
-    int32 login_count = 50;
-    string login_max = 51;
-    string login_min = 52;
-    int32 salt_count = 53;
-    string salt_max = 54;
-    string salt_min = 55;
-    int32 hash_count = 56;
-    string hash_max = 57;
-    string hash_min = 58;
-    int32 email_count = 59;
-    string email_max = 60;
-    string email_min = 61;
+    bool is_deprecated = 15; /* 已移除 */
+    int32 version = 16; /* 版本 */
+    int32 realm_id = 17; /* 域 */
+    string create_user_id = 18; /* 创建者 */
+    google.protobuf.Timestamp create_time = 19; /* 创建时间 */
+    string update_user_id = 20; /* 更新者 */
+    google.protobuf.Timestamp update_time = 21; /* 更新时间 */
+    string create_group_id = 22; /* 创建组 */
+    string intro_typename = 23; /* 所属类型 */
+    repeated FileUserRelation file_user_relation = 24; /* 用户 文件 关系 */
+    repeated UserPhonesRelation user_phones_relation = 25; /* 用户 手机号 关系 */
+    repeated GroupUserRelation group_user_relation = 26; /* 用户 组 关系 */
+    repeated RoleUserRelation role_user_relation = 27; /* 用户 角色 关系 */
+    Group groups_aggregate = 28; /* 组 统计字段 */
+    GroupConnection groups_connection = 29; /* 组 连接 */
+    Role roles_aggregate = 30; /* 角色 统计字段 */
+    RoleConnection roles_connection = 31; /* 角色 连接 */
+    UserPhonesRelation user_phones_relation_aggregate = 32; /* 用户 手机号 关系 统计字段 */
+    UserPhonesRelationConnection user_phones_relation_connection = 33; /* 用户 手机号 关系 连接 */
+    GroupUserRelation group_user_relation_aggregate = 34; /* 用户 组 关系 统计字段 */
+    GroupUserRelationConnection group_user_relation_connection = 35; /* 用户 组 关系 连接 */
+    RoleUserRelation role_user_relation_aggregate = 36; /* 用户 角色 关系 统计字段 */
+    RoleUserRelationConnection role_user_relation_connection = 37; /* 用户 角色 关系 连接 */
+    int32 id_count = 38; /* 用户 数量 */
+    int32 id_max = 39; /* ID 最大值 */
+    int32 id_min = 40; /* ID 最小值 */
+    int32 name_count = 41; /* 姓名 数量 */
+    string name_max = 42; /* 姓名 最大值 */
+    string name_min = 43; /* 姓名 最小值 */
+    int32 description_count = 44; /* 描述 数量 */
+    string description_max = 45; /* 描述 最大值 */
+    string description_min = 46; /* 描述 最小值 */
+    int32 last_name_count = 47; /* 姓氏 数量 */
+    string last_name_max = 48; /* 姓氏 最大值 */
+    string last_name_min = 49; /* 姓氏 最小值 */
+    int32 login_count = 50; /* 账号 数量 */
+    string login_max = 51; /* 账号 最大值 */
+    string login_min = 52; /* 账号 最小值 */
+    int32 salt_count = 53; /* 盐 数量 */
+    string salt_max = 54; /* 盐 最大值 */
+    string salt_min = 55; /* 盐 最小值 */
+    int32 hash_count = 56; /* 哈希 数量 */
+    string hash_max = 57; /* 哈希 最大值 */
+    string hash_min = 58; /* 哈希 最小值 */
+    int32 email_count = 59; /* 邮箱 数量 */
+    string email_max = 60; /* 邮箱 最大值 */
+    string email_min = 61; /* 邮箱 最小值 */
     bool sync_user_policy = 62;
 }
 /**
@@ -89,44 +89,44 @@ message Role {
     repeated Role composites = 6; /* 组合 */
     repeated Permission permissions = 7; /* 权限 */
     Realm realm = 8; /* 租户 */
-    bool is_deprecated = 9;
-    int32 version = 10;
-    int32 realm_id = 11;
-    string create_user_id = 12;
-    google.protobuf.Timestamp create_time = 13;
-    string update_user_id = 14;
-    google.protobuf.Timestamp update_time = 15;
-    string create_group_id = 16;
-    string intro_typename = 17;
-    repeated RoleUserRelation role_user_relation = 18;
-    repeated GroupRoleRelation group_role_relation = 19;
-    repeated RoleCompositeRelation role_composite_relation = 20;
-    repeated PermissionRoleRelation permission_role_relation = 21;
-    User users_aggregate = 22;
-    UserConnection users_connection = 23;
-    Group groups_aggregate = 24;
-    GroupConnection groups_connection = 25;
-    Role composites_aggregate = 26;
-    RoleConnection composites_connection = 27;
-    Permission permissions_aggregate = 28;
-    PermissionConnection permissions_connection = 29;
-    RoleUserRelation role_user_relation_aggregate = 30;
-    RoleUserRelationConnection role_user_relation_connection = 31;
-    GroupRoleRelation group_role_relation_aggregate = 32;
-    GroupRoleRelationConnection group_role_relation_connection = 33;
-    RoleCompositeRelation role_composite_relation_aggregate = 34;
-    RoleCompositeRelationConnection role_composite_relation_connection = 35;
-    PermissionRoleRelation permission_role_relation_aggregate = 36;
-    PermissionRoleRelationConnection permission_role_relation_connection = 37;
-    int32 id_count = 38;
-    int32 id_max = 39;
-    int32 id_min = 40;
-    int32 name_count = 41;
-    string name_max = 42;
-    string name_min = 43;
-    int32 description_count = 44;
-    string description_max = 45;
-    string description_min = 46;
+    bool is_deprecated = 9; /* 已移除 */
+    int32 version = 10; /* 版本 */
+    int32 realm_id = 11; /* 域 */
+    string create_user_id = 12; /* 创建者 */
+    google.protobuf.Timestamp create_time = 13; /* 创建时间 */
+    string update_user_id = 14; /* 更新者 */
+    google.protobuf.Timestamp update_time = 15; /* 更新时间 */
+    string create_group_id = 16; /* 创建组 */
+    string intro_typename = 17; /* 所属类型 */
+    repeated RoleUserRelation role_user_relation = 18; /* 用户 角色 关系 */
+    repeated GroupRoleRelation group_role_relation = 19; /* 角色 组 关系 */
+    repeated RoleCompositeRelation role_composite_relation = 20; /* 角色 角色 关系 */
+    repeated PermissionRoleRelation permission_role_relation = 21; /* 角色 权限 关系 */
+    User users_aggregate = 22; /* 用户 统计字段 */
+    UserConnection users_connection = 23; /* 用户 连接 */
+    Group groups_aggregate = 24; /* 组 统计字段 */
+    GroupConnection groups_connection = 25; /* 组 连接 */
+    Role composites_aggregate = 26; /* 组合 统计字段 */
+    RoleConnection composites_connection = 27; /* 组合 连接 */
+    Permission permissions_aggregate = 28; /* 权限 统计字段 */
+    PermissionConnection permissions_connection = 29; /* 权限 连接 */
+    RoleUserRelation role_user_relation_aggregate = 30; /* 用户 角色 关系 统计字段 */
+    RoleUserRelationConnection role_user_relation_connection = 31; /* 用户 角色 关系 连接 */
+    GroupRoleRelation group_role_relation_aggregate = 32; /* 角色 组 关系 统计字段 */
+    GroupRoleRelationConnection group_role_relation_connection = 33; /* 角色 组 关系 连接 */
+    RoleCompositeRelation role_composite_relation_aggregate = 34; /* 角色 角色 关系 统计字段 */
+    RoleCompositeRelationConnection role_composite_relation_connection = 35; /* 角色 角色 关系 连接 */
+    PermissionRoleRelation permission_role_relation_aggregate = 36; /* 角色 权限 关系 统计字段 */
+    PermissionRoleRelationConnection permission_role_relation_connection = 37; /* 角色 权限 关系 连接 */
+    int32 id_count = 38; /* 角色 数量 */
+    int32 id_max = 39; /* ID 最大值 */
+    int32 id_min = 40; /* ID 最小值 */
+    int32 name_count = 41; /* 名称 数量 */
+    string name_max = 42; /* 名称 最大值 */
+    string name_min = 43; /* 名称 最小值 */
+    int32 description_count = 44; /* 描述 数量 */
+    string description_max = 45; /* 描述 最大值 */
+    string description_min = 46; /* 描述 最小值 */
     bool sync_role_policy = 47;
 }
 /**
@@ -144,47 +144,47 @@ message Group {
     repeated User users = 9; /* 用户 */
     repeated Role roles = 10; /* 角色 */
     Realm realm = 11; /* 租户 */
-    bool is_deprecated = 12;
-    int32 version = 13;
-    int32 realm_id = 14;
-    string create_user_id = 15;
-    google.protobuf.Timestamp create_time = 16;
-    string update_user_id = 17;
-    google.protobuf.Timestamp update_time = 18;
-    string create_group_id = 19;
-    string intro_typename = 20;
-    repeated GroupUserRelation group_user_relation = 21;
-    repeated GroupRoleRelation group_role_relation = 22;
-    Group sub_groups_aggregate = 23;
-    GroupConnection sub_groups_connection = 24;
-    User users_aggregate = 25;
-    UserConnection users_connection = 26;
-    Role roles_aggregate = 27;
-    RoleConnection roles_connection = 28;
-    GroupUserRelation group_user_relation_aggregate = 29;
-    GroupUserRelationConnection group_user_relation_connection = 30;
-    GroupRoleRelation group_role_relation_aggregate = 31;
-    GroupRoleRelationConnection group_role_relation_connection = 32;
-    int32 id_count = 33;
-    int32 id_max = 34;
-    int32 id_min = 35;
-    int32 name_count = 36;
-    string name_max = 37;
-    string name_min = 38;
-    int32 description_count = 39;
-    string description_max = 40;
-    string description_min = 41;
-    int32 path_count = 42;
-    string path_max = 43;
-    string path_min = 44;
-    int32 parent_id_count = 45;
-    string parent_id_max = 46;
-    string parent_id_min = 47;
-    int32 deep_count = 48;
-    int32 deep_sum = 49;
-    int32 deep_avg = 50;
-    int32 deep_max = 51;
-    int32 deep_min = 52;
+    bool is_deprecated = 12; /* 已移除 */
+    int32 version = 13; /* 版本 */
+    int32 realm_id = 14; /* 域 */
+    string create_user_id = 15; /* 创建者 */
+    google.protobuf.Timestamp create_time = 16; /* 创建时间 */
+    string update_user_id = 17; /* 更新者 */
+    google.protobuf.Timestamp update_time = 18; /* 更新时间 */
+    string create_group_id = 19; /* 创建组 */
+    string intro_typename = 20; /* 所属类型 */
+    repeated GroupUserRelation group_user_relation = 21; /* 用户 组 关系 */
+    repeated GroupRoleRelation group_role_relation = 22; /* 角色 组 关系 */
+    Group sub_groups_aggregate = 23; /* 下级 统计字段 */
+    GroupConnection sub_groups_connection = 24; /* 下级 连接 */
+    User users_aggregate = 25; /* 用户 统计字段 */
+    UserConnection users_connection = 26; /* 用户 连接 */
+    Role roles_aggregate = 27; /* 角色 统计字段 */
+    RoleConnection roles_connection = 28; /* 角色 连接 */
+    GroupUserRelation group_user_relation_aggregate = 29; /* 用户 组 关系 统计字段 */
+    GroupUserRelationConnection group_user_relation_connection = 30; /* 用户 组 关系 连接 */
+    GroupRoleRelation group_role_relation_aggregate = 31; /* 角色 组 关系 统计字段 */
+    GroupRoleRelationConnection group_role_relation_connection = 32; /* 角色 组 关系 连接 */
+    int32 id_count = 33; /* 组 数量 */
+    int32 id_max = 34; /* ID 最大值 */
+    int32 id_min = 35; /* ID 最小值 */
+    int32 name_count = 36; /* 名称 数量 */
+    string name_max = 37; /* 名称 最大值 */
+    string name_min = 38; /* 名称 最小值 */
+    int32 description_count = 39; /* 描述 数量 */
+    string description_max = 40; /* 描述 最大值 */
+    string description_min = 41; /* 描述 最小值 */
+    int32 path_count = 42; /* 路径 数量 */
+    string path_max = 43; /* 路径 最大值 */
+    string path_min = 44; /* 路径 最小值 */
+    int32 parent_id_count = 45; /* 上级ID 数量 */
+    string parent_id_max = 46; /* 上级ID 最大值 */
+    string parent_id_min = 47; /* 上级ID 最小值 */
+    int32 deep_count = 48; /* 层级 数量 */
+    int32 deep_sum = 49; /* 层级 合计 */
+    int32 deep_avg = 50; /* 层级 平均值 */
+    int32 deep_max = 51; /* 层级 最大值 */
+    int32 deep_min = 52; /* 层级 最小值 */
     bool sync_group_policy = 53;
 }
 /**
@@ -194,24 +194,24 @@ message Realm {
     string id = 1; /* ID */
     optional string name = 2; /* 名称 */
     string description = 3; /* 描述 */
-    bool is_deprecated = 4;
-    int32 version = 5;
-    int32 realm_id = 6;
-    string create_user_id = 7;
-    google.protobuf.Timestamp create_time = 8;
-    string update_user_id = 9;
-    google.protobuf.Timestamp update_time = 10;
-    string create_group_id = 11;
-    string intro_typename = 12;
-    int32 id_count = 13;
-    int32 id_max = 14;
-    int32 id_min = 15;
-    int32 name_count = 16;
-    string name_max = 17;
-    string name_min = 18;
-    int32 description_count = 19;
-    string description_max = 20;
-    string description_min = 21;
+    bool is_deprecated = 4; /* 已移除 */
+    int32 version = 5; /* 版本 */
+    int32 realm_id = 6; /* 域 */
+    string create_user_id = 7; /* 创建者 */
+    google.protobuf.Timestamp create_time = 8; /* 创建时间 */
+    string update_user_id = 9; /* 更新者 */
+    google.protobuf.Timestamp update_time = 10; /* 更新时间 */
+    string create_group_id = 11; /* 创建组 */
+    string intro_typename = 12; /* 所属类型 */
+    int32 id_count = 13; /* 租户 数量 */
+    int32 id_max = 14; /* ID 最大值 */
+    int32 id_min = 15; /* ID 最小值 */
+    int32 name_count = 16; /* 名称 数量 */
+    string name_max = 17; /* 名称 最大值 */
+    string name_min = 18; /* 名称 最小值 */
+    int32 description_count = 19; /* 描述 数量 */
+    string description_max = 20; /* 描述 最大值 */
+    string description_min = 21; /* 描述 最小值 */
 }
 /**
 * 权限
@@ -224,335 +224,428 @@ message Permission {
     optional PermissionType permission_type = 5; /* 权限类型 */
     repeated Role roles = 6; /* 角色 */
     Realm realm = 7; /* 租户 */
-    bool is_deprecated = 8;
-    int32 version = 9;
-    int32 realm_id = 10;
-    string create_user_id = 11;
-    google.protobuf.Timestamp create_time = 12;
-    string update_user_id = 13;
-    google.protobuf.Timestamp update_time = 14;
-    string create_group_id = 15;
-    string intro_typename = 16;
-    repeated PermissionRoleRelation permission_role_relation = 17;
-    Role roles_aggregate = 18;
-    RoleConnection roles_connection = 19;
-    PermissionRoleRelation permission_role_relation_aggregate = 20;
-    PermissionRoleRelationConnection permission_role_relation_connection = 21;
-    int32 name_count = 22;
-    string name_max = 23;
-    string name_min = 24;
-    int32 description_count = 25;
-    string description_max = 26;
-    string description_min = 27;
-    int32 field_count = 28;
-    string field_max = 29;
-    string field_min = 30;
-    int32 type_count = 31;
-    string type_max = 32;
-    string type_min = 33;
-    int32 permission_type_count = 34;
-    PermissionType permission_type_max = 35;
-    PermissionType permission_type_min = 36;
+    bool is_deprecated = 8; /* 已移除 */
+    int32 version = 9; /* 版本 */
+    int32 realm_id = 10; /* 域 */
+    string create_user_id = 11; /* 创建者 */
+    google.protobuf.Timestamp create_time = 12; /* 创建时间 */
+    string update_user_id = 13; /* 更新者 */
+    google.protobuf.Timestamp update_time = 14; /* 更新时间 */
+    string create_group_id = 15; /* 创建组 */
+    string intro_typename = 16; /* 所属类型 */
+    repeated PermissionRoleRelation permission_role_relation = 17; /* 角色 权限 关系 */
+    Role roles_aggregate = 18; /* 角色 统计字段 */
+    RoleConnection roles_connection = 19; /* 角色 连接 */
+    PermissionRoleRelation permission_role_relation_aggregate = 20; /* 角色 权限 关系 统计字段 */
+    PermissionRoleRelationConnection permission_role_relation_connection = 21; /* 角色 权限 关系 连接 */
+    int32 name_count = 22; /* 权限 数量 */
+    string name_max = 23; /* 名称 最大值 */
+    string name_min = 24; /* 名称 最小值 */
+    int32 description_count = 25; /* 描述 数量 */
+    string description_max = 26; /* 描述 最大值 */
+    string description_min = 27; /* 描述 最小值 */
+    int32 field_count = 28; /* 字段 数量 */
+    string field_max = 29; /* 字段 最大值 */
+    string field_min = 30; /* 字段 最小值 */
+    int32 type_count = 31; /* 实体 数量 */
+    string type_max = 32; /* 实体 最大值 */
+    string type_min = 33; /* 实体 最小值 */
+    int32 permission_type_count = 34; /* 权限类型 数量 */
+    PermissionType permission_type_max = 35; /* 权限类型 最大值 */
+    PermissionType permission_type_min = 36; /* 权限类型 最小值 */
     bool sync_permission_policy = 37;
 }
+/**
+* 用户 手机号 关系
+*/
 message UserPhonesRelation {
-    string id = 1;
-    string user_ref = 2;
-    User user = 3;
-    string phones_ref = 4;
-    bool is_deprecated = 5;
-    int32 version = 6;
-    int32 realm_id = 7;
-    string create_user_id = 8;
-    google.protobuf.Timestamp create_time = 9;
-    string update_user_id = 10;
-    google.protobuf.Timestamp update_time = 11;
-    string create_group_id = 12;
-    string intro_typename = 13;
-    int32 id_count = 14;
-    int32 id_max = 15;
-    int32 id_min = 16;
-    int32 user_ref_count = 17;
-    string user_ref_max = 18;
-    string user_ref_min = 19;
-    int32 phones_ref_count = 20;
-    string phones_ref_max = 21;
-    string phones_ref_min = 22;
+    string id = 1; /* ID */
+    string user_ref = 2; /* 用户 引用 */
+    User user = 3; /* 用户 */
+    string phones_ref = 4; /* 手机号 引用 */
+    bool is_deprecated = 5; /* 已移除 */
+    int32 version = 6; /* 版本 */
+    int32 realm_id = 7; /* 域 */
+    string create_user_id = 8; /* 创建者 */
+    google.protobuf.Timestamp create_time = 9; /* 创建时间 */
+    string update_user_id = 10; /* 更新者 */
+    google.protobuf.Timestamp update_time = 11; /* 更新时间 */
+    string create_group_id = 12; /* 创建组 */
+    string intro_typename = 13; /* 所属类型 */
+    int32 id_count = 14; /* 用户 手机号 关系 数量 */
+    int32 id_max = 15; /* ID 最大值 */
+    int32 id_min = 16; /* ID 最小值 */
+    int32 user_ref_count = 17; /* 用户 引用 数量 */
+    string user_ref_max = 18; /* 用户 引用 最大值 */
+    string user_ref_min = 19; /* 用户 引用 最小值 */
+    int32 phones_ref_count = 20; /* 手机号 引用 数量 */
+    string phones_ref_max = 21; /* 手机号 引用 最大值 */
+    string phones_ref_min = 22; /* 手机号 引用 最小值 */
 }
+/**
+* 用户 组 关系
+*/
 message GroupUserRelation {
-    string id = 1;
-    string user_ref = 2;
-    User user = 3;
-    string group_ref = 4;
-    Group group = 5;
-    bool is_deprecated = 6;
-    int32 version = 7;
-    int32 realm_id = 8;
-    string create_user_id = 9;
-    google.protobuf.Timestamp create_time = 10;
-    string update_user_id = 11;
-    google.protobuf.Timestamp update_time = 12;
-    string create_group_id = 13;
-    string intro_typename = 14;
-    int32 id_count = 15;
-    int32 id_max = 16;
-    int32 id_min = 17;
-    int32 user_ref_count = 18;
-    string user_ref_max = 19;
-    string user_ref_min = 20;
-    int32 group_ref_count = 21;
-    string group_ref_max = 22;
-    string group_ref_min = 23;
+    string id = 1; /* ID */
+    string user_ref = 2; /* 用户 引用 */
+    User user = 3; /* 用户 */
+    string group_ref = 4; /* 组 引用 */
+    Group group = 5; /* 组 */
+    bool is_deprecated = 6; /* 已移除 */
+    int32 version = 7; /* 版本 */
+    int32 realm_id = 8; /* 域 */
+    string create_user_id = 9; /* 创建者 */
+    google.protobuf.Timestamp create_time = 10; /* 创建时间 */
+    string update_user_id = 11; /* 更新者 */
+    google.protobuf.Timestamp update_time = 12; /* 更新时间 */
+    string create_group_id = 13; /* 创建组 */
+    string intro_typename = 14; /* 所属类型 */
+    int32 id_count = 15; /* 用户 组 关系 数量 */
+    int32 id_max = 16; /* ID 最大值 */
+    int32 id_min = 17; /* ID 最小值 */
+    int32 user_ref_count = 18; /* 用户 引用 数量 */
+    string user_ref_max = 19; /* 用户 引用 最大值 */
+    string user_ref_min = 20; /* 用户 引用 最小值 */
+    int32 group_ref_count = 21; /* 组 引用 数量 */
+    string group_ref_max = 22; /* 组 引用 最大值 */
+    string group_ref_min = 23; /* 组 引用 最小值 */
 }
+/**
+* 用户 角色 关系
+*/
 message RoleUserRelation {
-    string id = 1;
-    string user_ref = 2;
-    User user = 3;
-    string role_ref = 4;
-    Role role = 5;
-    bool is_deprecated = 6;
-    int32 version = 7;
-    int32 realm_id = 8;
-    string create_user_id = 9;
-    google.protobuf.Timestamp create_time = 10;
-    string update_user_id = 11;
-    google.protobuf.Timestamp update_time = 12;
-    string create_group_id = 13;
-    string intro_typename = 14;
-    int32 id_count = 15;
-    int32 id_max = 16;
-    int32 id_min = 17;
-    int32 user_ref_count = 18;
-    string user_ref_max = 19;
-    string user_ref_min = 20;
-    int32 role_ref_count = 21;
-    string role_ref_max = 22;
-    string role_ref_min = 23;
+    string id = 1; /* ID */
+    string user_ref = 2; /* 用户 引用 */
+    User user = 3; /* 用户 */
+    string role_ref = 4; /* 角色 引用 */
+    Role role = 5; /* 角色 */
+    bool is_deprecated = 6; /* 已移除 */
+    int32 version = 7; /* 版本 */
+    int32 realm_id = 8; /* 域 */
+    string create_user_id = 9; /* 创建者 */
+    google.protobuf.Timestamp create_time = 10; /* 创建时间 */
+    string update_user_id = 11; /* 更新者 */
+    google.protobuf.Timestamp update_time = 12; /* 更新时间 */
+    string create_group_id = 13; /* 创建组 */
+    string intro_typename = 14; /* 所属类型 */
+    int32 id_count = 15; /* 用户 角色 关系 数量 */
+    int32 id_max = 16; /* ID 最大值 */
+    int32 id_min = 17; /* ID 最小值 */
+    int32 user_ref_count = 18; /* 用户 引用 数量 */
+    string user_ref_max = 19; /* 用户 引用 最大值 */
+    string user_ref_min = 20; /* 用户 引用 最小值 */
+    int32 role_ref_count = 21; /* 角色 引用 数量 */
+    string role_ref_max = 22; /* 角色 引用 最大值 */
+    string role_ref_min = 23; /* 角色 引用 最小值 */
 }
+/**
+* 角色 组 关系
+*/
 message GroupRoleRelation {
-    string id = 1;
-    string role_ref = 2;
-    Role role = 3;
-    string group_ref = 4;
-    Group group = 5;
-    bool is_deprecated = 6;
-    int32 version = 7;
-    int32 realm_id = 8;
-    string create_user_id = 9;
-    google.protobuf.Timestamp create_time = 10;
-    string update_user_id = 11;
-    google.protobuf.Timestamp update_time = 12;
-    string create_group_id = 13;
-    string intro_typename = 14;
-    int32 id_count = 15;
-    int32 id_max = 16;
-    int32 id_min = 17;
-    int32 role_ref_count = 18;
-    string role_ref_max = 19;
-    string role_ref_min = 20;
-    int32 group_ref_count = 21;
-    string group_ref_max = 22;
-    string group_ref_min = 23;
+    string id = 1; /* ID */
+    string role_ref = 2; /* 角色 引用 */
+    Role role = 3; /* 角色 */
+    string group_ref = 4; /* 组 引用 */
+    Group group = 5; /* 组 */
+    bool is_deprecated = 6; /* 已移除 */
+    int32 version = 7; /* 版本 */
+    int32 realm_id = 8; /* 域 */
+    string create_user_id = 9; /* 创建者 */
+    google.protobuf.Timestamp create_time = 10; /* 创建时间 */
+    string update_user_id = 11; /* 更新者 */
+    google.protobuf.Timestamp update_time = 12; /* 更新时间 */
+    string create_group_id = 13; /* 创建组 */
+    string intro_typename = 14; /* 所属类型 */
+    int32 id_count = 15; /* 角色 组 关系 数量 */
+    int32 id_max = 16; /* ID 最大值 */
+    int32 id_min = 17; /* ID 最小值 */
+    int32 role_ref_count = 18; /* 角色 引用 数量 */
+    string role_ref_max = 19; /* 角色 引用 最大值 */
+    string role_ref_min = 20; /* 角色 引用 最小值 */
+    int32 group_ref_count = 21; /* 组 引用 数量 */
+    string group_ref_max = 22; /* 组 引用 最大值 */
+    string group_ref_min = 23; /* 组 引用 最小值 */
 }
+/**
+* 角色 角色 关系
+*/
 message RoleCompositeRelation {
-    string id = 1;
-    string role_ref = 2;
-    Role role = 3;
-    string composite_ref = 4;
-    Role composite = 5;
-    bool is_deprecated = 6;
-    int32 version = 7;
-    int32 realm_id = 8;
-    string create_user_id = 9;
-    google.protobuf.Timestamp create_time = 10;
-    string update_user_id = 11;
-    google.protobuf.Timestamp update_time = 12;
-    string create_group_id = 13;
-    string intro_typename = 14;
-    int32 id_count = 15;
-    int32 id_max = 16;
-    int32 id_min = 17;
-    int32 role_ref_count = 18;
-    string role_ref_max = 19;
-    string role_ref_min = 20;
-    int32 composite_ref_count = 21;
-    string composite_ref_max = 22;
-    string composite_ref_min = 23;
+    string id = 1; /* ID */
+    string role_ref = 2; /* 角色 引用 */
+    Role role = 3; /* 角色 */
+    string composite_ref = 4; /* 角色 引用 */
+    Role composite = 5; /* 角色 */
+    bool is_deprecated = 6; /* 已移除 */
+    int32 version = 7; /* 版本 */
+    int32 realm_id = 8; /* 域 */
+    string create_user_id = 9; /* 创建者 */
+    google.protobuf.Timestamp create_time = 10; /* 创建时间 */
+    string update_user_id = 11; /* 更新者 */
+    google.protobuf.Timestamp update_time = 12; /* 更新时间 */
+    string create_group_id = 13; /* 创建组 */
+    string intro_typename = 14; /* 所属类型 */
+    int32 id_count = 15; /* 角色 角色 关系 数量 */
+    int32 id_max = 16; /* ID 最大值 */
+    int32 id_min = 17; /* ID 最小值 */
+    int32 role_ref_count = 18; /* 角色 引用 数量 */
+    string role_ref_max = 19; /* 角色 引用 最大值 */
+    string role_ref_min = 20; /* 角色 引用 最小值 */
+    int32 composite_ref_count = 21; /* 角色 引用 数量 */
+    string composite_ref_max = 22; /* 角色 引用 最大值 */
+    string composite_ref_min = 23; /* 角色 引用 最小值 */
 }
+/**
+* 角色 权限 关系
+*/
 message PermissionRoleRelation {
-    string id = 1;
-    string role_ref = 2;
-    Role role = 3;
-    string permission_ref = 4;
-    Permission permission = 5;
-    bool is_deprecated = 6;
-    int32 version = 7;
-    int32 realm_id = 8;
-    string create_user_id = 9;
-    google.protobuf.Timestamp create_time = 10;
-    string update_user_id = 11;
-    google.protobuf.Timestamp update_time = 12;
-    string create_group_id = 13;
-    string intro_typename = 14;
-    int32 id_count = 15;
-    int32 id_max = 16;
-    int32 id_min = 17;
-    int32 role_ref_count = 18;
-    string role_ref_max = 19;
-    string role_ref_min = 20;
-    int32 permission_ref_count = 21;
-    string permission_ref_max = 22;
-    string permission_ref_min = 23;
+    string id = 1; /* ID */
+    string role_ref = 2; /* 角色 引用 */
+    Role role = 3; /* 角色 */
+    string permission_ref = 4; /* 权限 引用 */
+    Permission permission = 5; /* 权限 */
+    bool is_deprecated = 6; /* 已移除 */
+    int32 version = 7; /* 版本 */
+    int32 realm_id = 8; /* 域 */
+    string create_user_id = 9; /* 创建者 */
+    google.protobuf.Timestamp create_time = 10; /* 创建时间 */
+    string update_user_id = 11; /* 更新者 */
+    google.protobuf.Timestamp update_time = 12; /* 更新时间 */
+    string create_group_id = 13; /* 创建组 */
+    string intro_typename = 14; /* 所属类型 */
+    int32 id_count = 15; /* 角色 权限 关系 数量 */
+    int32 id_max = 16; /* ID 最大值 */
+    int32 id_min = 17; /* ID 最小值 */
+    int32 role_ref_count = 18; /* 角色 引用 数量 */
+    string role_ref_max = 19; /* 角色 引用 最大值 */
+    string role_ref_min = 20; /* 角色 引用 最小值 */
+    int32 permission_ref_count = 21; /* 权限 引用 数量 */
+    string permission_ref_max = 22; /* 权限 引用 最大值 */
+    string permission_ref_min = 23; /* 权限 引用 最小值 */
 }
+/**
+* 用户 文件 关系
+*/
 message FileUserRelation {
-    string id = 1;
-    string user_ref = 2;
-    User user = 3;
-    string file_ref = 4;
-    io.graphoenix.file.File file = 5;
-    bool is_deprecated = 6;
-    int32 version = 7;
-    int32 realm_id = 8;
-    string create_user_id = 9;
-    google.protobuf.Timestamp create_time = 10;
-    string update_user_id = 11;
-    google.protobuf.Timestamp update_time = 12;
-    string create_group_id = 13;
-    string intro_typename = 14;
-    int32 id_count = 15;
-    int32 id_max = 16;
-    int32 id_min = 17;
-    int32 user_ref_count = 18;
-    string user_ref_max = 19;
-    string user_ref_min = 20;
-    int32 file_ref_count = 21;
-    string file_ref_max = 22;
-    string file_ref_min = 23;
+    string id = 1; /* ID */
+    string user_ref = 2; /* 用户 引用 */
+    User user = 3; /* 用户 */
+    string file_ref = 4; /* 文件 引用 */
+    io.graphoenix.file.File file = 5; /* 文件 */
+    bool is_deprecated = 6; /* 已移除 */
+    int32 version = 7; /* 版本 */
+    int32 realm_id = 8; /* 域 */
+    string create_user_id = 9; /* 创建者 */
+    google.protobuf.Timestamp create_time = 10; /* 创建时间 */
+    string update_user_id = 11; /* 更新者 */
+    google.protobuf.Timestamp update_time = 12; /* 更新时间 */
+    string create_group_id = 13; /* 创建组 */
+    string intro_typename = 14; /* 所属类型 */
+    int32 id_count = 15; /* 用户 文件 关系 数量 */
+    int32 id_max = 16; /* ID 最大值 */
+    int32 id_min = 17; /* ID 最小值 */
+    int32 user_ref_count = 18; /* 用户 引用 数量 */
+    string user_ref_max = 19; /* 用户 引用 最大值 */
+    string user_ref_min = 20; /* 用户 引用 最小值 */
+    int32 file_ref_count = 21; /* 文件 引用 数量 */
+    string file_ref_max = 22; /* 文件 引用 最大值 */
+    string file_ref_min = 23; /* 文件 引用 最小值 */
 }
+/**
+* 用户 连接
+*/
 message UserConnection {
-    int32 total_count = 1;
-    io.graphoenix.core.PageInfo page_info = 2;
-    repeated UserEdge edges = 3;
+    int32 total_count = 1; /* 条数 */
+    io.graphoenix.core.PageInfo page_info = 2; /* 分页信息 */
+    repeated UserEdge edges = 3; /* 边缘 */
 }
+/**
+* 用户 边缘
+*/
 message UserEdge {
-    User node = 1;
-    string cursor = 2;
+    User node = 1; /* 节点 */
+    string cursor = 2; /* 游标 */
 }
+/**
+* 角色 连接
+*/
 message RoleConnection {
-    int32 total_count = 1;
-    io.graphoenix.core.PageInfo page_info = 2;
-    repeated RoleEdge edges = 3;
+    int32 total_count = 1; /* 条数 */
+    io.graphoenix.core.PageInfo page_info = 2; /* 分页信息 */
+    repeated RoleEdge edges = 3; /* 边缘 */
 }
+/**
+* 角色 边缘
+*/
 message RoleEdge {
-    Role node = 1;
-    string cursor = 2;
+    Role node = 1; /* 节点 */
+    string cursor = 2; /* 游标 */
 }
+/**
+* 组 连接
+*/
 message GroupConnection {
-    int32 total_count = 1;
-    io.graphoenix.core.PageInfo page_info = 2;
-    repeated GroupEdge edges = 3;
+    int32 total_count = 1; /* 条数 */
+    io.graphoenix.core.PageInfo page_info = 2; /* 分页信息 */
+    repeated GroupEdge edges = 3; /* 边缘 */
 }
+/**
+* 组 边缘
+*/
 message GroupEdge {
-    Group node = 1;
-    string cursor = 2;
+    Group node = 1; /* 节点 */
+    string cursor = 2; /* 游标 */
 }
+/**
+* 租户 连接
+*/
 message RealmConnection {
-    int32 total_count = 1;
-    io.graphoenix.core.PageInfo page_info = 2;
-    repeated RealmEdge edges = 3;
+    int32 total_count = 1; /* 条数 */
+    io.graphoenix.core.PageInfo page_info = 2; /* 分页信息 */
+    repeated RealmEdge edges = 3; /* 边缘 */
 }
+/**
+* 租户 边缘
+*/
 message RealmEdge {
-    Realm node = 1;
-    string cursor = 2;
+    Realm node = 1; /* 节点 */
+    string cursor = 2; /* 游标 */
 }
+/**
+* 权限 连接
+*/
 message PermissionConnection {
-    int32 total_count = 1;
-    io.graphoenix.core.PageInfo page_info = 2;
-    repeated PermissionEdge edges = 3;
+    int32 total_count = 1; /* 条数 */
+    io.graphoenix.core.PageInfo page_info = 2; /* 分页信息 */
+    repeated PermissionEdge edges = 3; /* 边缘 */
 }
+/**
+* 权限 边缘
+*/
 message PermissionEdge {
-    Permission node = 1;
-    string cursor = 2;
+    Permission node = 1; /* 节点 */
+    string cursor = 2; /* 游标 */
 }
+/**
+* 用户 手机号 关系 连接
+*/
 message UserPhonesRelationConnection {
-    int32 total_count = 1;
-    io.graphoenix.core.PageInfo page_info = 2;
-    repeated UserPhonesRelationEdge edges = 3;
+    int32 total_count = 1; /* 条数 */
+    io.graphoenix.core.PageInfo page_info = 2; /* 分页信息 */
+    repeated UserPhonesRelationEdge edges = 3; /* 边缘 */
 }
+/**
+* 用户 手机号 关系 边缘
+*/
 message UserPhonesRelationEdge {
-    UserPhonesRelation node = 1;
-    string cursor = 2;
+    UserPhonesRelation node = 1; /* 节点 */
+    string cursor = 2; /* 游标 */
 }
+/**
+* 用户 组 关系 连接
+*/
 message GroupUserRelationConnection {
-    int32 total_count = 1;
-    io.graphoenix.core.PageInfo page_info = 2;
-    repeated GroupUserRelationEdge edges = 3;
+    int32 total_count = 1; /* 条数 */
+    io.graphoenix.core.PageInfo page_info = 2; /* 分页信息 */
+    repeated GroupUserRelationEdge edges = 3; /* 边缘 */
 }
+/**
+* 用户 组 关系 边缘
+*/
 message GroupUserRelationEdge {
-    GroupUserRelation node = 1;
-    string cursor = 2;
+    GroupUserRelation node = 1; /* 节点 */
+    string cursor = 2; /* 游标 */
 }
+/**
+* 用户 角色 关系 连接
+*/
 message RoleUserRelationConnection {
-    int32 total_count = 1;
-    io.graphoenix.core.PageInfo page_info = 2;
-    repeated RoleUserRelationEdge edges = 3;
+    int32 total_count = 1; /* 条数 */
+    io.graphoenix.core.PageInfo page_info = 2; /* 分页信息 */
+    repeated RoleUserRelationEdge edges = 3; /* 边缘 */
 }
+/**
+* 用户 角色 关系 边缘
+*/
 message RoleUserRelationEdge {
-    RoleUserRelation node = 1;
-    string cursor = 2;
+    RoleUserRelation node = 1; /* 节点 */
+    string cursor = 2; /* 游标 */
 }
+/**
+* 角色 组 关系 连接
+*/
 message GroupRoleRelationConnection {
-    int32 total_count = 1;
-    io.graphoenix.core.PageInfo page_info = 2;
-    repeated GroupRoleRelationEdge edges = 3;
+    int32 total_count = 1; /* 条数 */
+    io.graphoenix.core.PageInfo page_info = 2; /* 分页信息 */
+    repeated GroupRoleRelationEdge edges = 3; /* 边缘 */
 }
+/**
+* 角色 组 关系 边缘
+*/
 message GroupRoleRelationEdge {
-    GroupRoleRelation node = 1;
-    string cursor = 2;
+    GroupRoleRelation node = 1; /* 节点 */
+    string cursor = 2; /* 游标 */
 }
+/**
+* 角色 角色 关系 连接
+*/
 message RoleCompositeRelationConnection {
-    int32 total_count = 1;
-    io.graphoenix.core.PageInfo page_info = 2;
-    repeated RoleCompositeRelationEdge edges = 3;
+    int32 total_count = 1; /* 条数 */
+    io.graphoenix.core.PageInfo page_info = 2; /* 分页信息 */
+    repeated RoleCompositeRelationEdge edges = 3; /* 边缘 */
 }
+/**
+* 角色 角色 关系 边缘
+*/
 message RoleCompositeRelationEdge {
-    RoleCompositeRelation node = 1;
-    string cursor = 2;
+    RoleCompositeRelation node = 1; /* 节点 */
+    string cursor = 2; /* 游标 */
 }
+/**
+* 角色 权限 关系 连接
+*/
 message PermissionRoleRelationConnection {
-    int32 total_count = 1;
-    io.graphoenix.core.PageInfo page_info = 2;
-    repeated PermissionRoleRelationEdge edges = 3;
+    int32 total_count = 1; /* 条数 */
+    io.graphoenix.core.PageInfo page_info = 2; /* 分页信息 */
+    repeated PermissionRoleRelationEdge edges = 3; /* 边缘 */
 }
+/**
+* 角色 权限 关系 边缘
+*/
 message PermissionRoleRelationEdge {
-    PermissionRoleRelation node = 1;
-    string cursor = 2;
+    PermissionRoleRelation node = 1; /* 节点 */
+    string cursor = 2; /* 游标 */
 }
+/**
+* 用户 文件 关系 连接
+*/
 message FileUserRelationConnection {
-    int32 total_count = 1;
-    io.graphoenix.core.PageInfo page_info = 2;
-    repeated FileUserRelationEdge edges = 3;
+    int32 total_count = 1; /* 条数 */
+    io.graphoenix.core.PageInfo page_info = 2; /* 分页信息 */
+    repeated FileUserRelationEdge edges = 3; /* 边缘 */
 }
+/**
+* 用户 文件 关系 边缘
+*/
 message FileUserRelationEdge {
-    FileUserRelation node = 1;
-    string cursor = 2;
+    FileUserRelation node = 1; /* 节点 */
+    string cursor = 2; /* 游标 */
 }
-message CurrentUser {
-    string login = 1;
-    repeated string groups = 2;
+message Current {
+    string name = 1;
+    repeated string roles = 2;
     string id = 3;
-    int32 realm_id = 4;
-    string name = 5;
-    repeated string roles = 6;
-    string last_name = 7;
+    repeated string groups = 4;
+    string login = 5;
+    string last_name = 6;
+    int32 realm_id = 7;
 }
 message Policy {
-    string ptype = 1;
-    string v0 = 2;
-    string v1 = 3;
-    string v5 = 4;
-    string v2 = 5;
-    string id = 6;
-    string v4 = 7;
-    string v3 = 8;
+    string v5 = 1;
+    string v3 = 2;
+    string v0 = 3;
+    string id = 4;
+    string v4 = 5;
+    string v1 = 6;
+    string v2 = 7;
+    string policy = 8;
 }

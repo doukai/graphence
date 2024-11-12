@@ -12,70 +12,191 @@ import java.lang.String;
 import java.time.LocalDateTime;
 import java.util.Collection;
 import org.eclipse.microprofile.graphql.DefaultValue;
+import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.Input;
 
+/**
+ * 用户列表 变更参数 
+ */
 @CompiledJson
 @Input
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
+@Description("用户列表 变更参数 ")
 public class UserListMutationArguments implements NamedStructInput, MetaInput {
+  /**
+   * ID
+   */
+  @Description("ID")
   private String id;
 
+  /**
+   * 姓名
+   */
+  @Description("姓名")
   private String name;
 
+  /**
+   * 描述
+   */
+  @Description("描述")
   private String description;
 
+  /**
+   * 姓氏
+   */
+  @Description("姓氏")
   private String lastName;
 
+  /**
+   * 账号
+   */
+  @Description("账号")
   private String login;
 
+  /**
+   * 盐
+   */
+  @Description("盐")
   private String salt;
 
+  /**
+   * 哈希
+   */
+  @Description("哈希")
   private String hash;
 
+  /**
+   * 邮箱
+   */
+  @Description("邮箱")
   private String email;
 
-  private Collection<FileInput> files;
+  /**
+   * 头像
+   */
+  @Description("头像")
+  private FileInput avatar;
 
+  /**
+   * 手机号
+   */
+  @Description("手机号")
   private Collection<String> phones;
 
+  /**
+   * 禁用
+   */
+  @Description("禁用")
   private Boolean disable;
 
+  /**
+   * 组
+   */
+  @Description("组")
   private Collection<GroupInput> groups;
 
+  /**
+   * 角色
+   */
+  @Description("角色")
   private Collection<RoleInput> roles;
 
+  /**
+   * 租户
+   */
+  @Description("租户")
   private RealmInput realm;
 
+  /**
+   * 已移除
+   */
   @DefaultValue("false")
+  @Description("已移除")
   private Boolean isDeprecated = false;
 
+  /**
+   * 版本
+   */
+  @Description("版本")
   private Integer version;
 
+  /**
+   * 域
+   */
+  @Description("域")
   private Integer realmId;
 
+  /**
+   * 创建者
+   */
+  @Description("创建者")
   private String createUserId;
 
+  /**
+   * 创建时间
+   */
+  @Description("创建时间")
   private LocalDateTime createTime;
 
+  /**
+   * 更新者
+   */
+  @Description("更新者")
   private String updateUserId;
 
+  /**
+   * 更新时间
+   */
+  @Description("更新时间")
   private LocalDateTime updateTime;
 
+  /**
+   * 创建组
+   */
+  @Description("创建组")
   private String createGroupId;
 
+  /**
+   * 所属类型
+   */
   @DefaultValue("\"User\"")
+  @Description("所属类型")
   private String __typename = "User";
 
+  /**
+   * 用户 文件 关系
+   */
+  @Description("用户 文件 关系")
   private Collection<FileUserRelationInput> fileUserRelation;
 
+  /**
+   * 用户 手机号 关系
+   */
+  @Description("用户 手机号 关系")
   private Collection<UserPhonesRelationInput> userPhonesRelation;
 
+  /**
+   * 用户 组 关系
+   */
+  @Description("用户 组 关系")
   private Collection<GroupUserRelationInput> groupUserRelation;
 
+  /**
+   * 用户 角色 关系
+   */
+  @Description("用户 角色 关系")
   private Collection<RoleUserRelationInput> roleUserRelation;
 
+  /**
+   * 变更内容列表
+   */
+  @Description("变更内容列表")
   private Collection<UserInput> list;
 
+  /**
+   * 匹配条件
+   */
+  @Description("匹配条件")
   private UserExpression where;
 
   public String getId() {
@@ -146,12 +267,12 @@ public class UserListMutationArguments implements NamedStructInput, MetaInput {
     this.email = email;
   }
 
-  public Collection<FileInput> getFiles() {
-    return this.files;
+  public FileInput getAvatar() {
+    return this.avatar;
   }
 
-  public void setFiles(Collection<FileInput> files) {
-    this.files = files;
+  public void setAvatar(FileInput avatar) {
+    this.avatar = avatar;
   }
 
   public Collection<String> getPhones() {

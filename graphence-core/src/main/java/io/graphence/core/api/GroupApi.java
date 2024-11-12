@@ -1,28 +1,17 @@
 package io.graphence.core.api;
 
-import io.graphence.core.dto.directive.Decry;
-import io.graphence.core.dto.directive.Decry2;
-import io.graphence.core.dto.directive.Encry;
-import io.graphence.core.dto.directive.Encry2;
 import io.graphence.core.repository.GroupRepository;
 import io.graphence.core.dto.inputObjectType.GroupInput;
 import io.graphence.core.dto.inputObjectType.GroupMutationArguments;
 import io.graphence.core.dto.objectType.Group;
-import io.graphoenix.core.dto.inputObjectType.StringExpression;
-import io.graphoenix.spi.annotation.OnExpression;
-import io.graphoenix.spi.annotation.OnField;
-import io.graphoenix.spi.annotation.OnInputValue;
 import io.nozdormu.spi.async.Async;
 import io.nozdormu.spi.async.Asyncable;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
-import jakarta.json.JsonValue;
 import org.eclipse.microprofile.graphql.GraphQLApi;
 import org.eclipse.microprofile.graphql.Source;
-import reactor.core.publisher.Mono;
 
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 @GraphQLApi
@@ -212,30 +201,5 @@ public class GroupApi implements Asyncable {
             }
         }
         return groupInput;
-    }
-
-    @OnInputValue
-    public Mono<String> encryId(@Encry String id, Map<String, JsonValue> a) {
-        return Mono.just(id);
-    }
-
-    @OnField
-    public Mono<String> decryId(@Decry String id) {
-        return Mono.just(id);
-    }
-
-    @OnInputValue
-    public Mono<String> encry2Id(@Encry2 String id) {
-        return Mono.just(id);
-    }
-
-    @OnField
-    public Mono<String> decry2Id(@Decry2 String id, Map<String, JsonValue> a) {
-        return Mono.just(id);
-    }
-
-    @OnExpression
-    public Mono<StringExpression> encry2IdExpression(@Encry2 StringExpression stringExpression) {
-        return Mono.just(stringExpression);
     }
 }

@@ -13,57 +13,150 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Collection;
 import org.eclipse.microprofile.graphql.DefaultValue;
+import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.Input;
 
+/**
+ * 租户连接 查询参数
+ */
 @CompiledJson
 @Input
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
+@Description("租户连接 查询参数")
 public class RealmConnectionQueryArguments implements NamedStructExpression, MetaExpression {
+  /**
+   * ID
+   */
+  @Description("ID")
   private StringExpression id;
 
+  /**
+   * 名称
+   */
+  @Description("名称")
   private StringExpression name;
 
+  /**
+   * 描述
+   */
+  @Description("描述")
   private StringExpression description;
 
+  /**
+   * 包含已移除
+   */
   @DefaultValue("false")
+  @Description("包含已移除")
   private Boolean includeDeprecated = false;
 
+  /**
+   * 版本
+   */
+  @Description("版本")
   private IntExpression version;
 
+  /**
+   * 域
+   */
+  @Description("域")
   private IntExpression realmId;
 
+  /**
+   * 创建者
+   */
+  @Description("创建者")
   private StringExpression createUserId;
 
+  /**
+   * 创建时间
+   */
+  @Description("创建时间")
   private StringExpression createTime;
 
+  /**
+   * 更新者
+   */
+  @Description("更新者")
   private StringExpression updateUserId;
 
+  /**
+   * 更新时间
+   */
+  @Description("更新时间")
   private StringExpression updateTime;
 
+  /**
+   * 创建组
+   */
+  @Description("创建组")
   private StringExpression createGroupId;
 
+  /**
+   * 所属类型
+   */
+  @Description("所属类型")
   private StringExpression __typename;
 
+  /**
+   * 排序
+   */
+  @Description("排序")
   private RealmOrderBy orderBy;
 
+  /**
+   * 分组
+   */
+  @Description("分组")
   private Collection<String> groupBy;
 
+  /**
+   * 取非
+   */
   @DefaultValue("false")
+  @Description("取非")
   private Boolean not = false;
 
+  /**
+   * 与/或
+   */
   @DefaultValue("AND")
+  @Description("与/或")
   private Conditional cond = Conditional.AND;
 
+  /**
+   * 查询表达式组
+   */
+  @Description("查询表达式组")
   private Collection<RealmExpression> exs;
 
+  /**
+   * 前...条数
+   */
+  @Description("前...条数")
   private Integer first;
 
+  /**
+   * 后...条数
+   */
+  @Description("后...条数")
   private Integer last;
 
+  /**
+   * 偏移条数
+   */
+  @Description("偏移条数")
   private Integer offset;
 
+  /**
+   * 取...之后
+   */
+  @Description("取...之后")
   private String after;
 
+  /**
+   * 取...之前
+   */
+  @Description("取...之前")
   private String before;
 
   public StringExpression getId() {

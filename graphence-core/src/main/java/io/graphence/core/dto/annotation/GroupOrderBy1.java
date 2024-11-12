@@ -8,104 +8,297 @@ import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
+import org.eclipse.microprofile.graphql.Description;
 
+/**
+ * 组 排序
+ */
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
 @Documented
 @Retention(RetentionPolicy.SOURCE)
 @Target(ElementType.METHOD)
+@Description("组 排序")
 public @interface GroupOrderBy1 {
+  /**
+   * ID
+   */
+  @Description("ID")
   Sort id() default Sort.ASC;
 
+  /**
+   * 名称
+   */
+  @Description("名称")
   Sort name() default Sort.ASC;
 
+  /**
+   * 描述
+   */
+  @Description("描述")
   Sort description() default Sort.ASC;
 
+  /**
+   * 路径
+   */
+  @Description("路径")
   Sort path() default Sort.ASC;
 
+  /**
+   * 层级
+   */
+  @Description("层级")
   Sort deep() default Sort.ASC;
 
+  /**
+   * 上级ID
+   */
+  @Description("上级ID")
   Sort parentId() default Sort.ASC;
 
+  /**
+   * 上级
+   */
+  @Description("上级")
   GroupOrderBy2 parent() default @GroupOrderBy2;
 
+  /**
+   * 下级
+   */
+  @Description("下级")
   GroupOrderBy2 subGroups() default @GroupOrderBy2;
 
+  /**
+   * 用户
+   */
+  @Description("用户")
   UserOrderBy2 users() default @UserOrderBy2;
 
+  /**
+   * 角色
+   */
+  @Description("角色")
   RoleOrderBy2 roles() default @RoleOrderBy2;
 
+  /**
+   * 租户
+   */
+  @Description("租户")
   RealmOrderBy realm() default @RealmOrderBy;
 
+  /**
+   * 已移除
+   */
+  @Description("已移除")
   Sort isDeprecated() default Sort.ASC;
 
+  /**
+   * 版本
+   */
+  @Description("版本")
   Sort version() default Sort.ASC;
 
+  /**
+   * 域
+   */
+  @Description("域")
   Sort realmId() default Sort.ASC;
 
+  /**
+   * 创建者
+   */
+  @Description("创建者")
   Sort createUserId() default Sort.ASC;
 
+  /**
+   * 创建时间
+   */
+  @Description("创建时间")
   Sort createTime() default Sort.ASC;
 
+  /**
+   * 更新者
+   */
+  @Description("更新者")
   Sort updateUserId() default Sort.ASC;
 
+  /**
+   * 更新时间
+   */
+  @Description("更新时间")
   Sort updateTime() default Sort.ASC;
 
+  /**
+   * 创建组
+   */
+  @Description("创建组")
   Sort createGroupId() default Sort.ASC;
 
+  /**
+   * 所属类型
+   */
+  @Description("所属类型")
   Sort __typename() default Sort.ASC;
 
+  /**
+   * 用户 组 关系
+   */
+  @Description("用户 组 关系")
   GroupUserRelationOrderBy2 groupUserRelation() default @GroupUserRelationOrderBy2;
 
+  /**
+   * 角色 组 关系
+   */
+  @Description("角色 组 关系")
   GroupRoleRelationOrderBy2 groupRoleRelation() default @GroupRoleRelationOrderBy2;
 
+  /**
+   * 下级 统计字段
+   */
+  @Description("下级 统计字段")
   GroupOrderBy2 subGroupsAggregate() default @GroupOrderBy2;
 
+  /**
+   * 用户 统计字段
+   */
+  @Description("用户 统计字段")
   UserOrderBy2 usersAggregate() default @UserOrderBy2;
 
+  /**
+   * 角色 统计字段
+   */
+  @Description("角色 统计字段")
   RoleOrderBy2 rolesAggregate() default @RoleOrderBy2;
 
+  /**
+   * 用户 组 关系 统计字段
+   */
+  @Description("用户 组 关系 统计字段")
   GroupUserRelationOrderBy2 groupUserRelationAggregate() default @GroupUserRelationOrderBy2;
 
+  /**
+   * 角色 组 关系 统计字段
+   */
+  @Description("角色 组 关系 统计字段")
   GroupRoleRelationOrderBy2 groupRoleRelationAggregate() default @GroupRoleRelationOrderBy2;
 
+  /**
+   * 组 数量
+   */
+  @Description("组 数量")
   Sort idCount() default Sort.ASC;
 
+  /**
+   * ID 最大值
+   */
+  @Description("ID 最大值")
   Sort idMax() default Sort.ASC;
 
+  /**
+   * ID 最小值
+   */
+  @Description("ID 最小值")
   Sort idMin() default Sort.ASC;
 
+  /**
+   * 名称 数量
+   */
+  @Description("名称 数量")
   Sort nameCount() default Sort.ASC;
 
+  /**
+   * 名称 最大值
+   */
+  @Description("名称 最大值")
   Sort nameMax() default Sort.ASC;
 
+  /**
+   * 名称 最小值
+   */
+  @Description("名称 最小值")
   Sort nameMin() default Sort.ASC;
 
+  /**
+   * 描述 数量
+   */
+  @Description("描述 数量")
   Sort descriptionCount() default Sort.ASC;
 
+  /**
+   * 描述 最大值
+   */
+  @Description("描述 最大值")
   Sort descriptionMax() default Sort.ASC;
 
+  /**
+   * 描述 最小值
+   */
+  @Description("描述 最小值")
   Sort descriptionMin() default Sort.ASC;
 
+  /**
+   * 路径 数量
+   */
+  @Description("路径 数量")
   Sort pathCount() default Sort.ASC;
 
+  /**
+   * 路径 最大值
+   */
+  @Description("路径 最大值")
   Sort pathMax() default Sort.ASC;
 
+  /**
+   * 路径 最小值
+   */
+  @Description("路径 最小值")
   Sort pathMin() default Sort.ASC;
 
+  /**
+   * 上级ID 数量
+   */
+  @Description("上级ID 数量")
   Sort parentIdCount() default Sort.ASC;
 
+  /**
+   * 上级ID 最大值
+   */
+  @Description("上级ID 最大值")
   Sort parentIdMax() default Sort.ASC;
 
+  /**
+   * 上级ID 最小值
+   */
+  @Description("上级ID 最小值")
   Sort parentIdMin() default Sort.ASC;
 
+  /**
+   * 层级 数量
+   */
+  @Description("层级 数量")
   Sort deepCount() default Sort.ASC;
 
+  /**
+   * 层级 合计
+   */
+  @Description("层级 合计")
   Sort deepSum() default Sort.ASC;
 
+  /**
+   * 层级 平均值
+   */
+  @Description("层级 平均值")
   Sort deepAvg() default Sort.ASC;
 
+  /**
+   * 层级 最大值
+   */
+  @Description("层级 最大值")
   Sort deepMax() default Sort.ASC;
 
+  /**
+   * 层级 最小值
+   */
+  @Description("层级 最小值")
   Sort deepMin() default Sort.ASC;
 
   String $id() default "";

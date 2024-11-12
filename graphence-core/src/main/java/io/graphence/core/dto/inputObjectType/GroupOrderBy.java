@@ -3,104 +3,297 @@ package io.graphence.core.dto.inputObjectType;
 import com.dslplatform.json.CompiledJson;
 import io.graphoenix.core.dto.enumType.Sort;
 import jakarta.annotation.Generated;
+import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.Input;
 
+/**
+ * 组 排序
+ */
 @CompiledJson
 @Input
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
+@Description("组 排序")
 public class GroupOrderBy {
+  /**
+   * ID
+   */
+  @Description("ID")
   private Sort id;
 
+  /**
+   * 名称
+   */
+  @Description("名称")
   private Sort name;
 
+  /**
+   * 描述
+   */
+  @Description("描述")
   private Sort description;
 
+  /**
+   * 路径
+   */
+  @Description("路径")
   private Sort path;
 
+  /**
+   * 层级
+   */
+  @Description("层级")
   private Sort deep;
 
+  /**
+   * 上级ID
+   */
+  @Description("上级ID")
   private Sort parentId;
 
+  /**
+   * 上级
+   */
+  @Description("上级")
   private GroupOrderBy parent;
 
+  /**
+   * 下级
+   */
+  @Description("下级")
   private GroupOrderBy subGroups;
 
+  /**
+   * 用户
+   */
+  @Description("用户")
   private UserOrderBy users;
 
+  /**
+   * 角色
+   */
+  @Description("角色")
   private RoleOrderBy roles;
 
+  /**
+   * 租户
+   */
+  @Description("租户")
   private RealmOrderBy realm;
 
+  /**
+   * 已移除
+   */
+  @Description("已移除")
   private Sort isDeprecated;
 
+  /**
+   * 版本
+   */
+  @Description("版本")
   private Sort version;
 
+  /**
+   * 域
+   */
+  @Description("域")
   private Sort realmId;
 
+  /**
+   * 创建者
+   */
+  @Description("创建者")
   private Sort createUserId;
 
+  /**
+   * 创建时间
+   */
+  @Description("创建时间")
   private Sort createTime;
 
+  /**
+   * 更新者
+   */
+  @Description("更新者")
   private Sort updateUserId;
 
+  /**
+   * 更新时间
+   */
+  @Description("更新时间")
   private Sort updateTime;
 
+  /**
+   * 创建组
+   */
+  @Description("创建组")
   private Sort createGroupId;
 
+  /**
+   * 所属类型
+   */
+  @Description("所属类型")
   private Sort __typename;
 
+  /**
+   * 用户 组 关系
+   */
+  @Description("用户 组 关系")
   private GroupUserRelationOrderBy groupUserRelation;
 
+  /**
+   * 角色 组 关系
+   */
+  @Description("角色 组 关系")
   private GroupRoleRelationOrderBy groupRoleRelation;
 
+  /**
+   * 下级 统计字段
+   */
+  @Description("下级 统计字段")
   private GroupOrderBy subGroupsAggregate;
 
+  /**
+   * 用户 统计字段
+   */
+  @Description("用户 统计字段")
   private UserOrderBy usersAggregate;
 
+  /**
+   * 角色 统计字段
+   */
+  @Description("角色 统计字段")
   private RoleOrderBy rolesAggregate;
 
+  /**
+   * 用户 组 关系 统计字段
+   */
+  @Description("用户 组 关系 统计字段")
   private GroupUserRelationOrderBy groupUserRelationAggregate;
 
+  /**
+   * 角色 组 关系 统计字段
+   */
+  @Description("角色 组 关系 统计字段")
   private GroupRoleRelationOrderBy groupRoleRelationAggregate;
 
+  /**
+   * 组 数量
+   */
+  @Description("组 数量")
   private Sort idCount;
 
+  /**
+   * ID 最大值
+   */
+  @Description("ID 最大值")
   private Sort idMax;
 
+  /**
+   * ID 最小值
+   */
+  @Description("ID 最小值")
   private Sort idMin;
 
+  /**
+   * 名称 数量
+   */
+  @Description("名称 数量")
   private Sort nameCount;
 
+  /**
+   * 名称 最大值
+   */
+  @Description("名称 最大值")
   private Sort nameMax;
 
+  /**
+   * 名称 最小值
+   */
+  @Description("名称 最小值")
   private Sort nameMin;
 
+  /**
+   * 描述 数量
+   */
+  @Description("描述 数量")
   private Sort descriptionCount;
 
+  /**
+   * 描述 最大值
+   */
+  @Description("描述 最大值")
   private Sort descriptionMax;
 
+  /**
+   * 描述 最小值
+   */
+  @Description("描述 最小值")
   private Sort descriptionMin;
 
+  /**
+   * 路径 数量
+   */
+  @Description("路径 数量")
   private Sort pathCount;
 
+  /**
+   * 路径 最大值
+   */
+  @Description("路径 最大值")
   private Sort pathMax;
 
+  /**
+   * 路径 最小值
+   */
+  @Description("路径 最小值")
   private Sort pathMin;
 
+  /**
+   * 上级ID 数量
+   */
+  @Description("上级ID 数量")
   private Sort parentIdCount;
 
+  /**
+   * 上级ID 最大值
+   */
+  @Description("上级ID 最大值")
   private Sort parentIdMax;
 
+  /**
+   * 上级ID 最小值
+   */
+  @Description("上级ID 最小值")
   private Sort parentIdMin;
 
+  /**
+   * 层级 数量
+   */
+  @Description("层级 数量")
   private Sort deepCount;
 
+  /**
+   * 层级 合计
+   */
+  @Description("层级 合计")
   private Sort deepSum;
 
+  /**
+   * 层级 平均值
+   */
+  @Description("层级 平均值")
   private Sort deepAvg;
 
+  /**
+   * 层级 最大值
+   */
+  @Description("层级 最大值")
   private Sort deepMax;
 
+  /**
+   * 层级 最小值
+   */
+  @Description("层级 最小值")
   private Sort deepMin;
 
   public Sort getId() {

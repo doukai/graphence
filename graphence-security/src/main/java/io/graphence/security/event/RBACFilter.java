@@ -1,6 +1,6 @@
 package io.graphence.security.event;
 
-import io.graphence.core.dto.CurrentUser;
+import io.graphence.core.dto.Current;
 import io.graphence.core.dto.enumType.PermissionType;
 import io.graphoenix.core.handler.DocumentManager;
 import io.graphoenix.spi.graphql.Definition;
@@ -39,10 +39,10 @@ public class RBACFilter implements OperationBeforeHandler {
 
     private final DocumentManager documentManager;
     private final Enforcer enforcer;
-    private final Provider<Mono<CurrentUser>> currentUserMonoProvider;
+    private final Provider<Mono<Current>> currentUserMonoProvider;
 
     @Inject
-    public RBACFilter(DocumentManager documentManager, Enforcer enforcer, Provider<Mono<CurrentUser>> currentUserMonoProvider) {
+    public RBACFilter(DocumentManager documentManager, Enforcer enforcer, Provider<Mono<Current>> currentUserMonoProvider) {
         this.documentManager = documentManager;
         this.enforcer = enforcer;
         this.currentUserMonoProvider = currentUserMonoProvider;
@@ -92,12 +92,12 @@ public class RBACFilter implements OperationBeforeHandler {
                 );
     }
 
-    protected Stream<Field> enforceApi(CurrentUser currentUser, ObjectType objectType, FieldDefinition fieldDefinition, Field field, PermissionType permissionType) {
+    protected Stream<Field> enforceApi(Current current, ObjectType objectType, FieldDefinition fieldDefinition, Field field, PermissionType permissionType) {
         if (!fieldDefinition.isDenyAll() &&
                 (fieldDefinition.isPermitAll() ||
                         enforcer.enforce(
-                                USER_PREFIX + currentUser.getId(),
-                                Optional.ofNullable(currentUser.getRealmId()).map(String::valueOf).orElse(EMPTY),
+                                USER_PREFIX + current.getId(),
+                                Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY),
                                 objectType.getName() + SPACER + fieldDefinition.getName(),
                                 permissionType.name()
                         )
@@ -108,21 +108,21 @@ public class RBACFilter implements OperationBeforeHandler {
         return Stream.empty();
     }
 
-    protected Stream<Field> enforce(CurrentUser currentUser, ObjectType objectType, FieldDefinition fieldDefinition, Field field) {
+    protected Stream<Field> enforce(Current current, ObjectType objectType, FieldDefinition fieldDefinition, Field field) {
         Definition fieldTypeDefinition = documentManager.getFieldTypeDefinition(fieldDefinition);
         if (fieldDefinition.isConnectionField()) {
             if (documentManager.isOperationType(objectType) ||
                     !fieldDefinition.isDenyAll() &&
                             (fieldDefinition.isPermitAll() ||
                                     enforcer.enforce(
-                                            USER_PREFIX + currentUser.getId(),
-                                            Optional.ofNullable(currentUser.getRealmId()).map(String::valueOf).orElse(EMPTY),
+                                            USER_PREFIX + current.getId(),
+                                            Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY),
                                             objectType.getName() + SPACER + fieldDefinition.getConnectionFieldOrError(),
                                             WRITE.name()
                                     ) ||
                                     enforcer.enforce(
-                                            USER_PREFIX + currentUser.getId(),
-                                            Optional.ofNullable(currentUser.getRealmId()).map(String::valueOf).orElse(EMPTY),
+                                            USER_PREFIX + current.getId(),
+                                            Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY),
                                             objectType.getName() + SPACER + fieldDefinition.getConnectionFieldOrError(),
                                             READ.name()
                                     )
@@ -137,7 +137,7 @@ public class RBACFilter implements OperationBeforeHandler {
                                                 Definition originalFieldTypeDefinition = documentManager.getFieldTypeDefinition(originalFieldDefinition);
                                                 List<Field> fieldList = node.getFields().stream()
                                                         .flatMap(nodeSubField ->
-                                                                enforce(currentUser, originalFieldTypeDefinition.asObject(), originalFieldTypeDefinition.asObject().getField(nodeSubField.getName()), nodeSubField)
+                                                                enforce(current, originalFieldTypeDefinition.asObject(), originalFieldTypeDefinition.asObject().getField(nodeSubField.getName()), nodeSubField)
                                                         )
                                                         .collect(Collectors.toList());
                                                 if (fieldList.isEmpty()) {
@@ -169,14 +169,14 @@ public class RBACFilter implements OperationBeforeHandler {
                     !fieldDefinition.isDenyAll() &&
                             (fieldDefinition.isPermitAll() ||
                                     enforcer.enforce(
-                                            USER_PREFIX + currentUser.getId(),
-                                            Optional.ofNullable(currentUser.getRealmId()).map(String::valueOf).orElse(EMPTY),
+                                            USER_PREFIX + current.getId(),
+                                            Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY),
                                             objectType.getName() + SPACER + fieldName,
                                             WRITE.name()
                                     ) ||
                                     enforcer.enforce(
-                                            USER_PREFIX + currentUser.getId(),
-                                            Optional.ofNullable(currentUser.getRealmId()).map(String::valueOf).orElse(EMPTY),
+                                            USER_PREFIX + current.getId(),
+                                            Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY),
                                             objectType.getName() + SPACER + fieldName,
                                             READ.name()
                                     )
@@ -184,7 +184,7 @@ public class RBACFilter implements OperationBeforeHandler {
             ) {
                 List<Field> fieldList = field.getFields().stream()
                         .flatMap(subField ->
-                                enforce(currentUser, fieldTypeDefinition.asObject(), fieldTypeDefinition.asObject().getField(subField.getName()), subField)
+                                enforce(current, fieldTypeDefinition.asObject(), fieldTypeDefinition.asObject().getField(subField.getName()), subField)
                         )
                         .collect(Collectors.toList());
                 if (fieldList.isEmpty()) {
@@ -203,14 +203,14 @@ public class RBACFilter implements OperationBeforeHandler {
             if (!fieldDefinition.isDenyAll() &&
                     (fieldDefinition.isPermitAll() ||
                             enforcer.enforce(
-                                    USER_PREFIX + currentUser.getId(),
-                                    Optional.ofNullable(currentUser.getRealmId()).map(String::valueOf).orElse(EMPTY),
+                                    USER_PREFIX + current.getId(),
+                                    Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY),
                                     objectType.getName() + SPACER + fieldName,
                                     WRITE.name()
                             ) ||
                             enforcer.enforce(
-                                    USER_PREFIX + currentUser.getId(),
-                                    Optional.ofNullable(currentUser.getRealmId()).map(String::valueOf).orElse(EMPTY),
+                                    USER_PREFIX + current.getId(),
+                                    Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY),
                                     objectType.getName() + SPACER + fieldName,
                                     READ.name()
                             )
@@ -222,7 +222,7 @@ public class RBACFilter implements OperationBeforeHandler {
         return Stream.empty();
     }
 
-    protected Map<String, ValueWithVariable> enforce(CurrentUser currentUser, FieldDefinition fieldDefinition, Map<String, ValueWithVariable> arguments) {
+    protected Map<String, ValueWithVariable> enforce(Current current, FieldDefinition fieldDefinition, Map<String, ValueWithVariable> arguments) {
         Definition fieldTypeDefinition = documentManager.getFieldTypeDefinition(fieldDefinition);
         if (fieldTypeDefinition.isObject() && !fieldTypeDefinition.asObject().isContainer()) {
             return Stream
@@ -238,8 +238,8 @@ public class RBACFilter implements OperationBeforeHandler {
                                                                                         if (!subFieldDefinition.isDenyAll() &&
                                                                                                 (subFieldDefinition.isPermitAll() ||
                                                                                                         enforcer.enforce(
-                                                                                                                USER_PREFIX + currentUser.getId(),
-                                                                                                                Optional.ofNullable(currentUser.getRealmId()).map(String::valueOf).orElse(EMPTY),
+                                                                                                                USER_PREFIX + current.getId(),
+                                                                                                                Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY),
                                                                                                                 fieldTypeDefinition.getName() + SPACER + inputValue.getName(),
                                                                                                                 WRITE.name()
                                                                                                         )
@@ -252,7 +252,7 @@ public class RBACFilter implements OperationBeforeHandler {
                                                                                                                     inputValue.getName(),
                                                                                                                     ValueWithVariable.of(
                                                                                                                             valueWithVariable.asArray().getValueWithVariables().stream()
-                                                                                                                                    .map(item -> enforce(currentUser, subFieldDefinition, item.asObject().getObjectValueWithVariable()))
+                                                                                                                                    .map(item -> enforce(current, subFieldDefinition, item.asObject().getObjectValueWithVariable()))
                                                                                                                                     .collect(Collectors.toList())
                                                                                                                     )
                                                                                                             )
@@ -262,7 +262,7 @@ public class RBACFilter implements OperationBeforeHandler {
                                                                                                             new AbstractMap.SimpleEntry<>(
                                                                                                                     inputValue.getName(),
                                                                                                                     ValueWithVariable.of(
-                                                                                                                            enforce(currentUser, subFieldDefinition, valueWithVariable.asObject().getObjectValueWithVariable())
+                                                                                                                            enforce(current, subFieldDefinition, valueWithVariable.asObject().getObjectValueWithVariable())
                                                                                                                     )
                                                                                                             )
                                                                                                     );
@@ -287,7 +287,7 @@ public class RBACFilter implements OperationBeforeHandler {
                                                                             inputValue.getName(),
                                                                             ValueWithVariable.of(
                                                                                     valueWithVariable.asArray().getValueWithVariables().stream()
-                                                                                            .map(item -> enforce(currentUser, fieldDefinition, item.asObject().getObjectValueWithVariable()))
+                                                                                            .map(item -> enforce(current, fieldDefinition, item.asObject().getObjectValueWithVariable()))
                                                                                             .collect(Collectors.toList())
                                                                             )
                                                                     );

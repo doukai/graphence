@@ -55,7 +55,7 @@ public class RBACEnforcerApi {
                                     .flatMap(Collection::stream)
                                     .map(permission ->
                                             new Policy()
-                                                    .setPtype(P_TYPE)
+                                                    .setPolicy(P_TYPE)
                                                     .setV0(ROLE_PREFIX + syncRole.getId())
                                                     .setV1(Optional.ofNullable(syncRole.getRealmId()).map(String::valueOf).orElse(EMPTY))
                                                     .setV2(permission.getType() + SPACER + permission.getField())
@@ -79,7 +79,7 @@ public class RBACEnforcerApi {
                                     .flatMap(Collection::stream)
                                     .map(user ->
                                             new Policy()
-                                                    .setPtype(G_TYPE)
+                                                    .setPolicy(G_TYPE)
                                                     .setV0(USER_PREFIX + user.getId())
                                                     .setV1(ROLE_PREFIX + syncRole.getId())
                                                     .setV2(Optional.ofNullable(syncRole.getRealmId()).map(String::valueOf).orElse(EMPTY))
@@ -89,7 +89,7 @@ public class RBACEnforcerApi {
                                     .flatMap(Collection::stream)
                                     .map(group ->
                                             new Policy()
-                                                    .setPtype(G_TYPE)
+                                                    .setPolicy(G_TYPE)
                                                     .setV0(GROUP_PREFIX + group.getId())
                                                     .setV1(ROLE_PREFIX + syncRole.getId())
                                                     .setV2(Optional.ofNullable(syncRole.getRealmId()).map(String::valueOf).orElse(EMPTY))
@@ -106,7 +106,7 @@ public class RBACEnforcerApi {
                                     .flatMap(Collection::stream)
                                     .map(composite ->
                                             new Policy()
-                                                    .setPtype(G_TYPE)
+                                                    .setPolicy(G_TYPE)
                                                     .setV0(ROLE_PREFIX + syncRole.getId())
                                                     .setV1(ROLE_PREFIX + composite.getId())
                                                     .setV2(Optional.ofNullable(syncRole.getRealmId()).map(String::valueOf).orElse(EMPTY))
@@ -137,7 +137,7 @@ public class RBACEnforcerApi {
                                     .flatMap(Collection::stream)
                                     .map(role ->
                                             new Policy()
-                                                    .setPtype(G_TYPE)
+                                                    .setPolicy(G_TYPE)
                                                     .setV0(USER_PREFIX + syncUser.getId())
                                                     .setV1(ROLE_PREFIX + role.getId())
                                                     .setV2(Optional.ofNullable(syncUser.getRealmId()).map(String::valueOf).orElse(EMPTY))
@@ -147,7 +147,7 @@ public class RBACEnforcerApi {
                                     .flatMap(Collection::stream)
                                     .map(group ->
                                             new Policy()
-                                                    .setPtype(G_TYPE)
+                                                    .setPolicy(G_TYPE)
                                                     .setV0(USER_PREFIX + syncUser.getId())
                                                     .setV1(GROUP_PREFIX + group.getId())
                                                     .setV2(Optional.ofNullable(syncUser.getRealmId()).map(String::valueOf).orElse(EMPTY))
@@ -178,7 +178,7 @@ public class RBACEnforcerApi {
                                     .flatMap(Collection::stream)
                                     .map(role ->
                                             new Policy()
-                                                    .setPtype(G_TYPE)
+                                                    .setPolicy(G_TYPE)
                                                     .setV0(GROUP_PREFIX + syncGroup.getId())
                                                     .setV1(ROLE_PREFIX + role.getId())
                                                     .setV2(Optional.ofNullable(syncGroup.getRealmId()).map(String::valueOf).orElse(EMPTY))
@@ -195,7 +195,7 @@ public class RBACEnforcerApi {
                                     .flatMap(Collection::stream)
                                     .map(user ->
                                             new Policy()
-                                                    .setPtype(G_TYPE)
+                                                    .setPolicy(G_TYPE)
                                                     .setV0(USER_PREFIX + user.getId())
                                                     .setV1(GROUP_PREFIX + syncGroup.getId())
                                                     .setV2(Optional.ofNullable(syncGroup.getRealmId()).map(String::valueOf).orElse(EMPTY))
@@ -228,7 +228,7 @@ public class RBACEnforcerApi {
                                             .flatMap(Collection::stream)
                                             .map(role ->
                                                     new Policy()
-                                                            .setPtype(P_TYPE)
+                                                            .setPolicy(P_TYPE)
                                                             .setV0(ROLE_PREFIX + role.getId())
                                                             .setV1(Optional.ofNullable(role.getRealmId()).map(String::valueOf).orElse(EMPTY))
                                                             .setV2(syncPermission.getType() + SPACER + syncPermission.getField())

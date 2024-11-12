@@ -4,7 +4,7 @@ import com.password4j.Hash;
 import com.password4j.Password;
 import io.graphence.core.repository.RBACPolicyRepository;
 import io.graphence.core.repository.UserRepository;
-import io.graphence.core.dto.CurrentUser;
+import io.graphence.core.dto.Current;
 import io.graphence.core.dto.inputObjectType.*;
 import io.graphence.core.dto.objectType.Permission;
 import io.graphence.core.dto.objectType.User;
@@ -32,34 +32,34 @@ import static io.graphence.core.error.AuthenticationErrorType.AUTHENTICATION_FAI
 @ApplicationScoped
 public class CurrentApi implements Asyncable {
 
-    private final Provider<Mono<CurrentUser>> currentUserMonoProvider;
+    private final Provider<Mono<Current>> currentMonoProvider;
     private final RBACPolicyRepository rbacPolicyRepository;
     private final UserRepository userRepository;
 
     @Inject
-    public CurrentApi(Provider<Mono<CurrentUser>> currentUserMonoProvider, RBACPolicyRepository rbacPolicyRepository, UserRepository userRepository) {
-        this.currentUserMonoProvider = currentUserMonoProvider;
+    public CurrentApi(Provider<Mono<Current>> currentMonoProvider, RBACPolicyRepository rbacPolicyRepository, UserRepository userRepository) {
+        this.currentMonoProvider = currentMonoProvider;
         this.rbacPolicyRepository = rbacPolicyRepository;
         this.userRepository = userRepository;
     }
 
     @Query
     @PermitAll
-    public Mono<CurrentUser> current() {
-        return currentUserMonoProvider.get();
+    public Mono<Current> current() {
+        return currentMonoProvider.get();
     }
 
     @Query
     @PermitAll
     public Mono<User> currentUser() {
-        return currentUserMonoProvider.get()
+        return currentMonoProvider.get()
                 .flatMap(currentUser -> userRepository.getUserById(currentUser.getId()));
     }
 
     @Query
     @PermitAll
     public Mono<Set<String>> currentPermissionTypeList() {
-        return currentUserMonoProvider.get()
+        return currentMonoProvider.get()
                 .flatMap(currentUser -> rbacPolicyRepository.queryPermissionTypeList(currentUser.getRoles()))
                 .map(permissionList ->
                         permissionList.stream()
@@ -71,7 +71,7 @@ public class CurrentApi implements Asyncable {
     @Query
     @PermitAll
     public Mono<Set<String>> currentPermissionNameListByTypes(Collection<String> types) {
-        return currentUserMonoProvider.get()
+        return currentMonoProvider.get()
                 .flatMap(currentUser -> rbacPolicyRepository.queryPermissionNameListByTypes(currentUser.getRoles(), types))
                 .map(permissionList ->
                         permissionList.stream()
@@ -83,7 +83,7 @@ public class CurrentApi implements Asyncable {
     @Mutation
     @PermitAll
     public Mono<User> currentUserUpdate(@NonNull UserInput userInput) {
-        return currentUserMonoProvider.get()
+        return currentMonoProvider.get()
                 .doOnSuccess(currentUser -> userInput.setId(currentUser.getId()))
                 .flatMap(currentUser ->
                         userRepository.updateUser(userInput)
@@ -96,7 +96,7 @@ public class CurrentApi implements Asyncable {
     @Mutation
     @PermitAll
     public Mono<User> currentUserResetPassword(@NonNull String password, @NonNull String newPassword) {
-        return currentUserMonoProvider.get()
+        return currentMonoProvider.get()
                 .flatMap(currentUser -> userRepository.getUserById(currentUser.getId()))
                 .flatMap(user -> {
                             if (Password.check(password, new String(Base64.getDecoder().decode(user.getHash()))).addSalt(Base64.getDecoder().decode(user.getSalt())).withBcrypt()) {
@@ -111,7 +111,7 @@ public class CurrentApi implements Asyncable {
 
     @Async(defaultIfEmpty = "metaInput")
     public MetaInput invokeMetaInput(@Source MetaInput metaInput) {
-        CurrentUser currentUser = await(currentUserMonoProvider.get());
+        Current current = await(currentMonoProvider.get());
         if (!(metaInput instanceof RealmInput ||
                 metaInput instanceof RealmMutationArguments ||
                 metaInput instanceof RealmListMutationArguments ||
@@ -119,21 +119,21 @@ public class CurrentApi implements Asyncable {
                 metaInput instanceof PermissionMutationArguments ||
                 metaInput instanceof PermissionListMutationArguments)
         ) {
-            if (currentUser.getRealmId() != null) {
-                metaInput.setRealmId(currentUser.getRealmId());
+            if (current.getRealmId() != null) {
+                metaInput.setRealmId(current.getRealmId());
             }
         }
         if (metaInput.getCreateUserId() == null) {
-            metaInput.setCreateUserId(currentUser.getId());
+            metaInput.setCreateUserId(current.getId());
         } else {
-            metaInput.setUpdateUserId(currentUser.getId());
+            metaInput.setUpdateUserId(current.getId());
         }
         return metaInput;
     }
 
     @Async(defaultIfEmpty = "metaExpression")
     public MetaExpression invokeMetaExpression(@Source MetaExpression metaExpression) {
-        CurrentUser currentUser = await(currentUserMonoProvider.get());
+        Current current = await(currentMonoProvider.get());
         if (!(metaExpression instanceof RealmExpression ||
                 metaExpression instanceof RealmQueryArguments ||
                 metaExpression instanceof RealmConnectionQueryArguments ||
@@ -143,9 +143,9 @@ public class CurrentApi implements Asyncable {
                 metaExpression instanceof PermissionConnectionQueryArguments ||
                 metaExpression instanceof PermissionListQueryArguments)
         ) {
-            if (currentUser.getRealmId() != null) {
+            if (current.getRealmId() != null) {
                 IntExpression intExpression = new IntExpression();
-                intExpression.setVal(currentUser.getRealmId());
+                intExpression.setVal(current.getRealmId());
             }
         }
         return metaExpression;
