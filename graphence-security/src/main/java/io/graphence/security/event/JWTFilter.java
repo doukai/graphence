@@ -11,6 +11,7 @@ import io.graphoenix.core.handler.DocumentManager;
 import io.graphoenix.http.server.context.RequestScopeInstanceFactory;
 import io.graphoenix.spi.graphql.operation.Operation;
 import io.graphoenix.spi.graphql.type.ObjectType;
+import io.netty.handler.codec.http.QueryStringDecoder;
 import io.nozdormu.spi.event.ScopeEvent;
 import jakarta.annotation.Priority;
 import jakarta.enterprise.context.ApplicationScoped;
@@ -52,7 +53,15 @@ public class JWTFilter extends BaseRequestFilter implements ScopeEvent {
     @Override
     public Mono<Void> fireAsync(Map<String, Object> context) {
         HttpServerRequest request = getRequest(context);
-        String authorization = request.requestHeaders().get(AUTHORIZATION_HEADER);
+        String authorization = null;
+        if (request.requestHeaders().contains(AUTHORIZATION_HEADER)) {
+            authorization = request.requestHeaders().get(AUTHORIZATION_HEADER);
+        } else {
+            QueryStringDecoder decoder = new QueryStringDecoder(request.uri());
+            if (decoder.parameters().containsKey(AUTHORIZATION_HEADER)) {
+                authorization = decoder.parameters().get(AUTHORIZATION_HEADER).get(0);
+            }
+        }
 
         if (authorization != null && authorization.startsWith(AUTHORIZATION_SCHEME_BEARER)) {
             String jws = authorization.substring(7);
