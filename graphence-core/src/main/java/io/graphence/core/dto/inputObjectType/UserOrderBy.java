@@ -2,7 +2,6 @@ package io.graphence.core.dto.inputObjectType;
 
 import com.dslplatform.json.CompiledJson;
 import io.graphoenix.core.dto.enumType.Sort;
-import io.graphoenix.file.dto.inputObjectType.FileOrderBy;
 import jakarta.annotation.Generated;
 import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.Input;
@@ -62,12 +61,6 @@ public class UserOrderBy {
    */
   @Description("邮箱")
   private Sort email;
-
-  /**
-   * 头像
-   */
-  @Description("头像")
-  private FileOrderBy avatar;
 
   /**
    * 手机号
@@ -152,12 +145,6 @@ public class UserOrderBy {
    */
   @Description("所属类型")
   private Sort __typename;
-
-  /**
-   * 用户 文件 关系
-   */
-  @Description("用户 文件 关系")
-  private FileUserRelationOrderBy fileUserRelation;
 
   /**
    * 用户 手机号 关系
@@ -415,14 +402,6 @@ public class UserOrderBy {
     this.email = email;
   }
 
-  public FileOrderBy getAvatar() {
-    return this.avatar;
-  }
-
-  public void setAvatar(FileOrderBy avatar) {
-    this.avatar = avatar;
-  }
-
   public Sort getPhones() {
     return this.phones;
   }
@@ -533,14 +512,6 @@ public class UserOrderBy {
 
   public void set__typename(Sort __typename) {
     this.__typename = __typename;
-  }
-
-  public FileUserRelationOrderBy getFileUserRelation() {
-    return this.fileUserRelation;
-  }
-
-  public void setFileUserRelation(FileUserRelationOrderBy fileUserRelation) {
-    this.fileUserRelation = fileUserRelation;
   }
 
   public UserPhonesRelationOrderBy getUserPhonesRelation() {

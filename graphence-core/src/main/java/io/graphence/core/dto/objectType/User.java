@@ -2,7 +2,6 @@ package io.graphence.core.dto.objectType;
 
 import com.dslplatform.json.CompiledJson;
 import io.graphoenix.core.dto.interfaceType.Meta;
-import io.graphoenix.file.dto.objectType.File;
 import io.graphoenix.structure.dto.interfaceType.NamedStruct;
 import jakarta.annotation.Generated;
 import java.lang.Boolean;
@@ -74,12 +73,6 @@ public class User implements NamedStruct, Meta {
    */
   @Description("邮箱")
   private String email;
-
-  /**
-   * 头像
-   */
-  @Description("头像")
-  private File avatar;
 
   /**
    * 手机号
@@ -164,12 +157,6 @@ public class User implements NamedStruct, Meta {
    */
   @Description("所属类型")
   private String __typename = "User";
-
-  /**
-   * 用户 文件 关系
-   */
-  @Description("用户 文件 关系")
-  private Collection<FileUserRelation> fileUserRelation;
 
   /**
    * 用户 手机号 关系
@@ -463,14 +450,6 @@ public class User implements NamedStruct, Meta {
     this.email = email;
   }
 
-  public File getAvatar() {
-    return this.avatar;
-  }
-
-  public void setAvatar(File avatar) {
-    this.avatar = avatar;
-  }
-
   public Collection<String> getPhones() {
     return this.phones;
   }
@@ -597,14 +576,6 @@ public class User implements NamedStruct, Meta {
 
   public void set__typename(String __typename) {
     this.__typename = __typename;
-  }
-
-  public Collection<FileUserRelation> getFileUserRelation() {
-    return this.fileUserRelation;
-  }
-
-  public void setFileUserRelation(Collection<FileUserRelation> fileUserRelation) {
-    this.fileUserRelation = fileUserRelation;
   }
 
   public Collection<UserPhonesRelation> getUserPhonesRelation() {

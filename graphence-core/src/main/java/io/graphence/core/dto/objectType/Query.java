@@ -10,12 +10,12 @@ import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.Type;
 
 /**
- * Query
+ * 查询
  */
 @Type
 @CompiledJson
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
-@Description("Query")
+@Description("查询")
 public class Query {
   /**
    * 用户 查询接口
@@ -214,24 +214,6 @@ public class Query {
    */
   @Description("角色 权限 关系连接 查询接口")
   private PermissionRoleRelationConnection permissionRoleRelationConnection;
-
-  /**
-   * 用户 文件 关系 查询接口
-   */
-  @Description("用户 文件 关系 查询接口")
-  private FileUserRelation fileUserRelation;
-
-  /**
-   * 用户 文件 关系列表 查询接口
-   */
-  @Description("用户 文件 关系列表 查询接口")
-  private Collection<FileUserRelation> fileUserRelationList;
-
-  /**
-   * 用户 文件 关系连接 查询接口
-   */
-  @Description("用户 文件 关系连接 查询接口")
-  private FileUserRelationConnection fileUserRelationConnection;
 
   private Current current;
 
@@ -512,30 +494,6 @@ public class Query {
   public void setPermissionRoleRelationConnection(
       PermissionRoleRelationConnection permissionRoleRelationConnection) {
     this.permissionRoleRelationConnection = permissionRoleRelationConnection;
-  }
-
-  public FileUserRelation getFileUserRelation() {
-    return this.fileUserRelation;
-  }
-
-  public void setFileUserRelation(FileUserRelation fileUserRelation) {
-    this.fileUserRelation = fileUserRelation;
-  }
-
-  public Collection<FileUserRelation> getFileUserRelationList() {
-    return this.fileUserRelationList;
-  }
-
-  public void setFileUserRelationList(Collection<FileUserRelation> fileUserRelationList) {
-    this.fileUserRelationList = fileUserRelationList;
-  }
-
-  public FileUserRelationConnection getFileUserRelationConnection() {
-    return this.fileUserRelationConnection;
-  }
-
-  public void setFileUserRelationConnection(FileUserRelationConnection fileUserRelationConnection) {
-    this.fileUserRelationConnection = fileUserRelationConnection;
   }
 
   public Current getCurrent() {

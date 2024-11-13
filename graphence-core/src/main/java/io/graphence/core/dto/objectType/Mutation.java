@@ -9,12 +9,12 @@ import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.Type;
 
 /**
- * Mutation
+ * 变更
  */
 @Type
 @CompiledJson
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
-@Description("Mutation")
+@Description("变更")
 public class Mutation {
   /**
    * 用户 变更接口
@@ -148,25 +148,13 @@ public class Mutation {
   @Description("角色 权限 关系列表 变更接口")
   private Collection<PermissionRoleRelation> permissionRoleRelationList;
 
-  /**
-   * 用户 文件 关系 变更接口
-   */
-  @Description("用户 文件 关系 变更接口")
-  private FileUserRelation fileUserRelation;
-
-  /**
-   * 用户 文件 关系列表 变更接口
-   */
-  @Description("用户 文件 关系列表 变更接口")
-  private Collection<FileUserRelation> fileUserRelationList;
-
-  private String login;
-
   private User currentUserUpdate;
 
   private User currentUserResetPassword;
 
   private Boolean syncPermissionRoleRelationPolicy;
+
+  private String login;
 
   public User getUser() {
     return this.user;
@@ -346,30 +334,6 @@ public class Mutation {
     this.permissionRoleRelationList = permissionRoleRelationList;
   }
 
-  public FileUserRelation getFileUserRelation() {
-    return this.fileUserRelation;
-  }
-
-  public void setFileUserRelation(FileUserRelation fileUserRelation) {
-    this.fileUserRelation = fileUserRelation;
-  }
-
-  public Collection<FileUserRelation> getFileUserRelationList() {
-    return this.fileUserRelationList;
-  }
-
-  public void setFileUserRelationList(Collection<FileUserRelation> fileUserRelationList) {
-    this.fileUserRelationList = fileUserRelationList;
-  }
-
-  public String getLogin() {
-    return this.login;
-  }
-
-  public void setLogin(String login) {
-    this.login = login;
-  }
-
   public User getCurrentUserUpdate() {
     return this.currentUserUpdate;
   }
@@ -392,5 +356,13 @@ public class Mutation {
 
   public void setSyncPermissionRoleRelationPolicy(Boolean syncPermissionRoleRelationPolicy) {
     this.syncPermissionRoleRelationPolicy = syncPermissionRoleRelationPolicy;
+  }
+
+  public String getLogin() {
+    return this.login;
+  }
+
+  public void setLogin(String login) {
+    this.login = login;
   }
 }

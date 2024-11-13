@@ -11,7 +11,6 @@ import "io/graphence/core/interfaces.proto";
 import "io/graphence/core/input_objects.proto";
 import "io/graphoenix/core/enums.proto";
 import "io/graphoenix/core/input_objects.proto";
-import "io/graphoenix/file/input_objects.proto";
 
 message QueryUserRequest {
     optional string selection_set = 1;
@@ -24,29 +23,27 @@ message QueryUserRequest {
     io.graphoenix.core.StringExpression salt = 8; /* 盐 */
     io.graphoenix.core.StringExpression hash = 9; /* 哈希 */
     io.graphoenix.core.StringExpression email = 10; /* 邮箱 */
-    io.graphoenix.file.FileExpression avatar = 11; /* 头像 */
-    io.graphoenix.core.StringExpression phones = 12; /* 手机号 */
-    io.graphoenix.core.BooleanExpression disable = 13; /* 禁用 */
-    GroupExpression groups = 14; /* 组 */
-    RoleExpression roles = 15; /* 角色 */
-    RealmExpression realm = 16; /* 租户 */
-    bool include_deprecated = 17; /* 包含已移除 */
-    io.graphoenix.core.IntExpression version = 18; /* 版本 */
-    io.graphoenix.core.IntExpression realm_id = 19; /* 域 */
-    io.graphoenix.core.StringExpression create_user_id = 20; /* 创建者 */
-    io.graphoenix.core.StringExpression create_time = 21; /* 创建时间 */
-    io.graphoenix.core.StringExpression update_user_id = 22; /* 更新者 */
-    io.graphoenix.core.StringExpression update_time = 23; /* 更新时间 */
-    io.graphoenix.core.StringExpression create_group_id = 24; /* 创建组 */
-    io.graphoenix.core.StringExpression intro_typename = 25; /* 所属类型 */
-    FileUserRelationExpression file_user_relation = 26; /* 用户 文件 关系 */
-    UserPhonesRelationExpression user_phones_relation = 27; /* 用户 手机号 关系 */
-    GroupUserRelationExpression group_user_relation = 28; /* 用户 组 关系 */
-    RoleUserRelationExpression role_user_relation = 29; /* 用户 角色 关系 */
-    repeated string group_by = 30; /* 分组 */
-    bool not = 31; /* 取非 */
-    io.graphoenix.core.Conditional cond = 32; /* 与/或 */
-    repeated UserExpression exs = 33; /* 查询表达式组 */
+    io.graphoenix.core.StringExpression phones = 11; /* 手机号 */
+    io.graphoenix.core.BooleanExpression disable = 12; /* 禁用 */
+    GroupExpression groups = 13; /* 组 */
+    RoleExpression roles = 14; /* 角色 */
+    RealmExpression realm = 15; /* 租户 */
+    bool include_deprecated = 16; /* 包含已移除 */
+    io.graphoenix.core.IntExpression version = 17; /* 版本 */
+    io.graphoenix.core.IntExpression realm_id = 18; /* 域 */
+    io.graphoenix.core.StringExpression create_user_id = 19; /* 创建者 */
+    io.graphoenix.core.StringExpression create_time = 20; /* 创建时间 */
+    io.graphoenix.core.StringExpression update_user_id = 21; /* 更新者 */
+    io.graphoenix.core.StringExpression update_time = 22; /* 更新时间 */
+    io.graphoenix.core.StringExpression create_group_id = 23; /* 创建组 */
+    io.graphoenix.core.StringExpression intro_typename = 24; /* 所属类型 */
+    UserPhonesRelationExpression user_phones_relation = 25; /* 用户 手机号 关系 */
+    GroupUserRelationExpression group_user_relation = 26; /* 用户 组 关系 */
+    RoleUserRelationExpression role_user_relation = 27; /* 用户 角色 关系 */
+    repeated string group_by = 28; /* 分组 */
+    bool not = 29; /* 取非 */
+    io.graphoenix.core.Conditional cond = 30; /* 与/或 */
+    repeated UserExpression exs = 31; /* 查询表达式组 */
 }
 message QueryUserListRequest {
     optional string selection_set = 1;
@@ -59,35 +56,33 @@ message QueryUserListRequest {
     io.graphoenix.core.StringExpression salt = 8; /* 盐 */
     io.graphoenix.core.StringExpression hash = 9; /* 哈希 */
     io.graphoenix.core.StringExpression email = 10; /* 邮箱 */
-    io.graphoenix.file.FileExpression avatar = 11; /* 头像 */
-    io.graphoenix.core.StringExpression phones = 12; /* 手机号 */
-    io.graphoenix.core.BooleanExpression disable = 13; /* 禁用 */
-    GroupExpression groups = 14; /* 组 */
-    RoleExpression roles = 15; /* 角色 */
-    RealmExpression realm = 16; /* 租户 */
-    bool include_deprecated = 17; /* 包含已移除 */
-    io.graphoenix.core.IntExpression version = 18; /* 版本 */
-    io.graphoenix.core.IntExpression realm_id = 19; /* 域 */
-    io.graphoenix.core.StringExpression create_user_id = 20; /* 创建者 */
-    io.graphoenix.core.StringExpression create_time = 21; /* 创建时间 */
-    io.graphoenix.core.StringExpression update_user_id = 22; /* 更新者 */
-    io.graphoenix.core.StringExpression update_time = 23; /* 更新时间 */
-    io.graphoenix.core.StringExpression create_group_id = 24; /* 创建组 */
-    io.graphoenix.core.StringExpression intro_typename = 25; /* 所属类型 */
-    FileUserRelationExpression file_user_relation = 26; /* 用户 文件 关系 */
-    UserPhonesRelationExpression user_phones_relation = 27; /* 用户 手机号 关系 */
-    GroupUserRelationExpression group_user_relation = 28; /* 用户 组 关系 */
-    RoleUserRelationExpression role_user_relation = 29; /* 用户 角色 关系 */
-    UserOrderBy order_by = 30; /* 排序 */
-    repeated string group_by = 31; /* 分组 */
-    bool not = 32; /* 取非 */
-    io.graphoenix.core.Conditional cond = 33; /* 与/或 */
-    repeated UserExpression exs = 34; /* 查询表达式组 */
-    int32 first = 35; /* 前...条数 */
-    int32 last = 36; /* 后...条数 */
-    int32 offset = 37; /* 偏移条数 */
-    string after = 38; /* 取...之后 */
-    string before = 39; /* 取...之前 */
+    io.graphoenix.core.StringExpression phones = 11; /* 手机号 */
+    io.graphoenix.core.BooleanExpression disable = 12; /* 禁用 */
+    GroupExpression groups = 13; /* 组 */
+    RoleExpression roles = 14; /* 角色 */
+    RealmExpression realm = 15; /* 租户 */
+    bool include_deprecated = 16; /* 包含已移除 */
+    io.graphoenix.core.IntExpression version = 17; /* 版本 */
+    io.graphoenix.core.IntExpression realm_id = 18; /* 域 */
+    io.graphoenix.core.StringExpression create_user_id = 19; /* 创建者 */
+    io.graphoenix.core.StringExpression create_time = 20; /* 创建时间 */
+    io.graphoenix.core.StringExpression update_user_id = 21; /* 更新者 */
+    io.graphoenix.core.StringExpression update_time = 22; /* 更新时间 */
+    io.graphoenix.core.StringExpression create_group_id = 23; /* 创建组 */
+    io.graphoenix.core.StringExpression intro_typename = 24; /* 所属类型 */
+    UserPhonesRelationExpression user_phones_relation = 25; /* 用户 手机号 关系 */
+    GroupUserRelationExpression group_user_relation = 26; /* 用户 组 关系 */
+    RoleUserRelationExpression role_user_relation = 27; /* 用户 角色 关系 */
+    UserOrderBy order_by = 28; /* 排序 */
+    repeated string group_by = 29; /* 分组 */
+    bool not = 30; /* 取非 */
+    io.graphoenix.core.Conditional cond = 31; /* 与/或 */
+    repeated UserExpression exs = 32; /* 查询表达式组 */
+    int32 first = 33; /* 前...条数 */
+    int32 last = 34; /* 后...条数 */
+    int32 offset = 35; /* 偏移条数 */
+    string after = 36; /* 取...之后 */
+    string before = 37; /* 取...之前 */
 }
 message QueryUserConnectionRequest {
     optional string selection_set = 1;
@@ -100,35 +95,33 @@ message QueryUserConnectionRequest {
     io.graphoenix.core.StringExpression salt = 8; /* 盐 */
     io.graphoenix.core.StringExpression hash = 9; /* 哈希 */
     io.graphoenix.core.StringExpression email = 10; /* 邮箱 */
-    io.graphoenix.file.FileExpression avatar = 11; /* 头像 */
-    io.graphoenix.core.StringExpression phones = 12; /* 手机号 */
-    io.graphoenix.core.BooleanExpression disable = 13; /* 禁用 */
-    GroupExpression groups = 14; /* 组 */
-    RoleExpression roles = 15; /* 角色 */
-    RealmExpression realm = 16; /* 租户 */
-    bool include_deprecated = 17; /* 包含已移除 */
-    io.graphoenix.core.IntExpression version = 18; /* 版本 */
-    io.graphoenix.core.IntExpression realm_id = 19; /* 域 */
-    io.graphoenix.core.StringExpression create_user_id = 20; /* 创建者 */
-    io.graphoenix.core.StringExpression create_time = 21; /* 创建时间 */
-    io.graphoenix.core.StringExpression update_user_id = 22; /* 更新者 */
-    io.graphoenix.core.StringExpression update_time = 23; /* 更新时间 */
-    io.graphoenix.core.StringExpression create_group_id = 24; /* 创建组 */
-    io.graphoenix.core.StringExpression intro_typename = 25; /* 所属类型 */
-    FileUserRelationExpression file_user_relation = 26; /* 用户 文件 关系 */
-    UserPhonesRelationExpression user_phones_relation = 27; /* 用户 手机号 关系 */
-    GroupUserRelationExpression group_user_relation = 28; /* 用户 组 关系 */
-    RoleUserRelationExpression role_user_relation = 29; /* 用户 角色 关系 */
-    UserOrderBy order_by = 30; /* 排序 */
-    repeated string group_by = 31; /* 分组 */
-    bool not = 32; /* 取非 */
-    io.graphoenix.core.Conditional cond = 33; /* 与/或 */
-    repeated UserExpression exs = 34; /* 查询表达式组 */
-    int32 first = 35; /* 前...条数 */
-    int32 last = 36; /* 后...条数 */
-    int32 offset = 37; /* 偏移条数 */
-    string after = 38; /* 取...之后 */
-    string before = 39; /* 取...之前 */
+    io.graphoenix.core.StringExpression phones = 11; /* 手机号 */
+    io.graphoenix.core.BooleanExpression disable = 12; /* 禁用 */
+    GroupExpression groups = 13; /* 组 */
+    RoleExpression roles = 14; /* 角色 */
+    RealmExpression realm = 15; /* 租户 */
+    bool include_deprecated = 16; /* 包含已移除 */
+    io.graphoenix.core.IntExpression version = 17; /* 版本 */
+    io.graphoenix.core.IntExpression realm_id = 18; /* 域 */
+    io.graphoenix.core.StringExpression create_user_id = 19; /* 创建者 */
+    io.graphoenix.core.StringExpression create_time = 20; /* 创建时间 */
+    io.graphoenix.core.StringExpression update_user_id = 21; /* 更新者 */
+    io.graphoenix.core.StringExpression update_time = 22; /* 更新时间 */
+    io.graphoenix.core.StringExpression create_group_id = 23; /* 创建组 */
+    io.graphoenix.core.StringExpression intro_typename = 24; /* 所属类型 */
+    UserPhonesRelationExpression user_phones_relation = 25; /* 用户 手机号 关系 */
+    GroupUserRelationExpression group_user_relation = 26; /* 用户 组 关系 */
+    RoleUserRelationExpression role_user_relation = 27; /* 用户 角色 关系 */
+    UserOrderBy order_by = 28; /* 排序 */
+    repeated string group_by = 29; /* 分组 */
+    bool not = 30; /* 取非 */
+    io.graphoenix.core.Conditional cond = 31; /* 与/或 */
+    repeated UserExpression exs = 32; /* 查询表达式组 */
+    int32 first = 33; /* 前...条数 */
+    int32 last = 34; /* 后...条数 */
+    int32 offset = 35; /* 偏移条数 */
+    string after = 36; /* 取...之后 */
+    string before = 37; /* 取...之前 */
 }
 message QueryRoleRequest {
     optional string selection_set = 1;
@@ -955,88 +948,6 @@ message QueryPermissionRoleRelationConnectionRequest {
     string after = 25; /* 取...之后 */
     string before = 26; /* 取...之前 */
 }
-message QueryFileUserRelationRequest {
-    optional string selection_set = 1;
-    optional string arguments = 2;
-    io.graphoenix.core.StringExpression id = 3; /* ID */
-    io.graphoenix.core.StringExpression user_ref = 4; /* 用户 引用 */
-    UserExpression user = 5; /* 用户 */
-    io.graphoenix.core.StringExpression file_ref = 6; /* 文件 引用 */
-    io.graphoenix.file.FileExpression file = 7; /* 文件 */
-    bool include_deprecated = 8; /* 包含已移除 */
-    io.graphoenix.core.IntExpression version = 9; /* 版本 */
-    io.graphoenix.core.IntExpression realm_id = 10; /* 域 */
-    io.graphoenix.core.StringExpression create_user_id = 11; /* 创建者 */
-    io.graphoenix.core.StringExpression create_time = 12; /* 创建时间 */
-    io.graphoenix.core.StringExpression update_user_id = 13; /* 更新者 */
-    io.graphoenix.core.StringExpression update_time = 14; /* 更新时间 */
-    io.graphoenix.core.StringExpression create_group_id = 15; /* 创建组 */
-    io.graphoenix.core.StringExpression intro_typename = 16; /* 所属类型 */
-    repeated string group_by = 17; /* 分组 */
-    bool not = 18; /* 取非 */
-    io.graphoenix.core.Conditional cond = 19; /* 与/或 */
-    repeated FileUserRelationExpression exs = 20; /* 查询表达式组 */
-}
-message QueryFileUserRelationListRequest {
-    optional string selection_set = 1;
-    optional string arguments = 2;
-    io.graphoenix.core.StringExpression id = 3; /* ID */
-    io.graphoenix.core.StringExpression user_ref = 4; /* 用户 引用 */
-    UserExpression user = 5; /* 用户 */
-    io.graphoenix.core.StringExpression file_ref = 6; /* 文件 引用 */
-    io.graphoenix.file.FileExpression file = 7; /* 文件 */
-    bool include_deprecated = 8; /* 包含已移除 */
-    io.graphoenix.core.IntExpression version = 9; /* 版本 */
-    io.graphoenix.core.IntExpression realm_id = 10; /* 域 */
-    io.graphoenix.core.StringExpression create_user_id = 11; /* 创建者 */
-    io.graphoenix.core.StringExpression create_time = 12; /* 创建时间 */
-    io.graphoenix.core.StringExpression update_user_id = 13; /* 更新者 */
-    io.graphoenix.core.StringExpression update_time = 14; /* 更新时间 */
-    io.graphoenix.core.StringExpression create_group_id = 15; /* 创建组 */
-    io.graphoenix.core.StringExpression intro_typename = 16; /* 所属类型 */
-    FileUserRelationOrderBy order_by = 17; /* 排序 */
-    repeated string group_by = 18; /* 分组 */
-    bool not = 19; /* 取非 */
-    io.graphoenix.core.Conditional cond = 20; /* 与/或 */
-    repeated FileUserRelationExpression exs = 21; /* 查询表达式组 */
-    int32 first = 22; /* 前...条数 */
-    int32 last = 23; /* 后...条数 */
-    int32 offset = 24; /* 偏移条数 */
-    string after = 25; /* 取...之后 */
-    string before = 26; /* 取...之前 */
-}
-message QueryFileUserRelationConnectionRequest {
-    optional string selection_set = 1;
-    optional string arguments = 2;
-    io.graphoenix.core.StringExpression id = 3; /* ID */
-    io.graphoenix.core.StringExpression user_ref = 4; /* 用户 引用 */
-    UserExpression user = 5; /* 用户 */
-    io.graphoenix.core.StringExpression file_ref = 6; /* 文件 引用 */
-    io.graphoenix.file.FileExpression file = 7; /* 文件 */
-    bool include_deprecated = 8; /* 包含已移除 */
-    io.graphoenix.core.IntExpression version = 9; /* 版本 */
-    io.graphoenix.core.IntExpression realm_id = 10; /* 域 */
-    io.graphoenix.core.StringExpression create_user_id = 11; /* 创建者 */
-    io.graphoenix.core.StringExpression create_time = 12; /* 创建时间 */
-    io.graphoenix.core.StringExpression update_user_id = 13; /* 更新者 */
-    io.graphoenix.core.StringExpression update_time = 14; /* 更新时间 */
-    io.graphoenix.core.StringExpression create_group_id = 15; /* 创建组 */
-    io.graphoenix.core.StringExpression intro_typename = 16; /* 所属类型 */
-    FileUserRelationOrderBy order_by = 17; /* 排序 */
-    repeated string group_by = 18; /* 分组 */
-    bool not = 19; /* 取非 */
-    io.graphoenix.core.Conditional cond = 20; /* 与/或 */
-    repeated FileUserRelationExpression exs = 21; /* 查询表达式组 */
-    int32 first = 22; /* 前...条数 */
-    int32 last = 23; /* 后...条数 */
-    int32 offset = 24; /* 偏移条数 */
-    string after = 25; /* 取...之后 */
-    string before = 26; /* 取...之前 */
-}
-message QueryPolicyListRequest {
-    optional string selection_set = 1;
-    optional string arguments = 2;
-}
 message QueryCurrentRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
@@ -1053,4 +964,8 @@ message QueryCurrentPermissionNameListByTypesRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
     repeated string types = 3;
+}
+message QueryPolicyListRequest {
+    optional string selection_set = 1;
+    optional string arguments = 2;
 }

@@ -6,7 +6,6 @@ import io.graphoenix.core.dto.inputObjectType.BooleanExpression;
 import io.graphoenix.core.dto.inputObjectType.IntExpression;
 import io.graphoenix.core.dto.inputObjectType.MetaExpression;
 import io.graphoenix.core.dto.inputObjectType.StringExpression;
-import io.graphoenix.file.dto.inputObjectType.FileExpression;
 import io.graphoenix.structure.dto.inputObjectType.NamedStructExpression;
 import jakarta.annotation.Generated;
 import java.lang.Boolean;
@@ -73,12 +72,6 @@ public class UserListSubscriptionArguments implements NamedStructExpression, Met
    */
   @Description("邮箱")
   private StringExpression email;
-
-  /**
-   * 头像
-   */
-  @Description("头像")
-  private FileExpression avatar;
 
   /**
    * 手机号
@@ -164,12 +157,6 @@ public class UserListSubscriptionArguments implements NamedStructExpression, Met
    */
   @Description("所属类型")
   private StringExpression __typename;
-
-  /**
-   * 用户 文件 关系
-   */
-  @Description("用户 文件 关系")
-  private FileUserRelationExpression fileUserRelation;
 
   /**
    * 用户 手机号 关系
@@ -319,14 +306,6 @@ public class UserListSubscriptionArguments implements NamedStructExpression, Met
     this.email = email;
   }
 
-  public FileExpression getAvatar() {
-    return this.avatar;
-  }
-
-  public void setAvatar(FileExpression avatar) {
-    this.avatar = avatar;
-  }
-
   public StringExpression getPhones() {
     return this.phones;
   }
@@ -453,14 +432,6 @@ public class UserListSubscriptionArguments implements NamedStructExpression, Met
 
   public void set__typename(StringExpression __typename) {
     this.__typename = __typename;
-  }
-
-  public FileUserRelationExpression getFileUserRelation() {
-    return this.fileUserRelation;
-  }
-
-  public void setFileUserRelation(FileUserRelationExpression fileUserRelation) {
-    this.fileUserRelation = fileUserRelation;
   }
 
   public UserPhonesRelationExpression getUserPhonesRelation() {

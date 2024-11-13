@@ -13,7 +13,7 @@ import "io/graphence/core/query_requests.proto";
 import "io/graphence/core/query_responses.proto";
 
 /**
-* Query
+* 查询
 */
 service QueryService {
     rpc User (QueryUserRequest) returns (QueryUserResponse); /* 用户 查询接口 */
@@ -49,12 +49,9 @@ service QueryService {
     rpc PermissionRoleRelation (QueryPermissionRoleRelationRequest) returns (QueryPermissionRoleRelationResponse); /* 角色 权限 关系 查询接口 */
     rpc PermissionRoleRelationList (QueryPermissionRoleRelationListRequest) returns (QueryPermissionRoleRelationListResponse); /* 角色 权限 关系列表 查询接口 */
     rpc PermissionRoleRelationConnection (QueryPermissionRoleRelationConnectionRequest) returns (QueryPermissionRoleRelationConnectionResponse); /* 角色 权限 关系连接 查询接口 */
-    rpc FileUserRelation (QueryFileUserRelationRequest) returns (QueryFileUserRelationResponse); /* 用户 文件 关系 查询接口 */
-    rpc FileUserRelationList (QueryFileUserRelationListRequest) returns (QueryFileUserRelationListResponse); /* 用户 文件 关系列表 查询接口 */
-    rpc FileUserRelationConnection (QueryFileUserRelationConnectionRequest) returns (QueryFileUserRelationConnectionResponse); /* 用户 文件 关系连接 查询接口 */
-    rpc PolicyList (QueryPolicyListRequest) returns (QueryPolicyListResponse);
     rpc Current (QueryCurrentRequest) returns (QueryCurrentResponse);
     rpc CurrentUser (QueryCurrentUserRequest) returns (QueryCurrentUserResponse);
     rpc CurrentPermissionTypeList (QueryCurrentPermissionTypeListRequest) returns (QueryCurrentPermissionTypeListResponse);
     rpc CurrentPermissionNameListByTypes (QueryCurrentPermissionNameListByTypesRequest) returns (QueryCurrentPermissionNameListByTypesResponse);
+    rpc PolicyList (QueryPolicyListRequest) returns (QueryPolicyListResponse);
 }

@@ -13,7 +13,7 @@ import "io/graphence/core/mutation_requests.proto";
 import "io/graphence/core/mutation_responses.proto";
 
 /**
-* Mutation
+* 变更
 */
 service MutationService {
     rpc User (MutationUserRequest) returns (MutationUserResponse); /* 用户 变更接口 */
@@ -38,10 +38,8 @@ service MutationService {
     rpc RoleCompositeRelationList (MutationRoleCompositeRelationListRequest) returns (MutationRoleCompositeRelationListResponse); /* 角色 角色 关系列表 变更接口 */
     rpc PermissionRoleRelation (MutationPermissionRoleRelationRequest) returns (MutationPermissionRoleRelationResponse); /* 角色 权限 关系 变更接口 */
     rpc PermissionRoleRelationList (MutationPermissionRoleRelationListRequest) returns (MutationPermissionRoleRelationListResponse); /* 角色 权限 关系列表 变更接口 */
-    rpc FileUserRelation (MutationFileUserRelationRequest) returns (MutationFileUserRelationResponse); /* 用户 文件 关系 变更接口 */
-    rpc FileUserRelationList (MutationFileUserRelationListRequest) returns (MutationFileUserRelationListResponse); /* 用户 文件 关系列表 变更接口 */
-    rpc SyncPermissionRoleRelationPolicy (MutationSyncPermissionRoleRelationPolicyRequest) returns (MutationSyncPermissionRoleRelationPolicyResponse);
     rpc CurrentUserUpdate (MutationCurrentUserUpdateRequest) returns (MutationCurrentUserUpdateResponse);
     rpc CurrentUserResetPassword (MutationCurrentUserResetPasswordRequest) returns (MutationCurrentUserResetPasswordResponse);
+    rpc SyncPermissionRoleRelationPolicy (MutationSyncPermissionRoleRelationPolicyRequest) returns (MutationSyncPermissionRoleRelationPolicyResponse);
     rpc Login (MutationLoginRequest) returns (MutationLoginResponse);
 }

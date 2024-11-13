@@ -1,6 +1,5 @@
 package io.graphence.core.dto.annotation;
 
-import io.graphoenix.file.dto.annotation.FileInput2;
 import jakarta.annotation.Generated;
 import java.lang.String;
 import java.lang.annotation.Documented;
@@ -66,12 +65,6 @@ public @interface UserInput1 {
    */
   @Description("邮箱")
   String email() default "";
-
-  /**
-   * 头像
-   */
-  @Description("头像")
-  FileInput2 avatar() default @FileInput2;
 
   /**
    * 手机号
@@ -158,12 +151,6 @@ public @interface UserInput1 {
   String __typename() default "User";
 
   /**
-   * 用户 文件 关系
-   */
-  @Description("用户 文件 关系")
-  FileUserRelationInput2[] fileUserRelation() default {};
-
-  /**
    * 用户 手机号 关系
    */
   @Description("用户 手机号 关系")
@@ -203,8 +190,6 @@ public @interface UserInput1 {
 
   String $email() default "";
 
-  String $avatar() default "";
-
   String $phones() default "";
 
   String $disable() default "";
@@ -232,8 +217,6 @@ public @interface UserInput1 {
   String $createGroupId() default "";
 
   String $__typename() default "";
-
-  String $fileUserRelation() default "";
 
   String $userPhonesRelation() default "";
 

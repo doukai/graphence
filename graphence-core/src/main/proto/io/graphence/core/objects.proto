@@ -6,7 +6,6 @@ option java_package = "io.graphence.core.dto.objectType.grpc";
 package io.graphence.core;
 
 import "io/graphence/core/enums.proto";
-import "io/graphoenix/file/objects.proto";
 import "io/graphoenix/core/objects.proto";
 import "google/protobuf/timestamp.proto";
 
@@ -22,60 +21,58 @@ message User {
     string salt = 6; /* 盐 */
     string hash = 7; /* 哈希 */
     string email = 8; /* 邮箱 */
-    io.graphoenix.file.File avatar = 9; /* 头像 */
-    repeated string phones = 10; /* 手机号 */
-    bool disable = 11; /* 禁用 */
-    repeated Group groups = 12; /* 组 */
-    repeated Role roles = 13; /* 角色 */
-    Realm realm = 14; /* 租户 */
-    bool is_deprecated = 15; /* 已移除 */
-    int32 version = 16; /* 版本 */
-    int32 realm_id = 17; /* 域 */
-    string create_user_id = 18; /* 创建者 */
-    google.protobuf.Timestamp create_time = 19; /* 创建时间 */
-    string update_user_id = 20; /* 更新者 */
-    google.protobuf.Timestamp update_time = 21; /* 更新时间 */
-    string create_group_id = 22; /* 创建组 */
-    string intro_typename = 23; /* 所属类型 */
-    repeated FileUserRelation file_user_relation = 24; /* 用户 文件 关系 */
-    repeated UserPhonesRelation user_phones_relation = 25; /* 用户 手机号 关系 */
-    repeated GroupUserRelation group_user_relation = 26; /* 用户 组 关系 */
-    repeated RoleUserRelation role_user_relation = 27; /* 用户 角色 关系 */
-    Group groups_aggregate = 28; /* 组 统计字段 */
-    GroupConnection groups_connection = 29; /* 组 连接 */
-    Role roles_aggregate = 30; /* 角色 统计字段 */
-    RoleConnection roles_connection = 31; /* 角色 连接 */
-    UserPhonesRelation user_phones_relation_aggregate = 32; /* 用户 手机号 关系 统计字段 */
-    UserPhonesRelationConnection user_phones_relation_connection = 33; /* 用户 手机号 关系 连接 */
-    GroupUserRelation group_user_relation_aggregate = 34; /* 用户 组 关系 统计字段 */
-    GroupUserRelationConnection group_user_relation_connection = 35; /* 用户 组 关系 连接 */
-    RoleUserRelation role_user_relation_aggregate = 36; /* 用户 角色 关系 统计字段 */
-    RoleUserRelationConnection role_user_relation_connection = 37; /* 用户 角色 关系 连接 */
-    int32 id_count = 38; /* 用户 数量 */
-    int32 id_max = 39; /* ID 最大值 */
-    int32 id_min = 40; /* ID 最小值 */
-    int32 name_count = 41; /* 姓名 数量 */
-    string name_max = 42; /* 姓名 最大值 */
-    string name_min = 43; /* 姓名 最小值 */
-    int32 description_count = 44; /* 描述 数量 */
-    string description_max = 45; /* 描述 最大值 */
-    string description_min = 46; /* 描述 最小值 */
-    int32 last_name_count = 47; /* 姓氏 数量 */
-    string last_name_max = 48; /* 姓氏 最大值 */
-    string last_name_min = 49; /* 姓氏 最小值 */
-    int32 login_count = 50; /* 账号 数量 */
-    string login_max = 51; /* 账号 最大值 */
-    string login_min = 52; /* 账号 最小值 */
-    int32 salt_count = 53; /* 盐 数量 */
-    string salt_max = 54; /* 盐 最大值 */
-    string salt_min = 55; /* 盐 最小值 */
-    int32 hash_count = 56; /* 哈希 数量 */
-    string hash_max = 57; /* 哈希 最大值 */
-    string hash_min = 58; /* 哈希 最小值 */
-    int32 email_count = 59; /* 邮箱 数量 */
-    string email_max = 60; /* 邮箱 最大值 */
-    string email_min = 61; /* 邮箱 最小值 */
-    bool sync_user_policy = 62;
+    repeated string phones = 9; /* 手机号 */
+    bool disable = 10; /* 禁用 */
+    repeated Group groups = 11; /* 组 */
+    repeated Role roles = 12; /* 角色 */
+    Realm realm = 13; /* 租户 */
+    bool is_deprecated = 14; /* 已移除 */
+    int32 version = 15; /* 版本 */
+    int32 realm_id = 16; /* 域 */
+    string create_user_id = 17; /* 创建者 */
+    google.protobuf.Timestamp create_time = 18; /* 创建时间 */
+    string update_user_id = 19; /* 更新者 */
+    google.protobuf.Timestamp update_time = 20; /* 更新时间 */
+    string create_group_id = 21; /* 创建组 */
+    string intro_typename = 22; /* 所属类型 */
+    repeated UserPhonesRelation user_phones_relation = 23; /* 用户 手机号 关系 */
+    repeated GroupUserRelation group_user_relation = 24; /* 用户 组 关系 */
+    repeated RoleUserRelation role_user_relation = 25; /* 用户 角色 关系 */
+    Group groups_aggregate = 26; /* 组 统计字段 */
+    GroupConnection groups_connection = 27; /* 组 连接 */
+    Role roles_aggregate = 28; /* 角色 统计字段 */
+    RoleConnection roles_connection = 29; /* 角色 连接 */
+    UserPhonesRelation user_phones_relation_aggregate = 30; /* 用户 手机号 关系 统计字段 */
+    UserPhonesRelationConnection user_phones_relation_connection = 31; /* 用户 手机号 关系 连接 */
+    GroupUserRelation group_user_relation_aggregate = 32; /* 用户 组 关系 统计字段 */
+    GroupUserRelationConnection group_user_relation_connection = 33; /* 用户 组 关系 连接 */
+    RoleUserRelation role_user_relation_aggregate = 34; /* 用户 角色 关系 统计字段 */
+    RoleUserRelationConnection role_user_relation_connection = 35; /* 用户 角色 关系 连接 */
+    int32 id_count = 36; /* 用户 数量 */
+    int32 id_max = 37; /* ID 最大值 */
+    int32 id_min = 38; /* ID 最小值 */
+    int32 name_count = 39; /* 姓名 数量 */
+    string name_max = 40; /* 姓名 最大值 */
+    string name_min = 41; /* 姓名 最小值 */
+    int32 description_count = 42; /* 描述 数量 */
+    string description_max = 43; /* 描述 最大值 */
+    string description_min = 44; /* 描述 最小值 */
+    int32 last_name_count = 45; /* 姓氏 数量 */
+    string last_name_max = 46; /* 姓氏 最大值 */
+    string last_name_min = 47; /* 姓氏 最小值 */
+    int32 login_count = 48; /* 账号 数量 */
+    string login_max = 49; /* 账号 最大值 */
+    string login_min = 50; /* 账号 最小值 */
+    int32 salt_count = 51; /* 盐 数量 */
+    string salt_max = 52; /* 盐 最大值 */
+    string salt_min = 53; /* 盐 最小值 */
+    int32 hash_count = 54; /* 哈希 数量 */
+    string hash_max = 55; /* 哈希 最大值 */
+    string hash_min = 56; /* 哈希 最小值 */
+    int32 email_count = 57; /* 邮箱 数量 */
+    string email_max = 58; /* 邮箱 最大值 */
+    string email_min = 59; /* 邮箱 最小值 */
+    bool sync_user_policy = 60;
 }
 /**
 * 角色
@@ -423,34 +420,6 @@ message PermissionRoleRelation {
     string permission_ref_min = 23; /* 权限 引用 最小值 */
 }
 /**
-* 用户 文件 关系
-*/
-message FileUserRelation {
-    string id = 1; /* ID */
-    string user_ref = 2; /* 用户 引用 */
-    User user = 3; /* 用户 */
-    string file_ref = 4; /* 文件 引用 */
-    io.graphoenix.file.File file = 5; /* 文件 */
-    bool is_deprecated = 6; /* 已移除 */
-    int32 version = 7; /* 版本 */
-    int32 realm_id = 8; /* 域 */
-    string create_user_id = 9; /* 创建者 */
-    google.protobuf.Timestamp create_time = 10; /* 创建时间 */
-    string update_user_id = 11; /* 更新者 */
-    google.protobuf.Timestamp update_time = 12; /* 更新时间 */
-    string create_group_id = 13; /* 创建组 */
-    string intro_typename = 14; /* 所属类型 */
-    int32 id_count = 15; /* 用户 文件 关系 数量 */
-    int32 id_max = 16; /* ID 最大值 */
-    int32 id_min = 17; /* ID 最小值 */
-    int32 user_ref_count = 18; /* 用户 引用 数量 */
-    string user_ref_max = 19; /* 用户 引用 最大值 */
-    string user_ref_min = 20; /* 用户 引用 最小值 */
-    int32 file_ref_count = 21; /* 文件 引用 数量 */
-    string file_ref_max = 22; /* 文件 引用 最大值 */
-    string file_ref_min = 23; /* 文件 引用 最小值 */
-}
-/**
 * 用户 连接
 */
 message UserConnection {
@@ -615,37 +584,22 @@ message PermissionRoleRelationEdge {
     PermissionRoleRelation node = 1; /* 节点 */
     string cursor = 2; /* 游标 */
 }
-/**
-* 用户 文件 关系 连接
-*/
-message FileUserRelationConnection {
-    int32 total_count = 1; /* 条数 */
-    io.graphoenix.core.PageInfo page_info = 2; /* 分页信息 */
-    repeated FileUserRelationEdge edges = 3; /* 边缘 */
-}
-/**
-* 用户 文件 关系 边缘
-*/
-message FileUserRelationEdge {
-    FileUserRelation node = 1; /* 节点 */
-    string cursor = 2; /* 游标 */
+message Policy {
+    string policy = 1;
+    string v4 = 2;
+    string id = 3;
+    string v1 = 4;
+    string v2 = 5;
+    string v0 = 6;
+    string v5 = 7;
+    string v3 = 8;
 }
 message Current {
-    string name = 1;
-    repeated string roles = 2;
-    string id = 3;
-    repeated string groups = 4;
-    string login = 5;
-    string last_name = 6;
-    int32 realm_id = 7;
-}
-message Policy {
-    string v5 = 1;
-    string v3 = 2;
-    string v0 = 3;
-    string id = 4;
-    string v4 = 5;
-    string v1 = 6;
-    string v2 = 7;
-    string policy = 8;
+    string id = 1;
+    string login = 2;
+    repeated string groups = 3;
+    string name = 4;
+    string last_name = 5;
+    int32 realm_id = 6;
+    repeated string roles = 7;
 }

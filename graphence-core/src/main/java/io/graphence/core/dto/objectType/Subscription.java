@@ -7,12 +7,12 @@ import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.Type;
 
 /**
- * Subscription
+ * 订阅
  */
 @Type
 @CompiledJson
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
-@Description("Subscription")
+@Description("订阅")
 public class Subscription {
   /**
    * 用户 订阅接口
@@ -211,24 +211,6 @@ public class Subscription {
    */
   @Description("角色 权限 关系连接 订阅接口")
   private PermissionRoleRelationConnection permissionRoleRelationConnection;
-
-  /**
-   * 用户 文件 关系 订阅接口
-   */
-  @Description("用户 文件 关系 订阅接口")
-  private FileUserRelation fileUserRelation;
-
-  /**
-   * 用户 文件 关系列表 订阅接口
-   */
-  @Description("用户 文件 关系列表 订阅接口")
-  private Collection<FileUserRelation> fileUserRelationList;
-
-  /**
-   * 用户 文件 关系连接 订阅接口
-   */
-  @Description("用户 文件 关系连接 订阅接口")
-  private FileUserRelationConnection fileUserRelationConnection;
 
   public User getUser() {
     return this.user;
@@ -499,29 +481,5 @@ public class Subscription {
   public void setPermissionRoleRelationConnection(
       PermissionRoleRelationConnection permissionRoleRelationConnection) {
     this.permissionRoleRelationConnection = permissionRoleRelationConnection;
-  }
-
-  public FileUserRelation getFileUserRelation() {
-    return this.fileUserRelation;
-  }
-
-  public void setFileUserRelation(FileUserRelation fileUserRelation) {
-    this.fileUserRelation = fileUserRelation;
-  }
-
-  public Collection<FileUserRelation> getFileUserRelationList() {
-    return this.fileUserRelationList;
-  }
-
-  public void setFileUserRelationList(Collection<FileUserRelation> fileUserRelationList) {
-    this.fileUserRelationList = fileUserRelationList;
-  }
-
-  public FileUserRelationConnection getFileUserRelationConnection() {
-    return this.fileUserRelationConnection;
-  }
-
-  public void setFileUserRelationConnection(FileUserRelationConnection fileUserRelationConnection) {
-    this.fileUserRelationConnection = fileUserRelationConnection;
   }
 }

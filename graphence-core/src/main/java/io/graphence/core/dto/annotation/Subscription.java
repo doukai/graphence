@@ -9,13 +9,13 @@ import java.lang.annotation.Target;
 import org.eclipse.microprofile.graphql.Description;
 
 /**
- * Subscription
+ * 订阅
  */
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
 @Documented
 @Retention(RetentionPolicy.SOURCE)
 @Target(ElementType.METHOD)
-@Description("Subscription")
+@Description("订阅")
 public @interface Subscription {
   UserSubscriptionArguments user() default @UserSubscriptionArguments;
 
@@ -103,13 +103,4 @@ public @interface Subscription {
 
   PermissionRoleRelationConnectionSubscriptionArguments permissionRoleRelationConnection(
       ) default @PermissionRoleRelationConnectionSubscriptionArguments;
-
-  FileUserRelationSubscriptionArguments fileUserRelation(
-      ) default @FileUserRelationSubscriptionArguments;
-
-  FileUserRelationListSubscriptionArguments fileUserRelationList(
-      ) default @FileUserRelationListSubscriptionArguments;
-
-  FileUserRelationConnectionSubscriptionArguments fileUserRelationConnection(
-      ) default @FileUserRelationConnectionSubscriptionArguments;
 }

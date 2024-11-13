@@ -9,7 +9,6 @@ import "io/graphence/core/enums.proto";
 import "io/graphence/core/objects.proto";
 import "io/graphence/core/interfaces.proto";
 import "io/graphence/core/input_objects.proto";
-import "io/graphoenix/file/input_objects.proto";
 import "google/protobuf/timestamp.proto";
 
 message MutationUserRequest {
@@ -23,27 +22,25 @@ message MutationUserRequest {
     string salt = 8; /* 盐 */
     string hash = 9; /* 哈希 */
     string email = 10; /* 邮箱 */
-    io.graphoenix.file.FileInput avatar = 11; /* 头像 */
-    repeated string phones = 12; /* 手机号 */
-    bool disable = 13; /* 禁用 */
-    repeated GroupInput groups = 14; /* 组 */
-    repeated RoleInput roles = 15; /* 角色 */
-    RealmInput realm = 16; /* 租户 */
-    bool is_deprecated = 17; /* 已移除 */
-    int32 version = 18; /* 版本 */
-    int32 realm_id = 19; /* 域 */
-    string create_user_id = 20; /* 创建者 */
-    google.protobuf.Timestamp create_time = 21; /* 创建时间 */
-    string update_user_id = 22; /* 更新者 */
-    google.protobuf.Timestamp update_time = 23; /* 更新时间 */
-    string create_group_id = 24; /* 创建组 */
-    string intro_typename = 25; /* 所属类型 */
-    repeated FileUserRelationInput file_user_relation = 26; /* 用户 文件 关系 */
-    repeated UserPhonesRelationInput user_phones_relation = 27; /* 用户 手机号 关系 */
-    repeated GroupUserRelationInput group_user_relation = 28; /* 用户 组 关系 */
-    repeated RoleUserRelationInput role_user_relation = 29; /* 用户 角色 关系 */
-    UserInput input = 30; /* 变更内容 */
-    UserExpression where = 31; /* 匹配条件 */
+    repeated string phones = 11; /* 手机号 */
+    bool disable = 12; /* 禁用 */
+    repeated GroupInput groups = 13; /* 组 */
+    repeated RoleInput roles = 14; /* 角色 */
+    RealmInput realm = 15; /* 租户 */
+    bool is_deprecated = 16; /* 已移除 */
+    int32 version = 17; /* 版本 */
+    int32 realm_id = 18; /* 域 */
+    string create_user_id = 19; /* 创建者 */
+    google.protobuf.Timestamp create_time = 20; /* 创建时间 */
+    string update_user_id = 21; /* 更新者 */
+    google.protobuf.Timestamp update_time = 22; /* 更新时间 */
+    string create_group_id = 23; /* 创建组 */
+    string intro_typename = 24; /* 所属类型 */
+    repeated UserPhonesRelationInput user_phones_relation = 25; /* 用户 手机号 关系 */
+    repeated GroupUserRelationInput group_user_relation = 26; /* 用户 组 关系 */
+    repeated RoleUserRelationInput role_user_relation = 27; /* 用户 角色 关系 */
+    UserInput input = 28; /* 变更内容 */
+    UserExpression where = 29; /* 匹配条件 */
 }
 message MutationUserListRequest {
     optional string selection_set = 1;
@@ -56,27 +53,25 @@ message MutationUserListRequest {
     string salt = 8; /* 盐 */
     string hash = 9; /* 哈希 */
     string email = 10; /* 邮箱 */
-    io.graphoenix.file.FileInput avatar = 11; /* 头像 */
-    repeated string phones = 12; /* 手机号 */
-    bool disable = 13; /* 禁用 */
-    repeated GroupInput groups = 14; /* 组 */
-    repeated RoleInput roles = 15; /* 角色 */
-    RealmInput realm = 16; /* 租户 */
-    bool is_deprecated = 17; /* 已移除 */
-    int32 version = 18; /* 版本 */
-    int32 realm_id = 19; /* 域 */
-    string create_user_id = 20; /* 创建者 */
-    google.protobuf.Timestamp create_time = 21; /* 创建时间 */
-    string update_user_id = 22; /* 更新者 */
-    google.protobuf.Timestamp update_time = 23; /* 更新时间 */
-    string create_group_id = 24; /* 创建组 */
-    string intro_typename = 25; /* 所属类型 */
-    repeated FileUserRelationInput file_user_relation = 26; /* 用户 文件 关系 */
-    repeated UserPhonesRelationInput user_phones_relation = 27; /* 用户 手机号 关系 */
-    repeated GroupUserRelationInput group_user_relation = 28; /* 用户 组 关系 */
-    repeated RoleUserRelationInput role_user_relation = 29; /* 用户 角色 关系 */
-    repeated UserInput list = 30; /* 变更内容列表 */
-    UserExpression where = 31; /* 匹配条件 */
+    repeated string phones = 11; /* 手机号 */
+    bool disable = 12; /* 禁用 */
+    repeated GroupInput groups = 13; /* 组 */
+    repeated RoleInput roles = 14; /* 角色 */
+    RealmInput realm = 15; /* 租户 */
+    bool is_deprecated = 16; /* 已移除 */
+    int32 version = 17; /* 版本 */
+    int32 realm_id = 18; /* 域 */
+    string create_user_id = 19; /* 创建者 */
+    google.protobuf.Timestamp create_time = 20; /* 创建时间 */
+    string update_user_id = 21; /* 更新者 */
+    google.protobuf.Timestamp update_time = 22; /* 更新时间 */
+    string create_group_id = 23; /* 创建组 */
+    string intro_typename = 24; /* 所属类型 */
+    repeated UserPhonesRelationInput user_phones_relation = 25; /* 用户 手机号 关系 */
+    repeated GroupUserRelationInput group_user_relation = 26; /* 用户 组 关系 */
+    repeated RoleUserRelationInput role_user_relation = 27; /* 用户 角色 关系 */
+    repeated UserInput list = 28; /* 变更内容列表 */
+    UserExpression where = 29; /* 匹配条件 */
 }
 message MutationRoleRequest {
     optional string selection_set = 1;
@@ -508,53 +503,6 @@ message MutationPermissionRoleRelationListRequest {
     repeated PermissionRoleRelationInput list = 17; /* 变更内容列表 */
     PermissionRoleRelationExpression where = 18; /* 匹配条件 */
 }
-message MutationFileUserRelationRequest {
-    optional string selection_set = 1;
-    optional string arguments = 2;
-    string id = 3; /* ID */
-    string user_ref = 4; /* 用户 引用 */
-    UserInput user = 5; /* 用户 */
-    string file_ref = 6; /* 文件 引用 */
-    io.graphoenix.file.FileInput file = 7; /* 文件 */
-    bool is_deprecated = 8; /* 已移除 */
-    int32 version = 9; /* 版本 */
-    int32 realm_id = 10; /* 域 */
-    string create_user_id = 11; /* 创建者 */
-    google.protobuf.Timestamp create_time = 12; /* 创建时间 */
-    string update_user_id = 13; /* 更新者 */
-    google.protobuf.Timestamp update_time = 14; /* 更新时间 */
-    string create_group_id = 15; /* 创建组 */
-    string intro_typename = 16; /* 所属类型 */
-    FileUserRelationInput input = 17; /* 变更内容 */
-    FileUserRelationExpression where = 18; /* 匹配条件 */
-}
-message MutationFileUserRelationListRequest {
-    optional string selection_set = 1;
-    optional string arguments = 2;
-    string id = 3; /* ID */
-    string user_ref = 4; /* 用户 引用 */
-    UserInput user = 5; /* 用户 */
-    string file_ref = 6; /* 文件 引用 */
-    io.graphoenix.file.FileInput file = 7; /* 文件 */
-    bool is_deprecated = 8; /* 已移除 */
-    int32 version = 9; /* 版本 */
-    int32 realm_id = 10; /* 域 */
-    string create_user_id = 11; /* 创建者 */
-    google.protobuf.Timestamp create_time = 12; /* 创建时间 */
-    string update_user_id = 13; /* 更新者 */
-    google.protobuf.Timestamp update_time = 14; /* 更新时间 */
-    string create_group_id = 15; /* 创建组 */
-    string intro_typename = 16; /* 所属类型 */
-    repeated FileUserRelationInput list = 17; /* 变更内容列表 */
-    FileUserRelationExpression where = 18; /* 匹配条件 */
-}
-message MutationSyncPermissionRoleRelationPolicyRequest {
-    optional string selection_set = 1;
-    optional string arguments = 2;
-    string role_id = 3;
-    repeated string permission_name_list = 4;
-    repeated string removed_permission_name_list = 5;
-}
 message MutationCurrentUserUpdateRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
@@ -565,6 +513,13 @@ message MutationCurrentUserResetPasswordRequest {
     optional string arguments = 2;
     string password = 3;
     string new_password = 4;
+}
+message MutationSyncPermissionRoleRelationPolicyRequest {
+    optional string selection_set = 1;
+    optional string arguments = 2;
+    string role_id = 3;
+    repeated string permission_name_list = 4;
+    repeated string removed_permission_name_list = 5;
 }
 message MutationLoginRequest {
     optional string selection_set = 1;

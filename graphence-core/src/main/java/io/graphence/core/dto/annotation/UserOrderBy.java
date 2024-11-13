@@ -1,7 +1,6 @@
 package io.graphence.core.dto.annotation;
 
 import io.graphoenix.core.dto.enumType.Sort;
-import io.graphoenix.file.dto.annotation.FileOrderBy;
 import jakarta.annotation.Generated;
 import java.lang.String;
 import java.lang.annotation.Documented;
@@ -67,12 +66,6 @@ public @interface UserOrderBy {
    */
   @Description("邮箱")
   Sort email() default Sort.ASC;
-
-  /**
-   * 头像
-   */
-  @Description("头像")
-  FileOrderBy avatar() default @FileOrderBy;
 
   /**
    * 手机号
@@ -157,12 +150,6 @@ public @interface UserOrderBy {
    */
   @Description("所属类型")
   Sort __typename() default Sort.ASC;
-
-  /**
-   * 用户 文件 关系
-   */
-  @Description("用户 文件 关系")
-  FileUserRelationOrderBy1 fileUserRelation() default @FileUserRelationOrderBy1;
 
   /**
    * 用户 手机号 关系
@@ -372,8 +359,6 @@ public @interface UserOrderBy {
 
   String $email() default "";
 
-  String $avatar() default "";
-
   String $phones() default "";
 
   String $disable() default "";
@@ -401,8 +386,6 @@ public @interface UserOrderBy {
   String $createGroupId() default "";
 
   String $__typename() default "";
-
-  String $fileUserRelation() default "";
 
   String $userPhonesRelation() default "";
 
