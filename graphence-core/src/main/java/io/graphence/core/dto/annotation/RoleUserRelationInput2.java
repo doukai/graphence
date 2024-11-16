@@ -88,7 +88,7 @@ public @interface RoleUserRelationInput2 {
    * 所属类型
    */
   @Description("所属类型")
-  String __typename() default "RoleUserRelation";
+  String __typename() default "\"RoleUserRelation\"";
 
   String $id() default "";
 

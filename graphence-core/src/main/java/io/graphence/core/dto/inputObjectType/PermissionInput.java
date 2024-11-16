@@ -118,7 +118,7 @@ public class PermissionInput implements MetaInput {
    */
   @DefaultValue("\"Permission\"")
   @Description("所属类型")
-  private String __typename = "Permission";
+  private String __typename = "\"Permission\"";
 
   /**
    * 角色 权限 关系

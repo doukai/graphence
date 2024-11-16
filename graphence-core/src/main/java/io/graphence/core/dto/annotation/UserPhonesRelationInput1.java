@@ -94,7 +94,7 @@ public @interface UserPhonesRelationInput1 {
    * 所属类型
    */
   @Description("所属类型")
-  String __typename() default "UserPhonesRelation";
+  String __typename() default "\"UserPhonesRelation\"";
 
   /**
    * 匹配条件

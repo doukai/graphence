@@ -100,7 +100,7 @@ public @interface GroupUserRelationListMutationArguments {
    * 所属类型
    */
   @Description("所属类型")
-  String __typename() default "GroupUserRelation";
+  String __typename() default "\"GroupUserRelation\"";
 
   /**
    * 变更内容列表

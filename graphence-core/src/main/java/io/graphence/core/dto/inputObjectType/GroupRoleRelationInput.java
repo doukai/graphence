@@ -104,7 +104,7 @@ public class GroupRoleRelationInput implements MetaInput {
    */
   @DefaultValue("\"GroupRoleRelation\"")
   @Description("所属类型")
-  private String __typename = "GroupRoleRelation";
+  private String __typename = "\"GroupRoleRelation\"";
 
   /**
    * 匹配条件

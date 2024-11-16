@@ -105,7 +105,7 @@ public class GroupUserRelationListMutationArguments implements MetaInput {
    */
   @DefaultValue("\"GroupUserRelation\"")
   @Description("所属类型")
-  private String __typename = "GroupUserRelation";
+  private String __typename = "\"GroupUserRelation\"";
 
   /**
    * 变更内容列表

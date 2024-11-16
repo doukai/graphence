@@ -100,7 +100,7 @@ public @interface RoleCompositeRelationMutationArguments {
    * 所属类型
    */
   @Description("所属类型")
-  String __typename() default "RoleCompositeRelation";
+  String __typename() default "\"RoleCompositeRelation\"";
 
   /**
    * 变更内容

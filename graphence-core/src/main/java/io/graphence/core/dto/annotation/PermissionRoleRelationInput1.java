@@ -100,7 +100,7 @@ public @interface PermissionRoleRelationInput1 {
    * 所属类型
    */
   @Description("所属类型")
-  String __typename() default "PermissionRoleRelation";
+  String __typename() default "\"PermissionRoleRelation\"";
 
   /**
    * 匹配条件

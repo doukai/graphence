@@ -104,7 +104,7 @@ public class RoleCompositeRelationMutationArguments implements MetaInput {
    */
   @DefaultValue("\"RoleCompositeRelation\"")
   @Description("所属类型")
-  private String __typename = "RoleCompositeRelation";
+  private String __typename = "\"RoleCompositeRelation\"";
 
   /**
    * 变更内容

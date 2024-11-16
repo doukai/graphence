@@ -100,7 +100,7 @@ public @interface RoleUserRelationInput1 {
    * 所属类型
    */
   @Description("所属类型")
-  String __typename() default "RoleUserRelation";
+  String __typename() default "\"RoleUserRelation\"";
 
   /**
    * 匹配条件

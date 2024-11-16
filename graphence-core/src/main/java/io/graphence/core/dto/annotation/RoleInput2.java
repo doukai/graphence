@@ -88,7 +88,7 @@ public @interface RoleInput2 {
    * 所属类型
    */
   @Description("所属类型")
-  String __typename() default "Role";
+  String __typename() default "\"Role\"";
 
   String $id() default "";
 

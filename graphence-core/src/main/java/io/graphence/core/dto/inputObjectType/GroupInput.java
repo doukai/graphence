@@ -143,7 +143,7 @@ public class GroupInput implements TreeStructInput, NamedStructInput, MetaInput 
    */
   @DefaultValue("\"Group\"")
   @Description("所属类型")
-  private String __typename = "Group";
+  private String __typename = "\"Group\"";
 
   /**
    * 用户 组 关系

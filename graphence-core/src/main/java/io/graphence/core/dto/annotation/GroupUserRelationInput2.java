@@ -88,7 +88,7 @@ public @interface GroupUserRelationInput2 {
    * 所属类型
    */
   @Description("所属类型")
-  String __typename() default "GroupUserRelation";
+  String __typename() default "\"GroupUserRelation\"";
 
   String $id() default "";
 

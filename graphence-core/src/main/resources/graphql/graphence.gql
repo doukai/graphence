@@ -1,7 +1,7 @@
 "用户"
 type User implements NamedStruct {
     "ID"
-    id: ID @options(type: "String") @fetchID(type: "tsid" format: "U%d") @jsonSchema(maxLength: 50)
+    id: ID @jsonSchema(maxLength: 50)
     "姓名"
     name: String! @options(unique: true) @jsonSchema(minLength: 2 maxLength: 20)
     "描述"

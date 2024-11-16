@@ -148,7 +148,7 @@ public @interface UserMutationArguments {
    * 所属类型
    */
   @Description("所属类型")
-  String __typename() default "User";
+  String __typename() default "\"User\"";
 
   /**
    * 用户 手机号 关系

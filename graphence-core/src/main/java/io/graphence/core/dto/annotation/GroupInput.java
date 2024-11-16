@@ -136,7 +136,7 @@ public @interface GroupInput {
    * 所属类型
    */
   @Description("所属类型")
-  String __typename() default "Group";
+  String __typename() default "\"Group\"";
 
   /**
    * 用户 组 关系

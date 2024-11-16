@@ -88,7 +88,7 @@ public @interface PermissionRoleRelationInput2 {
    * 所属类型
    */
   @Description("所属类型")
-  String __typename() default "PermissionRoleRelation";
+  String __typename() default "\"PermissionRoleRelation\"";
 
   String $id() default "";
 

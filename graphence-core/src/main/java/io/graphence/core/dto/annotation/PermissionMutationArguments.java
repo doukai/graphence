@@ -113,7 +113,7 @@ public @interface PermissionMutationArguments {
    * 所属类型
    */
   @Description("所属类型")
-  String __typename() default "Permission";
+  String __typename() default "\"Permission\"";
 
   /**
    * 角色 权限 关系

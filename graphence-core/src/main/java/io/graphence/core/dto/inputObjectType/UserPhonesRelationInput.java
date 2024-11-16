@@ -98,7 +98,7 @@ public class UserPhonesRelationInput implements MetaInput {
    */
   @DefaultValue("\"UserPhonesRelation\"")
   @Description("所属类型")
-  private String __typename = "UserPhonesRelation";
+  private String __typename = "\"UserPhonesRelation\"";
 
   /**
    * 匹配条件
