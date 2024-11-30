@@ -102,9 +102,9 @@ public class PermissionRoleRelationMutationArguments implements MetaInput {
   /**
    * 所属类型
    */
-  @DefaultValue("\"PermissionRoleRelation\"")
+  @DefaultValue("PermissionRoleRelation")
   @Description("所属类型")
-  private String __typename = "\"PermissionRoleRelation\"";
+  private String __typename = "PermissionRoleRelation";
 
   /**
    * 变更内容

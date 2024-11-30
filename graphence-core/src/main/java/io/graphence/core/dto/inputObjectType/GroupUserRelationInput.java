@@ -102,9 +102,9 @@ public class GroupUserRelationInput implements MetaInput {
   /**
    * 所属类型
    */
-  @DefaultValue("\"GroupUserRelation\"")
+  @DefaultValue("GroupUserRelation")
   @Description("所属类型")
-  private String __typename = "\"GroupUserRelation\"";
+  private String __typename = "GroupUserRelation";
 
   /**
    * 匹配条件

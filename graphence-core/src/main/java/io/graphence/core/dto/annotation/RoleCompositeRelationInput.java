@@ -100,7 +100,7 @@ public @interface RoleCompositeRelationInput {
    * 所属类型
    */
   @Description("所属类型")
-  String __typename() default "\"RoleCompositeRelation\"";
+  String __typename() default "RoleCompositeRelation";
 
   /**
    * 匹配条件

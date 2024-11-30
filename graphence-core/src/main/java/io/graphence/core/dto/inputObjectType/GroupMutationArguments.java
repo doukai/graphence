@@ -141,9 +141,9 @@ public class GroupMutationArguments implements TreeStructInput, NamedStructInput
   /**
    * 所属类型
    */
-  @DefaultValue("\"Group\"")
+  @DefaultValue("Group")
   @Description("所属类型")
-  private String __typename = "\"Group\"";
+  private String __typename = "Group";
 
   /**
    * 用户 组 关系

@@ -100,7 +100,7 @@ public @interface GroupUserRelationInput1 {
    * 所属类型
    */
   @Description("所属类型")
-  String __typename() default "\"GroupUserRelation\"";
+  String __typename() default "GroupUserRelation";
 
   /**
    * 匹配条件

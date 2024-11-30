@@ -88,7 +88,7 @@ public @interface RealmMutationArguments {
    * 所属类型
    */
   @Description("所属类型")
-  String __typename() default "\"Realm\"";
+  String __typename() default "Realm";
 
   /**
    * 变更内容

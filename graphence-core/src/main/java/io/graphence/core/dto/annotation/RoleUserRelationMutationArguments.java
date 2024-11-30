@@ -100,7 +100,7 @@ public @interface RoleUserRelationMutationArguments {
    * 所属类型
    */
   @Description("所属类型")
-  String __typename() default "\"RoleUserRelation\"";
+  String __typename() default "RoleUserRelation";
 
   /**
    * 变更内容

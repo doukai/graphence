@@ -101,7 +101,7 @@ public @interface PermissionInput2 {
    * 所属类型
    */
   @Description("所属类型")
-  String __typename() default "\"Permission\"";
+  String __typename() default "Permission";
 
   String $name() default "";
 

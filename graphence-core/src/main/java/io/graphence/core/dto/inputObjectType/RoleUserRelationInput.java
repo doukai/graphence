@@ -102,9 +102,9 @@ public class RoleUserRelationInput implements MetaInput {
   /**
    * 所属类型
    */
-  @DefaultValue("\"RoleUserRelation\"")
+  @DefaultValue("RoleUserRelation")
   @Description("所属类型")
-  private String __typename = "\"RoleUserRelation\"";
+  private String __typename = "RoleUserRelation";
 
   /**
    * 匹配条件

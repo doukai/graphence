@@ -152,9 +152,9 @@ public class UserMutationArguments implements NamedStructInput, MetaInput {
   /**
    * 所属类型
    */
-  @DefaultValue("\"User\"")
+  @DefaultValue("User")
   @Description("所属类型")
-  private String __typename = "\"User\"";
+  private String __typename = "User";
 
   /**
    * 用户 手机号 关系

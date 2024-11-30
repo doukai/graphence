@@ -92,9 +92,9 @@ public class RealmListMutationArguments implements NamedStructInput, MetaInput {
   /**
    * 所属类型
    */
-  @DefaultValue("\"Realm\"")
+  @DefaultValue("Realm")
   @Description("所属类型")
-  private String __typename = "\"Realm\"";
+  private String __typename = "Realm";
 
   /**
    * 变更内容列表

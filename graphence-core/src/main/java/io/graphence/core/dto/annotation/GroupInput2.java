@@ -106,7 +106,7 @@ public @interface GroupInput2 {
    * 所属类型
    */
   @Description("所属类型")
-  String __typename() default "\"Group\"";
+  String __typename() default "Group";
 
   String $id() default "";
 

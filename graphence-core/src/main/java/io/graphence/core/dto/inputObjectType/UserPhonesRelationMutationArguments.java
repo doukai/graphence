@@ -96,9 +96,9 @@ public class UserPhonesRelationMutationArguments implements MetaInput {
   /**
    * 所属类型
    */
-  @DefaultValue("\"UserPhonesRelation\"")
+  @DefaultValue("UserPhonesRelation")
   @Description("所属类型")
-  private String __typename = "\"UserPhonesRelation\"";
+  private String __typename = "UserPhonesRelation";
 
   /**
    * 变更内容

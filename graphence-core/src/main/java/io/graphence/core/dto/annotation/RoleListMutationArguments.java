@@ -118,7 +118,7 @@ public @interface RoleListMutationArguments {
    * 所属类型
    */
   @Description("所属类型")
-  String __typename() default "\"Role\"";
+  String __typename() default "Role";
 
   /**
    * 用户 角色 关系

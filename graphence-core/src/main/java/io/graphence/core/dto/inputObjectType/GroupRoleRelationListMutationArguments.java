@@ -103,9 +103,9 @@ public class GroupRoleRelationListMutationArguments implements MetaInput {
   /**
    * 所属类型
    */
-  @DefaultValue("\"GroupRoleRelation\"")
+  @DefaultValue("GroupRoleRelation")
   @Description("所属类型")
-  private String __typename = "\"GroupRoleRelation\"";
+  private String __typename = "GroupRoleRelation";
 
   /**
    * 变更内容列表

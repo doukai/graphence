@@ -88,7 +88,7 @@ public @interface GroupRoleRelationInput2 {
    * 所属类型
    */
   @Description("所属类型")
-  String __typename() default "\"GroupRoleRelation\"";
+  String __typename() default "GroupRoleRelation";
 
   String $id() default "";
 

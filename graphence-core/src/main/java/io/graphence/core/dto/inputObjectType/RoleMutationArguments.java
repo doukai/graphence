@@ -122,9 +122,9 @@ public class RoleMutationArguments implements NamedStructInput, MetaInput {
   /**
    * 所属类型
    */
-  @DefaultValue("\"Role\"")
+  @DefaultValue("Role")
   @Description("所属类型")
-  private String __typename = "\"Role\"";
+  private String __typename = "Role";
 
   /**
    * 用户 角色 关系

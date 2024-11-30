@@ -88,7 +88,7 @@ public @interface RoleCompositeRelationInput2 {
    * 所属类型
    */
   @Description("所属类型")
-  String __typename() default "\"RoleCompositeRelation\"";
+  String __typename() default "RoleCompositeRelation";
 
   String $id() default "";
 
