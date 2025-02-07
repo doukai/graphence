@@ -21,7 +21,7 @@ import org.eclipse.microprofile.graphql.Input;
 @Input
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
 @Description("用户 组 关系 订阅参数")
-public class GroupUserRelationSubscriptionArguments implements MetaExpression {
+public class GroupUserRelationSubscriptionArguments implements MetaExpression, GroupUserRelationExpressionBase {
   /**
    * ID
    */
@@ -133,60 +133,74 @@ public class GroupUserRelationSubscriptionArguments implements MetaExpression {
   @Description("查询表达式组")
   private Collection<GroupUserRelationExpression> exs;
 
+  @Override
   public StringExpression getId() {
     return this.id;
   }
 
+  @Override
   public void setId(StringExpression id) {
-    this.id = id;
+    this.id = (StringExpression)id;
   }
 
+  @Override
   public StringExpression getUserRef() {
     return this.userRef;
   }
 
+  @Override
   public void setUserRef(StringExpression userRef) {
-    this.userRef = userRef;
+    this.userRef = (StringExpression)userRef;
   }
 
+  @Override
   public UserExpression getUser() {
     return this.user;
   }
 
+  @Override
   public void setUser(UserExpression user) {
-    this.user = user;
+    this.user = (UserExpression)user;
   }
 
+  @Override
   public StringExpression getGroupRef() {
     return this.groupRef;
   }
 
+  @Override
   public void setGroupRef(StringExpression groupRef) {
-    this.groupRef = groupRef;
+    this.groupRef = (StringExpression)groupRef;
   }
 
+  @Override
   public GroupExpression getGroup() {
     return this.group;
   }
 
+  @Override
   public void setGroup(GroupExpression group) {
-    this.group = group;
+    this.group = (GroupExpression)group;
   }
 
+  @Override
   public Boolean getIncludeDeprecated() {
     return this.includeDeprecated;
   }
 
+  @Override
   public void setIncludeDeprecated(Boolean includeDeprecated) {
-    this.includeDeprecated = includeDeprecated;
+    this.includeDeprecated = (Boolean)includeDeprecated;
   }
 
+  @Override
   public IntExpression getVersion() {
     return this.version;
   }
 
+  @Override
   public void setVersion(IntExpression version) {
-    this.version = version;
+    this.version = (IntExpression)version;
   }
 
   @Override
@@ -249,12 +263,14 @@ public class GroupUserRelationSubscriptionArguments implements MetaExpression {
     this.createGroupId = (StringExpression)createGroupId;
   }
 
+  @Override
   public StringExpression get__typename() {
     return this.__typename;
   }
 
+  @Override
   public void set__typename(StringExpression __typename) {
-    this.__typename = __typename;
+    this.__typename = (StringExpression)__typename;
   }
 
   public Collection<String> getGroupBy() {
@@ -265,27 +281,33 @@ public class GroupUserRelationSubscriptionArguments implements MetaExpression {
     this.groupBy = groupBy;
   }
 
+  @Override
   public Boolean getNot() {
     return this.not;
   }
 
+  @Override
   public void setNot(Boolean not) {
-    this.not = not;
+    this.not = (Boolean)not;
   }
 
+  @Override
   public Conditional getCond() {
     return this.cond;
   }
 
+  @Override
   public void setCond(Conditional cond) {
-    this.cond = cond;
+    this.cond = (Conditional)cond;
   }
 
+  @Override
   public Collection<GroupUserRelationExpression> getExs() {
     return this.exs;
   }
 
+  @Override
   public void setExs(Collection<GroupUserRelationExpression> exs) {
-    this.exs = exs;
+    this.exs = (Collection<GroupUserRelationExpression>)exs;
   }
 }

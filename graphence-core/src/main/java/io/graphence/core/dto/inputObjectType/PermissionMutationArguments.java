@@ -21,7 +21,7 @@ import org.eclipse.microprofile.graphql.Input;
 @Input
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
 @Description("权限 变更参数")
-public class PermissionMutationArguments implements MetaInput {
+public class PermissionMutationArguments implements MetaInput, PermissionInputBase {
   /**
    * 名称
    */
@@ -138,68 +138,84 @@ public class PermissionMutationArguments implements MetaInput {
   @Description("匹配条件")
   private PermissionExpression where;
 
+  @Override
   public String getName() {
     return this.name;
   }
 
+  @Override
   public void setName(String name) {
-    this.name = name;
+    this.name = (String)name;
   }
 
+  @Override
   public String getDescription() {
     return this.description;
   }
 
+  @Override
   public void setDescription(String description) {
-    this.description = description;
+    this.description = (String)description;
   }
 
+  @Override
   public String getField() {
     return this.field;
   }
 
+  @Override
   public void setField(String field) {
-    this.field = field;
+    this.field = (String)field;
   }
 
+  @Override
   public String getType() {
     return this.type;
   }
 
+  @Override
   public void setType(String type) {
-    this.type = type;
+    this.type = (String)type;
   }
 
+  @Override
   public PermissionType getPermissionType() {
     return this.permissionType;
   }
 
+  @Override
   public void setPermissionType(PermissionType permissionType) {
-    this.permissionType = permissionType;
+    this.permissionType = (PermissionType)permissionType;
   }
 
+  @Override
   public Collection<RoleInput> getRoles() {
     return this.roles;
   }
 
+  @Override
   public void setRoles(Collection<RoleInput> roles) {
-    this.roles = roles;
+    this.roles = (Collection<RoleInput>)roles;
   }
 
+  @Override
   public RealmInput getRealm() {
     return this.realm;
   }
 
+  @Override
   public void setRealm(RealmInput realm) {
-    this.realm = realm;
+    this.realm = (RealmInput)realm;
   }
 
+  @Override
   public Boolean getIsDeprecated() {
     return this.isDeprecated;
   }
 
+  @Override
   public void setIsDeprecated(Boolean isDeprecated) {
-    this.isDeprecated = isDeprecated;
+    this.isDeprecated = (Boolean)isDeprecated;
   }
 
   @Override
@@ -272,21 +288,25 @@ public class PermissionMutationArguments implements MetaInput {
     this.createGroupId = (String)createGroupId;
   }
 
+  @Override
   public String get__typename() {
     return this.__typename;
   }
 
+  @Override
   public void set__typename(String __typename) {
-    this.__typename = __typename;
+    this.__typename = (String)__typename;
   }
 
+  @Override
   public Collection<PermissionRoleRelationInput> getPermissionRoleRelation() {
     return this.permissionRoleRelation;
   }
 
+  @Override
   public void setPermissionRoleRelation(
       Collection<PermissionRoleRelationInput> permissionRoleRelation) {
-    this.permissionRoleRelation = permissionRoleRelation;
+    this.permissionRoleRelation = (Collection<PermissionRoleRelationInput>)permissionRoleRelation;
   }
 
   public PermissionInput getInput() {
@@ -297,11 +317,13 @@ public class PermissionMutationArguments implements MetaInput {
     this.input = input;
   }
 
+  @Override
   public PermissionExpression getWhere() {
     return this.where;
   }
 
+  @Override
   public void setWhere(PermissionExpression where) {
-    this.where = where;
+    this.where = (PermissionExpression)where;
   }
 }

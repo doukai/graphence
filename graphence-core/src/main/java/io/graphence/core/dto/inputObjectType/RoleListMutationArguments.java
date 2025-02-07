@@ -21,7 +21,7 @@ import org.eclipse.microprofile.graphql.Input;
 @Input
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
 @Description("角色列表 变更参数 ")
-public class RoleListMutationArguments implements NamedStructInput, MetaInput {
+public class RoleListMutationArguments implements NamedStructInput, MetaInput, RoleInputBase {
   /**
    * ID
    */
@@ -162,12 +162,14 @@ public class RoleListMutationArguments implements NamedStructInput, MetaInput {
   @Description("匹配条件")
   private RoleExpression where;
 
+  @Override
   public String getId() {
     return this.id;
   }
 
+  @Override
   public void setId(String id) {
-    this.id = id;
+    this.id = (String)id;
   }
 
   @Override
@@ -190,44 +192,54 @@ public class RoleListMutationArguments implements NamedStructInput, MetaInput {
     this.description = (String)description;
   }
 
+  @Override
   public Collection<UserInput> getUsers() {
     return this.users;
   }
 
+  @Override
   public void setUsers(Collection<UserInput> users) {
-    this.users = users;
+    this.users = (Collection<UserInput>)users;
   }
 
+  @Override
   public Collection<GroupInput> getGroups() {
     return this.groups;
   }
 
+  @Override
   public void setGroups(Collection<GroupInput> groups) {
-    this.groups = groups;
+    this.groups = (Collection<GroupInput>)groups;
   }
 
+  @Override
   public Collection<RoleInput> getComposites() {
     return this.composites;
   }
 
+  @Override
   public void setComposites(Collection<RoleInput> composites) {
-    this.composites = composites;
+    this.composites = (Collection<RoleInput>)composites;
   }
 
+  @Override
   public Collection<PermissionInput> getPermissions() {
     return this.permissions;
   }
 
+  @Override
   public void setPermissions(Collection<PermissionInput> permissions) {
-    this.permissions = permissions;
+    this.permissions = (Collection<PermissionInput>)permissions;
   }
 
+  @Override
   public RealmInput getRealm() {
     return this.realm;
   }
 
+  @Override
   public void setRealm(RealmInput realm) {
-    this.realm = realm;
+    this.realm = (RealmInput)realm;
   }
 
   @Override
@@ -310,46 +322,56 @@ public class RoleListMutationArguments implements NamedStructInput, MetaInput {
     this.createGroupId = (String)createGroupId;
   }
 
+  @Override
   public String get__typename() {
     return this.__typename;
   }
 
+  @Override
   public void set__typename(String __typename) {
-    this.__typename = __typename;
+    this.__typename = (String)__typename;
   }
 
+  @Override
   public Collection<RoleUserRelationInput> getRoleUserRelation() {
     return this.roleUserRelation;
   }
 
+  @Override
   public void setRoleUserRelation(Collection<RoleUserRelationInput> roleUserRelation) {
-    this.roleUserRelation = roleUserRelation;
+    this.roleUserRelation = (Collection<RoleUserRelationInput>)roleUserRelation;
   }
 
+  @Override
   public Collection<GroupRoleRelationInput> getGroupRoleRelation() {
     return this.groupRoleRelation;
   }
 
+  @Override
   public void setGroupRoleRelation(Collection<GroupRoleRelationInput> groupRoleRelation) {
-    this.groupRoleRelation = groupRoleRelation;
+    this.groupRoleRelation = (Collection<GroupRoleRelationInput>)groupRoleRelation;
   }
 
+  @Override
   public Collection<RoleCompositeRelationInput> getRoleCompositeRelation() {
     return this.roleCompositeRelation;
   }
 
+  @Override
   public void setRoleCompositeRelation(
       Collection<RoleCompositeRelationInput> roleCompositeRelation) {
-    this.roleCompositeRelation = roleCompositeRelation;
+    this.roleCompositeRelation = (Collection<RoleCompositeRelationInput>)roleCompositeRelation;
   }
 
+  @Override
   public Collection<PermissionRoleRelationInput> getPermissionRoleRelation() {
     return this.permissionRoleRelation;
   }
 
+  @Override
   public void setPermissionRoleRelation(
       Collection<PermissionRoleRelationInput> permissionRoleRelation) {
-    this.permissionRoleRelation = permissionRoleRelation;
+    this.permissionRoleRelation = (Collection<PermissionRoleRelationInput>)permissionRoleRelation;
   }
 
   public Collection<RoleInput> getList() {
@@ -360,11 +382,13 @@ public class RoleListMutationArguments implements NamedStructInput, MetaInput {
     this.list = list;
   }
 
+  @Override
   public RoleExpression getWhere() {
     return this.where;
   }
 
+  @Override
   public void setWhere(RoleExpression where) {
-    this.where = where;
+    this.where = (RoleExpression)where;
   }
 }

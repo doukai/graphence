@@ -22,7 +22,7 @@ import org.eclipse.microprofile.graphql.Input;
 @Input
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
 @Description("权限列表 查询参数")
-public class PermissionListQueryArguments implements MetaExpression {
+public class PermissionListQueryArguments implements MetaExpression, PermissionExpressionBase {
   /**
    * 名称
    */
@@ -188,76 +188,94 @@ public class PermissionListQueryArguments implements MetaExpression {
   @Description("取...之前")
   private String before;
 
+  @Override
   public StringExpression getName() {
     return this.name;
   }
 
+  @Override
   public void setName(StringExpression name) {
-    this.name = name;
+    this.name = (StringExpression)name;
   }
 
+  @Override
   public StringExpression getDescription() {
     return this.description;
   }
 
+  @Override
   public void setDescription(StringExpression description) {
-    this.description = description;
+    this.description = (StringExpression)description;
   }
 
+  @Override
   public StringExpression getField() {
     return this.field;
   }
 
+  @Override
   public void setField(StringExpression field) {
-    this.field = field;
+    this.field = (StringExpression)field;
   }
 
+  @Override
   public StringExpression getType() {
     return this.type;
   }
 
+  @Override
   public void setType(StringExpression type) {
-    this.type = type;
+    this.type = (StringExpression)type;
   }
 
+  @Override
   public PermissionTypeExpression getPermissionType() {
     return this.permissionType;
   }
 
+  @Override
   public void setPermissionType(PermissionTypeExpression permissionType) {
-    this.permissionType = permissionType;
+    this.permissionType = (PermissionTypeExpression)permissionType;
   }
 
+  @Override
   public RoleExpression getRoles() {
     return this.roles;
   }
 
+  @Override
   public void setRoles(RoleExpression roles) {
-    this.roles = roles;
+    this.roles = (RoleExpression)roles;
   }
 
+  @Override
   public RealmExpression getRealm() {
     return this.realm;
   }
 
+  @Override
   public void setRealm(RealmExpression realm) {
-    this.realm = realm;
+    this.realm = (RealmExpression)realm;
   }
 
+  @Override
   public Boolean getIncludeDeprecated() {
     return this.includeDeprecated;
   }
 
+  @Override
   public void setIncludeDeprecated(Boolean includeDeprecated) {
-    this.includeDeprecated = includeDeprecated;
+    this.includeDeprecated = (Boolean)includeDeprecated;
   }
 
+  @Override
   public IntExpression getVersion() {
     return this.version;
   }
 
+  @Override
   public void setVersion(IntExpression version) {
-    this.version = version;
+    this.version = (IntExpression)version;
   }
 
   @Override
@@ -320,20 +338,24 @@ public class PermissionListQueryArguments implements MetaExpression {
     this.createGroupId = (StringExpression)createGroupId;
   }
 
+  @Override
   public StringExpression get__typename() {
     return this.__typename;
   }
 
+  @Override
   public void set__typename(StringExpression __typename) {
-    this.__typename = __typename;
+    this.__typename = (StringExpression)__typename;
   }
 
+  @Override
   public PermissionRoleRelationExpression getPermissionRoleRelation() {
     return this.permissionRoleRelation;
   }
 
+  @Override
   public void setPermissionRoleRelation(PermissionRoleRelationExpression permissionRoleRelation) {
-    this.permissionRoleRelation = permissionRoleRelation;
+    this.permissionRoleRelation = (PermissionRoleRelationExpression)permissionRoleRelation;
   }
 
   public PermissionOrderBy getOrderBy() {
@@ -352,28 +374,34 @@ public class PermissionListQueryArguments implements MetaExpression {
     this.groupBy = groupBy;
   }
 
+  @Override
   public Boolean getNot() {
     return this.not;
   }
 
+  @Override
   public void setNot(Boolean not) {
-    this.not = not;
+    this.not = (Boolean)not;
   }
 
+  @Override
   public Conditional getCond() {
     return this.cond;
   }
 
+  @Override
   public void setCond(Conditional cond) {
-    this.cond = cond;
+    this.cond = (Conditional)cond;
   }
 
+  @Override
   public Collection<PermissionExpression> getExs() {
     return this.exs;
   }
 
+  @Override
   public void setExs(Collection<PermissionExpression> exs) {
-    this.exs = exs;
+    this.exs = (Collection<PermissionExpression>)exs;
   }
 
   public Integer getFirst() {

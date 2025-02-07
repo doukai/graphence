@@ -83,9 +83,9 @@ message MutationCurrentUserUpdateResponse {
 message MutationCurrentUserResetPasswordResponse {
     User current_user_reset_password = 1;
 }
-message MutationSyncPermissionRoleRelationPolicyResponse {
-    bool sync_permission_role_relation_policy = 1;
-}
 message MutationLoginResponse {
     string login = 1;
+}
+message MutationSyncPermissionRoleRelationPolicyResponse {
+    bool sync_permission_role_relation_policy = 1;
 }

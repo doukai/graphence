@@ -20,7 +20,7 @@ import org.eclipse.microprofile.graphql.Input;
 @Input
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
 @Description("租户 变更内容")
-public class RealmInput implements NamedStructInput, MetaInput {
+public class RealmInput implements NamedStructInput, MetaInput, RealmInputBase {
   /**
    * ID
    */
@@ -101,12 +101,14 @@ public class RealmInput implements NamedStructInput, MetaInput {
   @Description("匹配条件")
   private RealmExpression where;
 
+  @Override
   public String getId() {
     return this.id;
   }
 
+  @Override
   public void setId(String id) {
-    this.id = id;
+    this.id = (String)id;
   }
 
   @Override
@@ -209,19 +211,23 @@ public class RealmInput implements NamedStructInput, MetaInput {
     this.createGroupId = (String)createGroupId;
   }
 
+  @Override
   public String get__typename() {
     return this.__typename;
   }
 
+  @Override
   public void set__typename(String __typename) {
-    this.__typename = __typename;
+    this.__typename = (String)__typename;
   }
 
+  @Override
   public RealmExpression getWhere() {
     return this.where;
   }
 
+  @Override
   public void setWhere(RealmExpression where) {
-    this.where = where;
+    this.where = (RealmExpression)where;
   }
 }

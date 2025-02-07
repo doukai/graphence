@@ -22,7 +22,7 @@ import org.eclipse.microprofile.graphql.Input;
 @Input
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
 @Description("组 查询表达式")
-public class GroupExpression implements TreeStructExpression, NamedStructExpression, MetaExpression {
+public class GroupExpression implements TreeStructExpression, NamedStructExpression, MetaExpression, GroupExpressionBase {
   /**
    * ID
    */
@@ -176,12 +176,14 @@ public class GroupExpression implements TreeStructExpression, NamedStructExpress
   @Description("查询表达式组")
   private Collection<GroupExpression> exs;
 
+  @Override
   public StringExpression getId() {
     return this.id;
   }
 
+  @Override
   public void setId(StringExpression id) {
-    this.id = id;
+    this.id = (StringExpression)id;
   }
 
   @Override
@@ -234,44 +236,54 @@ public class GroupExpression implements TreeStructExpression, NamedStructExpress
     this.parentId = (StringExpression)parentId;
   }
 
+  @Override
   public GroupExpression getParent() {
     return this.parent;
   }
 
+  @Override
   public void setParent(GroupExpression parent) {
-    this.parent = parent;
+    this.parent = (GroupExpression)parent;
   }
 
+  @Override
   public GroupExpression getSubGroups() {
     return this.subGroups;
   }
 
+  @Override
   public void setSubGroups(GroupExpression subGroups) {
-    this.subGroups = subGroups;
+    this.subGroups = (GroupExpression)subGroups;
   }
 
+  @Override
   public UserExpression getUsers() {
     return this.users;
   }
 
+  @Override
   public void setUsers(UserExpression users) {
-    this.users = users;
+    this.users = (UserExpression)users;
   }
 
+  @Override
   public RoleExpression getRoles() {
     return this.roles;
   }
 
+  @Override
   public void setRoles(RoleExpression roles) {
-    this.roles = roles;
+    this.roles = (RoleExpression)roles;
   }
 
+  @Override
   public RealmExpression getRealm() {
     return this.realm;
   }
 
+  @Override
   public void setRealm(RealmExpression realm) {
-    this.realm = realm;
+    this.realm = (RealmExpression)realm;
   }
 
   @Override
@@ -354,28 +366,34 @@ public class GroupExpression implements TreeStructExpression, NamedStructExpress
     this.createGroupId = (StringExpression)createGroupId;
   }
 
+  @Override
   public StringExpression get__typename() {
     return this.__typename;
   }
 
+  @Override
   public void set__typename(StringExpression __typename) {
-    this.__typename = __typename;
+    this.__typename = (StringExpression)__typename;
   }
 
+  @Override
   public GroupUserRelationExpression getGroupUserRelation() {
     return this.groupUserRelation;
   }
 
+  @Override
   public void setGroupUserRelation(GroupUserRelationExpression groupUserRelation) {
-    this.groupUserRelation = groupUserRelation;
+    this.groupUserRelation = (GroupUserRelationExpression)groupUserRelation;
   }
 
+  @Override
   public GroupRoleRelationExpression getGroupRoleRelation() {
     return this.groupRoleRelation;
   }
 
+  @Override
   public void setGroupRoleRelation(GroupRoleRelationExpression groupRoleRelation) {
-    this.groupRoleRelation = groupRoleRelation;
+    this.groupRoleRelation = (GroupRoleRelationExpression)groupRoleRelation;
   }
 
   @Override
@@ -398,11 +416,13 @@ public class GroupExpression implements TreeStructExpression, NamedStructExpress
     this.cond = (Conditional)cond;
   }
 
+  @Override
   public Collection<GroupExpression> getExs() {
     return this.exs;
   }
 
+  @Override
   public void setExs(Collection<GroupExpression> exs) {
-    this.exs = exs;
+    this.exs = (Collection<GroupExpression>)exs;
   }
 }

@@ -22,7 +22,7 @@ import org.eclipse.microprofile.graphql.Input;
 @Input
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
 @Description("组 变更内容")
-public class GroupInput implements TreeStructInput, NamedStructInput, MetaInput {
+public class GroupInput implements TreeStructInput, NamedStructInput, MetaInput, GroupInputBase {
   /**
    * ID
    */
@@ -163,12 +163,14 @@ public class GroupInput implements TreeStructInput, NamedStructInput, MetaInput 
   @Description("匹配条件")
   private GroupExpression where;
 
+  @Override
   public String getId() {
     return this.id;
   }
 
+  @Override
   public void setId(String id) {
-    this.id = id;
+    this.id = (String)id;
   }
 
   @Override
@@ -221,44 +223,54 @@ public class GroupInput implements TreeStructInput, NamedStructInput, MetaInput 
     this.parentId = (String)parentId;
   }
 
+  @Override
   public GroupInput getParent() {
     return this.parent;
   }
 
+  @Override
   public void setParent(GroupInput parent) {
-    this.parent = parent;
+    this.parent = (GroupInput)parent;
   }
 
+  @Override
   public Collection<GroupInput> getSubGroups() {
     return this.subGroups;
   }
 
+  @Override
   public void setSubGroups(Collection<GroupInput> subGroups) {
-    this.subGroups = subGroups;
+    this.subGroups = (Collection<GroupInput>)subGroups;
   }
 
+  @Override
   public Collection<UserInput> getUsers() {
     return this.users;
   }
 
+  @Override
   public void setUsers(Collection<UserInput> users) {
-    this.users = users;
+    this.users = (Collection<UserInput>)users;
   }
 
+  @Override
   public Collection<RoleInput> getRoles() {
     return this.roles;
   }
 
+  @Override
   public void setRoles(Collection<RoleInput> roles) {
-    this.roles = roles;
+    this.roles = (Collection<RoleInput>)roles;
   }
 
+  @Override
   public RealmInput getRealm() {
     return this.realm;
   }
 
+  @Override
   public void setRealm(RealmInput realm) {
-    this.realm = realm;
+    this.realm = (RealmInput)realm;
   }
 
   @Override
@@ -341,35 +353,43 @@ public class GroupInput implements TreeStructInput, NamedStructInput, MetaInput 
     this.createGroupId = (String)createGroupId;
   }
 
+  @Override
   public String get__typename() {
     return this.__typename;
   }
 
+  @Override
   public void set__typename(String __typename) {
-    this.__typename = __typename;
+    this.__typename = (String)__typename;
   }
 
+  @Override
   public Collection<GroupUserRelationInput> getGroupUserRelation() {
     return this.groupUserRelation;
   }
 
+  @Override
   public void setGroupUserRelation(Collection<GroupUserRelationInput> groupUserRelation) {
-    this.groupUserRelation = groupUserRelation;
+    this.groupUserRelation = (Collection<GroupUserRelationInput>)groupUserRelation;
   }
 
+  @Override
   public Collection<GroupRoleRelationInput> getGroupRoleRelation() {
     return this.groupRoleRelation;
   }
 
+  @Override
   public void setGroupRoleRelation(Collection<GroupRoleRelationInput> groupRoleRelation) {
-    this.groupRoleRelation = groupRoleRelation;
+    this.groupRoleRelation = (Collection<GroupRoleRelationInput>)groupRoleRelation;
   }
 
+  @Override
   public GroupExpression getWhere() {
     return this.where;
   }
 
+  @Override
   public void setWhere(GroupExpression where) {
-    this.where = where;
+    this.where = (GroupExpression)where;
   }
 }

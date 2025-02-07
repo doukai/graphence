@@ -19,7 +19,7 @@ import org.eclipse.microprofile.graphql.Input;
 @Input
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
 @Description("用户 组 关系 变更内容")
-public class GroupUserRelationInput implements MetaInput {
+public class GroupUserRelationInput implements MetaInput, GroupUserRelationInputBase {
   /**
    * ID
    */
@@ -112,52 +112,64 @@ public class GroupUserRelationInput implements MetaInput {
   @Description("匹配条件")
   private GroupUserRelationExpression where;
 
+  @Override
   public String getId() {
     return this.id;
   }
 
+  @Override
   public void setId(String id) {
-    this.id = id;
+    this.id = (String)id;
   }
 
+  @Override
   public String getUserRef() {
     return this.userRef;
   }
 
+  @Override
   public void setUserRef(String userRef) {
-    this.userRef = userRef;
+    this.userRef = (String)userRef;
   }
 
+  @Override
   public UserInput getUser() {
     return this.user;
   }
 
+  @Override
   public void setUser(UserInput user) {
-    this.user = user;
+    this.user = (UserInput)user;
   }
 
+  @Override
   public String getGroupRef() {
     return this.groupRef;
   }
 
+  @Override
   public void setGroupRef(String groupRef) {
-    this.groupRef = groupRef;
+    this.groupRef = (String)groupRef;
   }
 
+  @Override
   public GroupInput getGroup() {
     return this.group;
   }
 
+  @Override
   public void setGroup(GroupInput group) {
-    this.group = group;
+    this.group = (GroupInput)group;
   }
 
+  @Override
   public Boolean getIsDeprecated() {
     return this.isDeprecated;
   }
 
+  @Override
   public void setIsDeprecated(Boolean isDeprecated) {
-    this.isDeprecated = isDeprecated;
+    this.isDeprecated = (Boolean)isDeprecated;
   }
 
   @Override
@@ -230,19 +242,23 @@ public class GroupUserRelationInput implements MetaInput {
     this.createGroupId = (String)createGroupId;
   }
 
+  @Override
   public String get__typename() {
     return this.__typename;
   }
 
+  @Override
   public void set__typename(String __typename) {
-    this.__typename = __typename;
+    this.__typename = (String)__typename;
   }
 
+  @Override
   public GroupUserRelationExpression getWhere() {
     return this.where;
   }
 
+  @Override
   public void setWhere(GroupUserRelationExpression where) {
-    this.where = where;
+    this.where = (GroupUserRelationExpression)where;
   }
 }

@@ -152,9 +152,9 @@ public class Mutation {
 
   private User currentUserResetPassword;
 
-  private Boolean syncPermissionRoleRelationPolicy;
-
   private String login;
+
+  private Boolean syncPermissionRoleRelationPolicy;
 
   public User getUser() {
     return this.user;
@@ -350,19 +350,19 @@ public class Mutation {
     this.currentUserResetPassword = currentUserResetPassword;
   }
 
-  public Boolean getSyncPermissionRoleRelationPolicy() {
-    return this.syncPermissionRoleRelationPolicy;
-  }
-
-  public void setSyncPermissionRoleRelationPolicy(Boolean syncPermissionRoleRelationPolicy) {
-    this.syncPermissionRoleRelationPolicy = syncPermissionRoleRelationPolicy;
-  }
-
   public String getLogin() {
     return this.login;
   }
 
   public void setLogin(String login) {
     this.login = login;
+  }
+
+  public Boolean getSyncPermissionRoleRelationPolicy() {
+    return this.syncPermissionRoleRelationPolicy;
+  }
+
+  public void setSyncPermissionRoleRelationPolicy(Boolean syncPermissionRoleRelationPolicy) {
+    this.syncPermissionRoleRelationPolicy = syncPermissionRoleRelationPolicy;
   }
 }

@@ -19,7 +19,7 @@ import org.eclipse.microprofile.graphql.Input;
 @Input
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
 @Description("用户 角色 关系 变更参数")
-public class RoleUserRelationMutationArguments implements MetaInput {
+public class RoleUserRelationMutationArguments implements MetaInput, RoleUserRelationInputBase {
   /**
    * ID
    */
@@ -118,52 +118,64 @@ public class RoleUserRelationMutationArguments implements MetaInput {
   @Description("匹配条件")
   private RoleUserRelationExpression where;
 
+  @Override
   public String getId() {
     return this.id;
   }
 
+  @Override
   public void setId(String id) {
-    this.id = id;
+    this.id = (String)id;
   }
 
+  @Override
   public String getUserRef() {
     return this.userRef;
   }
 
+  @Override
   public void setUserRef(String userRef) {
-    this.userRef = userRef;
+    this.userRef = (String)userRef;
   }
 
+  @Override
   public UserInput getUser() {
     return this.user;
   }
 
+  @Override
   public void setUser(UserInput user) {
-    this.user = user;
+    this.user = (UserInput)user;
   }
 
+  @Override
   public String getRoleRef() {
     return this.roleRef;
   }
 
+  @Override
   public void setRoleRef(String roleRef) {
-    this.roleRef = roleRef;
+    this.roleRef = (String)roleRef;
   }
 
+  @Override
   public RoleInput getRole() {
     return this.role;
   }
 
+  @Override
   public void setRole(RoleInput role) {
-    this.role = role;
+    this.role = (RoleInput)role;
   }
 
+  @Override
   public Boolean getIsDeprecated() {
     return this.isDeprecated;
   }
 
+  @Override
   public void setIsDeprecated(Boolean isDeprecated) {
-    this.isDeprecated = isDeprecated;
+    this.isDeprecated = (Boolean)isDeprecated;
   }
 
   @Override
@@ -236,12 +248,14 @@ public class RoleUserRelationMutationArguments implements MetaInput {
     this.createGroupId = (String)createGroupId;
   }
 
+  @Override
   public String get__typename() {
     return this.__typename;
   }
 
+  @Override
   public void set__typename(String __typename) {
-    this.__typename = __typename;
+    this.__typename = (String)__typename;
   }
 
   public RoleUserRelationInput getInput() {
@@ -252,11 +266,13 @@ public class RoleUserRelationMutationArguments implements MetaInput {
     this.input = input;
   }
 
+  @Override
   public RoleUserRelationExpression getWhere() {
     return this.where;
   }
 
+  @Override
   public void setWhere(RoleUserRelationExpression where) {
-    this.where = where;
+    this.where = (RoleUserRelationExpression)where;
   }
 }

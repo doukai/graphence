@@ -22,7 +22,7 @@ import org.eclipse.microprofile.graphql.Input;
 @Input
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
 @Description("角色 角色 关系列表 订阅参数")
-public class RoleCompositeRelationListSubscriptionArguments implements MetaExpression {
+public class RoleCompositeRelationListSubscriptionArguments implements MetaExpression, RoleCompositeRelationExpressionBase {
   /**
    * ID
    */
@@ -170,60 +170,74 @@ public class RoleCompositeRelationListSubscriptionArguments implements MetaExpre
   @Description("取...之前")
   private String before;
 
+  @Override
   public StringExpression getId() {
     return this.id;
   }
 
+  @Override
   public void setId(StringExpression id) {
-    this.id = id;
+    this.id = (StringExpression)id;
   }
 
+  @Override
   public StringExpression getRoleRef() {
     return this.roleRef;
   }
 
+  @Override
   public void setRoleRef(StringExpression roleRef) {
-    this.roleRef = roleRef;
+    this.roleRef = (StringExpression)roleRef;
   }
 
+  @Override
   public RoleExpression getRole() {
     return this.role;
   }
 
+  @Override
   public void setRole(RoleExpression role) {
-    this.role = role;
+    this.role = (RoleExpression)role;
   }
 
+  @Override
   public StringExpression getCompositeRef() {
     return this.compositeRef;
   }
 
+  @Override
   public void setCompositeRef(StringExpression compositeRef) {
-    this.compositeRef = compositeRef;
+    this.compositeRef = (StringExpression)compositeRef;
   }
 
+  @Override
   public RoleExpression getComposite() {
     return this.composite;
   }
 
+  @Override
   public void setComposite(RoleExpression composite) {
-    this.composite = composite;
+    this.composite = (RoleExpression)composite;
   }
 
+  @Override
   public Boolean getIncludeDeprecated() {
     return this.includeDeprecated;
   }
 
+  @Override
   public void setIncludeDeprecated(Boolean includeDeprecated) {
-    this.includeDeprecated = includeDeprecated;
+    this.includeDeprecated = (Boolean)includeDeprecated;
   }
 
+  @Override
   public IntExpression getVersion() {
     return this.version;
   }
 
+  @Override
   public void setVersion(IntExpression version) {
-    this.version = version;
+    this.version = (IntExpression)version;
   }
 
   @Override
@@ -286,12 +300,14 @@ public class RoleCompositeRelationListSubscriptionArguments implements MetaExpre
     this.createGroupId = (StringExpression)createGroupId;
   }
 
+  @Override
   public StringExpression get__typename() {
     return this.__typename;
   }
 
+  @Override
   public void set__typename(StringExpression __typename) {
-    this.__typename = __typename;
+    this.__typename = (StringExpression)__typename;
   }
 
   public RoleCompositeRelationOrderBy getOrderBy() {
@@ -310,28 +326,34 @@ public class RoleCompositeRelationListSubscriptionArguments implements MetaExpre
     this.groupBy = groupBy;
   }
 
+  @Override
   public Boolean getNot() {
     return this.not;
   }
 
+  @Override
   public void setNot(Boolean not) {
-    this.not = not;
+    this.not = (Boolean)not;
   }
 
+  @Override
   public Conditional getCond() {
     return this.cond;
   }
 
+  @Override
   public void setCond(Conditional cond) {
-    this.cond = cond;
+    this.cond = (Conditional)cond;
   }
 
+  @Override
   public Collection<RoleCompositeRelationExpression> getExs() {
     return this.exs;
   }
 
+  @Override
   public void setExs(Collection<RoleCompositeRelationExpression> exs) {
-    this.exs = exs;
+    this.exs = (Collection<RoleCompositeRelationExpression>)exs;
   }
 
   public Integer getFirst() {

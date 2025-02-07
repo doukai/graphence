@@ -22,7 +22,7 @@ import org.eclipse.microprofile.graphql.Input;
 @Input
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
 @Description("用户 角色 关系连接 查询参数")
-public class RoleUserRelationConnectionQueryArguments implements MetaExpression {
+public class RoleUserRelationConnectionQueryArguments implements MetaExpression, RoleUserRelationExpressionBase {
   /**
    * ID
    */
@@ -170,60 +170,74 @@ public class RoleUserRelationConnectionQueryArguments implements MetaExpression 
   @Description("取...之前")
   private String before;
 
+  @Override
   public StringExpression getId() {
     return this.id;
   }
 
+  @Override
   public void setId(StringExpression id) {
-    this.id = id;
+    this.id = (StringExpression)id;
   }
 
+  @Override
   public StringExpression getUserRef() {
     return this.userRef;
   }
 
+  @Override
   public void setUserRef(StringExpression userRef) {
-    this.userRef = userRef;
+    this.userRef = (StringExpression)userRef;
   }
 
+  @Override
   public UserExpression getUser() {
     return this.user;
   }
 
+  @Override
   public void setUser(UserExpression user) {
-    this.user = user;
+    this.user = (UserExpression)user;
   }
 
+  @Override
   public StringExpression getRoleRef() {
     return this.roleRef;
   }
 
+  @Override
   public void setRoleRef(StringExpression roleRef) {
-    this.roleRef = roleRef;
+    this.roleRef = (StringExpression)roleRef;
   }
 
+  @Override
   public RoleExpression getRole() {
     return this.role;
   }
 
+  @Override
   public void setRole(RoleExpression role) {
-    this.role = role;
+    this.role = (RoleExpression)role;
   }
 
+  @Override
   public Boolean getIncludeDeprecated() {
     return this.includeDeprecated;
   }
 
+  @Override
   public void setIncludeDeprecated(Boolean includeDeprecated) {
-    this.includeDeprecated = includeDeprecated;
+    this.includeDeprecated = (Boolean)includeDeprecated;
   }
 
+  @Override
   public IntExpression getVersion() {
     return this.version;
   }
 
+  @Override
   public void setVersion(IntExpression version) {
-    this.version = version;
+    this.version = (IntExpression)version;
   }
 
   @Override
@@ -286,12 +300,14 @@ public class RoleUserRelationConnectionQueryArguments implements MetaExpression 
     this.createGroupId = (StringExpression)createGroupId;
   }
 
+  @Override
   public StringExpression get__typename() {
     return this.__typename;
   }
 
+  @Override
   public void set__typename(StringExpression __typename) {
-    this.__typename = __typename;
+    this.__typename = (StringExpression)__typename;
   }
 
   public RoleUserRelationOrderBy getOrderBy() {
@@ -310,28 +326,34 @@ public class RoleUserRelationConnectionQueryArguments implements MetaExpression 
     this.groupBy = groupBy;
   }
 
+  @Override
   public Boolean getNot() {
     return this.not;
   }
 
+  @Override
   public void setNot(Boolean not) {
-    this.not = not;
+    this.not = (Boolean)not;
   }
 
+  @Override
   public Conditional getCond() {
     return this.cond;
   }
 
+  @Override
   public void setCond(Conditional cond) {
-    this.cond = cond;
+    this.cond = (Conditional)cond;
   }
 
+  @Override
   public Collection<RoleUserRelationExpression> getExs() {
     return this.exs;
   }
 
+  @Override
   public void setExs(Collection<RoleUserRelationExpression> exs) {
-    this.exs = exs;
+    this.exs = (Collection<RoleUserRelationExpression>)exs;
   }
 
   public Integer getFirst() {

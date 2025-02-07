@@ -21,7 +21,7 @@ import org.eclipse.microprofile.graphql.Input;
 @Input
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
 @Description("用户列表 变更参数 ")
-public class UserListMutationArguments implements NamedStructInput, MetaInput {
+public class UserListMutationArguments implements NamedStructInput, MetaInput, UserInputBase {
   /**
    * ID
    */
@@ -186,12 +186,14 @@ public class UserListMutationArguments implements NamedStructInput, MetaInput {
   @Description("匹配条件")
   private UserExpression where;
 
+  @Override
   public String getId() {
     return this.id;
   }
 
+  @Override
   public void setId(String id) {
-    this.id = id;
+    this.id = (String)id;
   }
 
   @Override
@@ -214,84 +216,104 @@ public class UserListMutationArguments implements NamedStructInput, MetaInput {
     this.description = (String)description;
   }
 
+  @Override
   public String getLastName() {
     return this.lastName;
   }
 
+  @Override
   public void setLastName(String lastName) {
-    this.lastName = lastName;
+    this.lastName = (String)lastName;
   }
 
+  @Override
   public String getLogin() {
     return this.login;
   }
 
+  @Override
   public void setLogin(String login) {
-    this.login = login;
+    this.login = (String)login;
   }
 
+  @Override
   public String getSalt() {
     return this.salt;
   }
 
+  @Override
   public void setSalt(String salt) {
-    this.salt = salt;
+    this.salt = (String)salt;
   }
 
+  @Override
   public String getHash() {
     return this.hash;
   }
 
+  @Override
   public void setHash(String hash) {
-    this.hash = hash;
+    this.hash = (String)hash;
   }
 
+  @Override
   public String getEmail() {
     return this.email;
   }
 
+  @Override
   public void setEmail(String email) {
-    this.email = email;
+    this.email = (String)email;
   }
 
+  @Override
   public Collection<String> getPhones() {
     return this.phones;
   }
 
+  @Override
   public void setPhones(Collection<String> phones) {
-    this.phones = phones;
+    this.phones = (Collection<String>)phones;
   }
 
+  @Override
   public Boolean getDisable() {
     return this.disable;
   }
 
+  @Override
   public void setDisable(Boolean disable) {
-    this.disable = disable;
+    this.disable = (Boolean)disable;
   }
 
+  @Override
   public Collection<GroupInput> getGroups() {
     return this.groups;
   }
 
+  @Override
   public void setGroups(Collection<GroupInput> groups) {
-    this.groups = groups;
+    this.groups = (Collection<GroupInput>)groups;
   }
 
+  @Override
   public Collection<RoleInput> getRoles() {
     return this.roles;
   }
 
+  @Override
   public void setRoles(Collection<RoleInput> roles) {
-    this.roles = roles;
+    this.roles = (Collection<RoleInput>)roles;
   }
 
+  @Override
   public RealmInput getRealm() {
     return this.realm;
   }
 
+  @Override
   public void setRealm(RealmInput realm) {
-    this.realm = realm;
+    this.realm = (RealmInput)realm;
   }
 
   @Override
@@ -374,36 +396,44 @@ public class UserListMutationArguments implements NamedStructInput, MetaInput {
     this.createGroupId = (String)createGroupId;
   }
 
+  @Override
   public String get__typename() {
     return this.__typename;
   }
 
+  @Override
   public void set__typename(String __typename) {
-    this.__typename = __typename;
+    this.__typename = (String)__typename;
   }
 
+  @Override
   public Collection<UserPhonesRelationInput> getUserPhonesRelation() {
     return this.userPhonesRelation;
   }
 
+  @Override
   public void setUserPhonesRelation(Collection<UserPhonesRelationInput> userPhonesRelation) {
-    this.userPhonesRelation = userPhonesRelation;
+    this.userPhonesRelation = (Collection<UserPhonesRelationInput>)userPhonesRelation;
   }
 
+  @Override
   public Collection<GroupUserRelationInput> getGroupUserRelation() {
     return this.groupUserRelation;
   }
 
+  @Override
   public void setGroupUserRelation(Collection<GroupUserRelationInput> groupUserRelation) {
-    this.groupUserRelation = groupUserRelation;
+    this.groupUserRelation = (Collection<GroupUserRelationInput>)groupUserRelation;
   }
 
+  @Override
   public Collection<RoleUserRelationInput> getRoleUserRelation() {
     return this.roleUserRelation;
   }
 
+  @Override
   public void setRoleUserRelation(Collection<RoleUserRelationInput> roleUserRelation) {
-    this.roleUserRelation = roleUserRelation;
+    this.roleUserRelation = (Collection<RoleUserRelationInput>)roleUserRelation;
   }
 
   public Collection<UserInput> getList() {
@@ -414,11 +444,13 @@ public class UserListMutationArguments implements NamedStructInput, MetaInput {
     this.list = list;
   }
 
+  @Override
   public UserExpression getWhere() {
     return this.where;
   }
 
+  @Override
   public void setWhere(UserExpression where) {
-    this.where = where;
+    this.where = (UserExpression)where;
   }
 }

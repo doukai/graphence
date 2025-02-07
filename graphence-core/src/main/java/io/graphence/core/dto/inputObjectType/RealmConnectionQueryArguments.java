@@ -23,7 +23,7 @@ import org.eclipse.microprofile.graphql.Input;
 @Input
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
 @Description("租户连接 查询参数")
-public class RealmConnectionQueryArguments implements NamedStructExpression, MetaExpression {
+public class RealmConnectionQueryArguments implements NamedStructExpression, MetaExpression, RealmExpressionBase {
   /**
    * ID
    */
@@ -159,12 +159,14 @@ public class RealmConnectionQueryArguments implements NamedStructExpression, Met
   @Description("取...之前")
   private String before;
 
+  @Override
   public StringExpression getId() {
     return this.id;
   }
 
+  @Override
   public void setId(StringExpression id) {
-    this.id = id;
+    this.id = (StringExpression)id;
   }
 
   @Override
@@ -267,12 +269,14 @@ public class RealmConnectionQueryArguments implements NamedStructExpression, Met
     this.createGroupId = (StringExpression)createGroupId;
   }
 
+  @Override
   public StringExpression get__typename() {
     return this.__typename;
   }
 
+  @Override
   public void set__typename(StringExpression __typename) {
-    this.__typename = __typename;
+    this.__typename = (StringExpression)__typename;
   }
 
   public RealmOrderBy getOrderBy() {
@@ -311,12 +315,14 @@ public class RealmConnectionQueryArguments implements NamedStructExpression, Met
     this.cond = (Conditional)cond;
   }
 
+  @Override
   public Collection<RealmExpression> getExs() {
     return this.exs;
   }
 
+  @Override
   public void setExs(Collection<RealmExpression> exs) {
-    this.exs = exs;
+    this.exs = (Collection<RealmExpression>)exs;
   }
 
   public Integer getFirst() {

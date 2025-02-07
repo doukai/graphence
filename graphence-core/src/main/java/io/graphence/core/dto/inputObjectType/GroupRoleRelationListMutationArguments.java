@@ -20,7 +20,7 @@ import org.eclipse.microprofile.graphql.Input;
 @Input
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
 @Description("角色 组 关系列表 变更参数 ")
-public class GroupRoleRelationListMutationArguments implements MetaInput {
+public class GroupRoleRelationListMutationArguments implements MetaInput, GroupRoleRelationInputBase {
   /**
    * ID
    */
@@ -119,52 +119,64 @@ public class GroupRoleRelationListMutationArguments implements MetaInput {
   @Description("匹配条件")
   private GroupRoleRelationExpression where;
 
+  @Override
   public String getId() {
     return this.id;
   }
 
+  @Override
   public void setId(String id) {
-    this.id = id;
+    this.id = (String)id;
   }
 
+  @Override
   public String getRoleRef() {
     return this.roleRef;
   }
 
+  @Override
   public void setRoleRef(String roleRef) {
-    this.roleRef = roleRef;
+    this.roleRef = (String)roleRef;
   }
 
+  @Override
   public RoleInput getRole() {
     return this.role;
   }
 
+  @Override
   public void setRole(RoleInput role) {
-    this.role = role;
+    this.role = (RoleInput)role;
   }
 
+  @Override
   public String getGroupRef() {
     return this.groupRef;
   }
 
+  @Override
   public void setGroupRef(String groupRef) {
-    this.groupRef = groupRef;
+    this.groupRef = (String)groupRef;
   }
 
+  @Override
   public GroupInput getGroup() {
     return this.group;
   }
 
+  @Override
   public void setGroup(GroupInput group) {
-    this.group = group;
+    this.group = (GroupInput)group;
   }
 
+  @Override
   public Boolean getIsDeprecated() {
     return this.isDeprecated;
   }
 
+  @Override
   public void setIsDeprecated(Boolean isDeprecated) {
-    this.isDeprecated = isDeprecated;
+    this.isDeprecated = (Boolean)isDeprecated;
   }
 
   @Override
@@ -237,12 +249,14 @@ public class GroupRoleRelationListMutationArguments implements MetaInput {
     this.createGroupId = (String)createGroupId;
   }
 
+  @Override
   public String get__typename() {
     return this.__typename;
   }
 
+  @Override
   public void set__typename(String __typename) {
-    this.__typename = __typename;
+    this.__typename = (String)__typename;
   }
 
   public Collection<GroupRoleRelationInput> getList() {
@@ -253,11 +267,13 @@ public class GroupRoleRelationListMutationArguments implements MetaInput {
     this.list = list;
   }
 
+  @Override
   public GroupRoleRelationExpression getWhere() {
     return this.where;
   }
 
+  @Override
   public void setWhere(GroupRoleRelationExpression where) {
-    this.where = where;
+    this.where = (GroupRoleRelationExpression)where;
   }
 }

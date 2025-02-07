@@ -19,7 +19,7 @@ import org.eclipse.microprofile.graphql.Input;
 @Input
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
 @Description("角色 权限 关系 变更内容")
-public class PermissionRoleRelationInput implements MetaInput {
+public class PermissionRoleRelationInput implements MetaInput, PermissionRoleRelationInputBase {
   /**
    * ID
    */
@@ -112,52 +112,64 @@ public class PermissionRoleRelationInput implements MetaInput {
   @Description("匹配条件")
   private PermissionRoleRelationExpression where;
 
+  @Override
   public String getId() {
     return this.id;
   }
 
+  @Override
   public void setId(String id) {
-    this.id = id;
+    this.id = (String)id;
   }
 
+  @Override
   public String getRoleRef() {
     return this.roleRef;
   }
 
+  @Override
   public void setRoleRef(String roleRef) {
-    this.roleRef = roleRef;
+    this.roleRef = (String)roleRef;
   }
 
+  @Override
   public RoleInput getRole() {
     return this.role;
   }
 
+  @Override
   public void setRole(RoleInput role) {
-    this.role = role;
+    this.role = (RoleInput)role;
   }
 
+  @Override
   public String getPermissionRef() {
     return this.permissionRef;
   }
 
+  @Override
   public void setPermissionRef(String permissionRef) {
-    this.permissionRef = permissionRef;
+    this.permissionRef = (String)permissionRef;
   }
 
+  @Override
   public PermissionInput getPermission() {
     return this.permission;
   }
 
+  @Override
   public void setPermission(PermissionInput permission) {
-    this.permission = permission;
+    this.permission = (PermissionInput)permission;
   }
 
+  @Override
   public Boolean getIsDeprecated() {
     return this.isDeprecated;
   }
 
+  @Override
   public void setIsDeprecated(Boolean isDeprecated) {
-    this.isDeprecated = isDeprecated;
+    this.isDeprecated = (Boolean)isDeprecated;
   }
 
   @Override
@@ -230,19 +242,23 @@ public class PermissionRoleRelationInput implements MetaInput {
     this.createGroupId = (String)createGroupId;
   }
 
+  @Override
   public String get__typename() {
     return this.__typename;
   }
 
+  @Override
   public void set__typename(String __typename) {
-    this.__typename = __typename;
+    this.__typename = (String)__typename;
   }
 
+  @Override
   public PermissionRoleRelationExpression getWhere() {
     return this.where;
   }
 
+  @Override
   public void setWhere(PermissionRoleRelationExpression where) {
-    this.where = where;
+    this.where = (PermissionRoleRelationExpression)where;
   }
 }

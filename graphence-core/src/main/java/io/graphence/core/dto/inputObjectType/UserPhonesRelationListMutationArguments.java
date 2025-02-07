@@ -20,7 +20,7 @@ import org.eclipse.microprofile.graphql.Input;
 @Input
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
 @Description("用户 手机号 关系列表 变更参数 ")
-public class UserPhonesRelationListMutationArguments implements MetaInput {
+public class UserPhonesRelationListMutationArguments implements MetaInput, UserPhonesRelationInputBase {
   /**
    * ID
    */
@@ -113,44 +113,54 @@ public class UserPhonesRelationListMutationArguments implements MetaInput {
   @Description("匹配条件")
   private UserPhonesRelationExpression where;
 
+  @Override
   public String getId() {
     return this.id;
   }
 
+  @Override
   public void setId(String id) {
-    this.id = id;
+    this.id = (String)id;
   }
 
+  @Override
   public String getUserRef() {
     return this.userRef;
   }
 
+  @Override
   public void setUserRef(String userRef) {
-    this.userRef = userRef;
+    this.userRef = (String)userRef;
   }
 
+  @Override
   public UserInput getUser() {
     return this.user;
   }
 
+  @Override
   public void setUser(UserInput user) {
-    this.user = user;
+    this.user = (UserInput)user;
   }
 
+  @Override
   public String getPhonesRef() {
     return this.phonesRef;
   }
 
+  @Override
   public void setPhonesRef(String phonesRef) {
-    this.phonesRef = phonesRef;
+    this.phonesRef = (String)phonesRef;
   }
 
+  @Override
   public Boolean getIsDeprecated() {
     return this.isDeprecated;
   }
 
+  @Override
   public void setIsDeprecated(Boolean isDeprecated) {
-    this.isDeprecated = isDeprecated;
+    this.isDeprecated = (Boolean)isDeprecated;
   }
 
   @Override
@@ -223,12 +233,14 @@ public class UserPhonesRelationListMutationArguments implements MetaInput {
     this.createGroupId = (String)createGroupId;
   }
 
+  @Override
   public String get__typename() {
     return this.__typename;
   }
 
+  @Override
   public void set__typename(String __typename) {
-    this.__typename = __typename;
+    this.__typename = (String)__typename;
   }
 
   public Collection<UserPhonesRelationInput> getList() {
@@ -239,11 +251,13 @@ public class UserPhonesRelationListMutationArguments implements MetaInput {
     this.list = list;
   }
 
+  @Override
   public UserPhonesRelationExpression getWhere() {
     return this.where;
   }
 
+  @Override
   public void setWhere(UserPhonesRelationExpression where) {
-    this.where = where;
+    this.where = (UserPhonesRelationExpression)where;
   }
 }

@@ -21,7 +21,7 @@ import org.eclipse.microprofile.graphql.Input;
 @Input
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
 @Description("角色 查询表达式")
-public class RoleExpression implements NamedStructExpression, MetaExpression {
+public class RoleExpression implements NamedStructExpression, MetaExpression, RoleExpressionBase {
   /**
    * ID
    */
@@ -169,12 +169,14 @@ public class RoleExpression implements NamedStructExpression, MetaExpression {
   @Description("查询表达式组")
   private Collection<RoleExpression> exs;
 
+  @Override
   public StringExpression getId() {
     return this.id;
   }
 
+  @Override
   public void setId(StringExpression id) {
-    this.id = id;
+    this.id = (StringExpression)id;
   }
 
   @Override
@@ -197,44 +199,54 @@ public class RoleExpression implements NamedStructExpression, MetaExpression {
     this.description = (StringExpression)description;
   }
 
+  @Override
   public UserExpression getUsers() {
     return this.users;
   }
 
+  @Override
   public void setUsers(UserExpression users) {
-    this.users = users;
+    this.users = (UserExpression)users;
   }
 
+  @Override
   public GroupExpression getGroups() {
     return this.groups;
   }
 
+  @Override
   public void setGroups(GroupExpression groups) {
-    this.groups = groups;
+    this.groups = (GroupExpression)groups;
   }
 
+  @Override
   public RoleExpression getComposites() {
     return this.composites;
   }
 
+  @Override
   public void setComposites(RoleExpression composites) {
-    this.composites = composites;
+    this.composites = (RoleExpression)composites;
   }
 
+  @Override
   public PermissionExpression getPermissions() {
     return this.permissions;
   }
 
+  @Override
   public void setPermissions(PermissionExpression permissions) {
-    this.permissions = permissions;
+    this.permissions = (PermissionExpression)permissions;
   }
 
+  @Override
   public RealmExpression getRealm() {
     return this.realm;
   }
 
+  @Override
   public void setRealm(RealmExpression realm) {
-    this.realm = realm;
+    this.realm = (RealmExpression)realm;
   }
 
   @Override
@@ -317,44 +329,54 @@ public class RoleExpression implements NamedStructExpression, MetaExpression {
     this.createGroupId = (StringExpression)createGroupId;
   }
 
+  @Override
   public StringExpression get__typename() {
     return this.__typename;
   }
 
+  @Override
   public void set__typename(StringExpression __typename) {
-    this.__typename = __typename;
+    this.__typename = (StringExpression)__typename;
   }
 
+  @Override
   public RoleUserRelationExpression getRoleUserRelation() {
     return this.roleUserRelation;
   }
 
+  @Override
   public void setRoleUserRelation(RoleUserRelationExpression roleUserRelation) {
-    this.roleUserRelation = roleUserRelation;
+    this.roleUserRelation = (RoleUserRelationExpression)roleUserRelation;
   }
 
+  @Override
   public GroupRoleRelationExpression getGroupRoleRelation() {
     return this.groupRoleRelation;
   }
 
+  @Override
   public void setGroupRoleRelation(GroupRoleRelationExpression groupRoleRelation) {
-    this.groupRoleRelation = groupRoleRelation;
+    this.groupRoleRelation = (GroupRoleRelationExpression)groupRoleRelation;
   }
 
+  @Override
   public RoleCompositeRelationExpression getRoleCompositeRelation() {
     return this.roleCompositeRelation;
   }
 
+  @Override
   public void setRoleCompositeRelation(RoleCompositeRelationExpression roleCompositeRelation) {
-    this.roleCompositeRelation = roleCompositeRelation;
+    this.roleCompositeRelation = (RoleCompositeRelationExpression)roleCompositeRelation;
   }
 
+  @Override
   public PermissionRoleRelationExpression getPermissionRoleRelation() {
     return this.permissionRoleRelation;
   }
 
+  @Override
   public void setPermissionRoleRelation(PermissionRoleRelationExpression permissionRoleRelation) {
-    this.permissionRoleRelation = permissionRoleRelation;
+    this.permissionRoleRelation = (PermissionRoleRelationExpression)permissionRoleRelation;
   }
 
   @Override
@@ -377,11 +399,13 @@ public class RoleExpression implements NamedStructExpression, MetaExpression {
     this.cond = (Conditional)cond;
   }
 
+  @Override
   public Collection<RoleExpression> getExs() {
     return this.exs;
   }
 
+  @Override
   public void setExs(Collection<RoleExpression> exs) {
-    this.exs = exs;
+    this.exs = (Collection<RoleExpression>)exs;
   }
 }

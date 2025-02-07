@@ -23,7 +23,7 @@ import org.eclipse.microprofile.graphql.Input;
 @Input
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
 @Description("用户 查询参数")
-public class UserQueryArguments implements NamedStructExpression, MetaExpression {
+public class UserQueryArguments implements NamedStructExpression, MetaExpression, UserExpressionBase {
   /**
    * ID
    */
@@ -201,12 +201,14 @@ public class UserQueryArguments implements NamedStructExpression, MetaExpression
   @Description("查询表达式组")
   private Collection<UserExpression> exs;
 
+  @Override
   public StringExpression getId() {
     return this.id;
   }
 
+  @Override
   public void setId(StringExpression id) {
-    this.id = id;
+    this.id = (StringExpression)id;
   }
 
   @Override
@@ -229,84 +231,104 @@ public class UserQueryArguments implements NamedStructExpression, MetaExpression
     this.description = (StringExpression)description;
   }
 
+  @Override
   public StringExpression getLastName() {
     return this.lastName;
   }
 
+  @Override
   public void setLastName(StringExpression lastName) {
-    this.lastName = lastName;
+    this.lastName = (StringExpression)lastName;
   }
 
+  @Override
   public StringExpression getLogin() {
     return this.login;
   }
 
+  @Override
   public void setLogin(StringExpression login) {
-    this.login = login;
+    this.login = (StringExpression)login;
   }
 
+  @Override
   public StringExpression getSalt() {
     return this.salt;
   }
 
+  @Override
   public void setSalt(StringExpression salt) {
-    this.salt = salt;
+    this.salt = (StringExpression)salt;
   }
 
+  @Override
   public StringExpression getHash() {
     return this.hash;
   }
 
+  @Override
   public void setHash(StringExpression hash) {
-    this.hash = hash;
+    this.hash = (StringExpression)hash;
   }
 
+  @Override
   public StringExpression getEmail() {
     return this.email;
   }
 
+  @Override
   public void setEmail(StringExpression email) {
-    this.email = email;
+    this.email = (StringExpression)email;
   }
 
+  @Override
   public StringExpression getPhones() {
     return this.phones;
   }
 
+  @Override
   public void setPhones(StringExpression phones) {
-    this.phones = phones;
+    this.phones = (StringExpression)phones;
   }
 
+  @Override
   public BooleanExpression getDisable() {
     return this.disable;
   }
 
+  @Override
   public void setDisable(BooleanExpression disable) {
-    this.disable = disable;
+    this.disable = (BooleanExpression)disable;
   }
 
+  @Override
   public GroupExpression getGroups() {
     return this.groups;
   }
 
+  @Override
   public void setGroups(GroupExpression groups) {
-    this.groups = groups;
+    this.groups = (GroupExpression)groups;
   }
 
+  @Override
   public RoleExpression getRoles() {
     return this.roles;
   }
 
+  @Override
   public void setRoles(RoleExpression roles) {
-    this.roles = roles;
+    this.roles = (RoleExpression)roles;
   }
 
+  @Override
   public RealmExpression getRealm() {
     return this.realm;
   }
 
+  @Override
   public void setRealm(RealmExpression realm) {
-    this.realm = realm;
+    this.realm = (RealmExpression)realm;
   }
 
   @Override
@@ -389,36 +411,44 @@ public class UserQueryArguments implements NamedStructExpression, MetaExpression
     this.createGroupId = (StringExpression)createGroupId;
   }
 
+  @Override
   public StringExpression get__typename() {
     return this.__typename;
   }
 
+  @Override
   public void set__typename(StringExpression __typename) {
-    this.__typename = __typename;
+    this.__typename = (StringExpression)__typename;
   }
 
+  @Override
   public UserPhonesRelationExpression getUserPhonesRelation() {
     return this.userPhonesRelation;
   }
 
+  @Override
   public void setUserPhonesRelation(UserPhonesRelationExpression userPhonesRelation) {
-    this.userPhonesRelation = userPhonesRelation;
+    this.userPhonesRelation = (UserPhonesRelationExpression)userPhonesRelation;
   }
 
+  @Override
   public GroupUserRelationExpression getGroupUserRelation() {
     return this.groupUserRelation;
   }
 
+  @Override
   public void setGroupUserRelation(GroupUserRelationExpression groupUserRelation) {
-    this.groupUserRelation = groupUserRelation;
+    this.groupUserRelation = (GroupUserRelationExpression)groupUserRelation;
   }
 
+  @Override
   public RoleUserRelationExpression getRoleUserRelation() {
     return this.roleUserRelation;
   }
 
+  @Override
   public void setRoleUserRelation(RoleUserRelationExpression roleUserRelation) {
-    this.roleUserRelation = roleUserRelation;
+    this.roleUserRelation = (RoleUserRelationExpression)roleUserRelation;
   }
 
   public Collection<String> getGroupBy() {
@@ -449,11 +479,13 @@ public class UserQueryArguments implements NamedStructExpression, MetaExpression
     this.cond = (Conditional)cond;
   }
 
+  @Override
   public Collection<UserExpression> getExs() {
     return this.exs;
   }
 
+  @Override
   public void setExs(Collection<UserExpression> exs) {
-    this.exs = exs;
+    this.exs = (Collection<UserExpression>)exs;
   }
 }
