@@ -948,10 +948,6 @@ message QueryPermissionRoleRelationConnectionRequest {
     string after = 25; /* 取...之后 */
     string before = 26; /* 取...之前 */
 }
-message QueryPolicyListRequest {
-    optional string selection_set = 1;
-    optional string arguments = 2;
-}
 message QueryCurrentRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
@@ -968,4 +964,8 @@ message QueryCurrentPermissionNameListByTypesRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
     repeated string types = 3;
+}
+message QueryPolicyListRequest {
+    optional string selection_set = 1;
+    optional string arguments = 2;
 }

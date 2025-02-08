@@ -49,9 +49,9 @@ service QueryService {
     rpc PermissionRoleRelation (QueryPermissionRoleRelationRequest) returns (QueryPermissionRoleRelationResponse); /* 角色 权限 关系 查询接口 */
     rpc PermissionRoleRelationList (QueryPermissionRoleRelationListRequest) returns (QueryPermissionRoleRelationListResponse); /* 角色 权限 关系列表 查询接口 */
     rpc PermissionRoleRelationConnection (QueryPermissionRoleRelationConnectionRequest) returns (QueryPermissionRoleRelationConnectionResponse); /* 角色 权限 关系连接 查询接口 */
-    rpc PolicyList (QueryPolicyListRequest) returns (QueryPolicyListResponse);
     rpc Current (QueryCurrentRequest) returns (QueryCurrentResponse);
     rpc CurrentUser (QueryCurrentUserRequest) returns (QueryCurrentUserResponse);
     rpc CurrentPermissionTypeList (QueryCurrentPermissionTypeListRequest) returns (QueryCurrentPermissionTypeListResponse);
     rpc CurrentPermissionNameListByTypes (QueryCurrentPermissionNameListByTypesRequest) returns (QueryCurrentPermissionNameListByTypesResponse);
+    rpc PolicyList (QueryPolicyListRequest) returns (QueryPolicyListResponse);
 }
