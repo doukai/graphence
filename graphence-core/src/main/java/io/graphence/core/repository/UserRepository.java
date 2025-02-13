@@ -2,10 +2,12 @@ package io.graphence.core.repository;
 
 import io.graphence.core.dto.annotation.*;
 import io.graphence.core.dto.inputObjectType.UserInput;
+import io.graphence.core.dto.objectType.RoleUserRelation;
 import io.graphence.core.dto.objectType.User;
 import io.graphoenix.core.dto.annotation.StringExpression;
 import io.graphoenix.spi.annotation.GraphQLOperation;
 import io.graphoenix.spi.annotation.SelectionSet;
+import io.nozdormu.spi.async.Async;
 import reactor.core.publisher.Mono;
 
 import java.util.Collection;
@@ -34,4 +36,24 @@ public interface UserRepository {
     @Mutation(user = @UserMutationArguments($salt = "salt", $hash = "hash", where = @UserExpression(id = @StringExpression($val = "id"))))
     @SelectionSet("{ id }")
     Mono<User> resetPassword(String id, String salt, String hash);
+
+    @Async
+    @Query(user = @UserQueryArguments(login = @StringExpression($val = "login")))
+    @SelectionSet("{ id }")
+    User getByLogin(String login);
+
+    @Async
+    @Query(user = @UserQueryArguments(phones = @StringExpression($val = "phone")))
+    @SelectionSet("{ id }")
+    User getByPhone(String phone);
+
+    @Async
+    @Mutation(user = @UserMutationArguments($input = "input"))
+    @SelectionSet("{ id }")
+    User save(UserInput input);
+
+    @Async
+    @Mutation(roleUserRelation = @RoleUserRelationMutationArguments($userRef = "userId", $roleRef = "roleId"))
+    @SelectionSet("{ id }")
+    RoleUserRelation saveRoleUserRelation(String userId, String roleId);
 }
