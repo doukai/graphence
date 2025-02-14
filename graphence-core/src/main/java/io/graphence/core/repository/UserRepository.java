@@ -8,12 +8,13 @@ import io.graphoenix.core.dto.annotation.StringExpression;
 import io.graphoenix.spi.annotation.GraphQLOperation;
 import io.graphoenix.spi.annotation.SelectionSet;
 import io.nozdormu.spi.async.Async;
+import io.nozdormu.spi.async.Asyncable;
 import reactor.core.publisher.Mono;
 
 import java.util.Collection;
 
 @GraphQLOperation
-public interface UserRepository {
+public interface UserRepository extends Asyncable {
 
     @Query(user = @UserQueryArguments(login = @StringExpression($val = "login")))
     @SelectionSet("{ id }")
