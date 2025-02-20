@@ -3,6 +3,7 @@ package io.graphence.core.api;
 import com.password4j.Hash;
 import com.password4j.Password;
 import io.graphence.core.config.SecurityConfig;
+import io.graphence.core.dto.inputObjectType.UserInputBase;
 import io.graphence.core.repository.LoginRepository;
 import io.graphence.core.repository.RBACPolicyRepository;
 import io.graphence.core.dto.inputObjectType.UserMutationArguments;
@@ -82,12 +83,12 @@ public class LoginApi implements Asyncable {
                 );
     }
 
-    public UserMutationArguments hashPassword(@Source UserMutationArguments userMutationArguments) {
-        if (config.getInitialPassword() != null && userMutationArguments.getId() == null && userMutationArguments.getWhere() == null) {
+    public UserInputBase hashPassword(@Source UserInputBase userinputBase) {
+        if (config.getInitialPassword() != null && userinputBase.getId() == null && userinputBase.getWhere() == null) {
             Hash hash = Password.hash(config.getInitialPassword()).withBcrypt();
-            userMutationArguments.setSalt(Base64.getEncoder().encodeToString(hash.getSaltBytes()));
-            userMutationArguments.setHash(Base64.getEncoder().encodeToString(hash.getResultAsBytes()));
+            userinputBase.setSalt(Base64.getEncoder().encodeToString(hash.getSaltBytes()));
+            userinputBase.setHash(Base64.getEncoder().encodeToString(hash.getResultAsBytes()));
         }
-        return userMutationArguments;
+        return userinputBase;
     }
 }

@@ -36,7 +36,7 @@ public class RBACAdapter implements Adapter {
 
     private Set<Group> groups;
 
-    public RBACAdapter setRoles(Set<Role> roles, Set<Group> groups) {
+    public RBACAdapter init(Set<Role> roles, Set<Group> groups) {
         this.roles = roles;
         this.groups = groups;
         return this;

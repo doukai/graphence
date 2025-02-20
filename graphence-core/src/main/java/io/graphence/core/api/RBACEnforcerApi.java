@@ -7,10 +7,13 @@ import io.graphence.core.dto.objectType.*;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import org.casbin.jcasbin.main.Enforcer;
+import org.casbin.jcasbin.model.Model;
+import org.casbin.jcasbin.persist.Helper;
 import org.eclipse.microprofile.graphql.GraphQLApi;
 import org.eclipse.microprofile.graphql.Mutation;
 import org.eclipse.microprofile.graphql.Query;
 import org.eclipse.microprofile.graphql.Source;
+import org.tinylog.Logger;
 import reactor.core.publisher.Mono;
 
 import java.util.Collection;
@@ -25,21 +28,119 @@ import static io.graphence.core.casbin.adapter.RBACAdapter.*;
 @ApplicationScoped
 public class RBACEnforcerApi {
 
+    private final Model model;
     private final Enforcer enforcer;
     private final RBACPolicyRepository rbacPolicyRepository;
 
     @Inject
-    public RBACEnforcerApi(Enforcer enforcer, RBACPolicyRepository rbacPolicyRepository) {
+    public RBACEnforcerApi(Model model, Enforcer enforcer, RBACPolicyRepository rbacPolicyRepository) {
+        this.model = model;
         this.enforcer = enforcer;
         this.rbacPolicyRepository = rbacPolicyRepository;
     }
 
     @Query
     public List<Policy> policyList() {
-        return Stream.concat(
-                enforcer.getPolicy().stream().map(p -> new Policy(P_TYPE, p)),
-                enforcer.getGroupingPolicy().stream().map(g -> new Policy(G_TYPE, g))
-        ).collect(Collectors.toList());
+        return Stream
+                .concat(
+                        enforcer.getPolicy().stream().map(p -> new Policy(P_TYPE, p)),
+                        enforcer.getGroupingPolicy().stream().map(g -> new Policy(G_TYPE, g))
+                )
+                .collect(Collectors.toList());
+    }
+
+    @Mutation
+    public Mono<Boolean> syncModelPolicy() {
+        return rbacPolicyRepository.queryRoleList()
+                .flatMap(roles ->
+                        rbacPolicyRepository.queryGroupList()
+                                .map(groups -> {
+                                            try {
+                                                Stream<Policy> permissionPolicyStream = roles.stream()
+                                                        .flatMap(role ->
+                                                                Stream.ofNullable(role.getPermissions())
+                                                                        .flatMap(Collection::stream)
+                                                                        .map(permission ->
+                                                                                new Policy()
+                                                                                        .setPolicy(P_TYPE)
+                                                                                        .setV0(ROLE_PREFIX + role.getId())
+                                                                                        .setV1(Optional.ofNullable(role.getRealmId()).map(String::valueOf).orElse(EMPTY))
+                                                                                        .setV2(permission.getType() + SPACER + permission.getField())
+                                                                                        .setV3(permission.getPermissionType().name())
+                                                                        )
+                                                        );
+
+                                                Stream<Policy> userPolicyStream = roles.stream()
+                                                        .flatMap(role ->
+                                                                Stream.ofNullable(role.getUsers())
+                                                                        .flatMap(Collection::stream)
+                                                                        .map(user ->
+                                                                                new Policy()
+                                                                                        .setPolicy(G_TYPE)
+                                                                                        .setV0(USER_PREFIX + user.getId())
+                                                                                        .setV1(ROLE_PREFIX + role.getId())
+                                                                                        .setV2(Optional.ofNullable(role.getRealmId()).map(String::valueOf).orElse(EMPTY))
+                                                                        )
+                                                        );
+
+                                                Stream<Policy> groupPolicyStream = roles.stream()
+                                                        .flatMap(role ->
+                                                                Stream.ofNullable(role.getGroups())
+                                                                        .flatMap(Collection::stream)
+                                                                        .map(group ->
+                                                                                new Policy()
+                                                                                        .setPolicy(G_TYPE)
+                                                                                        .setV0(GROUP_PREFIX + group.getId())
+                                                                                        .setV1(ROLE_PREFIX + role.getId())
+                                                                                        .setV2(Optional.ofNullable(role.getRealmId()).map(String::valueOf).orElse(EMPTY))
+                                                                        )
+                                                        );
+
+                                                Stream<Policy> roleCompositesPolicyStream = roles.stream()
+                                                        .flatMap(role ->
+                                                                Stream.ofNullable(role.getComposites())
+                                                                        .flatMap(Collection::stream)
+                                                                        .map(composite ->
+                                                                                new Policy()
+                                                                                        .setPolicy(G_TYPE)
+                                                                                        .setV0(ROLE_PREFIX + role.getId())
+                                                                                        .setV1(ROLE_PREFIX + composite.getId())
+                                                                                        .setV2(Optional.ofNullable(role.getRealmId()).map(String::valueOf).orElse(EMPTY))
+                                                                        )
+                                                        );
+
+                                                Stream<Policy> userGroupPolicyStream = groups.stream()
+                                                        .flatMap(group ->
+                                                                Stream.ofNullable(group.getUsers())
+                                                                        .flatMap(Collection::stream)
+                                                                        .map(user ->
+                                                                                new Policy()
+                                                                                        .setPolicy(G_TYPE)
+                                                                                        .setV0(USER_PREFIX + user.getId())
+                                                                                        .setV1(GROUP_PREFIX + group.getId())
+                                                                                        .setV2(Optional.ofNullable(group.getRealmId()).map(String::valueOf).orElse(EMPTY))
+                                                                        )
+                                                        );
+                                                model.clearPolicy();
+                                                Streams
+                                                        .concat(
+                                                                permissionPolicyStream,
+                                                                userPolicyStream,
+                                                                groupPolicyStream,
+                                                                roleCompositesPolicyStream,
+                                                                userGroupPolicyStream
+                                                        )
+                                                        .map(Policy::toString)
+                                                        .distinct()
+                                                        .forEach(line -> Helper.loadPolicyLine(line, model));
+                                                return true;
+                                            } catch (Exception e) {
+                                                Logger.error(e);
+                                                return false;
+                                            }
+                                        }
+                                )
+                );
     }
 
     public Mono<Boolean> syncRolePolicy(@Source Role role) {

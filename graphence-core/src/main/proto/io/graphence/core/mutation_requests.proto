@@ -503,6 +503,17 @@ message MutationPermissionRoleRelationListRequest {
     repeated PermissionRoleRelationInput list = 17; /* 变更内容列表 */
     PermissionRoleRelationExpression where = 18; /* 匹配条件 */
 }
+message MutationSyncModelPolicyRequest {
+    optional string selection_set = 1;
+    optional string arguments = 2;
+}
+message MutationSyncPermissionRoleRelationPolicyRequest {
+    optional string selection_set = 1;
+    optional string arguments = 2;
+    string role_id = 3;
+    repeated string permission_name_list = 4;
+    repeated string removed_permission_name_list = 5;
+}
 message MutationCurrentUserUpdateRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
@@ -519,11 +530,4 @@ message MutationLoginRequest {
     optional string arguments = 2;
     string login = 3;
     string password = 4;
-}
-message MutationSyncPermissionRoleRelationPolicyRequest {
-    optional string selection_set = 1;
-    optional string arguments = 2;
-    string role_id = 3;
-    repeated string permission_name_list = 4;
-    repeated string removed_permission_name_list = 5;
 }

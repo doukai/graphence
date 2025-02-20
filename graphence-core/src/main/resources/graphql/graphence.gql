@@ -3,7 +3,7 @@ type User implements NamedStruct {
     "ID"
     id: ID @jsonSchema(maxLength: 50)
     "姓名"
-    name: String! @options(unique: true) @jsonSchema(minLength: 2 maxLength: 20)
+    name: String! @jsonSchema(minLength: 2 maxLength: 20)
     "描述"
     description: String @jsonSchema(maxLength: 100)
     "姓氏"

@@ -38,7 +38,7 @@ public class EnforcerInitializedEvent implements ScopeEvent {
                 .flatMap(roles ->
                         rbacPolicyRepository.queryGroupList()
                                 .map(groups ->
-                                        rbacAdapter.setRoles(roles, groups)
+                                        rbacAdapter.init(roles, groups)
                                 )
                 )
                 .doOnSuccess(enforcer::setAdapter)
