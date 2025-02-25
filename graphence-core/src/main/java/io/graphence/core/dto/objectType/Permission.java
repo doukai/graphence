@@ -2,6 +2,7 @@ package io.graphence.core.dto.objectType;
 
 import com.dslplatform.json.CompiledJson;
 import io.graphence.core.dto.enumType.PermissionType;
+import io.graphence.core.dto.inputObjectType.PermissionInput;
 import io.graphoenix.core.dto.interfaceType.Meta;
 import jakarta.annotation.Generated;
 import java.lang.Boolean;
@@ -10,6 +11,7 @@ import java.lang.Override;
 import java.lang.String;
 import java.time.LocalDateTime;
 import java.util.Collection;
+import java.util.stream.Collectors;
 import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.Id;
 import org.eclipse.microprofile.graphql.NonNull;
@@ -558,5 +560,33 @@ public class Permission implements Meta {
 
   public void setSyncPermissionPolicy(Boolean syncPermissionPolicy) {
     this.syncPermissionPolicy = syncPermissionPolicy;
+  }
+
+  public PermissionInput toInput() {
+    PermissionInput input = new PermissionInput();
+    input.setName(this.getName());
+    input.setDescription(this.getDescription());
+    input.setField(this.getField());
+    input.setType(this.getType());
+    input.setPermissionType(this.getPermissionType());
+    if(getRoles() != null) {
+      input.setRoles(this.getRoles().stream().map(item -> item.toInput()).collect(Collectors.toList()));
+    }
+    if(getRealm() != null) {
+      input.setRealm(this.getRealm().toInput());
+    }
+    input.setIsDeprecated(this.getIsDeprecated());
+    input.setVersion(this.getVersion());
+    input.setRealmId(this.getRealmId());
+    input.setCreateUserId(this.getCreateUserId());
+    input.setCreateTime(this.getCreateTime());
+    input.setUpdateUserId(this.getUpdateUserId());
+    input.setUpdateTime(this.getUpdateTime());
+    input.setCreateGroupId(this.getCreateGroupId());
+    input.set__typename(this.get__typename());
+    if(getPermissionRoleRelation() != null) {
+      input.setPermissionRoleRelation(this.getPermissionRoleRelation().stream().map(item -> item.toInput()).collect(Collectors.toList()));
+    }
+    return input;
   }
 }

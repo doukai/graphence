@@ -1,6 +1,7 @@
 package io.graphence.core.dto.objectType;
 
 import com.dslplatform.json.CompiledJson;
+import io.graphence.core.dto.inputObjectType.RoleInput;
 import io.graphoenix.core.dto.interfaceType.Meta;
 import io.graphoenix.structure.dto.interfaceType.NamedStruct;
 import jakarta.annotation.Generated;
@@ -10,6 +11,7 @@ import java.lang.Override;
 import java.lang.String;
 import java.time.LocalDateTime;
 import java.util.Collection;
+import java.util.stream.Collectors;
 import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.Id;
 import org.eclipse.microprofile.graphql.NonNull;
@@ -702,5 +704,49 @@ public class Role implements NamedStruct, Meta {
 
   public void setSyncRolePolicy(Boolean syncRolePolicy) {
     this.syncRolePolicy = syncRolePolicy;
+  }
+
+  public RoleInput toInput() {
+    RoleInput input = new RoleInput();
+    input.setId(this.getId());
+    input.setName(this.getName());
+    input.setDescription(this.getDescription());
+    if(getUsers() != null) {
+      input.setUsers(this.getUsers().stream().map(item -> item.toInput()).collect(Collectors.toList()));
+    }
+    if(getGroups() != null) {
+      input.setGroups(this.getGroups().stream().map(item -> item.toInput()).collect(Collectors.toList()));
+    }
+    if(getComposites() != null) {
+      input.setComposites(this.getComposites().stream().map(item -> item.toInput()).collect(Collectors.toList()));
+    }
+    if(getPermissions() != null) {
+      input.setPermissions(this.getPermissions().stream().map(item -> item.toInput()).collect(Collectors.toList()));
+    }
+    if(getRealm() != null) {
+      input.setRealm(this.getRealm().toInput());
+    }
+    input.setIsDeprecated(this.getIsDeprecated());
+    input.setVersion(this.getVersion());
+    input.setRealmId(this.getRealmId());
+    input.setCreateUserId(this.getCreateUserId());
+    input.setCreateTime(this.getCreateTime());
+    input.setUpdateUserId(this.getUpdateUserId());
+    input.setUpdateTime(this.getUpdateTime());
+    input.setCreateGroupId(this.getCreateGroupId());
+    input.set__typename(this.get__typename());
+    if(getRoleUserRelation() != null) {
+      input.setRoleUserRelation(this.getRoleUserRelation().stream().map(item -> item.toInput()).collect(Collectors.toList()));
+    }
+    if(getGroupRoleRelation() != null) {
+      input.setGroupRoleRelation(this.getGroupRoleRelation().stream().map(item -> item.toInput()).collect(Collectors.toList()));
+    }
+    if(getRoleCompositeRelation() != null) {
+      input.setRoleCompositeRelation(this.getRoleCompositeRelation().stream().map(item -> item.toInput()).collect(Collectors.toList()));
+    }
+    if(getPermissionRoleRelation() != null) {
+      input.setPermissionRoleRelation(this.getPermissionRoleRelation().stream().map(item -> item.toInput()).collect(Collectors.toList()));
+    }
+    return input;
   }
 }

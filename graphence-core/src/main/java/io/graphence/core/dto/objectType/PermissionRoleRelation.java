@@ -1,6 +1,7 @@
 package io.graphence.core.dto.objectType;
 
 import com.dslplatform.json.CompiledJson;
+import io.graphence.core.dto.inputObjectType.PermissionRoleRelationInput;
 import io.graphoenix.core.dto.interfaceType.Meta;
 import jakarta.annotation.Generated;
 import java.lang.Boolean;
@@ -357,5 +358,28 @@ public class PermissionRoleRelation implements Meta {
 
   public void setPermissionRefMin(String permissionRefMin) {
     this.permissionRefMin = permissionRefMin;
+  }
+
+  public PermissionRoleRelationInput toInput() {
+    PermissionRoleRelationInput input = new PermissionRoleRelationInput();
+    input.setId(this.getId());
+    input.setRoleRef(this.getRoleRef());
+    if(getRole() != null) {
+      input.setRole(this.getRole().toInput());
+    }
+    input.setPermissionRef(this.getPermissionRef());
+    if(getPermission() != null) {
+      input.setPermission(this.getPermission().toInput());
+    }
+    input.setIsDeprecated(this.getIsDeprecated());
+    input.setVersion(this.getVersion());
+    input.setRealmId(this.getRealmId());
+    input.setCreateUserId(this.getCreateUserId());
+    input.setCreateTime(this.getCreateTime());
+    input.setUpdateUserId(this.getUpdateUserId());
+    input.setUpdateTime(this.getUpdateTime());
+    input.setCreateGroupId(this.getCreateGroupId());
+    input.set__typename(this.get__typename());
+    return input;
   }
 }

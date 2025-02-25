@@ -1,6 +1,7 @@
 package io.graphence.core.dto.objectType;
 
 import com.dslplatform.json.CompiledJson;
+import io.graphence.core.dto.inputObjectType.GroupInput;
 import io.graphoenix.core.dto.interfaceType.Meta;
 import io.graphoenix.structure.dto.interfaceType.NamedStruct;
 import io.graphoenix.structure.dto.interfaceType.TreeStruct;
@@ -11,6 +12,7 @@ import java.lang.Override;
 import java.lang.String;
 import java.time.LocalDateTime;
 import java.util.Collection;
+import java.util.stream.Collectors;
 import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.Id;
 import org.eclipse.microprofile.graphql.NonNull;
@@ -790,5 +792,46 @@ public class Group implements TreeStruct, NamedStruct, Meta {
 
   public void setSyncGroupPolicy(Boolean syncGroupPolicy) {
     this.syncGroupPolicy = syncGroupPolicy;
+  }
+
+  public GroupInput toInput() {
+    GroupInput input = new GroupInput();
+    input.setId(this.getId());
+    input.setName(this.getName());
+    input.setDescription(this.getDescription());
+    input.setPath(this.getPath());
+    input.setDeep(this.getDeep());
+    input.setParentId(this.getParentId());
+    if(getParent() != null) {
+      input.setParent(this.getParent().toInput());
+    }
+    if(getSubGroups() != null) {
+      input.setSubGroups(this.getSubGroups().stream().map(item -> item.toInput()).collect(Collectors.toList()));
+    }
+    if(getUsers() != null) {
+      input.setUsers(this.getUsers().stream().map(item -> item.toInput()).collect(Collectors.toList()));
+    }
+    if(getRoles() != null) {
+      input.setRoles(this.getRoles().stream().map(item -> item.toInput()).collect(Collectors.toList()));
+    }
+    if(getRealm() != null) {
+      input.setRealm(this.getRealm().toInput());
+    }
+    input.setIsDeprecated(this.getIsDeprecated());
+    input.setVersion(this.getVersion());
+    input.setRealmId(this.getRealmId());
+    input.setCreateUserId(this.getCreateUserId());
+    input.setCreateTime(this.getCreateTime());
+    input.setUpdateUserId(this.getUpdateUserId());
+    input.setUpdateTime(this.getUpdateTime());
+    input.setCreateGroupId(this.getCreateGroupId());
+    input.set__typename(this.get__typename());
+    if(getGroupUserRelation() != null) {
+      input.setGroupUserRelation(this.getGroupUserRelation().stream().map(item -> item.toInput()).collect(Collectors.toList()));
+    }
+    if(getGroupRoleRelation() != null) {
+      input.setGroupRoleRelation(this.getGroupRoleRelation().stream().map(item -> item.toInput()).collect(Collectors.toList()));
+    }
+    return input;
   }
 }

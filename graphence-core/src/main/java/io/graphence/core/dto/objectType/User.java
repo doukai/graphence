@@ -1,6 +1,7 @@
 package io.graphence.core.dto.objectType;
 
 import com.dslplatform.json.CompiledJson;
+import io.graphence.core.dto.inputObjectType.UserInput;
 import io.graphoenix.core.dto.interfaceType.Meta;
 import io.graphoenix.structure.dto.interfaceType.NamedStruct;
 import jakarta.annotation.Generated;
@@ -10,6 +11,7 @@ import java.lang.Override;
 import java.lang.String;
 import java.time.LocalDateTime;
 import java.util.Collection;
+import java.util.stream.Collectors;
 import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.Id;
 import org.eclipse.microprofile.graphql.NonNull;
@@ -882,5 +884,47 @@ public class User implements NamedStruct, Meta {
 
   public void setSyncUserPolicy(Boolean syncUserPolicy) {
     this.syncUserPolicy = syncUserPolicy;
+  }
+
+  public UserInput toInput() {
+    UserInput input = new UserInput();
+    input.setId(this.getId());
+    input.setName(this.getName());
+    input.setDescription(this.getDescription());
+    input.setLastName(this.getLastName());
+    input.setLogin(this.getLogin());
+    input.setSalt(this.getSalt());
+    input.setHash(this.getHash());
+    input.setEmail(this.getEmail());
+    input.setPhones(this.getPhones());
+    input.setDisable(this.getDisable());
+    if(getGroups() != null) {
+      input.setGroups(this.getGroups().stream().map(item -> item.toInput()).collect(Collectors.toList()));
+    }
+    if(getRoles() != null) {
+      input.setRoles(this.getRoles().stream().map(item -> item.toInput()).collect(Collectors.toList()));
+    }
+    if(getRealm() != null) {
+      input.setRealm(this.getRealm().toInput());
+    }
+    input.setIsDeprecated(this.getIsDeprecated());
+    input.setVersion(this.getVersion());
+    input.setRealmId(this.getRealmId());
+    input.setCreateUserId(this.getCreateUserId());
+    input.setCreateTime(this.getCreateTime());
+    input.setUpdateUserId(this.getUpdateUserId());
+    input.setUpdateTime(this.getUpdateTime());
+    input.setCreateGroupId(this.getCreateGroupId());
+    input.set__typename(this.get__typename());
+    if(getUserPhonesRelation() != null) {
+      input.setUserPhonesRelation(this.getUserPhonesRelation().stream().map(item -> item.toInput()).collect(Collectors.toList()));
+    }
+    if(getGroupUserRelation() != null) {
+      input.setGroupUserRelation(this.getGroupUserRelation().stream().map(item -> item.toInput()).collect(Collectors.toList()));
+    }
+    if(getRoleUserRelation() != null) {
+      input.setRoleUserRelation(this.getRoleUserRelation().stream().map(item -> item.toInput()).collect(Collectors.toList()));
+    }
+    return input;
   }
 }

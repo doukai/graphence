@@ -1,6 +1,7 @@
 package io.graphence.core.dto.objectType;
 
 import com.dslplatform.json.CompiledJson;
+import io.graphence.core.dto.inputObjectType.RoleUserRelationInput;
 import io.graphoenix.core.dto.interfaceType.Meta;
 import jakarta.annotation.Generated;
 import java.lang.Boolean;
@@ -357,5 +358,28 @@ public class RoleUserRelation implements Meta {
 
   public void setRoleRefMin(String roleRefMin) {
     this.roleRefMin = roleRefMin;
+  }
+
+  public RoleUserRelationInput toInput() {
+    RoleUserRelationInput input = new RoleUserRelationInput();
+    input.setId(this.getId());
+    input.setUserRef(this.getUserRef());
+    if(getUser() != null) {
+      input.setUser(this.getUser().toInput());
+    }
+    input.setRoleRef(this.getRoleRef());
+    if(getRole() != null) {
+      input.setRole(this.getRole().toInput());
+    }
+    input.setIsDeprecated(this.getIsDeprecated());
+    input.setVersion(this.getVersion());
+    input.setRealmId(this.getRealmId());
+    input.setCreateUserId(this.getCreateUserId());
+    input.setCreateTime(this.getCreateTime());
+    input.setUpdateUserId(this.getUpdateUserId());
+    input.setUpdateTime(this.getUpdateTime());
+    input.setCreateGroupId(this.getCreateGroupId());
+    input.set__typename(this.get__typename());
+    return input;
   }
 }

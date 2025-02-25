@@ -84,7 +84,12 @@ public class LoginApi implements Asyncable {
     }
 
     public UserInputBase hashPassword(@Source UserInputBase userinputBase) {
-        if (config.getInitialPassword() != null && userinputBase.getId() == null && userinputBase.getWhere() == null) {
+        if (config.getInitialPassword() != null &&
+                userinputBase.getId() == null &&
+                userinputBase.getWhere() == null &&
+                userinputBase.getSalt() == null &&
+                userinputBase.getHash() == null
+        ) {
             Hash hash = Password.hash(config.getInitialPassword()).withBcrypt();
             userinputBase.setSalt(Base64.getEncoder().encodeToString(hash.getSaltBytes()));
             userinputBase.setHash(Base64.getEncoder().encodeToString(hash.getResultAsBytes()));
