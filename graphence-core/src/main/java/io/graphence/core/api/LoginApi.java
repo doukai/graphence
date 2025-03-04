@@ -6,7 +6,6 @@ import io.graphence.core.config.SecurityConfig;
 import io.graphence.core.dto.inputObjectType.UserInputBase;
 import io.graphence.core.repository.LoginRepository;
 import io.graphence.core.repository.RBACPolicyRepository;
-import io.graphence.core.dto.inputObjectType.UserMutationArguments;
 import io.graphence.core.dto.objectType.Permission;
 import io.graphence.core.dto.objectType.Role;
 import io.graphence.core.error.AuthenticationException;
