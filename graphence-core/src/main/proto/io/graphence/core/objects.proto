@@ -585,21 +585,21 @@ message PermissionRoleRelationEdge {
     string cursor = 2; /* 游标 */
 }
 message Policy {
-    string v1 = 1;
-    string v5 = 2;
-    string policy = 3;
-    string id = 4;
-    string v4 = 5;
-    string v0 = 6;
-    string v3 = 7;
-    string v2 = 8;
+    string v4 = 1;
+    string v3 = 2;
+    string v0 = 3;
+    string policy = 4;
+    string v2 = 5;
+    string id = 6;
+    string v5 = 7;
+    string v1 = 8;
 }
 message Current {
-    repeated string roles = 1;
-    string login = 2;
-    string id = 3;
-    string name = 4;
-    repeated string groups = 5;
-    int32 realm_id = 6;
-    string last_name = 7;
+    string name = 1;
+    repeated string roles = 2;
+    string login = 3;
+    repeated string groups = 4;
+    string last_name = 5;
+    string id = 6;
+    int32 realm_id = 7;
 }
