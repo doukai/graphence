@@ -342,12 +342,14 @@ public class Group implements TreeStruct, NamedStruct, Meta {
 
   private Boolean syncGroupPolicy;
 
+  @Override
   public String getId() {
     return this.id;
   }
 
+  @Override
   public void setId(String id) {
-    this.id = id;
+    this.id = (String)id;
   }
 
   @Override
@@ -370,24 +372,20 @@ public class Group implements TreeStruct, NamedStruct, Meta {
     this.description = (String)description;
   }
 
-  @Override
   public String getPath() {
     return this.path;
   }
 
-  @Override
   public void setPath(String path) {
-    this.path = (String)path;
+    this.path = path;
   }
 
-  @Override
   public Integer getDeep() {
     return this.deep;
   }
 
-  @Override
   public void setDeep(Integer deep) {
-    this.deep = (Integer)deep;
+    this.deep = deep;
   }
 
   @Override
