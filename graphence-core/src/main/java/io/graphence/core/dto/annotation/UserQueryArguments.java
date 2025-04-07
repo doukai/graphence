@@ -4,6 +4,7 @@ import io.graphoenix.core.dto.annotation.BooleanExpression;
 import io.graphoenix.core.dto.annotation.IntExpression;
 import io.graphoenix.core.dto.annotation.StringExpression;
 import io.graphoenix.core.dto.enumType.Conditional;
+import io.graphoenix.file.dto.annotation.FileExpression;
 import jakarta.annotation.Generated;
 import java.lang.String;
 import java.lang.annotation.Documented;
@@ -101,6 +102,36 @@ public @interface UserQueryArguments {
   RealmExpression realm() default @RealmExpression;
 
   /**
+   * file
+   */
+  @Description("file")
+  FileExpression file() default @FileExpression;
+
+  /**
+   * files
+   */
+  @Description("files")
+  FileExpression files() default @FileExpression;
+
+  /**
+   * booleanList
+   */
+  @Description("booleanList")
+  BooleanExpression booleanList() default @BooleanExpression;
+
+  /**
+   * intList
+   */
+  @Description("intList")
+  IntExpression intList() default @IntExpression;
+
+  /**
+   * typeList
+   */
+  @Description("typeList")
+  PermissionTypeExpression typeList() default @PermissionTypeExpression;
+
+  /**
    * 包含已移除
    */
   @Description("包含已移除")
@@ -155,6 +186,12 @@ public @interface UserQueryArguments {
   StringExpression __typename() default @StringExpression;
 
   /**
+   * 用户 文件 关系
+   */
+  @Description("用户 文件 关系")
+  FileUserRelationExpression fileUserRelation() default @FileUserRelationExpression;
+
+  /**
    * 用户 手机号 关系
    */
   @Description("用户 手机号 关系")
@@ -171,6 +208,25 @@ public @interface UserQueryArguments {
    */
   @Description("用户 角色 关系")
   RoleUserRelationExpression roleUserRelation() default @RoleUserRelationExpression;
+
+  /**
+   * 用户 booleanList 关系
+   */
+  @Description("用户 booleanList 关系")
+  UserBooleanListRelationExpression userBooleanListRelation(
+      ) default @UserBooleanListRelationExpression;
+
+  /**
+   * 用户 intList 关系
+   */
+  @Description("用户 intList 关系")
+  UserIntListRelationExpression userIntListRelation() default @UserIntListRelationExpression;
+
+  /**
+   * 用户 typeList 关系
+   */
+  @Description("用户 typeList 关系")
+  UserTypeListRelationExpression userTypeListRelation() default @UserTypeListRelationExpression;
 
   /**
    * 分组
@@ -222,6 +278,16 @@ public @interface UserQueryArguments {
 
   String $realm() default "";
 
+  String $file() default "";
+
+  String $files() default "";
+
+  String $booleanList() default "";
+
+  String $intList() default "";
+
+  String $typeList() default "";
+
   String $includeDeprecated() default "";
 
   String $version() default "";
@@ -240,11 +306,19 @@ public @interface UserQueryArguments {
 
   String $__typename() default "";
 
+  String $fileUserRelation() default "";
+
   String $userPhonesRelation() default "";
 
   String $groupUserRelation() default "";
 
   String $roleUserRelation() default "";
+
+  String $userBooleanListRelation() default "";
+
+  String $userIntListRelation() default "";
+
+  String $userTypeListRelation() default "";
 
   String $groupBy() default "";
 

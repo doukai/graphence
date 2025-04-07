@@ -9,13 +9,13 @@ import java.lang.annotation.Target;
 import org.eclipse.microprofile.graphql.Description;
 
 /**
- * 变更
+ * Mutation
  */
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
 @Documented
 @Retention(RetentionPolicy.SOURCE)
 @Target(ElementType.METHOD)
-@Description("变更")
+@Description("Mutation")
 public @interface Mutation {
   UserMutationArguments user() default @UserMutationArguments;
 
@@ -54,6 +54,24 @@ public @interface Mutation {
   RoleUserRelationListMutationArguments roleUserRelationList(
       ) default @RoleUserRelationListMutationArguments;
 
+  UserBooleanListRelationMutationArguments userBooleanListRelation(
+      ) default @UserBooleanListRelationMutationArguments;
+
+  UserBooleanListRelationListMutationArguments userBooleanListRelationList(
+      ) default @UserBooleanListRelationListMutationArguments;
+
+  UserIntListRelationMutationArguments userIntListRelation(
+      ) default @UserIntListRelationMutationArguments;
+
+  UserIntListRelationListMutationArguments userIntListRelationList(
+      ) default @UserIntListRelationListMutationArguments;
+
+  UserTypeListRelationMutationArguments userTypeListRelation(
+      ) default @UserTypeListRelationMutationArguments;
+
+  UserTypeListRelationListMutationArguments userTypeListRelationList(
+      ) default @UserTypeListRelationListMutationArguments;
+
   GroupRoleRelationMutationArguments groupRoleRelation(
       ) default @GroupRoleRelationMutationArguments;
 
@@ -71,4 +89,9 @@ public @interface Mutation {
 
   PermissionRoleRelationListMutationArguments permissionRoleRelationList(
       ) default @PermissionRoleRelationListMutationArguments;
+
+  FileUserRelationMutationArguments fileUserRelation() default @FileUserRelationMutationArguments;
+
+  FileUserRelationListMutationArguments fileUserRelationList(
+      ) default @FileUserRelationListMutationArguments;
 }

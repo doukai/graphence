@@ -1,5 +1,6 @@
 package io.graphence.core.dto.annotation;
 
+import io.graphence.core.dto.enumType.PermissionType;
 import jakarta.annotation.Generated;
 import java.lang.String;
 import java.lang.annotation.Documented;
@@ -79,6 +80,24 @@ public @interface UserInputBase2 {
   boolean disable() default false;
 
   /**
+   * booleanList
+   */
+  @Description("booleanList")
+  boolean[] booleanList() default {};
+
+  /**
+   * intList
+   */
+  @Description("intList")
+  int[] intList() default {};
+
+  /**
+   * typeList
+   */
+  @Description("typeList")
+  PermissionType[] typeList() default {};
+
+  /**
    * 已移除
    */
   @Description("已移除")
@@ -151,6 +170,12 @@ public @interface UserInputBase2 {
   String $phones() default "";
 
   String $disable() default "";
+
+  String $booleanList() default "";
+
+  String $intList() default "";
+
+  String $typeList() default "";
 
   String $isDeprecated() default "";
 

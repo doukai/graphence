@@ -26,6 +26,11 @@ type User implements NamedStruct {
     roles: [Role]
     "租户"
     realm: Realm @map(from: "realmId" to: "id" anchor: true)
+    file: File
+    files: [File]
+    booleanList: [Boolean]
+    intList: [Int]
+    typeList: [PermissionType]
 }
 
 "角色"

@@ -5,6 +5,7 @@ import io.graphoenix.core.dto.inputObjectType.BooleanExpression;
 import io.graphoenix.core.dto.inputObjectType.IntExpression;
 import io.graphoenix.core.dto.inputObjectType.MetaExpression;
 import io.graphoenix.core.dto.inputObjectType.StringExpression;
+import io.graphoenix.file.dto.inputObjectType.FileExpression;
 import io.graphoenix.structure.dto.inputObjectType.NamedStructExpression;
 import jakarta.annotation.Generated;
 import java.lang.Boolean;
@@ -98,6 +99,36 @@ public interface UserExpressionBase extends NamedStructExpression, MetaExpressio
   RealmExpression realm = null;
 
   /**
+   * file
+   */
+  @Description("file")
+  FileExpression file = null;
+
+  /**
+   * files
+   */
+  @Description("files")
+  FileExpression files = null;
+
+  /**
+   * booleanList
+   */
+  @Description("booleanList")
+  BooleanExpression booleanList = null;
+
+  /**
+   * intList
+   */
+  @Description("intList")
+  IntExpression intList = null;
+
+  /**
+   * typeList
+   */
+  @Description("typeList")
+  PermissionTypeExpression typeList = null;
+
+  /**
    * 包含已移除
    */
   @Description("包含已移除")
@@ -152,6 +183,12 @@ public interface UserExpressionBase extends NamedStructExpression, MetaExpressio
   StringExpression __typename = null;
 
   /**
+   * 用户 文件 关系
+   */
+  @Description("用户 文件 关系")
+  FileUserRelationExpression fileUserRelation = null;
+
+  /**
    * 用户 手机号 关系
    */
   @Description("用户 手机号 关系")
@@ -168,6 +205,24 @@ public interface UserExpressionBase extends NamedStructExpression, MetaExpressio
    */
   @Description("用户 角色 关系")
   RoleUserRelationExpression roleUserRelation = null;
+
+  /**
+   * 用户 booleanList 关系
+   */
+  @Description("用户 booleanList 关系")
+  UserBooleanListRelationExpression userBooleanListRelation = null;
+
+  /**
+   * 用户 intList 关系
+   */
+  @Description("用户 intList 关系")
+  UserIntListRelationExpression userIntListRelation = null;
+
+  /**
+   * 用户 typeList 关系
+   */
+  @Description("用户 typeList 关系")
+  UserTypeListRelationExpression userTypeListRelation = null;
 
   /**
    * 取非
@@ -265,6 +320,36 @@ public interface UserExpressionBase extends NamedStructExpression, MetaExpressio
 
   void setRealm(RealmExpression realm);
 
+  default FileExpression getFile() {
+    return file;
+  }
+
+  void setFile(FileExpression file);
+
+  default FileExpression getFiles() {
+    return files;
+  }
+
+  void setFiles(FileExpression files);
+
+  default BooleanExpression getBooleanList() {
+    return booleanList;
+  }
+
+  void setBooleanList(BooleanExpression booleanList);
+
+  default IntExpression getIntList() {
+    return intList;
+  }
+
+  void setIntList(IntExpression intList);
+
+  default PermissionTypeExpression getTypeList() {
+    return typeList;
+  }
+
+  void setTypeList(PermissionTypeExpression typeList);
+
   default Boolean getIncludeDeprecated() {
     return includeDeprecated;
   }
@@ -319,6 +404,12 @@ public interface UserExpressionBase extends NamedStructExpression, MetaExpressio
 
   void set__typename(StringExpression __typename);
 
+  default FileUserRelationExpression getFileUserRelation() {
+    return fileUserRelation;
+  }
+
+  void setFileUserRelation(FileUserRelationExpression fileUserRelation);
+
   default UserPhonesRelationExpression getUserPhonesRelation() {
     return userPhonesRelation;
   }
@@ -336,6 +427,24 @@ public interface UserExpressionBase extends NamedStructExpression, MetaExpressio
   }
 
   void setRoleUserRelation(RoleUserRelationExpression roleUserRelation);
+
+  default UserBooleanListRelationExpression getUserBooleanListRelation() {
+    return userBooleanListRelation;
+  }
+
+  void setUserBooleanListRelation(UserBooleanListRelationExpression userBooleanListRelation);
+
+  default UserIntListRelationExpression getUserIntListRelation() {
+    return userIntListRelation;
+  }
+
+  void setUserIntListRelation(UserIntListRelationExpression userIntListRelation);
+
+  default UserTypeListRelationExpression getUserTypeListRelation() {
+    return userTypeListRelation;
+  }
+
+  void setUserTypeListRelation(UserTypeListRelationExpression userTypeListRelation);
 
   default Boolean getNot() {
     return not;

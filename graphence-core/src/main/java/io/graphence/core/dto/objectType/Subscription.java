@@ -7,12 +7,12 @@ import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.Type;
 
 /**
- * 订阅
+ * Subscription
  */
 @Type
 @CompiledJson
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
-@Description("订阅")
+@Description("Subscription")
 public class Subscription {
   /**
    * 用户 订阅接口
@@ -159,6 +159,60 @@ public class Subscription {
   private RoleUserRelationConnection roleUserRelationConnection;
 
   /**
+   * 用户 booleanList 关系 订阅接口
+   */
+  @Description("用户 booleanList 关系 订阅接口")
+  private UserBooleanListRelation userBooleanListRelation;
+
+  /**
+   * 用户 booleanList 关系列表 订阅接口
+   */
+  @Description("用户 booleanList 关系列表 订阅接口")
+  private Collection<UserBooleanListRelation> userBooleanListRelationList;
+
+  /**
+   * 用户 booleanList 关系连接 订阅接口
+   */
+  @Description("用户 booleanList 关系连接 订阅接口")
+  private UserBooleanListRelationConnection userBooleanListRelationConnection;
+
+  /**
+   * 用户 intList 关系 订阅接口
+   */
+  @Description("用户 intList 关系 订阅接口")
+  private UserIntListRelation userIntListRelation;
+
+  /**
+   * 用户 intList 关系列表 订阅接口
+   */
+  @Description("用户 intList 关系列表 订阅接口")
+  private Collection<UserIntListRelation> userIntListRelationList;
+
+  /**
+   * 用户 intList 关系连接 订阅接口
+   */
+  @Description("用户 intList 关系连接 订阅接口")
+  private UserIntListRelationConnection userIntListRelationConnection;
+
+  /**
+   * 用户 typeList 关系 订阅接口
+   */
+  @Description("用户 typeList 关系 订阅接口")
+  private UserTypeListRelation userTypeListRelation;
+
+  /**
+   * 用户 typeList 关系列表 订阅接口
+   */
+  @Description("用户 typeList 关系列表 订阅接口")
+  private Collection<UserTypeListRelation> userTypeListRelationList;
+
+  /**
+   * 用户 typeList 关系连接 订阅接口
+   */
+  @Description("用户 typeList 关系连接 订阅接口")
+  private UserTypeListRelationConnection userTypeListRelationConnection;
+
+  /**
    * 角色 组 关系 订阅接口
    */
   @Description("角色 组 关系 订阅接口")
@@ -211,6 +265,24 @@ public class Subscription {
    */
   @Description("角色 权限 关系连接 订阅接口")
   private PermissionRoleRelationConnection permissionRoleRelationConnection;
+
+  /**
+   * 用户 文件 关系 订阅接口
+   */
+  @Description("用户 文件 关系 订阅接口")
+  private FileUserRelation fileUserRelation;
+
+  /**
+   * 用户 文件 关系列表 订阅接口
+   */
+  @Description("用户 文件 关系列表 订阅接口")
+  private Collection<FileUserRelation> fileUserRelationList;
+
+  /**
+   * 用户 文件 关系连接 订阅接口
+   */
+  @Description("用户 文件 关系连接 订阅接口")
+  private FileUserRelationConnection fileUserRelationConnection;
 
   public User getUser() {
     return this.user;
@@ -406,6 +478,83 @@ public class Subscription {
     this.roleUserRelationConnection = roleUserRelationConnection;
   }
 
+  public UserBooleanListRelation getUserBooleanListRelation() {
+    return this.userBooleanListRelation;
+  }
+
+  public void setUserBooleanListRelation(UserBooleanListRelation userBooleanListRelation) {
+    this.userBooleanListRelation = userBooleanListRelation;
+  }
+
+  public Collection<UserBooleanListRelation> getUserBooleanListRelationList() {
+    return this.userBooleanListRelationList;
+  }
+
+  public void setUserBooleanListRelationList(
+      Collection<UserBooleanListRelation> userBooleanListRelationList) {
+    this.userBooleanListRelationList = userBooleanListRelationList;
+  }
+
+  public UserBooleanListRelationConnection getUserBooleanListRelationConnection() {
+    return this.userBooleanListRelationConnection;
+  }
+
+  public void setUserBooleanListRelationConnection(
+      UserBooleanListRelationConnection userBooleanListRelationConnection) {
+    this.userBooleanListRelationConnection = userBooleanListRelationConnection;
+  }
+
+  public UserIntListRelation getUserIntListRelation() {
+    return this.userIntListRelation;
+  }
+
+  public void setUserIntListRelation(UserIntListRelation userIntListRelation) {
+    this.userIntListRelation = userIntListRelation;
+  }
+
+  public Collection<UserIntListRelation> getUserIntListRelationList() {
+    return this.userIntListRelationList;
+  }
+
+  public void setUserIntListRelationList(Collection<UserIntListRelation> userIntListRelationList) {
+    this.userIntListRelationList = userIntListRelationList;
+  }
+
+  public UserIntListRelationConnection getUserIntListRelationConnection() {
+    return this.userIntListRelationConnection;
+  }
+
+  public void setUserIntListRelationConnection(
+      UserIntListRelationConnection userIntListRelationConnection) {
+    this.userIntListRelationConnection = userIntListRelationConnection;
+  }
+
+  public UserTypeListRelation getUserTypeListRelation() {
+    return this.userTypeListRelation;
+  }
+
+  public void setUserTypeListRelation(UserTypeListRelation userTypeListRelation) {
+    this.userTypeListRelation = userTypeListRelation;
+  }
+
+  public Collection<UserTypeListRelation> getUserTypeListRelationList() {
+    return this.userTypeListRelationList;
+  }
+
+  public void setUserTypeListRelationList(
+      Collection<UserTypeListRelation> userTypeListRelationList) {
+    this.userTypeListRelationList = userTypeListRelationList;
+  }
+
+  public UserTypeListRelationConnection getUserTypeListRelationConnection() {
+    return this.userTypeListRelationConnection;
+  }
+
+  public void setUserTypeListRelationConnection(
+      UserTypeListRelationConnection userTypeListRelationConnection) {
+    this.userTypeListRelationConnection = userTypeListRelationConnection;
+  }
+
   public GroupRoleRelation getGroupRoleRelation() {
     return this.groupRoleRelation;
   }
@@ -481,5 +630,29 @@ public class Subscription {
   public void setPermissionRoleRelationConnection(
       PermissionRoleRelationConnection permissionRoleRelationConnection) {
     this.permissionRoleRelationConnection = permissionRoleRelationConnection;
+  }
+
+  public FileUserRelation getFileUserRelation() {
+    return this.fileUserRelation;
+  }
+
+  public void setFileUserRelation(FileUserRelation fileUserRelation) {
+    this.fileUserRelation = fileUserRelation;
+  }
+
+  public Collection<FileUserRelation> getFileUserRelationList() {
+    return this.fileUserRelationList;
+  }
+
+  public void setFileUserRelationList(Collection<FileUserRelation> fileUserRelationList) {
+    this.fileUserRelationList = fileUserRelationList;
+  }
+
+  public FileUserRelationConnection getFileUserRelationConnection() {
+    return this.fileUserRelationConnection;
+  }
+
+  public void setFileUserRelationConnection(FileUserRelationConnection fileUserRelationConnection) {
+    this.fileUserRelationConnection = fileUserRelationConnection;
   }
 }

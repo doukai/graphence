@@ -8,6 +8,7 @@ package io.graphence.core;
 import "io/graphence/core/enums.proto";
 import "io/graphoenix/core/enums.proto";
 import "io/graphoenix/core/input_objects.proto";
+import "io/graphoenix/file/input_objects.proto";
 import "google/protobuf/timestamp.proto";
 
 /**
@@ -27,21 +28,30 @@ message UserExpressionBase {
     GroupExpression groups = 11; /* 组 */
     RoleExpression roles = 12; /* 角色 */
     RealmExpression realm = 13; /* 租户 */
-    bool include_deprecated = 14; /* 包含已移除 */
-    io.graphoenix.core.IntExpression version = 15; /* 版本 */
-    io.graphoenix.core.IntExpression realm_id = 16; /* 域 */
-    io.graphoenix.core.StringExpression create_user_id = 17; /* 创建者 */
-    io.graphoenix.core.StringExpression create_time = 18; /* 创建时间 */
-    io.graphoenix.core.StringExpression update_user_id = 19; /* 更新者 */
-    io.graphoenix.core.StringExpression update_time = 20; /* 更新时间 */
-    io.graphoenix.core.StringExpression create_group_id = 21; /* 创建组 */
-    io.graphoenix.core.StringExpression intro_typename = 22; /* 所属类型 */
-    UserPhonesRelationExpression user_phones_relation = 23; /* 用户 手机号 关系 */
-    GroupUserRelationExpression group_user_relation = 24; /* 用户 组 关系 */
-    RoleUserRelationExpression role_user_relation = 25; /* 用户 角色 关系 */
-    bool not = 26; /* 取非 */
-    io.graphoenix.core.Conditional cond = 27; /* 与/或 */
-    repeated UserExpression exs = 28; /* 查询表达式组 */
+    io.graphoenix.file.FileExpression file = 14; /* file */
+    io.graphoenix.file.FileExpression files = 15; /* files */
+    io.graphoenix.core.BooleanExpression boolean_list = 16; /* booleanList */
+    io.graphoenix.core.IntExpression int_list = 17; /* intList */
+    PermissionTypeExpression type_list = 18; /* typeList */
+    bool include_deprecated = 19; /* 包含已移除 */
+    io.graphoenix.core.IntExpression version = 20; /* 版本 */
+    io.graphoenix.core.IntExpression realm_id = 21; /* 域 */
+    io.graphoenix.core.StringExpression create_user_id = 22; /* 创建者 */
+    io.graphoenix.core.StringExpression create_time = 23; /* 创建时间 */
+    io.graphoenix.core.StringExpression update_user_id = 24; /* 更新者 */
+    io.graphoenix.core.StringExpression update_time = 25; /* 更新时间 */
+    io.graphoenix.core.StringExpression create_group_id = 26; /* 创建组 */
+    io.graphoenix.core.StringExpression intro_typename = 27; /* 所属类型 */
+    FileUserRelationExpression file_user_relation = 28; /* 用户 文件 关系 */
+    UserPhonesRelationExpression user_phones_relation = 29; /* 用户 手机号 关系 */
+    GroupUserRelationExpression group_user_relation = 30; /* 用户 组 关系 */
+    RoleUserRelationExpression role_user_relation = 31; /* 用户 角色 关系 */
+    UserBooleanListRelationExpression user_boolean_list_relation = 32; /* 用户 booleanList 关系 */
+    UserIntListRelationExpression user_int_list_relation = 33; /* 用户 intList 关系 */
+    UserTypeListRelationExpression user_type_list_relation = 34; /* 用户 typeList 关系 */
+    bool not = 35; /* 取非 */
+    io.graphoenix.core.Conditional cond = 36; /* 与/或 */
+    repeated UserExpression exs = 37; /* 查询表达式组 */
 }
 /**
 * 用户 变更内容
@@ -60,19 +70,28 @@ message UserInputBase {
     repeated GroupInput groups = 11; /* 组 */
     repeated RoleInput roles = 12; /* 角色 */
     RealmInput realm = 13; /* 租户 */
-    bool is_deprecated = 14; /* 已移除 */
-    int32 version = 15; /* 版本 */
-    int32 realm_id = 16; /* 域 */
-    string create_user_id = 17; /* 创建者 */
-    google.protobuf.Timestamp create_time = 18; /* 创建时间 */
-    string update_user_id = 19; /* 更新者 */
-    google.protobuf.Timestamp update_time = 20; /* 更新时间 */
-    string create_group_id = 21; /* 创建组 */
-    string intro_typename = 22; /* 所属类型 */
-    repeated UserPhonesRelationInput user_phones_relation = 23; /* 用户 手机号 关系 */
-    repeated GroupUserRelationInput group_user_relation = 24; /* 用户 组 关系 */
-    repeated RoleUserRelationInput role_user_relation = 25; /* 用户 角色 关系 */
-    UserExpression where = 26; /* 匹配条件 */
+    io.graphoenix.file.FileInput file = 14; /* file */
+    repeated io.graphoenix.file.FileInput files = 15; /* files */
+    repeated bool boolean_list = 16; /* booleanList */
+    repeated int32 int_list = 17; /* intList */
+    repeated PermissionType type_list = 18; /* typeList */
+    bool is_deprecated = 19; /* 已移除 */
+    int32 version = 20; /* 版本 */
+    int32 realm_id = 21; /* 域 */
+    string create_user_id = 22; /* 创建者 */
+    google.protobuf.Timestamp create_time = 23; /* 创建时间 */
+    string update_user_id = 24; /* 更新者 */
+    google.protobuf.Timestamp update_time = 25; /* 更新时间 */
+    string create_group_id = 26; /* 创建组 */
+    string intro_typename = 27; /* 所属类型 */
+    repeated FileUserRelationInput file_user_relation = 28; /* 用户 文件 关系 */
+    repeated UserPhonesRelationInput user_phones_relation = 29; /* 用户 手机号 关系 */
+    repeated GroupUserRelationInput group_user_relation = 30; /* 用户 组 关系 */
+    repeated RoleUserRelationInput role_user_relation = 31; /* 用户 角色 关系 */
+    repeated UserBooleanListRelationInput user_boolean_list_relation = 32; /* 用户 booleanList 关系 */
+    repeated UserIntListRelationInput user_int_list_relation = 33; /* 用户 intList 关系 */
+    repeated UserTypeListRelationInput user_type_list_relation = 34; /* 用户 typeList 关系 */
+    UserExpression where = 35; /* 匹配条件 */
 }
 /**
 * 用户 查询表达式
@@ -91,21 +110,30 @@ message UserExpression {
     GroupExpression groups = 11; /* 组 */
     RoleExpression roles = 12; /* 角色 */
     RealmExpression realm = 13; /* 租户 */
-    bool include_deprecated = 14; /* 包含已移除 */
-    io.graphoenix.core.IntExpression version = 15; /* 版本 */
-    io.graphoenix.core.IntExpression realm_id = 16; /* 域 */
-    io.graphoenix.core.StringExpression create_user_id = 17; /* 创建者 */
-    io.graphoenix.core.StringExpression create_time = 18; /* 创建时间 */
-    io.graphoenix.core.StringExpression update_user_id = 19; /* 更新者 */
-    io.graphoenix.core.StringExpression update_time = 20; /* 更新时间 */
-    io.graphoenix.core.StringExpression create_group_id = 21; /* 创建组 */
-    io.graphoenix.core.StringExpression intro_typename = 22; /* 所属类型 */
-    UserPhonesRelationExpression user_phones_relation = 23; /* 用户 手机号 关系 */
-    GroupUserRelationExpression group_user_relation = 24; /* 用户 组 关系 */
-    RoleUserRelationExpression role_user_relation = 25; /* 用户 角色 关系 */
-    bool not = 26; /* 取非 */
-    io.graphoenix.core.Conditional cond = 27; /* 与/或 */
-    repeated UserExpression exs = 28; /* 查询表达式组 */
+    io.graphoenix.file.FileExpression file = 14; /* file */
+    io.graphoenix.file.FileExpression files = 15; /* files */
+    io.graphoenix.core.BooleanExpression boolean_list = 16; /* booleanList */
+    io.graphoenix.core.IntExpression int_list = 17; /* intList */
+    PermissionTypeExpression type_list = 18; /* typeList */
+    bool include_deprecated = 19; /* 包含已移除 */
+    io.graphoenix.core.IntExpression version = 20; /* 版本 */
+    io.graphoenix.core.IntExpression realm_id = 21; /* 域 */
+    io.graphoenix.core.StringExpression create_user_id = 22; /* 创建者 */
+    io.graphoenix.core.StringExpression create_time = 23; /* 创建时间 */
+    io.graphoenix.core.StringExpression update_user_id = 24; /* 更新者 */
+    io.graphoenix.core.StringExpression update_time = 25; /* 更新时间 */
+    io.graphoenix.core.StringExpression create_group_id = 26; /* 创建组 */
+    io.graphoenix.core.StringExpression intro_typename = 27; /* 所属类型 */
+    FileUserRelationExpression file_user_relation = 28; /* 用户 文件 关系 */
+    UserPhonesRelationExpression user_phones_relation = 29; /* 用户 手机号 关系 */
+    GroupUserRelationExpression group_user_relation = 30; /* 用户 组 关系 */
+    RoleUserRelationExpression role_user_relation = 31; /* 用户 角色 关系 */
+    UserBooleanListRelationExpression user_boolean_list_relation = 32; /* 用户 booleanList 关系 */
+    UserIntListRelationExpression user_int_list_relation = 33; /* 用户 intList 关系 */
+    UserTypeListRelationExpression user_type_list_relation = 34; /* 用户 typeList 关系 */
+    bool not = 35; /* 取非 */
+    io.graphoenix.core.Conditional cond = 36; /* 与/或 */
+    repeated UserExpression exs = 37; /* 查询表达式组 */
 }
 /**
 * 用户 变更内容
@@ -124,19 +152,28 @@ message UserInput {
     repeated GroupInput groups = 11; /* 组 */
     repeated RoleInput roles = 12; /* 角色 */
     RealmInput realm = 13; /* 租户 */
-    bool is_deprecated = 14; /* 已移除 */
-    int32 version = 15; /* 版本 */
-    int32 realm_id = 16; /* 域 */
-    string create_user_id = 17; /* 创建者 */
-    google.protobuf.Timestamp create_time = 18; /* 创建时间 */
-    string update_user_id = 19; /* 更新者 */
-    google.protobuf.Timestamp update_time = 20; /* 更新时间 */
-    string create_group_id = 21; /* 创建组 */
-    string intro_typename = 22; /* 所属类型 */
-    repeated UserPhonesRelationInput user_phones_relation = 23; /* 用户 手机号 关系 */
-    repeated GroupUserRelationInput group_user_relation = 24; /* 用户 组 关系 */
-    repeated RoleUserRelationInput role_user_relation = 25; /* 用户 角色 关系 */
-    UserExpression where = 26; /* 匹配条件 */
+    io.graphoenix.file.FileInput file = 14; /* file */
+    repeated io.graphoenix.file.FileInput files = 15; /* files */
+    repeated bool boolean_list = 16; /* booleanList */
+    repeated int32 int_list = 17; /* intList */
+    repeated PermissionType type_list = 18; /* typeList */
+    bool is_deprecated = 19; /* 已移除 */
+    int32 version = 20; /* 版本 */
+    int32 realm_id = 21; /* 域 */
+    string create_user_id = 22; /* 创建者 */
+    google.protobuf.Timestamp create_time = 23; /* 创建时间 */
+    string update_user_id = 24; /* 更新者 */
+    google.protobuf.Timestamp update_time = 25; /* 更新时间 */
+    string create_group_id = 26; /* 创建组 */
+    string intro_typename = 27; /* 所属类型 */
+    repeated FileUserRelationInput file_user_relation = 28; /* 用户 文件 关系 */
+    repeated UserPhonesRelationInput user_phones_relation = 29; /* 用户 手机号 关系 */
+    repeated GroupUserRelationInput group_user_relation = 30; /* 用户 组 关系 */
+    repeated RoleUserRelationInput role_user_relation = 31; /* 用户 角色 关系 */
+    repeated UserBooleanListRelationInput user_boolean_list_relation = 32; /* 用户 booleanList 关系 */
+    repeated UserIntListRelationInput user_int_list_relation = 33; /* 用户 intList 关系 */
+    repeated UserTypeListRelationInput user_type_list_relation = 34; /* 用户 typeList 关系 */
+    UserExpression where = 35; /* 匹配条件 */
 }
 /**
 * 用户 排序
@@ -155,47 +192,59 @@ message UserOrderBy {
     GroupOrderBy groups = 11; /* 组 */
     RoleOrderBy roles = 12; /* 角色 */
     RealmOrderBy realm = 13; /* 租户 */
-    io.graphoenix.core.Sort is_deprecated = 14; /* 已移除 */
-    io.graphoenix.core.Sort version = 15; /* 版本 */
-    io.graphoenix.core.Sort realm_id = 16; /* 域 */
-    io.graphoenix.core.Sort create_user_id = 17; /* 创建者 */
-    io.graphoenix.core.Sort create_time = 18; /* 创建时间 */
-    io.graphoenix.core.Sort update_user_id = 19; /* 更新者 */
-    io.graphoenix.core.Sort update_time = 20; /* 更新时间 */
-    io.graphoenix.core.Sort create_group_id = 21; /* 创建组 */
-    io.graphoenix.core.Sort intro_typename = 22; /* 所属类型 */
-    UserPhonesRelationOrderBy user_phones_relation = 23; /* 用户 手机号 关系 */
-    GroupUserRelationOrderBy group_user_relation = 24; /* 用户 组 关系 */
-    RoleUserRelationOrderBy role_user_relation = 25; /* 用户 角色 关系 */
-    GroupOrderBy groups_aggregate = 26; /* 组 统计字段 */
-    RoleOrderBy roles_aggregate = 27; /* 角色 统计字段 */
-    UserPhonesRelationOrderBy user_phones_relation_aggregate = 28; /* 用户 手机号 关系 统计字段 */
-    GroupUserRelationOrderBy group_user_relation_aggregate = 29; /* 用户 组 关系 统计字段 */
-    RoleUserRelationOrderBy role_user_relation_aggregate = 30; /* 用户 角色 关系 统计字段 */
-    io.graphoenix.core.Sort id_count = 31; /* 用户 数量 */
-    io.graphoenix.core.Sort id_max = 32; /* ID 最大值 */
-    io.graphoenix.core.Sort id_min = 33; /* ID 最小值 */
-    io.graphoenix.core.Sort name_count = 34; /* 姓名 数量 */
-    io.graphoenix.core.Sort name_max = 35; /* 姓名 最大值 */
-    io.graphoenix.core.Sort name_min = 36; /* 姓名 最小值 */
-    io.graphoenix.core.Sort description_count = 37; /* 描述 数量 */
-    io.graphoenix.core.Sort description_max = 38; /* 描述 最大值 */
-    io.graphoenix.core.Sort description_min = 39; /* 描述 最小值 */
-    io.graphoenix.core.Sort last_name_count = 40; /* 姓氏 数量 */
-    io.graphoenix.core.Sort last_name_max = 41; /* 姓氏 最大值 */
-    io.graphoenix.core.Sort last_name_min = 42; /* 姓氏 最小值 */
-    io.graphoenix.core.Sort login_count = 43; /* 账号 数量 */
-    io.graphoenix.core.Sort login_max = 44; /* 账号 最大值 */
-    io.graphoenix.core.Sort login_min = 45; /* 账号 最小值 */
-    io.graphoenix.core.Sort salt_count = 46; /* 盐 数量 */
-    io.graphoenix.core.Sort salt_max = 47; /* 盐 最大值 */
-    io.graphoenix.core.Sort salt_min = 48; /* 盐 最小值 */
-    io.graphoenix.core.Sort hash_count = 49; /* 哈希 数量 */
-    io.graphoenix.core.Sort hash_max = 50; /* 哈希 最大值 */
-    io.graphoenix.core.Sort hash_min = 51; /* 哈希 最小值 */
-    io.graphoenix.core.Sort email_count = 52; /* 邮箱 数量 */
-    io.graphoenix.core.Sort email_max = 53; /* 邮箱 最大值 */
-    io.graphoenix.core.Sort email_min = 54; /* 邮箱 最小值 */
+    io.graphoenix.file.FileOrderBy file = 14; /* file */
+    io.graphoenix.file.FileOrderBy files = 15; /* files */
+    io.graphoenix.core.Sort boolean_list = 16; /* booleanList */
+    io.graphoenix.core.Sort int_list = 17; /* intList */
+    io.graphoenix.core.Sort type_list = 18; /* typeList */
+    io.graphoenix.core.Sort is_deprecated = 19; /* 已移除 */
+    io.graphoenix.core.Sort version = 20; /* 版本 */
+    io.graphoenix.core.Sort realm_id = 21; /* 域 */
+    io.graphoenix.core.Sort create_user_id = 22; /* 创建者 */
+    io.graphoenix.core.Sort create_time = 23; /* 创建时间 */
+    io.graphoenix.core.Sort update_user_id = 24; /* 更新者 */
+    io.graphoenix.core.Sort update_time = 25; /* 更新时间 */
+    io.graphoenix.core.Sort create_group_id = 26; /* 创建组 */
+    io.graphoenix.core.Sort intro_typename = 27; /* 所属类型 */
+    FileUserRelationOrderBy file_user_relation = 28; /* 用户 文件 关系 */
+    UserPhonesRelationOrderBy user_phones_relation = 29; /* 用户 手机号 关系 */
+    GroupUserRelationOrderBy group_user_relation = 30; /* 用户 组 关系 */
+    RoleUserRelationOrderBy role_user_relation = 31; /* 用户 角色 关系 */
+    UserBooleanListRelationOrderBy user_boolean_list_relation = 32; /* 用户 booleanList 关系 */
+    UserIntListRelationOrderBy user_int_list_relation = 33; /* 用户 intList 关系 */
+    UserTypeListRelationOrderBy user_type_list_relation = 34; /* 用户 typeList 关系 */
+    GroupOrderBy groups_aggregate = 35; /* 组 统计字段 */
+    RoleOrderBy roles_aggregate = 36; /* 角色 统计字段 */
+    UserPhonesRelationOrderBy user_phones_relation_aggregate = 37; /* 用户 手机号 关系 统计字段 */
+    GroupUserRelationOrderBy group_user_relation_aggregate = 38; /* 用户 组 关系 统计字段 */
+    RoleUserRelationOrderBy role_user_relation_aggregate = 39; /* 用户 角色 关系 统计字段 */
+    UserBooleanListRelationOrderBy user_boolean_list_relation_aggregate = 40; /* 用户 booleanList 关系 统计字段 */
+    UserIntListRelationOrderBy user_int_list_relation_aggregate = 41; /* 用户 intList 关系 统计字段 */
+    UserTypeListRelationOrderBy user_type_list_relation_aggregate = 42; /* 用户 typeList 关系 统计字段 */
+    io.graphoenix.core.Sort id_count = 43; /* 用户 数量 */
+    io.graphoenix.core.Sort id_max = 44; /* ID 最大值 */
+    io.graphoenix.core.Sort id_min = 45; /* ID 最小值 */
+    io.graphoenix.core.Sort name_count = 46; /* 姓名 数量 */
+    io.graphoenix.core.Sort name_max = 47; /* 姓名 最大值 */
+    io.graphoenix.core.Sort name_min = 48; /* 姓名 最小值 */
+    io.graphoenix.core.Sort description_count = 49; /* 描述 数量 */
+    io.graphoenix.core.Sort description_max = 50; /* 描述 最大值 */
+    io.graphoenix.core.Sort description_min = 51; /* 描述 最小值 */
+    io.graphoenix.core.Sort last_name_count = 52; /* 姓氏 数量 */
+    io.graphoenix.core.Sort last_name_max = 53; /* 姓氏 最大值 */
+    io.graphoenix.core.Sort last_name_min = 54; /* 姓氏 最小值 */
+    io.graphoenix.core.Sort login_count = 55; /* 账号 数量 */
+    io.graphoenix.core.Sort login_max = 56; /* 账号 最大值 */
+    io.graphoenix.core.Sort login_min = 57; /* 账号 最小值 */
+    io.graphoenix.core.Sort salt_count = 58; /* 盐 数量 */
+    io.graphoenix.core.Sort salt_max = 59; /* 盐 最大值 */
+    io.graphoenix.core.Sort salt_min = 60; /* 盐 最小值 */
+    io.graphoenix.core.Sort hash_count = 61; /* 哈希 数量 */
+    io.graphoenix.core.Sort hash_max = 62; /* 哈希 最大值 */
+    io.graphoenix.core.Sort hash_min = 63; /* 哈希 最小值 */
+    io.graphoenix.core.Sort email_count = 64; /* 邮箱 数量 */
+    io.graphoenix.core.Sort email_max = 65; /* 邮箱 最大值 */
+    io.graphoenix.core.Sort email_min = 66; /* 邮箱 最小值 */
 }
 /**
 * 角色 查询表达式
@@ -1089,6 +1138,326 @@ message RoleUserRelationOrderBy {
     io.graphoenix.core.Sort role_ref_min = 23; /* 角色 引用 最小值 */
 }
 /**
+* 用户 booleanList 关系 查询表达式
+*/
+message UserBooleanListRelationExpressionBase {
+    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression user_ref = 2; /* 用户 引用 */
+    UserExpression user = 3; /* 用户 */
+    io.graphoenix.core.BooleanExpression boolean_list_ref = 4; /* booleanList 引用 */
+    bool include_deprecated = 5; /* 包含已移除 */
+    io.graphoenix.core.IntExpression version = 6; /* 版本 */
+    io.graphoenix.core.IntExpression realm_id = 7; /* 域 */
+    io.graphoenix.core.StringExpression create_user_id = 8; /* 创建者 */
+    io.graphoenix.core.StringExpression create_time = 9; /* 创建时间 */
+    io.graphoenix.core.StringExpression update_user_id = 10; /* 更新者 */
+    io.graphoenix.core.StringExpression update_time = 11; /* 更新时间 */
+    io.graphoenix.core.StringExpression create_group_id = 12; /* 创建组 */
+    io.graphoenix.core.StringExpression intro_typename = 13; /* 所属类型 */
+    bool not = 14; /* 取非 */
+    io.graphoenix.core.Conditional cond = 15; /* 与/或 */
+    repeated UserBooleanListRelationExpression exs = 16; /* 查询表达式组 */
+}
+/**
+* 用户 booleanList 关系 变更内容
+*/
+message UserBooleanListRelationInputBase {
+    string id = 1; /* ID */
+    string user_ref = 2; /* 用户 引用 */
+    UserInput user = 3; /* 用户 */
+    bool boolean_list_ref = 4; /* booleanList 引用 */
+    bool is_deprecated = 5; /* 已移除 */
+    int32 version = 6; /* 版本 */
+    int32 realm_id = 7; /* 域 */
+    string create_user_id = 8; /* 创建者 */
+    google.protobuf.Timestamp create_time = 9; /* 创建时间 */
+    string update_user_id = 10; /* 更新者 */
+    google.protobuf.Timestamp update_time = 11; /* 更新时间 */
+    string create_group_id = 12; /* 创建组 */
+    string intro_typename = 13; /* 所属类型 */
+    UserBooleanListRelationExpression where = 14; /* 匹配条件 */
+}
+/**
+* 用户 booleanList 关系 查询表达式
+*/
+message UserBooleanListRelationExpression {
+    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression user_ref = 2; /* 用户 引用 */
+    UserExpression user = 3; /* 用户 */
+    io.graphoenix.core.BooleanExpression boolean_list_ref = 4; /* booleanList 引用 */
+    bool include_deprecated = 5; /* 包含已移除 */
+    io.graphoenix.core.IntExpression version = 6; /* 版本 */
+    io.graphoenix.core.IntExpression realm_id = 7; /* 域 */
+    io.graphoenix.core.StringExpression create_user_id = 8; /* 创建者 */
+    io.graphoenix.core.StringExpression create_time = 9; /* 创建时间 */
+    io.graphoenix.core.StringExpression update_user_id = 10; /* 更新者 */
+    io.graphoenix.core.StringExpression update_time = 11; /* 更新时间 */
+    io.graphoenix.core.StringExpression create_group_id = 12; /* 创建组 */
+    io.graphoenix.core.StringExpression intro_typename = 13; /* 所属类型 */
+    bool not = 14; /* 取非 */
+    io.graphoenix.core.Conditional cond = 15; /* 与/或 */
+    repeated UserBooleanListRelationExpression exs = 16; /* 查询表达式组 */
+}
+/**
+* 用户 booleanList 关系 变更内容
+*/
+message UserBooleanListRelationInput {
+    string id = 1; /* ID */
+    string user_ref = 2; /* 用户 引用 */
+    UserInput user = 3; /* 用户 */
+    bool boolean_list_ref = 4; /* booleanList 引用 */
+    bool is_deprecated = 5; /* 已移除 */
+    int32 version = 6; /* 版本 */
+    int32 realm_id = 7; /* 域 */
+    string create_user_id = 8; /* 创建者 */
+    google.protobuf.Timestamp create_time = 9; /* 创建时间 */
+    string update_user_id = 10; /* 更新者 */
+    google.protobuf.Timestamp update_time = 11; /* 更新时间 */
+    string create_group_id = 12; /* 创建组 */
+    string intro_typename = 13; /* 所属类型 */
+    UserBooleanListRelationExpression where = 14; /* 匹配条件 */
+}
+/**
+* 用户 booleanList 关系 排序
+*/
+message UserBooleanListRelationOrderBy {
+    io.graphoenix.core.Sort id = 1; /* ID */
+    io.graphoenix.core.Sort user_ref = 2; /* 用户 引用 */
+    UserOrderBy user = 3; /* 用户 */
+    io.graphoenix.core.Sort boolean_list_ref = 4; /* booleanList 引用 */
+    io.graphoenix.core.Sort is_deprecated = 5; /* 已移除 */
+    io.graphoenix.core.Sort version = 6; /* 版本 */
+    io.graphoenix.core.Sort realm_id = 7; /* 域 */
+    io.graphoenix.core.Sort create_user_id = 8; /* 创建者 */
+    io.graphoenix.core.Sort create_time = 9; /* 创建时间 */
+    io.graphoenix.core.Sort update_user_id = 10; /* 更新者 */
+    io.graphoenix.core.Sort update_time = 11; /* 更新时间 */
+    io.graphoenix.core.Sort create_group_id = 12; /* 创建组 */
+    io.graphoenix.core.Sort intro_typename = 13; /* 所属类型 */
+    io.graphoenix.core.Sort id_count = 14; /* 用户 booleanList 关系 数量 */
+    io.graphoenix.core.Sort id_max = 15; /* ID 最大值 */
+    io.graphoenix.core.Sort id_min = 16; /* ID 最小值 */
+    io.graphoenix.core.Sort user_ref_count = 17; /* 用户 引用 数量 */
+    io.graphoenix.core.Sort user_ref_max = 18; /* 用户 引用 最大值 */
+    io.graphoenix.core.Sort user_ref_min = 19; /* 用户 引用 最小值 */
+}
+/**
+* 用户 intList 关系 查询表达式
+*/
+message UserIntListRelationExpressionBase {
+    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression user_ref = 2; /* 用户 引用 */
+    UserExpression user = 3; /* 用户 */
+    io.graphoenix.core.IntExpression int_list_ref = 4; /* intList 引用 */
+    bool include_deprecated = 5; /* 包含已移除 */
+    io.graphoenix.core.IntExpression version = 6; /* 版本 */
+    io.graphoenix.core.IntExpression realm_id = 7; /* 域 */
+    io.graphoenix.core.StringExpression create_user_id = 8; /* 创建者 */
+    io.graphoenix.core.StringExpression create_time = 9; /* 创建时间 */
+    io.graphoenix.core.StringExpression update_user_id = 10; /* 更新者 */
+    io.graphoenix.core.StringExpression update_time = 11; /* 更新时间 */
+    io.graphoenix.core.StringExpression create_group_id = 12; /* 创建组 */
+    io.graphoenix.core.StringExpression intro_typename = 13; /* 所属类型 */
+    bool not = 14; /* 取非 */
+    io.graphoenix.core.Conditional cond = 15; /* 与/或 */
+    repeated UserIntListRelationExpression exs = 16; /* 查询表达式组 */
+}
+/**
+* 用户 intList 关系 变更内容
+*/
+message UserIntListRelationInputBase {
+    string id = 1; /* ID */
+    string user_ref = 2; /* 用户 引用 */
+    UserInput user = 3; /* 用户 */
+    int32 int_list_ref = 4; /* intList 引用 */
+    bool is_deprecated = 5; /* 已移除 */
+    int32 version = 6; /* 版本 */
+    int32 realm_id = 7; /* 域 */
+    string create_user_id = 8; /* 创建者 */
+    google.protobuf.Timestamp create_time = 9; /* 创建时间 */
+    string update_user_id = 10; /* 更新者 */
+    google.protobuf.Timestamp update_time = 11; /* 更新时间 */
+    string create_group_id = 12; /* 创建组 */
+    string intro_typename = 13; /* 所属类型 */
+    UserIntListRelationExpression where = 14; /* 匹配条件 */
+}
+/**
+* 用户 intList 关系 查询表达式
+*/
+message UserIntListRelationExpression {
+    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression user_ref = 2; /* 用户 引用 */
+    UserExpression user = 3; /* 用户 */
+    io.graphoenix.core.IntExpression int_list_ref = 4; /* intList 引用 */
+    bool include_deprecated = 5; /* 包含已移除 */
+    io.graphoenix.core.IntExpression version = 6; /* 版本 */
+    io.graphoenix.core.IntExpression realm_id = 7; /* 域 */
+    io.graphoenix.core.StringExpression create_user_id = 8; /* 创建者 */
+    io.graphoenix.core.StringExpression create_time = 9; /* 创建时间 */
+    io.graphoenix.core.StringExpression update_user_id = 10; /* 更新者 */
+    io.graphoenix.core.StringExpression update_time = 11; /* 更新时间 */
+    io.graphoenix.core.StringExpression create_group_id = 12; /* 创建组 */
+    io.graphoenix.core.StringExpression intro_typename = 13; /* 所属类型 */
+    bool not = 14; /* 取非 */
+    io.graphoenix.core.Conditional cond = 15; /* 与/或 */
+    repeated UserIntListRelationExpression exs = 16; /* 查询表达式组 */
+}
+/**
+* 用户 intList 关系 变更内容
+*/
+message UserIntListRelationInput {
+    string id = 1; /* ID */
+    string user_ref = 2; /* 用户 引用 */
+    UserInput user = 3; /* 用户 */
+    int32 int_list_ref = 4; /* intList 引用 */
+    bool is_deprecated = 5; /* 已移除 */
+    int32 version = 6; /* 版本 */
+    int32 realm_id = 7; /* 域 */
+    string create_user_id = 8; /* 创建者 */
+    google.protobuf.Timestamp create_time = 9; /* 创建时间 */
+    string update_user_id = 10; /* 更新者 */
+    google.protobuf.Timestamp update_time = 11; /* 更新时间 */
+    string create_group_id = 12; /* 创建组 */
+    string intro_typename = 13; /* 所属类型 */
+    UserIntListRelationExpression where = 14; /* 匹配条件 */
+}
+/**
+* 用户 intList 关系 排序
+*/
+message UserIntListRelationOrderBy {
+    io.graphoenix.core.Sort id = 1; /* ID */
+    io.graphoenix.core.Sort user_ref = 2; /* 用户 引用 */
+    UserOrderBy user = 3; /* 用户 */
+    io.graphoenix.core.Sort int_list_ref = 4; /* intList 引用 */
+    io.graphoenix.core.Sort is_deprecated = 5; /* 已移除 */
+    io.graphoenix.core.Sort version = 6; /* 版本 */
+    io.graphoenix.core.Sort realm_id = 7; /* 域 */
+    io.graphoenix.core.Sort create_user_id = 8; /* 创建者 */
+    io.graphoenix.core.Sort create_time = 9; /* 创建时间 */
+    io.graphoenix.core.Sort update_user_id = 10; /* 更新者 */
+    io.graphoenix.core.Sort update_time = 11; /* 更新时间 */
+    io.graphoenix.core.Sort create_group_id = 12; /* 创建组 */
+    io.graphoenix.core.Sort intro_typename = 13; /* 所属类型 */
+    io.graphoenix.core.Sort id_count = 14; /* 用户 intList 关系 数量 */
+    io.graphoenix.core.Sort id_max = 15; /* ID 最大值 */
+    io.graphoenix.core.Sort id_min = 16; /* ID 最小值 */
+    io.graphoenix.core.Sort user_ref_count = 17; /* 用户 引用 数量 */
+    io.graphoenix.core.Sort user_ref_max = 18; /* 用户 引用 最大值 */
+    io.graphoenix.core.Sort user_ref_min = 19; /* 用户 引用 最小值 */
+    io.graphoenix.core.Sort int_list_ref_count = 20; /* intList 引用 数量 */
+    io.graphoenix.core.Sort int_list_ref_sum = 21; /* intList 引用 合计 */
+    io.graphoenix.core.Sort int_list_ref_avg = 22; /* intList 引用 平均值 */
+    io.graphoenix.core.Sort int_list_ref_max = 23; /* intList 引用 最大值 */
+    io.graphoenix.core.Sort int_list_ref_min = 24; /* intList 引用 最小值 */
+}
+/**
+* 用户 typeList 关系 查询表达式
+*/
+message UserTypeListRelationExpressionBase {
+    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression user_ref = 2; /* 用户 引用 */
+    UserExpression user = 3; /* 用户 */
+    PermissionTypeExpression type_list_ref = 4; /* typeList 引用 */
+    bool include_deprecated = 5; /* 包含已移除 */
+    io.graphoenix.core.IntExpression version = 6; /* 版本 */
+    io.graphoenix.core.IntExpression realm_id = 7; /* 域 */
+    io.graphoenix.core.StringExpression create_user_id = 8; /* 创建者 */
+    io.graphoenix.core.StringExpression create_time = 9; /* 创建时间 */
+    io.graphoenix.core.StringExpression update_user_id = 10; /* 更新者 */
+    io.graphoenix.core.StringExpression update_time = 11; /* 更新时间 */
+    io.graphoenix.core.StringExpression create_group_id = 12; /* 创建组 */
+    io.graphoenix.core.StringExpression intro_typename = 13; /* 所属类型 */
+    bool not = 14; /* 取非 */
+    io.graphoenix.core.Conditional cond = 15; /* 与/或 */
+    repeated UserTypeListRelationExpression exs = 16; /* 查询表达式组 */
+}
+/**
+* 用户 typeList 关系 变更内容
+*/
+message UserTypeListRelationInputBase {
+    string id = 1; /* ID */
+    string user_ref = 2; /* 用户 引用 */
+    UserInput user = 3; /* 用户 */
+    PermissionType type_list_ref = 4; /* typeList 引用 */
+    bool is_deprecated = 5; /* 已移除 */
+    int32 version = 6; /* 版本 */
+    int32 realm_id = 7; /* 域 */
+    string create_user_id = 8; /* 创建者 */
+    google.protobuf.Timestamp create_time = 9; /* 创建时间 */
+    string update_user_id = 10; /* 更新者 */
+    google.protobuf.Timestamp update_time = 11; /* 更新时间 */
+    string create_group_id = 12; /* 创建组 */
+    string intro_typename = 13; /* 所属类型 */
+    UserTypeListRelationExpression where = 14; /* 匹配条件 */
+}
+/**
+* 用户 typeList 关系 查询表达式
+*/
+message UserTypeListRelationExpression {
+    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression user_ref = 2; /* 用户 引用 */
+    UserExpression user = 3; /* 用户 */
+    PermissionTypeExpression type_list_ref = 4; /* typeList 引用 */
+    bool include_deprecated = 5; /* 包含已移除 */
+    io.graphoenix.core.IntExpression version = 6; /* 版本 */
+    io.graphoenix.core.IntExpression realm_id = 7; /* 域 */
+    io.graphoenix.core.StringExpression create_user_id = 8; /* 创建者 */
+    io.graphoenix.core.StringExpression create_time = 9; /* 创建时间 */
+    io.graphoenix.core.StringExpression update_user_id = 10; /* 更新者 */
+    io.graphoenix.core.StringExpression update_time = 11; /* 更新时间 */
+    io.graphoenix.core.StringExpression create_group_id = 12; /* 创建组 */
+    io.graphoenix.core.StringExpression intro_typename = 13; /* 所属类型 */
+    bool not = 14; /* 取非 */
+    io.graphoenix.core.Conditional cond = 15; /* 与/或 */
+    repeated UserTypeListRelationExpression exs = 16; /* 查询表达式组 */
+}
+/**
+* 用户 typeList 关系 变更内容
+*/
+message UserTypeListRelationInput {
+    string id = 1; /* ID */
+    string user_ref = 2; /* 用户 引用 */
+    UserInput user = 3; /* 用户 */
+    PermissionType type_list_ref = 4; /* typeList 引用 */
+    bool is_deprecated = 5; /* 已移除 */
+    int32 version = 6; /* 版本 */
+    int32 realm_id = 7; /* 域 */
+    string create_user_id = 8; /* 创建者 */
+    google.protobuf.Timestamp create_time = 9; /* 创建时间 */
+    string update_user_id = 10; /* 更新者 */
+    google.protobuf.Timestamp update_time = 11; /* 更新时间 */
+    string create_group_id = 12; /* 创建组 */
+    string intro_typename = 13; /* 所属类型 */
+    UserTypeListRelationExpression where = 14; /* 匹配条件 */
+}
+/**
+* 用户 typeList 关系 排序
+*/
+message UserTypeListRelationOrderBy {
+    io.graphoenix.core.Sort id = 1; /* ID */
+    io.graphoenix.core.Sort user_ref = 2; /* 用户 引用 */
+    UserOrderBy user = 3; /* 用户 */
+    io.graphoenix.core.Sort type_list_ref = 4; /* typeList 引用 */
+    io.graphoenix.core.Sort is_deprecated = 5; /* 已移除 */
+    io.graphoenix.core.Sort version = 6; /* 版本 */
+    io.graphoenix.core.Sort realm_id = 7; /* 域 */
+    io.graphoenix.core.Sort create_user_id = 8; /* 创建者 */
+    io.graphoenix.core.Sort create_time = 9; /* 创建时间 */
+    io.graphoenix.core.Sort update_user_id = 10; /* 更新者 */
+    io.graphoenix.core.Sort update_time = 11; /* 更新时间 */
+    io.graphoenix.core.Sort create_group_id = 12; /* 创建组 */
+    io.graphoenix.core.Sort intro_typename = 13; /* 所属类型 */
+    io.graphoenix.core.Sort id_count = 14; /* 用户 typeList 关系 数量 */
+    io.graphoenix.core.Sort id_max = 15; /* ID 最大值 */
+    io.graphoenix.core.Sort id_min = 16; /* ID 最小值 */
+    io.graphoenix.core.Sort user_ref_count = 17; /* 用户 引用 数量 */
+    io.graphoenix.core.Sort user_ref_max = 18; /* 用户 引用 最大值 */
+    io.graphoenix.core.Sort user_ref_min = 19; /* 用户 引用 最小值 */
+    io.graphoenix.core.Sort type_list_ref_count = 20; /* typeList 引用 数量 */
+    io.graphoenix.core.Sort type_list_ref_max = 21; /* typeList 引用 最大值 */
+    io.graphoenix.core.Sort type_list_ref_min = 22; /* typeList 引用 最小值 */
+}
+/**
 * 角色 组 关系 查询表达式
 */
 message GroupRoleRelationExpressionBase {
@@ -1425,6 +1794,118 @@ message PermissionRoleRelationOrderBy {
     io.graphoenix.core.Sort permission_ref_min = 23; /* 权限 引用 最小值 */
 }
 /**
+* 用户 文件 关系 查询表达式
+*/
+message FileUserRelationExpressionBase {
+    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression user_ref = 2; /* 用户 引用 */
+    UserExpression user = 3; /* 用户 */
+    io.graphoenix.core.StringExpression file_ref = 4; /* 文件 引用 */
+    io.graphoenix.file.FileExpression file = 5; /* 文件 */
+    bool include_deprecated = 6; /* 包含已移除 */
+    io.graphoenix.core.IntExpression version = 7; /* 版本 */
+    io.graphoenix.core.IntExpression realm_id = 8; /* 域 */
+    io.graphoenix.core.StringExpression create_user_id = 9; /* 创建者 */
+    io.graphoenix.core.StringExpression create_time = 10; /* 创建时间 */
+    io.graphoenix.core.StringExpression update_user_id = 11; /* 更新者 */
+    io.graphoenix.core.StringExpression update_time = 12; /* 更新时间 */
+    io.graphoenix.core.StringExpression create_group_id = 13; /* 创建组 */
+    io.graphoenix.core.StringExpression intro_typename = 14; /* 所属类型 */
+    bool not = 15; /* 取非 */
+    io.graphoenix.core.Conditional cond = 16; /* 与/或 */
+    repeated FileUserRelationExpression exs = 17; /* 查询表达式组 */
+}
+/**
+* 用户 文件 关系 变更内容
+*/
+message FileUserRelationInputBase {
+    string id = 1; /* ID */
+    string user_ref = 2; /* 用户 引用 */
+    UserInput user = 3; /* 用户 */
+    string file_ref = 4; /* 文件 引用 */
+    io.graphoenix.file.FileInput file = 5; /* 文件 */
+    bool is_deprecated = 6; /* 已移除 */
+    int32 version = 7; /* 版本 */
+    int32 realm_id = 8; /* 域 */
+    string create_user_id = 9; /* 创建者 */
+    google.protobuf.Timestamp create_time = 10; /* 创建时间 */
+    string update_user_id = 11; /* 更新者 */
+    google.protobuf.Timestamp update_time = 12; /* 更新时间 */
+    string create_group_id = 13; /* 创建组 */
+    string intro_typename = 14; /* 所属类型 */
+    FileUserRelationExpression where = 15; /* 匹配条件 */
+}
+/**
+* 用户 文件 关系 查询表达式
+*/
+message FileUserRelationExpression {
+    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression user_ref = 2; /* 用户 引用 */
+    UserExpression user = 3; /* 用户 */
+    io.graphoenix.core.StringExpression file_ref = 4; /* 文件 引用 */
+    io.graphoenix.file.FileExpression file = 5; /* 文件 */
+    bool include_deprecated = 6; /* 包含已移除 */
+    io.graphoenix.core.IntExpression version = 7; /* 版本 */
+    io.graphoenix.core.IntExpression realm_id = 8; /* 域 */
+    io.graphoenix.core.StringExpression create_user_id = 9; /* 创建者 */
+    io.graphoenix.core.StringExpression create_time = 10; /* 创建时间 */
+    io.graphoenix.core.StringExpression update_user_id = 11; /* 更新者 */
+    io.graphoenix.core.StringExpression update_time = 12; /* 更新时间 */
+    io.graphoenix.core.StringExpression create_group_id = 13; /* 创建组 */
+    io.graphoenix.core.StringExpression intro_typename = 14; /* 所属类型 */
+    bool not = 15; /* 取非 */
+    io.graphoenix.core.Conditional cond = 16; /* 与/或 */
+    repeated FileUserRelationExpression exs = 17; /* 查询表达式组 */
+}
+/**
+* 用户 文件 关系 变更内容
+*/
+message FileUserRelationInput {
+    string id = 1; /* ID */
+    string user_ref = 2; /* 用户 引用 */
+    UserInput user = 3; /* 用户 */
+    string file_ref = 4; /* 文件 引用 */
+    io.graphoenix.file.FileInput file = 5; /* 文件 */
+    bool is_deprecated = 6; /* 已移除 */
+    int32 version = 7; /* 版本 */
+    int32 realm_id = 8; /* 域 */
+    string create_user_id = 9; /* 创建者 */
+    google.protobuf.Timestamp create_time = 10; /* 创建时间 */
+    string update_user_id = 11; /* 更新者 */
+    google.protobuf.Timestamp update_time = 12; /* 更新时间 */
+    string create_group_id = 13; /* 创建组 */
+    string intro_typename = 14; /* 所属类型 */
+    FileUserRelationExpression where = 15; /* 匹配条件 */
+}
+/**
+* 用户 文件 关系 排序
+*/
+message FileUserRelationOrderBy {
+    io.graphoenix.core.Sort id = 1; /* ID */
+    io.graphoenix.core.Sort user_ref = 2; /* 用户 引用 */
+    UserOrderBy user = 3; /* 用户 */
+    io.graphoenix.core.Sort file_ref = 4; /* 文件 引用 */
+    io.graphoenix.file.FileOrderBy file = 5; /* 文件 */
+    io.graphoenix.core.Sort is_deprecated = 6; /* 已移除 */
+    io.graphoenix.core.Sort version = 7; /* 版本 */
+    io.graphoenix.core.Sort realm_id = 8; /* 域 */
+    io.graphoenix.core.Sort create_user_id = 9; /* 创建者 */
+    io.graphoenix.core.Sort create_time = 10; /* 创建时间 */
+    io.graphoenix.core.Sort update_user_id = 11; /* 更新者 */
+    io.graphoenix.core.Sort update_time = 12; /* 更新时间 */
+    io.graphoenix.core.Sort create_group_id = 13; /* 创建组 */
+    io.graphoenix.core.Sort intro_typename = 14; /* 所属类型 */
+    io.graphoenix.core.Sort id_count = 15; /* 用户 文件 关系 数量 */
+    io.graphoenix.core.Sort id_max = 16; /* ID 最大值 */
+    io.graphoenix.core.Sort id_min = 17; /* ID 最小值 */
+    io.graphoenix.core.Sort user_ref_count = 18; /* 用户 引用 数量 */
+    io.graphoenix.core.Sort user_ref_max = 19; /* 用户 引用 最大值 */
+    io.graphoenix.core.Sort user_ref_min = 20; /* 用户 引用 最小值 */
+    io.graphoenix.core.Sort file_ref_count = 21; /* 文件 引用 数量 */
+    io.graphoenix.core.Sort file_ref_max = 22; /* 文件 引用 最大值 */
+    io.graphoenix.core.Sort file_ref_min = 23; /* 文件 引用 最小值 */
+}
+/**
 * 权限类型 查询表达式
 */
 message PermissionTypeExpression {
@@ -1449,22 +1930,31 @@ message UserQueryArguments {
     GroupExpression groups = 11; /* 组 */
     RoleExpression roles = 12; /* 角色 */
     RealmExpression realm = 13; /* 租户 */
-    bool include_deprecated = 14; /* 包含已移除 */
-    io.graphoenix.core.IntExpression version = 15; /* 版本 */
-    io.graphoenix.core.IntExpression realm_id = 16; /* 域 */
-    io.graphoenix.core.StringExpression create_user_id = 17; /* 创建者 */
-    io.graphoenix.core.StringExpression create_time = 18; /* 创建时间 */
-    io.graphoenix.core.StringExpression update_user_id = 19; /* 更新者 */
-    io.graphoenix.core.StringExpression update_time = 20; /* 更新时间 */
-    io.graphoenix.core.StringExpression create_group_id = 21; /* 创建组 */
-    io.graphoenix.core.StringExpression intro_typename = 22; /* 所属类型 */
-    UserPhonesRelationExpression user_phones_relation = 23; /* 用户 手机号 关系 */
-    GroupUserRelationExpression group_user_relation = 24; /* 用户 组 关系 */
-    RoleUserRelationExpression role_user_relation = 25; /* 用户 角色 关系 */
-    repeated string group_by = 26; /* 分组 */
-    bool not = 27; /* 取非 */
-    io.graphoenix.core.Conditional cond = 28; /* 与/或 */
-    repeated UserExpression exs = 29; /* 查询表达式组 */
+    io.graphoenix.file.FileExpression file = 14; /* file */
+    io.graphoenix.file.FileExpression files = 15; /* files */
+    io.graphoenix.core.BooleanExpression boolean_list = 16; /* booleanList */
+    io.graphoenix.core.IntExpression int_list = 17; /* intList */
+    PermissionTypeExpression type_list = 18; /* typeList */
+    bool include_deprecated = 19; /* 包含已移除 */
+    io.graphoenix.core.IntExpression version = 20; /* 版本 */
+    io.graphoenix.core.IntExpression realm_id = 21; /* 域 */
+    io.graphoenix.core.StringExpression create_user_id = 22; /* 创建者 */
+    io.graphoenix.core.StringExpression create_time = 23; /* 创建时间 */
+    io.graphoenix.core.StringExpression update_user_id = 24; /* 更新者 */
+    io.graphoenix.core.StringExpression update_time = 25; /* 更新时间 */
+    io.graphoenix.core.StringExpression create_group_id = 26; /* 创建组 */
+    io.graphoenix.core.StringExpression intro_typename = 27; /* 所属类型 */
+    FileUserRelationExpression file_user_relation = 28; /* 用户 文件 关系 */
+    UserPhonesRelationExpression user_phones_relation = 29; /* 用户 手机号 关系 */
+    GroupUserRelationExpression group_user_relation = 30; /* 用户 组 关系 */
+    RoleUserRelationExpression role_user_relation = 31; /* 用户 角色 关系 */
+    UserBooleanListRelationExpression user_boolean_list_relation = 32; /* 用户 booleanList 关系 */
+    UserIntListRelationExpression user_int_list_relation = 33; /* 用户 intList 关系 */
+    UserTypeListRelationExpression user_type_list_relation = 34; /* 用户 typeList 关系 */
+    repeated string group_by = 35; /* 分组 */
+    bool not = 36; /* 取非 */
+    io.graphoenix.core.Conditional cond = 37; /* 与/或 */
+    repeated UserExpression exs = 38; /* 查询表达式组 */
 }
 /**
 * 用户列表 查询参数
@@ -1483,28 +1973,37 @@ message UserListQueryArguments {
     GroupExpression groups = 11; /* 组 */
     RoleExpression roles = 12; /* 角色 */
     RealmExpression realm = 13; /* 租户 */
-    bool include_deprecated = 14; /* 包含已移除 */
-    io.graphoenix.core.IntExpression version = 15; /* 版本 */
-    io.graphoenix.core.IntExpression realm_id = 16; /* 域 */
-    io.graphoenix.core.StringExpression create_user_id = 17; /* 创建者 */
-    io.graphoenix.core.StringExpression create_time = 18; /* 创建时间 */
-    io.graphoenix.core.StringExpression update_user_id = 19; /* 更新者 */
-    io.graphoenix.core.StringExpression update_time = 20; /* 更新时间 */
-    io.graphoenix.core.StringExpression create_group_id = 21; /* 创建组 */
-    io.graphoenix.core.StringExpression intro_typename = 22; /* 所属类型 */
-    UserPhonesRelationExpression user_phones_relation = 23; /* 用户 手机号 关系 */
-    GroupUserRelationExpression group_user_relation = 24; /* 用户 组 关系 */
-    RoleUserRelationExpression role_user_relation = 25; /* 用户 角色 关系 */
-    UserOrderBy order_by = 26; /* 排序 */
-    repeated string group_by = 27; /* 分组 */
-    bool not = 28; /* 取非 */
-    io.graphoenix.core.Conditional cond = 29; /* 与/或 */
-    repeated UserExpression exs = 30; /* 查询表达式组 */
-    int32 first = 31; /* 前...条数 */
-    int32 last = 32; /* 后...条数 */
-    int32 offset = 33; /* 偏移条数 */
-    string after = 34; /* 取...之后 */
-    string before = 35; /* 取...之前 */
+    io.graphoenix.file.FileExpression file = 14; /* file */
+    io.graphoenix.file.FileExpression files = 15; /* files */
+    io.graphoenix.core.BooleanExpression boolean_list = 16; /* booleanList */
+    io.graphoenix.core.IntExpression int_list = 17; /* intList */
+    PermissionTypeExpression type_list = 18; /* typeList */
+    bool include_deprecated = 19; /* 包含已移除 */
+    io.graphoenix.core.IntExpression version = 20; /* 版本 */
+    io.graphoenix.core.IntExpression realm_id = 21; /* 域 */
+    io.graphoenix.core.StringExpression create_user_id = 22; /* 创建者 */
+    io.graphoenix.core.StringExpression create_time = 23; /* 创建时间 */
+    io.graphoenix.core.StringExpression update_user_id = 24; /* 更新者 */
+    io.graphoenix.core.StringExpression update_time = 25; /* 更新时间 */
+    io.graphoenix.core.StringExpression create_group_id = 26; /* 创建组 */
+    io.graphoenix.core.StringExpression intro_typename = 27; /* 所属类型 */
+    FileUserRelationExpression file_user_relation = 28; /* 用户 文件 关系 */
+    UserPhonesRelationExpression user_phones_relation = 29; /* 用户 手机号 关系 */
+    GroupUserRelationExpression group_user_relation = 30; /* 用户 组 关系 */
+    RoleUserRelationExpression role_user_relation = 31; /* 用户 角色 关系 */
+    UserBooleanListRelationExpression user_boolean_list_relation = 32; /* 用户 booleanList 关系 */
+    UserIntListRelationExpression user_int_list_relation = 33; /* 用户 intList 关系 */
+    UserTypeListRelationExpression user_type_list_relation = 34; /* 用户 typeList 关系 */
+    UserOrderBy order_by = 35; /* 排序 */
+    repeated string group_by = 36; /* 分组 */
+    bool not = 37; /* 取非 */
+    io.graphoenix.core.Conditional cond = 38; /* 与/或 */
+    repeated UserExpression exs = 39; /* 查询表达式组 */
+    int32 first = 40; /* 前...条数 */
+    int32 last = 41; /* 后...条数 */
+    int32 offset = 42; /* 偏移条数 */
+    string after = 43; /* 取...之后 */
+    string before = 44; /* 取...之前 */
 }
 /**
 * 用户连接 查询参数
@@ -1523,28 +2022,37 @@ message UserConnectionQueryArguments {
     GroupExpression groups = 11; /* 组 */
     RoleExpression roles = 12; /* 角色 */
     RealmExpression realm = 13; /* 租户 */
-    bool include_deprecated = 14; /* 包含已移除 */
-    io.graphoenix.core.IntExpression version = 15; /* 版本 */
-    io.graphoenix.core.IntExpression realm_id = 16; /* 域 */
-    io.graphoenix.core.StringExpression create_user_id = 17; /* 创建者 */
-    io.graphoenix.core.StringExpression create_time = 18; /* 创建时间 */
-    io.graphoenix.core.StringExpression update_user_id = 19; /* 更新者 */
-    io.graphoenix.core.StringExpression update_time = 20; /* 更新时间 */
-    io.graphoenix.core.StringExpression create_group_id = 21; /* 创建组 */
-    io.graphoenix.core.StringExpression intro_typename = 22; /* 所属类型 */
-    UserPhonesRelationExpression user_phones_relation = 23; /* 用户 手机号 关系 */
-    GroupUserRelationExpression group_user_relation = 24; /* 用户 组 关系 */
-    RoleUserRelationExpression role_user_relation = 25; /* 用户 角色 关系 */
-    UserOrderBy order_by = 26; /* 排序 */
-    repeated string group_by = 27; /* 分组 */
-    bool not = 28; /* 取非 */
-    io.graphoenix.core.Conditional cond = 29; /* 与/或 */
-    repeated UserExpression exs = 30; /* 查询表达式组 */
-    int32 first = 31; /* 前...条数 */
-    int32 last = 32; /* 后...条数 */
-    int32 offset = 33; /* 偏移条数 */
-    string after = 34; /* 取...之后 */
-    string before = 35; /* 取...之前 */
+    io.graphoenix.file.FileExpression file = 14; /* file */
+    io.graphoenix.file.FileExpression files = 15; /* files */
+    io.graphoenix.core.BooleanExpression boolean_list = 16; /* booleanList */
+    io.graphoenix.core.IntExpression int_list = 17; /* intList */
+    PermissionTypeExpression type_list = 18; /* typeList */
+    bool include_deprecated = 19; /* 包含已移除 */
+    io.graphoenix.core.IntExpression version = 20; /* 版本 */
+    io.graphoenix.core.IntExpression realm_id = 21; /* 域 */
+    io.graphoenix.core.StringExpression create_user_id = 22; /* 创建者 */
+    io.graphoenix.core.StringExpression create_time = 23; /* 创建时间 */
+    io.graphoenix.core.StringExpression update_user_id = 24; /* 更新者 */
+    io.graphoenix.core.StringExpression update_time = 25; /* 更新时间 */
+    io.graphoenix.core.StringExpression create_group_id = 26; /* 创建组 */
+    io.graphoenix.core.StringExpression intro_typename = 27; /* 所属类型 */
+    FileUserRelationExpression file_user_relation = 28; /* 用户 文件 关系 */
+    UserPhonesRelationExpression user_phones_relation = 29; /* 用户 手机号 关系 */
+    GroupUserRelationExpression group_user_relation = 30; /* 用户 组 关系 */
+    RoleUserRelationExpression role_user_relation = 31; /* 用户 角色 关系 */
+    UserBooleanListRelationExpression user_boolean_list_relation = 32; /* 用户 booleanList 关系 */
+    UserIntListRelationExpression user_int_list_relation = 33; /* 用户 intList 关系 */
+    UserTypeListRelationExpression user_type_list_relation = 34; /* 用户 typeList 关系 */
+    UserOrderBy order_by = 35; /* 排序 */
+    repeated string group_by = 36; /* 分组 */
+    bool not = 37; /* 取非 */
+    io.graphoenix.core.Conditional cond = 38; /* 与/或 */
+    repeated UserExpression exs = 39; /* 查询表达式组 */
+    int32 first = 40; /* 前...条数 */
+    int32 last = 41; /* 后...条数 */
+    int32 offset = 42; /* 偏移条数 */
+    string after = 43; /* 取...之后 */
+    string before = 44; /* 取...之前 */
 }
 /**
 * 角色 查询参数
@@ -2159,6 +2667,240 @@ message RoleUserRelationConnectionQueryArguments {
     string before = 24; /* 取...之前 */
 }
 /**
+* 用户 booleanList 关系 查询参数
+*/
+message UserBooleanListRelationQueryArguments {
+    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression user_ref = 2; /* 用户 引用 */
+    UserExpression user = 3; /* 用户 */
+    io.graphoenix.core.BooleanExpression boolean_list_ref = 4; /* booleanList 引用 */
+    bool include_deprecated = 5; /* 包含已移除 */
+    io.graphoenix.core.IntExpression version = 6; /* 版本 */
+    io.graphoenix.core.IntExpression realm_id = 7; /* 域 */
+    io.graphoenix.core.StringExpression create_user_id = 8; /* 创建者 */
+    io.graphoenix.core.StringExpression create_time = 9; /* 创建时间 */
+    io.graphoenix.core.StringExpression update_user_id = 10; /* 更新者 */
+    io.graphoenix.core.StringExpression update_time = 11; /* 更新时间 */
+    io.graphoenix.core.StringExpression create_group_id = 12; /* 创建组 */
+    io.graphoenix.core.StringExpression intro_typename = 13; /* 所属类型 */
+    repeated string group_by = 14; /* 分组 */
+    bool not = 15; /* 取非 */
+    io.graphoenix.core.Conditional cond = 16; /* 与/或 */
+    repeated UserBooleanListRelationExpression exs = 17; /* 查询表达式组 */
+}
+/**
+* 用户 booleanList 关系列表 查询参数
+*/
+message UserBooleanListRelationListQueryArguments {
+    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression user_ref = 2; /* 用户 引用 */
+    UserExpression user = 3; /* 用户 */
+    io.graphoenix.core.BooleanExpression boolean_list_ref = 4; /* booleanList 引用 */
+    bool include_deprecated = 5; /* 包含已移除 */
+    io.graphoenix.core.IntExpression version = 6; /* 版本 */
+    io.graphoenix.core.IntExpression realm_id = 7; /* 域 */
+    io.graphoenix.core.StringExpression create_user_id = 8; /* 创建者 */
+    io.graphoenix.core.StringExpression create_time = 9; /* 创建时间 */
+    io.graphoenix.core.StringExpression update_user_id = 10; /* 更新者 */
+    io.graphoenix.core.StringExpression update_time = 11; /* 更新时间 */
+    io.graphoenix.core.StringExpression create_group_id = 12; /* 创建组 */
+    io.graphoenix.core.StringExpression intro_typename = 13; /* 所属类型 */
+    UserBooleanListRelationOrderBy order_by = 14; /* 排序 */
+    repeated string group_by = 15; /* 分组 */
+    bool not = 16; /* 取非 */
+    io.graphoenix.core.Conditional cond = 17; /* 与/或 */
+    repeated UserBooleanListRelationExpression exs = 18; /* 查询表达式组 */
+    int32 first = 19; /* 前...条数 */
+    int32 last = 20; /* 后...条数 */
+    int32 offset = 21; /* 偏移条数 */
+    string after = 22; /* 取...之后 */
+    string before = 23; /* 取...之前 */
+}
+/**
+* 用户 booleanList 关系连接 查询参数
+*/
+message UserBooleanListRelationConnectionQueryArguments {
+    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression user_ref = 2; /* 用户 引用 */
+    UserExpression user = 3; /* 用户 */
+    io.graphoenix.core.BooleanExpression boolean_list_ref = 4; /* booleanList 引用 */
+    bool include_deprecated = 5; /* 包含已移除 */
+    io.graphoenix.core.IntExpression version = 6; /* 版本 */
+    io.graphoenix.core.IntExpression realm_id = 7; /* 域 */
+    io.graphoenix.core.StringExpression create_user_id = 8; /* 创建者 */
+    io.graphoenix.core.StringExpression create_time = 9; /* 创建时间 */
+    io.graphoenix.core.StringExpression update_user_id = 10; /* 更新者 */
+    io.graphoenix.core.StringExpression update_time = 11; /* 更新时间 */
+    io.graphoenix.core.StringExpression create_group_id = 12; /* 创建组 */
+    io.graphoenix.core.StringExpression intro_typename = 13; /* 所属类型 */
+    UserBooleanListRelationOrderBy order_by = 14; /* 排序 */
+    repeated string group_by = 15; /* 分组 */
+    bool not = 16; /* 取非 */
+    io.graphoenix.core.Conditional cond = 17; /* 与/或 */
+    repeated UserBooleanListRelationExpression exs = 18; /* 查询表达式组 */
+    int32 first = 19; /* 前...条数 */
+    int32 last = 20; /* 后...条数 */
+    int32 offset = 21; /* 偏移条数 */
+    string after = 22; /* 取...之后 */
+    string before = 23; /* 取...之前 */
+}
+/**
+* 用户 intList 关系 查询参数
+*/
+message UserIntListRelationQueryArguments {
+    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression user_ref = 2; /* 用户 引用 */
+    UserExpression user = 3; /* 用户 */
+    io.graphoenix.core.IntExpression int_list_ref = 4; /* intList 引用 */
+    bool include_deprecated = 5; /* 包含已移除 */
+    io.graphoenix.core.IntExpression version = 6; /* 版本 */
+    io.graphoenix.core.IntExpression realm_id = 7; /* 域 */
+    io.graphoenix.core.StringExpression create_user_id = 8; /* 创建者 */
+    io.graphoenix.core.StringExpression create_time = 9; /* 创建时间 */
+    io.graphoenix.core.StringExpression update_user_id = 10; /* 更新者 */
+    io.graphoenix.core.StringExpression update_time = 11; /* 更新时间 */
+    io.graphoenix.core.StringExpression create_group_id = 12; /* 创建组 */
+    io.graphoenix.core.StringExpression intro_typename = 13; /* 所属类型 */
+    repeated string group_by = 14; /* 分组 */
+    bool not = 15; /* 取非 */
+    io.graphoenix.core.Conditional cond = 16; /* 与/或 */
+    repeated UserIntListRelationExpression exs = 17; /* 查询表达式组 */
+}
+/**
+* 用户 intList 关系列表 查询参数
+*/
+message UserIntListRelationListQueryArguments {
+    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression user_ref = 2; /* 用户 引用 */
+    UserExpression user = 3; /* 用户 */
+    io.graphoenix.core.IntExpression int_list_ref = 4; /* intList 引用 */
+    bool include_deprecated = 5; /* 包含已移除 */
+    io.graphoenix.core.IntExpression version = 6; /* 版本 */
+    io.graphoenix.core.IntExpression realm_id = 7; /* 域 */
+    io.graphoenix.core.StringExpression create_user_id = 8; /* 创建者 */
+    io.graphoenix.core.StringExpression create_time = 9; /* 创建时间 */
+    io.graphoenix.core.StringExpression update_user_id = 10; /* 更新者 */
+    io.graphoenix.core.StringExpression update_time = 11; /* 更新时间 */
+    io.graphoenix.core.StringExpression create_group_id = 12; /* 创建组 */
+    io.graphoenix.core.StringExpression intro_typename = 13; /* 所属类型 */
+    UserIntListRelationOrderBy order_by = 14; /* 排序 */
+    repeated string group_by = 15; /* 分组 */
+    bool not = 16; /* 取非 */
+    io.graphoenix.core.Conditional cond = 17; /* 与/或 */
+    repeated UserIntListRelationExpression exs = 18; /* 查询表达式组 */
+    int32 first = 19; /* 前...条数 */
+    int32 last = 20; /* 后...条数 */
+    int32 offset = 21; /* 偏移条数 */
+    string after = 22; /* 取...之后 */
+    string before = 23; /* 取...之前 */
+}
+/**
+* 用户 intList 关系连接 查询参数
+*/
+message UserIntListRelationConnectionQueryArguments {
+    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression user_ref = 2; /* 用户 引用 */
+    UserExpression user = 3; /* 用户 */
+    io.graphoenix.core.IntExpression int_list_ref = 4; /* intList 引用 */
+    bool include_deprecated = 5; /* 包含已移除 */
+    io.graphoenix.core.IntExpression version = 6; /* 版本 */
+    io.graphoenix.core.IntExpression realm_id = 7; /* 域 */
+    io.graphoenix.core.StringExpression create_user_id = 8; /* 创建者 */
+    io.graphoenix.core.StringExpression create_time = 9; /* 创建时间 */
+    io.graphoenix.core.StringExpression update_user_id = 10; /* 更新者 */
+    io.graphoenix.core.StringExpression update_time = 11; /* 更新时间 */
+    io.graphoenix.core.StringExpression create_group_id = 12; /* 创建组 */
+    io.graphoenix.core.StringExpression intro_typename = 13; /* 所属类型 */
+    UserIntListRelationOrderBy order_by = 14; /* 排序 */
+    repeated string group_by = 15; /* 分组 */
+    bool not = 16; /* 取非 */
+    io.graphoenix.core.Conditional cond = 17; /* 与/或 */
+    repeated UserIntListRelationExpression exs = 18; /* 查询表达式组 */
+    int32 first = 19; /* 前...条数 */
+    int32 last = 20; /* 后...条数 */
+    int32 offset = 21; /* 偏移条数 */
+    string after = 22; /* 取...之后 */
+    string before = 23; /* 取...之前 */
+}
+/**
+* 用户 typeList 关系 查询参数
+*/
+message UserTypeListRelationQueryArguments {
+    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression user_ref = 2; /* 用户 引用 */
+    UserExpression user = 3; /* 用户 */
+    PermissionTypeExpression type_list_ref = 4; /* typeList 引用 */
+    bool include_deprecated = 5; /* 包含已移除 */
+    io.graphoenix.core.IntExpression version = 6; /* 版本 */
+    io.graphoenix.core.IntExpression realm_id = 7; /* 域 */
+    io.graphoenix.core.StringExpression create_user_id = 8; /* 创建者 */
+    io.graphoenix.core.StringExpression create_time = 9; /* 创建时间 */
+    io.graphoenix.core.StringExpression update_user_id = 10; /* 更新者 */
+    io.graphoenix.core.StringExpression update_time = 11; /* 更新时间 */
+    io.graphoenix.core.StringExpression create_group_id = 12; /* 创建组 */
+    io.graphoenix.core.StringExpression intro_typename = 13; /* 所属类型 */
+    repeated string group_by = 14; /* 分组 */
+    bool not = 15; /* 取非 */
+    io.graphoenix.core.Conditional cond = 16; /* 与/或 */
+    repeated UserTypeListRelationExpression exs = 17; /* 查询表达式组 */
+}
+/**
+* 用户 typeList 关系列表 查询参数
+*/
+message UserTypeListRelationListQueryArguments {
+    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression user_ref = 2; /* 用户 引用 */
+    UserExpression user = 3; /* 用户 */
+    PermissionTypeExpression type_list_ref = 4; /* typeList 引用 */
+    bool include_deprecated = 5; /* 包含已移除 */
+    io.graphoenix.core.IntExpression version = 6; /* 版本 */
+    io.graphoenix.core.IntExpression realm_id = 7; /* 域 */
+    io.graphoenix.core.StringExpression create_user_id = 8; /* 创建者 */
+    io.graphoenix.core.StringExpression create_time = 9; /* 创建时间 */
+    io.graphoenix.core.StringExpression update_user_id = 10; /* 更新者 */
+    io.graphoenix.core.StringExpression update_time = 11; /* 更新时间 */
+    io.graphoenix.core.StringExpression create_group_id = 12; /* 创建组 */
+    io.graphoenix.core.StringExpression intro_typename = 13; /* 所属类型 */
+    UserTypeListRelationOrderBy order_by = 14; /* 排序 */
+    repeated string group_by = 15; /* 分组 */
+    bool not = 16; /* 取非 */
+    io.graphoenix.core.Conditional cond = 17; /* 与/或 */
+    repeated UserTypeListRelationExpression exs = 18; /* 查询表达式组 */
+    int32 first = 19; /* 前...条数 */
+    int32 last = 20; /* 后...条数 */
+    int32 offset = 21; /* 偏移条数 */
+    string after = 22; /* 取...之后 */
+    string before = 23; /* 取...之前 */
+}
+/**
+* 用户 typeList 关系连接 查询参数
+*/
+message UserTypeListRelationConnectionQueryArguments {
+    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression user_ref = 2; /* 用户 引用 */
+    UserExpression user = 3; /* 用户 */
+    PermissionTypeExpression type_list_ref = 4; /* typeList 引用 */
+    bool include_deprecated = 5; /* 包含已移除 */
+    io.graphoenix.core.IntExpression version = 6; /* 版本 */
+    io.graphoenix.core.IntExpression realm_id = 7; /* 域 */
+    io.graphoenix.core.StringExpression create_user_id = 8; /* 创建者 */
+    io.graphoenix.core.StringExpression create_time = 9; /* 创建时间 */
+    io.graphoenix.core.StringExpression update_user_id = 10; /* 更新者 */
+    io.graphoenix.core.StringExpression update_time = 11; /* 更新时间 */
+    io.graphoenix.core.StringExpression create_group_id = 12; /* 创建组 */
+    io.graphoenix.core.StringExpression intro_typename = 13; /* 所属类型 */
+    UserTypeListRelationOrderBy order_by = 14; /* 排序 */
+    repeated string group_by = 15; /* 分组 */
+    bool not = 16; /* 取非 */
+    io.graphoenix.core.Conditional cond = 17; /* 与/或 */
+    repeated UserTypeListRelationExpression exs = 18; /* 查询表达式组 */
+    int32 first = 19; /* 前...条数 */
+    int32 last = 20; /* 后...条数 */
+    int32 offset = 21; /* 偏移条数 */
+    string after = 22; /* 取...之后 */
+    string before = 23; /* 取...之前 */
+}
+/**
 * 角色 组 关系 查询参数
 */
 message GroupRoleRelationQueryArguments {
@@ -2402,6 +3144,87 @@ message PermissionRoleRelationConnectionQueryArguments {
     string before = 24; /* 取...之前 */
 }
 /**
+* 用户 文件 关系 查询参数
+*/
+message FileUserRelationQueryArguments {
+    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression user_ref = 2; /* 用户 引用 */
+    UserExpression user = 3; /* 用户 */
+    io.graphoenix.core.StringExpression file_ref = 4; /* 文件 引用 */
+    io.graphoenix.file.FileExpression file = 5; /* 文件 */
+    bool include_deprecated = 6; /* 包含已移除 */
+    io.graphoenix.core.IntExpression version = 7; /* 版本 */
+    io.graphoenix.core.IntExpression realm_id = 8; /* 域 */
+    io.graphoenix.core.StringExpression create_user_id = 9; /* 创建者 */
+    io.graphoenix.core.StringExpression create_time = 10; /* 创建时间 */
+    io.graphoenix.core.StringExpression update_user_id = 11; /* 更新者 */
+    io.graphoenix.core.StringExpression update_time = 12; /* 更新时间 */
+    io.graphoenix.core.StringExpression create_group_id = 13; /* 创建组 */
+    io.graphoenix.core.StringExpression intro_typename = 14; /* 所属类型 */
+    repeated string group_by = 15; /* 分组 */
+    bool not = 16; /* 取非 */
+    io.graphoenix.core.Conditional cond = 17; /* 与/或 */
+    repeated FileUserRelationExpression exs = 18; /* 查询表达式组 */
+}
+/**
+* 用户 文件 关系列表 查询参数
+*/
+message FileUserRelationListQueryArguments {
+    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression user_ref = 2; /* 用户 引用 */
+    UserExpression user = 3; /* 用户 */
+    io.graphoenix.core.StringExpression file_ref = 4; /* 文件 引用 */
+    io.graphoenix.file.FileExpression file = 5; /* 文件 */
+    bool include_deprecated = 6; /* 包含已移除 */
+    io.graphoenix.core.IntExpression version = 7; /* 版本 */
+    io.graphoenix.core.IntExpression realm_id = 8; /* 域 */
+    io.graphoenix.core.StringExpression create_user_id = 9; /* 创建者 */
+    io.graphoenix.core.StringExpression create_time = 10; /* 创建时间 */
+    io.graphoenix.core.StringExpression update_user_id = 11; /* 更新者 */
+    io.graphoenix.core.StringExpression update_time = 12; /* 更新时间 */
+    io.graphoenix.core.StringExpression create_group_id = 13; /* 创建组 */
+    io.graphoenix.core.StringExpression intro_typename = 14; /* 所属类型 */
+    FileUserRelationOrderBy order_by = 15; /* 排序 */
+    repeated string group_by = 16; /* 分组 */
+    bool not = 17; /* 取非 */
+    io.graphoenix.core.Conditional cond = 18; /* 与/或 */
+    repeated FileUserRelationExpression exs = 19; /* 查询表达式组 */
+    int32 first = 20; /* 前...条数 */
+    int32 last = 21; /* 后...条数 */
+    int32 offset = 22; /* 偏移条数 */
+    string after = 23; /* 取...之后 */
+    string before = 24; /* 取...之前 */
+}
+/**
+* 用户 文件 关系连接 查询参数
+*/
+message FileUserRelationConnectionQueryArguments {
+    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression user_ref = 2; /* 用户 引用 */
+    UserExpression user = 3; /* 用户 */
+    io.graphoenix.core.StringExpression file_ref = 4; /* 文件 引用 */
+    io.graphoenix.file.FileExpression file = 5; /* 文件 */
+    bool include_deprecated = 6; /* 包含已移除 */
+    io.graphoenix.core.IntExpression version = 7; /* 版本 */
+    io.graphoenix.core.IntExpression realm_id = 8; /* 域 */
+    io.graphoenix.core.StringExpression create_user_id = 9; /* 创建者 */
+    io.graphoenix.core.StringExpression create_time = 10; /* 创建时间 */
+    io.graphoenix.core.StringExpression update_user_id = 11; /* 更新者 */
+    io.graphoenix.core.StringExpression update_time = 12; /* 更新时间 */
+    io.graphoenix.core.StringExpression create_group_id = 13; /* 创建组 */
+    io.graphoenix.core.StringExpression intro_typename = 14; /* 所属类型 */
+    FileUserRelationOrderBy order_by = 15; /* 排序 */
+    repeated string group_by = 16; /* 分组 */
+    bool not = 17; /* 取非 */
+    io.graphoenix.core.Conditional cond = 18; /* 与/或 */
+    repeated FileUserRelationExpression exs = 19; /* 查询表达式组 */
+    int32 first = 20; /* 前...条数 */
+    int32 last = 21; /* 后...条数 */
+    int32 offset = 22; /* 偏移条数 */
+    string after = 23; /* 取...之后 */
+    string before = 24; /* 取...之前 */
+}
+/**
 * 用户 变更参数
 */
 message UserMutationArguments {
@@ -2418,20 +3241,29 @@ message UserMutationArguments {
     repeated GroupInput groups = 11; /* 组 */
     repeated RoleInput roles = 12; /* 角色 */
     RealmInput realm = 13; /* 租户 */
-    bool is_deprecated = 14; /* 已移除 */
-    int32 version = 15; /* 版本 */
-    int32 realm_id = 16; /* 域 */
-    string create_user_id = 17; /* 创建者 */
-    google.protobuf.Timestamp create_time = 18; /* 创建时间 */
-    string update_user_id = 19; /* 更新者 */
-    google.protobuf.Timestamp update_time = 20; /* 更新时间 */
-    string create_group_id = 21; /* 创建组 */
-    string intro_typename = 22; /* 所属类型 */
-    repeated UserPhonesRelationInput user_phones_relation = 23; /* 用户 手机号 关系 */
-    repeated GroupUserRelationInput group_user_relation = 24; /* 用户 组 关系 */
-    repeated RoleUserRelationInput role_user_relation = 25; /* 用户 角色 关系 */
-    UserInput input = 26; /* 变更内容 */
-    UserExpression where = 27; /* 匹配条件 */
+    io.graphoenix.file.FileInput file = 14; /* file */
+    repeated io.graphoenix.file.FileInput files = 15; /* files */
+    repeated bool boolean_list = 16; /* booleanList */
+    repeated int32 int_list = 17; /* intList */
+    repeated PermissionType type_list = 18; /* typeList */
+    bool is_deprecated = 19; /* 已移除 */
+    int32 version = 20; /* 版本 */
+    int32 realm_id = 21; /* 域 */
+    string create_user_id = 22; /* 创建者 */
+    google.protobuf.Timestamp create_time = 23; /* 创建时间 */
+    string update_user_id = 24; /* 更新者 */
+    google.protobuf.Timestamp update_time = 25; /* 更新时间 */
+    string create_group_id = 26; /* 创建组 */
+    string intro_typename = 27; /* 所属类型 */
+    repeated FileUserRelationInput file_user_relation = 28; /* 用户 文件 关系 */
+    repeated UserPhonesRelationInput user_phones_relation = 29; /* 用户 手机号 关系 */
+    repeated GroupUserRelationInput group_user_relation = 30; /* 用户 组 关系 */
+    repeated RoleUserRelationInput role_user_relation = 31; /* 用户 角色 关系 */
+    repeated UserBooleanListRelationInput user_boolean_list_relation = 32; /* 用户 booleanList 关系 */
+    repeated UserIntListRelationInput user_int_list_relation = 33; /* 用户 intList 关系 */
+    repeated UserTypeListRelationInput user_type_list_relation = 34; /* 用户 typeList 关系 */
+    UserInput input = 35; /* 变更内容 */
+    UserExpression where = 36; /* 匹配条件 */
 }
 /**
 * 用户列表 变更参数 
@@ -2450,20 +3282,29 @@ message UserListMutationArguments {
     repeated GroupInput groups = 11; /* 组 */
     repeated RoleInput roles = 12; /* 角色 */
     RealmInput realm = 13; /* 租户 */
-    bool is_deprecated = 14; /* 已移除 */
-    int32 version = 15; /* 版本 */
-    int32 realm_id = 16; /* 域 */
-    string create_user_id = 17; /* 创建者 */
-    google.protobuf.Timestamp create_time = 18; /* 创建时间 */
-    string update_user_id = 19; /* 更新者 */
-    google.protobuf.Timestamp update_time = 20; /* 更新时间 */
-    string create_group_id = 21; /* 创建组 */
-    string intro_typename = 22; /* 所属类型 */
-    repeated UserPhonesRelationInput user_phones_relation = 23; /* 用户 手机号 关系 */
-    repeated GroupUserRelationInput group_user_relation = 24; /* 用户 组 关系 */
-    repeated RoleUserRelationInput role_user_relation = 25; /* 用户 角色 关系 */
-    repeated UserInput list = 26; /* 变更内容列表 */
-    UserExpression where = 27; /* 匹配条件 */
+    io.graphoenix.file.FileInput file = 14; /* file */
+    repeated io.graphoenix.file.FileInput files = 15; /* files */
+    repeated bool boolean_list = 16; /* booleanList */
+    repeated int32 int_list = 17; /* intList */
+    repeated PermissionType type_list = 18; /* typeList */
+    bool is_deprecated = 19; /* 已移除 */
+    int32 version = 20; /* 版本 */
+    int32 realm_id = 21; /* 域 */
+    string create_user_id = 22; /* 创建者 */
+    google.protobuf.Timestamp create_time = 23; /* 创建时间 */
+    string update_user_id = 24; /* 更新者 */
+    google.protobuf.Timestamp update_time = 25; /* 更新时间 */
+    string create_group_id = 26; /* 创建组 */
+    string intro_typename = 27; /* 所属类型 */
+    repeated FileUserRelationInput file_user_relation = 28; /* 用户 文件 关系 */
+    repeated UserPhonesRelationInput user_phones_relation = 29; /* 用户 手机号 关系 */
+    repeated GroupUserRelationInput group_user_relation = 30; /* 用户 组 关系 */
+    repeated RoleUserRelationInput role_user_relation = 31; /* 用户 角色 关系 */
+    repeated UserBooleanListRelationInput user_boolean_list_relation = 32; /* 用户 booleanList 关系 */
+    repeated UserIntListRelationInput user_int_list_relation = 33; /* 用户 intList 关系 */
+    repeated UserTypeListRelationInput user_type_list_relation = 34; /* 用户 typeList 关系 */
+    repeated UserInput list = 35; /* 变更内容列表 */
+    UserExpression where = 36; /* 匹配条件 */
 }
 /**
 * 角色 变更参数
@@ -2790,6 +3631,126 @@ message RoleUserRelationListMutationArguments {
     RoleUserRelationExpression where = 16; /* 匹配条件 */
 }
 /**
+* 用户 booleanList 关系 变更参数
+*/
+message UserBooleanListRelationMutationArguments {
+    string id = 1; /* ID */
+    string user_ref = 2; /* 用户 引用 */
+    UserInput user = 3; /* 用户 */
+    bool boolean_list_ref = 4; /* booleanList 引用 */
+    bool is_deprecated = 5; /* 已移除 */
+    int32 version = 6; /* 版本 */
+    int32 realm_id = 7; /* 域 */
+    string create_user_id = 8; /* 创建者 */
+    google.protobuf.Timestamp create_time = 9; /* 创建时间 */
+    string update_user_id = 10; /* 更新者 */
+    google.protobuf.Timestamp update_time = 11; /* 更新时间 */
+    string create_group_id = 12; /* 创建组 */
+    string intro_typename = 13; /* 所属类型 */
+    UserBooleanListRelationInput input = 14; /* 变更内容 */
+    UserBooleanListRelationExpression where = 15; /* 匹配条件 */
+}
+/**
+* 用户 booleanList 关系列表 变更参数 
+*/
+message UserBooleanListRelationListMutationArguments {
+    string id = 1; /* ID */
+    string user_ref = 2; /* 用户 引用 */
+    UserInput user = 3; /* 用户 */
+    bool boolean_list_ref = 4; /* booleanList 引用 */
+    bool is_deprecated = 5; /* 已移除 */
+    int32 version = 6; /* 版本 */
+    int32 realm_id = 7; /* 域 */
+    string create_user_id = 8; /* 创建者 */
+    google.protobuf.Timestamp create_time = 9; /* 创建时间 */
+    string update_user_id = 10; /* 更新者 */
+    google.protobuf.Timestamp update_time = 11; /* 更新时间 */
+    string create_group_id = 12; /* 创建组 */
+    string intro_typename = 13; /* 所属类型 */
+    repeated UserBooleanListRelationInput list = 14; /* 变更内容列表 */
+    UserBooleanListRelationExpression where = 15; /* 匹配条件 */
+}
+/**
+* 用户 intList 关系 变更参数
+*/
+message UserIntListRelationMutationArguments {
+    string id = 1; /* ID */
+    string user_ref = 2; /* 用户 引用 */
+    UserInput user = 3; /* 用户 */
+    int32 int_list_ref = 4; /* intList 引用 */
+    bool is_deprecated = 5; /* 已移除 */
+    int32 version = 6; /* 版本 */
+    int32 realm_id = 7; /* 域 */
+    string create_user_id = 8; /* 创建者 */
+    google.protobuf.Timestamp create_time = 9; /* 创建时间 */
+    string update_user_id = 10; /* 更新者 */
+    google.protobuf.Timestamp update_time = 11; /* 更新时间 */
+    string create_group_id = 12; /* 创建组 */
+    string intro_typename = 13; /* 所属类型 */
+    UserIntListRelationInput input = 14; /* 变更内容 */
+    UserIntListRelationExpression where = 15; /* 匹配条件 */
+}
+/**
+* 用户 intList 关系列表 变更参数 
+*/
+message UserIntListRelationListMutationArguments {
+    string id = 1; /* ID */
+    string user_ref = 2; /* 用户 引用 */
+    UserInput user = 3; /* 用户 */
+    int32 int_list_ref = 4; /* intList 引用 */
+    bool is_deprecated = 5; /* 已移除 */
+    int32 version = 6; /* 版本 */
+    int32 realm_id = 7; /* 域 */
+    string create_user_id = 8; /* 创建者 */
+    google.protobuf.Timestamp create_time = 9; /* 创建时间 */
+    string update_user_id = 10; /* 更新者 */
+    google.protobuf.Timestamp update_time = 11; /* 更新时间 */
+    string create_group_id = 12; /* 创建组 */
+    string intro_typename = 13; /* 所属类型 */
+    repeated UserIntListRelationInput list = 14; /* 变更内容列表 */
+    UserIntListRelationExpression where = 15; /* 匹配条件 */
+}
+/**
+* 用户 typeList 关系 变更参数
+*/
+message UserTypeListRelationMutationArguments {
+    string id = 1; /* ID */
+    string user_ref = 2; /* 用户 引用 */
+    UserInput user = 3; /* 用户 */
+    PermissionType type_list_ref = 4; /* typeList 引用 */
+    bool is_deprecated = 5; /* 已移除 */
+    int32 version = 6; /* 版本 */
+    int32 realm_id = 7; /* 域 */
+    string create_user_id = 8; /* 创建者 */
+    google.protobuf.Timestamp create_time = 9; /* 创建时间 */
+    string update_user_id = 10; /* 更新者 */
+    google.protobuf.Timestamp update_time = 11; /* 更新时间 */
+    string create_group_id = 12; /* 创建组 */
+    string intro_typename = 13; /* 所属类型 */
+    UserTypeListRelationInput input = 14; /* 变更内容 */
+    UserTypeListRelationExpression where = 15; /* 匹配条件 */
+}
+/**
+* 用户 typeList 关系列表 变更参数 
+*/
+message UserTypeListRelationListMutationArguments {
+    string id = 1; /* ID */
+    string user_ref = 2; /* 用户 引用 */
+    UserInput user = 3; /* 用户 */
+    PermissionType type_list_ref = 4; /* typeList 引用 */
+    bool is_deprecated = 5; /* 已移除 */
+    int32 version = 6; /* 版本 */
+    int32 realm_id = 7; /* 域 */
+    string create_user_id = 8; /* 创建者 */
+    google.protobuf.Timestamp create_time = 9; /* 创建时间 */
+    string update_user_id = 10; /* 更新者 */
+    google.protobuf.Timestamp update_time = 11; /* 更新时间 */
+    string create_group_id = 12; /* 创建组 */
+    string intro_typename = 13; /* 所属类型 */
+    repeated UserTypeListRelationInput list = 14; /* 变更内容列表 */
+    UserTypeListRelationExpression where = 15; /* 匹配条件 */
+}
+/**
 * 角色 组 关系 变更参数
 */
 message GroupRoleRelationMutationArguments {
@@ -2916,6 +3877,48 @@ message PermissionRoleRelationListMutationArguments {
     PermissionRoleRelationExpression where = 16; /* 匹配条件 */
 }
 /**
+* 用户 文件 关系 变更参数
+*/
+message FileUserRelationMutationArguments {
+    string id = 1; /* ID */
+    string user_ref = 2; /* 用户 引用 */
+    UserInput user = 3; /* 用户 */
+    string file_ref = 4; /* 文件 引用 */
+    io.graphoenix.file.FileInput file = 5; /* 文件 */
+    bool is_deprecated = 6; /* 已移除 */
+    int32 version = 7; /* 版本 */
+    int32 realm_id = 8; /* 域 */
+    string create_user_id = 9; /* 创建者 */
+    google.protobuf.Timestamp create_time = 10; /* 创建时间 */
+    string update_user_id = 11; /* 更新者 */
+    google.protobuf.Timestamp update_time = 12; /* 更新时间 */
+    string create_group_id = 13; /* 创建组 */
+    string intro_typename = 14; /* 所属类型 */
+    FileUserRelationInput input = 15; /* 变更内容 */
+    FileUserRelationExpression where = 16; /* 匹配条件 */
+}
+/**
+* 用户 文件 关系列表 变更参数 
+*/
+message FileUserRelationListMutationArguments {
+    string id = 1; /* ID */
+    string user_ref = 2; /* 用户 引用 */
+    UserInput user = 3; /* 用户 */
+    string file_ref = 4; /* 文件 引用 */
+    io.graphoenix.file.FileInput file = 5; /* 文件 */
+    bool is_deprecated = 6; /* 已移除 */
+    int32 version = 7; /* 版本 */
+    int32 realm_id = 8; /* 域 */
+    string create_user_id = 9; /* 创建者 */
+    google.protobuf.Timestamp create_time = 10; /* 创建时间 */
+    string update_user_id = 11; /* 更新者 */
+    google.protobuf.Timestamp update_time = 12; /* 更新时间 */
+    string create_group_id = 13; /* 创建组 */
+    string intro_typename = 14; /* 所属类型 */
+    repeated FileUserRelationInput list = 15; /* 变更内容列表 */
+    FileUserRelationExpression where = 16; /* 匹配条件 */
+}
+/**
 * 用户 订阅参数
 */
 message UserSubscriptionArguments {
@@ -2932,22 +3935,31 @@ message UserSubscriptionArguments {
     GroupExpression groups = 11; /* 组 */
     RoleExpression roles = 12; /* 角色 */
     RealmExpression realm = 13; /* 租户 */
-    bool include_deprecated = 14; /* 包含已移除 */
-    io.graphoenix.core.IntExpression version = 15; /* 版本 */
-    io.graphoenix.core.IntExpression realm_id = 16; /* 域 */
-    io.graphoenix.core.StringExpression create_user_id = 17; /* 创建者 */
-    io.graphoenix.core.StringExpression create_time = 18; /* 创建时间 */
-    io.graphoenix.core.StringExpression update_user_id = 19; /* 更新者 */
-    io.graphoenix.core.StringExpression update_time = 20; /* 更新时间 */
-    io.graphoenix.core.StringExpression create_group_id = 21; /* 创建组 */
-    io.graphoenix.core.StringExpression intro_typename = 22; /* 所属类型 */
-    UserPhonesRelationExpression user_phones_relation = 23; /* 用户 手机号 关系 */
-    GroupUserRelationExpression group_user_relation = 24; /* 用户 组 关系 */
-    RoleUserRelationExpression role_user_relation = 25; /* 用户 角色 关系 */
-    repeated string group_by = 26; /* 分组 */
-    bool not = 27; /* 取非 */
-    io.graphoenix.core.Conditional cond = 28; /* 与/或 */
-    repeated UserExpression exs = 29; /* 查询表达式组 */
+    io.graphoenix.file.FileExpression file = 14; /* file */
+    io.graphoenix.file.FileExpression files = 15; /* files */
+    io.graphoenix.core.BooleanExpression boolean_list = 16; /* booleanList */
+    io.graphoenix.core.IntExpression int_list = 17; /* intList */
+    PermissionTypeExpression type_list = 18; /* typeList */
+    bool include_deprecated = 19; /* 包含已移除 */
+    io.graphoenix.core.IntExpression version = 20; /* 版本 */
+    io.graphoenix.core.IntExpression realm_id = 21; /* 域 */
+    io.graphoenix.core.StringExpression create_user_id = 22; /* 创建者 */
+    io.graphoenix.core.StringExpression create_time = 23; /* 创建时间 */
+    io.graphoenix.core.StringExpression update_user_id = 24; /* 更新者 */
+    io.graphoenix.core.StringExpression update_time = 25; /* 更新时间 */
+    io.graphoenix.core.StringExpression create_group_id = 26; /* 创建组 */
+    io.graphoenix.core.StringExpression intro_typename = 27; /* 所属类型 */
+    FileUserRelationExpression file_user_relation = 28; /* 用户 文件 关系 */
+    UserPhonesRelationExpression user_phones_relation = 29; /* 用户 手机号 关系 */
+    GroupUserRelationExpression group_user_relation = 30; /* 用户 组 关系 */
+    RoleUserRelationExpression role_user_relation = 31; /* 用户 角色 关系 */
+    UserBooleanListRelationExpression user_boolean_list_relation = 32; /* 用户 booleanList 关系 */
+    UserIntListRelationExpression user_int_list_relation = 33; /* 用户 intList 关系 */
+    UserTypeListRelationExpression user_type_list_relation = 34; /* 用户 typeList 关系 */
+    repeated string group_by = 35; /* 分组 */
+    bool not = 36; /* 取非 */
+    io.graphoenix.core.Conditional cond = 37; /* 与/或 */
+    repeated UserExpression exs = 38; /* 查询表达式组 */
 }
 /**
 * 用户列表 订阅参数
@@ -2966,28 +3978,37 @@ message UserListSubscriptionArguments {
     GroupExpression groups = 11; /* 组 */
     RoleExpression roles = 12; /* 角色 */
     RealmExpression realm = 13; /* 租户 */
-    bool include_deprecated = 14; /* 包含已移除 */
-    io.graphoenix.core.IntExpression version = 15; /* 版本 */
-    io.graphoenix.core.IntExpression realm_id = 16; /* 域 */
-    io.graphoenix.core.StringExpression create_user_id = 17; /* 创建者 */
-    io.graphoenix.core.StringExpression create_time = 18; /* 创建时间 */
-    io.graphoenix.core.StringExpression update_user_id = 19; /* 更新者 */
-    io.graphoenix.core.StringExpression update_time = 20; /* 更新时间 */
-    io.graphoenix.core.StringExpression create_group_id = 21; /* 创建组 */
-    io.graphoenix.core.StringExpression intro_typename = 22; /* 所属类型 */
-    UserPhonesRelationExpression user_phones_relation = 23; /* 用户 手机号 关系 */
-    GroupUserRelationExpression group_user_relation = 24; /* 用户 组 关系 */
-    RoleUserRelationExpression role_user_relation = 25; /* 用户 角色 关系 */
-    UserOrderBy order_by = 26; /* 排序 */
-    repeated string group_by = 27; /* 分组 */
-    bool not = 28; /* 取非 */
-    io.graphoenix.core.Conditional cond = 29; /* 与/或 */
-    repeated UserExpression exs = 30; /* 查询表达式组 */
-    int32 first = 31; /* 前...条数 */
-    int32 last = 32; /* 变更内容列表 */
-    int32 offset = 33; /* 偏移条数 */
-    string after = 34; /* 取...之后 */
-    string before = 35; /* 取...之前 */
+    io.graphoenix.file.FileExpression file = 14; /* file */
+    io.graphoenix.file.FileExpression files = 15; /* files */
+    io.graphoenix.core.BooleanExpression boolean_list = 16; /* booleanList */
+    io.graphoenix.core.IntExpression int_list = 17; /* intList */
+    PermissionTypeExpression type_list = 18; /* typeList */
+    bool include_deprecated = 19; /* 包含已移除 */
+    io.graphoenix.core.IntExpression version = 20; /* 版本 */
+    io.graphoenix.core.IntExpression realm_id = 21; /* 域 */
+    io.graphoenix.core.StringExpression create_user_id = 22; /* 创建者 */
+    io.graphoenix.core.StringExpression create_time = 23; /* 创建时间 */
+    io.graphoenix.core.StringExpression update_user_id = 24; /* 更新者 */
+    io.graphoenix.core.StringExpression update_time = 25; /* 更新时间 */
+    io.graphoenix.core.StringExpression create_group_id = 26; /* 创建组 */
+    io.graphoenix.core.StringExpression intro_typename = 27; /* 所属类型 */
+    FileUserRelationExpression file_user_relation = 28; /* 用户 文件 关系 */
+    UserPhonesRelationExpression user_phones_relation = 29; /* 用户 手机号 关系 */
+    GroupUserRelationExpression group_user_relation = 30; /* 用户 组 关系 */
+    RoleUserRelationExpression role_user_relation = 31; /* 用户 角色 关系 */
+    UserBooleanListRelationExpression user_boolean_list_relation = 32; /* 用户 booleanList 关系 */
+    UserIntListRelationExpression user_int_list_relation = 33; /* 用户 intList 关系 */
+    UserTypeListRelationExpression user_type_list_relation = 34; /* 用户 typeList 关系 */
+    UserOrderBy order_by = 35; /* 排序 */
+    repeated string group_by = 36; /* 分组 */
+    bool not = 37; /* 取非 */
+    io.graphoenix.core.Conditional cond = 38; /* 与/或 */
+    repeated UserExpression exs = 39; /* 查询表达式组 */
+    int32 first = 40; /* 前...条数 */
+    int32 last = 41; /* 变更内容列表 */
+    int32 offset = 42; /* 偏移条数 */
+    string after = 43; /* 取...之后 */
+    string before = 44; /* 取...之前 */
 }
 /**
 * 用户列表 订阅参数
@@ -3006,28 +4027,37 @@ message UserConnectionSubscriptionArguments {
     GroupExpression groups = 11; /* 组 */
     RoleExpression roles = 12; /* 角色 */
     RealmExpression realm = 13; /* 租户 */
-    bool include_deprecated = 14; /* 包含已移除 */
-    io.graphoenix.core.IntExpression version = 15; /* 版本 */
-    io.graphoenix.core.IntExpression realm_id = 16; /* 域 */
-    io.graphoenix.core.StringExpression create_user_id = 17; /* 创建者 */
-    io.graphoenix.core.StringExpression create_time = 18; /* 创建时间 */
-    io.graphoenix.core.StringExpression update_user_id = 19; /* 更新者 */
-    io.graphoenix.core.StringExpression update_time = 20; /* 更新时间 */
-    io.graphoenix.core.StringExpression create_group_id = 21; /* 创建组 */
-    io.graphoenix.core.StringExpression intro_typename = 22; /* 所属类型 */
-    UserPhonesRelationExpression user_phones_relation = 23; /* 用户 手机号 关系 */
-    GroupUserRelationExpression group_user_relation = 24; /* 用户 组 关系 */
-    RoleUserRelationExpression role_user_relation = 25; /* 用户 角色 关系 */
-    UserOrderBy order_by = 26; /* 排序 */
-    repeated string group_by = 27; /* 排序 */
-    bool not = 28; /* 取非 */
-    io.graphoenix.core.Conditional cond = 29; /* 与/或 */
-    repeated UserExpression exs = 30; /* 查询表达式组 */
-    int32 first = 31; /* 前...条数 */
-    int32 last = 32; /* 后...条数 */
-    int32 offset = 33; /* 偏移条数 */
-    string after = 34; /* 取...之后 */
-    string before = 35; /* 取...之前 */
+    io.graphoenix.file.FileExpression file = 14; /* file */
+    io.graphoenix.file.FileExpression files = 15; /* files */
+    io.graphoenix.core.BooleanExpression boolean_list = 16; /* booleanList */
+    io.graphoenix.core.IntExpression int_list = 17; /* intList */
+    PermissionTypeExpression type_list = 18; /* typeList */
+    bool include_deprecated = 19; /* 包含已移除 */
+    io.graphoenix.core.IntExpression version = 20; /* 版本 */
+    io.graphoenix.core.IntExpression realm_id = 21; /* 域 */
+    io.graphoenix.core.StringExpression create_user_id = 22; /* 创建者 */
+    io.graphoenix.core.StringExpression create_time = 23; /* 创建时间 */
+    io.graphoenix.core.StringExpression update_user_id = 24; /* 更新者 */
+    io.graphoenix.core.StringExpression update_time = 25; /* 更新时间 */
+    io.graphoenix.core.StringExpression create_group_id = 26; /* 创建组 */
+    io.graphoenix.core.StringExpression intro_typename = 27; /* 所属类型 */
+    FileUserRelationExpression file_user_relation = 28; /* 用户 文件 关系 */
+    UserPhonesRelationExpression user_phones_relation = 29; /* 用户 手机号 关系 */
+    GroupUserRelationExpression group_user_relation = 30; /* 用户 组 关系 */
+    RoleUserRelationExpression role_user_relation = 31; /* 用户 角色 关系 */
+    UserBooleanListRelationExpression user_boolean_list_relation = 32; /* 用户 booleanList 关系 */
+    UserIntListRelationExpression user_int_list_relation = 33; /* 用户 intList 关系 */
+    UserTypeListRelationExpression user_type_list_relation = 34; /* 用户 typeList 关系 */
+    UserOrderBy order_by = 35; /* 排序 */
+    repeated string group_by = 36; /* 排序 */
+    bool not = 37; /* 取非 */
+    io.graphoenix.core.Conditional cond = 38; /* 与/或 */
+    repeated UserExpression exs = 39; /* 查询表达式组 */
+    int32 first = 40; /* 前...条数 */
+    int32 last = 41; /* 后...条数 */
+    int32 offset = 42; /* 偏移条数 */
+    string after = 43; /* 取...之后 */
+    string before = 44; /* 取...之前 */
 }
 /**
 * 角色 订阅参数
@@ -3642,6 +4672,240 @@ message RoleUserRelationConnectionSubscriptionArguments {
     string before = 24; /* 取...之前 */
 }
 /**
+* 用户 booleanList 关系 订阅参数
+*/
+message UserBooleanListRelationSubscriptionArguments {
+    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression user_ref = 2; /* 用户 引用 */
+    UserExpression user = 3; /* 用户 */
+    io.graphoenix.core.BooleanExpression boolean_list_ref = 4; /* booleanList 引用 */
+    bool include_deprecated = 5; /* 包含已移除 */
+    io.graphoenix.core.IntExpression version = 6; /* 版本 */
+    io.graphoenix.core.IntExpression realm_id = 7; /* 域 */
+    io.graphoenix.core.StringExpression create_user_id = 8; /* 创建者 */
+    io.graphoenix.core.StringExpression create_time = 9; /* 创建时间 */
+    io.graphoenix.core.StringExpression update_user_id = 10; /* 更新者 */
+    io.graphoenix.core.StringExpression update_time = 11; /* 更新时间 */
+    io.graphoenix.core.StringExpression create_group_id = 12; /* 创建组 */
+    io.graphoenix.core.StringExpression intro_typename = 13; /* 所属类型 */
+    repeated string group_by = 14; /* 分组 */
+    bool not = 15; /* 取非 */
+    io.graphoenix.core.Conditional cond = 16; /* 与/或 */
+    repeated UserBooleanListRelationExpression exs = 17; /* 查询表达式组 */
+}
+/**
+* 用户 booleanList 关系列表 订阅参数
+*/
+message UserBooleanListRelationListSubscriptionArguments {
+    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression user_ref = 2; /* 用户 引用 */
+    UserExpression user = 3; /* 用户 */
+    io.graphoenix.core.BooleanExpression boolean_list_ref = 4; /* booleanList 引用 */
+    bool include_deprecated = 5; /* 包含已移除 */
+    io.graphoenix.core.IntExpression version = 6; /* 版本 */
+    io.graphoenix.core.IntExpression realm_id = 7; /* 域 */
+    io.graphoenix.core.StringExpression create_user_id = 8; /* 创建者 */
+    io.graphoenix.core.StringExpression create_time = 9; /* 创建时间 */
+    io.graphoenix.core.StringExpression update_user_id = 10; /* 更新者 */
+    io.graphoenix.core.StringExpression update_time = 11; /* 更新时间 */
+    io.graphoenix.core.StringExpression create_group_id = 12; /* 创建组 */
+    io.graphoenix.core.StringExpression intro_typename = 13; /* 所属类型 */
+    UserBooleanListRelationOrderBy order_by = 14; /* 排序 */
+    repeated string group_by = 15; /* 分组 */
+    bool not = 16; /* 取非 */
+    io.graphoenix.core.Conditional cond = 17; /* 与/或 */
+    repeated UserBooleanListRelationExpression exs = 18; /* 查询表达式组 */
+    int32 first = 19; /* 前...条数 */
+    int32 last = 20; /* 变更内容列表 */
+    int32 offset = 21; /* 偏移条数 */
+    string after = 22; /* 取...之后 */
+    string before = 23; /* 取...之前 */
+}
+/**
+* 用户 booleanList 关系列表 订阅参数
+*/
+message UserBooleanListRelationConnectionSubscriptionArguments {
+    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression user_ref = 2; /* 用户 引用 */
+    UserExpression user = 3; /* 用户 */
+    io.graphoenix.core.BooleanExpression boolean_list_ref = 4; /* booleanList 引用 */
+    bool include_deprecated = 5; /* 包含已移除 */
+    io.graphoenix.core.IntExpression version = 6; /* 版本 */
+    io.graphoenix.core.IntExpression realm_id = 7; /* 域 */
+    io.graphoenix.core.StringExpression create_user_id = 8; /* 创建者 */
+    io.graphoenix.core.StringExpression create_time = 9; /* 创建时间 */
+    io.graphoenix.core.StringExpression update_user_id = 10; /* 更新者 */
+    io.graphoenix.core.StringExpression update_time = 11; /* 更新时间 */
+    io.graphoenix.core.StringExpression create_group_id = 12; /* 创建组 */
+    io.graphoenix.core.StringExpression intro_typename = 13; /* 所属类型 */
+    UserBooleanListRelationOrderBy order_by = 14; /* 排序 */
+    repeated string group_by = 15; /* 排序 */
+    bool not = 16; /* 取非 */
+    io.graphoenix.core.Conditional cond = 17; /* 与/或 */
+    repeated UserBooleanListRelationExpression exs = 18; /* 查询表达式组 */
+    int32 first = 19; /* 前...条数 */
+    int32 last = 20; /* 后...条数 */
+    int32 offset = 21; /* 偏移条数 */
+    string after = 22; /* 取...之后 */
+    string before = 23; /* 取...之前 */
+}
+/**
+* 用户 intList 关系 订阅参数
+*/
+message UserIntListRelationSubscriptionArguments {
+    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression user_ref = 2; /* 用户 引用 */
+    UserExpression user = 3; /* 用户 */
+    io.graphoenix.core.IntExpression int_list_ref = 4; /* intList 引用 */
+    bool include_deprecated = 5; /* 包含已移除 */
+    io.graphoenix.core.IntExpression version = 6; /* 版本 */
+    io.graphoenix.core.IntExpression realm_id = 7; /* 域 */
+    io.graphoenix.core.StringExpression create_user_id = 8; /* 创建者 */
+    io.graphoenix.core.StringExpression create_time = 9; /* 创建时间 */
+    io.graphoenix.core.StringExpression update_user_id = 10; /* 更新者 */
+    io.graphoenix.core.StringExpression update_time = 11; /* 更新时间 */
+    io.graphoenix.core.StringExpression create_group_id = 12; /* 创建组 */
+    io.graphoenix.core.StringExpression intro_typename = 13; /* 所属类型 */
+    repeated string group_by = 14; /* 分组 */
+    bool not = 15; /* 取非 */
+    io.graphoenix.core.Conditional cond = 16; /* 与/或 */
+    repeated UserIntListRelationExpression exs = 17; /* 查询表达式组 */
+}
+/**
+* 用户 intList 关系列表 订阅参数
+*/
+message UserIntListRelationListSubscriptionArguments {
+    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression user_ref = 2; /* 用户 引用 */
+    UserExpression user = 3; /* 用户 */
+    io.graphoenix.core.IntExpression int_list_ref = 4; /* intList 引用 */
+    bool include_deprecated = 5; /* 包含已移除 */
+    io.graphoenix.core.IntExpression version = 6; /* 版本 */
+    io.graphoenix.core.IntExpression realm_id = 7; /* 域 */
+    io.graphoenix.core.StringExpression create_user_id = 8; /* 创建者 */
+    io.graphoenix.core.StringExpression create_time = 9; /* 创建时间 */
+    io.graphoenix.core.StringExpression update_user_id = 10; /* 更新者 */
+    io.graphoenix.core.StringExpression update_time = 11; /* 更新时间 */
+    io.graphoenix.core.StringExpression create_group_id = 12; /* 创建组 */
+    io.graphoenix.core.StringExpression intro_typename = 13; /* 所属类型 */
+    UserIntListRelationOrderBy order_by = 14; /* 排序 */
+    repeated string group_by = 15; /* 分组 */
+    bool not = 16; /* 取非 */
+    io.graphoenix.core.Conditional cond = 17; /* 与/或 */
+    repeated UserIntListRelationExpression exs = 18; /* 查询表达式组 */
+    int32 first = 19; /* 前...条数 */
+    int32 last = 20; /* 变更内容列表 */
+    int32 offset = 21; /* 偏移条数 */
+    string after = 22; /* 取...之后 */
+    string before = 23; /* 取...之前 */
+}
+/**
+* 用户 intList 关系列表 订阅参数
+*/
+message UserIntListRelationConnectionSubscriptionArguments {
+    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression user_ref = 2; /* 用户 引用 */
+    UserExpression user = 3; /* 用户 */
+    io.graphoenix.core.IntExpression int_list_ref = 4; /* intList 引用 */
+    bool include_deprecated = 5; /* 包含已移除 */
+    io.graphoenix.core.IntExpression version = 6; /* 版本 */
+    io.graphoenix.core.IntExpression realm_id = 7; /* 域 */
+    io.graphoenix.core.StringExpression create_user_id = 8; /* 创建者 */
+    io.graphoenix.core.StringExpression create_time = 9; /* 创建时间 */
+    io.graphoenix.core.StringExpression update_user_id = 10; /* 更新者 */
+    io.graphoenix.core.StringExpression update_time = 11; /* 更新时间 */
+    io.graphoenix.core.StringExpression create_group_id = 12; /* 创建组 */
+    io.graphoenix.core.StringExpression intro_typename = 13; /* 所属类型 */
+    UserIntListRelationOrderBy order_by = 14; /* 排序 */
+    repeated string group_by = 15; /* 排序 */
+    bool not = 16; /* 取非 */
+    io.graphoenix.core.Conditional cond = 17; /* 与/或 */
+    repeated UserIntListRelationExpression exs = 18; /* 查询表达式组 */
+    int32 first = 19; /* 前...条数 */
+    int32 last = 20; /* 后...条数 */
+    int32 offset = 21; /* 偏移条数 */
+    string after = 22; /* 取...之后 */
+    string before = 23; /* 取...之前 */
+}
+/**
+* 用户 typeList 关系 订阅参数
+*/
+message UserTypeListRelationSubscriptionArguments {
+    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression user_ref = 2; /* 用户 引用 */
+    UserExpression user = 3; /* 用户 */
+    PermissionTypeExpression type_list_ref = 4; /* typeList 引用 */
+    bool include_deprecated = 5; /* 包含已移除 */
+    io.graphoenix.core.IntExpression version = 6; /* 版本 */
+    io.graphoenix.core.IntExpression realm_id = 7; /* 域 */
+    io.graphoenix.core.StringExpression create_user_id = 8; /* 创建者 */
+    io.graphoenix.core.StringExpression create_time = 9; /* 创建时间 */
+    io.graphoenix.core.StringExpression update_user_id = 10; /* 更新者 */
+    io.graphoenix.core.StringExpression update_time = 11; /* 更新时间 */
+    io.graphoenix.core.StringExpression create_group_id = 12; /* 创建组 */
+    io.graphoenix.core.StringExpression intro_typename = 13; /* 所属类型 */
+    repeated string group_by = 14; /* 分组 */
+    bool not = 15; /* 取非 */
+    io.graphoenix.core.Conditional cond = 16; /* 与/或 */
+    repeated UserTypeListRelationExpression exs = 17; /* 查询表达式组 */
+}
+/**
+* 用户 typeList 关系列表 订阅参数
+*/
+message UserTypeListRelationListSubscriptionArguments {
+    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression user_ref = 2; /* 用户 引用 */
+    UserExpression user = 3; /* 用户 */
+    PermissionTypeExpression type_list_ref = 4; /* typeList 引用 */
+    bool include_deprecated = 5; /* 包含已移除 */
+    io.graphoenix.core.IntExpression version = 6; /* 版本 */
+    io.graphoenix.core.IntExpression realm_id = 7; /* 域 */
+    io.graphoenix.core.StringExpression create_user_id = 8; /* 创建者 */
+    io.graphoenix.core.StringExpression create_time = 9; /* 创建时间 */
+    io.graphoenix.core.StringExpression update_user_id = 10; /* 更新者 */
+    io.graphoenix.core.StringExpression update_time = 11; /* 更新时间 */
+    io.graphoenix.core.StringExpression create_group_id = 12; /* 创建组 */
+    io.graphoenix.core.StringExpression intro_typename = 13; /* 所属类型 */
+    UserTypeListRelationOrderBy order_by = 14; /* 排序 */
+    repeated string group_by = 15; /* 分组 */
+    bool not = 16; /* 取非 */
+    io.graphoenix.core.Conditional cond = 17; /* 与/或 */
+    repeated UserTypeListRelationExpression exs = 18; /* 查询表达式组 */
+    int32 first = 19; /* 前...条数 */
+    int32 last = 20; /* 变更内容列表 */
+    int32 offset = 21; /* 偏移条数 */
+    string after = 22; /* 取...之后 */
+    string before = 23; /* 取...之前 */
+}
+/**
+* 用户 typeList 关系列表 订阅参数
+*/
+message UserTypeListRelationConnectionSubscriptionArguments {
+    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression user_ref = 2; /* 用户 引用 */
+    UserExpression user = 3; /* 用户 */
+    PermissionTypeExpression type_list_ref = 4; /* typeList 引用 */
+    bool include_deprecated = 5; /* 包含已移除 */
+    io.graphoenix.core.IntExpression version = 6; /* 版本 */
+    io.graphoenix.core.IntExpression realm_id = 7; /* 域 */
+    io.graphoenix.core.StringExpression create_user_id = 8; /* 创建者 */
+    io.graphoenix.core.StringExpression create_time = 9; /* 创建时间 */
+    io.graphoenix.core.StringExpression update_user_id = 10; /* 更新者 */
+    io.graphoenix.core.StringExpression update_time = 11; /* 更新时间 */
+    io.graphoenix.core.StringExpression create_group_id = 12; /* 创建组 */
+    io.graphoenix.core.StringExpression intro_typename = 13; /* 所属类型 */
+    UserTypeListRelationOrderBy order_by = 14; /* 排序 */
+    repeated string group_by = 15; /* 排序 */
+    bool not = 16; /* 取非 */
+    io.graphoenix.core.Conditional cond = 17; /* 与/或 */
+    repeated UserTypeListRelationExpression exs = 18; /* 查询表达式组 */
+    int32 first = 19; /* 前...条数 */
+    int32 last = 20; /* 后...条数 */
+    int32 offset = 21; /* 偏移条数 */
+    string after = 22; /* 取...之后 */
+    string before = 23; /* 取...之前 */
+}
+/**
 * 角色 组 关系 订阅参数
 */
 message GroupRoleRelationSubscriptionArguments {
@@ -3884,8 +5148,94 @@ message PermissionRoleRelationConnectionSubscriptionArguments {
     string after = 23; /* 取...之后 */
     string before = 24; /* 取...之前 */
 }
+/**
+* 用户 文件 关系 订阅参数
+*/
+message FileUserRelationSubscriptionArguments {
+    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression user_ref = 2; /* 用户 引用 */
+    UserExpression user = 3; /* 用户 */
+    io.graphoenix.core.StringExpression file_ref = 4; /* 文件 引用 */
+    io.graphoenix.file.FileExpression file = 5; /* 文件 */
+    bool include_deprecated = 6; /* 包含已移除 */
+    io.graphoenix.core.IntExpression version = 7; /* 版本 */
+    io.graphoenix.core.IntExpression realm_id = 8; /* 域 */
+    io.graphoenix.core.StringExpression create_user_id = 9; /* 创建者 */
+    io.graphoenix.core.StringExpression create_time = 10; /* 创建时间 */
+    io.graphoenix.core.StringExpression update_user_id = 11; /* 更新者 */
+    io.graphoenix.core.StringExpression update_time = 12; /* 更新时间 */
+    io.graphoenix.core.StringExpression create_group_id = 13; /* 创建组 */
+    io.graphoenix.core.StringExpression intro_typename = 14; /* 所属类型 */
+    repeated string group_by = 15; /* 分组 */
+    bool not = 16; /* 取非 */
+    io.graphoenix.core.Conditional cond = 17; /* 与/或 */
+    repeated FileUserRelationExpression exs = 18; /* 查询表达式组 */
+}
+/**
+* 用户 文件 关系列表 订阅参数
+*/
+message FileUserRelationListSubscriptionArguments {
+    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression user_ref = 2; /* 用户 引用 */
+    UserExpression user = 3; /* 用户 */
+    io.graphoenix.core.StringExpression file_ref = 4; /* 文件 引用 */
+    io.graphoenix.file.FileExpression file = 5; /* 文件 */
+    bool include_deprecated = 6; /* 包含已移除 */
+    io.graphoenix.core.IntExpression version = 7; /* 版本 */
+    io.graphoenix.core.IntExpression realm_id = 8; /* 域 */
+    io.graphoenix.core.StringExpression create_user_id = 9; /* 创建者 */
+    io.graphoenix.core.StringExpression create_time = 10; /* 创建时间 */
+    io.graphoenix.core.StringExpression update_user_id = 11; /* 更新者 */
+    io.graphoenix.core.StringExpression update_time = 12; /* 更新时间 */
+    io.graphoenix.core.StringExpression create_group_id = 13; /* 创建组 */
+    io.graphoenix.core.StringExpression intro_typename = 14; /* 所属类型 */
+    FileUserRelationOrderBy order_by = 15; /* 排序 */
+    repeated string group_by = 16; /* 分组 */
+    bool not = 17; /* 取非 */
+    io.graphoenix.core.Conditional cond = 18; /* 与/或 */
+    repeated FileUserRelationExpression exs = 19; /* 查询表达式组 */
+    int32 first = 20; /* 前...条数 */
+    int32 last = 21; /* 变更内容列表 */
+    int32 offset = 22; /* 偏移条数 */
+    string after = 23; /* 取...之后 */
+    string before = 24; /* 取...之前 */
+}
+/**
+* 用户 文件 关系列表 订阅参数
+*/
+message FileUserRelationConnectionSubscriptionArguments {
+    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression user_ref = 2; /* 用户 引用 */
+    UserExpression user = 3; /* 用户 */
+    io.graphoenix.core.StringExpression file_ref = 4; /* 文件 引用 */
+    io.graphoenix.file.FileExpression file = 5; /* 文件 */
+    bool include_deprecated = 6; /* 包含已移除 */
+    io.graphoenix.core.IntExpression version = 7; /* 版本 */
+    io.graphoenix.core.IntExpression realm_id = 8; /* 域 */
+    io.graphoenix.core.StringExpression create_user_id = 9; /* 创建者 */
+    io.graphoenix.core.StringExpression create_time = 10; /* 创建时间 */
+    io.graphoenix.core.StringExpression update_user_id = 11; /* 更新者 */
+    io.graphoenix.core.StringExpression update_time = 12; /* 更新时间 */
+    io.graphoenix.core.StringExpression create_group_id = 13; /* 创建组 */
+    io.graphoenix.core.StringExpression intro_typename = 14; /* 所属类型 */
+    FileUserRelationOrderBy order_by = 15; /* 排序 */
+    repeated string group_by = 16; /* 排序 */
+    bool not = 17; /* 取非 */
+    io.graphoenix.core.Conditional cond = 18; /* 与/或 */
+    repeated FileUserRelationExpression exs = 19; /* 查询表达式组 */
+    int32 first = 20; /* 前...条数 */
+    int32 last = 21; /* 后...条数 */
+    int32 offset = 22; /* 偏移条数 */
+    string after = 23; /* 取...之后 */
+    string before = 24; /* 取...之前 */
+}
 message Query_currentPermissionNameListByTypes_Arguments {
     repeated string types = 1;
+}
+message Mutation_syncPermissionRoleRelationPolicy_Arguments {
+    string role_id = 1;
+    repeated string permission_name_list = 2;
+    repeated string removed_permission_name_list = 3;
 }
 message Mutation_currentUserUpdate_Arguments {
     UserInput user_input = 1;
@@ -3897,9 +5247,4 @@ message Mutation_currentUserResetPassword_Arguments {
 message Mutation_login_Arguments {
     string login = 1;
     string password = 2;
-}
-message Mutation_syncPermissionRoleRelationPolicy_Arguments {
-    string role_id = 1;
-    repeated string permission_name_list = 2;
-    repeated string removed_permission_name_list = 3;
 }

@@ -13,7 +13,7 @@ import "io/graphence/core/query_requests.proto";
 import "io/graphence/core/query_responses.proto";
 
 /**
-* 查询
+* Query
 */
 service QueryService {
     rpc User (QueryUserRequest) returns (QueryUserResponse); /* 用户 查询接口 */
@@ -40,6 +40,15 @@ service QueryService {
     rpc RoleUserRelation (QueryRoleUserRelationRequest) returns (QueryRoleUserRelationResponse); /* 用户 角色 关系 查询接口 */
     rpc RoleUserRelationList (QueryRoleUserRelationListRequest) returns (QueryRoleUserRelationListResponse); /* 用户 角色 关系列表 查询接口 */
     rpc RoleUserRelationConnection (QueryRoleUserRelationConnectionRequest) returns (QueryRoleUserRelationConnectionResponse); /* 用户 角色 关系连接 查询接口 */
+    rpc UserBooleanListRelation (QueryUserBooleanListRelationRequest) returns (QueryUserBooleanListRelationResponse); /* 用户 booleanList 关系 查询接口 */
+    rpc UserBooleanListRelationList (QueryUserBooleanListRelationListRequest) returns (QueryUserBooleanListRelationListResponse); /* 用户 booleanList 关系列表 查询接口 */
+    rpc UserBooleanListRelationConnection (QueryUserBooleanListRelationConnectionRequest) returns (QueryUserBooleanListRelationConnectionResponse); /* 用户 booleanList 关系连接 查询接口 */
+    rpc UserIntListRelation (QueryUserIntListRelationRequest) returns (QueryUserIntListRelationResponse); /* 用户 intList 关系 查询接口 */
+    rpc UserIntListRelationList (QueryUserIntListRelationListRequest) returns (QueryUserIntListRelationListResponse); /* 用户 intList 关系列表 查询接口 */
+    rpc UserIntListRelationConnection (QueryUserIntListRelationConnectionRequest) returns (QueryUserIntListRelationConnectionResponse); /* 用户 intList 关系连接 查询接口 */
+    rpc UserTypeListRelation (QueryUserTypeListRelationRequest) returns (QueryUserTypeListRelationResponse); /* 用户 typeList 关系 查询接口 */
+    rpc UserTypeListRelationList (QueryUserTypeListRelationListRequest) returns (QueryUserTypeListRelationListResponse); /* 用户 typeList 关系列表 查询接口 */
+    rpc UserTypeListRelationConnection (QueryUserTypeListRelationConnectionRequest) returns (QueryUserTypeListRelationConnectionResponse); /* 用户 typeList 关系连接 查询接口 */
     rpc GroupRoleRelation (QueryGroupRoleRelationRequest) returns (QueryGroupRoleRelationResponse); /* 角色 组 关系 查询接口 */
     rpc GroupRoleRelationList (QueryGroupRoleRelationListRequest) returns (QueryGroupRoleRelationListResponse); /* 角色 组 关系列表 查询接口 */
     rpc GroupRoleRelationConnection (QueryGroupRoleRelationConnectionRequest) returns (QueryGroupRoleRelationConnectionResponse); /* 角色 组 关系连接 查询接口 */
@@ -49,9 +58,12 @@ service QueryService {
     rpc PermissionRoleRelation (QueryPermissionRoleRelationRequest) returns (QueryPermissionRoleRelationResponse); /* 角色 权限 关系 查询接口 */
     rpc PermissionRoleRelationList (QueryPermissionRoleRelationListRequest) returns (QueryPermissionRoleRelationListResponse); /* 角色 权限 关系列表 查询接口 */
     rpc PermissionRoleRelationConnection (QueryPermissionRoleRelationConnectionRequest) returns (QueryPermissionRoleRelationConnectionResponse); /* 角色 权限 关系连接 查询接口 */
+    rpc FileUserRelation (QueryFileUserRelationRequest) returns (QueryFileUserRelationResponse); /* 用户 文件 关系 查询接口 */
+    rpc FileUserRelationList (QueryFileUserRelationListRequest) returns (QueryFileUserRelationListResponse); /* 用户 文件 关系列表 查询接口 */
+    rpc FileUserRelationConnection (QueryFileUserRelationConnectionRequest) returns (QueryFileUserRelationConnectionResponse); /* 用户 文件 关系连接 查询接口 */
+    rpc PolicyList (QueryPolicyListRequest) returns (QueryPolicyListResponse);
     rpc Current (QueryCurrentRequest) returns (QueryCurrentResponse);
     rpc CurrentUser (QueryCurrentUserRequest) returns (QueryCurrentUserResponse);
     rpc CurrentPermissionTypeList (QueryCurrentPermissionTypeListRequest) returns (QueryCurrentPermissionTypeListResponse);
     rpc CurrentPermissionNameListByTypes (QueryCurrentPermissionNameListByTypesRequest) returns (QueryCurrentPermissionNameListByTypesResponse);
-    rpc PolicyList (QueryPolicyListRequest) returns (QueryPolicyListResponse);
 }

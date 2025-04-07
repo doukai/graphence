@@ -4,6 +4,7 @@ import io.graphoenix.core.dto.annotation.BooleanExpression;
 import io.graphoenix.core.dto.annotation.IntExpression;
 import io.graphoenix.core.dto.annotation.StringExpression;
 import io.graphoenix.core.dto.enumType.Conditional;
+import io.graphoenix.file.dto.annotation.FileExpression2;
 import jakarta.annotation.Generated;
 import java.lang.String;
 import java.lang.annotation.Documented;
@@ -101,6 +102,36 @@ public @interface UserExpression1 {
   RealmExpression2 realm() default @RealmExpression2;
 
   /**
+   * file
+   */
+  @Description("file")
+  FileExpression2 file() default @FileExpression2;
+
+  /**
+   * files
+   */
+  @Description("files")
+  FileExpression2 files() default @FileExpression2;
+
+  /**
+   * booleanList
+   */
+  @Description("booleanList")
+  BooleanExpression booleanList() default @BooleanExpression;
+
+  /**
+   * intList
+   */
+  @Description("intList")
+  IntExpression intList() default @IntExpression;
+
+  /**
+   * typeList
+   */
+  @Description("typeList")
+  PermissionTypeExpression typeList() default @PermissionTypeExpression;
+
+  /**
    * 包含已移除
    */
   @Description("包含已移除")
@@ -155,6 +186,12 @@ public @interface UserExpression1 {
   StringExpression __typename() default @StringExpression;
 
   /**
+   * 用户 文件 关系
+   */
+  @Description("用户 文件 关系")
+  FileUserRelationExpression2 fileUserRelation() default @FileUserRelationExpression2;
+
+  /**
    * 用户 手机号 关系
    */
   @Description("用户 手机号 关系")
@@ -171,6 +208,25 @@ public @interface UserExpression1 {
    */
   @Description("用户 角色 关系")
   RoleUserRelationExpression2 roleUserRelation() default @RoleUserRelationExpression2;
+
+  /**
+   * 用户 booleanList 关系
+   */
+  @Description("用户 booleanList 关系")
+  UserBooleanListRelationExpression2 userBooleanListRelation(
+      ) default @UserBooleanListRelationExpression2;
+
+  /**
+   * 用户 intList 关系
+   */
+  @Description("用户 intList 关系")
+  UserIntListRelationExpression2 userIntListRelation() default @UserIntListRelationExpression2;
+
+  /**
+   * 用户 typeList 关系
+   */
+  @Description("用户 typeList 关系")
+  UserTypeListRelationExpression2 userTypeListRelation() default @UserTypeListRelationExpression2;
 
   /**
    * 取非
@@ -216,6 +272,16 @@ public @interface UserExpression1 {
 
   String $realm() default "";
 
+  String $file() default "";
+
+  String $files() default "";
+
+  String $booleanList() default "";
+
+  String $intList() default "";
+
+  String $typeList() default "";
+
   String $includeDeprecated() default "";
 
   String $version() default "";
@@ -234,11 +300,19 @@ public @interface UserExpression1 {
 
   String $__typename() default "";
 
+  String $fileUserRelation() default "";
+
   String $userPhonesRelation() default "";
 
   String $groupUserRelation() default "";
 
   String $roleUserRelation() default "";
+
+  String $userBooleanListRelation() default "";
+
+  String $userIntListRelation() default "";
+
+  String $userTypeListRelation() default "";
 
   String $not() default "";
 

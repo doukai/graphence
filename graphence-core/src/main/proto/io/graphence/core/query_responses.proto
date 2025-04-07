@@ -11,6 +11,7 @@ import "io/graphence/core/interfaces.proto";
 import "io/graphence/core/input_objects.proto";
 import "io/graphoenix/core/enums.proto";
 import "io/graphoenix/core/input_objects.proto";
+import "io/graphoenix/file/input_objects.proto";
 
 message QueryUserResponse {
     User user = 1;
@@ -84,6 +85,33 @@ message QueryRoleUserRelationListResponse {
 message QueryRoleUserRelationConnectionResponse {
     RoleUserRelationConnection role_user_relation_connection = 1;
 }
+message QueryUserBooleanListRelationResponse {
+    UserBooleanListRelation user_boolean_list_relation = 1;
+}
+message QueryUserBooleanListRelationListResponse {
+    repeated UserBooleanListRelation user_boolean_list_relation_list = 1;
+}
+message QueryUserBooleanListRelationConnectionResponse {
+    UserBooleanListRelationConnection user_boolean_list_relation_connection = 1;
+}
+message QueryUserIntListRelationResponse {
+    UserIntListRelation user_int_list_relation = 1;
+}
+message QueryUserIntListRelationListResponse {
+    repeated UserIntListRelation user_int_list_relation_list = 1;
+}
+message QueryUserIntListRelationConnectionResponse {
+    UserIntListRelationConnection user_int_list_relation_connection = 1;
+}
+message QueryUserTypeListRelationResponse {
+    UserTypeListRelation user_type_list_relation = 1;
+}
+message QueryUserTypeListRelationListResponse {
+    repeated UserTypeListRelation user_type_list_relation_list = 1;
+}
+message QueryUserTypeListRelationConnectionResponse {
+    UserTypeListRelationConnection user_type_list_relation_connection = 1;
+}
 message QueryGroupRoleRelationResponse {
     GroupRoleRelation group_role_relation = 1;
 }
@@ -111,6 +139,18 @@ message QueryPermissionRoleRelationListResponse {
 message QueryPermissionRoleRelationConnectionResponse {
     PermissionRoleRelationConnection permission_role_relation_connection = 1;
 }
+message QueryFileUserRelationResponse {
+    FileUserRelation file_user_relation = 1;
+}
+message QueryFileUserRelationListResponse {
+    repeated FileUserRelation file_user_relation_list = 1;
+}
+message QueryFileUserRelationConnectionResponse {
+    FileUserRelationConnection file_user_relation_connection = 1;
+}
+message QueryPolicyListResponse {
+    repeated Policy policy_list = 1;
+}
 message QueryCurrentResponse {
     Current current = 1;
 }
@@ -122,7 +162,4 @@ message QueryCurrentPermissionTypeListResponse {
 }
 message QueryCurrentPermissionNameListByTypesResponse {
     repeated string current_permission_name_list_by_types = 1;
-}
-message QueryPolicyListResponse {
-    repeated Policy policy_list = 1;
 }
