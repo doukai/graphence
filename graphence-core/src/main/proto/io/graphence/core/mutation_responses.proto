@@ -9,7 +9,6 @@ import "io/graphence/core/enums.proto";
 import "io/graphence/core/objects.proto";
 import "io/graphence/core/interfaces.proto";
 import "io/graphence/core/input_objects.proto";
-import "io/graphoenix/file/input_objects.proto";
 import "google/protobuf/timestamp.proto";
 
 message MutationUserResponse {
@@ -60,24 +59,6 @@ message MutationRoleUserRelationResponse {
 message MutationRoleUserRelationListResponse {
     repeated RoleUserRelation role_user_relation_list = 1;
 }
-message MutationUserBooleanListRelationResponse {
-    UserBooleanListRelation user_boolean_list_relation = 1;
-}
-message MutationUserBooleanListRelationListResponse {
-    repeated UserBooleanListRelation user_boolean_list_relation_list = 1;
-}
-message MutationUserIntListRelationResponse {
-    UserIntListRelation user_int_list_relation = 1;
-}
-message MutationUserIntListRelationListResponse {
-    repeated UserIntListRelation user_int_list_relation_list = 1;
-}
-message MutationUserTypeListRelationResponse {
-    UserTypeListRelation user_type_list_relation = 1;
-}
-message MutationUserTypeListRelationListResponse {
-    repeated UserTypeListRelation user_type_list_relation_list = 1;
-}
 message MutationGroupRoleRelationResponse {
     GroupRoleRelation group_role_relation = 1;
 }
@@ -95,12 +76,6 @@ message MutationPermissionRoleRelationResponse {
 }
 message MutationPermissionRoleRelationListResponse {
     repeated PermissionRoleRelation permission_role_relation_list = 1;
-}
-message MutationFileUserRelationResponse {
-    FileUserRelation file_user_relation = 1;
-}
-message MutationFileUserRelationListResponse {
-    repeated FileUserRelation file_user_relation_list = 1;
 }
 message MutationSyncModelPolicyResponse {
     bool sync_model_policy = 1;

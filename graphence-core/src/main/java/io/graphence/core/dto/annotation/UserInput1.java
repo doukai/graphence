@@ -1,7 +1,5 @@
 package io.graphence.core.dto.annotation;
 
-import io.graphence.core.dto.enumType.PermissionType;
-import io.graphoenix.file.dto.annotation.FileInput2;
 import jakarta.annotation.Generated;
 import java.lang.String;
 import java.lang.annotation.Documented;
@@ -99,36 +97,6 @@ public @interface UserInput1 {
   RealmInput2 realm() default @RealmInput2;
 
   /**
-   * file
-   */
-  @Description("file")
-  FileInput2 file() default @FileInput2;
-
-  /**
-   * files
-   */
-  @Description("files")
-  FileInput2[] files() default {};
-
-  /**
-   * booleanList
-   */
-  @Description("booleanList")
-  boolean[] booleanList() default {};
-
-  /**
-   * intList
-   */
-  @Description("intList")
-  int[] intList() default {};
-
-  /**
-   * typeList
-   */
-  @Description("typeList")
-  PermissionType[] typeList() default {};
-
-  /**
    * 已移除
    */
   @Description("已移除")
@@ -183,12 +151,6 @@ public @interface UserInput1 {
   String __typename() default "User";
 
   /**
-   * 用户 文件 关系
-   */
-  @Description("用户 文件 关系")
-  FileUserRelationInput2[] fileUserRelation() default {};
-
-  /**
    * 用户 手机号 关系
    */
   @Description("用户 手机号 关系")
@@ -205,24 +167,6 @@ public @interface UserInput1 {
    */
   @Description("用户 角色 关系")
   RoleUserRelationInput2[] roleUserRelation() default {};
-
-  /**
-   * 用户 booleanList 关系
-   */
-  @Description("用户 booleanList 关系")
-  UserBooleanListRelationInput2[] userBooleanListRelation() default {};
-
-  /**
-   * 用户 intList 关系
-   */
-  @Description("用户 intList 关系")
-  UserIntListRelationInput2[] userIntListRelation() default {};
-
-  /**
-   * 用户 typeList 关系
-   */
-  @Description("用户 typeList 关系")
-  UserTypeListRelationInput2[] userTypeListRelation() default {};
 
   /**
    * 匹配条件
@@ -256,16 +200,6 @@ public @interface UserInput1 {
 
   String $realm() default "";
 
-  String $file() default "";
-
-  String $files() default "";
-
-  String $booleanList() default "";
-
-  String $intList() default "";
-
-  String $typeList() default "";
-
   String $isDeprecated() default "";
 
   String $version() default "";
@@ -284,19 +218,11 @@ public @interface UserInput1 {
 
   String $__typename() default "";
 
-  String $fileUserRelation() default "";
-
   String $userPhonesRelation() default "";
 
   String $groupUserRelation() default "";
 
   String $roleUserRelation() default "";
-
-  String $userBooleanListRelation() default "";
-
-  String $userIntListRelation() default "";
-
-  String $userTypeListRelation() default "";
 
   String $where() default "";
 }

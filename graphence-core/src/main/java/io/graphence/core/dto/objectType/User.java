@@ -1,10 +1,8 @@
 package io.graphence.core.dto.objectType;
 
 import com.dslplatform.json.CompiledJson;
-import io.graphence.core.dto.enumType.PermissionType;
 import io.graphence.core.dto.inputObjectType.UserInput;
 import io.graphoenix.core.dto.interfaceType.Meta;
-import io.graphoenix.file.dto.objectType.File;
 import io.graphoenix.structure.dto.interfaceType.NamedStruct;
 import jakarta.annotation.Generated;
 import java.lang.Boolean;
@@ -108,16 +106,6 @@ public class User implements NamedStruct, Meta {
   @Description("租户")
   private Realm realm;
 
-  private File file;
-
-  private Collection<File> files;
-
-  private Collection<Boolean> booleanList;
-
-  private Collection<Integer> intList;
-
-  private Collection<PermissionType> typeList;
-
   /**
    * 已移除
    */
@@ -173,12 +161,6 @@ public class User implements NamedStruct, Meta {
   private String __typename = "User";
 
   /**
-   * 用户 文件 关系
-   */
-  @Description("用户 文件 关系")
-  private Collection<FileUserRelation> fileUserRelation;
-
-  /**
    * 用户 手机号 关系
    */
   @Description("用户 手机号 关系")
@@ -195,24 +177,6 @@ public class User implements NamedStruct, Meta {
    */
   @Description("用户 角色 关系")
   private Collection<RoleUserRelation> roleUserRelation;
-
-  /**
-   * 用户 booleanList 关系
-   */
-  @Description("用户 booleanList 关系")
-  private Collection<UserBooleanListRelation> userBooleanListRelation;
-
-  /**
-   * 用户 intList 关系
-   */
-  @Description("用户 intList 关系")
-  private Collection<UserIntListRelation> userIntListRelation;
-
-  /**
-   * 用户 typeList 关系
-   */
-  @Description("用户 typeList 关系")
-  private Collection<UserTypeListRelation> userTypeListRelation;
 
   /**
    * 组 统计字段
@@ -273,42 +237,6 @@ public class User implements NamedStruct, Meta {
    */
   @Description("用户 角色 关系 连接")
   private RoleUserRelationConnection roleUserRelationConnection;
-
-  /**
-   * 用户 booleanList 关系 统计字段
-   */
-  @Description("用户 booleanList 关系 统计字段")
-  private UserBooleanListRelation userBooleanListRelationAggregate;
-
-  /**
-   * 用户 booleanList 关系 连接
-   */
-  @Description("用户 booleanList 关系 连接")
-  private UserBooleanListRelationConnection userBooleanListRelationConnection;
-
-  /**
-   * 用户 intList 关系 统计字段
-   */
-  @Description("用户 intList 关系 统计字段")
-  private UserIntListRelation userIntListRelationAggregate;
-
-  /**
-   * 用户 intList 关系 连接
-   */
-  @Description("用户 intList 关系 连接")
-  private UserIntListRelationConnection userIntListRelationConnection;
-
-  /**
-   * 用户 typeList 关系 统计字段
-   */
-  @Description("用户 typeList 关系 统计字段")
-  private UserTypeListRelation userTypeListRelationAggregate;
-
-  /**
-   * 用户 typeList 关系 连接
-   */
-  @Description("用户 typeList 关系 连接")
-  private UserTypeListRelationConnection userTypeListRelationConnection;
 
   /**
    * 用户 数量
@@ -564,46 +492,6 @@ public class User implements NamedStruct, Meta {
     this.realm = realm;
   }
 
-  public File getFile() {
-    return this.file;
-  }
-
-  public void setFile(File file) {
-    this.file = file;
-  }
-
-  public Collection<File> getFiles() {
-    return this.files;
-  }
-
-  public void setFiles(Collection<File> files) {
-    this.files = files;
-  }
-
-  public Collection<Boolean> getBooleanList() {
-    return this.booleanList;
-  }
-
-  public void setBooleanList(Collection<Boolean> booleanList) {
-    this.booleanList = booleanList;
-  }
-
-  public Collection<Integer> getIntList() {
-    return this.intList;
-  }
-
-  public void setIntList(Collection<Integer> intList) {
-    this.intList = intList;
-  }
-
-  public Collection<PermissionType> getTypeList() {
-    return this.typeList;
-  }
-
-  public void setTypeList(Collection<PermissionType> typeList) {
-    this.typeList = typeList;
-  }
-
   @Override
   public Boolean getIsDeprecated() {
     return this.isDeprecated;
@@ -692,14 +580,6 @@ public class User implements NamedStruct, Meta {
     this.__typename = __typename;
   }
 
-  public Collection<FileUserRelation> getFileUserRelation() {
-    return this.fileUserRelation;
-  }
-
-  public void setFileUserRelation(Collection<FileUserRelation> fileUserRelation) {
-    this.fileUserRelation = fileUserRelation;
-  }
-
   public Collection<UserPhonesRelation> getUserPhonesRelation() {
     return this.userPhonesRelation;
   }
@@ -722,31 +602,6 @@ public class User implements NamedStruct, Meta {
 
   public void setRoleUserRelation(Collection<RoleUserRelation> roleUserRelation) {
     this.roleUserRelation = roleUserRelation;
-  }
-
-  public Collection<UserBooleanListRelation> getUserBooleanListRelation() {
-    return this.userBooleanListRelation;
-  }
-
-  public void setUserBooleanListRelation(
-      Collection<UserBooleanListRelation> userBooleanListRelation) {
-    this.userBooleanListRelation = userBooleanListRelation;
-  }
-
-  public Collection<UserIntListRelation> getUserIntListRelation() {
-    return this.userIntListRelation;
-  }
-
-  public void setUserIntListRelation(Collection<UserIntListRelation> userIntListRelation) {
-    this.userIntListRelation = userIntListRelation;
-  }
-
-  public Collection<UserTypeListRelation> getUserTypeListRelation() {
-    return this.userTypeListRelation;
-  }
-
-  public void setUserTypeListRelation(Collection<UserTypeListRelation> userTypeListRelation) {
-    this.userTypeListRelation = userTypeListRelation;
   }
 
   public Group getGroupsAggregate() {
@@ -829,58 +684,6 @@ public class User implements NamedStruct, Meta {
 
   public void setRoleUserRelationConnection(RoleUserRelationConnection roleUserRelationConnection) {
     this.roleUserRelationConnection = roleUserRelationConnection;
-  }
-
-  public UserBooleanListRelation getUserBooleanListRelationAggregate() {
-    return this.userBooleanListRelationAggregate;
-  }
-
-  public void setUserBooleanListRelationAggregate(
-      UserBooleanListRelation userBooleanListRelationAggregate) {
-    this.userBooleanListRelationAggregate = userBooleanListRelationAggregate;
-  }
-
-  public UserBooleanListRelationConnection getUserBooleanListRelationConnection() {
-    return this.userBooleanListRelationConnection;
-  }
-
-  public void setUserBooleanListRelationConnection(
-      UserBooleanListRelationConnection userBooleanListRelationConnection) {
-    this.userBooleanListRelationConnection = userBooleanListRelationConnection;
-  }
-
-  public UserIntListRelation getUserIntListRelationAggregate() {
-    return this.userIntListRelationAggregate;
-  }
-
-  public void setUserIntListRelationAggregate(UserIntListRelation userIntListRelationAggregate) {
-    this.userIntListRelationAggregate = userIntListRelationAggregate;
-  }
-
-  public UserIntListRelationConnection getUserIntListRelationConnection() {
-    return this.userIntListRelationConnection;
-  }
-
-  public void setUserIntListRelationConnection(
-      UserIntListRelationConnection userIntListRelationConnection) {
-    this.userIntListRelationConnection = userIntListRelationConnection;
-  }
-
-  public UserTypeListRelation getUserTypeListRelationAggregate() {
-    return this.userTypeListRelationAggregate;
-  }
-
-  public void setUserTypeListRelationAggregate(UserTypeListRelation userTypeListRelationAggregate) {
-    this.userTypeListRelationAggregate = userTypeListRelationAggregate;
-  }
-
-  public UserTypeListRelationConnection getUserTypeListRelationConnection() {
-    return this.userTypeListRelationConnection;
-  }
-
-  public void setUserTypeListRelationConnection(
-      UserTypeListRelationConnection userTypeListRelationConnection) {
-    this.userTypeListRelationConnection = userTypeListRelationConnection;
   }
 
   public Integer getIdCount() {
@@ -1104,9 +907,6 @@ public class User implements NamedStruct, Meta {
     if(getRealm() != null) {
       input.setRealm(this.getRealm().toInput());
     }
-    input.setBooleanList(this.getBooleanList());
-    input.setIntList(this.getIntList());
-    input.setTypeList(this.getTypeList());
     input.setIsDeprecated(this.getIsDeprecated());
     input.setVersion(this.getVersion());
     input.setRealmId(this.getRealmId());
@@ -1124,15 +924,6 @@ public class User implements NamedStruct, Meta {
     }
     if(getRoleUserRelation() != null) {
       input.setRoleUserRelation(this.getRoleUserRelation().stream().map(item -> item.toInput()).collect(Collectors.toList()));
-    }
-    if(getUserBooleanListRelation() != null) {
-      input.setUserBooleanListRelation(this.getUserBooleanListRelation().stream().map(item -> item.toInput()).collect(Collectors.toList()));
-    }
-    if(getUserIntListRelation() != null) {
-      input.setUserIntListRelation(this.getUserIntListRelation().stream().map(item -> item.toInput()).collect(Collectors.toList()));
-    }
-    if(getUserTypeListRelation() != null) {
-      input.setUserTypeListRelation(this.getUserTypeListRelation().stream().map(item -> item.toInput()).collect(Collectors.toList()));
     }
     return input;
   }

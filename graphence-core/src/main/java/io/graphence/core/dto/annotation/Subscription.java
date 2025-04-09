@@ -77,33 +77,6 @@ public @interface Subscription {
   RoleUserRelationConnectionSubscriptionArguments roleUserRelationConnection(
       ) default @RoleUserRelationConnectionSubscriptionArguments;
 
-  UserBooleanListRelationSubscriptionArguments userBooleanListRelation(
-      ) default @UserBooleanListRelationSubscriptionArguments;
-
-  UserBooleanListRelationListSubscriptionArguments userBooleanListRelationList(
-      ) default @UserBooleanListRelationListSubscriptionArguments;
-
-  UserBooleanListRelationConnectionSubscriptionArguments userBooleanListRelationConnection(
-      ) default @UserBooleanListRelationConnectionSubscriptionArguments;
-
-  UserIntListRelationSubscriptionArguments userIntListRelation(
-      ) default @UserIntListRelationSubscriptionArguments;
-
-  UserIntListRelationListSubscriptionArguments userIntListRelationList(
-      ) default @UserIntListRelationListSubscriptionArguments;
-
-  UserIntListRelationConnectionSubscriptionArguments userIntListRelationConnection(
-      ) default @UserIntListRelationConnectionSubscriptionArguments;
-
-  UserTypeListRelationSubscriptionArguments userTypeListRelation(
-      ) default @UserTypeListRelationSubscriptionArguments;
-
-  UserTypeListRelationListSubscriptionArguments userTypeListRelationList(
-      ) default @UserTypeListRelationListSubscriptionArguments;
-
-  UserTypeListRelationConnectionSubscriptionArguments userTypeListRelationConnection(
-      ) default @UserTypeListRelationConnectionSubscriptionArguments;
-
   GroupRoleRelationSubscriptionArguments groupRoleRelation(
       ) default @GroupRoleRelationSubscriptionArguments;
 
@@ -130,13 +103,4 @@ public @interface Subscription {
 
   PermissionRoleRelationConnectionSubscriptionArguments permissionRoleRelationConnection(
       ) default @PermissionRoleRelationConnectionSubscriptionArguments;
-
-  FileUserRelationSubscriptionArguments fileUserRelation(
-      ) default @FileUserRelationSubscriptionArguments;
-
-  FileUserRelationListSubscriptionArguments fileUserRelationList(
-      ) default @FileUserRelationListSubscriptionArguments;
-
-  FileUserRelationConnectionSubscriptionArguments fileUserRelationConnection(
-      ) default @FileUserRelationConnectionSubscriptionArguments;
 }

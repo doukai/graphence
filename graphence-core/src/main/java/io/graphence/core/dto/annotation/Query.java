@@ -72,33 +72,6 @@ public @interface Query {
   RoleUserRelationConnectionQueryArguments roleUserRelationConnection(
       ) default @RoleUserRelationConnectionQueryArguments;
 
-  UserBooleanListRelationQueryArguments userBooleanListRelation(
-      ) default @UserBooleanListRelationQueryArguments;
-
-  UserBooleanListRelationListQueryArguments userBooleanListRelationList(
-      ) default @UserBooleanListRelationListQueryArguments;
-
-  UserBooleanListRelationConnectionQueryArguments userBooleanListRelationConnection(
-      ) default @UserBooleanListRelationConnectionQueryArguments;
-
-  UserIntListRelationQueryArguments userIntListRelation(
-      ) default @UserIntListRelationQueryArguments;
-
-  UserIntListRelationListQueryArguments userIntListRelationList(
-      ) default @UserIntListRelationListQueryArguments;
-
-  UserIntListRelationConnectionQueryArguments userIntListRelationConnection(
-      ) default @UserIntListRelationConnectionQueryArguments;
-
-  UserTypeListRelationQueryArguments userTypeListRelation(
-      ) default @UserTypeListRelationQueryArguments;
-
-  UserTypeListRelationListQueryArguments userTypeListRelationList(
-      ) default @UserTypeListRelationListQueryArguments;
-
-  UserTypeListRelationConnectionQueryArguments userTypeListRelationConnection(
-      ) default @UserTypeListRelationConnectionQueryArguments;
-
   GroupRoleRelationQueryArguments groupRoleRelation() default @GroupRoleRelationQueryArguments;
 
   GroupRoleRelationListQueryArguments groupRoleRelationList(
@@ -124,12 +97,4 @@ public @interface Query {
 
   PermissionRoleRelationConnectionQueryArguments permissionRoleRelationConnection(
       ) default @PermissionRoleRelationConnectionQueryArguments;
-
-  FileUserRelationQueryArguments fileUserRelation() default @FileUserRelationQueryArguments;
-
-  FileUserRelationListQueryArguments fileUserRelationList(
-      ) default @FileUserRelationListQueryArguments;
-
-  FileUserRelationConnectionQueryArguments fileUserRelationConnection(
-      ) default @FileUserRelationConnectionQueryArguments;
 }

@@ -2,7 +2,6 @@ package io.graphence.core.dto.inputObjectType;
 
 import com.dslplatform.json.CompiledJson;
 import io.graphoenix.core.dto.enumType.Sort;
-import io.graphoenix.file.dto.inputObjectType.FileOrderBy;
 import jakarta.annotation.Generated;
 import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.Input;
@@ -94,36 +93,6 @@ public class UserOrderBy {
   private RealmOrderBy realm;
 
   /**
-   * file
-   */
-  @Description("file")
-  private FileOrderBy file;
-
-  /**
-   * files
-   */
-  @Description("files")
-  private FileOrderBy files;
-
-  /**
-   * booleanList
-   */
-  @Description("booleanList")
-  private Sort booleanList;
-
-  /**
-   * intList
-   */
-  @Description("intList")
-  private Sort intList;
-
-  /**
-   * typeList
-   */
-  @Description("typeList")
-  private Sort typeList;
-
-  /**
    * 已移除
    */
   @Description("已移除")
@@ -178,12 +147,6 @@ public class UserOrderBy {
   private Sort __typename;
 
   /**
-   * 用户 文件 关系
-   */
-  @Description("用户 文件 关系")
-  private FileUserRelationOrderBy fileUserRelation;
-
-  /**
    * 用户 手机号 关系
    */
   @Description("用户 手机号 关系")
@@ -200,24 +163,6 @@ public class UserOrderBy {
    */
   @Description("用户 角色 关系")
   private RoleUserRelationOrderBy roleUserRelation;
-
-  /**
-   * 用户 booleanList 关系
-   */
-  @Description("用户 booleanList 关系")
-  private UserBooleanListRelationOrderBy userBooleanListRelation;
-
-  /**
-   * 用户 intList 关系
-   */
-  @Description("用户 intList 关系")
-  private UserIntListRelationOrderBy userIntListRelation;
-
-  /**
-   * 用户 typeList 关系
-   */
-  @Description("用户 typeList 关系")
-  private UserTypeListRelationOrderBy userTypeListRelation;
 
   /**
    * 组 统计字段
@@ -248,24 +193,6 @@ public class UserOrderBy {
    */
   @Description("用户 角色 关系 统计字段")
   private RoleUserRelationOrderBy roleUserRelationAggregate;
-
-  /**
-   * 用户 booleanList 关系 统计字段
-   */
-  @Description("用户 booleanList 关系 统计字段")
-  private UserBooleanListRelationOrderBy userBooleanListRelationAggregate;
-
-  /**
-   * 用户 intList 关系 统计字段
-   */
-  @Description("用户 intList 关系 统计字段")
-  private UserIntListRelationOrderBy userIntListRelationAggregate;
-
-  /**
-   * 用户 typeList 关系 统计字段
-   */
-  @Description("用户 typeList 关系 统计字段")
-  private UserTypeListRelationOrderBy userTypeListRelationAggregate;
 
   /**
    * 用户 数量
@@ -515,46 +442,6 @@ public class UserOrderBy {
     this.realm = realm;
   }
 
-  public FileOrderBy getFile() {
-    return this.file;
-  }
-
-  public void setFile(FileOrderBy file) {
-    this.file = file;
-  }
-
-  public FileOrderBy getFiles() {
-    return this.files;
-  }
-
-  public void setFiles(FileOrderBy files) {
-    this.files = files;
-  }
-
-  public Sort getBooleanList() {
-    return this.booleanList;
-  }
-
-  public void setBooleanList(Sort booleanList) {
-    this.booleanList = booleanList;
-  }
-
-  public Sort getIntList() {
-    return this.intList;
-  }
-
-  public void setIntList(Sort intList) {
-    this.intList = intList;
-  }
-
-  public Sort getTypeList() {
-    return this.typeList;
-  }
-
-  public void setTypeList(Sort typeList) {
-    this.typeList = typeList;
-  }
-
   public Sort getIsDeprecated() {
     return this.isDeprecated;
   }
@@ -627,14 +514,6 @@ public class UserOrderBy {
     this.__typename = __typename;
   }
 
-  public FileUserRelationOrderBy getFileUserRelation() {
-    return this.fileUserRelation;
-  }
-
-  public void setFileUserRelation(FileUserRelationOrderBy fileUserRelation) {
-    this.fileUserRelation = fileUserRelation;
-  }
-
   public UserPhonesRelationOrderBy getUserPhonesRelation() {
     return this.userPhonesRelation;
   }
@@ -657,30 +536,6 @@ public class UserOrderBy {
 
   public void setRoleUserRelation(RoleUserRelationOrderBy roleUserRelation) {
     this.roleUserRelation = roleUserRelation;
-  }
-
-  public UserBooleanListRelationOrderBy getUserBooleanListRelation() {
-    return this.userBooleanListRelation;
-  }
-
-  public void setUserBooleanListRelation(UserBooleanListRelationOrderBy userBooleanListRelation) {
-    this.userBooleanListRelation = userBooleanListRelation;
-  }
-
-  public UserIntListRelationOrderBy getUserIntListRelation() {
-    return this.userIntListRelation;
-  }
-
-  public void setUserIntListRelation(UserIntListRelationOrderBy userIntListRelation) {
-    this.userIntListRelation = userIntListRelation;
-  }
-
-  public UserTypeListRelationOrderBy getUserTypeListRelation() {
-    return this.userTypeListRelation;
-  }
-
-  public void setUserTypeListRelation(UserTypeListRelationOrderBy userTypeListRelation) {
-    this.userTypeListRelation = userTypeListRelation;
   }
 
   public GroupOrderBy getGroupsAggregate() {
@@ -722,33 +577,6 @@ public class UserOrderBy {
 
   public void setRoleUserRelationAggregate(RoleUserRelationOrderBy roleUserRelationAggregate) {
     this.roleUserRelationAggregate = roleUserRelationAggregate;
-  }
-
-  public UserBooleanListRelationOrderBy getUserBooleanListRelationAggregate() {
-    return this.userBooleanListRelationAggregate;
-  }
-
-  public void setUserBooleanListRelationAggregate(
-      UserBooleanListRelationOrderBy userBooleanListRelationAggregate) {
-    this.userBooleanListRelationAggregate = userBooleanListRelationAggregate;
-  }
-
-  public UserIntListRelationOrderBy getUserIntListRelationAggregate() {
-    return this.userIntListRelationAggregate;
-  }
-
-  public void setUserIntListRelationAggregate(
-      UserIntListRelationOrderBy userIntListRelationAggregate) {
-    this.userIntListRelationAggregate = userIntListRelationAggregate;
-  }
-
-  public UserTypeListRelationOrderBy getUserTypeListRelationAggregate() {
-    return this.userTypeListRelationAggregate;
-  }
-
-  public void setUserTypeListRelationAggregate(
-      UserTypeListRelationOrderBy userTypeListRelationAggregate) {
-    this.userTypeListRelationAggregate = userTypeListRelationAggregate;
   }
 
   public Sort getIdCount() {

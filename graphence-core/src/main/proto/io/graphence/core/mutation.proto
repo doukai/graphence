@@ -32,20 +32,12 @@ service MutationService {
     rpc GroupUserRelationList (MutationGroupUserRelationListRequest) returns (MutationGroupUserRelationListResponse); /* 用户 组 关系列表 变更接口 */
     rpc RoleUserRelation (MutationRoleUserRelationRequest) returns (MutationRoleUserRelationResponse); /* 用户 角色 关系 变更接口 */
     rpc RoleUserRelationList (MutationRoleUserRelationListRequest) returns (MutationRoleUserRelationListResponse); /* 用户 角色 关系列表 变更接口 */
-    rpc UserBooleanListRelation (MutationUserBooleanListRelationRequest) returns (MutationUserBooleanListRelationResponse); /* 用户 booleanList 关系 变更接口 */
-    rpc UserBooleanListRelationList (MutationUserBooleanListRelationListRequest) returns (MutationUserBooleanListRelationListResponse); /* 用户 booleanList 关系列表 变更接口 */
-    rpc UserIntListRelation (MutationUserIntListRelationRequest) returns (MutationUserIntListRelationResponse); /* 用户 intList 关系 变更接口 */
-    rpc UserIntListRelationList (MutationUserIntListRelationListRequest) returns (MutationUserIntListRelationListResponse); /* 用户 intList 关系列表 变更接口 */
-    rpc UserTypeListRelation (MutationUserTypeListRelationRequest) returns (MutationUserTypeListRelationResponse); /* 用户 typeList 关系 变更接口 */
-    rpc UserTypeListRelationList (MutationUserTypeListRelationListRequest) returns (MutationUserTypeListRelationListResponse); /* 用户 typeList 关系列表 变更接口 */
     rpc GroupRoleRelation (MutationGroupRoleRelationRequest) returns (MutationGroupRoleRelationResponse); /* 角色 组 关系 变更接口 */
     rpc GroupRoleRelationList (MutationGroupRoleRelationListRequest) returns (MutationGroupRoleRelationListResponse); /* 角色 组 关系列表 变更接口 */
     rpc RoleCompositeRelation (MutationRoleCompositeRelationRequest) returns (MutationRoleCompositeRelationResponse); /* 角色 角色 关系 变更接口 */
     rpc RoleCompositeRelationList (MutationRoleCompositeRelationListRequest) returns (MutationRoleCompositeRelationListResponse); /* 角色 角色 关系列表 变更接口 */
     rpc PermissionRoleRelation (MutationPermissionRoleRelationRequest) returns (MutationPermissionRoleRelationResponse); /* 角色 权限 关系 变更接口 */
     rpc PermissionRoleRelationList (MutationPermissionRoleRelationListRequest) returns (MutationPermissionRoleRelationListResponse); /* 角色 权限 关系列表 变更接口 */
-    rpc FileUserRelation (MutationFileUserRelationRequest) returns (MutationFileUserRelationResponse); /* 用户 文件 关系 变更接口 */
-    rpc FileUserRelationList (MutationFileUserRelationListRequest) returns (MutationFileUserRelationListResponse); /* 用户 文件 关系列表 变更接口 */
     rpc SyncModelPolicy (MutationSyncModelPolicyRequest) returns (MutationSyncModelPolicyResponse);
     rpc SyncPermissionRoleRelationPolicy (MutationSyncPermissionRoleRelationPolicyRequest) returns (MutationSyncPermissionRoleRelationPolicyResponse);
     rpc CurrentUserUpdate (MutationCurrentUserUpdateRequest) returns (MutationCurrentUserUpdateResponse);

@@ -80,24 +80,6 @@ public @interface UserOrderBy2 {
   Sort disable() default Sort.ASC;
 
   /**
-   * booleanList
-   */
-  @Description("booleanList")
-  Sort booleanList() default Sort.ASC;
-
-  /**
-   * intList
-   */
-  @Description("intList")
-  Sort intList() default Sort.ASC;
-
-  /**
-   * typeList
-   */
-  @Description("typeList")
-  Sort typeList() default Sort.ASC;
-
-  /**
    * 已移除
    */
   @Description("已移除")
@@ -314,12 +296,6 @@ public @interface UserOrderBy2 {
   String $phones() default "";
 
   String $disable() default "";
-
-  String $booleanList() default "";
-
-  String $intList() default "";
-
-  String $typeList() default "";
 
   String $isDeprecated() default "";
 

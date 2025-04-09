@@ -6,7 +6,6 @@ import io.graphoenix.core.dto.inputObjectType.BooleanExpression;
 import io.graphoenix.core.dto.inputObjectType.IntExpression;
 import io.graphoenix.core.dto.inputObjectType.MetaExpression;
 import io.graphoenix.core.dto.inputObjectType.StringExpression;
-import io.graphoenix.file.dto.inputObjectType.FileExpression;
 import io.graphoenix.structure.dto.inputObjectType.NamedStructExpression;
 import jakarta.annotation.Generated;
 import java.lang.Boolean;
@@ -103,36 +102,6 @@ public class UserExpression implements NamedStructExpression, MetaExpression, Us
   private RealmExpression realm;
 
   /**
-   * file
-   */
-  @Description("file")
-  private FileExpression file;
-
-  /**
-   * files
-   */
-  @Description("files")
-  private FileExpression files;
-
-  /**
-   * booleanList
-   */
-  @Description("booleanList")
-  private BooleanExpression booleanList;
-
-  /**
-   * intList
-   */
-  @Description("intList")
-  private IntExpression intList;
-
-  /**
-   * typeList
-   */
-  @Description("typeList")
-  private PermissionTypeExpression typeList;
-
-  /**
    * 包含已移除
    */
   @DefaultValue("false")
@@ -188,12 +157,6 @@ public class UserExpression implements NamedStructExpression, MetaExpression, Us
   private StringExpression __typename;
 
   /**
-   * 用户 文件 关系
-   */
-  @Description("用户 文件 关系")
-  private FileUserRelationExpression fileUserRelation;
-
-  /**
    * 用户 手机号 关系
    */
   @Description("用户 手机号 关系")
@@ -210,24 +173,6 @@ public class UserExpression implements NamedStructExpression, MetaExpression, Us
    */
   @Description("用户 角色 关系")
   private RoleUserRelationExpression roleUserRelation;
-
-  /**
-   * 用户 booleanList 关系
-   */
-  @Description("用户 booleanList 关系")
-  private UserBooleanListRelationExpression userBooleanListRelation;
-
-  /**
-   * 用户 intList 关系
-   */
-  @Description("用户 intList 关系")
-  private UserIntListRelationExpression userIntListRelation;
-
-  /**
-   * 用户 typeList 关系
-   */
-  @Description("用户 typeList 关系")
-  private UserTypeListRelationExpression userTypeListRelation;
 
   /**
    * 取非
@@ -380,56 +325,6 @@ public class UserExpression implements NamedStructExpression, MetaExpression, Us
   }
 
   @Override
-  public FileExpression getFile() {
-    return this.file;
-  }
-
-  @Override
-  public void setFile(FileExpression file) {
-    this.file = (FileExpression)file;
-  }
-
-  @Override
-  public FileExpression getFiles() {
-    return this.files;
-  }
-
-  @Override
-  public void setFiles(FileExpression files) {
-    this.files = (FileExpression)files;
-  }
-
-  @Override
-  public BooleanExpression getBooleanList() {
-    return this.booleanList;
-  }
-
-  @Override
-  public void setBooleanList(BooleanExpression booleanList) {
-    this.booleanList = (BooleanExpression)booleanList;
-  }
-
-  @Override
-  public IntExpression getIntList() {
-    return this.intList;
-  }
-
-  @Override
-  public void setIntList(IntExpression intList) {
-    this.intList = (IntExpression)intList;
-  }
-
-  @Override
-  public PermissionTypeExpression getTypeList() {
-    return this.typeList;
-  }
-
-  @Override
-  public void setTypeList(PermissionTypeExpression typeList) {
-    this.typeList = (PermissionTypeExpression)typeList;
-  }
-
-  @Override
   public Boolean getIncludeDeprecated() {
     return this.includeDeprecated;
   }
@@ -520,16 +415,6 @@ public class UserExpression implements NamedStructExpression, MetaExpression, Us
   }
 
   @Override
-  public FileUserRelationExpression getFileUserRelation() {
-    return this.fileUserRelation;
-  }
-
-  @Override
-  public void setFileUserRelation(FileUserRelationExpression fileUserRelation) {
-    this.fileUserRelation = (FileUserRelationExpression)fileUserRelation;
-  }
-
-  @Override
   public UserPhonesRelationExpression getUserPhonesRelation() {
     return this.userPhonesRelation;
   }
@@ -557,37 +442,6 @@ public class UserExpression implements NamedStructExpression, MetaExpression, Us
   @Override
   public void setRoleUserRelation(RoleUserRelationExpression roleUserRelation) {
     this.roleUserRelation = (RoleUserRelationExpression)roleUserRelation;
-  }
-
-  @Override
-  public UserBooleanListRelationExpression getUserBooleanListRelation() {
-    return this.userBooleanListRelation;
-  }
-
-  @Override
-  public void setUserBooleanListRelation(
-      UserBooleanListRelationExpression userBooleanListRelation) {
-    this.userBooleanListRelation = (UserBooleanListRelationExpression)userBooleanListRelation;
-  }
-
-  @Override
-  public UserIntListRelationExpression getUserIntListRelation() {
-    return this.userIntListRelation;
-  }
-
-  @Override
-  public void setUserIntListRelation(UserIntListRelationExpression userIntListRelation) {
-    this.userIntListRelation = (UserIntListRelationExpression)userIntListRelation;
-  }
-
-  @Override
-  public UserTypeListRelationExpression getUserTypeListRelation() {
-    return this.userTypeListRelation;
-  }
-
-  @Override
-  public void setUserTypeListRelation(UserTypeListRelationExpression userTypeListRelation) {
-    this.userTypeListRelation = (UserTypeListRelationExpression)userTypeListRelation;
   }
 
   @Override

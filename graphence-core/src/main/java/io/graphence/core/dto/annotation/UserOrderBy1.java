@@ -1,7 +1,6 @@
 package io.graphence.core.dto.annotation;
 
 import io.graphoenix.core.dto.enumType.Sort;
-import io.graphoenix.file.dto.annotation.FileOrderBy;
 import jakarta.annotation.Generated;
 import java.lang.String;
 import java.lang.annotation.Documented;
@@ -99,36 +98,6 @@ public @interface UserOrderBy1 {
   RealmOrderBy realm() default @RealmOrderBy;
 
   /**
-   * file
-   */
-  @Description("file")
-  FileOrderBy file() default @FileOrderBy;
-
-  /**
-   * files
-   */
-  @Description("files")
-  FileOrderBy files() default @FileOrderBy;
-
-  /**
-   * booleanList
-   */
-  @Description("booleanList")
-  Sort booleanList() default Sort.ASC;
-
-  /**
-   * intList
-   */
-  @Description("intList")
-  Sort intList() default Sort.ASC;
-
-  /**
-   * typeList
-   */
-  @Description("typeList")
-  Sort typeList() default Sort.ASC;
-
-  /**
    * 已移除
    */
   @Description("已移除")
@@ -183,12 +152,6 @@ public @interface UserOrderBy1 {
   Sort __typename() default Sort.ASC;
 
   /**
-   * 用户 文件 关系
-   */
-  @Description("用户 文件 关系")
-  FileUserRelationOrderBy2 fileUserRelation() default @FileUserRelationOrderBy2;
-
-  /**
    * 用户 手机号 关系
    */
   @Description("用户 手机号 关系")
@@ -205,25 +168,6 @@ public @interface UserOrderBy1 {
    */
   @Description("用户 角色 关系")
   RoleUserRelationOrderBy2 roleUserRelation() default @RoleUserRelationOrderBy2;
-
-  /**
-   * 用户 booleanList 关系
-   */
-  @Description("用户 booleanList 关系")
-  UserBooleanListRelationOrderBy2 userBooleanListRelation(
-      ) default @UserBooleanListRelationOrderBy2;
-
-  /**
-   * 用户 intList 关系
-   */
-  @Description("用户 intList 关系")
-  UserIntListRelationOrderBy2 userIntListRelation() default @UserIntListRelationOrderBy2;
-
-  /**
-   * 用户 typeList 关系
-   */
-  @Description("用户 typeList 关系")
-  UserTypeListRelationOrderBy2 userTypeListRelation() default @UserTypeListRelationOrderBy2;
 
   /**
    * 组 统计字段
@@ -254,26 +198,6 @@ public @interface UserOrderBy1 {
    */
   @Description("用户 角色 关系 统计字段")
   RoleUserRelationOrderBy2 roleUserRelationAggregate() default @RoleUserRelationOrderBy2;
-
-  /**
-   * 用户 booleanList 关系 统计字段
-   */
-  @Description("用户 booleanList 关系 统计字段")
-  UserBooleanListRelationOrderBy2 userBooleanListRelationAggregate(
-      ) default @UserBooleanListRelationOrderBy2;
-
-  /**
-   * 用户 intList 关系 统计字段
-   */
-  @Description("用户 intList 关系 统计字段")
-  UserIntListRelationOrderBy2 userIntListRelationAggregate() default @UserIntListRelationOrderBy2;
-
-  /**
-   * 用户 typeList 关系 统计字段
-   */
-  @Description("用户 typeList 关系 统计字段")
-  UserTypeListRelationOrderBy2 userTypeListRelationAggregate(
-      ) default @UserTypeListRelationOrderBy2;
 
   /**
    * 用户 数量
@@ -445,16 +369,6 @@ public @interface UserOrderBy1 {
 
   String $realm() default "";
 
-  String $file() default "";
-
-  String $files() default "";
-
-  String $booleanList() default "";
-
-  String $intList() default "";
-
-  String $typeList() default "";
-
   String $isDeprecated() default "";
 
   String $version() default "";
@@ -473,19 +387,11 @@ public @interface UserOrderBy1 {
 
   String $__typename() default "";
 
-  String $fileUserRelation() default "";
-
   String $userPhonesRelation() default "";
 
   String $groupUserRelation() default "";
 
   String $roleUserRelation() default "";
-
-  String $userBooleanListRelation() default "";
-
-  String $userIntListRelation() default "";
-
-  String $userTypeListRelation() default "";
 
   String $groupsAggregate() default "";
 
@@ -496,12 +402,6 @@ public @interface UserOrderBy1 {
   String $groupUserRelationAggregate() default "";
 
   String $roleUserRelationAggregate() default "";
-
-  String $userBooleanListRelationAggregate() default "";
-
-  String $userIntListRelationAggregate() default "";
-
-  String $userTypeListRelationAggregate() default "";
 
   String $idCount() default "";
 

@@ -1,9 +1,7 @@
 package io.graphence.core.dto.inputObjectType;
 
 import com.dslplatform.json.CompiledJson;
-import io.graphence.core.dto.enumType.PermissionType;
 import io.graphoenix.core.dto.inputObjectType.MetaInput;
-import io.graphoenix.file.dto.inputObjectType.FileInput;
 import io.graphoenix.structure.dto.inputObjectType.NamedStructInput;
 import jakarta.annotation.Generated;
 import java.lang.Boolean;
@@ -103,36 +101,6 @@ public class UserListMutationArguments implements NamedStructInput, MetaInput, U
   private RealmInput realm;
 
   /**
-   * file
-   */
-  @Description("file")
-  private FileInput file;
-
-  /**
-   * files
-   */
-  @Description("files")
-  private Collection<FileInput> files;
-
-  /**
-   * booleanList
-   */
-  @Description("booleanList")
-  private Collection<Boolean> booleanList;
-
-  /**
-   * intList
-   */
-  @Description("intList")
-  private Collection<Integer> intList;
-
-  /**
-   * typeList
-   */
-  @Description("typeList")
-  private Collection<PermissionType> typeList;
-
-  /**
    * 已移除
    */
   @DefaultValue("false")
@@ -189,12 +157,6 @@ public class UserListMutationArguments implements NamedStructInput, MetaInput, U
   private String __typename = "User";
 
   /**
-   * 用户 文件 关系
-   */
-  @Description("用户 文件 关系")
-  private Collection<FileUserRelationInput> fileUserRelation;
-
-  /**
    * 用户 手机号 关系
    */
   @Description("用户 手机号 关系")
@@ -211,24 +173,6 @@ public class UserListMutationArguments implements NamedStructInput, MetaInput, U
    */
   @Description("用户 角色 关系")
   private Collection<RoleUserRelationInput> roleUserRelation;
-
-  /**
-   * 用户 booleanList 关系
-   */
-  @Description("用户 booleanList 关系")
-  private Collection<UserBooleanListRelationInput> userBooleanListRelation;
-
-  /**
-   * 用户 intList 关系
-   */
-  @Description("用户 intList 关系")
-  private Collection<UserIntListRelationInput> userIntListRelation;
-
-  /**
-   * 用户 typeList 关系
-   */
-  @Description("用户 typeList 关系")
-  private Collection<UserTypeListRelationInput> userTypeListRelation;
 
   /**
    * 变更内容列表
@@ -373,56 +317,6 @@ public class UserListMutationArguments implements NamedStructInput, MetaInput, U
   }
 
   @Override
-  public FileInput getFile() {
-    return this.file;
-  }
-
-  @Override
-  public void setFile(FileInput file) {
-    this.file = (FileInput)file;
-  }
-
-  @Override
-  public Collection<FileInput> getFiles() {
-    return this.files;
-  }
-
-  @Override
-  public void setFiles(Collection<FileInput> files) {
-    this.files = (Collection<FileInput>)files;
-  }
-
-  @Override
-  public Collection<Boolean> getBooleanList() {
-    return this.booleanList;
-  }
-
-  @Override
-  public void setBooleanList(Collection<Boolean> booleanList) {
-    this.booleanList = (Collection<Boolean>)booleanList;
-  }
-
-  @Override
-  public Collection<Integer> getIntList() {
-    return this.intList;
-  }
-
-  @Override
-  public void setIntList(Collection<Integer> intList) {
-    this.intList = (Collection<Integer>)intList;
-  }
-
-  @Override
-  public Collection<PermissionType> getTypeList() {
-    return this.typeList;
-  }
-
-  @Override
-  public void setTypeList(Collection<PermissionType> typeList) {
-    this.typeList = (Collection<PermissionType>)typeList;
-  }
-
-  @Override
   public Boolean getIsDeprecated() {
     return this.isDeprecated;
   }
@@ -513,16 +407,6 @@ public class UserListMutationArguments implements NamedStructInput, MetaInput, U
   }
 
   @Override
-  public Collection<FileUserRelationInput> getFileUserRelation() {
-    return this.fileUserRelation;
-  }
-
-  @Override
-  public void setFileUserRelation(Collection<FileUserRelationInput> fileUserRelation) {
-    this.fileUserRelation = (Collection<FileUserRelationInput>)fileUserRelation;
-  }
-
-  @Override
   public Collection<UserPhonesRelationInput> getUserPhonesRelation() {
     return this.userPhonesRelation;
   }
@@ -550,37 +434,6 @@ public class UserListMutationArguments implements NamedStructInput, MetaInput, U
   @Override
   public void setRoleUserRelation(Collection<RoleUserRelationInput> roleUserRelation) {
     this.roleUserRelation = (Collection<RoleUserRelationInput>)roleUserRelation;
-  }
-
-  @Override
-  public Collection<UserBooleanListRelationInput> getUserBooleanListRelation() {
-    return this.userBooleanListRelation;
-  }
-
-  @Override
-  public void setUserBooleanListRelation(
-      Collection<UserBooleanListRelationInput> userBooleanListRelation) {
-    this.userBooleanListRelation = (Collection<UserBooleanListRelationInput>)userBooleanListRelation;
-  }
-
-  @Override
-  public Collection<UserIntListRelationInput> getUserIntListRelation() {
-    return this.userIntListRelation;
-  }
-
-  @Override
-  public void setUserIntListRelation(Collection<UserIntListRelationInput> userIntListRelation) {
-    this.userIntListRelation = (Collection<UserIntListRelationInput>)userIntListRelation;
-  }
-
-  @Override
-  public Collection<UserTypeListRelationInput> getUserTypeListRelation() {
-    return this.userTypeListRelation;
-  }
-
-  @Override
-  public void setUserTypeListRelation(Collection<UserTypeListRelationInput> userTypeListRelation) {
-    this.userTypeListRelation = (Collection<UserTypeListRelationInput>)userTypeListRelation;
   }
 
   public Collection<UserInput> getList() {

@@ -113,42 +113,6 @@ public class Mutation {
   private Collection<RoleUserRelation> roleUserRelationList;
 
   /**
-   * 用户 booleanList 关系 变更接口
-   */
-  @Description("用户 booleanList 关系 变更接口")
-  private UserBooleanListRelation userBooleanListRelation;
-
-  /**
-   * 用户 booleanList 关系列表 变更接口
-   */
-  @Description("用户 booleanList 关系列表 变更接口")
-  private Collection<UserBooleanListRelation> userBooleanListRelationList;
-
-  /**
-   * 用户 intList 关系 变更接口
-   */
-  @Description("用户 intList 关系 变更接口")
-  private UserIntListRelation userIntListRelation;
-
-  /**
-   * 用户 intList 关系列表 变更接口
-   */
-  @Description("用户 intList 关系列表 变更接口")
-  private Collection<UserIntListRelation> userIntListRelationList;
-
-  /**
-   * 用户 typeList 关系 变更接口
-   */
-  @Description("用户 typeList 关系 变更接口")
-  private UserTypeListRelation userTypeListRelation;
-
-  /**
-   * 用户 typeList 关系列表 变更接口
-   */
-  @Description("用户 typeList 关系列表 变更接口")
-  private Collection<UserTypeListRelation> userTypeListRelationList;
-
-  /**
    * 角色 组 关系 变更接口
    */
   @Description("角色 组 关系 变更接口")
@@ -184,27 +148,15 @@ public class Mutation {
   @Description("角色 权限 关系列表 变更接口")
   private Collection<PermissionRoleRelation> permissionRoleRelationList;
 
-  /**
-   * 用户 文件 关系 变更接口
-   */
-  @Description("用户 文件 关系 变更接口")
-  private FileUserRelation fileUserRelation;
-
-  /**
-   * 用户 文件 关系列表 变更接口
-   */
-  @Description("用户 文件 关系列表 变更接口")
-  private Collection<FileUserRelation> fileUserRelationList;
-
-  private Boolean syncModelPolicy;
-
-  private Boolean syncPermissionRoleRelationPolicy;
+  private String login;
 
   private User currentUserUpdate;
 
   private User currentUserResetPassword;
 
-  private String login;
+  private Boolean syncModelPolicy;
+
+  private Boolean syncPermissionRoleRelationPolicy;
 
   public User getUser() {
     return this.user;
@@ -334,56 +286,6 @@ public class Mutation {
     this.roleUserRelationList = roleUserRelationList;
   }
 
-  public UserBooleanListRelation getUserBooleanListRelation() {
-    return this.userBooleanListRelation;
-  }
-
-  public void setUserBooleanListRelation(UserBooleanListRelation userBooleanListRelation) {
-    this.userBooleanListRelation = userBooleanListRelation;
-  }
-
-  public Collection<UserBooleanListRelation> getUserBooleanListRelationList() {
-    return this.userBooleanListRelationList;
-  }
-
-  public void setUserBooleanListRelationList(
-      Collection<UserBooleanListRelation> userBooleanListRelationList) {
-    this.userBooleanListRelationList = userBooleanListRelationList;
-  }
-
-  public UserIntListRelation getUserIntListRelation() {
-    return this.userIntListRelation;
-  }
-
-  public void setUserIntListRelation(UserIntListRelation userIntListRelation) {
-    this.userIntListRelation = userIntListRelation;
-  }
-
-  public Collection<UserIntListRelation> getUserIntListRelationList() {
-    return this.userIntListRelationList;
-  }
-
-  public void setUserIntListRelationList(Collection<UserIntListRelation> userIntListRelationList) {
-    this.userIntListRelationList = userIntListRelationList;
-  }
-
-  public UserTypeListRelation getUserTypeListRelation() {
-    return this.userTypeListRelation;
-  }
-
-  public void setUserTypeListRelation(UserTypeListRelation userTypeListRelation) {
-    this.userTypeListRelation = userTypeListRelation;
-  }
-
-  public Collection<UserTypeListRelation> getUserTypeListRelationList() {
-    return this.userTypeListRelationList;
-  }
-
-  public void setUserTypeListRelationList(
-      Collection<UserTypeListRelation> userTypeListRelationList) {
-    this.userTypeListRelationList = userTypeListRelationList;
-  }
-
   public GroupRoleRelation getGroupRoleRelation() {
     return this.groupRoleRelation;
   }
@@ -434,36 +336,12 @@ public class Mutation {
     this.permissionRoleRelationList = permissionRoleRelationList;
   }
 
-  public FileUserRelation getFileUserRelation() {
-    return this.fileUserRelation;
+  public String getLogin() {
+    return this.login;
   }
 
-  public void setFileUserRelation(FileUserRelation fileUserRelation) {
-    this.fileUserRelation = fileUserRelation;
-  }
-
-  public Collection<FileUserRelation> getFileUserRelationList() {
-    return this.fileUserRelationList;
-  }
-
-  public void setFileUserRelationList(Collection<FileUserRelation> fileUserRelationList) {
-    this.fileUserRelationList = fileUserRelationList;
-  }
-
-  public Boolean getSyncModelPolicy() {
-    return this.syncModelPolicy;
-  }
-
-  public void setSyncModelPolicy(Boolean syncModelPolicy) {
-    this.syncModelPolicy = syncModelPolicy;
-  }
-
-  public Boolean getSyncPermissionRoleRelationPolicy() {
-    return this.syncPermissionRoleRelationPolicy;
-  }
-
-  public void setSyncPermissionRoleRelationPolicy(Boolean syncPermissionRoleRelationPolicy) {
-    this.syncPermissionRoleRelationPolicy = syncPermissionRoleRelationPolicy;
+  public void setLogin(String login) {
+    this.login = login;
   }
 
   public User getCurrentUserUpdate() {
@@ -482,11 +360,19 @@ public class Mutation {
     this.currentUserResetPassword = currentUserResetPassword;
   }
 
-  public String getLogin() {
-    return this.login;
+  public Boolean getSyncModelPolicy() {
+    return this.syncModelPolicy;
   }
 
-  public void setLogin(String login) {
-    this.login = login;
+  public void setSyncModelPolicy(Boolean syncModelPolicy) {
+    this.syncModelPolicy = syncModelPolicy;
+  }
+
+  public Boolean getSyncPermissionRoleRelationPolicy() {
+    return this.syncPermissionRoleRelationPolicy;
+  }
+
+  public void setSyncPermissionRoleRelationPolicy(Boolean syncPermissionRoleRelationPolicy) {
+    this.syncPermissionRoleRelationPolicy = syncPermissionRoleRelationPolicy;
   }
 }

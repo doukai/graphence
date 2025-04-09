@@ -1,7 +1,5 @@
 package io.graphence.core.dto.annotation;
 
-import io.graphence.core.dto.enumType.PermissionType;
-import io.graphoenix.file.dto.annotation.FileInput;
 import jakarta.annotation.Generated;
 import java.lang.String;
 import java.lang.annotation.Documented;
@@ -99,36 +97,6 @@ public @interface UserMutationArguments {
   RealmInput realm() default @RealmInput;
 
   /**
-   * file
-   */
-  @Description("file")
-  FileInput file() default @FileInput;
-
-  /**
-   * files
-   */
-  @Description("files")
-  FileInput[] files() default {};
-
-  /**
-   * booleanList
-   */
-  @Description("booleanList")
-  boolean[] booleanList() default {};
-
-  /**
-   * intList
-   */
-  @Description("intList")
-  int[] intList() default {};
-
-  /**
-   * typeList
-   */
-  @Description("typeList")
-  PermissionType[] typeList() default {};
-
-  /**
    * 已移除
    */
   @Description("已移除")
@@ -183,12 +151,6 @@ public @interface UserMutationArguments {
   String __typename() default "User";
 
   /**
-   * 用户 文件 关系
-   */
-  @Description("用户 文件 关系")
-  FileUserRelationInput[] fileUserRelation() default {};
-
-  /**
    * 用户 手机号 关系
    */
   @Description("用户 手机号 关系")
@@ -205,24 +167,6 @@ public @interface UserMutationArguments {
    */
   @Description("用户 角色 关系")
   RoleUserRelationInput[] roleUserRelation() default {};
-
-  /**
-   * 用户 booleanList 关系
-   */
-  @Description("用户 booleanList 关系")
-  UserBooleanListRelationInput[] userBooleanListRelation() default {};
-
-  /**
-   * 用户 intList 关系
-   */
-  @Description("用户 intList 关系")
-  UserIntListRelationInput[] userIntListRelation() default {};
-
-  /**
-   * 用户 typeList 关系
-   */
-  @Description("用户 typeList 关系")
-  UserTypeListRelationInput[] userTypeListRelation() default {};
 
   /**
    * 变更内容
@@ -262,16 +206,6 @@ public @interface UserMutationArguments {
 
   String $realm() default "";
 
-  String $file() default "";
-
-  String $files() default "";
-
-  String $booleanList() default "";
-
-  String $intList() default "";
-
-  String $typeList() default "";
-
   String $isDeprecated() default "";
 
   String $version() default "";
@@ -290,19 +224,11 @@ public @interface UserMutationArguments {
 
   String $__typename() default "";
 
-  String $fileUserRelation() default "";
-
   String $userPhonesRelation() default "";
 
   String $groupUserRelation() default "";
 
   String $roleUserRelation() default "";
-
-  String $userBooleanListRelation() default "";
-
-  String $userIntListRelation() default "";
-
-  String $userTypeListRelation() default "";
 
   String $input() default "";
 

@@ -1,8 +1,6 @@
 package io.graphence.core.dto.inputObjectType;
 
-import io.graphence.core.dto.enumType.PermissionType;
 import io.graphoenix.core.dto.inputObjectType.MetaInput;
-import io.graphoenix.file.dto.inputObjectType.FileInput;
 import io.graphoenix.structure.dto.inputObjectType.NamedStructInput;
 import jakarta.annotation.Generated;
 import java.lang.Boolean;
@@ -99,36 +97,6 @@ public interface UserInputBase extends NamedStructInput, MetaInput {
   RealmInput realm = null;
 
   /**
-   * file
-   */
-  @Description("file")
-  FileInput file = null;
-
-  /**
-   * files
-   */
-  @Description("files")
-  Collection<FileInput> files = null;
-
-  /**
-   * booleanList
-   */
-  @Description("booleanList")
-  Collection<Boolean> booleanList = null;
-
-  /**
-   * intList
-   */
-  @Description("intList")
-  Collection<Integer> intList = null;
-
-  /**
-   * typeList
-   */
-  @Description("typeList")
-  Collection<PermissionType> typeList = null;
-
-  /**
    * 已移除
    */
   @Description("已移除")
@@ -183,12 +151,6 @@ public interface UserInputBase extends NamedStructInput, MetaInput {
   String __typename = "User";
 
   /**
-   * 用户 文件 关系
-   */
-  @Description("用户 文件 关系")
-  Collection<FileUserRelationInput> fileUserRelation = null;
-
-  /**
    * 用户 手机号 关系
    */
   @Description("用户 手机号 关系")
@@ -205,24 +167,6 @@ public interface UserInputBase extends NamedStructInput, MetaInput {
    */
   @Description("用户 角色 关系")
   Collection<RoleUserRelationInput> roleUserRelation = null;
-
-  /**
-   * 用户 booleanList 关系
-   */
-  @Description("用户 booleanList 关系")
-  Collection<UserBooleanListRelationInput> userBooleanListRelation = null;
-
-  /**
-   * 用户 intList 关系
-   */
-  @Description("用户 intList 关系")
-  Collection<UserIntListRelationInput> userIntListRelation = null;
-
-  /**
-   * 用户 typeList 关系
-   */
-  @Description("用户 typeList 关系")
-  Collection<UserTypeListRelationInput> userTypeListRelation = null;
 
   /**
    * 匹配条件
@@ -308,36 +252,6 @@ public interface UserInputBase extends NamedStructInput, MetaInput {
 
   void setRealm(RealmInput realm);
 
-  default FileInput getFile() {
-    return file;
-  }
-
-  void setFile(FileInput file);
-
-  default Collection<FileInput> getFiles() {
-    return files;
-  }
-
-  void setFiles(Collection<FileInput> files);
-
-  default Collection<Boolean> getBooleanList() {
-    return booleanList;
-  }
-
-  void setBooleanList(Collection<Boolean> booleanList);
-
-  default Collection<Integer> getIntList() {
-    return intList;
-  }
-
-  void setIntList(Collection<Integer> intList);
-
-  default Collection<PermissionType> getTypeList() {
-    return typeList;
-  }
-
-  void setTypeList(Collection<PermissionType> typeList);
-
   default Boolean getIsDeprecated() {
     return isDeprecated;
   }
@@ -392,12 +306,6 @@ public interface UserInputBase extends NamedStructInput, MetaInput {
 
   void set__typename(String __typename);
 
-  default Collection<FileUserRelationInput> getFileUserRelation() {
-    return fileUserRelation;
-  }
-
-  void setFileUserRelation(Collection<FileUserRelationInput> fileUserRelation);
-
   default Collection<UserPhonesRelationInput> getUserPhonesRelation() {
     return userPhonesRelation;
   }
@@ -415,24 +323,6 @@ public interface UserInputBase extends NamedStructInput, MetaInput {
   }
 
   void setRoleUserRelation(Collection<RoleUserRelationInput> roleUserRelation);
-
-  default Collection<UserBooleanListRelationInput> getUserBooleanListRelation() {
-    return userBooleanListRelation;
-  }
-
-  void setUserBooleanListRelation(Collection<UserBooleanListRelationInput> userBooleanListRelation);
-
-  default Collection<UserIntListRelationInput> getUserIntListRelation() {
-    return userIntListRelation;
-  }
-
-  void setUserIntListRelation(Collection<UserIntListRelationInput> userIntListRelation);
-
-  default Collection<UserTypeListRelationInput> getUserTypeListRelation() {
-    return userTypeListRelation;
-  }
-
-  void setUserTypeListRelation(Collection<UserTypeListRelationInput> userTypeListRelation);
 
   default UserExpression getWhere() {
     return where;
