@@ -66,28 +66,15 @@ public class PermissionBuildEvent implements ScopeEvent {
                                 .flatMap(fieldDefinition -> {
                                             if (documentManager.isOperationType(objectType)) {
                                                 if (fieldDefinition.isInvokeField() && !fieldDefinition.isPermitAll() && !fieldDefinition.isDenyAll()) {
-                                                    if (fieldDefinition.getDescription() != null) {
-                                                        return Stream.of(
-                                                                ObjectValueWithVariable.of(
-                                                                        "name", objectType.getName() + SPACER + fieldDefinition.getName() + SPACER + (documentManager.isMutationOperationType(objectType) ? WRITE.name() : READ.name()),
-                                                                        "type", objectType.getName(),
-                                                                        "field", fieldDefinition.getName(),
-                                                                        "permissionType", documentManager.isMutationOperationType(objectType) ? WRITE : READ,
-                                                                        "description", fieldDefinition.getDescription(),
-                                                                        "createTime", LocalDateTime.now()
-                                                                )
-                                                        );
-                                                    } else {
-                                                        return Stream.of(
-                                                                ObjectValueWithVariable.of(
-                                                                        "name", objectType.getName() + SPACER + fieldDefinition.getName() + SPACER + (documentManager.isMutationOperationType(objectType) ? WRITE.name() : READ.name()),
-                                                                        "type", objectType.getName(),
-                                                                        "field", fieldDefinition.getName(),
-                                                                        "permissionType", documentManager.isMutationOperationType(objectType) ? WRITE : READ,
-                                                                        "createTime", LocalDateTime.now()
-                                                                )
-                                                        );
-                                                    }
+                                                    return Stream.of(
+                                                            ObjectValueWithVariable.of(
+                                                                    "name", objectType.getName() + SPACER + fieldDefinition.getName() + SPACER + (documentManager.isMutationOperationType(objectType) ? WRITE.name() : READ.name()),
+                                                                    "type", objectType.getName(),
+                                                                    "field", fieldDefinition.getName(),
+                                                                    "permissionType", documentManager.isMutationOperationType(objectType) ? WRITE : READ,
+                                                                    "createTime", LocalDateTime.now()
+                                                            )
+                                                    );
                                                 } else {
                                                     return Stream.empty();
                                                 }
@@ -99,43 +86,22 @@ public class PermissionBuildEvent implements ScopeEvent {
                                                         !fieldDefinition.isAggregateField() &&
                                                         !fieldDefinition.isConnectionField()
                                                 ) {
-                                                    if (fieldDefinition.getDescription() != null) {
-                                                        return Stream.of(
-                                                                ObjectValueWithVariable.of(
-                                                                        "name", objectType.getName() + SPACER + fieldDefinition.getName() + SPACER + WRITE.name(),
-                                                                        "type", objectType.getName(),
-                                                                        "field", fieldDefinition.getName(),
-                                                                        "permissionType", WRITE,
-                                                                        "description", fieldDefinition.getDescription() + " " + WRITE,
-                                                                        "createTime", LocalDateTime.now()
-                                                                ),
-                                                                ObjectValueWithVariable.of(
-                                                                        "name", objectType.getName() + SPACER + fieldDefinition.getName() + SPACER + READ.name(),
-                                                                        "type", objectType.getName(),
-                                                                        "field", fieldDefinition.getName(),
-                                                                        "permissionType", READ,
-                                                                        "description", fieldDefinition.getDescription() + " " + READ,
-                                                                        "createTime", LocalDateTime.now()
-                                                                )
-                                                        );
-                                                    } else {
-                                                        return Stream.of(
-                                                                ObjectValueWithVariable.of(
-                                                                        "name", objectType.getName() + SPACER + fieldDefinition.getName() + SPACER + WRITE.name(),
-                                                                        "type", objectType.getName(),
-                                                                        "field", fieldDefinition.getName(),
-                                                                        "permissionType", WRITE,
-                                                                        "createTime", LocalDateTime.now()
-                                                                ),
-                                                                ObjectValueWithVariable.of(
-                                                                        "name", objectType.getName() + SPACER + fieldDefinition.getName() + SPACER + READ.name(),
-                                                                        "type", objectType.getName(),
-                                                                        "field", fieldDefinition.getName(),
-                                                                        "permissionType", READ,
-                                                                        "createTime", LocalDateTime.now()
-                                                                )
-                                                        );
-                                                    }
+                                                    return Stream.of(
+                                                            ObjectValueWithVariable.of(
+                                                                    "name", objectType.getName() + SPACER + fieldDefinition.getName() + SPACER + WRITE.name(),
+                                                                    "type", objectType.getName(),
+                                                                    "field", fieldDefinition.getName(),
+                                                                    "permissionType", WRITE,
+                                                                    "createTime", LocalDateTime.now()
+                                                            ),
+                                                            ObjectValueWithVariable.of(
+                                                                    "name", objectType.getName() + SPACER + fieldDefinition.getName() + SPACER + READ.name(),
+                                                                    "type", objectType.getName(),
+                                                                    "field", fieldDefinition.getName(),
+                                                                    "permissionType", READ,
+                                                                    "createTime", LocalDateTime.now()
+                                                            )
+                                                    );
                                                 } else {
                                                     return Stream.empty();
                                                 }
