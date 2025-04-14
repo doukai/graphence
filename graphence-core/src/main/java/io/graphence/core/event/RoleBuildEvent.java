@@ -7,6 +7,8 @@ import io.graphoenix.spi.graphql.common.Directive;
 import io.graphoenix.spi.graphql.common.ObjectValueWithVariable;
 import io.graphoenix.spi.graphql.operation.Field;
 import io.graphoenix.spi.graphql.operation.Operation;
+import io.graphoenix.spi.graphql.type.EnumType;
+import io.graphoenix.spi.graphql.type.EnumValueDefinition;
 import io.graphoenix.spi.handler.MutationHandler;
 import io.nozdormu.spi.event.ScopeEvent;
 import jakarta.annotation.Priority;
@@ -18,6 +20,7 @@ import reactor.core.publisher.Mono;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -69,6 +72,10 @@ public class RoleBuildEvent implements ScopeEvent {
     }
 
     private List<ObjectValueWithVariable> buildRoleList() {
+        EnumType permissionType = documentManager.getDocument().getEnumTypeOrError("PermissionType");
+        EnumValueDefinition read = permissionType.getEnumValue("READ");
+        EnumValueDefinition write = permissionType.getEnumValue("WRITE");
+
         return Stream
                 .concat(
                         documentManager.getDocument().getObjectTypes()
@@ -89,6 +96,9 @@ public class RoleBuildEvent implements ScopeEvent {
                                                                                 )
                                                                         )
                                                                         .collect(Collectors.toList()),
+                                                                "description",
+                                                                Optional.ofNullable(objectType.getDescription()).orElseGet(objectType::getName) +
+                                                                        Optional.ofNullable(read.getDescription()).orElseGet(read::getName),
                                                                 "createTime", LocalDateTime.now()
                                                         ),
                                                         ObjectValueWithVariable.of(
@@ -103,6 +113,9 @@ public class RoleBuildEvent implements ScopeEvent {
                                                                                 )
                                                                         )
                                                                         .collect(Collectors.toList()),
+                                                                "description",
+                                                                Optional.ofNullable(objectType.getDescription()).orElseGet(objectType::getName) +
+                                                                        Optional.ofNullable(write.getDescription()).orElseGet(write::getName),
                                                                 "createTime", LocalDateTime.now()
                                                         ),
                                                         ObjectValueWithVariable.of(
@@ -123,6 +136,10 @@ public class RoleBuildEvent implements ScopeEvent {
                                                                                 )
                                                                         )
                                                                         .collect(Collectors.toList()),
+                                                                "description",
+                                                                Optional.ofNullable(objectType.getDescription()).orElseGet(objectType::getName) +
+                                                                        Optional.ofNullable(read.getDescription()).orElseGet(read::getName) +
+                                                                        Optional.ofNullable(write.getDescription()).orElseGet(write::getName),
                                                                 "createTime", LocalDateTime.now()
                                                         )
                                                 )
@@ -143,6 +160,9 @@ public class RoleBuildEvent implements ScopeEvent {
                                                                                 )
                                                                         )
                                                                         .collect(Collectors.toList()),
+                                                                "description",
+                                                                Optional.ofNullable(objectType.getDescription()).orElseGet(objectType::getName) +
+                                                                        Optional.ofNullable(read.getDescription()).orElseGet(read::getName),
                                                                 "createTime", LocalDateTime.now()
                                                         )
                                                 ),
@@ -160,6 +180,9 @@ public class RoleBuildEvent implements ScopeEvent {
                                                                                 )
                                                                         )
                                                                         .collect(Collectors.toList()),
+                                                                "description",
+                                                                Optional.ofNullable(objectType.getDescription()).orElseGet(objectType::getName) +
+                                                                        Optional.ofNullable(write.getDescription()).orElseGet(write::getName),
                                                                 "createTime", LocalDateTime.now()
                                                         )
                                                 )

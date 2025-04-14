@@ -5,6 +5,8 @@ import io.graphoenix.core.handler.DocumentManager;
 import io.graphoenix.spi.graphql.common.ObjectValueWithVariable;
 import io.graphoenix.spi.graphql.operation.Field;
 import io.graphoenix.spi.graphql.operation.Operation;
+import io.graphoenix.spi.graphql.type.EnumType;
+import io.graphoenix.spi.graphql.type.EnumValueDefinition;
 import io.graphoenix.spi.handler.MutationHandler;
 import io.nozdormu.spi.event.ScopeEvent;
 import jakarta.annotation.Priority;
@@ -16,6 +18,7 @@ import reactor.core.publisher.Mono;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -60,6 +63,10 @@ public class PermissionBuildEvent implements ScopeEvent {
     }
 
     private List<ObjectValueWithVariable> buildPermissionList() {
+        EnumType permissionType = documentManager.getDocument().getEnumTypeOrError("PermissionType");
+        EnumValueDefinition read = permissionType.getEnumValue("READ");
+        EnumValueDefinition write = permissionType.getEnumValue("WRITE");
+
         return documentManager.getDocument().getObjectTypes()
                 .flatMap(objectType ->
                         objectType.getFields().stream()
@@ -72,6 +79,11 @@ public class PermissionBuildEvent implements ScopeEvent {
                                                                     "type", objectType.getName(),
                                                                     "field", fieldDefinition.getName(),
                                                                     "permissionType", documentManager.isMutationOperationType(objectType) ? WRITE : READ,
+                                                                    "description",
+                                                                    Optional.ofNullable(fieldDefinition.getDescription()).orElseGet(fieldDefinition::getName) +
+                                                                            (documentManager.isMutationOperationType(objectType) ?
+                                                                                    Optional.ofNullable(read.getDescription()).orElseGet(read::getName) :
+                                                                                    Optional.ofNullable(write.getDescription()).orElseGet(write::getName)),
                                                                     "createTime", LocalDateTime.now()
                                                             )
                                                     );
@@ -92,6 +104,9 @@ public class PermissionBuildEvent implements ScopeEvent {
                                                                     "type", objectType.getName(),
                                                                     "field", fieldDefinition.getName(),
                                                                     "permissionType", WRITE,
+                                                                    "description",
+                                                                    Optional.ofNullable(fieldDefinition.getDescription()).orElseGet(fieldDefinition::getName) +
+                                                                            Optional.ofNullable(write.getDescription()).orElseGet(write::getName),
                                                                     "createTime", LocalDateTime.now()
                                                             ),
                                                             ObjectValueWithVariable.of(
@@ -99,6 +114,9 @@ public class PermissionBuildEvent implements ScopeEvent {
                                                                     "type", objectType.getName(),
                                                                     "field", fieldDefinition.getName(),
                                                                     "permissionType", READ,
+                                                                    "description",
+                                                                    Optional.ofNullable(fieldDefinition.getDescription()).orElseGet(fieldDefinition::getName) +
+                                                                            Optional.ofNullable(read.getDescription()).orElseGet(read::getName),
                                                                     "createTime", LocalDateTime.now()
                                                             )
                                                     );
