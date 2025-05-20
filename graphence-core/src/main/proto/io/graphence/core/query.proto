@@ -13,7 +13,7 @@ import "io/graphence/core/query_requests.proto";
 import "io/graphence/core/query_responses.proto";
 
 /**
-* Query
+* 查询
 */
 service QueryService {
     rpc User (QueryUserRequest) returns (QueryUserResponse); /* 用户 查询接口 */

@@ -9,12 +9,12 @@ import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.Type;
 
 /**
- * Mutation
+ * 变更
  */
 @Type
 @CompiledJson
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
-@Description("Mutation")
+@Description("变更")
 public class Mutation {
   /**
    * 用户 变更接口
@@ -148,15 +148,15 @@ public class Mutation {
   @Description("角色 权限 关系列表 变更接口")
   private Collection<PermissionRoleRelation> permissionRoleRelationList;
 
-  private String login;
+  private Boolean syncModelPolicy;
+
+  private Boolean syncPermissionRoleRelationPolicy;
 
   private User currentUserUpdate;
 
   private User currentUserResetPassword;
 
-  private Boolean syncModelPolicy;
-
-  private Boolean syncPermissionRoleRelationPolicy;
+  private String login;
 
   public User getUser() {
     return this.user;
@@ -336,12 +336,20 @@ public class Mutation {
     this.permissionRoleRelationList = permissionRoleRelationList;
   }
 
-  public String getLogin() {
-    return this.login;
+  public Boolean getSyncModelPolicy() {
+    return this.syncModelPolicy;
   }
 
-  public void setLogin(String login) {
-    this.login = login;
+  public void setSyncModelPolicy(Boolean syncModelPolicy) {
+    this.syncModelPolicy = syncModelPolicy;
+  }
+
+  public Boolean getSyncPermissionRoleRelationPolicy() {
+    return this.syncPermissionRoleRelationPolicy;
+  }
+
+  public void setSyncPermissionRoleRelationPolicy(Boolean syncPermissionRoleRelationPolicy) {
+    this.syncPermissionRoleRelationPolicy = syncPermissionRoleRelationPolicy;
   }
 
   public User getCurrentUserUpdate() {
@@ -360,19 +368,11 @@ public class Mutation {
     this.currentUserResetPassword = currentUserResetPassword;
   }
 
-  public Boolean getSyncModelPolicy() {
-    return this.syncModelPolicy;
+  public String getLogin() {
+    return this.login;
   }
 
-  public void setSyncModelPolicy(Boolean syncModelPolicy) {
-    this.syncModelPolicy = syncModelPolicy;
-  }
-
-  public Boolean getSyncPermissionRoleRelationPolicy() {
-    return this.syncPermissionRoleRelationPolicy;
-  }
-
-  public void setSyncPermissionRoleRelationPolicy(Boolean syncPermissionRoleRelationPolicy) {
-    this.syncPermissionRoleRelationPolicy = syncPermissionRoleRelationPolicy;
+  public void setLogin(String login) {
+    this.login = login;
   }
 }

@@ -26,8 +26,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static io.graphence.core.casbin.adapter.RBACAdapter.*;
-import static io.graphence.core.dto.enumType.PermissionType.READ;
-import static io.graphence.core.dto.enumType.PermissionType.WRITE;
+import static io.graphence.core.dto.enumType.PermissionType.*;
 import static io.graphoenix.core.handler.before.FragmentHandler.FRAGMENT_HANDLER_PRIORITY;
 import static io.graphoenix.spi.constant.Hammurabi.*;
 
@@ -98,6 +97,36 @@ public class RBACFilter implements OperationBeforeHandler {
                         enforcer.enforce(
                                 USER_PREFIX + current.getId(),
                                 Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY),
+                                ANY.name() + SPACER + ANY.name(),
+                                ANY.name()
+                        ) ||
+                        enforcer.enforce(
+                                USER_PREFIX + current.getId(),
+                                Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY),
+                                ANY.name() + SPACER + ANY.name(),
+                                permissionType.name()
+                        ) ||
+                        enforcer.enforce(
+                                USER_PREFIX + current.getId(),
+                                Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY),
+                                objectType.getName() + SPACER + ANY.name(),
+                                ANY.name()
+                        ) ||
+                        enforcer.enforce(
+                                USER_PREFIX + current.getId(),
+                                Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY),
+                                objectType.getName() + SPACER + ANY.name(),
+                                permissionType.name()
+                        ) ||
+                        enforcer.enforce(
+                                USER_PREFIX + current.getId(),
+                                Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY),
+                                objectType.getName() + SPACER + fieldDefinition.getName(),
+                                ANY.name()
+                        ) ||
+                        enforcer.enforce(
+                                USER_PREFIX + current.getId(),
+                                Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY),
                                 objectType.getName() + SPACER + fieldDefinition.getName(),
                                 permissionType.name()
                         )
@@ -114,6 +143,48 @@ public class RBACFilter implements OperationBeforeHandler {
             if (documentManager.isOperationType(objectType) ||
                     !fieldDefinition.isDenyAll() &&
                             (fieldDefinition.isPermitAll() ||
+                                    enforcer.enforce(
+                                            USER_PREFIX + current.getId(),
+                                            Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY),
+                                            ANY.name() + SPACER + ANY.name(),
+                                            ANY.name()
+                                    ) ||
+                                    enforcer.enforce(
+                                            USER_PREFIX + current.getId(),
+                                            Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY),
+                                            ANY.name() + SPACER + ANY.name(),
+                                            WRITE.name()
+                                    ) ||
+                                    enforcer.enforce(
+                                            USER_PREFIX + current.getId(),
+                                            Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY),
+                                            ANY.name() + SPACER + ANY.name(),
+                                            READ.name()
+                                    ) ||
+                                    enforcer.enforce(
+                                            USER_PREFIX + current.getId(),
+                                            Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY),
+                                            objectType.getName() + SPACER + ANY.name(),
+                                            ANY.name()
+                                    ) ||
+                                    enforcer.enforce(
+                                            USER_PREFIX + current.getId(),
+                                            Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY),
+                                            objectType.getName() + SPACER + ANY.name(),
+                                            WRITE.name()
+                                    ) ||
+                                    enforcer.enforce(
+                                            USER_PREFIX + current.getId(),
+                                            Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY),
+                                            objectType.getName() + SPACER + ANY.name(),
+                                            READ.name()
+                                    ) ||
+                                    enforcer.enforce(
+                                            USER_PREFIX + current.getId(),
+                                            Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY),
+                                            objectType.getName() + SPACER + fieldDefinition.getConnectionFieldOrError(),
+                                            ANY.name()
+                                    ) ||
                                     enforcer.enforce(
                                             USER_PREFIX + current.getId(),
                                             Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY),
@@ -171,6 +242,48 @@ public class RBACFilter implements OperationBeforeHandler {
                                     enforcer.enforce(
                                             USER_PREFIX + current.getId(),
                                             Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY),
+                                            ANY.name() + SPACER + ANY.name(),
+                                            ANY.name()
+                                    ) ||
+                                    enforcer.enforce(
+                                            USER_PREFIX + current.getId(),
+                                            Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY),
+                                            ANY.name() + SPACER + ANY.name(),
+                                            WRITE.name()
+                                    ) ||
+                                    enforcer.enforce(
+                                            USER_PREFIX + current.getId(),
+                                            Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY),
+                                            ANY.name() + SPACER + ANY.name(),
+                                            READ.name()
+                                    ) ||
+                                    enforcer.enforce(
+                                            USER_PREFIX + current.getId(),
+                                            Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY),
+                                            objectType.getName() + SPACER + ANY.name(),
+                                            ANY.name()
+                                    ) ||
+                                    enforcer.enforce(
+                                            USER_PREFIX + current.getId(),
+                                            Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY),
+                                            objectType.getName() + SPACER + ANY.name(),
+                                            WRITE.name()
+                                    ) ||
+                                    enforcer.enforce(
+                                            USER_PREFIX + current.getId(),
+                                            Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY),
+                                            objectType.getName() + SPACER + ANY.name(),
+                                            READ.name()
+                                    ) ||
+                                    enforcer.enforce(
+                                            USER_PREFIX + current.getId(),
+                                            Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY),
+                                            objectType.getName() + SPACER + fieldName,
+                                            ANY.name()
+                                    ) ||
+                                    enforcer.enforce(
+                                            USER_PREFIX + current.getId(),
+                                            Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY),
                                             objectType.getName() + SPACER + fieldName,
                                             WRITE.name()
                                     ) ||
@@ -202,6 +315,48 @@ public class RBACFilter implements OperationBeforeHandler {
             }
             if (!fieldDefinition.isDenyAll() &&
                     (fieldDefinition.isPermitAll() ||
+                            enforcer.enforce(
+                                    USER_PREFIX + current.getId(),
+                                    Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY),
+                                    ANY.name() + SPACER + ANY.name(),
+                                    ANY.name()
+                            ) ||
+                            enforcer.enforce(
+                                    USER_PREFIX + current.getId(),
+                                    Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY),
+                                    ANY.name() + SPACER + ANY.name(),
+                                    WRITE.name()
+                            ) ||
+                            enforcer.enforce(
+                                    USER_PREFIX + current.getId(),
+                                    Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY),
+                                    ANY.name() + SPACER + ANY.name(),
+                                    READ.name()
+                            ) ||
+                            enforcer.enforce(
+                                    USER_PREFIX + current.getId(),
+                                    Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY),
+                                    objectType.getName() + SPACER + ANY.name(),
+                                    ANY.name()
+                            ) ||
+                            enforcer.enforce(
+                                    USER_PREFIX + current.getId(),
+                                    Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY),
+                                    objectType.getName() + SPACER + ANY.name(),
+                                    WRITE.name()
+                            ) ||
+                            enforcer.enforce(
+                                    USER_PREFIX + current.getId(),
+                                    Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY),
+                                    objectType.getName() + SPACER + ANY.name(),
+                                    READ.name()
+                            ) ||
+                            enforcer.enforce(
+                                    USER_PREFIX + current.getId(),
+                                    Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY),
+                                    objectType.getName() + SPACER + fieldName,
+                                    ANY.name()
+                            ) ||
                             enforcer.enforce(
                                     USER_PREFIX + current.getId(),
                                     Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY),
@@ -237,6 +392,36 @@ public class RBACFilter implements OperationBeforeHandler {
                                                                             .flatMap(valueWithVariable -> {
                                                                                         if (!subFieldDefinition.isDenyAll() &&
                                                                                                 (subFieldDefinition.isPermitAll() ||
+                                                                                                        enforcer.enforce(
+                                                                                                                USER_PREFIX + current.getId(),
+                                                                                                                Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY),
+                                                                                                                ANY.name() + SPACER + ANY.name(),
+                                                                                                                ANY.name()
+                                                                                                        ) ||
+                                                                                                        enforcer.enforce(
+                                                                                                                USER_PREFIX + current.getId(),
+                                                                                                                Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY),
+                                                                                                                ANY.name() + SPACER + ANY.name(),
+                                                                                                                WRITE.name()
+                                                                                                        ) ||
+                                                                                                        enforcer.enforce(
+                                                                                                                USER_PREFIX + current.getId(),
+                                                                                                                Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY),
+                                                                                                                fieldTypeDefinition.getName() + SPACER + ANY.name(),
+                                                                                                                ANY.name()
+                                                                                                        ) ||
+                                                                                                        enforcer.enforce(
+                                                                                                                USER_PREFIX + current.getId(),
+                                                                                                                Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY),
+                                                                                                                fieldTypeDefinition.getName() + SPACER + ANY.name(),
+                                                                                                                WRITE.name()
+                                                                                                        ) ||
+                                                                                                        enforcer.enforce(
+                                                                                                                USER_PREFIX + current.getId(),
+                                                                                                                Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY),
+                                                                                                                fieldTypeDefinition.getName() + SPACER + inputValue.getName(),
+                                                                                                                ANY.name()
+                                                                                                        ) ||
                                                                                                         enforcer.enforce(
                                                                                                                 USER_PREFIX + current.getId(),
                                                                                                                 Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY),

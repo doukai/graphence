@@ -71,6 +71,7 @@ public class CurrentApi implements Asyncable {
     @Query
     @PermitAll
     public Mono<Set<String>> currentPermissionNameListByTypes(Collection<String> types) {
+        types.add("ANY");
         return currentMonoProvider.get()
                 .flatMap(currentUser -> rbacPolicyRepository.queryPermissionNameListByTypes(currentUser.getRoles(), types))
                 .map(permissionList ->

@@ -108,4 +108,6 @@ enum PermissionType {
     READ
     "写入"
     WRITE
+    "全部"
+    ANY
 }

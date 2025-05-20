@@ -13,7 +13,7 @@ import "io/graphence/core/mutation_requests.proto";
 import "io/graphence/core/mutation_responses.proto";
 
 /**
-* Mutation
+* 变更
 */
 service MutationService {
     rpc User (MutationUserRequest) returns (MutationUserResponse); /* 用户 变更接口 */

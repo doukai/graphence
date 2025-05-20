@@ -13,5 +13,7 @@ import org.eclipse.microprofile.graphql.Enum;
 public enum PermissionType {
   READ,
 
-  WRITE
+  WRITE,
+
+  ANY
 }
