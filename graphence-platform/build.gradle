@@ -7,6 +7,9 @@ group 'org.graphoenix'
 
 dependencies {
     constraints {
+        api "org.graphoenix:graphence-core:$graphenceVersion"
+        api "org.graphoenix:graphence-security:$graphenceVersion"
+
         api 'org.eclipse.microprofile.jwt:microprofile-jwt-auth-api:2.1'
         api 'org.casbin:jcasbin:1.41.0'
         api 'com.password4j:password4j:1.7.2'
