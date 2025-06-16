@@ -1,5 +1,5 @@
 rootProject.name = 'graphence'
+include 'graphence-platform'
 include 'graphence-core'
 include 'graphence-server'
 include 'graphence-security'
-

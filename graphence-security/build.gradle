@@ -4,28 +4,26 @@ plugins {
 }
 
 group 'org.graphoenix'
-version '0.1.0-SNAPSHOT'
-
-repositories {
-    mavenCentral()
-    mavenLocal()
-}
 
 dependencies {
+    implementation platform(project(':graphence-platform'))
+    implementation platform("org.graphoenix:graphoenix-platform:$graphoenixVersion")
+    implementation platform("org.graphoenix:nozdormu-platform:$nozdormuVersion")
+
     implementation project(':graphence-core')
-    implementation 'org.graphoenix:graphoenix-core:0.1.0-SNAPSHOT'
-    implementation 'org.graphoenix:graphoenix-http-server:0.1.0-SNAPSHOT'
-    implementation 'org.graphoenix:graphoenix-structure:0.1.0-SNAPSHOT'
-    implementation 'org.graphoenix:nozdormu-inject:0.1.0-SNAPSHOT'
+    implementation 'org.graphoenix:graphoenix-core'
+    implementation 'org.graphoenix:graphoenix-http-server'
+    implementation 'org.graphoenix:graphoenix-structure'
+    implementation 'org.graphoenix:nozdormu-inject'
 
     annotationProcessor project(':graphence-core')
-    annotationProcessor 'org.graphoenix:graphoenix-core:0.1.0-SNAPSHOT'
-    annotationProcessor 'org.graphoenix:graphoenix-http-server:0.1.0-SNAPSHOT'
-    annotationProcessor 'org.graphoenix:graphoenix-structure:0.1.0-SNAPSHOT'
-    annotationProcessor 'org.graphoenix:nozdormu-inject:0.1.0-SNAPSHOT'
+    annotationProcessor 'org.graphoenix:graphoenix-core'
+    annotationProcessor 'org.graphoenix:graphoenix-http-server'
+    annotationProcessor 'org.graphoenix:graphoenix-structure'
+    annotationProcessor 'org.graphoenix:nozdormu-inject'
 
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.2'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.2'
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
 test {

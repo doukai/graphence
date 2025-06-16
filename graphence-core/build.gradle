@@ -4,13 +4,13 @@ buildscript {
         gradlePluginPortal()
     }
     dependencies {
-        classpath 'org.graphoenix:graphoenix-gradle-plugin:0.1.0-SNAPSHOT'
+        classpath "org.graphoenix:graphoenix-gradle-plugin:$graphoenixVersion"
     }
 }
 
 plugins {
     id 'java-library'
-    id 'com.google.protobuf' version '0.9.1'
+    id 'com.google.protobuf' version "$protobufPluginVersion"
     id 'maven-publish'
 }
 
@@ -18,20 +18,16 @@ apply plugin: 'io.graphoenix'
 
 protobuf {
     protoc {
-        artifact = "com.google.protobuf:protoc:3.21.7"
+        artifact = "com.google.protobuf:protoc:$protocVersion"
     }
     plugins {
         grpc {
-            artifact = 'io.grpc:protoc-gen-grpc-java:1.52.1'
-        }
-        reactor {
-            artifact = "com.salesforce.servicelibs:reactor-grpc:1.2.3"
+            artifact = "io.grpc:protoc-gen-grpc-java:$protocGenGrpcJavaVersion"
         }
     }
     generateProtoTasks {
         all()*.plugins {
             grpc {}
-            reactor {}
         }
     }
 }
@@ -41,64 +37,60 @@ sourceSets {
         java {
             srcDirs 'build/generated/source/proto/main/java'
             srcDirs 'build/generated/source/proto/main/grpc'
-            srcDirs 'build/generated/source/proto/main/reactor'
         }
     }
 }
-
 group 'org.graphoenix'
-version '0.1.0-SNAPSHOT'
-
-repositories {
-    mavenCentral()
-    mavenLocal()
-}
 
 dependencies {
-    api 'org.eclipse.microprofile.jwt:microprofile-jwt-auth-api:2.1'
-    api 'org.casbin:jcasbin:1.41.0'
-    api 'io.jsonwebtoken:jjwt-api:0.11.5'
-    api 'com.password4j:password4j:1.7.2'
+    implementation platform(project(':graphence-platform'))
+    implementation platform("org.graphoenix:graphoenix-platform:$graphoenixVersion")
+    implementation platform("org.graphoenix:nozdormu-platform:$nozdormuVersion")
 
-    implementation 'org.graphoenix:graphoenix-core:0.1.0-SNAPSHOT'
-    implementation 'org.graphoenix:graphoenix-http-server:0.1.0-SNAPSHOT'
-    implementation 'org.graphoenix:graphoenix-structure:0.1.0-SNAPSHOT'
-//    implementation 'org.graphoenix:graphoenix-file:0.1.0-SNAPSHOT'
-    implementation 'org.graphoenix:nozdormu-inject:0.1.0-SNAPSHOT'
-    implementation 'org.graphoenix:nozdormu-async:0.1.0-SNAPSHOT'
-    implementation 'org.graphoenix:nozdormu-interceptor:0.1.0-SNAPSHOT'
-    implementation 'org.graphoenix:nozdormu-config:0.1.0-SNAPSHOT'
-    implementation 'com.aventrix.jnanoid:jnanoid:2.0.0'
-    implementation 'com.google.guava:guava:31.1-jre'
+    api 'org.eclipse.microprofile.jwt:microprofile-jwt-auth-api'
+    api 'org.casbin:jcasbin'
+    api 'io.jsonwebtoken:jjwt-api'
+    api 'com.password4j:password4j'
 
-    runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.11.5'
-    runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.11.5'
+    implementation 'org.graphoenix:graphoenix-core'
+    implementation 'org.graphoenix:graphoenix-http-server'
+    implementation 'org.graphoenix:graphoenix-structure'
+    implementation 'org.graphoenix:nozdormu-inject'
+    implementation 'org.graphoenix:nozdormu-async'
+    implementation 'org.graphoenix:nozdormu-interceptor'
+    implementation 'org.graphoenix:nozdormu-config'
+    implementation 'com.aventrix.jnanoid:jnanoid'
+    implementation 'com.google.guava:guava'
 
-    runtimeOnly 'io.grpc:grpc-netty-shaded:1.52.1'
-    implementation 'io.grpc:grpc-protobuf:1.52.1'
-    implementation 'io.grpc:grpc-stub:1.52.1'
-    implementation 'com.salesforce.servicelibs:reactor-grpc-stub:1.2.3'
+    runtimeOnly 'io.jsonwebtoken:jjwt-impl'
+    runtimeOnly 'io.jsonwebtoken:jjwt-jackson'
 
-    compileOnly 'org.apache.tomcat:annotations-api:6.0.53' // necessary for Java 9+
+    runtimeOnly 'io.grpc:grpc-netty-shaded'
+    implementation 'io.grpc:grpc-protobuf'
+    implementation 'io.grpc:grpc-stub'
 
-    annotationProcessor 'org.graphoenix:graphoenix-annotation-processor:0.1.0-SNAPSHOT'
-    annotationProcessor 'org.graphoenix:graphoenix-http-server:0.1.0-SNAPSHOT'
-    annotationProcessor 'org.graphoenix:graphoenix-introspection:0.1.0-SNAPSHOT'
-    annotationProcessor 'org.graphoenix:graphoenix-structure:0.1.0-SNAPSHOT'
-//    annotationProcessor 'org.graphoenix:graphoenix-file:0.1.0-SNAPSHOT'
-    annotationProcessor 'org.graphoenix:nozdormu-inject:0.1.0-SNAPSHOT'
-    annotationProcessor 'org.graphoenix:nozdormu-async:0.1.0-SNAPSHOT'
-    annotationProcessor 'org.graphoenix:nozdormu-interceptor:0.1.0-SNAPSHOT'
-    annotationProcessor 'org.graphoenix:nozdormu-config:0.1.0-SNAPSHOT'
-    annotationProcessor 'org.casbin:jcasbin:1.33.1'
-    annotationProcessor 'com.password4j:password4j:1.7.2'
+    compileOnly 'org.apache.tomcat:annotations-api' // necessary for Java 9+
 
-    protobuf 'org.graphoenix:graphoenix-core:0.1.0-SNAPSHOT'
-    protobuf 'org.graphoenix:graphoenix-introspection:0.1.0-SNAPSHOT'
-    protobuf 'org.graphoenix:graphoenix-structure:0.1.0-SNAPSHOT'
+    annotationProcessor platform(project(':graphence-platform'))
+    annotationProcessor platform("org.graphoenix:graphoenix-platform:$graphoenixVersion")
+    annotationProcessor 'org.graphoenix:graphoenix-annotation-processor'
+    annotationProcessor 'org.graphoenix:graphoenix-http-server'
+    annotationProcessor 'org.graphoenix:graphoenix-introspection'
+    annotationProcessor 'org.graphoenix:graphoenix-structure'
+    annotationProcessor 'org.graphoenix:nozdormu-inject'
+    annotationProcessor 'org.graphoenix:nozdormu-async'
+    annotationProcessor 'org.graphoenix:nozdormu-interceptor'
+    annotationProcessor 'org.graphoenix:nozdormu-config'
+    annotationProcessor 'org.casbin:jcasbin'
+    annotationProcessor 'com.password4j:password4j'
 
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.2'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.2'
+    protobuf platform("org.graphoenix:graphoenix-platform:$graphoenixVersion")
+    protobuf 'org.graphoenix:graphoenix-core'
+    protobuf 'org.graphoenix:graphoenix-introspection'
+    protobuf 'org.graphoenix:graphoenix-structure'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
 test {

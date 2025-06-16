@@ -1,0 +1,30 @@
+plugins {
+    id 'java-platform'
+    id 'maven-publish'
+}
+
+group 'org.graphoenix'
+
+dependencies {
+    constraints {
+        api 'org.eclipse.microprofile.jwt:microprofile-jwt-auth-api:2.1'
+        api 'org.casbin:jcasbin:1.41.0'
+        api 'com.password4j:password4j:1.7.2'
+
+        api 'io.jsonwebtoken:jjwt-api:0.11.5'
+        runtime 'io.jsonwebtoken:jjwt-impl:0.11.5'
+        runtime 'io.jsonwebtoken:jjwt-jackson:0.11.5'
+
+        api 'org.junit.jupiter:junit-jupiter:5.13.1'
+        runtime 'org.junit.platform:junit-platform-launcher:1.13.1'
+        api 'io.projectreactor:reactor-test:3.7.7'
+    }
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            from components.javaPlatform
+        }
+    }
+}

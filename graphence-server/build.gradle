@@ -4,56 +4,51 @@ plugins {
 }
 
 group 'org.graphoenix'
-version '0.1.0-SNAPSHOT'
-
-repositories {
-    mavenCentral()
-    mavenLocal()
-}
 
 dependencies {
+    implementation platform(project(':graphence-platform'))
+    implementation platform("org.graphoenix:graphoenix-platform:$graphoenixVersion")
+    implementation platform("org.graphoenix:nozdormu-platform:$nozdormuVersion")
+
     implementation project(':graphence-core')
     implementation project(':graphence-security')
-    implementation 'org.graphoenix:graphoenix-core:0.1.0-SNAPSHOT'
-    implementation 'org.graphoenix:graphoenix-gossip:0.1.0-SNAPSHOT'
-    implementation 'org.graphoenix:graphoenix-http-server:0.1.0-SNAPSHOT'
-    implementation 'org.graphoenix:graphoenix-grpc-server:0.1.0-SNAPSHOT'
-    implementation 'org.graphoenix:graphoenix-grpc-client:0.1.0-SNAPSHOT'
-    implementation 'org.graphoenix:graphoenix-r2dbc:0.1.0-SNAPSHOT'
-    implementation 'org.graphoenix:graphoenix-rabbitmq:0.1.0-SNAPSHOT'
-    implementation 'org.graphoenix:graphoenix-introspection:0.1.0-SNAPSHOT'
-    implementation 'org.graphoenix:graphoenix-json-schema:0.1.0-SNAPSHOT'
-    implementation 'org.graphoenix:graphoenix-structure:0.1.0-SNAPSHOT'
-//    implementation 'org.graphoenix:graphoenix-file-local:0.1.0-SNAPSHOT'
-    implementation 'org.graphoenix:nozdormu-inject:0.1.0-SNAPSHOT'
-    implementation 'org.graphoenix:nozdormu-async:0.1.0-SNAPSHOT'
-    implementation 'org.graphoenix:nozdormu-interceptor:0.1.0-SNAPSHOT'
-    implementation 'org.graphoenix:nozdormu-config:0.1.0-SNAPSHOT'
+    implementation 'org.graphoenix:graphoenix-core'
+    implementation 'org.graphoenix:graphoenix-gossip'
+    implementation 'org.graphoenix:graphoenix-http-server'
+    implementation 'org.graphoenix:graphoenix-grpc-server'
+    implementation 'org.graphoenix:graphoenix-grpc-client'
+    implementation 'org.graphoenix:graphoenix-r2dbc'
+    implementation 'org.graphoenix:graphoenix-rabbitmq'
+    implementation 'org.graphoenix:graphoenix-introspection'
+    implementation 'org.graphoenix:graphoenix-json-schema'
+    implementation 'org.graphoenix:graphoenix-structure'
+    implementation 'org.graphoenix:nozdormu-inject'
+    implementation 'org.graphoenix:nozdormu-async'
+    implementation 'org.graphoenix:nozdormu-interceptor'
+    implementation 'org.graphoenix:nozdormu-config'
 
-    implementation group: 'io.netty', name: 'netty-resolver-dns-native-macos', version: '4.1.81.Final', classifier: 'osx-aarch_64'
-
+    runtimeOnly 'io.netty:netty-resolver-dns-native-macos:4.1.81.Final:osx-aarch_64'
     runtimeOnly 'org.mariadb:r2dbc-mariadb:1.1.4'
 
     annotationProcessor project(':graphence-core')
     annotationProcessor project(':graphence-security')
-    annotationProcessor 'org.graphoenix:graphoenix-annotation-processor:0.1.0-SNAPSHOT'
-    annotationProcessor 'org.graphoenix:graphoenix-sql:0.1.0-SNAPSHOT'
-    annotationProcessor 'org.graphoenix:graphoenix-http-server:0.1.0-SNAPSHOT'
-    annotationProcessor 'org.graphoenix:graphoenix-grpc-server:0.1.0-SNAPSHOT'
-    annotationProcessor 'org.graphoenix:graphoenix-grpc-client:0.1.0-SNAPSHOT'
-    annotationProcessor 'org.graphoenix:graphoenix-r2dbc:0.1.0-SNAPSHOT'
-    annotationProcessor 'org.graphoenix:graphoenix-rabbitmq:0.1.0-SNAPSHOT'
-    annotationProcessor 'org.graphoenix:graphoenix-introspection:0.1.0-SNAPSHOT'
-    annotationProcessor 'org.graphoenix:graphoenix-json-schema:0.1.0-SNAPSHOT'
-    annotationProcessor 'org.graphoenix:graphoenix-structure:0.1.0-SNAPSHOT'
-//    annotationProcessor 'org.graphoenix:graphoenix-file-local:0.1.0-SNAPSHOT'
-    annotationProcessor 'org.graphoenix:nozdormu-inject:0.1.0-SNAPSHOT'
-    annotationProcessor 'org.graphoenix:nozdormu-async:0.1.0-SNAPSHOT'
-    annotationProcessor 'org.graphoenix:nozdormu-interceptor:0.1.0-SNAPSHOT'
-    annotationProcessor 'org.graphoenix:nozdormu-config:0.1.0-SNAPSHOT'
+    annotationProcessor 'org.graphoenix:graphoenix-annotation-processor'
+    annotationProcessor 'org.graphoenix:graphoenix-sql'
+    annotationProcessor 'org.graphoenix:graphoenix-http-server'
+    annotationProcessor 'org.graphoenix:graphoenix-grpc-server'
+    annotationProcessor 'org.graphoenix:graphoenix-grpc-client'
+    annotationProcessor 'org.graphoenix:graphoenix-r2dbc'
+    annotationProcessor 'org.graphoenix:graphoenix-rabbitmq'
+    annotationProcessor 'org.graphoenix:graphoenix-introspection'
+    annotationProcessor 'org.graphoenix:graphoenix-json-schema'
+    annotationProcessor 'org.graphoenix:graphoenix-structure'
+    annotationProcessor 'org.graphoenix:nozdormu-inject'
+    annotationProcessor 'org.graphoenix:nozdormu-async'
+    annotationProcessor 'org.graphoenix:nozdormu-interceptor'
+    annotationProcessor 'org.graphoenix:nozdormu-config'
 
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.2'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.2'
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
 test {
