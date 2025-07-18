@@ -41,9 +41,9 @@ type Role implements NamedStruct {
     "组"
     groups: [Group]
     "组合"
-    composites: [Role] @map(from: "id" with: {type: "RoleCompositeRelation" from: "roleRef" to: "compositeRef"} to: "id")
+    composites: [Role] @map(from: "id" with: { type: "RoleCompositeRelation" from: "roleRef" to: "compositeRef" } to: "id")
     "权限"
-    permissions: [Permission]
+    permissions: [Permission] @map(from: "id" with: { type: "RolePermissionRelation" from: "roleRef" to: "permissionRef" } to: "name")
     "租户"
     realm: Realm @map(from: "realmId" to: "id" anchor: true)
 }
@@ -86,8 +86,10 @@ type Realm implements NamedStruct {
 
 "权限"
 type Permission {
+    "ID"
+    id: ID @jsonSchema(maxLength: 50)
     "名称"
-    name: ID! @options(type: "String") @jsonSchema(maxLength: 50)
+    name: String! @jsonSchema(maxLength: 50)
     "描述"
     description: String @jsonSchema(maxLength: 100)
     "字段"
@@ -97,7 +99,7 @@ type Permission {
     "权限类型"
     permissionType: PermissionType!
     "角色"
-    roles: [Role]
+    roles: [Role] @map(from: "name" with: { type: "RolePermissionRelation" from: "permissionRef" to: "roleRef" } to: "id")
     "租户"
     realm: Realm @map(from: "realmId" to: "id" anchor: true)
 }

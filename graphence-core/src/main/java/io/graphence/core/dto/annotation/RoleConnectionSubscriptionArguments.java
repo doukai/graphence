@@ -22,9 +22,9 @@ import org.eclipse.microprofile.graphql.Description;
 @Description("角色列表 订阅参数")
 public @interface RoleConnectionSubscriptionArguments {
   /**
-   * ID
+   * id
    */
-  @Description("ID")
+  @Description("id")
   StringExpression id() default @StringExpression;
 
   /**
@@ -145,8 +145,8 @@ public @interface RoleConnectionSubscriptionArguments {
    * 角色 权限 关系
    */
   @Description("角色 权限 关系")
-  PermissionRoleRelationExpression permissionRoleRelation(
-      ) default @PermissionRoleRelationExpression;
+  RolePermissionRelationExpression rolePermissionRelation(
+      ) default @RolePermissionRelationExpression;
 
   /**
    * 排序
@@ -248,7 +248,7 @@ public @interface RoleConnectionSubscriptionArguments {
 
   String $roleCompositeRelation() default "";
 
-  String $permissionRoleRelation() default "";
+  String $rolePermissionRelation() default "";
 
   String $orderBy() default "";
 

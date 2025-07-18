@@ -95,12 +95,12 @@ public @interface Subscription {
   RoleCompositeRelationConnectionSubscriptionArguments roleCompositeRelationConnection(
       ) default @RoleCompositeRelationConnectionSubscriptionArguments;
 
-  PermissionRoleRelationSubscriptionArguments permissionRoleRelation(
-      ) default @PermissionRoleRelationSubscriptionArguments;
+  RolePermissionRelationSubscriptionArguments rolePermissionRelation(
+      ) default @RolePermissionRelationSubscriptionArguments;
 
-  PermissionRoleRelationListSubscriptionArguments permissionRoleRelationList(
-      ) default @PermissionRoleRelationListSubscriptionArguments;
+  RolePermissionRelationListSubscriptionArguments rolePermissionRelationList(
+      ) default @RolePermissionRelationListSubscriptionArguments;
 
-  PermissionRoleRelationConnectionSubscriptionArguments permissionRoleRelationConnection(
-      ) default @PermissionRoleRelationConnectionSubscriptionArguments;
+  RolePermissionRelationConnectionSubscriptionArguments rolePermissionRelationConnection(
+      ) default @RolePermissionRelationConnectionSubscriptionArguments;
 }

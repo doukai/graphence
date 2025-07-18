@@ -23,6 +23,12 @@ import org.eclipse.microprofile.graphql.Input;
 @Description("权限 变更内容")
 public class PermissionInput implements MetaInput, PermissionInputBase {
   /**
+   * id
+   */
+  @Description("id")
+  private String id;
+
+  /**
    * 名称
    */
   @Description("名称")
@@ -124,13 +130,23 @@ public class PermissionInput implements MetaInput, PermissionInputBase {
    * 角色 权限 关系
    */
   @Description("角色 权限 关系")
-  private Collection<PermissionRoleRelationInput> permissionRoleRelation;
+  private Collection<RolePermissionRelationInput> rolePermissionRelation;
 
   /**
    * 匹配条件
    */
   @Description("匹配条件")
   private PermissionExpression where;
+
+  @Override
+  public String getId() {
+    return this.id;
+  }
+
+  @Override
+  public void setId(String id) {
+    this.id = (String)id;
+  }
 
   @Override
   public String getName() {
@@ -293,14 +309,14 @@ public class PermissionInput implements MetaInput, PermissionInputBase {
   }
 
   @Override
-  public Collection<PermissionRoleRelationInput> getPermissionRoleRelation() {
-    return this.permissionRoleRelation;
+  public Collection<RolePermissionRelationInput> getRolePermissionRelation() {
+    return this.rolePermissionRelation;
   }
 
   @Override
-  public void setPermissionRoleRelation(
-      Collection<PermissionRoleRelationInput> permissionRoleRelation) {
-    this.permissionRoleRelation = (Collection<PermissionRoleRelationInput>)permissionRoleRelation;
+  public void setRolePermissionRelation(
+      Collection<RolePermissionRelationInput> rolePermissionRelation) {
+    this.rolePermissionRelation = (Collection<RolePermissionRelationInput>)rolePermissionRelation;
   }
 
   @Override

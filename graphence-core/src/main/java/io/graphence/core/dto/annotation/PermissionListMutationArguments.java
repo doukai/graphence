@@ -20,6 +20,12 @@ import org.eclipse.microprofile.graphql.Description;
 @Description("权限列表 变更参数 ")
 public @interface PermissionListMutationArguments {
   /**
+   * id
+   */
+  @Description("id")
+  String id() default "";
+
+  /**
    * 名称
    */
   @Description("名称")
@@ -119,7 +125,7 @@ public @interface PermissionListMutationArguments {
    * 角色 权限 关系
    */
   @Description("角色 权限 关系")
-  PermissionRoleRelationInput[] permissionRoleRelation() default {};
+  RolePermissionRelationInput[] rolePermissionRelation() default {};
 
   /**
    * 变更内容列表
@@ -132,6 +138,8 @@ public @interface PermissionListMutationArguments {
    */
   @Description("匹配条件")
   PermissionExpression where() default @PermissionExpression;
+
+  String $id() default "";
 
   String $name() default "";
 
@@ -165,7 +173,7 @@ public @interface PermissionListMutationArguments {
 
   String $__typename() default "";
 
-  String $permissionRoleRelation() default "";
+  String $rolePermissionRelation() default "";
 
   String $list() default "";
 

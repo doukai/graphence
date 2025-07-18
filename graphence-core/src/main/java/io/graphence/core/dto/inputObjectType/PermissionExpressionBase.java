@@ -18,6 +18,12 @@ import org.eclipse.microprofile.graphql.Input;
 @Description("权限 查询表达式")
 public interface PermissionExpressionBase extends MetaExpression {
   /**
+   * id
+   */
+  @Description("id")
+  StringExpression id = null;
+
+  /**
    * 名称
    */
   @Description("名称")
@@ -117,7 +123,7 @@ public interface PermissionExpressionBase extends MetaExpression {
    * 角色 权限 关系
    */
   @Description("角色 权限 关系")
-  PermissionRoleRelationExpression permissionRoleRelation = null;
+  RolePermissionRelationExpression rolePermissionRelation = null;
 
   /**
    * 取非
@@ -136,6 +142,12 @@ public interface PermissionExpressionBase extends MetaExpression {
    */
   @Description("查询表达式组")
   Collection<PermissionExpression> exs = null;
+
+  default StringExpression getId() {
+    return id;
+  }
+
+  void setId(StringExpression id);
 
   default StringExpression getName() {
     return name;
@@ -233,11 +245,11 @@ public interface PermissionExpressionBase extends MetaExpression {
 
   void set__typename(StringExpression __typename);
 
-  default PermissionRoleRelationExpression getPermissionRoleRelation() {
-    return permissionRoleRelation;
+  default RolePermissionRelationExpression getRolePermissionRelation() {
+    return rolePermissionRelation;
   }
 
-  void setPermissionRoleRelation(PermissionRoleRelationExpression permissionRoleRelation);
+  void setRolePermissionRelation(RolePermissionRelationExpression rolePermissionRelation);
 
   default Boolean getNot() {
     return not;

@@ -14,7 +14,7 @@ import "google/protobuf/timestamp.proto";
 message MutationUserRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
-    string id = 3; /* ID */
+    string id = 3; /* id */
     string name = 4; /* 姓名 */
     string description = 5; /* 描述 */
     string last_name = 6; /* 姓氏 */
@@ -45,7 +45,7 @@ message MutationUserRequest {
 message MutationUserListRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
-    string id = 3; /* ID */
+    string id = 3; /* id */
     string name = 4; /* 姓名 */
     string description = 5; /* 描述 */
     string last_name = 6; /* 姓氏 */
@@ -76,7 +76,7 @@ message MutationUserListRequest {
 message MutationRoleRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
-    string id = 3; /* ID */
+    string id = 3; /* id */
     string name = 4; /* 名称 */
     string description = 5; /* 描述 */
     repeated UserInput users = 6; /* 用户 */
@@ -96,14 +96,14 @@ message MutationRoleRequest {
     repeated RoleUserRelationInput role_user_relation = 20; /* 用户 角色 关系 */
     repeated GroupRoleRelationInput group_role_relation = 21; /* 角色 组 关系 */
     repeated RoleCompositeRelationInput role_composite_relation = 22; /* 角色 角色 关系 */
-    repeated PermissionRoleRelationInput permission_role_relation = 23; /* 角色 权限 关系 */
+    repeated RolePermissionRelationInput role_permission_relation = 23; /* 角色 权限 关系 */
     RoleInput input = 24; /* 变更内容 */
     RoleExpression where = 25; /* 匹配条件 */
 }
 message MutationRoleListRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
-    string id = 3; /* ID */
+    string id = 3; /* id */
     string name = 4; /* 名称 */
     string description = 5; /* 描述 */
     repeated UserInput users = 6; /* 用户 */
@@ -123,14 +123,14 @@ message MutationRoleListRequest {
     repeated RoleUserRelationInput role_user_relation = 20; /* 用户 角色 关系 */
     repeated GroupRoleRelationInput group_role_relation = 21; /* 角色 组 关系 */
     repeated RoleCompositeRelationInput role_composite_relation = 22; /* 角色 角色 关系 */
-    repeated PermissionRoleRelationInput permission_role_relation = 23; /* 角色 权限 关系 */
+    repeated RolePermissionRelationInput role_permission_relation = 23; /* 角色 权限 关系 */
     repeated RoleInput list = 24; /* 变更内容列表 */
     RoleExpression where = 25; /* 匹配条件 */
 }
 message MutationGroupRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
-    string id = 3; /* ID */
+    string id = 3; /* id */
     string name = 4; /* 名称 */
     string description = 5; /* 描述 */
     string path = 6; /* 路径 */
@@ -158,7 +158,7 @@ message MutationGroupRequest {
 message MutationGroupListRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
-    string id = 3; /* ID */
+    string id = 3; /* id */
     string name = 4; /* 名称 */
     string description = 5; /* 描述 */
     string path = 6; /* 路径 */
@@ -186,7 +186,7 @@ message MutationGroupListRequest {
 message MutationRealmRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
-    string id = 3; /* ID */
+    string id = 3; /* id */
     string name = 4; /* 名称 */
     string description = 5; /* 描述 */
     bool is_deprecated = 6; /* 已移除 */
@@ -204,7 +204,7 @@ message MutationRealmRequest {
 message MutationRealmListRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
-    string id = 3; /* ID */
+    string id = 3; /* id */
     string name = 4; /* 名称 */
     string description = 5; /* 描述 */
     bool is_deprecated = 6; /* 已移除 */
@@ -222,53 +222,55 @@ message MutationRealmListRequest {
 message MutationPermissionRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
-    string name = 3; /* 名称 */
-    string description = 4; /* 描述 */
-    string field = 5; /* 字段 */
-    string type = 6; /* 实体 */
-    PermissionType permission_type = 7; /* 权限类型 */
-    repeated RoleInput roles = 8; /* 角色 */
-    RealmInput realm = 9; /* 租户 */
-    bool is_deprecated = 10; /* 已移除 */
-    int32 version = 11; /* 版本 */
-    int32 realm_id = 12; /* 域 */
-    string create_user_id = 13; /* 创建者 */
-    google.protobuf.Timestamp create_time = 14; /* 创建时间 */
-    string update_user_id = 15; /* 更新者 */
-    google.protobuf.Timestamp update_time = 16; /* 更新时间 */
-    string create_group_id = 17; /* 创建组 */
-    string intro_typename = 18; /* 所属类型 */
-    repeated PermissionRoleRelationInput permission_role_relation = 19; /* 角色 权限 关系 */
-    PermissionInput input = 20; /* 变更内容 */
-    PermissionExpression where = 21; /* 匹配条件 */
+    string id = 3; /* id */
+    string name = 4; /* 名称 */
+    string description = 5; /* 描述 */
+    string field = 6; /* 字段 */
+    string type = 7; /* 实体 */
+    PermissionType permission_type = 8; /* 权限类型 */
+    repeated RoleInput roles = 9; /* 角色 */
+    RealmInput realm = 10; /* 租户 */
+    bool is_deprecated = 11; /* 已移除 */
+    int32 version = 12; /* 版本 */
+    int32 realm_id = 13; /* 域 */
+    string create_user_id = 14; /* 创建者 */
+    google.protobuf.Timestamp create_time = 15; /* 创建时间 */
+    string update_user_id = 16; /* 更新者 */
+    google.protobuf.Timestamp update_time = 17; /* 更新时间 */
+    string create_group_id = 18; /* 创建组 */
+    string intro_typename = 19; /* 所属类型 */
+    repeated RolePermissionRelationInput role_permission_relation = 20; /* 角色 权限 关系 */
+    PermissionInput input = 21; /* 变更内容 */
+    PermissionExpression where = 22; /* 匹配条件 */
 }
 message MutationPermissionListRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
-    string name = 3; /* 名称 */
-    string description = 4; /* 描述 */
-    string field = 5; /* 字段 */
-    string type = 6; /* 实体 */
-    PermissionType permission_type = 7; /* 权限类型 */
-    repeated RoleInput roles = 8; /* 角色 */
-    RealmInput realm = 9; /* 租户 */
-    bool is_deprecated = 10; /* 已移除 */
-    int32 version = 11; /* 版本 */
-    int32 realm_id = 12; /* 域 */
-    string create_user_id = 13; /* 创建者 */
-    google.protobuf.Timestamp create_time = 14; /* 创建时间 */
-    string update_user_id = 15; /* 更新者 */
-    google.protobuf.Timestamp update_time = 16; /* 更新时间 */
-    string create_group_id = 17; /* 创建组 */
-    string intro_typename = 18; /* 所属类型 */
-    repeated PermissionRoleRelationInput permission_role_relation = 19; /* 角色 权限 关系 */
-    repeated PermissionInput list = 20; /* 变更内容列表 */
-    PermissionExpression where = 21; /* 匹配条件 */
+    string id = 3; /* id */
+    string name = 4; /* 名称 */
+    string description = 5; /* 描述 */
+    string field = 6; /* 字段 */
+    string type = 7; /* 实体 */
+    PermissionType permission_type = 8; /* 权限类型 */
+    repeated RoleInput roles = 9; /* 角色 */
+    RealmInput realm = 10; /* 租户 */
+    bool is_deprecated = 11; /* 已移除 */
+    int32 version = 12; /* 版本 */
+    int32 realm_id = 13; /* 域 */
+    string create_user_id = 14; /* 创建者 */
+    google.protobuf.Timestamp create_time = 15; /* 创建时间 */
+    string update_user_id = 16; /* 更新者 */
+    google.protobuf.Timestamp update_time = 17; /* 更新时间 */
+    string create_group_id = 18; /* 创建组 */
+    string intro_typename = 19; /* 所属类型 */
+    repeated RolePermissionRelationInput role_permission_relation = 20; /* 角色 权限 关系 */
+    repeated PermissionInput list = 21; /* 变更内容列表 */
+    PermissionExpression where = 22; /* 匹配条件 */
 }
 message MutationUserPhonesRelationRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
-    string id = 3; /* ID */
+    string id = 3; /* id */
     string user_ref = 4; /* 用户 引用 */
     UserInput user = 5; /* 用户 */
     string phones_ref = 6; /* 手机号 引用 */
@@ -287,7 +289,7 @@ message MutationUserPhonesRelationRequest {
 message MutationUserPhonesRelationListRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
-    string id = 3; /* ID */
+    string id = 3; /* id */
     string user_ref = 4; /* 用户 引用 */
     UserInput user = 5; /* 用户 */
     string phones_ref = 6; /* 手机号 引用 */
@@ -306,7 +308,7 @@ message MutationUserPhonesRelationListRequest {
 message MutationGroupUserRelationRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
-    string id = 3; /* ID */
+    string id = 3; /* id */
     string user_ref = 4; /* 用户 引用 */
     UserInput user = 5; /* 用户 */
     string group_ref = 6; /* 组 引用 */
@@ -326,7 +328,7 @@ message MutationGroupUserRelationRequest {
 message MutationGroupUserRelationListRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
-    string id = 3; /* ID */
+    string id = 3; /* id */
     string user_ref = 4; /* 用户 引用 */
     UserInput user = 5; /* 用户 */
     string group_ref = 6; /* 组 引用 */
@@ -346,7 +348,7 @@ message MutationGroupUserRelationListRequest {
 message MutationRoleUserRelationRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
-    string id = 3; /* ID */
+    string id = 3; /* id */
     string user_ref = 4; /* 用户 引用 */
     UserInput user = 5; /* 用户 */
     string role_ref = 6; /* 角色 引用 */
@@ -366,7 +368,7 @@ message MutationRoleUserRelationRequest {
 message MutationRoleUserRelationListRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
-    string id = 3; /* ID */
+    string id = 3; /* id */
     string user_ref = 4; /* 用户 引用 */
     UserInput user = 5; /* 用户 */
     string role_ref = 6; /* 角色 引用 */
@@ -386,7 +388,7 @@ message MutationRoleUserRelationListRequest {
 message MutationGroupRoleRelationRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
-    string id = 3; /* ID */
+    string id = 3; /* id */
     string role_ref = 4; /* 角色 引用 */
     RoleInput role = 5; /* 角色 */
     string group_ref = 6; /* 组 引用 */
@@ -406,7 +408,7 @@ message MutationGroupRoleRelationRequest {
 message MutationGroupRoleRelationListRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
-    string id = 3; /* ID */
+    string id = 3; /* id */
     string role_ref = 4; /* 角色 引用 */
     RoleInput role = 5; /* 角色 */
     string group_ref = 6; /* 组 引用 */
@@ -426,7 +428,7 @@ message MutationGroupRoleRelationListRequest {
 message MutationRoleCompositeRelationRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
-    string id = 3; /* ID */
+    string id = 3; /* id */
     string role_ref = 4; /* 角色 引用 */
     RoleInput role = 5; /* 角色 */
     string composite_ref = 6; /* 角色 引用 */
@@ -446,7 +448,7 @@ message MutationRoleCompositeRelationRequest {
 message MutationRoleCompositeRelationListRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
-    string id = 3; /* ID */
+    string id = 3; /* id */
     string role_ref = 4; /* 角色 引用 */
     RoleInput role = 5; /* 角色 */
     string composite_ref = 6; /* 角色 引用 */
@@ -463,10 +465,10 @@ message MutationRoleCompositeRelationListRequest {
     repeated RoleCompositeRelationInput list = 17; /* 变更内容列表 */
     RoleCompositeRelationExpression where = 18; /* 匹配条件 */
 }
-message MutationPermissionRoleRelationRequest {
+message MutationRolePermissionRelationRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
-    string id = 3; /* ID */
+    string id = 3; /* id */
     string role_ref = 4; /* 角色 引用 */
     RoleInput role = 5; /* 角色 */
     string permission_ref = 6; /* 权限 引用 */
@@ -480,13 +482,13 @@ message MutationPermissionRoleRelationRequest {
     google.protobuf.Timestamp update_time = 14; /* 更新时间 */
     string create_group_id = 15; /* 创建组 */
     string intro_typename = 16; /* 所属类型 */
-    PermissionRoleRelationInput input = 17; /* 变更内容 */
-    PermissionRoleRelationExpression where = 18; /* 匹配条件 */
+    RolePermissionRelationInput input = 17; /* 变更内容 */
+    RolePermissionRelationExpression where = 18; /* 匹配条件 */
 }
-message MutationPermissionRoleRelationListRequest {
+message MutationRolePermissionRelationListRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
-    string id = 3; /* ID */
+    string id = 3; /* id */
     string role_ref = 4; /* 角色 引用 */
     RoleInput role = 5; /* 角色 */
     string permission_ref = 6; /* 权限 引用 */
@@ -500,8 +502,8 @@ message MutationPermissionRoleRelationListRequest {
     google.protobuf.Timestamp update_time = 14; /* 更新时间 */
     string create_group_id = 15; /* 创建组 */
     string intro_typename = 16; /* 所属类型 */
-    repeated PermissionRoleRelationInput list = 17; /* 变更内容列表 */
-    PermissionRoleRelationExpression where = 18; /* 匹配条件 */
+    repeated RolePermissionRelationInput list = 17; /* 变更内容列表 */
+    RolePermissionRelationExpression where = 18; /* 匹配条件 */
 }
 message MutationSyncModelPolicyRequest {
     optional string selection_set = 1;

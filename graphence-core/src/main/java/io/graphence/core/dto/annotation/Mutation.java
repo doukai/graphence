@@ -66,9 +66,9 @@ public @interface Mutation {
   RoleCompositeRelationListMutationArguments roleCompositeRelationList(
       ) default @RoleCompositeRelationListMutationArguments;
 
-  PermissionRoleRelationMutationArguments permissionRoleRelation(
-      ) default @PermissionRoleRelationMutationArguments;
+  RolePermissionRelationMutationArguments rolePermissionRelation(
+      ) default @RolePermissionRelationMutationArguments;
 
-  PermissionRoleRelationListMutationArguments permissionRoleRelationList(
-      ) default @PermissionRoleRelationListMutationArguments;
+  RolePermissionRelationListMutationArguments rolePermissionRelationList(
+      ) default @RolePermissionRelationListMutationArguments;
 }

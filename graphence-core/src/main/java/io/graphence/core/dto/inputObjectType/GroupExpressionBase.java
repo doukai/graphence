@@ -20,9 +20,9 @@ import org.eclipse.microprofile.graphql.Input;
 @Description("组 查询表达式")
 public interface GroupExpressionBase extends TreeStructExpression, NamedStructExpression, MetaExpression {
   /**
-   * ID
+   * id
    */
-  @Description("ID")
+  @Description("id")
   StringExpression id = null;
 
   /**

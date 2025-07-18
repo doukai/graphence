@@ -19,9 +19,9 @@ import org.eclipse.microprofile.graphql.Description;
 @Description("角色 变更内容")
 public @interface RoleInputBase1 {
   /**
-   * ID
+   * id
    */
-  @Description("ID")
+  @Description("id")
   String id() default "";
 
   /**
@@ -142,7 +142,7 @@ public @interface RoleInputBase1 {
    * 角色 权限 关系
    */
   @Description("角色 权限 关系")
-  PermissionRoleRelationInput2[] permissionRoleRelation() default {};
+  RolePermissionRelationInput2[] rolePermissionRelation() default {};
 
   /**
    * 匹配条件
@@ -190,7 +190,7 @@ public @interface RoleInputBase1 {
 
   String $roleCompositeRelation() default "";
 
-  String $permissionRoleRelation() default "";
+  String $rolePermissionRelation() default "";
 
   String $where() default "";
 }

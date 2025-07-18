@@ -23,9 +23,9 @@ import org.eclipse.microprofile.graphql.Input;
 @Description("租户列表 变更参数 ")
 public class RealmListMutationArguments implements NamedStructInput, MetaInput, RealmInputBase {
   /**
-   * ID
+   * id
    */
-  @Description("ID")
+  @Description("id")
   private String id;
 
   /**

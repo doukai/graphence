@@ -25,9 +25,9 @@ import org.eclipse.microprofile.graphql.Input;
 @Description("租户连接 查询参数")
 public class RealmConnectionQueryArguments implements NamedStructExpression, MetaExpression, RealmExpressionBase {
   /**
-   * ID
+   * id
    */
-  @Description("ID")
+  @Description("id")
   private StringExpression id;
 
   /**

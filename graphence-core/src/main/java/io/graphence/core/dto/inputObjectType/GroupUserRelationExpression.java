@@ -22,9 +22,9 @@ import org.eclipse.microprofile.graphql.Input;
 @Description("用户 组 关系 查询表达式")
 public class GroupUserRelationExpression implements MetaExpression, GroupUserRelationExpressionBase {
   /**
-   * ID
+   * id
    */
-  @Description("ID")
+  @Description("id")
   private StringExpression id;
 
   /**

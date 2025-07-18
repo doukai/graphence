@@ -19,9 +19,9 @@ import org.eclipse.microprofile.graphql.Description;
 @Description("组 变更参数")
 public @interface GroupMutationArguments {
   /**
-   * ID
+   * id
    */
-  @Description("ID")
+  @Description("id")
   String id() default "";
 
   /**

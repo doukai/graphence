@@ -102,14 +102,14 @@ message QueryRoleCompositeRelationListResponse {
 message QueryRoleCompositeRelationConnectionResponse {
     RoleCompositeRelationConnection role_composite_relation_connection = 1;
 }
-message QueryPermissionRoleRelationResponse {
-    PermissionRoleRelation permission_role_relation = 1;
+message QueryRolePermissionRelationResponse {
+    RolePermissionRelation role_permission_relation = 1;
 }
-message QueryPermissionRoleRelationListResponse {
-    repeated PermissionRoleRelation permission_role_relation_list = 1;
+message QueryRolePermissionRelationListResponse {
+    repeated RolePermissionRelation role_permission_relation_list = 1;
 }
-message QueryPermissionRoleRelationConnectionResponse {
-    PermissionRoleRelationConnection permission_role_relation_connection = 1;
+message QueryRolePermissionRelationConnectionResponse {
+    RolePermissionRelationConnection role_permission_relation_connection = 1;
 }
 message QueryPolicyListResponse {
     repeated Policy policy_list = 1;

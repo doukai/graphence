@@ -24,6 +24,12 @@ import org.eclipse.microprofile.graphql.Input;
 @Description("权限连接 查询参数")
 public class PermissionConnectionQueryArguments implements MetaExpression, PermissionExpressionBase {
   /**
+   * id
+   */
+  @Description("id")
+  private StringExpression id;
+
+  /**
    * 名称
    */
   @Description("名称")
@@ -124,7 +130,7 @@ public class PermissionConnectionQueryArguments implements MetaExpression, Permi
    * 角色 权限 关系
    */
   @Description("角色 权限 关系")
-  private PermissionRoleRelationExpression permissionRoleRelation;
+  private RolePermissionRelationExpression rolePermissionRelation;
 
   /**
    * 排序
@@ -187,6 +193,16 @@ public class PermissionConnectionQueryArguments implements MetaExpression, Permi
    */
   @Description("取...之前")
   private String before;
+
+  @Override
+  public StringExpression getId() {
+    return this.id;
+  }
+
+  @Override
+  public void setId(StringExpression id) {
+    this.id = (StringExpression)id;
+  }
 
   @Override
   public StringExpression getName() {
@@ -349,13 +365,13 @@ public class PermissionConnectionQueryArguments implements MetaExpression, Permi
   }
 
   @Override
-  public PermissionRoleRelationExpression getPermissionRoleRelation() {
-    return this.permissionRoleRelation;
+  public RolePermissionRelationExpression getRolePermissionRelation() {
+    return this.rolePermissionRelation;
   }
 
   @Override
-  public void setPermissionRoleRelation(PermissionRoleRelationExpression permissionRoleRelation) {
-    this.permissionRoleRelation = (PermissionRoleRelationExpression)permissionRoleRelation;
+  public void setRolePermissionRelation(RolePermissionRelationExpression rolePermissionRelation) {
+    this.rolePermissionRelation = (RolePermissionRelationExpression)rolePermissionRelation;
   }
 
   public PermissionOrderBy getOrderBy() {

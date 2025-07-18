@@ -24,9 +24,9 @@ import org.eclipse.microprofile.graphql.Input;
 @Description("角色 角色 关系列表 订阅参数")
 public class RoleCompositeRelationConnectionSubscriptionArguments implements MetaExpression, RoleCompositeRelationExpressionBase {
   /**
-   * ID
+   * id
    */
-  @Description("ID")
+  @Description("id")
   private StringExpression id;
 
   /**

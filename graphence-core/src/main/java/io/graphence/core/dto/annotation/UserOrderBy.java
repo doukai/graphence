@@ -20,9 +20,9 @@ import org.eclipse.microprofile.graphql.Description;
 @Description("用户 排序")
 public @interface UserOrderBy {
   /**
-   * ID
+   * id
    */
-  @Description("ID")
+  @Description("id")
   Sort id() default Sort.ASC;
 
   /**
@@ -198,24 +198,6 @@ public @interface UserOrderBy {
    */
   @Description("用户 角色 关系 统计字段")
   RoleUserRelationOrderBy1 roleUserRelationAggregate() default @RoleUserRelationOrderBy1;
-
-  /**
-   * 用户 数量
-   */
-  @Description("用户 数量")
-  Sort idCount() default Sort.ASC;
-
-  /**
-   * ID 最大值
-   */
-  @Description("ID 最大值")
-  Sort idMax() default Sort.ASC;
-
-  /**
-   * ID 最小值
-   */
-  @Description("ID 最小值")
-  Sort idMin() default Sort.ASC;
 
   /**
    * 姓名 数量
@@ -402,12 +384,6 @@ public @interface UserOrderBy {
   String $groupUserRelationAggregate() default "";
 
   String $roleUserRelationAggregate() default "";
-
-  String $idCount() default "";
-
-  String $idMax() default "";
-
-  String $idMin() default "";
 
   String $nameCount() default "";
 

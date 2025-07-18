@@ -19,9 +19,9 @@ import org.eclipse.microprofile.graphql.Input;
 @Description("用户 变更内容")
 public interface UserInputBase extends NamedStructInput, MetaInput {
   /**
-   * ID
+   * id
    */
-  @Description("ID")
+  @Description("id")
   String id = null;
 
   /**

@@ -20,6 +20,12 @@ import org.eclipse.microprofile.graphql.Description;
 @Description("权限 变更内容")
 public @interface PermissionInput2 {
   /**
+   * id
+   */
+  @Description("id")
+  String id() default "";
+
+  /**
    * 名称
    */
   @Description("名称")
@@ -102,6 +108,8 @@ public @interface PermissionInput2 {
    */
   @Description("所属类型")
   String __typename() default "Permission";
+
+  String $id() default "";
 
   String $name() default "";
 

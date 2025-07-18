@@ -21,9 +21,9 @@ import org.eclipse.microprofile.graphql.Input;
 @Description("用户 手机号 关系 变更参数")
 public class UserPhonesRelationMutationArguments implements MetaInput, UserPhonesRelationInputBase {
   /**
-   * ID
+   * id
    */
-  @Description("ID")
+  @Description("id")
   private String id;
 
   /**

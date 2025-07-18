@@ -14,7 +14,7 @@ import "google/protobuf/timestamp.proto";
 * 用户 查询表达式
 */
 message UserExpressionBase {
-    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression id = 1; /* id */
     io.graphoenix.core.StringExpression name = 2; /* 姓名 */
     io.graphoenix.core.StringExpression description = 3; /* 描述 */
     io.graphoenix.core.StringExpression last_name = 4; /* 姓氏 */
@@ -47,7 +47,7 @@ message UserExpressionBase {
 * 用户 变更内容
 */
 message UserInputBase {
-    string id = 1; /* ID */
+    string id = 1; /* id */
     string name = 2; /* 姓名 */
     string description = 3; /* 描述 */
     string last_name = 4; /* 姓氏 */
@@ -78,7 +78,7 @@ message UserInputBase {
 * 用户 查询表达式
 */
 message UserExpression {
-    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression id = 1; /* id */
     io.graphoenix.core.StringExpression name = 2; /* 姓名 */
     io.graphoenix.core.StringExpression description = 3; /* 描述 */
     io.graphoenix.core.StringExpression last_name = 4; /* 姓氏 */
@@ -111,7 +111,7 @@ message UserExpression {
 * 用户 变更内容
 */
 message UserInput {
-    string id = 1; /* ID */
+    string id = 1; /* id */
     string name = 2; /* 姓名 */
     string description = 3; /* 描述 */
     string last_name = 4; /* 姓氏 */
@@ -142,7 +142,7 @@ message UserInput {
 * 用户 排序
 */
 message UserOrderBy {
-    io.graphoenix.core.Sort id = 1; /* ID */
+    io.graphoenix.core.Sort id = 1; /* id */
     io.graphoenix.core.Sort name = 2; /* 姓名 */
     io.graphoenix.core.Sort description = 3; /* 描述 */
     io.graphoenix.core.Sort last_name = 4; /* 姓氏 */
@@ -172,36 +172,33 @@ message UserOrderBy {
     UserPhonesRelationOrderBy user_phones_relation_aggregate = 28; /* 用户 手机号 关系 统计字段 */
     GroupUserRelationOrderBy group_user_relation_aggregate = 29; /* 用户 组 关系 统计字段 */
     RoleUserRelationOrderBy role_user_relation_aggregate = 30; /* 用户 角色 关系 统计字段 */
-    io.graphoenix.core.Sort id_count = 31; /* 用户 数量 */
-    io.graphoenix.core.Sort id_max = 32; /* ID 最大值 */
-    io.graphoenix.core.Sort id_min = 33; /* ID 最小值 */
-    io.graphoenix.core.Sort name_count = 34; /* 姓名 数量 */
-    io.graphoenix.core.Sort name_max = 35; /* 姓名 最大值 */
-    io.graphoenix.core.Sort name_min = 36; /* 姓名 最小值 */
-    io.graphoenix.core.Sort description_count = 37; /* 描述 数量 */
-    io.graphoenix.core.Sort description_max = 38; /* 描述 最大值 */
-    io.graphoenix.core.Sort description_min = 39; /* 描述 最小值 */
-    io.graphoenix.core.Sort last_name_count = 40; /* 姓氏 数量 */
-    io.graphoenix.core.Sort last_name_max = 41; /* 姓氏 最大值 */
-    io.graphoenix.core.Sort last_name_min = 42; /* 姓氏 最小值 */
-    io.graphoenix.core.Sort login_count = 43; /* 账号 数量 */
-    io.graphoenix.core.Sort login_max = 44; /* 账号 最大值 */
-    io.graphoenix.core.Sort login_min = 45; /* 账号 最小值 */
-    io.graphoenix.core.Sort salt_count = 46; /* 盐 数量 */
-    io.graphoenix.core.Sort salt_max = 47; /* 盐 最大值 */
-    io.graphoenix.core.Sort salt_min = 48; /* 盐 最小值 */
-    io.graphoenix.core.Sort hash_count = 49; /* 哈希 数量 */
-    io.graphoenix.core.Sort hash_max = 50; /* 哈希 最大值 */
-    io.graphoenix.core.Sort hash_min = 51; /* 哈希 最小值 */
-    io.graphoenix.core.Sort email_count = 52; /* 邮箱 数量 */
-    io.graphoenix.core.Sort email_max = 53; /* 邮箱 最大值 */
-    io.graphoenix.core.Sort email_min = 54; /* 邮箱 最小值 */
+    io.graphoenix.core.Sort name_count = 31; /* 姓名 数量 */
+    io.graphoenix.core.Sort name_max = 32; /* 姓名 最大值 */
+    io.graphoenix.core.Sort name_min = 33; /* 姓名 最小值 */
+    io.graphoenix.core.Sort description_count = 34; /* 描述 数量 */
+    io.graphoenix.core.Sort description_max = 35; /* 描述 最大值 */
+    io.graphoenix.core.Sort description_min = 36; /* 描述 最小值 */
+    io.graphoenix.core.Sort last_name_count = 37; /* 姓氏 数量 */
+    io.graphoenix.core.Sort last_name_max = 38; /* 姓氏 最大值 */
+    io.graphoenix.core.Sort last_name_min = 39; /* 姓氏 最小值 */
+    io.graphoenix.core.Sort login_count = 40; /* 账号 数量 */
+    io.graphoenix.core.Sort login_max = 41; /* 账号 最大值 */
+    io.graphoenix.core.Sort login_min = 42; /* 账号 最小值 */
+    io.graphoenix.core.Sort salt_count = 43; /* 盐 数量 */
+    io.graphoenix.core.Sort salt_max = 44; /* 盐 最大值 */
+    io.graphoenix.core.Sort salt_min = 45; /* 盐 最小值 */
+    io.graphoenix.core.Sort hash_count = 46; /* 哈希 数量 */
+    io.graphoenix.core.Sort hash_max = 47; /* 哈希 最大值 */
+    io.graphoenix.core.Sort hash_min = 48; /* 哈希 最小值 */
+    io.graphoenix.core.Sort email_count = 49; /* 邮箱 数量 */
+    io.graphoenix.core.Sort email_max = 50; /* 邮箱 最大值 */
+    io.graphoenix.core.Sort email_min = 51; /* 邮箱 最小值 */
 }
 /**
 * 角色 查询表达式
 */
 message RoleExpressionBase {
-    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression id = 1; /* id */
     io.graphoenix.core.StringExpression name = 2; /* 名称 */
     io.graphoenix.core.StringExpression description = 3; /* 描述 */
     UserExpression users = 4; /* 用户 */
@@ -221,7 +218,7 @@ message RoleExpressionBase {
     RoleUserRelationExpression role_user_relation = 18; /* 用户 角色 关系 */
     GroupRoleRelationExpression group_role_relation = 19; /* 角色 组 关系 */
     RoleCompositeRelationExpression role_composite_relation = 20; /* 角色 角色 关系 */
-    PermissionRoleRelationExpression permission_role_relation = 21; /* 角色 权限 关系 */
+    RolePermissionRelationExpression role_permission_relation = 21; /* 角色 权限 关系 */
     bool not = 22; /* 取非 */
     io.graphoenix.core.Conditional cond = 23; /* 与/或 */
     repeated RoleExpression exs = 24; /* 查询表达式组 */
@@ -230,7 +227,7 @@ message RoleExpressionBase {
 * 角色 变更内容
 */
 message RoleInputBase {
-    string id = 1; /* ID */
+    string id = 1; /* id */
     string name = 2; /* 名称 */
     string description = 3; /* 描述 */
     repeated UserInput users = 4; /* 用户 */
@@ -250,14 +247,14 @@ message RoleInputBase {
     repeated RoleUserRelationInput role_user_relation = 18; /* 用户 角色 关系 */
     repeated GroupRoleRelationInput group_role_relation = 19; /* 角色 组 关系 */
     repeated RoleCompositeRelationInput role_composite_relation = 20; /* 角色 角色 关系 */
-    repeated PermissionRoleRelationInput permission_role_relation = 21; /* 角色 权限 关系 */
+    repeated RolePermissionRelationInput role_permission_relation = 21; /* 角色 权限 关系 */
     RoleExpression where = 22; /* 匹配条件 */
 }
 /**
 * 角色 查询表达式
 */
 message RoleExpression {
-    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression id = 1; /* id */
     io.graphoenix.core.StringExpression name = 2; /* 名称 */
     io.graphoenix.core.StringExpression description = 3; /* 描述 */
     UserExpression users = 4; /* 用户 */
@@ -277,7 +274,7 @@ message RoleExpression {
     RoleUserRelationExpression role_user_relation = 18; /* 用户 角色 关系 */
     GroupRoleRelationExpression group_role_relation = 19; /* 角色 组 关系 */
     RoleCompositeRelationExpression role_composite_relation = 20; /* 角色 角色 关系 */
-    PermissionRoleRelationExpression permission_role_relation = 21; /* 角色 权限 关系 */
+    RolePermissionRelationExpression role_permission_relation = 21; /* 角色 权限 关系 */
     bool not = 22; /* 取非 */
     io.graphoenix.core.Conditional cond = 23; /* 与/或 */
     repeated RoleExpression exs = 24; /* 查询表达式组 */
@@ -286,7 +283,7 @@ message RoleExpression {
 * 角色 变更内容
 */
 message RoleInput {
-    string id = 1; /* ID */
+    string id = 1; /* id */
     string name = 2; /* 名称 */
     string description = 3; /* 描述 */
     repeated UserInput users = 4; /* 用户 */
@@ -306,14 +303,14 @@ message RoleInput {
     repeated RoleUserRelationInput role_user_relation = 18; /* 用户 角色 关系 */
     repeated GroupRoleRelationInput group_role_relation = 19; /* 角色 组 关系 */
     repeated RoleCompositeRelationInput role_composite_relation = 20; /* 角色 角色 关系 */
-    repeated PermissionRoleRelationInput permission_role_relation = 21; /* 角色 权限 关系 */
+    repeated RolePermissionRelationInput role_permission_relation = 21; /* 角色 权限 关系 */
     RoleExpression where = 22; /* 匹配条件 */
 }
 /**
 * 角色 排序
 */
 message RoleOrderBy {
-    io.graphoenix.core.Sort id = 1; /* ID */
+    io.graphoenix.core.Sort id = 1; /* id */
     io.graphoenix.core.Sort name = 2; /* 名称 */
     io.graphoenix.core.Sort description = 3; /* 描述 */
     UserOrderBy users = 4; /* 用户 */
@@ -333,7 +330,7 @@ message RoleOrderBy {
     RoleUserRelationOrderBy role_user_relation = 18; /* 用户 角色 关系 */
     GroupRoleRelationOrderBy group_role_relation = 19; /* 角色 组 关系 */
     RoleCompositeRelationOrderBy role_composite_relation = 20; /* 角色 角色 关系 */
-    PermissionRoleRelationOrderBy permission_role_relation = 21; /* 角色 权限 关系 */
+    RolePermissionRelationOrderBy role_permission_relation = 21; /* 角色 权限 关系 */
     UserOrderBy users_aggregate = 22; /* 用户 统计字段 */
     GroupOrderBy groups_aggregate = 23; /* 组 统计字段 */
     RoleOrderBy composites_aggregate = 24; /* 组合 统计字段 */
@@ -341,22 +338,19 @@ message RoleOrderBy {
     RoleUserRelationOrderBy role_user_relation_aggregate = 26; /* 用户 角色 关系 统计字段 */
     GroupRoleRelationOrderBy group_role_relation_aggregate = 27; /* 角色 组 关系 统计字段 */
     RoleCompositeRelationOrderBy role_composite_relation_aggregate = 28; /* 角色 角色 关系 统计字段 */
-    PermissionRoleRelationOrderBy permission_role_relation_aggregate = 29; /* 角色 权限 关系 统计字段 */
-    io.graphoenix.core.Sort id_count = 30; /* 角色 数量 */
-    io.graphoenix.core.Sort id_max = 31; /* ID 最大值 */
-    io.graphoenix.core.Sort id_min = 32; /* ID 最小值 */
-    io.graphoenix.core.Sort name_count = 33; /* 名称 数量 */
-    io.graphoenix.core.Sort name_max = 34; /* 名称 最大值 */
-    io.graphoenix.core.Sort name_min = 35; /* 名称 最小值 */
-    io.graphoenix.core.Sort description_count = 36; /* 描述 数量 */
-    io.graphoenix.core.Sort description_max = 37; /* 描述 最大值 */
-    io.graphoenix.core.Sort description_min = 38; /* 描述 最小值 */
+    RolePermissionRelationOrderBy role_permission_relation_aggregate = 29; /* 角色 权限 关系 统计字段 */
+    io.graphoenix.core.Sort name_count = 30; /* 名称 数量 */
+    io.graphoenix.core.Sort name_max = 31; /* 名称 最大值 */
+    io.graphoenix.core.Sort name_min = 32; /* 名称 最小值 */
+    io.graphoenix.core.Sort description_count = 33; /* 描述 数量 */
+    io.graphoenix.core.Sort description_max = 34; /* 描述 最大值 */
+    io.graphoenix.core.Sort description_min = 35; /* 描述 最小值 */
 }
 /**
 * 组 查询表达式
 */
 message GroupExpressionBase {
-    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression id = 1; /* id */
     io.graphoenix.core.StringExpression name = 2; /* 名称 */
     io.graphoenix.core.StringExpression description = 3; /* 描述 */
     io.graphoenix.core.StringExpression path = 4; /* 路径 */
@@ -386,7 +380,7 @@ message GroupExpressionBase {
 * 组 变更内容
 */
 message GroupInputBase {
-    string id = 1; /* ID */
+    string id = 1; /* id */
     string name = 2; /* 名称 */
     string description = 3; /* 描述 */
     string path = 4; /* 路径 */
@@ -414,7 +408,7 @@ message GroupInputBase {
 * 组 查询表达式
 */
 message GroupExpression {
-    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression id = 1; /* id */
     io.graphoenix.core.StringExpression name = 2; /* 名称 */
     io.graphoenix.core.StringExpression description = 3; /* 描述 */
     io.graphoenix.core.StringExpression path = 4; /* 路径 */
@@ -444,7 +438,7 @@ message GroupExpression {
 * 组 变更内容
 */
 message GroupInput {
-    string id = 1; /* ID */
+    string id = 1; /* id */
     string name = 2; /* 名称 */
     string description = 3; /* 描述 */
     string path = 4; /* 路径 */
@@ -472,7 +466,7 @@ message GroupInput {
 * 组 排序
 */
 message GroupOrderBy {
-    io.graphoenix.core.Sort id = 1; /* ID */
+    io.graphoenix.core.Sort id = 1; /* id */
     io.graphoenix.core.Sort name = 2; /* 名称 */
     io.graphoenix.core.Sort description = 3; /* 描述 */
     io.graphoenix.core.Sort path = 4; /* 路径 */
@@ -499,32 +493,29 @@ message GroupOrderBy {
     RoleOrderBy roles_aggregate = 25; /* 角色 统计字段 */
     GroupUserRelationOrderBy group_user_relation_aggregate = 26; /* 用户 组 关系 统计字段 */
     GroupRoleRelationOrderBy group_role_relation_aggregate = 27; /* 角色 组 关系 统计字段 */
-    io.graphoenix.core.Sort id_count = 28; /* 组 数量 */
-    io.graphoenix.core.Sort id_max = 29; /* ID 最大值 */
-    io.graphoenix.core.Sort id_min = 30; /* ID 最小值 */
-    io.graphoenix.core.Sort name_count = 31; /* 名称 数量 */
-    io.graphoenix.core.Sort name_max = 32; /* 名称 最大值 */
-    io.graphoenix.core.Sort name_min = 33; /* 名称 最小值 */
-    io.graphoenix.core.Sort description_count = 34; /* 描述 数量 */
-    io.graphoenix.core.Sort description_max = 35; /* 描述 最大值 */
-    io.graphoenix.core.Sort description_min = 36; /* 描述 最小值 */
-    io.graphoenix.core.Sort path_count = 37; /* 路径 数量 */
-    io.graphoenix.core.Sort path_max = 38; /* 路径 最大值 */
-    io.graphoenix.core.Sort path_min = 39; /* 路径 最小值 */
-    io.graphoenix.core.Sort parent_id_count = 40; /* 上级ID 数量 */
-    io.graphoenix.core.Sort parent_id_max = 41; /* 上级ID 最大值 */
-    io.graphoenix.core.Sort parent_id_min = 42; /* 上级ID 最小值 */
-    io.graphoenix.core.Sort deep_count = 43; /* 层级 数量 */
-    io.graphoenix.core.Sort deep_sum = 44; /* 层级 合计 */
-    io.graphoenix.core.Sort deep_avg = 45; /* 层级 平均值 */
-    io.graphoenix.core.Sort deep_max = 46; /* 层级 最大值 */
-    io.graphoenix.core.Sort deep_min = 47; /* 层级 最小值 */
+    io.graphoenix.core.Sort name_count = 28; /* 名称 数量 */
+    io.graphoenix.core.Sort name_max = 29; /* 名称 最大值 */
+    io.graphoenix.core.Sort name_min = 30; /* 名称 最小值 */
+    io.graphoenix.core.Sort description_count = 31; /* 描述 数量 */
+    io.graphoenix.core.Sort description_max = 32; /* 描述 最大值 */
+    io.graphoenix.core.Sort description_min = 33; /* 描述 最小值 */
+    io.graphoenix.core.Sort path_count = 34; /* 路径 数量 */
+    io.graphoenix.core.Sort path_max = 35; /* 路径 最大值 */
+    io.graphoenix.core.Sort path_min = 36; /* 路径 最小值 */
+    io.graphoenix.core.Sort parent_id_count = 37; /* 上级ID 数量 */
+    io.graphoenix.core.Sort parent_id_max = 38; /* 上级ID 最大值 */
+    io.graphoenix.core.Sort parent_id_min = 39; /* 上级ID 最小值 */
+    io.graphoenix.core.Sort deep_count = 40; /* 层级 数量 */
+    io.graphoenix.core.Sort deep_sum = 41; /* 层级 合计 */
+    io.graphoenix.core.Sort deep_avg = 42; /* 层级 平均值 */
+    io.graphoenix.core.Sort deep_max = 43; /* 层级 最大值 */
+    io.graphoenix.core.Sort deep_min = 44; /* 层级 最小值 */
 }
 /**
 * 租户 查询表达式
 */
 message RealmExpressionBase {
-    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression id = 1; /* id */
     io.graphoenix.core.StringExpression name = 2; /* 名称 */
     io.graphoenix.core.StringExpression description = 3; /* 描述 */
     bool include_deprecated = 4; /* 包含已移除 */
@@ -544,7 +535,7 @@ message RealmExpressionBase {
 * 租户 变更内容
 */
 message RealmInputBase {
-    string id = 1; /* ID */
+    string id = 1; /* id */
     string name = 2; /* 名称 */
     string description = 3; /* 描述 */
     bool is_deprecated = 4; /* 已移除 */
@@ -562,7 +553,7 @@ message RealmInputBase {
 * 租户 查询表达式
 */
 message RealmExpression {
-    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression id = 1; /* id */
     io.graphoenix.core.StringExpression name = 2; /* 名称 */
     io.graphoenix.core.StringExpression description = 3; /* 描述 */
     bool include_deprecated = 4; /* 包含已移除 */
@@ -582,7 +573,7 @@ message RealmExpression {
 * 租户 变更内容
 */
 message RealmInput {
-    string id = 1; /* ID */
+    string id = 1; /* id */
     string name = 2; /* 名称 */
     string description = 3; /* 描述 */
     bool is_deprecated = 4; /* 已移除 */
@@ -600,7 +591,7 @@ message RealmInput {
 * 租户 排序
 */
 message RealmOrderBy {
-    io.graphoenix.core.Sort id = 1; /* ID */
+    io.graphoenix.core.Sort id = 1; /* id */
     io.graphoenix.core.Sort name = 2; /* 名称 */
     io.graphoenix.core.Sort description = 3; /* 描述 */
     io.graphoenix.core.Sort is_deprecated = 4; /* 已移除 */
@@ -612,156 +603,158 @@ message RealmOrderBy {
     io.graphoenix.core.Sort update_time = 10; /* 更新时间 */
     io.graphoenix.core.Sort create_group_id = 11; /* 创建组 */
     io.graphoenix.core.Sort intro_typename = 12; /* 所属类型 */
-    io.graphoenix.core.Sort id_count = 13; /* 租户 数量 */
-    io.graphoenix.core.Sort id_max = 14; /* ID 最大值 */
-    io.graphoenix.core.Sort id_min = 15; /* ID 最小值 */
-    io.graphoenix.core.Sort name_count = 16; /* 名称 数量 */
-    io.graphoenix.core.Sort name_max = 17; /* 名称 最大值 */
-    io.graphoenix.core.Sort name_min = 18; /* 名称 最小值 */
-    io.graphoenix.core.Sort description_count = 19; /* 描述 数量 */
-    io.graphoenix.core.Sort description_max = 20; /* 描述 最大值 */
-    io.graphoenix.core.Sort description_min = 21; /* 描述 最小值 */
+    io.graphoenix.core.Sort name_count = 13; /* 名称 数量 */
+    io.graphoenix.core.Sort name_max = 14; /* 名称 最大值 */
+    io.graphoenix.core.Sort name_min = 15; /* 名称 最小值 */
+    io.graphoenix.core.Sort description_count = 16; /* 描述 数量 */
+    io.graphoenix.core.Sort description_max = 17; /* 描述 最大值 */
+    io.graphoenix.core.Sort description_min = 18; /* 描述 最小值 */
 }
 /**
 * 权限 查询表达式
 */
 message PermissionExpressionBase {
-    io.graphoenix.core.StringExpression name = 1; /* 名称 */
-    io.graphoenix.core.StringExpression description = 2; /* 描述 */
-    io.graphoenix.core.StringExpression field = 3; /* 字段 */
-    io.graphoenix.core.StringExpression type = 4; /* 实体 */
-    PermissionTypeExpression permission_type = 5; /* 权限类型 */
-    RoleExpression roles = 6; /* 角色 */
-    RealmExpression realm = 7; /* 租户 */
-    bool include_deprecated = 8; /* 包含已移除 */
-    io.graphoenix.core.IntExpression version = 9; /* 版本 */
-    io.graphoenix.core.IntExpression realm_id = 10; /* 域 */
-    io.graphoenix.core.StringExpression create_user_id = 11; /* 创建者 */
-    io.graphoenix.core.StringExpression create_time = 12; /* 创建时间 */
-    io.graphoenix.core.StringExpression update_user_id = 13; /* 更新者 */
-    io.graphoenix.core.StringExpression update_time = 14; /* 更新时间 */
-    io.graphoenix.core.StringExpression create_group_id = 15; /* 创建组 */
-    io.graphoenix.core.StringExpression intro_typename = 16; /* 所属类型 */
-    PermissionRoleRelationExpression permission_role_relation = 17; /* 角色 权限 关系 */
-    bool not = 18; /* 取非 */
-    io.graphoenix.core.Conditional cond = 19; /* 与/或 */
-    repeated PermissionExpression exs = 20; /* 查询表达式组 */
+    io.graphoenix.core.StringExpression id = 1; /* id */
+    io.graphoenix.core.StringExpression name = 2; /* 名称 */
+    io.graphoenix.core.StringExpression description = 3; /* 描述 */
+    io.graphoenix.core.StringExpression field = 4; /* 字段 */
+    io.graphoenix.core.StringExpression type = 5; /* 实体 */
+    PermissionTypeExpression permission_type = 6; /* 权限类型 */
+    RoleExpression roles = 7; /* 角色 */
+    RealmExpression realm = 8; /* 租户 */
+    bool include_deprecated = 9; /* 包含已移除 */
+    io.graphoenix.core.IntExpression version = 10; /* 版本 */
+    io.graphoenix.core.IntExpression realm_id = 11; /* 域 */
+    io.graphoenix.core.StringExpression create_user_id = 12; /* 创建者 */
+    io.graphoenix.core.StringExpression create_time = 13; /* 创建时间 */
+    io.graphoenix.core.StringExpression update_user_id = 14; /* 更新者 */
+    io.graphoenix.core.StringExpression update_time = 15; /* 更新时间 */
+    io.graphoenix.core.StringExpression create_group_id = 16; /* 创建组 */
+    io.graphoenix.core.StringExpression intro_typename = 17; /* 所属类型 */
+    RolePermissionRelationExpression role_permission_relation = 18; /* 角色 权限 关系 */
+    bool not = 19; /* 取非 */
+    io.graphoenix.core.Conditional cond = 20; /* 与/或 */
+    repeated PermissionExpression exs = 21; /* 查询表达式组 */
 }
 /**
 * 权限 变更内容
 */
 message PermissionInputBase {
-    string name = 1; /* 名称 */
-    string description = 2; /* 描述 */
-    string field = 3; /* 字段 */
-    string type = 4; /* 实体 */
-    PermissionType permission_type = 5; /* 权限类型 */
-    repeated RoleInput roles = 6; /* 角色 */
-    RealmInput realm = 7; /* 租户 */
-    bool is_deprecated = 8; /* 已移除 */
-    int32 version = 9; /* 版本 */
-    int32 realm_id = 10; /* 域 */
-    string create_user_id = 11; /* 创建者 */
-    google.protobuf.Timestamp create_time = 12; /* 创建时间 */
-    string update_user_id = 13; /* 更新者 */
-    google.protobuf.Timestamp update_time = 14; /* 更新时间 */
-    string create_group_id = 15; /* 创建组 */
-    string intro_typename = 16; /* 所属类型 */
-    repeated PermissionRoleRelationInput permission_role_relation = 17; /* 角色 权限 关系 */
-    PermissionExpression where = 18; /* 匹配条件 */
+    string id = 1; /* id */
+    string name = 2; /* 名称 */
+    string description = 3; /* 描述 */
+    string field = 4; /* 字段 */
+    string type = 5; /* 实体 */
+    PermissionType permission_type = 6; /* 权限类型 */
+    repeated RoleInput roles = 7; /* 角色 */
+    RealmInput realm = 8; /* 租户 */
+    bool is_deprecated = 9; /* 已移除 */
+    int32 version = 10; /* 版本 */
+    int32 realm_id = 11; /* 域 */
+    string create_user_id = 12; /* 创建者 */
+    google.protobuf.Timestamp create_time = 13; /* 创建时间 */
+    string update_user_id = 14; /* 更新者 */
+    google.protobuf.Timestamp update_time = 15; /* 更新时间 */
+    string create_group_id = 16; /* 创建组 */
+    string intro_typename = 17; /* 所属类型 */
+    repeated RolePermissionRelationInput role_permission_relation = 18; /* 角色 权限 关系 */
+    PermissionExpression where = 19; /* 匹配条件 */
 }
 /**
 * 权限 查询表达式
 */
 message PermissionExpression {
-    io.graphoenix.core.StringExpression name = 1; /* 名称 */
-    io.graphoenix.core.StringExpression description = 2; /* 描述 */
-    io.graphoenix.core.StringExpression field = 3; /* 字段 */
-    io.graphoenix.core.StringExpression type = 4; /* 实体 */
-    PermissionTypeExpression permission_type = 5; /* 权限类型 */
-    RoleExpression roles = 6; /* 角色 */
-    RealmExpression realm = 7; /* 租户 */
-    bool include_deprecated = 8; /* 包含已移除 */
-    io.graphoenix.core.IntExpression version = 9; /* 版本 */
-    io.graphoenix.core.IntExpression realm_id = 10; /* 域 */
-    io.graphoenix.core.StringExpression create_user_id = 11; /* 创建者 */
-    io.graphoenix.core.StringExpression create_time = 12; /* 创建时间 */
-    io.graphoenix.core.StringExpression update_user_id = 13; /* 更新者 */
-    io.graphoenix.core.StringExpression update_time = 14; /* 更新时间 */
-    io.graphoenix.core.StringExpression create_group_id = 15; /* 创建组 */
-    io.graphoenix.core.StringExpression intro_typename = 16; /* 所属类型 */
-    PermissionRoleRelationExpression permission_role_relation = 17; /* 角色 权限 关系 */
-    bool not = 18; /* 取非 */
-    io.graphoenix.core.Conditional cond = 19; /* 与/或 */
-    repeated PermissionExpression exs = 20; /* 查询表达式组 */
+    io.graphoenix.core.StringExpression id = 1; /* id */
+    io.graphoenix.core.StringExpression name = 2; /* 名称 */
+    io.graphoenix.core.StringExpression description = 3; /* 描述 */
+    io.graphoenix.core.StringExpression field = 4; /* 字段 */
+    io.graphoenix.core.StringExpression type = 5; /* 实体 */
+    PermissionTypeExpression permission_type = 6; /* 权限类型 */
+    RoleExpression roles = 7; /* 角色 */
+    RealmExpression realm = 8; /* 租户 */
+    bool include_deprecated = 9; /* 包含已移除 */
+    io.graphoenix.core.IntExpression version = 10; /* 版本 */
+    io.graphoenix.core.IntExpression realm_id = 11; /* 域 */
+    io.graphoenix.core.StringExpression create_user_id = 12; /* 创建者 */
+    io.graphoenix.core.StringExpression create_time = 13; /* 创建时间 */
+    io.graphoenix.core.StringExpression update_user_id = 14; /* 更新者 */
+    io.graphoenix.core.StringExpression update_time = 15; /* 更新时间 */
+    io.graphoenix.core.StringExpression create_group_id = 16; /* 创建组 */
+    io.graphoenix.core.StringExpression intro_typename = 17; /* 所属类型 */
+    RolePermissionRelationExpression role_permission_relation = 18; /* 角色 权限 关系 */
+    bool not = 19; /* 取非 */
+    io.graphoenix.core.Conditional cond = 20; /* 与/或 */
+    repeated PermissionExpression exs = 21; /* 查询表达式组 */
 }
 /**
 * 权限 变更内容
 */
 message PermissionInput {
-    string name = 1; /* 名称 */
-    string description = 2; /* 描述 */
-    string field = 3; /* 字段 */
-    string type = 4; /* 实体 */
-    PermissionType permission_type = 5; /* 权限类型 */
-    repeated RoleInput roles = 6; /* 角色 */
-    RealmInput realm = 7; /* 租户 */
-    bool is_deprecated = 8; /* 已移除 */
-    int32 version = 9; /* 版本 */
-    int32 realm_id = 10; /* 域 */
-    string create_user_id = 11; /* 创建者 */
-    google.protobuf.Timestamp create_time = 12; /* 创建时间 */
-    string update_user_id = 13; /* 更新者 */
-    google.protobuf.Timestamp update_time = 14; /* 更新时间 */
-    string create_group_id = 15; /* 创建组 */
-    string intro_typename = 16; /* 所属类型 */
-    repeated PermissionRoleRelationInput permission_role_relation = 17; /* 角色 权限 关系 */
-    PermissionExpression where = 18; /* 匹配条件 */
+    string id = 1; /* id */
+    string name = 2; /* 名称 */
+    string description = 3; /* 描述 */
+    string field = 4; /* 字段 */
+    string type = 5; /* 实体 */
+    PermissionType permission_type = 6; /* 权限类型 */
+    repeated RoleInput roles = 7; /* 角色 */
+    RealmInput realm = 8; /* 租户 */
+    bool is_deprecated = 9; /* 已移除 */
+    int32 version = 10; /* 版本 */
+    int32 realm_id = 11; /* 域 */
+    string create_user_id = 12; /* 创建者 */
+    google.protobuf.Timestamp create_time = 13; /* 创建时间 */
+    string update_user_id = 14; /* 更新者 */
+    google.protobuf.Timestamp update_time = 15; /* 更新时间 */
+    string create_group_id = 16; /* 创建组 */
+    string intro_typename = 17; /* 所属类型 */
+    repeated RolePermissionRelationInput role_permission_relation = 18; /* 角色 权限 关系 */
+    PermissionExpression where = 19; /* 匹配条件 */
 }
 /**
 * 权限 排序
 */
 message PermissionOrderBy {
-    io.graphoenix.core.Sort name = 1; /* 名称 */
-    io.graphoenix.core.Sort description = 2; /* 描述 */
-    io.graphoenix.core.Sort field = 3; /* 字段 */
-    io.graphoenix.core.Sort type = 4; /* 实体 */
-    io.graphoenix.core.Sort permission_type = 5; /* 权限类型 */
-    RoleOrderBy roles = 6; /* 角色 */
-    RealmOrderBy realm = 7; /* 租户 */
-    io.graphoenix.core.Sort is_deprecated = 8; /* 已移除 */
-    io.graphoenix.core.Sort version = 9; /* 版本 */
-    io.graphoenix.core.Sort realm_id = 10; /* 域 */
-    io.graphoenix.core.Sort create_user_id = 11; /* 创建者 */
-    io.graphoenix.core.Sort create_time = 12; /* 创建时间 */
-    io.graphoenix.core.Sort update_user_id = 13; /* 更新者 */
-    io.graphoenix.core.Sort update_time = 14; /* 更新时间 */
-    io.graphoenix.core.Sort create_group_id = 15; /* 创建组 */
-    io.graphoenix.core.Sort intro_typename = 16; /* 所属类型 */
-    PermissionRoleRelationOrderBy permission_role_relation = 17; /* 角色 权限 关系 */
-    RoleOrderBy roles_aggregate = 18; /* 角色 统计字段 */
-    PermissionRoleRelationOrderBy permission_role_relation_aggregate = 19; /* 角色 权限 关系 统计字段 */
-    io.graphoenix.core.Sort name_count = 20; /* 权限 数量 */
-    io.graphoenix.core.Sort name_max = 21; /* 名称 最大值 */
-    io.graphoenix.core.Sort name_min = 22; /* 名称 最小值 */
-    io.graphoenix.core.Sort description_count = 23; /* 描述 数量 */
-    io.graphoenix.core.Sort description_max = 24; /* 描述 最大值 */
-    io.graphoenix.core.Sort description_min = 25; /* 描述 最小值 */
-    io.graphoenix.core.Sort field_count = 26; /* 字段 数量 */
-    io.graphoenix.core.Sort field_max = 27; /* 字段 最大值 */
-    io.graphoenix.core.Sort field_min = 28; /* 字段 最小值 */
-    io.graphoenix.core.Sort type_count = 29; /* 实体 数量 */
-    io.graphoenix.core.Sort type_max = 30; /* 实体 最大值 */
-    io.graphoenix.core.Sort type_min = 31; /* 实体 最小值 */
-    io.graphoenix.core.Sort permission_type_count = 32; /* 权限类型 数量 */
-    io.graphoenix.core.Sort permission_type_max = 33; /* 权限类型 最大值 */
-    io.graphoenix.core.Sort permission_type_min = 34; /* 权限类型 最小值 */
+    io.graphoenix.core.Sort id = 1; /* id */
+    io.graphoenix.core.Sort name = 2; /* 名称 */
+    io.graphoenix.core.Sort description = 3; /* 描述 */
+    io.graphoenix.core.Sort field = 4; /* 字段 */
+    io.graphoenix.core.Sort type = 5; /* 实体 */
+    io.graphoenix.core.Sort permission_type = 6; /* 权限类型 */
+    RoleOrderBy roles = 7; /* 角色 */
+    RealmOrderBy realm = 8; /* 租户 */
+    io.graphoenix.core.Sort is_deprecated = 9; /* 已移除 */
+    io.graphoenix.core.Sort version = 10; /* 版本 */
+    io.graphoenix.core.Sort realm_id = 11; /* 域 */
+    io.graphoenix.core.Sort create_user_id = 12; /* 创建者 */
+    io.graphoenix.core.Sort create_time = 13; /* 创建时间 */
+    io.graphoenix.core.Sort update_user_id = 14; /* 更新者 */
+    io.graphoenix.core.Sort update_time = 15; /* 更新时间 */
+    io.graphoenix.core.Sort create_group_id = 16; /* 创建组 */
+    io.graphoenix.core.Sort intro_typename = 17; /* 所属类型 */
+    RolePermissionRelationOrderBy role_permission_relation = 18; /* 角色 权限 关系 */
+    RoleOrderBy roles_aggregate = 19; /* 角色 统计字段 */
+    RolePermissionRelationOrderBy role_permission_relation_aggregate = 20; /* 角色 权限 关系 统计字段 */
+    io.graphoenix.core.Sort name_count = 21; /* 名称 数量 */
+    io.graphoenix.core.Sort name_max = 22; /* 名称 最大值 */
+    io.graphoenix.core.Sort name_min = 23; /* 名称 最小值 */
+    io.graphoenix.core.Sort description_count = 24; /* 描述 数量 */
+    io.graphoenix.core.Sort description_max = 25; /* 描述 最大值 */
+    io.graphoenix.core.Sort description_min = 26; /* 描述 最小值 */
+    io.graphoenix.core.Sort field_count = 27; /* 字段 数量 */
+    io.graphoenix.core.Sort field_max = 28; /* 字段 最大值 */
+    io.graphoenix.core.Sort field_min = 29; /* 字段 最小值 */
+    io.graphoenix.core.Sort type_count = 30; /* 实体 数量 */
+    io.graphoenix.core.Sort type_max = 31; /* 实体 最大值 */
+    io.graphoenix.core.Sort type_min = 32; /* 实体 最小值 */
+    io.graphoenix.core.Sort permission_type_count = 33; /* 权限类型 数量 */
+    io.graphoenix.core.Sort permission_type_max = 34; /* 权限类型 最大值 */
+    io.graphoenix.core.Sort permission_type_min = 35; /* 权限类型 最小值 */
 }
 /**
 * 用户 手机号 关系 查询表达式
 */
 message UserPhonesRelationExpressionBase {
-    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression id = 1; /* id */
     io.graphoenix.core.StringExpression user_ref = 2; /* 用户 引用 */
     UserExpression user = 3; /* 用户 */
     io.graphoenix.core.StringExpression phones_ref = 4; /* 手机号 引用 */
@@ -782,7 +775,7 @@ message UserPhonesRelationExpressionBase {
 * 用户 手机号 关系 变更内容
 */
 message UserPhonesRelationInputBase {
-    string id = 1; /* ID */
+    string id = 1; /* id */
     string user_ref = 2; /* 用户 引用 */
     UserInput user = 3; /* 用户 */
     string phones_ref = 4; /* 手机号 引用 */
@@ -801,7 +794,7 @@ message UserPhonesRelationInputBase {
 * 用户 手机号 关系 查询表达式
 */
 message UserPhonesRelationExpression {
-    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression id = 1; /* id */
     io.graphoenix.core.StringExpression user_ref = 2; /* 用户 引用 */
     UserExpression user = 3; /* 用户 */
     io.graphoenix.core.StringExpression phones_ref = 4; /* 手机号 引用 */
@@ -822,7 +815,7 @@ message UserPhonesRelationExpression {
 * 用户 手机号 关系 变更内容
 */
 message UserPhonesRelationInput {
-    string id = 1; /* ID */
+    string id = 1; /* id */
     string user_ref = 2; /* 用户 引用 */
     UserInput user = 3; /* 用户 */
     string phones_ref = 4; /* 手机号 引用 */
@@ -841,7 +834,7 @@ message UserPhonesRelationInput {
 * 用户 手机号 关系 排序
 */
 message UserPhonesRelationOrderBy {
-    io.graphoenix.core.Sort id = 1; /* ID */
+    io.graphoenix.core.Sort id = 1; /* id */
     io.graphoenix.core.Sort user_ref = 2; /* 用户 引用 */
     UserOrderBy user = 3; /* 用户 */
     io.graphoenix.core.Sort phones_ref = 4; /* 手机号 引用 */
@@ -854,21 +847,18 @@ message UserPhonesRelationOrderBy {
     io.graphoenix.core.Sort update_time = 11; /* 更新时间 */
     io.graphoenix.core.Sort create_group_id = 12; /* 创建组 */
     io.graphoenix.core.Sort intro_typename = 13; /* 所属类型 */
-    io.graphoenix.core.Sort id_count = 14; /* 用户 手机号 关系 数量 */
-    io.graphoenix.core.Sort id_max = 15; /* ID 最大值 */
-    io.graphoenix.core.Sort id_min = 16; /* ID 最小值 */
-    io.graphoenix.core.Sort user_ref_count = 17; /* 用户 引用 数量 */
-    io.graphoenix.core.Sort user_ref_max = 18; /* 用户 引用 最大值 */
-    io.graphoenix.core.Sort user_ref_min = 19; /* 用户 引用 最小值 */
-    io.graphoenix.core.Sort phones_ref_count = 20; /* 手机号 引用 数量 */
-    io.graphoenix.core.Sort phones_ref_max = 21; /* 手机号 引用 最大值 */
-    io.graphoenix.core.Sort phones_ref_min = 22; /* 手机号 引用 最小值 */
+    io.graphoenix.core.Sort user_ref_count = 14; /* 用户 引用 数量 */
+    io.graphoenix.core.Sort user_ref_max = 15; /* 用户 引用 最大值 */
+    io.graphoenix.core.Sort user_ref_min = 16; /* 用户 引用 最小值 */
+    io.graphoenix.core.Sort phones_ref_count = 17; /* 手机号 引用 数量 */
+    io.graphoenix.core.Sort phones_ref_max = 18; /* 手机号 引用 最大值 */
+    io.graphoenix.core.Sort phones_ref_min = 19; /* 手机号 引用 最小值 */
 }
 /**
 * 用户 组 关系 查询表达式
 */
 message GroupUserRelationExpressionBase {
-    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression id = 1; /* id */
     io.graphoenix.core.StringExpression user_ref = 2; /* 用户 引用 */
     UserExpression user = 3; /* 用户 */
     io.graphoenix.core.StringExpression group_ref = 4; /* 组 引用 */
@@ -890,7 +880,7 @@ message GroupUserRelationExpressionBase {
 * 用户 组 关系 变更内容
 */
 message GroupUserRelationInputBase {
-    string id = 1; /* ID */
+    string id = 1; /* id */
     string user_ref = 2; /* 用户 引用 */
     UserInput user = 3; /* 用户 */
     string group_ref = 4; /* 组 引用 */
@@ -910,7 +900,7 @@ message GroupUserRelationInputBase {
 * 用户 组 关系 查询表达式
 */
 message GroupUserRelationExpression {
-    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression id = 1; /* id */
     io.graphoenix.core.StringExpression user_ref = 2; /* 用户 引用 */
     UserExpression user = 3; /* 用户 */
     io.graphoenix.core.StringExpression group_ref = 4; /* 组 引用 */
@@ -932,7 +922,7 @@ message GroupUserRelationExpression {
 * 用户 组 关系 变更内容
 */
 message GroupUserRelationInput {
-    string id = 1; /* ID */
+    string id = 1; /* id */
     string user_ref = 2; /* 用户 引用 */
     UserInput user = 3; /* 用户 */
     string group_ref = 4; /* 组 引用 */
@@ -952,7 +942,7 @@ message GroupUserRelationInput {
 * 用户 组 关系 排序
 */
 message GroupUserRelationOrderBy {
-    io.graphoenix.core.Sort id = 1; /* ID */
+    io.graphoenix.core.Sort id = 1; /* id */
     io.graphoenix.core.Sort user_ref = 2; /* 用户 引用 */
     UserOrderBy user = 3; /* 用户 */
     io.graphoenix.core.Sort group_ref = 4; /* 组 引用 */
@@ -966,21 +956,18 @@ message GroupUserRelationOrderBy {
     io.graphoenix.core.Sort update_time = 12; /* 更新时间 */
     io.graphoenix.core.Sort create_group_id = 13; /* 创建组 */
     io.graphoenix.core.Sort intro_typename = 14; /* 所属类型 */
-    io.graphoenix.core.Sort id_count = 15; /* 用户 组 关系 数量 */
-    io.graphoenix.core.Sort id_max = 16; /* ID 最大值 */
-    io.graphoenix.core.Sort id_min = 17; /* ID 最小值 */
-    io.graphoenix.core.Sort user_ref_count = 18; /* 用户 引用 数量 */
-    io.graphoenix.core.Sort user_ref_max = 19; /* 用户 引用 最大值 */
-    io.graphoenix.core.Sort user_ref_min = 20; /* 用户 引用 最小值 */
-    io.graphoenix.core.Sort group_ref_count = 21; /* 组 引用 数量 */
-    io.graphoenix.core.Sort group_ref_max = 22; /* 组 引用 最大值 */
-    io.graphoenix.core.Sort group_ref_min = 23; /* 组 引用 最小值 */
+    io.graphoenix.core.Sort user_ref_count = 15; /* 用户 引用 数量 */
+    io.graphoenix.core.Sort user_ref_max = 16; /* 用户 引用 最大值 */
+    io.graphoenix.core.Sort user_ref_min = 17; /* 用户 引用 最小值 */
+    io.graphoenix.core.Sort group_ref_count = 18; /* 组 引用 数量 */
+    io.graphoenix.core.Sort group_ref_max = 19; /* 组 引用 最大值 */
+    io.graphoenix.core.Sort group_ref_min = 20; /* 组 引用 最小值 */
 }
 /**
 * 用户 角色 关系 查询表达式
 */
 message RoleUserRelationExpressionBase {
-    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression id = 1; /* id */
     io.graphoenix.core.StringExpression user_ref = 2; /* 用户 引用 */
     UserExpression user = 3; /* 用户 */
     io.graphoenix.core.StringExpression role_ref = 4; /* 角色 引用 */
@@ -1002,7 +989,7 @@ message RoleUserRelationExpressionBase {
 * 用户 角色 关系 变更内容
 */
 message RoleUserRelationInputBase {
-    string id = 1; /* ID */
+    string id = 1; /* id */
     string user_ref = 2; /* 用户 引用 */
     UserInput user = 3; /* 用户 */
     string role_ref = 4; /* 角色 引用 */
@@ -1022,7 +1009,7 @@ message RoleUserRelationInputBase {
 * 用户 角色 关系 查询表达式
 */
 message RoleUserRelationExpression {
-    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression id = 1; /* id */
     io.graphoenix.core.StringExpression user_ref = 2; /* 用户 引用 */
     UserExpression user = 3; /* 用户 */
     io.graphoenix.core.StringExpression role_ref = 4; /* 角色 引用 */
@@ -1044,7 +1031,7 @@ message RoleUserRelationExpression {
 * 用户 角色 关系 变更内容
 */
 message RoleUserRelationInput {
-    string id = 1; /* ID */
+    string id = 1; /* id */
     string user_ref = 2; /* 用户 引用 */
     UserInput user = 3; /* 用户 */
     string role_ref = 4; /* 角色 引用 */
@@ -1064,7 +1051,7 @@ message RoleUserRelationInput {
 * 用户 角色 关系 排序
 */
 message RoleUserRelationOrderBy {
-    io.graphoenix.core.Sort id = 1; /* ID */
+    io.graphoenix.core.Sort id = 1; /* id */
     io.graphoenix.core.Sort user_ref = 2; /* 用户 引用 */
     UserOrderBy user = 3; /* 用户 */
     io.graphoenix.core.Sort role_ref = 4; /* 角色 引用 */
@@ -1078,21 +1065,18 @@ message RoleUserRelationOrderBy {
     io.graphoenix.core.Sort update_time = 12; /* 更新时间 */
     io.graphoenix.core.Sort create_group_id = 13; /* 创建组 */
     io.graphoenix.core.Sort intro_typename = 14; /* 所属类型 */
-    io.graphoenix.core.Sort id_count = 15; /* 用户 角色 关系 数量 */
-    io.graphoenix.core.Sort id_max = 16; /* ID 最大值 */
-    io.graphoenix.core.Sort id_min = 17; /* ID 最小值 */
-    io.graphoenix.core.Sort user_ref_count = 18; /* 用户 引用 数量 */
-    io.graphoenix.core.Sort user_ref_max = 19; /* 用户 引用 最大值 */
-    io.graphoenix.core.Sort user_ref_min = 20; /* 用户 引用 最小值 */
-    io.graphoenix.core.Sort role_ref_count = 21; /* 角色 引用 数量 */
-    io.graphoenix.core.Sort role_ref_max = 22; /* 角色 引用 最大值 */
-    io.graphoenix.core.Sort role_ref_min = 23; /* 角色 引用 最小值 */
+    io.graphoenix.core.Sort user_ref_count = 15; /* 用户 引用 数量 */
+    io.graphoenix.core.Sort user_ref_max = 16; /* 用户 引用 最大值 */
+    io.graphoenix.core.Sort user_ref_min = 17; /* 用户 引用 最小值 */
+    io.graphoenix.core.Sort role_ref_count = 18; /* 角色 引用 数量 */
+    io.graphoenix.core.Sort role_ref_max = 19; /* 角色 引用 最大值 */
+    io.graphoenix.core.Sort role_ref_min = 20; /* 角色 引用 最小值 */
 }
 /**
 * 角色 组 关系 查询表达式
 */
 message GroupRoleRelationExpressionBase {
-    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression id = 1; /* id */
     io.graphoenix.core.StringExpression role_ref = 2; /* 角色 引用 */
     RoleExpression role = 3; /* 角色 */
     io.graphoenix.core.StringExpression group_ref = 4; /* 组 引用 */
@@ -1114,7 +1098,7 @@ message GroupRoleRelationExpressionBase {
 * 角色 组 关系 变更内容
 */
 message GroupRoleRelationInputBase {
-    string id = 1; /* ID */
+    string id = 1; /* id */
     string role_ref = 2; /* 角色 引用 */
     RoleInput role = 3; /* 角色 */
     string group_ref = 4; /* 组 引用 */
@@ -1134,7 +1118,7 @@ message GroupRoleRelationInputBase {
 * 角色 组 关系 查询表达式
 */
 message GroupRoleRelationExpression {
-    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression id = 1; /* id */
     io.graphoenix.core.StringExpression role_ref = 2; /* 角色 引用 */
     RoleExpression role = 3; /* 角色 */
     io.graphoenix.core.StringExpression group_ref = 4; /* 组 引用 */
@@ -1156,7 +1140,7 @@ message GroupRoleRelationExpression {
 * 角色 组 关系 变更内容
 */
 message GroupRoleRelationInput {
-    string id = 1; /* ID */
+    string id = 1; /* id */
     string role_ref = 2; /* 角色 引用 */
     RoleInput role = 3; /* 角色 */
     string group_ref = 4; /* 组 引用 */
@@ -1176,7 +1160,7 @@ message GroupRoleRelationInput {
 * 角色 组 关系 排序
 */
 message GroupRoleRelationOrderBy {
-    io.graphoenix.core.Sort id = 1; /* ID */
+    io.graphoenix.core.Sort id = 1; /* id */
     io.graphoenix.core.Sort role_ref = 2; /* 角色 引用 */
     RoleOrderBy role = 3; /* 角色 */
     io.graphoenix.core.Sort group_ref = 4; /* 组 引用 */
@@ -1190,21 +1174,18 @@ message GroupRoleRelationOrderBy {
     io.graphoenix.core.Sort update_time = 12; /* 更新时间 */
     io.graphoenix.core.Sort create_group_id = 13; /* 创建组 */
     io.graphoenix.core.Sort intro_typename = 14; /* 所属类型 */
-    io.graphoenix.core.Sort id_count = 15; /* 角色 组 关系 数量 */
-    io.graphoenix.core.Sort id_max = 16; /* ID 最大值 */
-    io.graphoenix.core.Sort id_min = 17; /* ID 最小值 */
-    io.graphoenix.core.Sort role_ref_count = 18; /* 角色 引用 数量 */
-    io.graphoenix.core.Sort role_ref_max = 19; /* 角色 引用 最大值 */
-    io.graphoenix.core.Sort role_ref_min = 20; /* 角色 引用 最小值 */
-    io.graphoenix.core.Sort group_ref_count = 21; /* 组 引用 数量 */
-    io.graphoenix.core.Sort group_ref_max = 22; /* 组 引用 最大值 */
-    io.graphoenix.core.Sort group_ref_min = 23; /* 组 引用 最小值 */
+    io.graphoenix.core.Sort role_ref_count = 15; /* 角色 引用 数量 */
+    io.graphoenix.core.Sort role_ref_max = 16; /* 角色 引用 最大值 */
+    io.graphoenix.core.Sort role_ref_min = 17; /* 角色 引用 最小值 */
+    io.graphoenix.core.Sort group_ref_count = 18; /* 组 引用 数量 */
+    io.graphoenix.core.Sort group_ref_max = 19; /* 组 引用 最大值 */
+    io.graphoenix.core.Sort group_ref_min = 20; /* 组 引用 最小值 */
 }
 /**
 * 角色 角色 关系 查询表达式
 */
 message RoleCompositeRelationExpressionBase {
-    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression id = 1; /* id */
     io.graphoenix.core.StringExpression role_ref = 2; /* 角色 引用 */
     RoleExpression role = 3; /* 角色 */
     io.graphoenix.core.StringExpression composite_ref = 4; /* 角色 引用 */
@@ -1226,7 +1207,7 @@ message RoleCompositeRelationExpressionBase {
 * 角色 角色 关系 变更内容
 */
 message RoleCompositeRelationInputBase {
-    string id = 1; /* ID */
+    string id = 1; /* id */
     string role_ref = 2; /* 角色 引用 */
     RoleInput role = 3; /* 角色 */
     string composite_ref = 4; /* 角色 引用 */
@@ -1246,7 +1227,7 @@ message RoleCompositeRelationInputBase {
 * 角色 角色 关系 查询表达式
 */
 message RoleCompositeRelationExpression {
-    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression id = 1; /* id */
     io.graphoenix.core.StringExpression role_ref = 2; /* 角色 引用 */
     RoleExpression role = 3; /* 角色 */
     io.graphoenix.core.StringExpression composite_ref = 4; /* 角色 引用 */
@@ -1268,7 +1249,7 @@ message RoleCompositeRelationExpression {
 * 角色 角色 关系 变更内容
 */
 message RoleCompositeRelationInput {
-    string id = 1; /* ID */
+    string id = 1; /* id */
     string role_ref = 2; /* 角色 引用 */
     RoleInput role = 3; /* 角色 */
     string composite_ref = 4; /* 角色 引用 */
@@ -1288,7 +1269,7 @@ message RoleCompositeRelationInput {
 * 角色 角色 关系 排序
 */
 message RoleCompositeRelationOrderBy {
-    io.graphoenix.core.Sort id = 1; /* ID */
+    io.graphoenix.core.Sort id = 1; /* id */
     io.graphoenix.core.Sort role_ref = 2; /* 角色 引用 */
     RoleOrderBy role = 3; /* 角色 */
     io.graphoenix.core.Sort composite_ref = 4; /* 角色 引用 */
@@ -1302,21 +1283,18 @@ message RoleCompositeRelationOrderBy {
     io.graphoenix.core.Sort update_time = 12; /* 更新时间 */
     io.graphoenix.core.Sort create_group_id = 13; /* 创建组 */
     io.graphoenix.core.Sort intro_typename = 14; /* 所属类型 */
-    io.graphoenix.core.Sort id_count = 15; /* 角色 角色 关系 数量 */
-    io.graphoenix.core.Sort id_max = 16; /* ID 最大值 */
-    io.graphoenix.core.Sort id_min = 17; /* ID 最小值 */
-    io.graphoenix.core.Sort role_ref_count = 18; /* 角色 引用 数量 */
-    io.graphoenix.core.Sort role_ref_max = 19; /* 角色 引用 最大值 */
-    io.graphoenix.core.Sort role_ref_min = 20; /* 角色 引用 最小值 */
-    io.graphoenix.core.Sort composite_ref_count = 21; /* 角色 引用 数量 */
-    io.graphoenix.core.Sort composite_ref_max = 22; /* 角色 引用 最大值 */
-    io.graphoenix.core.Sort composite_ref_min = 23; /* 角色 引用 最小值 */
+    io.graphoenix.core.Sort role_ref_count = 15; /* 角色 引用 数量 */
+    io.graphoenix.core.Sort role_ref_max = 16; /* 角色 引用 最大值 */
+    io.graphoenix.core.Sort role_ref_min = 17; /* 角色 引用 最小值 */
+    io.graphoenix.core.Sort composite_ref_count = 18; /* 角色 引用 数量 */
+    io.graphoenix.core.Sort composite_ref_max = 19; /* 角色 引用 最大值 */
+    io.graphoenix.core.Sort composite_ref_min = 20; /* 角色 引用 最小值 */
 }
 /**
 * 角色 权限 关系 查询表达式
 */
-message PermissionRoleRelationExpressionBase {
-    io.graphoenix.core.StringExpression id = 1; /* ID */
+message RolePermissionRelationExpressionBase {
+    io.graphoenix.core.StringExpression id = 1; /* id */
     io.graphoenix.core.StringExpression role_ref = 2; /* 角色 引用 */
     RoleExpression role = 3; /* 角色 */
     io.graphoenix.core.StringExpression permission_ref = 4; /* 权限 引用 */
@@ -1332,13 +1310,13 @@ message PermissionRoleRelationExpressionBase {
     io.graphoenix.core.StringExpression intro_typename = 14; /* 所属类型 */
     bool not = 15; /* 取非 */
     io.graphoenix.core.Conditional cond = 16; /* 与/或 */
-    repeated PermissionRoleRelationExpression exs = 17; /* 查询表达式组 */
+    repeated RolePermissionRelationExpression exs = 17; /* 查询表达式组 */
 }
 /**
 * 角色 权限 关系 变更内容
 */
-message PermissionRoleRelationInputBase {
-    string id = 1; /* ID */
+message RolePermissionRelationInputBase {
+    string id = 1; /* id */
     string role_ref = 2; /* 角色 引用 */
     RoleInput role = 3; /* 角色 */
     string permission_ref = 4; /* 权限 引用 */
@@ -1352,13 +1330,13 @@ message PermissionRoleRelationInputBase {
     google.protobuf.Timestamp update_time = 12; /* 更新时间 */
     string create_group_id = 13; /* 创建组 */
     string intro_typename = 14; /* 所属类型 */
-    PermissionRoleRelationExpression where = 15; /* 匹配条件 */
+    RolePermissionRelationExpression where = 15; /* 匹配条件 */
 }
 /**
 * 角色 权限 关系 查询表达式
 */
-message PermissionRoleRelationExpression {
-    io.graphoenix.core.StringExpression id = 1; /* ID */
+message RolePermissionRelationExpression {
+    io.graphoenix.core.StringExpression id = 1; /* id */
     io.graphoenix.core.StringExpression role_ref = 2; /* 角色 引用 */
     RoleExpression role = 3; /* 角色 */
     io.graphoenix.core.StringExpression permission_ref = 4; /* 权限 引用 */
@@ -1374,13 +1352,13 @@ message PermissionRoleRelationExpression {
     io.graphoenix.core.StringExpression intro_typename = 14; /* 所属类型 */
     bool not = 15; /* 取非 */
     io.graphoenix.core.Conditional cond = 16; /* 与/或 */
-    repeated PermissionRoleRelationExpression exs = 17; /* 查询表达式组 */
+    repeated RolePermissionRelationExpression exs = 17; /* 查询表达式组 */
 }
 /**
 * 角色 权限 关系 变更内容
 */
-message PermissionRoleRelationInput {
-    string id = 1; /* ID */
+message RolePermissionRelationInput {
+    string id = 1; /* id */
     string role_ref = 2; /* 角色 引用 */
     RoleInput role = 3; /* 角色 */
     string permission_ref = 4; /* 权限 引用 */
@@ -1394,13 +1372,13 @@ message PermissionRoleRelationInput {
     google.protobuf.Timestamp update_time = 12; /* 更新时间 */
     string create_group_id = 13; /* 创建组 */
     string intro_typename = 14; /* 所属类型 */
-    PermissionRoleRelationExpression where = 15; /* 匹配条件 */
+    RolePermissionRelationExpression where = 15; /* 匹配条件 */
 }
 /**
 * 角色 权限 关系 排序
 */
-message PermissionRoleRelationOrderBy {
-    io.graphoenix.core.Sort id = 1; /* ID */
+message RolePermissionRelationOrderBy {
+    io.graphoenix.core.Sort id = 1; /* id */
     io.graphoenix.core.Sort role_ref = 2; /* 角色 引用 */
     RoleOrderBy role = 3; /* 角色 */
     io.graphoenix.core.Sort permission_ref = 4; /* 权限 引用 */
@@ -1414,15 +1392,12 @@ message PermissionRoleRelationOrderBy {
     io.graphoenix.core.Sort update_time = 12; /* 更新时间 */
     io.graphoenix.core.Sort create_group_id = 13; /* 创建组 */
     io.graphoenix.core.Sort intro_typename = 14; /* 所属类型 */
-    io.graphoenix.core.Sort id_count = 15; /* 角色 权限 关系 数量 */
-    io.graphoenix.core.Sort id_max = 16; /* ID 最大值 */
-    io.graphoenix.core.Sort id_min = 17; /* ID 最小值 */
-    io.graphoenix.core.Sort role_ref_count = 18; /* 角色 引用 数量 */
-    io.graphoenix.core.Sort role_ref_max = 19; /* 角色 引用 最大值 */
-    io.graphoenix.core.Sort role_ref_min = 20; /* 角色 引用 最小值 */
-    io.graphoenix.core.Sort permission_ref_count = 21; /* 权限 引用 数量 */
-    io.graphoenix.core.Sort permission_ref_max = 22; /* 权限 引用 最大值 */
-    io.graphoenix.core.Sort permission_ref_min = 23; /* 权限 引用 最小值 */
+    io.graphoenix.core.Sort role_ref_count = 15; /* 角色 引用 数量 */
+    io.graphoenix.core.Sort role_ref_max = 16; /* 角色 引用 最大值 */
+    io.graphoenix.core.Sort role_ref_min = 17; /* 角色 引用 最小值 */
+    io.graphoenix.core.Sort permission_ref_count = 18; /* 权限 引用 数量 */
+    io.graphoenix.core.Sort permission_ref_max = 19; /* 权限 引用 最大值 */
+    io.graphoenix.core.Sort permission_ref_min = 20; /* 权限 引用 最小值 */
 }
 /**
 * 权限类型 查询表达式
@@ -1436,7 +1411,7 @@ message PermissionTypeExpression {
 * 用户 查询参数
 */
 message UserQueryArguments {
-    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression id = 1; /* id */
     io.graphoenix.core.StringExpression name = 2; /* 姓名 */
     io.graphoenix.core.StringExpression description = 3; /* 描述 */
     io.graphoenix.core.StringExpression last_name = 4; /* 姓氏 */
@@ -1470,7 +1445,7 @@ message UserQueryArguments {
 * 用户列表 查询参数
 */
 message UserListQueryArguments {
-    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression id = 1; /* id */
     io.graphoenix.core.StringExpression name = 2; /* 姓名 */
     io.graphoenix.core.StringExpression description = 3; /* 描述 */
     io.graphoenix.core.StringExpression last_name = 4; /* 姓氏 */
@@ -1510,7 +1485,7 @@ message UserListQueryArguments {
 * 用户连接 查询参数
 */
 message UserConnectionQueryArguments {
-    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression id = 1; /* id */
     io.graphoenix.core.StringExpression name = 2; /* 姓名 */
     io.graphoenix.core.StringExpression description = 3; /* 描述 */
     io.graphoenix.core.StringExpression last_name = 4; /* 姓氏 */
@@ -1550,7 +1525,7 @@ message UserConnectionQueryArguments {
 * 角色 查询参数
 */
 message RoleQueryArguments {
-    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression id = 1; /* id */
     io.graphoenix.core.StringExpression name = 2; /* 名称 */
     io.graphoenix.core.StringExpression description = 3; /* 描述 */
     UserExpression users = 4; /* 用户 */
@@ -1570,7 +1545,7 @@ message RoleQueryArguments {
     RoleUserRelationExpression role_user_relation = 18; /* 用户 角色 关系 */
     GroupRoleRelationExpression group_role_relation = 19; /* 角色 组 关系 */
     RoleCompositeRelationExpression role_composite_relation = 20; /* 角色 角色 关系 */
-    PermissionRoleRelationExpression permission_role_relation = 21; /* 角色 权限 关系 */
+    RolePermissionRelationExpression role_permission_relation = 21; /* 角色 权限 关系 */
     repeated string group_by = 22; /* 分组 */
     bool not = 23; /* 取非 */
     io.graphoenix.core.Conditional cond = 24; /* 与/或 */
@@ -1580,7 +1555,7 @@ message RoleQueryArguments {
 * 角色列表 查询参数
 */
 message RoleListQueryArguments {
-    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression id = 1; /* id */
     io.graphoenix.core.StringExpression name = 2; /* 名称 */
     io.graphoenix.core.StringExpression description = 3; /* 描述 */
     UserExpression users = 4; /* 用户 */
@@ -1600,7 +1575,7 @@ message RoleListQueryArguments {
     RoleUserRelationExpression role_user_relation = 18; /* 用户 角色 关系 */
     GroupRoleRelationExpression group_role_relation = 19; /* 角色 组 关系 */
     RoleCompositeRelationExpression role_composite_relation = 20; /* 角色 角色 关系 */
-    PermissionRoleRelationExpression permission_role_relation = 21; /* 角色 权限 关系 */
+    RolePermissionRelationExpression role_permission_relation = 21; /* 角色 权限 关系 */
     RoleOrderBy order_by = 22; /* 排序 */
     repeated string group_by = 23; /* 分组 */
     bool not = 24; /* 取非 */
@@ -1616,7 +1591,7 @@ message RoleListQueryArguments {
 * 角色连接 查询参数
 */
 message RoleConnectionQueryArguments {
-    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression id = 1; /* id */
     io.graphoenix.core.StringExpression name = 2; /* 名称 */
     io.graphoenix.core.StringExpression description = 3; /* 描述 */
     UserExpression users = 4; /* 用户 */
@@ -1636,7 +1611,7 @@ message RoleConnectionQueryArguments {
     RoleUserRelationExpression role_user_relation = 18; /* 用户 角色 关系 */
     GroupRoleRelationExpression group_role_relation = 19; /* 角色 组 关系 */
     RoleCompositeRelationExpression role_composite_relation = 20; /* 角色 角色 关系 */
-    PermissionRoleRelationExpression permission_role_relation = 21; /* 角色 权限 关系 */
+    RolePermissionRelationExpression role_permission_relation = 21; /* 角色 权限 关系 */
     RoleOrderBy order_by = 22; /* 排序 */
     repeated string group_by = 23; /* 分组 */
     bool not = 24; /* 取非 */
@@ -1652,7 +1627,7 @@ message RoleConnectionQueryArguments {
 * 组 查询参数
 */
 message GroupQueryArguments {
-    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression id = 1; /* id */
     io.graphoenix.core.StringExpression name = 2; /* 名称 */
     io.graphoenix.core.StringExpression description = 3; /* 描述 */
     io.graphoenix.core.StringExpression path = 4; /* 路径 */
@@ -1683,7 +1658,7 @@ message GroupQueryArguments {
 * 组列表 查询参数
 */
 message GroupListQueryArguments {
-    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression id = 1; /* id */
     io.graphoenix.core.StringExpression name = 2; /* 名称 */
     io.graphoenix.core.StringExpression description = 3; /* 描述 */
     io.graphoenix.core.StringExpression path = 4; /* 路径 */
@@ -1720,7 +1695,7 @@ message GroupListQueryArguments {
 * 组连接 查询参数
 */
 message GroupConnectionQueryArguments {
-    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression id = 1; /* id */
     io.graphoenix.core.StringExpression name = 2; /* 名称 */
     io.graphoenix.core.StringExpression description = 3; /* 描述 */
     io.graphoenix.core.StringExpression path = 4; /* 路径 */
@@ -1757,7 +1732,7 @@ message GroupConnectionQueryArguments {
 * 租户 查询参数
 */
 message RealmQueryArguments {
-    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression id = 1; /* id */
     io.graphoenix.core.StringExpression name = 2; /* 名称 */
     io.graphoenix.core.StringExpression description = 3; /* 描述 */
     bool include_deprecated = 4; /* 包含已移除 */
@@ -1778,7 +1753,7 @@ message RealmQueryArguments {
 * 租户列表 查询参数
 */
 message RealmListQueryArguments {
-    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression id = 1; /* id */
     io.graphoenix.core.StringExpression name = 2; /* 名称 */
     io.graphoenix.core.StringExpression description = 3; /* 描述 */
     bool include_deprecated = 4; /* 包含已移除 */
@@ -1805,7 +1780,7 @@ message RealmListQueryArguments {
 * 租户连接 查询参数
 */
 message RealmConnectionQueryArguments {
-    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression id = 1; /* id */
     io.graphoenix.core.StringExpression name = 2; /* 名称 */
     io.graphoenix.core.StringExpression description = 3; /* 描述 */
     bool include_deprecated = 4; /* 包含已移除 */
@@ -1832,97 +1807,100 @@ message RealmConnectionQueryArguments {
 * 权限 查询参数
 */
 message PermissionQueryArguments {
-    io.graphoenix.core.StringExpression name = 1; /* 名称 */
-    io.graphoenix.core.StringExpression description = 2; /* 描述 */
-    io.graphoenix.core.StringExpression field = 3; /* 字段 */
-    io.graphoenix.core.StringExpression type = 4; /* 实体 */
-    PermissionTypeExpression permission_type = 5; /* 权限类型 */
-    RoleExpression roles = 6; /* 角色 */
-    RealmExpression realm = 7; /* 租户 */
-    bool include_deprecated = 8; /* 包含已移除 */
-    io.graphoenix.core.IntExpression version = 9; /* 版本 */
-    io.graphoenix.core.IntExpression realm_id = 10; /* 域 */
-    io.graphoenix.core.StringExpression create_user_id = 11; /* 创建者 */
-    io.graphoenix.core.StringExpression create_time = 12; /* 创建时间 */
-    io.graphoenix.core.StringExpression update_user_id = 13; /* 更新者 */
-    io.graphoenix.core.StringExpression update_time = 14; /* 更新时间 */
-    io.graphoenix.core.StringExpression create_group_id = 15; /* 创建组 */
-    io.graphoenix.core.StringExpression intro_typename = 16; /* 所属类型 */
-    PermissionRoleRelationExpression permission_role_relation = 17; /* 角色 权限 关系 */
-    repeated string group_by = 18; /* 分组 */
-    bool not = 19; /* 取非 */
-    io.graphoenix.core.Conditional cond = 20; /* 与/或 */
-    repeated PermissionExpression exs = 21; /* 查询表达式组 */
+    io.graphoenix.core.StringExpression id = 1; /* id */
+    io.graphoenix.core.StringExpression name = 2; /* 名称 */
+    io.graphoenix.core.StringExpression description = 3; /* 描述 */
+    io.graphoenix.core.StringExpression field = 4; /* 字段 */
+    io.graphoenix.core.StringExpression type = 5; /* 实体 */
+    PermissionTypeExpression permission_type = 6; /* 权限类型 */
+    RoleExpression roles = 7; /* 角色 */
+    RealmExpression realm = 8; /* 租户 */
+    bool include_deprecated = 9; /* 包含已移除 */
+    io.graphoenix.core.IntExpression version = 10; /* 版本 */
+    io.graphoenix.core.IntExpression realm_id = 11; /* 域 */
+    io.graphoenix.core.StringExpression create_user_id = 12; /* 创建者 */
+    io.graphoenix.core.StringExpression create_time = 13; /* 创建时间 */
+    io.graphoenix.core.StringExpression update_user_id = 14; /* 更新者 */
+    io.graphoenix.core.StringExpression update_time = 15; /* 更新时间 */
+    io.graphoenix.core.StringExpression create_group_id = 16; /* 创建组 */
+    io.graphoenix.core.StringExpression intro_typename = 17; /* 所属类型 */
+    RolePermissionRelationExpression role_permission_relation = 18; /* 角色 权限 关系 */
+    repeated string group_by = 19; /* 分组 */
+    bool not = 20; /* 取非 */
+    io.graphoenix.core.Conditional cond = 21; /* 与/或 */
+    repeated PermissionExpression exs = 22; /* 查询表达式组 */
 }
 /**
 * 权限列表 查询参数
 */
 message PermissionListQueryArguments {
-    io.graphoenix.core.StringExpression name = 1; /* 名称 */
-    io.graphoenix.core.StringExpression description = 2; /* 描述 */
-    io.graphoenix.core.StringExpression field = 3; /* 字段 */
-    io.graphoenix.core.StringExpression type = 4; /* 实体 */
-    PermissionTypeExpression permission_type = 5; /* 权限类型 */
-    RoleExpression roles = 6; /* 角色 */
-    RealmExpression realm = 7; /* 租户 */
-    bool include_deprecated = 8; /* 包含已移除 */
-    io.graphoenix.core.IntExpression version = 9; /* 版本 */
-    io.graphoenix.core.IntExpression realm_id = 10; /* 域 */
-    io.graphoenix.core.StringExpression create_user_id = 11; /* 创建者 */
-    io.graphoenix.core.StringExpression create_time = 12; /* 创建时间 */
-    io.graphoenix.core.StringExpression update_user_id = 13; /* 更新者 */
-    io.graphoenix.core.StringExpression update_time = 14; /* 更新时间 */
-    io.graphoenix.core.StringExpression create_group_id = 15; /* 创建组 */
-    io.graphoenix.core.StringExpression intro_typename = 16; /* 所属类型 */
-    PermissionRoleRelationExpression permission_role_relation = 17; /* 角色 权限 关系 */
-    PermissionOrderBy order_by = 18; /* 排序 */
-    repeated string group_by = 19; /* 分组 */
-    bool not = 20; /* 取非 */
-    io.graphoenix.core.Conditional cond = 21; /* 与/或 */
-    repeated PermissionExpression exs = 22; /* 查询表达式组 */
-    int32 first = 23; /* 前...条数 */
-    int32 last = 24; /* 后...条数 */
-    int32 offset = 25; /* 偏移条数 */
-    string after = 26; /* 取...之后 */
-    string before = 27; /* 取...之前 */
+    io.graphoenix.core.StringExpression id = 1; /* id */
+    io.graphoenix.core.StringExpression name = 2; /* 名称 */
+    io.graphoenix.core.StringExpression description = 3; /* 描述 */
+    io.graphoenix.core.StringExpression field = 4; /* 字段 */
+    io.graphoenix.core.StringExpression type = 5; /* 实体 */
+    PermissionTypeExpression permission_type = 6; /* 权限类型 */
+    RoleExpression roles = 7; /* 角色 */
+    RealmExpression realm = 8; /* 租户 */
+    bool include_deprecated = 9; /* 包含已移除 */
+    io.graphoenix.core.IntExpression version = 10; /* 版本 */
+    io.graphoenix.core.IntExpression realm_id = 11; /* 域 */
+    io.graphoenix.core.StringExpression create_user_id = 12; /* 创建者 */
+    io.graphoenix.core.StringExpression create_time = 13; /* 创建时间 */
+    io.graphoenix.core.StringExpression update_user_id = 14; /* 更新者 */
+    io.graphoenix.core.StringExpression update_time = 15; /* 更新时间 */
+    io.graphoenix.core.StringExpression create_group_id = 16; /* 创建组 */
+    io.graphoenix.core.StringExpression intro_typename = 17; /* 所属类型 */
+    RolePermissionRelationExpression role_permission_relation = 18; /* 角色 权限 关系 */
+    PermissionOrderBy order_by = 19; /* 排序 */
+    repeated string group_by = 20; /* 分组 */
+    bool not = 21; /* 取非 */
+    io.graphoenix.core.Conditional cond = 22; /* 与/或 */
+    repeated PermissionExpression exs = 23; /* 查询表达式组 */
+    int32 first = 24; /* 前...条数 */
+    int32 last = 25; /* 后...条数 */
+    int32 offset = 26; /* 偏移条数 */
+    string after = 27; /* 取...之后 */
+    string before = 28; /* 取...之前 */
 }
 /**
 * 权限连接 查询参数
 */
 message PermissionConnectionQueryArguments {
-    io.graphoenix.core.StringExpression name = 1; /* 名称 */
-    io.graphoenix.core.StringExpression description = 2; /* 描述 */
-    io.graphoenix.core.StringExpression field = 3; /* 字段 */
-    io.graphoenix.core.StringExpression type = 4; /* 实体 */
-    PermissionTypeExpression permission_type = 5; /* 权限类型 */
-    RoleExpression roles = 6; /* 角色 */
-    RealmExpression realm = 7; /* 租户 */
-    bool include_deprecated = 8; /* 包含已移除 */
-    io.graphoenix.core.IntExpression version = 9; /* 版本 */
-    io.graphoenix.core.IntExpression realm_id = 10; /* 域 */
-    io.graphoenix.core.StringExpression create_user_id = 11; /* 创建者 */
-    io.graphoenix.core.StringExpression create_time = 12; /* 创建时间 */
-    io.graphoenix.core.StringExpression update_user_id = 13; /* 更新者 */
-    io.graphoenix.core.StringExpression update_time = 14; /* 更新时间 */
-    io.graphoenix.core.StringExpression create_group_id = 15; /* 创建组 */
-    io.graphoenix.core.StringExpression intro_typename = 16; /* 所属类型 */
-    PermissionRoleRelationExpression permission_role_relation = 17; /* 角色 权限 关系 */
-    PermissionOrderBy order_by = 18; /* 排序 */
-    repeated string group_by = 19; /* 分组 */
-    bool not = 20; /* 取非 */
-    io.graphoenix.core.Conditional cond = 21; /* 与/或 */
-    repeated PermissionExpression exs = 22; /* 查询表达式组 */
-    int32 first = 23; /* 前...条数 */
-    int32 last = 24; /* 后...条数 */
-    int32 offset = 25; /* 偏移条数 */
-    string after = 26; /* 取...之后 */
-    string before = 27; /* 取...之前 */
+    io.graphoenix.core.StringExpression id = 1; /* id */
+    io.graphoenix.core.StringExpression name = 2; /* 名称 */
+    io.graphoenix.core.StringExpression description = 3; /* 描述 */
+    io.graphoenix.core.StringExpression field = 4; /* 字段 */
+    io.graphoenix.core.StringExpression type = 5; /* 实体 */
+    PermissionTypeExpression permission_type = 6; /* 权限类型 */
+    RoleExpression roles = 7; /* 角色 */
+    RealmExpression realm = 8; /* 租户 */
+    bool include_deprecated = 9; /* 包含已移除 */
+    io.graphoenix.core.IntExpression version = 10; /* 版本 */
+    io.graphoenix.core.IntExpression realm_id = 11; /* 域 */
+    io.graphoenix.core.StringExpression create_user_id = 12; /* 创建者 */
+    io.graphoenix.core.StringExpression create_time = 13; /* 创建时间 */
+    io.graphoenix.core.StringExpression update_user_id = 14; /* 更新者 */
+    io.graphoenix.core.StringExpression update_time = 15; /* 更新时间 */
+    io.graphoenix.core.StringExpression create_group_id = 16; /* 创建组 */
+    io.graphoenix.core.StringExpression intro_typename = 17; /* 所属类型 */
+    RolePermissionRelationExpression role_permission_relation = 18; /* 角色 权限 关系 */
+    PermissionOrderBy order_by = 19; /* 排序 */
+    repeated string group_by = 20; /* 分组 */
+    bool not = 21; /* 取非 */
+    io.graphoenix.core.Conditional cond = 22; /* 与/或 */
+    repeated PermissionExpression exs = 23; /* 查询表达式组 */
+    int32 first = 24; /* 前...条数 */
+    int32 last = 25; /* 后...条数 */
+    int32 offset = 26; /* 偏移条数 */
+    string after = 27; /* 取...之后 */
+    string before = 28; /* 取...之前 */
 }
 /**
 * 用户 手机号 关系 查询参数
 */
 message UserPhonesRelationQueryArguments {
-    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression id = 1; /* id */
     io.graphoenix.core.StringExpression user_ref = 2; /* 用户 引用 */
     UserExpression user = 3; /* 用户 */
     io.graphoenix.core.StringExpression phones_ref = 4; /* 手机号 引用 */
@@ -1944,7 +1922,7 @@ message UserPhonesRelationQueryArguments {
 * 用户 手机号 关系列表 查询参数
 */
 message UserPhonesRelationListQueryArguments {
-    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression id = 1; /* id */
     io.graphoenix.core.StringExpression user_ref = 2; /* 用户 引用 */
     UserExpression user = 3; /* 用户 */
     io.graphoenix.core.StringExpression phones_ref = 4; /* 手机号 引用 */
@@ -1972,7 +1950,7 @@ message UserPhonesRelationListQueryArguments {
 * 用户 手机号 关系连接 查询参数
 */
 message UserPhonesRelationConnectionQueryArguments {
-    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression id = 1; /* id */
     io.graphoenix.core.StringExpression user_ref = 2; /* 用户 引用 */
     UserExpression user = 3; /* 用户 */
     io.graphoenix.core.StringExpression phones_ref = 4; /* 手机号 引用 */
@@ -2000,7 +1978,7 @@ message UserPhonesRelationConnectionQueryArguments {
 * 用户 组 关系 查询参数
 */
 message GroupUserRelationQueryArguments {
-    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression id = 1; /* id */
     io.graphoenix.core.StringExpression user_ref = 2; /* 用户 引用 */
     UserExpression user = 3; /* 用户 */
     io.graphoenix.core.StringExpression group_ref = 4; /* 组 引用 */
@@ -2023,7 +2001,7 @@ message GroupUserRelationQueryArguments {
 * 用户 组 关系列表 查询参数
 */
 message GroupUserRelationListQueryArguments {
-    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression id = 1; /* id */
     io.graphoenix.core.StringExpression user_ref = 2; /* 用户 引用 */
     UserExpression user = 3; /* 用户 */
     io.graphoenix.core.StringExpression group_ref = 4; /* 组 引用 */
@@ -2052,7 +2030,7 @@ message GroupUserRelationListQueryArguments {
 * 用户 组 关系连接 查询参数
 */
 message GroupUserRelationConnectionQueryArguments {
-    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression id = 1; /* id */
     io.graphoenix.core.StringExpression user_ref = 2; /* 用户 引用 */
     UserExpression user = 3; /* 用户 */
     io.graphoenix.core.StringExpression group_ref = 4; /* 组 引用 */
@@ -2081,7 +2059,7 @@ message GroupUserRelationConnectionQueryArguments {
 * 用户 角色 关系 查询参数
 */
 message RoleUserRelationQueryArguments {
-    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression id = 1; /* id */
     io.graphoenix.core.StringExpression user_ref = 2; /* 用户 引用 */
     UserExpression user = 3; /* 用户 */
     io.graphoenix.core.StringExpression role_ref = 4; /* 角色 引用 */
@@ -2104,7 +2082,7 @@ message RoleUserRelationQueryArguments {
 * 用户 角色 关系列表 查询参数
 */
 message RoleUserRelationListQueryArguments {
-    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression id = 1; /* id */
     io.graphoenix.core.StringExpression user_ref = 2; /* 用户 引用 */
     UserExpression user = 3; /* 用户 */
     io.graphoenix.core.StringExpression role_ref = 4; /* 角色 引用 */
@@ -2133,7 +2111,7 @@ message RoleUserRelationListQueryArguments {
 * 用户 角色 关系连接 查询参数
 */
 message RoleUserRelationConnectionQueryArguments {
-    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression id = 1; /* id */
     io.graphoenix.core.StringExpression user_ref = 2; /* 用户 引用 */
     UserExpression user = 3; /* 用户 */
     io.graphoenix.core.StringExpression role_ref = 4; /* 角色 引用 */
@@ -2162,7 +2140,7 @@ message RoleUserRelationConnectionQueryArguments {
 * 角色 组 关系 查询参数
 */
 message GroupRoleRelationQueryArguments {
-    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression id = 1; /* id */
     io.graphoenix.core.StringExpression role_ref = 2; /* 角色 引用 */
     RoleExpression role = 3; /* 角色 */
     io.graphoenix.core.StringExpression group_ref = 4; /* 组 引用 */
@@ -2185,7 +2163,7 @@ message GroupRoleRelationQueryArguments {
 * 角色 组 关系列表 查询参数
 */
 message GroupRoleRelationListQueryArguments {
-    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression id = 1; /* id */
     io.graphoenix.core.StringExpression role_ref = 2; /* 角色 引用 */
     RoleExpression role = 3; /* 角色 */
     io.graphoenix.core.StringExpression group_ref = 4; /* 组 引用 */
@@ -2214,7 +2192,7 @@ message GroupRoleRelationListQueryArguments {
 * 角色 组 关系连接 查询参数
 */
 message GroupRoleRelationConnectionQueryArguments {
-    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression id = 1; /* id */
     io.graphoenix.core.StringExpression role_ref = 2; /* 角色 引用 */
     RoleExpression role = 3; /* 角色 */
     io.graphoenix.core.StringExpression group_ref = 4; /* 组 引用 */
@@ -2243,7 +2221,7 @@ message GroupRoleRelationConnectionQueryArguments {
 * 角色 角色 关系 查询参数
 */
 message RoleCompositeRelationQueryArguments {
-    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression id = 1; /* id */
     io.graphoenix.core.StringExpression role_ref = 2; /* 角色 引用 */
     RoleExpression role = 3; /* 角色 */
     io.graphoenix.core.StringExpression composite_ref = 4; /* 角色 引用 */
@@ -2266,7 +2244,7 @@ message RoleCompositeRelationQueryArguments {
 * 角色 角色 关系列表 查询参数
 */
 message RoleCompositeRelationListQueryArguments {
-    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression id = 1; /* id */
     io.graphoenix.core.StringExpression role_ref = 2; /* 角色 引用 */
     RoleExpression role = 3; /* 角色 */
     io.graphoenix.core.StringExpression composite_ref = 4; /* 角色 引用 */
@@ -2295,7 +2273,7 @@ message RoleCompositeRelationListQueryArguments {
 * 角色 角色 关系连接 查询参数
 */
 message RoleCompositeRelationConnectionQueryArguments {
-    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression id = 1; /* id */
     io.graphoenix.core.StringExpression role_ref = 2; /* 角色 引用 */
     RoleExpression role = 3; /* 角色 */
     io.graphoenix.core.StringExpression composite_ref = 4; /* 角色 引用 */
@@ -2323,8 +2301,8 @@ message RoleCompositeRelationConnectionQueryArguments {
 /**
 * 角色 权限 关系 查询参数
 */
-message PermissionRoleRelationQueryArguments {
-    io.graphoenix.core.StringExpression id = 1; /* ID */
+message RolePermissionRelationQueryArguments {
+    io.graphoenix.core.StringExpression id = 1; /* id */
     io.graphoenix.core.StringExpression role_ref = 2; /* 角色 引用 */
     RoleExpression role = 3; /* 角色 */
     io.graphoenix.core.StringExpression permission_ref = 4; /* 权限 引用 */
@@ -2341,13 +2319,13 @@ message PermissionRoleRelationQueryArguments {
     repeated string group_by = 15; /* 分组 */
     bool not = 16; /* 取非 */
     io.graphoenix.core.Conditional cond = 17; /* 与/或 */
-    repeated PermissionRoleRelationExpression exs = 18; /* 查询表达式组 */
+    repeated RolePermissionRelationExpression exs = 18; /* 查询表达式组 */
 }
 /**
 * 角色 权限 关系列表 查询参数
 */
-message PermissionRoleRelationListQueryArguments {
-    io.graphoenix.core.StringExpression id = 1; /* ID */
+message RolePermissionRelationListQueryArguments {
+    io.graphoenix.core.StringExpression id = 1; /* id */
     io.graphoenix.core.StringExpression role_ref = 2; /* 角色 引用 */
     RoleExpression role = 3; /* 角色 */
     io.graphoenix.core.StringExpression permission_ref = 4; /* 权限 引用 */
@@ -2361,11 +2339,11 @@ message PermissionRoleRelationListQueryArguments {
     io.graphoenix.core.StringExpression update_time = 12; /* 更新时间 */
     io.graphoenix.core.StringExpression create_group_id = 13; /* 创建组 */
     io.graphoenix.core.StringExpression intro_typename = 14; /* 所属类型 */
-    PermissionRoleRelationOrderBy order_by = 15; /* 排序 */
+    RolePermissionRelationOrderBy order_by = 15; /* 排序 */
     repeated string group_by = 16; /* 分组 */
     bool not = 17; /* 取非 */
     io.graphoenix.core.Conditional cond = 18; /* 与/或 */
-    repeated PermissionRoleRelationExpression exs = 19; /* 查询表达式组 */
+    repeated RolePermissionRelationExpression exs = 19; /* 查询表达式组 */
     int32 first = 20; /* 前...条数 */
     int32 last = 21; /* 后...条数 */
     int32 offset = 22; /* 偏移条数 */
@@ -2375,8 +2353,8 @@ message PermissionRoleRelationListQueryArguments {
 /**
 * 角色 权限 关系连接 查询参数
 */
-message PermissionRoleRelationConnectionQueryArguments {
-    io.graphoenix.core.StringExpression id = 1; /* ID */
+message RolePermissionRelationConnectionQueryArguments {
+    io.graphoenix.core.StringExpression id = 1; /* id */
     io.graphoenix.core.StringExpression role_ref = 2; /* 角色 引用 */
     RoleExpression role = 3; /* 角色 */
     io.graphoenix.core.StringExpression permission_ref = 4; /* 权限 引用 */
@@ -2390,11 +2368,11 @@ message PermissionRoleRelationConnectionQueryArguments {
     io.graphoenix.core.StringExpression update_time = 12; /* 更新时间 */
     io.graphoenix.core.StringExpression create_group_id = 13; /* 创建组 */
     io.graphoenix.core.StringExpression intro_typename = 14; /* 所属类型 */
-    PermissionRoleRelationOrderBy order_by = 15; /* 排序 */
+    RolePermissionRelationOrderBy order_by = 15; /* 排序 */
     repeated string group_by = 16; /* 分组 */
     bool not = 17; /* 取非 */
     io.graphoenix.core.Conditional cond = 18; /* 与/或 */
-    repeated PermissionRoleRelationExpression exs = 19; /* 查询表达式组 */
+    repeated RolePermissionRelationExpression exs = 19; /* 查询表达式组 */
     int32 first = 20; /* 前...条数 */
     int32 last = 21; /* 后...条数 */
     int32 offset = 22; /* 偏移条数 */
@@ -2405,7 +2383,7 @@ message PermissionRoleRelationConnectionQueryArguments {
 * 用户 变更参数
 */
 message UserMutationArguments {
-    string id = 1; /* ID */
+    string id = 1; /* id */
     string name = 2; /* 姓名 */
     string description = 3; /* 描述 */
     string last_name = 4; /* 姓氏 */
@@ -2437,7 +2415,7 @@ message UserMutationArguments {
 * 用户列表 变更参数 
 */
 message UserListMutationArguments {
-    string id = 1; /* ID */
+    string id = 1; /* id */
     string name = 2; /* 姓名 */
     string description = 3; /* 描述 */
     string last_name = 4; /* 姓氏 */
@@ -2469,7 +2447,7 @@ message UserListMutationArguments {
 * 角色 变更参数
 */
 message RoleMutationArguments {
-    string id = 1; /* ID */
+    string id = 1; /* id */
     string name = 2; /* 名称 */
     string description = 3; /* 描述 */
     repeated UserInput users = 4; /* 用户 */
@@ -2489,7 +2467,7 @@ message RoleMutationArguments {
     repeated RoleUserRelationInput role_user_relation = 18; /* 用户 角色 关系 */
     repeated GroupRoleRelationInput group_role_relation = 19; /* 角色 组 关系 */
     repeated RoleCompositeRelationInput role_composite_relation = 20; /* 角色 角色 关系 */
-    repeated PermissionRoleRelationInput permission_role_relation = 21; /* 角色 权限 关系 */
+    repeated RolePermissionRelationInput role_permission_relation = 21; /* 角色 权限 关系 */
     RoleInput input = 22; /* 变更内容 */
     RoleExpression where = 23; /* 匹配条件 */
 }
@@ -2497,7 +2475,7 @@ message RoleMutationArguments {
 * 角色列表 变更参数 
 */
 message RoleListMutationArguments {
-    string id = 1; /* ID */
+    string id = 1; /* id */
     string name = 2; /* 名称 */
     string description = 3; /* 描述 */
     repeated UserInput users = 4; /* 用户 */
@@ -2517,7 +2495,7 @@ message RoleListMutationArguments {
     repeated RoleUserRelationInput role_user_relation = 18; /* 用户 角色 关系 */
     repeated GroupRoleRelationInput group_role_relation = 19; /* 角色 组 关系 */
     repeated RoleCompositeRelationInput role_composite_relation = 20; /* 角色 角色 关系 */
-    repeated PermissionRoleRelationInput permission_role_relation = 21; /* 角色 权限 关系 */
+    repeated RolePermissionRelationInput role_permission_relation = 21; /* 角色 权限 关系 */
     repeated RoleInput list = 22; /* 变更内容列表 */
     RoleExpression where = 23; /* 匹配条件 */
 }
@@ -2525,7 +2503,7 @@ message RoleListMutationArguments {
 * 组 变更参数
 */
 message GroupMutationArguments {
-    string id = 1; /* ID */
+    string id = 1; /* id */
     string name = 2; /* 名称 */
     string description = 3; /* 描述 */
     string path = 4; /* 路径 */
@@ -2554,7 +2532,7 @@ message GroupMutationArguments {
 * 组列表 变更参数 
 */
 message GroupListMutationArguments {
-    string id = 1; /* ID */
+    string id = 1; /* id */
     string name = 2; /* 名称 */
     string description = 3; /* 描述 */
     string path = 4; /* 路径 */
@@ -2583,7 +2561,7 @@ message GroupListMutationArguments {
 * 租户 变更参数
 */
 message RealmMutationArguments {
-    string id = 1; /* ID */
+    string id = 1; /* id */
     string name = 2; /* 名称 */
     string description = 3; /* 描述 */
     bool is_deprecated = 4; /* 已移除 */
@@ -2602,7 +2580,7 @@ message RealmMutationArguments {
 * 租户列表 变更参数 
 */
 message RealmListMutationArguments {
-    string id = 1; /* ID */
+    string id = 1; /* id */
     string name = 2; /* 名称 */
     string description = 3; /* 描述 */
     bool is_deprecated = 4; /* 已移除 */
@@ -2621,55 +2599,57 @@ message RealmListMutationArguments {
 * 权限 变更参数
 */
 message PermissionMutationArguments {
-    string name = 1; /* 名称 */
-    string description = 2; /* 描述 */
-    string field = 3; /* 字段 */
-    string type = 4; /* 实体 */
-    PermissionType permission_type = 5; /* 权限类型 */
-    repeated RoleInput roles = 6; /* 角色 */
-    RealmInput realm = 7; /* 租户 */
-    bool is_deprecated = 8; /* 已移除 */
-    int32 version = 9; /* 版本 */
-    int32 realm_id = 10; /* 域 */
-    string create_user_id = 11; /* 创建者 */
-    google.protobuf.Timestamp create_time = 12; /* 创建时间 */
-    string update_user_id = 13; /* 更新者 */
-    google.protobuf.Timestamp update_time = 14; /* 更新时间 */
-    string create_group_id = 15; /* 创建组 */
-    string intro_typename = 16; /* 所属类型 */
-    repeated PermissionRoleRelationInput permission_role_relation = 17; /* 角色 权限 关系 */
-    PermissionInput input = 18; /* 变更内容 */
-    PermissionExpression where = 19; /* 匹配条件 */
+    string id = 1; /* id */
+    string name = 2; /* 名称 */
+    string description = 3; /* 描述 */
+    string field = 4; /* 字段 */
+    string type = 5; /* 实体 */
+    PermissionType permission_type = 6; /* 权限类型 */
+    repeated RoleInput roles = 7; /* 角色 */
+    RealmInput realm = 8; /* 租户 */
+    bool is_deprecated = 9; /* 已移除 */
+    int32 version = 10; /* 版本 */
+    int32 realm_id = 11; /* 域 */
+    string create_user_id = 12; /* 创建者 */
+    google.protobuf.Timestamp create_time = 13; /* 创建时间 */
+    string update_user_id = 14; /* 更新者 */
+    google.protobuf.Timestamp update_time = 15; /* 更新时间 */
+    string create_group_id = 16; /* 创建组 */
+    string intro_typename = 17; /* 所属类型 */
+    repeated RolePermissionRelationInput role_permission_relation = 18; /* 角色 权限 关系 */
+    PermissionInput input = 19; /* 变更内容 */
+    PermissionExpression where = 20; /* 匹配条件 */
 }
 /**
 * 权限列表 变更参数 
 */
 message PermissionListMutationArguments {
-    string name = 1; /* 名称 */
-    string description = 2; /* 描述 */
-    string field = 3; /* 字段 */
-    string type = 4; /* 实体 */
-    PermissionType permission_type = 5; /* 权限类型 */
-    repeated RoleInput roles = 6; /* 角色 */
-    RealmInput realm = 7; /* 租户 */
-    bool is_deprecated = 8; /* 已移除 */
-    int32 version = 9; /* 版本 */
-    int32 realm_id = 10; /* 域 */
-    string create_user_id = 11; /* 创建者 */
-    google.protobuf.Timestamp create_time = 12; /* 创建时间 */
-    string update_user_id = 13; /* 更新者 */
-    google.protobuf.Timestamp update_time = 14; /* 更新时间 */
-    string create_group_id = 15; /* 创建组 */
-    string intro_typename = 16; /* 所属类型 */
-    repeated PermissionRoleRelationInput permission_role_relation = 17; /* 角色 权限 关系 */
-    repeated PermissionInput list = 18; /* 变更内容列表 */
-    PermissionExpression where = 19; /* 匹配条件 */
+    string id = 1; /* id */
+    string name = 2; /* 名称 */
+    string description = 3; /* 描述 */
+    string field = 4; /* 字段 */
+    string type = 5; /* 实体 */
+    PermissionType permission_type = 6; /* 权限类型 */
+    repeated RoleInput roles = 7; /* 角色 */
+    RealmInput realm = 8; /* 租户 */
+    bool is_deprecated = 9; /* 已移除 */
+    int32 version = 10; /* 版本 */
+    int32 realm_id = 11; /* 域 */
+    string create_user_id = 12; /* 创建者 */
+    google.protobuf.Timestamp create_time = 13; /* 创建时间 */
+    string update_user_id = 14; /* 更新者 */
+    google.protobuf.Timestamp update_time = 15; /* 更新时间 */
+    string create_group_id = 16; /* 创建组 */
+    string intro_typename = 17; /* 所属类型 */
+    repeated RolePermissionRelationInput role_permission_relation = 18; /* 角色 权限 关系 */
+    repeated PermissionInput list = 19; /* 变更内容列表 */
+    PermissionExpression where = 20; /* 匹配条件 */
 }
 /**
 * 用户 手机号 关系 变更参数
 */
 message UserPhonesRelationMutationArguments {
-    string id = 1; /* ID */
+    string id = 1; /* id */
     string user_ref = 2; /* 用户 引用 */
     UserInput user = 3; /* 用户 */
     string phones_ref = 4; /* 手机号 引用 */
@@ -2689,7 +2669,7 @@ message UserPhonesRelationMutationArguments {
 * 用户 手机号 关系列表 变更参数 
 */
 message UserPhonesRelationListMutationArguments {
-    string id = 1; /* ID */
+    string id = 1; /* id */
     string user_ref = 2; /* 用户 引用 */
     UserInput user = 3; /* 用户 */
     string phones_ref = 4; /* 手机号 引用 */
@@ -2709,7 +2689,7 @@ message UserPhonesRelationListMutationArguments {
 * 用户 组 关系 变更参数
 */
 message GroupUserRelationMutationArguments {
-    string id = 1; /* ID */
+    string id = 1; /* id */
     string user_ref = 2; /* 用户 引用 */
     UserInput user = 3; /* 用户 */
     string group_ref = 4; /* 组 引用 */
@@ -2730,7 +2710,7 @@ message GroupUserRelationMutationArguments {
 * 用户 组 关系列表 变更参数 
 */
 message GroupUserRelationListMutationArguments {
-    string id = 1; /* ID */
+    string id = 1; /* id */
     string user_ref = 2; /* 用户 引用 */
     UserInput user = 3; /* 用户 */
     string group_ref = 4; /* 组 引用 */
@@ -2751,7 +2731,7 @@ message GroupUserRelationListMutationArguments {
 * 用户 角色 关系 变更参数
 */
 message RoleUserRelationMutationArguments {
-    string id = 1; /* ID */
+    string id = 1; /* id */
     string user_ref = 2; /* 用户 引用 */
     UserInput user = 3; /* 用户 */
     string role_ref = 4; /* 角色 引用 */
@@ -2772,7 +2752,7 @@ message RoleUserRelationMutationArguments {
 * 用户 角色 关系列表 变更参数 
 */
 message RoleUserRelationListMutationArguments {
-    string id = 1; /* ID */
+    string id = 1; /* id */
     string user_ref = 2; /* 用户 引用 */
     UserInput user = 3; /* 用户 */
     string role_ref = 4; /* 角色 引用 */
@@ -2793,7 +2773,7 @@ message RoleUserRelationListMutationArguments {
 * 角色 组 关系 变更参数
 */
 message GroupRoleRelationMutationArguments {
-    string id = 1; /* ID */
+    string id = 1; /* id */
     string role_ref = 2; /* 角色 引用 */
     RoleInput role = 3; /* 角色 */
     string group_ref = 4; /* 组 引用 */
@@ -2814,7 +2794,7 @@ message GroupRoleRelationMutationArguments {
 * 角色 组 关系列表 变更参数 
 */
 message GroupRoleRelationListMutationArguments {
-    string id = 1; /* ID */
+    string id = 1; /* id */
     string role_ref = 2; /* 角色 引用 */
     RoleInput role = 3; /* 角色 */
     string group_ref = 4; /* 组 引用 */
@@ -2835,7 +2815,7 @@ message GroupRoleRelationListMutationArguments {
 * 角色 角色 关系 变更参数
 */
 message RoleCompositeRelationMutationArguments {
-    string id = 1; /* ID */
+    string id = 1; /* id */
     string role_ref = 2; /* 角色 引用 */
     RoleInput role = 3; /* 角色 */
     string composite_ref = 4; /* 角色 引用 */
@@ -2856,7 +2836,7 @@ message RoleCompositeRelationMutationArguments {
 * 角色 角色 关系列表 变更参数 
 */
 message RoleCompositeRelationListMutationArguments {
-    string id = 1; /* ID */
+    string id = 1; /* id */
     string role_ref = 2; /* 角色 引用 */
     RoleInput role = 3; /* 角色 */
     string composite_ref = 4; /* 角色 引用 */
@@ -2876,8 +2856,8 @@ message RoleCompositeRelationListMutationArguments {
 /**
 * 角色 权限 关系 变更参数
 */
-message PermissionRoleRelationMutationArguments {
-    string id = 1; /* ID */
+message RolePermissionRelationMutationArguments {
+    string id = 1; /* id */
     string role_ref = 2; /* 角色 引用 */
     RoleInput role = 3; /* 角色 */
     string permission_ref = 4; /* 权限 引用 */
@@ -2891,14 +2871,14 @@ message PermissionRoleRelationMutationArguments {
     google.protobuf.Timestamp update_time = 12; /* 更新时间 */
     string create_group_id = 13; /* 创建组 */
     string intro_typename = 14; /* 所属类型 */
-    PermissionRoleRelationInput input = 15; /* 变更内容 */
-    PermissionRoleRelationExpression where = 16; /* 匹配条件 */
+    RolePermissionRelationInput input = 15; /* 变更内容 */
+    RolePermissionRelationExpression where = 16; /* 匹配条件 */
 }
 /**
 * 角色 权限 关系列表 变更参数 
 */
-message PermissionRoleRelationListMutationArguments {
-    string id = 1; /* ID */
+message RolePermissionRelationListMutationArguments {
+    string id = 1; /* id */
     string role_ref = 2; /* 角色 引用 */
     RoleInput role = 3; /* 角色 */
     string permission_ref = 4; /* 权限 引用 */
@@ -2912,14 +2892,14 @@ message PermissionRoleRelationListMutationArguments {
     google.protobuf.Timestamp update_time = 12; /* 更新时间 */
     string create_group_id = 13; /* 创建组 */
     string intro_typename = 14; /* 所属类型 */
-    repeated PermissionRoleRelationInput list = 15; /* 变更内容列表 */
-    PermissionRoleRelationExpression where = 16; /* 匹配条件 */
+    repeated RolePermissionRelationInput list = 15; /* 变更内容列表 */
+    RolePermissionRelationExpression where = 16; /* 匹配条件 */
 }
 /**
 * 用户 订阅参数
 */
 message UserSubscriptionArguments {
-    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression id = 1; /* id */
     io.graphoenix.core.StringExpression name = 2; /* 姓名 */
     io.graphoenix.core.StringExpression description = 3; /* 描述 */
     io.graphoenix.core.StringExpression last_name = 4; /* 姓氏 */
@@ -2953,7 +2933,7 @@ message UserSubscriptionArguments {
 * 用户列表 订阅参数
 */
 message UserListSubscriptionArguments {
-    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression id = 1; /* id */
     io.graphoenix.core.StringExpression name = 2; /* 姓名 */
     io.graphoenix.core.StringExpression description = 3; /* 描述 */
     io.graphoenix.core.StringExpression last_name = 4; /* 姓氏 */
@@ -2993,7 +2973,7 @@ message UserListSubscriptionArguments {
 * 用户列表 订阅参数
 */
 message UserConnectionSubscriptionArguments {
-    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression id = 1; /* id */
     io.graphoenix.core.StringExpression name = 2; /* 姓名 */
     io.graphoenix.core.StringExpression description = 3; /* 描述 */
     io.graphoenix.core.StringExpression last_name = 4; /* 姓氏 */
@@ -3033,7 +3013,7 @@ message UserConnectionSubscriptionArguments {
 * 角色 订阅参数
 */
 message RoleSubscriptionArguments {
-    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression id = 1; /* id */
     io.graphoenix.core.StringExpression name = 2; /* 名称 */
     io.graphoenix.core.StringExpression description = 3; /* 描述 */
     UserExpression users = 4; /* 用户 */
@@ -3053,7 +3033,7 @@ message RoleSubscriptionArguments {
     RoleUserRelationExpression role_user_relation = 18; /* 用户 角色 关系 */
     GroupRoleRelationExpression group_role_relation = 19; /* 角色 组 关系 */
     RoleCompositeRelationExpression role_composite_relation = 20; /* 角色 角色 关系 */
-    PermissionRoleRelationExpression permission_role_relation = 21; /* 角色 权限 关系 */
+    RolePermissionRelationExpression role_permission_relation = 21; /* 角色 权限 关系 */
     repeated string group_by = 22; /* 分组 */
     bool not = 23; /* 取非 */
     io.graphoenix.core.Conditional cond = 24; /* 与/或 */
@@ -3063,7 +3043,7 @@ message RoleSubscriptionArguments {
 * 角色列表 订阅参数
 */
 message RoleListSubscriptionArguments {
-    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression id = 1; /* id */
     io.graphoenix.core.StringExpression name = 2; /* 名称 */
     io.graphoenix.core.StringExpression description = 3; /* 描述 */
     UserExpression users = 4; /* 用户 */
@@ -3083,7 +3063,7 @@ message RoleListSubscriptionArguments {
     RoleUserRelationExpression role_user_relation = 18; /* 用户 角色 关系 */
     GroupRoleRelationExpression group_role_relation = 19; /* 角色 组 关系 */
     RoleCompositeRelationExpression role_composite_relation = 20; /* 角色 角色 关系 */
-    PermissionRoleRelationExpression permission_role_relation = 21; /* 角色 权限 关系 */
+    RolePermissionRelationExpression role_permission_relation = 21; /* 角色 权限 关系 */
     RoleOrderBy order_by = 22; /* 排序 */
     repeated string group_by = 23; /* 分组 */
     bool not = 24; /* 取非 */
@@ -3099,7 +3079,7 @@ message RoleListSubscriptionArguments {
 * 角色列表 订阅参数
 */
 message RoleConnectionSubscriptionArguments {
-    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression id = 1; /* id */
     io.graphoenix.core.StringExpression name = 2; /* 名称 */
     io.graphoenix.core.StringExpression description = 3; /* 描述 */
     UserExpression users = 4; /* 用户 */
@@ -3119,7 +3099,7 @@ message RoleConnectionSubscriptionArguments {
     RoleUserRelationExpression role_user_relation = 18; /* 用户 角色 关系 */
     GroupRoleRelationExpression group_role_relation = 19; /* 角色 组 关系 */
     RoleCompositeRelationExpression role_composite_relation = 20; /* 角色 角色 关系 */
-    PermissionRoleRelationExpression permission_role_relation = 21; /* 角色 权限 关系 */
+    RolePermissionRelationExpression role_permission_relation = 21; /* 角色 权限 关系 */
     RoleOrderBy order_by = 22; /* 排序 */
     repeated string group_by = 23; /* 排序 */
     bool not = 24; /* 取非 */
@@ -3135,7 +3115,7 @@ message RoleConnectionSubscriptionArguments {
 * 组 订阅参数
 */
 message GroupSubscriptionArguments {
-    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression id = 1; /* id */
     io.graphoenix.core.StringExpression name = 2; /* 名称 */
     io.graphoenix.core.StringExpression description = 3; /* 描述 */
     io.graphoenix.core.StringExpression path = 4; /* 路径 */
@@ -3166,7 +3146,7 @@ message GroupSubscriptionArguments {
 * 组列表 订阅参数
 */
 message GroupListSubscriptionArguments {
-    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression id = 1; /* id */
     io.graphoenix.core.StringExpression name = 2; /* 名称 */
     io.graphoenix.core.StringExpression description = 3; /* 描述 */
     io.graphoenix.core.StringExpression path = 4; /* 路径 */
@@ -3203,7 +3183,7 @@ message GroupListSubscriptionArguments {
 * 组列表 订阅参数
 */
 message GroupConnectionSubscriptionArguments {
-    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression id = 1; /* id */
     io.graphoenix.core.StringExpression name = 2; /* 名称 */
     io.graphoenix.core.StringExpression description = 3; /* 描述 */
     io.graphoenix.core.StringExpression path = 4; /* 路径 */
@@ -3240,7 +3220,7 @@ message GroupConnectionSubscriptionArguments {
 * 租户 订阅参数
 */
 message RealmSubscriptionArguments {
-    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression id = 1; /* id */
     io.graphoenix.core.StringExpression name = 2; /* 名称 */
     io.graphoenix.core.StringExpression description = 3; /* 描述 */
     bool include_deprecated = 4; /* 包含已移除 */
@@ -3261,7 +3241,7 @@ message RealmSubscriptionArguments {
 * 租户列表 订阅参数
 */
 message RealmListSubscriptionArguments {
-    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression id = 1; /* id */
     io.graphoenix.core.StringExpression name = 2; /* 名称 */
     io.graphoenix.core.StringExpression description = 3; /* 描述 */
     bool include_deprecated = 4; /* 包含已移除 */
@@ -3288,7 +3268,7 @@ message RealmListSubscriptionArguments {
 * 租户列表 订阅参数
 */
 message RealmConnectionSubscriptionArguments {
-    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression id = 1; /* id */
     io.graphoenix.core.StringExpression name = 2; /* 名称 */
     io.graphoenix.core.StringExpression description = 3; /* 描述 */
     bool include_deprecated = 4; /* 包含已移除 */
@@ -3315,97 +3295,100 @@ message RealmConnectionSubscriptionArguments {
 * 权限 订阅参数
 */
 message PermissionSubscriptionArguments {
-    io.graphoenix.core.StringExpression name = 1; /* 名称 */
-    io.graphoenix.core.StringExpression description = 2; /* 描述 */
-    io.graphoenix.core.StringExpression field = 3; /* 字段 */
-    io.graphoenix.core.StringExpression type = 4; /* 实体 */
-    PermissionTypeExpression permission_type = 5; /* 权限类型 */
-    RoleExpression roles = 6; /* 角色 */
-    RealmExpression realm = 7; /* 租户 */
-    bool include_deprecated = 8; /* 包含已移除 */
-    io.graphoenix.core.IntExpression version = 9; /* 版本 */
-    io.graphoenix.core.IntExpression realm_id = 10; /* 域 */
-    io.graphoenix.core.StringExpression create_user_id = 11; /* 创建者 */
-    io.graphoenix.core.StringExpression create_time = 12; /* 创建时间 */
-    io.graphoenix.core.StringExpression update_user_id = 13; /* 更新者 */
-    io.graphoenix.core.StringExpression update_time = 14; /* 更新时间 */
-    io.graphoenix.core.StringExpression create_group_id = 15; /* 创建组 */
-    io.graphoenix.core.StringExpression intro_typename = 16; /* 所属类型 */
-    PermissionRoleRelationExpression permission_role_relation = 17; /* 角色 权限 关系 */
-    repeated string group_by = 18; /* 分组 */
-    bool not = 19; /* 取非 */
-    io.graphoenix.core.Conditional cond = 20; /* 与/或 */
-    repeated PermissionExpression exs = 21; /* 查询表达式组 */
+    io.graphoenix.core.StringExpression id = 1; /* id */
+    io.graphoenix.core.StringExpression name = 2; /* 名称 */
+    io.graphoenix.core.StringExpression description = 3; /* 描述 */
+    io.graphoenix.core.StringExpression field = 4; /* 字段 */
+    io.graphoenix.core.StringExpression type = 5; /* 实体 */
+    PermissionTypeExpression permission_type = 6; /* 权限类型 */
+    RoleExpression roles = 7; /* 角色 */
+    RealmExpression realm = 8; /* 租户 */
+    bool include_deprecated = 9; /* 包含已移除 */
+    io.graphoenix.core.IntExpression version = 10; /* 版本 */
+    io.graphoenix.core.IntExpression realm_id = 11; /* 域 */
+    io.graphoenix.core.StringExpression create_user_id = 12; /* 创建者 */
+    io.graphoenix.core.StringExpression create_time = 13; /* 创建时间 */
+    io.graphoenix.core.StringExpression update_user_id = 14; /* 更新者 */
+    io.graphoenix.core.StringExpression update_time = 15; /* 更新时间 */
+    io.graphoenix.core.StringExpression create_group_id = 16; /* 创建组 */
+    io.graphoenix.core.StringExpression intro_typename = 17; /* 所属类型 */
+    RolePermissionRelationExpression role_permission_relation = 18; /* 角色 权限 关系 */
+    repeated string group_by = 19; /* 分组 */
+    bool not = 20; /* 取非 */
+    io.graphoenix.core.Conditional cond = 21; /* 与/或 */
+    repeated PermissionExpression exs = 22; /* 查询表达式组 */
 }
 /**
 * 权限列表 订阅参数
 */
 message PermissionListSubscriptionArguments {
-    io.graphoenix.core.StringExpression name = 1; /* 名称 */
-    io.graphoenix.core.StringExpression description = 2; /* 描述 */
-    io.graphoenix.core.StringExpression field = 3; /* 字段 */
-    io.graphoenix.core.StringExpression type = 4; /* 实体 */
-    PermissionTypeExpression permission_type = 5; /* 权限类型 */
-    RoleExpression roles = 6; /* 角色 */
-    RealmExpression realm = 7; /* 租户 */
-    bool include_deprecated = 8; /* 包含已移除 */
-    io.graphoenix.core.IntExpression version = 9; /* 版本 */
-    io.graphoenix.core.IntExpression realm_id = 10; /* 域 */
-    io.graphoenix.core.StringExpression create_user_id = 11; /* 创建者 */
-    io.graphoenix.core.StringExpression create_time = 12; /* 创建时间 */
-    io.graphoenix.core.StringExpression update_user_id = 13; /* 更新者 */
-    io.graphoenix.core.StringExpression update_time = 14; /* 更新时间 */
-    io.graphoenix.core.StringExpression create_group_id = 15; /* 创建组 */
-    io.graphoenix.core.StringExpression intro_typename = 16; /* 所属类型 */
-    PermissionRoleRelationExpression permission_role_relation = 17; /* 角色 权限 关系 */
-    PermissionOrderBy order_by = 18; /* 排序 */
-    repeated string group_by = 19; /* 分组 */
-    bool not = 20; /* 取非 */
-    io.graphoenix.core.Conditional cond = 21; /* 与/或 */
-    repeated PermissionExpression exs = 22; /* 查询表达式组 */
-    int32 first = 23; /* 前...条数 */
-    int32 last = 24; /* 变更内容列表 */
-    int32 offset = 25; /* 偏移条数 */
-    string after = 26; /* 取...之后 */
-    string before = 27; /* 取...之前 */
+    io.graphoenix.core.StringExpression id = 1; /* id */
+    io.graphoenix.core.StringExpression name = 2; /* 名称 */
+    io.graphoenix.core.StringExpression description = 3; /* 描述 */
+    io.graphoenix.core.StringExpression field = 4; /* 字段 */
+    io.graphoenix.core.StringExpression type = 5; /* 实体 */
+    PermissionTypeExpression permission_type = 6; /* 权限类型 */
+    RoleExpression roles = 7; /* 角色 */
+    RealmExpression realm = 8; /* 租户 */
+    bool include_deprecated = 9; /* 包含已移除 */
+    io.graphoenix.core.IntExpression version = 10; /* 版本 */
+    io.graphoenix.core.IntExpression realm_id = 11; /* 域 */
+    io.graphoenix.core.StringExpression create_user_id = 12; /* 创建者 */
+    io.graphoenix.core.StringExpression create_time = 13; /* 创建时间 */
+    io.graphoenix.core.StringExpression update_user_id = 14; /* 更新者 */
+    io.graphoenix.core.StringExpression update_time = 15; /* 更新时间 */
+    io.graphoenix.core.StringExpression create_group_id = 16; /* 创建组 */
+    io.graphoenix.core.StringExpression intro_typename = 17; /* 所属类型 */
+    RolePermissionRelationExpression role_permission_relation = 18; /* 角色 权限 关系 */
+    PermissionOrderBy order_by = 19; /* 排序 */
+    repeated string group_by = 20; /* 分组 */
+    bool not = 21; /* 取非 */
+    io.graphoenix.core.Conditional cond = 22; /* 与/或 */
+    repeated PermissionExpression exs = 23; /* 查询表达式组 */
+    int32 first = 24; /* 前...条数 */
+    int32 last = 25; /* 变更内容列表 */
+    int32 offset = 26; /* 偏移条数 */
+    string after = 27; /* 取...之后 */
+    string before = 28; /* 取...之前 */
 }
 /**
 * 权限列表 订阅参数
 */
 message PermissionConnectionSubscriptionArguments {
-    io.graphoenix.core.StringExpression name = 1; /* 名称 */
-    io.graphoenix.core.StringExpression description = 2; /* 描述 */
-    io.graphoenix.core.StringExpression field = 3; /* 字段 */
-    io.graphoenix.core.StringExpression type = 4; /* 实体 */
-    PermissionTypeExpression permission_type = 5; /* 权限类型 */
-    RoleExpression roles = 6; /* 角色 */
-    RealmExpression realm = 7; /* 租户 */
-    bool include_deprecated = 8; /* 包含已移除 */
-    io.graphoenix.core.IntExpression version = 9; /* 版本 */
-    io.graphoenix.core.IntExpression realm_id = 10; /* 域 */
-    io.graphoenix.core.StringExpression create_user_id = 11; /* 创建者 */
-    io.graphoenix.core.StringExpression create_time = 12; /* 创建时间 */
-    io.graphoenix.core.StringExpression update_user_id = 13; /* 更新者 */
-    io.graphoenix.core.StringExpression update_time = 14; /* 更新时间 */
-    io.graphoenix.core.StringExpression create_group_id = 15; /* 创建组 */
-    io.graphoenix.core.StringExpression intro_typename = 16; /* 所属类型 */
-    PermissionRoleRelationExpression permission_role_relation = 17; /* 角色 权限 关系 */
-    PermissionOrderBy order_by = 18; /* 排序 */
-    repeated string group_by = 19; /* 排序 */
-    bool not = 20; /* 取非 */
-    io.graphoenix.core.Conditional cond = 21; /* 与/或 */
-    repeated PermissionExpression exs = 22; /* 查询表达式组 */
-    int32 first = 23; /* 前...条数 */
-    int32 last = 24; /* 后...条数 */
-    int32 offset = 25; /* 偏移条数 */
-    string after = 26; /* 取...之后 */
-    string before = 27; /* 取...之前 */
+    io.graphoenix.core.StringExpression id = 1; /* id */
+    io.graphoenix.core.StringExpression name = 2; /* 名称 */
+    io.graphoenix.core.StringExpression description = 3; /* 描述 */
+    io.graphoenix.core.StringExpression field = 4; /* 字段 */
+    io.graphoenix.core.StringExpression type = 5; /* 实体 */
+    PermissionTypeExpression permission_type = 6; /* 权限类型 */
+    RoleExpression roles = 7; /* 角色 */
+    RealmExpression realm = 8; /* 租户 */
+    bool include_deprecated = 9; /* 包含已移除 */
+    io.graphoenix.core.IntExpression version = 10; /* 版本 */
+    io.graphoenix.core.IntExpression realm_id = 11; /* 域 */
+    io.graphoenix.core.StringExpression create_user_id = 12; /* 创建者 */
+    io.graphoenix.core.StringExpression create_time = 13; /* 创建时间 */
+    io.graphoenix.core.StringExpression update_user_id = 14; /* 更新者 */
+    io.graphoenix.core.StringExpression update_time = 15; /* 更新时间 */
+    io.graphoenix.core.StringExpression create_group_id = 16; /* 创建组 */
+    io.graphoenix.core.StringExpression intro_typename = 17; /* 所属类型 */
+    RolePermissionRelationExpression role_permission_relation = 18; /* 角色 权限 关系 */
+    PermissionOrderBy order_by = 19; /* 排序 */
+    repeated string group_by = 20; /* 排序 */
+    bool not = 21; /* 取非 */
+    io.graphoenix.core.Conditional cond = 22; /* 与/或 */
+    repeated PermissionExpression exs = 23; /* 查询表达式组 */
+    int32 first = 24; /* 前...条数 */
+    int32 last = 25; /* 后...条数 */
+    int32 offset = 26; /* 偏移条数 */
+    string after = 27; /* 取...之后 */
+    string before = 28; /* 取...之前 */
 }
 /**
 * 用户 手机号 关系 订阅参数
 */
 message UserPhonesRelationSubscriptionArguments {
-    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression id = 1; /* id */
     io.graphoenix.core.StringExpression user_ref = 2; /* 用户 引用 */
     UserExpression user = 3; /* 用户 */
     io.graphoenix.core.StringExpression phones_ref = 4; /* 手机号 引用 */
@@ -3427,7 +3410,7 @@ message UserPhonesRelationSubscriptionArguments {
 * 用户 手机号 关系列表 订阅参数
 */
 message UserPhonesRelationListSubscriptionArguments {
-    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression id = 1; /* id */
     io.graphoenix.core.StringExpression user_ref = 2; /* 用户 引用 */
     UserExpression user = 3; /* 用户 */
     io.graphoenix.core.StringExpression phones_ref = 4; /* 手机号 引用 */
@@ -3455,7 +3438,7 @@ message UserPhonesRelationListSubscriptionArguments {
 * 用户 手机号 关系列表 订阅参数
 */
 message UserPhonesRelationConnectionSubscriptionArguments {
-    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression id = 1; /* id */
     io.graphoenix.core.StringExpression user_ref = 2; /* 用户 引用 */
     UserExpression user = 3; /* 用户 */
     io.graphoenix.core.StringExpression phones_ref = 4; /* 手机号 引用 */
@@ -3483,7 +3466,7 @@ message UserPhonesRelationConnectionSubscriptionArguments {
 * 用户 组 关系 订阅参数
 */
 message GroupUserRelationSubscriptionArguments {
-    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression id = 1; /* id */
     io.graphoenix.core.StringExpression user_ref = 2; /* 用户 引用 */
     UserExpression user = 3; /* 用户 */
     io.graphoenix.core.StringExpression group_ref = 4; /* 组 引用 */
@@ -3506,7 +3489,7 @@ message GroupUserRelationSubscriptionArguments {
 * 用户 组 关系列表 订阅参数
 */
 message GroupUserRelationListSubscriptionArguments {
-    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression id = 1; /* id */
     io.graphoenix.core.StringExpression user_ref = 2; /* 用户 引用 */
     UserExpression user = 3; /* 用户 */
     io.graphoenix.core.StringExpression group_ref = 4; /* 组 引用 */
@@ -3535,7 +3518,7 @@ message GroupUserRelationListSubscriptionArguments {
 * 用户 组 关系列表 订阅参数
 */
 message GroupUserRelationConnectionSubscriptionArguments {
-    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression id = 1; /* id */
     io.graphoenix.core.StringExpression user_ref = 2; /* 用户 引用 */
     UserExpression user = 3; /* 用户 */
     io.graphoenix.core.StringExpression group_ref = 4; /* 组 引用 */
@@ -3564,7 +3547,7 @@ message GroupUserRelationConnectionSubscriptionArguments {
 * 用户 角色 关系 订阅参数
 */
 message RoleUserRelationSubscriptionArguments {
-    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression id = 1; /* id */
     io.graphoenix.core.StringExpression user_ref = 2; /* 用户 引用 */
     UserExpression user = 3; /* 用户 */
     io.graphoenix.core.StringExpression role_ref = 4; /* 角色 引用 */
@@ -3587,7 +3570,7 @@ message RoleUserRelationSubscriptionArguments {
 * 用户 角色 关系列表 订阅参数
 */
 message RoleUserRelationListSubscriptionArguments {
-    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression id = 1; /* id */
     io.graphoenix.core.StringExpression user_ref = 2; /* 用户 引用 */
     UserExpression user = 3; /* 用户 */
     io.graphoenix.core.StringExpression role_ref = 4; /* 角色 引用 */
@@ -3616,7 +3599,7 @@ message RoleUserRelationListSubscriptionArguments {
 * 用户 角色 关系列表 订阅参数
 */
 message RoleUserRelationConnectionSubscriptionArguments {
-    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression id = 1; /* id */
     io.graphoenix.core.StringExpression user_ref = 2; /* 用户 引用 */
     UserExpression user = 3; /* 用户 */
     io.graphoenix.core.StringExpression role_ref = 4; /* 角色 引用 */
@@ -3645,7 +3628,7 @@ message RoleUserRelationConnectionSubscriptionArguments {
 * 角色 组 关系 订阅参数
 */
 message GroupRoleRelationSubscriptionArguments {
-    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression id = 1; /* id */
     io.graphoenix.core.StringExpression role_ref = 2; /* 角色 引用 */
     RoleExpression role = 3; /* 角色 */
     io.graphoenix.core.StringExpression group_ref = 4; /* 组 引用 */
@@ -3668,7 +3651,7 @@ message GroupRoleRelationSubscriptionArguments {
 * 角色 组 关系列表 订阅参数
 */
 message GroupRoleRelationListSubscriptionArguments {
-    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression id = 1; /* id */
     io.graphoenix.core.StringExpression role_ref = 2; /* 角色 引用 */
     RoleExpression role = 3; /* 角色 */
     io.graphoenix.core.StringExpression group_ref = 4; /* 组 引用 */
@@ -3697,7 +3680,7 @@ message GroupRoleRelationListSubscriptionArguments {
 * 角色 组 关系列表 订阅参数
 */
 message GroupRoleRelationConnectionSubscriptionArguments {
-    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression id = 1; /* id */
     io.graphoenix.core.StringExpression role_ref = 2; /* 角色 引用 */
     RoleExpression role = 3; /* 角色 */
     io.graphoenix.core.StringExpression group_ref = 4; /* 组 引用 */
@@ -3726,7 +3709,7 @@ message GroupRoleRelationConnectionSubscriptionArguments {
 * 角色 角色 关系 订阅参数
 */
 message RoleCompositeRelationSubscriptionArguments {
-    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression id = 1; /* id */
     io.graphoenix.core.StringExpression role_ref = 2; /* 角色 引用 */
     RoleExpression role = 3; /* 角色 */
     io.graphoenix.core.StringExpression composite_ref = 4; /* 角色 引用 */
@@ -3749,7 +3732,7 @@ message RoleCompositeRelationSubscriptionArguments {
 * 角色 角色 关系列表 订阅参数
 */
 message RoleCompositeRelationListSubscriptionArguments {
-    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression id = 1; /* id */
     io.graphoenix.core.StringExpression role_ref = 2; /* 角色 引用 */
     RoleExpression role = 3; /* 角色 */
     io.graphoenix.core.StringExpression composite_ref = 4; /* 角色 引用 */
@@ -3778,7 +3761,7 @@ message RoleCompositeRelationListSubscriptionArguments {
 * 角色 角色 关系列表 订阅参数
 */
 message RoleCompositeRelationConnectionSubscriptionArguments {
-    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression id = 1; /* id */
     io.graphoenix.core.StringExpression role_ref = 2; /* 角色 引用 */
     RoleExpression role = 3; /* 角色 */
     io.graphoenix.core.StringExpression composite_ref = 4; /* 角色 引用 */
@@ -3806,8 +3789,8 @@ message RoleCompositeRelationConnectionSubscriptionArguments {
 /**
 * 角色 权限 关系 订阅参数
 */
-message PermissionRoleRelationSubscriptionArguments {
-    io.graphoenix.core.StringExpression id = 1; /* ID */
+message RolePermissionRelationSubscriptionArguments {
+    io.graphoenix.core.StringExpression id = 1; /* id */
     io.graphoenix.core.StringExpression role_ref = 2; /* 角色 引用 */
     RoleExpression role = 3; /* 角色 */
     io.graphoenix.core.StringExpression permission_ref = 4; /* 权限 引用 */
@@ -3824,13 +3807,13 @@ message PermissionRoleRelationSubscriptionArguments {
     repeated string group_by = 15; /* 分组 */
     bool not = 16; /* 取非 */
     io.graphoenix.core.Conditional cond = 17; /* 与/或 */
-    repeated PermissionRoleRelationExpression exs = 18; /* 查询表达式组 */
+    repeated RolePermissionRelationExpression exs = 18; /* 查询表达式组 */
 }
 /**
 * 角色 权限 关系列表 订阅参数
 */
-message PermissionRoleRelationListSubscriptionArguments {
-    io.graphoenix.core.StringExpression id = 1; /* ID */
+message RolePermissionRelationListSubscriptionArguments {
+    io.graphoenix.core.StringExpression id = 1; /* id */
     io.graphoenix.core.StringExpression role_ref = 2; /* 角色 引用 */
     RoleExpression role = 3; /* 角色 */
     io.graphoenix.core.StringExpression permission_ref = 4; /* 权限 引用 */
@@ -3844,11 +3827,11 @@ message PermissionRoleRelationListSubscriptionArguments {
     io.graphoenix.core.StringExpression update_time = 12; /* 更新时间 */
     io.graphoenix.core.StringExpression create_group_id = 13; /* 创建组 */
     io.graphoenix.core.StringExpression intro_typename = 14; /* 所属类型 */
-    PermissionRoleRelationOrderBy order_by = 15; /* 排序 */
+    RolePermissionRelationOrderBy order_by = 15; /* 排序 */
     repeated string group_by = 16; /* 分组 */
     bool not = 17; /* 取非 */
     io.graphoenix.core.Conditional cond = 18; /* 与/或 */
-    repeated PermissionRoleRelationExpression exs = 19; /* 查询表达式组 */
+    repeated RolePermissionRelationExpression exs = 19; /* 查询表达式组 */
     int32 first = 20; /* 前...条数 */
     int32 last = 21; /* 变更内容列表 */
     int32 offset = 22; /* 偏移条数 */
@@ -3858,8 +3841,8 @@ message PermissionRoleRelationListSubscriptionArguments {
 /**
 * 角色 权限 关系列表 订阅参数
 */
-message PermissionRoleRelationConnectionSubscriptionArguments {
-    io.graphoenix.core.StringExpression id = 1; /* ID */
+message RolePermissionRelationConnectionSubscriptionArguments {
+    io.graphoenix.core.StringExpression id = 1; /* id */
     io.graphoenix.core.StringExpression role_ref = 2; /* 角色 引用 */
     RoleExpression role = 3; /* 角色 */
     io.graphoenix.core.StringExpression permission_ref = 4; /* 权限 引用 */
@@ -3873,11 +3856,11 @@ message PermissionRoleRelationConnectionSubscriptionArguments {
     io.graphoenix.core.StringExpression update_time = 12; /* 更新时间 */
     io.graphoenix.core.StringExpression create_group_id = 13; /* 创建组 */
     io.graphoenix.core.StringExpression intro_typename = 14; /* 所属类型 */
-    PermissionRoleRelationOrderBy order_by = 15; /* 排序 */
+    RolePermissionRelationOrderBy order_by = 15; /* 排序 */
     repeated string group_by = 16; /* 排序 */
     bool not = 17; /* 取非 */
     io.graphoenix.core.Conditional cond = 18; /* 与/或 */
-    repeated PermissionRoleRelationExpression exs = 19; /* 查询表达式组 */
+    repeated RolePermissionRelationExpression exs = 19; /* 查询表达式组 */
     int32 first = 20; /* 前...条数 */
     int32 last = 21; /* 后...条数 */
     int32 offset = 22; /* 偏移条数 */

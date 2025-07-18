@@ -89,12 +89,12 @@ public @interface Query {
   RoleCompositeRelationConnectionQueryArguments roleCompositeRelationConnection(
       ) default @RoleCompositeRelationConnectionQueryArguments;
 
-  PermissionRoleRelationQueryArguments permissionRoleRelation(
-      ) default @PermissionRoleRelationQueryArguments;
+  RolePermissionRelationQueryArguments rolePermissionRelation(
+      ) default @RolePermissionRelationQueryArguments;
 
-  PermissionRoleRelationListQueryArguments permissionRoleRelationList(
-      ) default @PermissionRoleRelationListQueryArguments;
+  RolePermissionRelationListQueryArguments rolePermissionRelationList(
+      ) default @RolePermissionRelationListQueryArguments;
 
-  PermissionRoleRelationConnectionQueryArguments permissionRoleRelationConnection(
-      ) default @PermissionRoleRelationConnectionQueryArguments;
+  RolePermissionRelationConnectionQueryArguments rolePermissionRelationConnection(
+      ) default @RolePermissionRelationConnectionQueryArguments;
 }

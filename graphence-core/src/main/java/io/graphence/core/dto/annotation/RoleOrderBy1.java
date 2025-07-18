@@ -20,9 +20,9 @@ import org.eclipse.microprofile.graphql.Description;
 @Description("角色 排序")
 public @interface RoleOrderBy1 {
   /**
-   * ID
+   * id
    */
-  @Description("ID")
+  @Description("id")
   Sort id() default Sort.ASC;
 
   /**
@@ -143,7 +143,7 @@ public @interface RoleOrderBy1 {
    * 角色 权限 关系
    */
   @Description("角色 权限 关系")
-  PermissionRoleRelationOrderBy2 permissionRoleRelation() default @PermissionRoleRelationOrderBy2;
+  RolePermissionRelationOrderBy2 rolePermissionRelation() default @RolePermissionRelationOrderBy2;
 
   /**
    * 用户 统计字段
@@ -192,26 +192,8 @@ public @interface RoleOrderBy1 {
    * 角色 权限 关系 统计字段
    */
   @Description("角色 权限 关系 统计字段")
-  PermissionRoleRelationOrderBy2 permissionRoleRelationAggregate(
-      ) default @PermissionRoleRelationOrderBy2;
-
-  /**
-   * 角色 数量
-   */
-  @Description("角色 数量")
-  Sort idCount() default Sort.ASC;
-
-  /**
-   * ID 最大值
-   */
-  @Description("ID 最大值")
-  Sort idMax() default Sort.ASC;
-
-  /**
-   * ID 最小值
-   */
-  @Description("ID 最小值")
-  Sort idMin() default Sort.ASC;
+  RolePermissionRelationOrderBy2 rolePermissionRelationAggregate(
+      ) default @RolePermissionRelationOrderBy2;
 
   /**
    * 名称 数量
@@ -289,7 +271,7 @@ public @interface RoleOrderBy1 {
 
   String $roleCompositeRelation() default "";
 
-  String $permissionRoleRelation() default "";
+  String $rolePermissionRelation() default "";
 
   String $usersAggregate() default "";
 
@@ -305,13 +287,7 @@ public @interface RoleOrderBy1 {
 
   String $roleCompositeRelationAggregate() default "";
 
-  String $permissionRoleRelationAggregate() default "";
-
-  String $idCount() default "";
-
-  String $idMax() default "";
-
-  String $idMin() default "";
+  String $rolePermissionRelationAggregate() default "";
 
   String $nameCount() default "";
 

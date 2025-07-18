@@ -15,6 +15,12 @@ import org.eclipse.microprofile.graphql.Input;
 @Description("权限 排序")
 public class PermissionOrderBy {
   /**
+   * id
+   */
+  @Description("id")
+  private Sort id;
+
+  /**
    * 名称
    */
   @Description("名称")
@@ -114,7 +120,7 @@ public class PermissionOrderBy {
    * 角色 权限 关系
    */
   @Description("角色 权限 关系")
-  private PermissionRoleRelationOrderBy permissionRoleRelation;
+  private RolePermissionRelationOrderBy rolePermissionRelation;
 
   /**
    * 角色 统计字段
@@ -126,12 +132,12 @@ public class PermissionOrderBy {
    * 角色 权限 关系 统计字段
    */
   @Description("角色 权限 关系 统计字段")
-  private PermissionRoleRelationOrderBy permissionRoleRelationAggregate;
+  private RolePermissionRelationOrderBy rolePermissionRelationAggregate;
 
   /**
-   * 权限 数量
+   * 名称 数量
    */
-  @Description("权限 数量")
+  @Description("名称 数量")
   private Sort nameCount;
 
   /**
@@ -217,6 +223,14 @@ public class PermissionOrderBy {
    */
   @Description("权限类型 最小值")
   private Sort permissionTypeMin;
+
+  public Sort getId() {
+    return this.id;
+  }
+
+  public void setId(Sort id) {
+    this.id = id;
+  }
 
   public Sort getName() {
     return this.name;
@@ -346,12 +360,12 @@ public class PermissionOrderBy {
     this.__typename = __typename;
   }
 
-  public PermissionRoleRelationOrderBy getPermissionRoleRelation() {
-    return this.permissionRoleRelation;
+  public RolePermissionRelationOrderBy getRolePermissionRelation() {
+    return this.rolePermissionRelation;
   }
 
-  public void setPermissionRoleRelation(PermissionRoleRelationOrderBy permissionRoleRelation) {
-    this.permissionRoleRelation = permissionRoleRelation;
+  public void setRolePermissionRelation(RolePermissionRelationOrderBy rolePermissionRelation) {
+    this.rolePermissionRelation = rolePermissionRelation;
   }
 
   public RoleOrderBy getRolesAggregate() {
@@ -362,13 +376,13 @@ public class PermissionOrderBy {
     this.rolesAggregate = rolesAggregate;
   }
 
-  public PermissionRoleRelationOrderBy getPermissionRoleRelationAggregate() {
-    return this.permissionRoleRelationAggregate;
+  public RolePermissionRelationOrderBy getRolePermissionRelationAggregate() {
+    return this.rolePermissionRelationAggregate;
   }
 
-  public void setPermissionRoleRelationAggregate(
-      PermissionRoleRelationOrderBy permissionRoleRelationAggregate) {
-    this.permissionRoleRelationAggregate = permissionRoleRelationAggregate;
+  public void setRolePermissionRelationAggregate(
+      RolePermissionRelationOrderBy rolePermissionRelationAggregate) {
+    this.rolePermissionRelationAggregate = rolePermissionRelationAggregate;
   }
 
   public Sort getNameCount() {

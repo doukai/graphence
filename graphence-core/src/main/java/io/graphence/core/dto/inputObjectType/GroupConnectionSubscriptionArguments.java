@@ -26,9 +26,9 @@ import org.eclipse.microprofile.graphql.Input;
 @Description("组列表 订阅参数")
 public class GroupConnectionSubscriptionArguments implements TreeStructExpression, NamedStructExpression, MetaExpression, GroupExpressionBase {
   /**
-   * ID
+   * id
    */
-  @Description("ID")
+  @Description("id")
   private StringExpression id;
 
   /**

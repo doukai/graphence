@@ -198,19 +198,19 @@ public class Subscription {
    * 角色 权限 关系 订阅接口
    */
   @Description("角色 权限 关系 订阅接口")
-  private PermissionRoleRelation permissionRoleRelation;
+  private RolePermissionRelation rolePermissionRelation;
 
   /**
    * 角色 权限 关系列表 订阅接口
    */
   @Description("角色 权限 关系列表 订阅接口")
-  private Collection<PermissionRoleRelation> permissionRoleRelationList;
+  private Collection<RolePermissionRelation> rolePermissionRelationList;
 
   /**
    * 角色 权限 关系连接 订阅接口
    */
   @Description("角色 权限 关系连接 订阅接口")
-  private PermissionRoleRelationConnection permissionRoleRelationConnection;
+  private RolePermissionRelationConnection rolePermissionRelationConnection;
 
   public User getUser() {
     return this.user;
@@ -457,29 +457,29 @@ public class Subscription {
     this.roleCompositeRelationConnection = roleCompositeRelationConnection;
   }
 
-  public PermissionRoleRelation getPermissionRoleRelation() {
-    return this.permissionRoleRelation;
+  public RolePermissionRelation getRolePermissionRelation() {
+    return this.rolePermissionRelation;
   }
 
-  public void setPermissionRoleRelation(PermissionRoleRelation permissionRoleRelation) {
-    this.permissionRoleRelation = permissionRoleRelation;
+  public void setRolePermissionRelation(RolePermissionRelation rolePermissionRelation) {
+    this.rolePermissionRelation = rolePermissionRelation;
   }
 
-  public Collection<PermissionRoleRelation> getPermissionRoleRelationList() {
-    return this.permissionRoleRelationList;
+  public Collection<RolePermissionRelation> getRolePermissionRelationList() {
+    return this.rolePermissionRelationList;
   }
 
-  public void setPermissionRoleRelationList(
-      Collection<PermissionRoleRelation> permissionRoleRelationList) {
-    this.permissionRoleRelationList = permissionRoleRelationList;
+  public void setRolePermissionRelationList(
+      Collection<RolePermissionRelation> rolePermissionRelationList) {
+    this.rolePermissionRelationList = rolePermissionRelationList;
   }
 
-  public PermissionRoleRelationConnection getPermissionRoleRelationConnection() {
-    return this.permissionRoleRelationConnection;
+  public RolePermissionRelationConnection getRolePermissionRelationConnection() {
+    return this.rolePermissionRelationConnection;
   }
 
-  public void setPermissionRoleRelationConnection(
-      PermissionRoleRelationConnection permissionRoleRelationConnection) {
-    this.permissionRoleRelationConnection = permissionRoleRelationConnection;
+  public void setRolePermissionRelationConnection(
+      RolePermissionRelationConnection rolePermissionRelationConnection) {
+    this.rolePermissionRelationConnection = rolePermissionRelationConnection;
   }
 }

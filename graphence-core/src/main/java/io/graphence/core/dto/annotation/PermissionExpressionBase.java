@@ -22,6 +22,12 @@ import org.eclipse.microprofile.graphql.Description;
 @Description("权限 查询表达式")
 public @interface PermissionExpressionBase {
   /**
+   * id
+   */
+  @Description("id")
+  StringExpression id() default @StringExpression;
+
+  /**
    * 名称
    */
   @Description("名称")
@@ -121,8 +127,8 @@ public @interface PermissionExpressionBase {
    * 角色 权限 关系
    */
   @Description("角色 权限 关系")
-  PermissionRoleRelationExpression1 permissionRoleRelation(
-      ) default @PermissionRoleRelationExpression1;
+  RolePermissionRelationExpression1 rolePermissionRelation(
+      ) default @RolePermissionRelationExpression1;
 
   /**
    * 取非
@@ -141,6 +147,8 @@ public @interface PermissionExpressionBase {
    */
   @Description("查询表达式组")
   PermissionExpression1[] exs() default {};
+
+  String $id() default "";
 
   String $name() default "";
 
@@ -174,7 +182,7 @@ public @interface PermissionExpressionBase {
 
   String $__typename() default "";
 
-  String $permissionRoleRelation() default "";
+  String $rolePermissionRelation() default "";
 
   String $not() default "";
 

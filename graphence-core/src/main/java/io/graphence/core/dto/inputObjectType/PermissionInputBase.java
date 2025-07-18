@@ -19,6 +19,12 @@ import org.eclipse.microprofile.graphql.Input;
 @Description("权限 变更内容")
 public interface PermissionInputBase extends MetaInput {
   /**
+   * id
+   */
+  @Description("id")
+  String id = null;
+
+  /**
    * 名称
    */
   @Description("名称")
@@ -118,13 +124,19 @@ public interface PermissionInputBase extends MetaInput {
    * 角色 权限 关系
    */
   @Description("角色 权限 关系")
-  Collection<PermissionRoleRelationInput> permissionRoleRelation = null;
+  Collection<RolePermissionRelationInput> rolePermissionRelation = null;
 
   /**
    * 匹配条件
    */
   @Description("匹配条件")
   PermissionExpression where = null;
+
+  default String getId() {
+    return id;
+  }
+
+  void setId(String id);
 
   default String getName() {
     return name;
@@ -222,11 +234,11 @@ public interface PermissionInputBase extends MetaInput {
 
   void set__typename(String __typename);
 
-  default Collection<PermissionRoleRelationInput> getPermissionRoleRelation() {
-    return permissionRoleRelation;
+  default Collection<RolePermissionRelationInput> getRolePermissionRelation() {
+    return rolePermissionRelation;
   }
 
-  void setPermissionRoleRelation(Collection<PermissionRoleRelationInput> permissionRoleRelation);
+  void setRolePermissionRelation(Collection<RolePermissionRelationInput> rolePermissionRelation);
 
   default PermissionExpression getWhere() {
     return where;

@@ -19,9 +19,9 @@ import org.eclipse.microprofile.graphql.Input;
 @Description("角色 变更内容")
 public interface RoleInputBase extends NamedStructInput, MetaInput {
   /**
-   * ID
+   * id
    */
-  @Description("ID")
+  @Description("id")
   String id = null;
 
   /**
@@ -142,7 +142,7 @@ public interface RoleInputBase extends NamedStructInput, MetaInput {
    * 角色 权限 关系
    */
   @Description("角色 权限 关系")
-  Collection<PermissionRoleRelationInput> permissionRoleRelation = null;
+  Collection<RolePermissionRelationInput> rolePermissionRelation = null;
 
   /**
    * 匹配条件
@@ -270,11 +270,11 @@ public interface RoleInputBase extends NamedStructInput, MetaInput {
 
   void setRoleCompositeRelation(Collection<RoleCompositeRelationInput> roleCompositeRelation);
 
-  default Collection<PermissionRoleRelationInput> getPermissionRoleRelation() {
-    return permissionRoleRelation;
+  default Collection<RolePermissionRelationInput> getRolePermissionRelation() {
+    return rolePermissionRelation;
   }
 
-  void setPermissionRoleRelation(Collection<PermissionRoleRelationInput> permissionRoleRelation);
+  void setRolePermissionRelation(Collection<RolePermissionRelationInput> rolePermissionRelation);
 
   default RoleExpression getWhere() {
     return where;

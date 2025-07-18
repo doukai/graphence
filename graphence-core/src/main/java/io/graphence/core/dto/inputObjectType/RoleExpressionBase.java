@@ -19,9 +19,9 @@ import org.eclipse.microprofile.graphql.Input;
 @Description("角色 查询表达式")
 public interface RoleExpressionBase extends NamedStructExpression, MetaExpression {
   /**
-   * ID
+   * id
    */
-  @Description("ID")
+  @Description("id")
   StringExpression id = null;
 
   /**
@@ -142,7 +142,7 @@ public interface RoleExpressionBase extends NamedStructExpression, MetaExpressio
    * 角色 权限 关系
    */
   @Description("角色 权限 关系")
-  PermissionRoleRelationExpression permissionRoleRelation = null;
+  RolePermissionRelationExpression rolePermissionRelation = null;
 
   /**
    * 取非
@@ -282,11 +282,11 @@ public interface RoleExpressionBase extends NamedStructExpression, MetaExpressio
 
   void setRoleCompositeRelation(RoleCompositeRelationExpression roleCompositeRelation);
 
-  default PermissionRoleRelationExpression getPermissionRoleRelation() {
-    return permissionRoleRelation;
+  default RolePermissionRelationExpression getRolePermissionRelation() {
+    return rolePermissionRelation;
   }
 
-  void setPermissionRoleRelation(PermissionRoleRelationExpression permissionRoleRelation);
+  void setRolePermissionRelation(RolePermissionRelationExpression rolePermissionRelation);
 
   default Boolean getNot() {
     return not;

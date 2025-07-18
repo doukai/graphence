@@ -18,9 +18,9 @@ import org.eclipse.microprofile.graphql.Input;
 @Description("用户 手机号 关系 查询表达式")
 public interface UserPhonesRelationExpressionBase extends MetaExpression {
   /**
-   * ID
+   * id
    */
-  @Description("ID")
+  @Description("id")
   StringExpression id = null;
 
   /**

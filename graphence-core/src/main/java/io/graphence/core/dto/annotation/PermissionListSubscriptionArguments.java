@@ -22,6 +22,12 @@ import org.eclipse.microprofile.graphql.Description;
 @Description("权限列表 订阅参数")
 public @interface PermissionListSubscriptionArguments {
   /**
+   * id
+   */
+  @Description("id")
+  StringExpression id() default @StringExpression;
+
+  /**
    * 名称
    */
   @Description("名称")
@@ -121,8 +127,8 @@ public @interface PermissionListSubscriptionArguments {
    * 角色 权限 关系
    */
   @Description("角色 权限 关系")
-  PermissionRoleRelationExpression permissionRoleRelation(
-      ) default @PermissionRoleRelationExpression;
+  RolePermissionRelationExpression rolePermissionRelation(
+      ) default @RolePermissionRelationExpression;
 
   /**
    * 排序
@@ -184,6 +190,8 @@ public @interface PermissionListSubscriptionArguments {
   @Description("取...之前")
   String before() default "";
 
+  String $id() default "";
+
   String $name() default "";
 
   String $description() default "";
@@ -216,7 +224,7 @@ public @interface PermissionListSubscriptionArguments {
 
   String $__typename() default "";
 
-  String $permissionRoleRelation() default "";
+  String $rolePermissionRelation() default "";
 
   String $orderBy() default "";
 

@@ -22,9 +22,9 @@ import org.eclipse.microprofile.graphql.Description;
 @Description("角色 查询表达式")
 public @interface RoleExpression {
   /**
-   * ID
+   * id
    */
-  @Description("ID")
+  @Description("id")
   StringExpression id() default @StringExpression;
 
   /**
@@ -146,8 +146,8 @@ public @interface RoleExpression {
    * 角色 权限 关系
    */
   @Description("角色 权限 关系")
-  PermissionRoleRelationExpression1 permissionRoleRelation(
-      ) default @PermissionRoleRelationExpression1;
+  RolePermissionRelationExpression1 rolePermissionRelation(
+      ) default @RolePermissionRelationExpression1;
 
   /**
    * 取非
@@ -207,7 +207,7 @@ public @interface RoleExpression {
 
   String $roleCompositeRelation() default "";
 
-  String $permissionRoleRelation() default "";
+  String $rolePermissionRelation() default "";
 
   String $not() default "";
 

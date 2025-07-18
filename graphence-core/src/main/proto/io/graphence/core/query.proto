@@ -46,9 +46,9 @@ service QueryService {
     rpc RoleCompositeRelation (QueryRoleCompositeRelationRequest) returns (QueryRoleCompositeRelationResponse); /* 角色 角色 关系 查询接口 */
     rpc RoleCompositeRelationList (QueryRoleCompositeRelationListRequest) returns (QueryRoleCompositeRelationListResponse); /* 角色 角色 关系列表 查询接口 */
     rpc RoleCompositeRelationConnection (QueryRoleCompositeRelationConnectionRequest) returns (QueryRoleCompositeRelationConnectionResponse); /* 角色 角色 关系连接 查询接口 */
-    rpc PermissionRoleRelation (QueryPermissionRoleRelationRequest) returns (QueryPermissionRoleRelationResponse); /* 角色 权限 关系 查询接口 */
-    rpc PermissionRoleRelationList (QueryPermissionRoleRelationListRequest) returns (QueryPermissionRoleRelationListResponse); /* 角色 权限 关系列表 查询接口 */
-    rpc PermissionRoleRelationConnection (QueryPermissionRoleRelationConnectionRequest) returns (QueryPermissionRoleRelationConnectionResponse); /* 角色 权限 关系连接 查询接口 */
+    rpc RolePermissionRelation (QueryRolePermissionRelationRequest) returns (QueryRolePermissionRelationResponse); /* 角色 权限 关系 查询接口 */
+    rpc RolePermissionRelationList (QueryRolePermissionRelationListRequest) returns (QueryRolePermissionRelationListResponse); /* 角色 权限 关系列表 查询接口 */
+    rpc RolePermissionRelationConnection (QueryRolePermissionRelationConnectionRequest) returns (QueryRolePermissionRelationConnectionResponse); /* 角色 权限 关系连接 查询接口 */
     rpc PolicyList (QueryPolicyListRequest) returns (QueryPolicyListResponse);
     rpc Current (QueryCurrentRequest) returns (QueryCurrentResponse);
     rpc CurrentUser (QueryCurrentUserRequest) returns (QueryCurrentUserResponse);

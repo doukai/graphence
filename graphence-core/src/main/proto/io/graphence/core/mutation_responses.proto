@@ -71,11 +71,11 @@ message MutationRoleCompositeRelationResponse {
 message MutationRoleCompositeRelationListResponse {
     repeated RoleCompositeRelation role_composite_relation_list = 1;
 }
-message MutationPermissionRoleRelationResponse {
-    PermissionRoleRelation permission_role_relation = 1;
+message MutationRolePermissionRelationResponse {
+    RolePermissionRelation role_permission_relation = 1;
 }
-message MutationPermissionRoleRelationListResponse {
-    repeated PermissionRoleRelation permission_role_relation_list = 1;
+message MutationRolePermissionRelationListResponse {
+    repeated RolePermissionRelation role_permission_relation_list = 1;
 }
 message MutationSyncModelPolicyResponse {
     bool sync_model_policy = 1;

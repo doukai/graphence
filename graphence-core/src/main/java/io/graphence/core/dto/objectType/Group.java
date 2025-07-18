@@ -26,11 +26,7 @@ import org.eclipse.microprofile.graphql.Type;
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
 @Description("组")
 public class Group implements TreeStruct, NamedStruct, Meta {
-  /**
-   * ID
-   */
   @Id
-  @Description("ID")
   private String id;
 
   /**
@@ -221,24 +217,6 @@ public class Group implements TreeStruct, NamedStruct, Meta {
   private GroupRoleRelationConnection groupRoleRelationConnection;
 
   /**
-   * 组 数量
-   */
-  @Description("组 数量")
-  private Integer idCount;
-
-  /**
-   * ID 最大值
-   */
-  @Description("ID 最大值")
-  private Integer idMax;
-
-  /**
-   * ID 最小值
-   */
-  @Description("ID 最小值")
-  private Integer idMin;
-
-  /**
    * 名称 数量
    */
   @Description("名称 数量")
@@ -342,12 +320,14 @@ public class Group implements TreeStruct, NamedStruct, Meta {
 
   private Boolean syncGroupPolicy;
 
+  @Override
   public String getId() {
     return this.id;
   }
 
+  @Override
   public void setId(String id) {
-    this.id = id;
+    this.id = (String)id;
   }
 
   @Override
@@ -620,30 +600,6 @@ public class Group implements TreeStruct, NamedStruct, Meta {
   public void setGroupRoleRelationConnection(
       GroupRoleRelationConnection groupRoleRelationConnection) {
     this.groupRoleRelationConnection = groupRoleRelationConnection;
-  }
-
-  public Integer getIdCount() {
-    return this.idCount;
-  }
-
-  public void setIdCount(Integer idCount) {
-    this.idCount = idCount;
-  }
-
-  public Integer getIdMax() {
-    return this.idMax;
-  }
-
-  public void setIdMax(Integer idMax) {
-    this.idMax = idMax;
-  }
-
-  public Integer getIdMin() {
-    return this.idMin;
-  }
-
-  public void setIdMin(Integer idMin) {
-    this.idMin = idMin;
   }
 
   public Integer getNameCount() {

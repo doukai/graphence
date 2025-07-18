@@ -20,6 +20,12 @@ import org.eclipse.microprofile.graphql.Description;
 @Description("权限 排序")
 public @interface PermissionOrderBy2 {
   /**
+   * id
+   */
+  @Description("id")
+  Sort id() default Sort.ASC;
+
+  /**
    * 名称
    */
   @Description("名称")
@@ -104,9 +110,9 @@ public @interface PermissionOrderBy2 {
   Sort __typename() default Sort.ASC;
 
   /**
-   * 权限 数量
+   * 名称 数量
    */
-  @Description("权限 数量")
+  @Description("名称 数量")
   Sort nameCount() default Sort.ASC;
 
   /**
@@ -192,6 +198,8 @@ public @interface PermissionOrderBy2 {
    */
   @Description("权限类型 最小值")
   Sort permissionTypeMin() default Sort.ASC;
+
+  String $id() default "";
 
   String $name() default "";
 

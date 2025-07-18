@@ -25,9 +25,9 @@ import org.eclipse.microprofile.graphql.Input;
 @Description("角色列表 查询参数")
 public class RoleListQueryArguments implements NamedStructExpression, MetaExpression, RoleExpressionBase {
   /**
-   * ID
+   * id
    */
-  @Description("ID")
+  @Description("id")
   private StringExpression id;
 
   /**
@@ -149,7 +149,7 @@ public class RoleListQueryArguments implements NamedStructExpression, MetaExpres
    * 角色 权限 关系
    */
   @Description("角色 权限 关系")
-  private PermissionRoleRelationExpression permissionRoleRelation;
+  private RolePermissionRelationExpression rolePermissionRelation;
 
   /**
    * 排序
@@ -414,13 +414,13 @@ public class RoleListQueryArguments implements NamedStructExpression, MetaExpres
   }
 
   @Override
-  public PermissionRoleRelationExpression getPermissionRoleRelation() {
-    return this.permissionRoleRelation;
+  public RolePermissionRelationExpression getRolePermissionRelation() {
+    return this.rolePermissionRelation;
   }
 
   @Override
-  public void setPermissionRoleRelation(PermissionRoleRelationExpression permissionRoleRelation) {
-    this.permissionRoleRelation = (PermissionRoleRelationExpression)permissionRoleRelation;
+  public void setRolePermissionRelation(RolePermissionRelationExpression rolePermissionRelation) {
+    this.rolePermissionRelation = (RolePermissionRelationExpression)rolePermissionRelation;
   }
 
   public RoleOrderBy getOrderBy() {

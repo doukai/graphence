@@ -25,9 +25,9 @@ import org.eclipse.microprofile.graphql.Input;
 @Description("用户 订阅参数")
 public class UserSubscriptionArguments implements NamedStructExpression, MetaExpression, UserExpressionBase {
   /**
-   * ID
+   * id
    */
-  @Description("ID")
+  @Description("id")
   private StringExpression id;
 
   /**

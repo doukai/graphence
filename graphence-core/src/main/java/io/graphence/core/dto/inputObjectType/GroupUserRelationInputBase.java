@@ -17,9 +17,9 @@ import org.eclipse.microprofile.graphql.Input;
 @Description("用户 组 关系 变更内容")
 public interface GroupUserRelationInputBase extends MetaInput {
   /**
-   * ID
+   * id
    */
-  @Description("ID")
+  @Description("id")
   String id = null;
 
   /**

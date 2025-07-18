@@ -21,11 +21,7 @@ import org.eclipse.microprofile.graphql.Type;
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
 @Description("用户 手机号 关系")
 public class UserPhonesRelation implements Meta {
-  /**
-   * ID
-   */
   @Id
-  @Description("ID")
   private String id;
 
   /**
@@ -101,24 +97,6 @@ public class UserPhonesRelation implements Meta {
   private String __typename = "UserPhonesRelation";
 
   /**
-   * 用户 手机号 关系 数量
-   */
-  @Description("用户 手机号 关系 数量")
-  private Integer idCount;
-
-  /**
-   * ID 最大值
-   */
-  @Description("ID 最大值")
-  private Integer idMax;
-
-  /**
-   * ID 最小值
-   */
-  @Description("ID 最小值")
-  private Integer idMin;
-
-  /**
    * 用户 引用 数量
    */
   @Description("用户 引用 数量")
@@ -154,12 +132,14 @@ public class UserPhonesRelation implements Meta {
   @Description("手机号 引用 最小值")
   private String phonesRefMin;
 
+  @Override
   public String getId() {
     return this.id;
   }
 
+  @Override
   public void setId(String id) {
-    this.id = id;
+    this.id = (String)id;
   }
 
   public String getUserRef() {
@@ -272,30 +252,6 @@ public class UserPhonesRelation implements Meta {
 
   public void set__typename(String __typename) {
     this.__typename = __typename;
-  }
-
-  public Integer getIdCount() {
-    return this.idCount;
-  }
-
-  public void setIdCount(Integer idCount) {
-    this.idCount = idCount;
-  }
-
-  public Integer getIdMax() {
-    return this.idMax;
-  }
-
-  public void setIdMax(Integer idMax) {
-    this.idMax = idMax;
-  }
-
-  public Integer getIdMin() {
-    return this.idMin;
-  }
-
-  public void setIdMin(Integer idMin) {
-    this.idMin = idMin;
   }
 
   public Integer getUserRefCount() {

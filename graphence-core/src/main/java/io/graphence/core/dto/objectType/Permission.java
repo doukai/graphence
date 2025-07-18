@@ -25,10 +25,12 @@ import org.eclipse.microprofile.graphql.Type;
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
 @Description("权限")
 public class Permission implements Meta {
+  @Id
+  private String id;
+
   /**
    * 名称
    */
-  @Id
   @NonNull
   @Description("名称")
   private String name;
@@ -130,7 +132,7 @@ public class Permission implements Meta {
    * 角色 权限 关系
    */
   @Description("角色 权限 关系")
-  private Collection<PermissionRoleRelation> permissionRoleRelation;
+  private Collection<RolePermissionRelation> rolePermissionRelation;
 
   /**
    * 角色 统计字段
@@ -148,18 +150,18 @@ public class Permission implements Meta {
    * 角色 权限 关系 统计字段
    */
   @Description("角色 权限 关系 统计字段")
-  private PermissionRoleRelation permissionRoleRelationAggregate;
+  private RolePermissionRelation rolePermissionRelationAggregate;
 
   /**
    * 角色 权限 关系 连接
    */
   @Description("角色 权限 关系 连接")
-  private PermissionRoleRelationConnection permissionRoleRelationConnection;
+  private RolePermissionRelationConnection rolePermissionRelationConnection;
 
   /**
-   * 权限 数量
+   * 名称 数量
    */
-  @Description("权限 数量")
+  @Description("名称 数量")
   private Integer nameCount;
 
   /**
@@ -247,6 +249,16 @@ public class Permission implements Meta {
   private PermissionType permissionTypeMin;
 
   private Boolean syncPermissionPolicy;
+
+  @Override
+  public String getId() {
+    return this.id;
+  }
+
+  @Override
+  public void setId(String id) {
+    this.id = (String)id;
+  }
 
   public String getName() {
     return this.name;
@@ -392,12 +404,12 @@ public class Permission implements Meta {
     this.__typename = __typename;
   }
 
-  public Collection<PermissionRoleRelation> getPermissionRoleRelation() {
-    return this.permissionRoleRelation;
+  public Collection<RolePermissionRelation> getRolePermissionRelation() {
+    return this.rolePermissionRelation;
   }
 
-  public void setPermissionRoleRelation(Collection<PermissionRoleRelation> permissionRoleRelation) {
-    this.permissionRoleRelation = permissionRoleRelation;
+  public void setRolePermissionRelation(Collection<RolePermissionRelation> rolePermissionRelation) {
+    this.rolePermissionRelation = rolePermissionRelation;
   }
 
   public Role getRolesAggregate() {
@@ -416,22 +428,22 @@ public class Permission implements Meta {
     this.rolesConnection = rolesConnection;
   }
 
-  public PermissionRoleRelation getPermissionRoleRelationAggregate() {
-    return this.permissionRoleRelationAggregate;
+  public RolePermissionRelation getRolePermissionRelationAggregate() {
+    return this.rolePermissionRelationAggregate;
   }
 
-  public void setPermissionRoleRelationAggregate(
-      PermissionRoleRelation permissionRoleRelationAggregate) {
-    this.permissionRoleRelationAggregate = permissionRoleRelationAggregate;
+  public void setRolePermissionRelationAggregate(
+      RolePermissionRelation rolePermissionRelationAggregate) {
+    this.rolePermissionRelationAggregate = rolePermissionRelationAggregate;
   }
 
-  public PermissionRoleRelationConnection getPermissionRoleRelationConnection() {
-    return this.permissionRoleRelationConnection;
+  public RolePermissionRelationConnection getRolePermissionRelationConnection() {
+    return this.rolePermissionRelationConnection;
   }
 
-  public void setPermissionRoleRelationConnection(
-      PermissionRoleRelationConnection permissionRoleRelationConnection) {
-    this.permissionRoleRelationConnection = permissionRoleRelationConnection;
+  public void setRolePermissionRelationConnection(
+      RolePermissionRelationConnection rolePermissionRelationConnection) {
+    this.rolePermissionRelationConnection = rolePermissionRelationConnection;
   }
 
   public Integer getNameCount() {
@@ -564,6 +576,7 @@ public class Permission implements Meta {
 
   public PermissionInput toInput() {
     PermissionInput input = new PermissionInput();
+    input.setId(this.getId());
     input.setName(this.getName());
     input.setDescription(this.getDescription());
     input.setField(this.getField());
@@ -584,8 +597,8 @@ public class Permission implements Meta {
     input.setUpdateTime(this.getUpdateTime());
     input.setCreateGroupId(this.getCreateGroupId());
     input.set__typename(this.get__typename());
-    if(getPermissionRoleRelation() != null) {
-      input.setPermissionRoleRelation(this.getPermissionRoleRelation().stream().map(item -> item.toInput()).collect(Collectors.toList()));
+    if(getRolePermissionRelation() != null) {
+      input.setRolePermissionRelation(this.getRolePermissionRelation().stream().map(item -> item.toInput()).collect(Collectors.toList()));
     }
     return input;
   }

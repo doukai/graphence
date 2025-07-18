@@ -25,11 +25,7 @@ import org.eclipse.microprofile.graphql.Type;
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
 @Description("角色")
 public class Role implements NamedStruct, Meta {
-  /**
-   * ID
-   */
   @Id
-  @Description("ID")
   private String id;
 
   /**
@@ -151,7 +147,7 @@ public class Role implements NamedStruct, Meta {
    * 角色 权限 关系
    */
   @Description("角色 权限 关系")
-  private Collection<PermissionRoleRelation> permissionRoleRelation;
+  private Collection<RolePermissionRelation> rolePermissionRelation;
 
   /**
    * 用户 统计字段
@@ -241,31 +237,13 @@ public class Role implements NamedStruct, Meta {
    * 角色 权限 关系 统计字段
    */
   @Description("角色 权限 关系 统计字段")
-  private PermissionRoleRelation permissionRoleRelationAggregate;
+  private RolePermissionRelation rolePermissionRelationAggregate;
 
   /**
    * 角色 权限 关系 连接
    */
   @Description("角色 权限 关系 连接")
-  private PermissionRoleRelationConnection permissionRoleRelationConnection;
-
-  /**
-   * 角色 数量
-   */
-  @Description("角色 数量")
-  private Integer idCount;
-
-  /**
-   * ID 最大值
-   */
-  @Description("ID 最大值")
-  private Integer idMax;
-
-  /**
-   * ID 最小值
-   */
-  @Description("ID 最小值")
-  private Integer idMin;
+  private RolePermissionRelationConnection rolePermissionRelationConnection;
 
   /**
    * 名称 数量
@@ -305,12 +283,14 @@ public class Role implements NamedStruct, Meta {
 
   private Boolean syncRolePolicy;
 
+  @Override
   public String getId() {
     return this.id;
   }
 
+  @Override
   public void setId(String id) {
-    this.id = id;
+    this.id = (String)id;
   }
 
   @Override
@@ -485,12 +465,12 @@ public class Role implements NamedStruct, Meta {
     this.roleCompositeRelation = roleCompositeRelation;
   }
 
-  public Collection<PermissionRoleRelation> getPermissionRoleRelation() {
-    return this.permissionRoleRelation;
+  public Collection<RolePermissionRelation> getRolePermissionRelation() {
+    return this.rolePermissionRelation;
   }
 
-  public void setPermissionRoleRelation(Collection<PermissionRoleRelation> permissionRoleRelation) {
-    this.permissionRoleRelation = permissionRoleRelation;
+  public void setRolePermissionRelation(Collection<RolePermissionRelation> rolePermissionRelation) {
+    this.rolePermissionRelation = rolePermissionRelation;
   }
 
   public User getUsersAggregate() {
@@ -608,46 +588,22 @@ public class Role implements NamedStruct, Meta {
     this.roleCompositeRelationConnection = roleCompositeRelationConnection;
   }
 
-  public PermissionRoleRelation getPermissionRoleRelationAggregate() {
-    return this.permissionRoleRelationAggregate;
+  public RolePermissionRelation getRolePermissionRelationAggregate() {
+    return this.rolePermissionRelationAggregate;
   }
 
-  public void setPermissionRoleRelationAggregate(
-      PermissionRoleRelation permissionRoleRelationAggregate) {
-    this.permissionRoleRelationAggregate = permissionRoleRelationAggregate;
+  public void setRolePermissionRelationAggregate(
+      RolePermissionRelation rolePermissionRelationAggregate) {
+    this.rolePermissionRelationAggregate = rolePermissionRelationAggregate;
   }
 
-  public PermissionRoleRelationConnection getPermissionRoleRelationConnection() {
-    return this.permissionRoleRelationConnection;
+  public RolePermissionRelationConnection getRolePermissionRelationConnection() {
+    return this.rolePermissionRelationConnection;
   }
 
-  public void setPermissionRoleRelationConnection(
-      PermissionRoleRelationConnection permissionRoleRelationConnection) {
-    this.permissionRoleRelationConnection = permissionRoleRelationConnection;
-  }
-
-  public Integer getIdCount() {
-    return this.idCount;
-  }
-
-  public void setIdCount(Integer idCount) {
-    this.idCount = idCount;
-  }
-
-  public Integer getIdMax() {
-    return this.idMax;
-  }
-
-  public void setIdMax(Integer idMax) {
-    this.idMax = idMax;
-  }
-
-  public Integer getIdMin() {
-    return this.idMin;
-  }
-
-  public void setIdMin(Integer idMin) {
-    this.idMin = idMin;
+  public void setRolePermissionRelationConnection(
+      RolePermissionRelationConnection rolePermissionRelationConnection) {
+    this.rolePermissionRelationConnection = rolePermissionRelationConnection;
   }
 
   public Integer getNameCount() {
@@ -744,8 +700,8 @@ public class Role implements NamedStruct, Meta {
     if(getRoleCompositeRelation() != null) {
       input.setRoleCompositeRelation(this.getRoleCompositeRelation().stream().map(item -> item.toInput()).collect(Collectors.toList()));
     }
-    if(getPermissionRoleRelation() != null) {
-      input.setPermissionRoleRelation(this.getPermissionRoleRelation().stream().map(item -> item.toInput()).collect(Collectors.toList()));
+    if(getRolePermissionRelation() != null) {
+      input.setRolePermissionRelation(this.getRolePermissionRelation().stream().map(item -> item.toInput()).collect(Collectors.toList()));
     }
     return input;
   }
