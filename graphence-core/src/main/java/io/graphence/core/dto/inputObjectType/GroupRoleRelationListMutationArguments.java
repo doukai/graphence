@@ -22,9 +22,9 @@ import org.eclipse.microprofile.graphql.Input;
 @Description("角色 组 关系列表 变更参数 ")
 public class GroupRoleRelationListMutationArguments implements MetaInput, GroupRoleRelationInputBase {
   /**
-   * id
+   * ID
    */
-  @Description("id")
+  @Description("ID")
   private String id;
 
   /**

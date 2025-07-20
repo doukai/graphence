@@ -13,7 +13,7 @@ import "google/protobuf/timestamp.proto";
 * 用户
 */
 message User {
-    string id = 1;
+    string id = 1; /* ID */
     optional string name = 2; /* 姓名 */
     string description = 3; /* 描述 */
     string last_name = 4; /* 姓氏 */
@@ -48,34 +48,37 @@ message User {
     GroupUserRelationConnection group_user_relation_connection = 33; /* 用户 组 关系 连接 */
     RoleUserRelation role_user_relation_aggregate = 34; /* 用户 角色 关系 统计字段 */
     RoleUserRelationConnection role_user_relation_connection = 35; /* 用户 角色 关系 连接 */
-    int32 name_count = 36; /* 姓名 数量 */
-    string name_max = 37; /* 姓名 最大值 */
-    string name_min = 38; /* 姓名 最小值 */
-    int32 description_count = 39; /* 描述 数量 */
-    string description_max = 40; /* 描述 最大值 */
-    string description_min = 41; /* 描述 最小值 */
-    int32 last_name_count = 42; /* 姓氏 数量 */
-    string last_name_max = 43; /* 姓氏 最大值 */
-    string last_name_min = 44; /* 姓氏 最小值 */
-    int32 login_count = 45; /* 账号 数量 */
-    string login_max = 46; /* 账号 最大值 */
-    string login_min = 47; /* 账号 最小值 */
-    int32 salt_count = 48; /* 盐 数量 */
-    string salt_max = 49; /* 盐 最大值 */
-    string salt_min = 50; /* 盐 最小值 */
-    int32 hash_count = 51; /* 哈希 数量 */
-    string hash_max = 52; /* 哈希 最大值 */
-    string hash_min = 53; /* 哈希 最小值 */
-    int32 email_count = 54; /* 邮箱 数量 */
-    string email_max = 55; /* 邮箱 最大值 */
-    string email_min = 56; /* 邮箱 最小值 */
-    bool sync_user_policy = 57;
+    int32 id_count = 36; /* 用户 数量 */
+    int32 id_max = 37; /* ID 最大值 */
+    int32 id_min = 38; /* ID 最小值 */
+    int32 name_count = 39; /* 姓名 数量 */
+    string name_max = 40; /* 姓名 最大值 */
+    string name_min = 41; /* 姓名 最小值 */
+    int32 description_count = 42; /* 描述 数量 */
+    string description_max = 43; /* 描述 最大值 */
+    string description_min = 44; /* 描述 最小值 */
+    int32 last_name_count = 45; /* 姓氏 数量 */
+    string last_name_max = 46; /* 姓氏 最大值 */
+    string last_name_min = 47; /* 姓氏 最小值 */
+    int32 login_count = 48; /* 账号 数量 */
+    string login_max = 49; /* 账号 最大值 */
+    string login_min = 50; /* 账号 最小值 */
+    int32 salt_count = 51; /* 盐 数量 */
+    string salt_max = 52; /* 盐 最大值 */
+    string salt_min = 53; /* 盐 最小值 */
+    int32 hash_count = 54; /* 哈希 数量 */
+    string hash_max = 55; /* 哈希 最大值 */
+    string hash_min = 56; /* 哈希 最小值 */
+    int32 email_count = 57; /* 邮箱 数量 */
+    string email_max = 58; /* 邮箱 最大值 */
+    string email_min = 59; /* 邮箱 最小值 */
+    bool sync_user_policy = 60;
 }
 /**
 * 角色
 */
 message Role {
-    string id = 1;
+    string id = 1; /* ID */
     optional string name = 2; /* 名称 */
     string description = 3; /* 描述 */
     repeated User users = 4; /* 用户 */
@@ -112,19 +115,22 @@ message Role {
     RoleCompositeRelationConnection role_composite_relation_connection = 35; /* 角色 角色 关系 连接 */
     RolePermissionRelation role_permission_relation_aggregate = 36; /* 角色 权限 关系 统计字段 */
     RolePermissionRelationConnection role_permission_relation_connection = 37; /* 角色 权限 关系 连接 */
-    int32 name_count = 38; /* 名称 数量 */
-    string name_max = 39; /* 名称 最大值 */
-    string name_min = 40; /* 名称 最小值 */
-    int32 description_count = 41; /* 描述 数量 */
-    string description_max = 42; /* 描述 最大值 */
-    string description_min = 43; /* 描述 最小值 */
-    bool sync_role_policy = 44;
+    int32 id_count = 38; /* 角色 数量 */
+    int32 id_max = 39; /* ID 最大值 */
+    int32 id_min = 40; /* ID 最小值 */
+    int32 name_count = 41; /* 名称 数量 */
+    string name_max = 42; /* 名称 最大值 */
+    string name_min = 43; /* 名称 最小值 */
+    int32 description_count = 44; /* 描述 数量 */
+    string description_max = 45; /* 描述 最大值 */
+    string description_min = 46; /* 描述 最小值 */
+    bool sync_role_policy = 47;
 }
 /**
 * 组
 */
 message Group {
-    string id = 1;
+    string id = 1; /* ID */
     optional string name = 2; /* 名称 */
     string description = 3; /* 描述 */
     string path = 4; /* 路径 */
@@ -156,30 +162,33 @@ message Group {
     GroupUserRelationConnection group_user_relation_connection = 30; /* 用户 组 关系 连接 */
     GroupRoleRelation group_role_relation_aggregate = 31; /* 角色 组 关系 统计字段 */
     GroupRoleRelationConnection group_role_relation_connection = 32; /* 角色 组 关系 连接 */
-    int32 name_count = 33; /* 名称 数量 */
-    string name_max = 34; /* 名称 最大值 */
-    string name_min = 35; /* 名称 最小值 */
-    int32 description_count = 36; /* 描述 数量 */
-    string description_max = 37; /* 描述 最大值 */
-    string description_min = 38; /* 描述 最小值 */
-    int32 path_count = 39; /* 路径 数量 */
-    string path_max = 40; /* 路径 最大值 */
-    string path_min = 41; /* 路径 最小值 */
-    int32 parent_id_count = 42; /* 上级ID 数量 */
-    string parent_id_max = 43; /* 上级ID 最大值 */
-    string parent_id_min = 44; /* 上级ID 最小值 */
-    int32 deep_count = 45; /* 层级 数量 */
-    int32 deep_sum = 46; /* 层级 合计 */
-    int32 deep_avg = 47; /* 层级 平均值 */
-    int32 deep_max = 48; /* 层级 最大值 */
-    int32 deep_min = 49; /* 层级 最小值 */
-    bool sync_group_policy = 50;
+    int32 id_count = 33; /* 组 数量 */
+    int32 id_max = 34; /* ID 最大值 */
+    int32 id_min = 35; /* ID 最小值 */
+    int32 name_count = 36; /* 名称 数量 */
+    string name_max = 37; /* 名称 最大值 */
+    string name_min = 38; /* 名称 最小值 */
+    int32 description_count = 39; /* 描述 数量 */
+    string description_max = 40; /* 描述 最大值 */
+    string description_min = 41; /* 描述 最小值 */
+    int32 path_count = 42; /* 路径 数量 */
+    string path_max = 43; /* 路径 最大值 */
+    string path_min = 44; /* 路径 最小值 */
+    int32 parent_id_count = 45; /* 上级ID 数量 */
+    string parent_id_max = 46; /* 上级ID 最大值 */
+    string parent_id_min = 47; /* 上级ID 最小值 */
+    int32 deep_count = 48; /* 层级 数量 */
+    int32 deep_sum = 49; /* 层级 合计 */
+    int32 deep_avg = 50; /* 层级 平均值 */
+    int32 deep_max = 51; /* 层级 最大值 */
+    int32 deep_min = 52; /* 层级 最小值 */
+    bool sync_group_policy = 53;
 }
 /**
 * 租户
 */
 message Realm {
-    string id = 1;
+    string id = 1; /* ID */
     optional string name = 2; /* 名称 */
     string description = 3; /* 描述 */
     bool is_deprecated = 4; /* 已移除 */
@@ -191,18 +200,21 @@ message Realm {
     google.protobuf.Timestamp update_time = 10; /* 更新时间 */
     string create_group_id = 11; /* 创建组 */
     string intro_typename = 12; /* 所属类型 */
-    int32 name_count = 13; /* 名称 数量 */
-    string name_max = 14; /* 名称 最大值 */
-    string name_min = 15; /* 名称 最小值 */
-    int32 description_count = 16; /* 描述 数量 */
-    string description_max = 17; /* 描述 最大值 */
-    string description_min = 18; /* 描述 最小值 */
+    int32 id_count = 13; /* 租户 数量 */
+    int32 id_max = 14; /* ID 最大值 */
+    int32 id_min = 15; /* ID 最小值 */
+    int32 name_count = 16; /* 名称 数量 */
+    string name_max = 17; /* 名称 最大值 */
+    string name_min = 18; /* 名称 最小值 */
+    int32 description_count = 19; /* 描述 数量 */
+    string description_max = 20; /* 描述 最大值 */
+    string description_min = 21; /* 描述 最小值 */
 }
 /**
 * 权限
 */
 message Permission {
-    string id = 1;
+    string id = 1; /* ID */
     optional string name = 2; /* 名称 */
     string description = 3; /* 描述 */
     optional string field = 4; /* 字段 */
@@ -224,28 +236,31 @@ message Permission {
     RoleConnection roles_connection = 20; /* 角色 连接 */
     RolePermissionRelation role_permission_relation_aggregate = 21; /* 角色 权限 关系 统计字段 */
     RolePermissionRelationConnection role_permission_relation_connection = 22; /* 角色 权限 关系 连接 */
-    int32 name_count = 23; /* 名称 数量 */
-    string name_max = 24; /* 名称 最大值 */
-    string name_min = 25; /* 名称 最小值 */
-    int32 description_count = 26; /* 描述 数量 */
-    string description_max = 27; /* 描述 最大值 */
-    string description_min = 28; /* 描述 最小值 */
-    int32 field_count = 29; /* 字段 数量 */
-    string field_max = 30; /* 字段 最大值 */
-    string field_min = 31; /* 字段 最小值 */
-    int32 type_count = 32; /* 实体 数量 */
-    string type_max = 33; /* 实体 最大值 */
-    string type_min = 34; /* 实体 最小值 */
-    int32 permission_type_count = 35; /* 权限类型 数量 */
-    PermissionType permission_type_max = 36; /* 权限类型 最大值 */
-    PermissionType permission_type_min = 37; /* 权限类型 最小值 */
-    bool sync_permission_policy = 38;
+    int32 id_count = 23; /* 权限 数量 */
+    int32 id_max = 24; /* ID 最大值 */
+    int32 id_min = 25; /* ID 最小值 */
+    int32 name_count = 26; /* 名称 数量 */
+    string name_max = 27; /* 名称 最大值 */
+    string name_min = 28; /* 名称 最小值 */
+    int32 description_count = 29; /* 描述 数量 */
+    string description_max = 30; /* 描述 最大值 */
+    string description_min = 31; /* 描述 最小值 */
+    int32 field_count = 32; /* 字段 数量 */
+    string field_max = 33; /* 字段 最大值 */
+    string field_min = 34; /* 字段 最小值 */
+    int32 type_count = 35; /* 实体 数量 */
+    string type_max = 36; /* 实体 最大值 */
+    string type_min = 37; /* 实体 最小值 */
+    int32 permission_type_count = 38; /* 权限类型 数量 */
+    PermissionType permission_type_max = 39; /* 权限类型 最大值 */
+    PermissionType permission_type_min = 40; /* 权限类型 最小值 */
+    bool sync_permission_policy = 41;
 }
 /**
 * 用户 手机号 关系
 */
 message UserPhonesRelation {
-    string id = 1;
+    string id = 1; /* ID */
     string user_ref = 2; /* 用户 引用 */
     User user = 3; /* 用户 */
     string phones_ref = 4; /* 手机号 引用 */
@@ -258,18 +273,21 @@ message UserPhonesRelation {
     google.protobuf.Timestamp update_time = 11; /* 更新时间 */
     string create_group_id = 12; /* 创建组 */
     string intro_typename = 13; /* 所属类型 */
-    int32 user_ref_count = 14; /* 用户 引用 数量 */
-    string user_ref_max = 15; /* 用户 引用 最大值 */
-    string user_ref_min = 16; /* 用户 引用 最小值 */
-    int32 phones_ref_count = 17; /* 手机号 引用 数量 */
-    string phones_ref_max = 18; /* 手机号 引用 最大值 */
-    string phones_ref_min = 19; /* 手机号 引用 最小值 */
+    int32 id_count = 14; /* 用户 手机号 关系 数量 */
+    int32 id_max = 15; /* ID 最大值 */
+    int32 id_min = 16; /* ID 最小值 */
+    int32 user_ref_count = 17; /* 用户 引用 数量 */
+    string user_ref_max = 18; /* 用户 引用 最大值 */
+    string user_ref_min = 19; /* 用户 引用 最小值 */
+    int32 phones_ref_count = 20; /* 手机号 引用 数量 */
+    string phones_ref_max = 21; /* 手机号 引用 最大值 */
+    string phones_ref_min = 22; /* 手机号 引用 最小值 */
 }
 /**
 * 用户 组 关系
 */
 message GroupUserRelation {
-    string id = 1;
+    string id = 1; /* ID */
     string user_ref = 2; /* 用户 引用 */
     User user = 3; /* 用户 */
     string group_ref = 4; /* 组 引用 */
@@ -283,18 +301,21 @@ message GroupUserRelation {
     google.protobuf.Timestamp update_time = 12; /* 更新时间 */
     string create_group_id = 13; /* 创建组 */
     string intro_typename = 14; /* 所属类型 */
-    int32 user_ref_count = 15; /* 用户 引用 数量 */
-    string user_ref_max = 16; /* 用户 引用 最大值 */
-    string user_ref_min = 17; /* 用户 引用 最小值 */
-    int32 group_ref_count = 18; /* 组 引用 数量 */
-    string group_ref_max = 19; /* 组 引用 最大值 */
-    string group_ref_min = 20; /* 组 引用 最小值 */
+    int32 id_count = 15; /* 用户 组 关系 数量 */
+    int32 id_max = 16; /* ID 最大值 */
+    int32 id_min = 17; /* ID 最小值 */
+    int32 user_ref_count = 18; /* 用户 引用 数量 */
+    string user_ref_max = 19; /* 用户 引用 最大值 */
+    string user_ref_min = 20; /* 用户 引用 最小值 */
+    int32 group_ref_count = 21; /* 组 引用 数量 */
+    string group_ref_max = 22; /* 组 引用 最大值 */
+    string group_ref_min = 23; /* 组 引用 最小值 */
 }
 /**
 * 用户 角色 关系
 */
 message RoleUserRelation {
-    string id = 1;
+    string id = 1; /* ID */
     string user_ref = 2; /* 用户 引用 */
     User user = 3; /* 用户 */
     string role_ref = 4; /* 角色 引用 */
@@ -308,18 +329,21 @@ message RoleUserRelation {
     google.protobuf.Timestamp update_time = 12; /* 更新时间 */
     string create_group_id = 13; /* 创建组 */
     string intro_typename = 14; /* 所属类型 */
-    int32 user_ref_count = 15; /* 用户 引用 数量 */
-    string user_ref_max = 16; /* 用户 引用 最大值 */
-    string user_ref_min = 17; /* 用户 引用 最小值 */
-    int32 role_ref_count = 18; /* 角色 引用 数量 */
-    string role_ref_max = 19; /* 角色 引用 最大值 */
-    string role_ref_min = 20; /* 角色 引用 最小值 */
+    int32 id_count = 15; /* 用户 角色 关系 数量 */
+    int32 id_max = 16; /* ID 最大值 */
+    int32 id_min = 17; /* ID 最小值 */
+    int32 user_ref_count = 18; /* 用户 引用 数量 */
+    string user_ref_max = 19; /* 用户 引用 最大值 */
+    string user_ref_min = 20; /* 用户 引用 最小值 */
+    int32 role_ref_count = 21; /* 角色 引用 数量 */
+    string role_ref_max = 22; /* 角色 引用 最大值 */
+    string role_ref_min = 23; /* 角色 引用 最小值 */
 }
 /**
 * 角色 组 关系
 */
 message GroupRoleRelation {
-    string id = 1;
+    string id = 1; /* ID */
     string role_ref = 2; /* 角色 引用 */
     Role role = 3; /* 角色 */
     string group_ref = 4; /* 组 引用 */
@@ -333,18 +357,21 @@ message GroupRoleRelation {
     google.protobuf.Timestamp update_time = 12; /* 更新时间 */
     string create_group_id = 13; /* 创建组 */
     string intro_typename = 14; /* 所属类型 */
-    int32 role_ref_count = 15; /* 角色 引用 数量 */
-    string role_ref_max = 16; /* 角色 引用 最大值 */
-    string role_ref_min = 17; /* 角色 引用 最小值 */
-    int32 group_ref_count = 18; /* 组 引用 数量 */
-    string group_ref_max = 19; /* 组 引用 最大值 */
-    string group_ref_min = 20; /* 组 引用 最小值 */
+    int32 id_count = 15; /* 角色 组 关系 数量 */
+    int32 id_max = 16; /* ID 最大值 */
+    int32 id_min = 17; /* ID 最小值 */
+    int32 role_ref_count = 18; /* 角色 引用 数量 */
+    string role_ref_max = 19; /* 角色 引用 最大值 */
+    string role_ref_min = 20; /* 角色 引用 最小值 */
+    int32 group_ref_count = 21; /* 组 引用 数量 */
+    string group_ref_max = 22; /* 组 引用 最大值 */
+    string group_ref_min = 23; /* 组 引用 最小值 */
 }
 /**
 * 角色 角色 关系
 */
 message RoleCompositeRelation {
-    string id = 1;
+    string id = 1; /* ID */
     string role_ref = 2; /* 角色 引用 */
     Role role = 3; /* 角色 */
     string composite_ref = 4; /* 角色 引用 */
@@ -358,18 +385,21 @@ message RoleCompositeRelation {
     google.protobuf.Timestamp update_time = 12; /* 更新时间 */
     string create_group_id = 13; /* 创建组 */
     string intro_typename = 14; /* 所属类型 */
-    int32 role_ref_count = 15; /* 角色 引用 数量 */
-    string role_ref_max = 16; /* 角色 引用 最大值 */
-    string role_ref_min = 17; /* 角色 引用 最小值 */
-    int32 composite_ref_count = 18; /* 角色 引用 数量 */
-    string composite_ref_max = 19; /* 角色 引用 最大值 */
-    string composite_ref_min = 20; /* 角色 引用 最小值 */
+    int32 id_count = 15; /* 角色 角色 关系 数量 */
+    int32 id_max = 16; /* ID 最大值 */
+    int32 id_min = 17; /* ID 最小值 */
+    int32 role_ref_count = 18; /* 角色 引用 数量 */
+    string role_ref_max = 19; /* 角色 引用 最大值 */
+    string role_ref_min = 20; /* 角色 引用 最小值 */
+    int32 composite_ref_count = 21; /* 角色 引用 数量 */
+    string composite_ref_max = 22; /* 角色 引用 最大值 */
+    string composite_ref_min = 23; /* 角色 引用 最小值 */
 }
 /**
 * 角色 权限 关系
 */
 message RolePermissionRelation {
-    string id = 1;
+    string id = 1; /* ID */
     string role_ref = 2; /* 角色 引用 */
     Role role = 3; /* 角色 */
     string permission_ref = 4; /* 权限 引用 */
@@ -383,12 +413,15 @@ message RolePermissionRelation {
     google.protobuf.Timestamp update_time = 12; /* 更新时间 */
     string create_group_id = 13; /* 创建组 */
     string intro_typename = 14; /* 所属类型 */
-    int32 role_ref_count = 15; /* 角色 引用 数量 */
-    string role_ref_max = 16; /* 角色 引用 最大值 */
-    string role_ref_min = 17; /* 角色 引用 最小值 */
-    int32 permission_ref_count = 18; /* 权限 引用 数量 */
-    string permission_ref_max = 19; /* 权限 引用 最大值 */
-    string permission_ref_min = 20; /* 权限 引用 最小值 */
+    int32 id_count = 15; /* 角色 权限 关系 数量 */
+    int32 id_max = 16; /* ID 最大值 */
+    int32 id_min = 17; /* ID 最小值 */
+    int32 role_ref_count = 18; /* 角色 引用 数量 */
+    string role_ref_max = 19; /* 角色 引用 最大值 */
+    string role_ref_min = 20; /* 角色 引用 最小值 */
+    int32 permission_ref_count = 21; /* 权限 引用 数量 */
+    string permission_ref_max = 22; /* 权限 引用 最大值 */
+    string permission_ref_min = 23; /* 权限 引用 最小值 */
 }
 /**
 * 用户 连接
@@ -555,22 +588,22 @@ message RolePermissionRelationEdge {
     RolePermissionRelation node = 1; /* 节点 */
     string cursor = 2; /* 游标 */
 }
-message Current {
-    repeated string roles = 1;
-    int32 realm_id = 2;
-    string name = 3;
-    string login = 4;
-    repeated string groups = 5;
-    string id = 6;
-    string last_name = 7;
-}
 message Policy {
-    string v1 = 1;
-    string v4 = 2;
-    string policy = 3;
-    string id = 4;
-    string v3 = 5;
+    string v2 = 1;
+    string v3 = 2;
+    string v0 = 3;
+    string v1 = 4;
+    string id = 5;
     string v5 = 6;
-    string v0 = 7;
-    string v2 = 8;
+    string policy = 7;
+    string v4 = 8;
+}
+message Current {
+    string name = 1;
+    string id = 2;
+    repeated string roles = 3;
+    repeated string groups = 4;
+    string last_name = 5;
+    string login = 6;
+    int32 realm_id = 7;
 }

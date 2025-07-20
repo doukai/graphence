@@ -20,9 +20,9 @@ import org.eclipse.microprofile.graphql.Description;
 @Description("用户 组 关系 排序")
 public @interface GroupUserRelationOrderBy1 {
   /**
-   * id
+   * ID
    */
-  @Description("id")
+  @Description("ID")
   Sort id() default Sort.ASC;
 
   /**
@@ -104,6 +104,24 @@ public @interface GroupUserRelationOrderBy1 {
   Sort __typename() default Sort.ASC;
 
   /**
+   * 用户 组 关系 数量
+   */
+  @Description("用户 组 关系 数量")
+  Sort idCount() default Sort.ASC;
+
+  /**
+   * ID 最大值
+   */
+  @Description("ID 最大值")
+  Sort idMax() default Sort.ASC;
+
+  /**
+   * ID 最小值
+   */
+  @Description("ID 最小值")
+  Sort idMin() default Sort.ASC;
+
+  /**
    * 用户 引用 数量
    */
   @Description("用户 引用 数量")
@@ -166,6 +184,12 @@ public @interface GroupUserRelationOrderBy1 {
   String $createGroupId() default "";
 
   String $__typename() default "";
+
+  String $idCount() default "";
+
+  String $idMax() default "";
+
+  String $idMin() default "";
 
   String $userRefCount() default "";
 

@@ -15,9 +15,9 @@ import org.eclipse.microprofile.graphql.Input;
 @Description("用户 手机号 关系 排序")
 public class UserPhonesRelationOrderBy {
   /**
-   * id
+   * ID
    */
-  @Description("id")
+  @Description("ID")
   private Sort id;
 
   /**
@@ -91,6 +91,24 @@ public class UserPhonesRelationOrderBy {
    */
   @Description("所属类型")
   private Sort __typename;
+
+  /**
+   * 用户 手机号 关系 数量
+   */
+  @Description("用户 手机号 关系 数量")
+  private Sort idCount;
+
+  /**
+   * ID 最大值
+   */
+  @Description("ID 最大值")
+  private Sort idMax;
+
+  /**
+   * ID 最小值
+   */
+  @Description("ID 最小值")
+  private Sort idMin;
 
   /**
    * 用户 引用 数量
@@ -230,6 +248,30 @@ public class UserPhonesRelationOrderBy {
 
   public void set__typename(Sort __typename) {
     this.__typename = __typename;
+  }
+
+  public Sort getIdCount() {
+    return this.idCount;
+  }
+
+  public void setIdCount(Sort idCount) {
+    this.idCount = idCount;
+  }
+
+  public Sort getIdMax() {
+    return this.idMax;
+  }
+
+  public void setIdMax(Sort idMax) {
+    this.idMax = idMax;
+  }
+
+  public Sort getIdMin() {
+    return this.idMin;
+  }
+
+  public void setIdMin(Sort idMin) {
+    this.idMin = idMin;
   }
 
   public Sort getUserRefCount() {

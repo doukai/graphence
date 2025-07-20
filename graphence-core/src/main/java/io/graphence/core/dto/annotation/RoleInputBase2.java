@@ -19,9 +19,9 @@ import org.eclipse.microprofile.graphql.Description;
 @Description("角色 变更内容")
 public @interface RoleInputBase2 {
   /**
-   * id
+   * ID
    */
-  @Description("id")
+  @Description("ID")
   String id() default "";
 
   /**

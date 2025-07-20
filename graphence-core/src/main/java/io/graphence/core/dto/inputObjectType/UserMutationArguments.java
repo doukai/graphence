@@ -23,9 +23,9 @@ import org.eclipse.microprofile.graphql.Input;
 @Description("用户 变更参数")
 public class UserMutationArguments implements NamedStructInput, MetaInput, UserInputBase {
   /**
-   * id
+   * ID
    */
-  @Description("id")
+  @Description("ID")
   private String id;
 
   /**

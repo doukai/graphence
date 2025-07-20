@@ -22,9 +22,9 @@ import org.eclipse.microprofile.graphql.Description;
 @Description("组 查询参数")
 public @interface GroupQueryArguments {
   /**
-   * id
+   * ID
    */
-  @Description("id")
+  @Description("ID")
   StringExpression id() default @StringExpression;
 
   /**

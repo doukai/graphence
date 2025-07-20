@@ -19,9 +19,9 @@ import org.eclipse.microprofile.graphql.Description;
 @Description("角色 权限 关系 变更参数")
 public @interface RolePermissionRelationMutationArguments {
   /**
-   * id
+   * ID
    */
-  @Description("id")
+  @Description("ID")
   String id() default "";
 
   /**

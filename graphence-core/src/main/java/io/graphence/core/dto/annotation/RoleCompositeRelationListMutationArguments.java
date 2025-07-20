@@ -19,9 +19,9 @@ import org.eclipse.microprofile.graphql.Description;
 @Description("角色 角色 关系列表 变更参数 ")
 public @interface RoleCompositeRelationListMutationArguments {
   /**
-   * id
+   * ID
    */
-  @Description("id")
+  @Description("ID")
   String id() default "";
 
   /**

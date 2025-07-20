@@ -23,7 +23,11 @@ import org.eclipse.microprofile.graphql.Type;
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
 @Description("租户")
 public class Realm implements NamedStruct, Meta {
+  /**
+   * ID
+   */
   @Id
+  @Description("ID")
   private String id;
 
   /**
@@ -92,6 +96,24 @@ public class Realm implements NamedStruct, Meta {
    */
   @Description("所属类型")
   private String __typename = "Realm";
+
+  /**
+   * 租户 数量
+   */
+  @Description("租户 数量")
+  private Integer idCount;
+
+  /**
+   * ID 最大值
+   */
+  @Description("ID 最大值")
+  private Integer idMax;
+
+  /**
+   * ID 最小值
+   */
+  @Description("ID 最小值")
+  private Integer idMin;
 
   /**
    * 名称 数量
@@ -245,6 +267,30 @@ public class Realm implements NamedStruct, Meta {
 
   public void set__typename(String __typename) {
     this.__typename = __typename;
+  }
+
+  public Integer getIdCount() {
+    return this.idCount;
+  }
+
+  public void setIdCount(Integer idCount) {
+    this.idCount = idCount;
+  }
+
+  public Integer getIdMax() {
+    return this.idMax;
+  }
+
+  public void setIdMax(Integer idMax) {
+    this.idMax = idMax;
+  }
+
+  public Integer getIdMin() {
+    return this.idMin;
+  }
+
+  public void setIdMin(Integer idMin) {
+    this.idMin = idMin;
   }
 
   public Integer getNameCount() {

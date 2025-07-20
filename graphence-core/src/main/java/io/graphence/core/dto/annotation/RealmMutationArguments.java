@@ -19,9 +19,9 @@ import org.eclipse.microprofile.graphql.Description;
 @Description("租户 变更参数")
 public @interface RealmMutationArguments {
   /**
-   * id
+   * ID
    */
-  @Description("id")
+  @Description("ID")
   String id() default "";
 
   /**

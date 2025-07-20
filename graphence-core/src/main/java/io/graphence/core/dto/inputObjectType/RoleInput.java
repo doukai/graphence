@@ -23,9 +23,9 @@ import org.eclipse.microprofile.graphql.Input;
 @Description("角色 变更内容")
 public class RoleInput implements NamedStructInput, MetaInput, RoleInputBase {
   /**
-   * id
+   * ID
    */
-  @Description("id")
+  @Description("ID")
   private String id;
 
   /**

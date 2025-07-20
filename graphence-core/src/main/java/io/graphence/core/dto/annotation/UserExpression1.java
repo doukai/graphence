@@ -23,9 +23,9 @@ import org.eclipse.microprofile.graphql.Description;
 @Description("用户 查询表达式")
 public @interface UserExpression1 {
   /**
-   * id
+   * ID
    */
-  @Description("id")
+  @Description("ID")
   StringExpression id() default @StringExpression;
 
   /**

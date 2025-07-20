@@ -22,9 +22,9 @@ import org.eclipse.microprofile.graphql.Description;
 @Description("角色 查询参数")
 public @interface RoleQueryArguments {
   /**
-   * id
+   * ID
    */
-  @Description("id")
+  @Description("ID")
   StringExpression id() default @StringExpression;
 
   /**

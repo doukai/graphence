@@ -20,9 +20,9 @@ import org.eclipse.microprofile.graphql.Description;
 @Description("权限 变更内容")
 public @interface PermissionInput2 {
   /**
-   * id
+   * ID
    */
-  @Description("id")
+  @Description("ID")
   String id() default "";
 
   /**

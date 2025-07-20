@@ -19,9 +19,9 @@ import org.eclipse.microprofile.graphql.Input;
 @Description("权限 变更内容")
 public interface PermissionInputBase extends MetaInput {
   /**
-   * id
+   * ID
    */
-  @Description("id")
+  @Description("ID")
   String id = null;
 
   /**

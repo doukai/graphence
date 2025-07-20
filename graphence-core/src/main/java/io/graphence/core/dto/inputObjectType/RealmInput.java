@@ -22,9 +22,9 @@ import org.eclipse.microprofile.graphql.Input;
 @Description("租户 变更内容")
 public class RealmInput implements NamedStructInput, MetaInput, RealmInputBase {
   /**
-   * id
+   * ID
    */
-  @Description("id")
+  @Description("ID")
   private String id;
 
   /**

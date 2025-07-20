@@ -18,9 +18,9 @@ import org.eclipse.microprofile.graphql.Input;
 @Description("权限 查询表达式")
 public interface PermissionExpressionBase extends MetaExpression {
   /**
-   * id
+   * ID
    */
-  @Description("id")
+  @Description("ID")
   StringExpression id = null;
 
   /**

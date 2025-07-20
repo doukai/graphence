@@ -15,9 +15,9 @@ import org.eclipse.microprofile.graphql.Input;
 @Description("组 排序")
 public class GroupOrderBy {
   /**
-   * id
+   * ID
    */
-  @Description("id")
+  @Description("ID")
   private Sort id;
 
   /**
@@ -175,6 +175,24 @@ public class GroupOrderBy {
    */
   @Description("角色 组 关系 统计字段")
   private GroupRoleRelationOrderBy groupRoleRelationAggregate;
+
+  /**
+   * 组 数量
+   */
+  @Description("组 数量")
+  private Sort idCount;
+
+  /**
+   * ID 最大值
+   */
+  @Description("ID 最大值")
+  private Sort idMax;
+
+  /**
+   * ID 最小值
+   */
+  @Description("ID 最小值")
+  private Sort idMin;
 
   /**
    * 名称 数量
@@ -492,6 +510,30 @@ public class GroupOrderBy {
 
   public void setGroupRoleRelationAggregate(GroupRoleRelationOrderBy groupRoleRelationAggregate) {
     this.groupRoleRelationAggregate = groupRoleRelationAggregate;
+  }
+
+  public Sort getIdCount() {
+    return this.idCount;
+  }
+
+  public void setIdCount(Sort idCount) {
+    this.idCount = idCount;
+  }
+
+  public Sort getIdMax() {
+    return this.idMax;
+  }
+
+  public void setIdMax(Sort idMax) {
+    this.idMax = idMax;
+  }
+
+  public Sort getIdMin() {
+    return this.idMin;
+  }
+
+  public void setIdMin(Sort idMin) {
+    this.idMin = idMin;
   }
 
   public Sort getNameCount() {

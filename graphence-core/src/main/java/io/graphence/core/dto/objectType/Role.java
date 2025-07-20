@@ -25,7 +25,11 @@ import org.eclipse.microprofile.graphql.Type;
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
 @Description("角色")
 public class Role implements NamedStruct, Meta {
+  /**
+   * ID
+   */
   @Id
+  @Description("ID")
   private String id;
 
   /**
@@ -244,6 +248,24 @@ public class Role implements NamedStruct, Meta {
    */
   @Description("角色 权限 关系 连接")
   private RolePermissionRelationConnection rolePermissionRelationConnection;
+
+  /**
+   * 角色 数量
+   */
+  @Description("角色 数量")
+  private Integer idCount;
+
+  /**
+   * ID 最大值
+   */
+  @Description("ID 最大值")
+  private Integer idMax;
+
+  /**
+   * ID 最小值
+   */
+  @Description("ID 最小值")
+  private Integer idMin;
 
   /**
    * 名称 数量
@@ -604,6 +626,30 @@ public class Role implements NamedStruct, Meta {
   public void setRolePermissionRelationConnection(
       RolePermissionRelationConnection rolePermissionRelationConnection) {
     this.rolePermissionRelationConnection = rolePermissionRelationConnection;
+  }
+
+  public Integer getIdCount() {
+    return this.idCount;
+  }
+
+  public void setIdCount(Integer idCount) {
+    this.idCount = idCount;
+  }
+
+  public Integer getIdMax() {
+    return this.idMax;
+  }
+
+  public void setIdMax(Integer idMax) {
+    this.idMax = idMax;
+  }
+
+  public Integer getIdMin() {
+    return this.idMin;
+  }
+
+  public void setIdMin(Integer idMin) {
+    this.idMin = idMin;
   }
 
   public Integer getNameCount() {

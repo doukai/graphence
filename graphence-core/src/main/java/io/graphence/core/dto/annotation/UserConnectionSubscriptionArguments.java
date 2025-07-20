@@ -23,9 +23,9 @@ import org.eclipse.microprofile.graphql.Description;
 @Description("用户列表 订阅参数")
 public @interface UserConnectionSubscriptionArguments {
   /**
-   * id
+   * ID
    */
-  @Description("id")
+  @Description("ID")
   StringExpression id() default @StringExpression;
 
   /**

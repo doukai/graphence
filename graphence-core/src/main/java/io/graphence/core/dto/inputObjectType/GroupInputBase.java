@@ -20,9 +20,9 @@ import org.eclipse.microprofile.graphql.Input;
 @Description("组 变更内容")
 public interface GroupInputBase extends TreeStructInput, NamedStructInput, MetaInput {
   /**
-   * id
+   * ID
    */
-  @Description("id")
+  @Description("ID")
   String id = null;
 
   /**

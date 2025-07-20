@@ -21,9 +21,9 @@ import org.eclipse.microprofile.graphql.Input;
 @Description("角色 权限 关系 变更内容")
 public class RolePermissionRelationInput implements MetaInput, RolePermissionRelationInputBase {
   /**
-   * id
+   * ID
    */
-  @Description("id")
+  @Description("ID")
   private String id;
 
   /**

@@ -21,7 +21,11 @@ import org.eclipse.microprofile.graphql.Type;
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
 @Description("用户 角色 关系")
 public class RoleUserRelation implements Meta {
+  /**
+   * ID
+   */
   @Id
+  @Description("ID")
   private String id;
 
   /**
@@ -101,6 +105,24 @@ public class RoleUserRelation implements Meta {
    */
   @Description("所属类型")
   private String __typename = "RoleUserRelation";
+
+  /**
+   * 用户 角色 关系 数量
+   */
+  @Description("用户 角色 关系 数量")
+  private Integer idCount;
+
+  /**
+   * ID 最大值
+   */
+  @Description("ID 最大值")
+  private Integer idMax;
+
+  /**
+   * ID 最小值
+   */
+  @Description("ID 最小值")
+  private Integer idMin;
 
   /**
    * 用户 引用 数量
@@ -266,6 +288,30 @@ public class RoleUserRelation implements Meta {
 
   public void set__typename(String __typename) {
     this.__typename = __typename;
+  }
+
+  public Integer getIdCount() {
+    return this.idCount;
+  }
+
+  public void setIdCount(Integer idCount) {
+    this.idCount = idCount;
+  }
+
+  public Integer getIdMax() {
+    return this.idMax;
+  }
+
+  public void setIdMax(Integer idMax) {
+    this.idMax = idMax;
+  }
+
+  public Integer getIdMin() {
+    return this.idMin;
+  }
+
+  public void setIdMin(Integer idMin) {
+    this.idMin = idMin;
   }
 
   public Integer getUserRefCount() {

@@ -23,9 +23,9 @@ import org.eclipse.microprofile.graphql.Input;
 @Description("权限列表 变更参数 ")
 public class PermissionListMutationArguments implements MetaInput, PermissionInputBase {
   /**
-   * id
+   * ID
    */
-  @Description("id")
+  @Description("ID")
   private String id;
 
   /**

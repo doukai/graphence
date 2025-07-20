@@ -21,9 +21,9 @@ import org.eclipse.microprofile.graphql.Input;
 @Description("用户 角色 关系 变更参数")
 public class RoleUserRelationMutationArguments implements MetaInput, RoleUserRelationInputBase {
   /**
-   * id
+   * ID
    */
-  @Description("id")
+  @Description("ID")
   private String id;
 
   /**

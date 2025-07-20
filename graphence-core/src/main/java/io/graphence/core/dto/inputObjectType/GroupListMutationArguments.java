@@ -24,9 +24,9 @@ import org.eclipse.microprofile.graphql.Input;
 @Description("组列表 变更参数 ")
 public class GroupListMutationArguments implements TreeStructInput, NamedStructInput, MetaInput, GroupInputBase {
   /**
-   * id
+   * ID
    */
-  @Description("id")
+  @Description("ID")
   private String id;
 
   /**

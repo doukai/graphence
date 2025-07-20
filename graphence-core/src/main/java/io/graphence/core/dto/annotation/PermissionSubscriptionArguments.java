@@ -22,9 +22,9 @@ import org.eclipse.microprofile.graphql.Description;
 @Description("权限 订阅参数")
 public @interface PermissionSubscriptionArguments {
   /**
-   * id
+   * ID
    */
-  @Description("id")
+  @Description("ID")
   StringExpression id() default @StringExpression;
 
   /**

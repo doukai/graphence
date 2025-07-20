@@ -19,9 +19,9 @@ import org.eclipse.microprofile.graphql.Input;
 @Description("租户 查询表达式")
 public interface RealmExpressionBase extends NamedStructExpression, MetaExpression {
   /**
-   * id
+   * ID
    */
-  @Description("id")
+  @Description("ID")
   StringExpression id = null;
 
   /**

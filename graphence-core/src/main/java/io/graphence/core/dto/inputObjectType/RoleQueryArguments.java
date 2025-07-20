@@ -24,9 +24,9 @@ import org.eclipse.microprofile.graphql.Input;
 @Description("角色 查询参数")
 public class RoleQueryArguments implements NamedStructExpression, MetaExpression, RoleExpressionBase {
   /**
-   * id
+   * ID
    */
-  @Description("id")
+  @Description("ID")
   private StringExpression id;
 
   /**

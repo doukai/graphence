@@ -24,9 +24,9 @@ import org.eclipse.microprofile.graphql.Input;
 @Description("权限连接 查询参数")
 public class PermissionConnectionQueryArguments implements MetaExpression, PermissionExpressionBase {
   /**
-   * id
+   * ID
    */
-  @Description("id")
+  @Description("ID")
   private StringExpression id;
 
   /**

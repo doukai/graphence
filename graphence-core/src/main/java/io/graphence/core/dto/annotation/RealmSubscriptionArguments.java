@@ -22,9 +22,9 @@ import org.eclipse.microprofile.graphql.Description;
 @Description("租户 订阅参数")
 public @interface RealmSubscriptionArguments {
   /**
-   * id
+   * ID
    */
-  @Description("id")
+  @Description("ID")
   StringExpression id() default @StringExpression;
 
   /**

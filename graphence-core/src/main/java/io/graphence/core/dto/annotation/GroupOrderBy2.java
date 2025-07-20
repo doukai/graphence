@@ -20,9 +20,9 @@ import org.eclipse.microprofile.graphql.Description;
 @Description("组 排序")
 public @interface GroupOrderBy2 {
   /**
-   * id
+   * ID
    */
-  @Description("id")
+  @Description("ID")
   Sort id() default Sort.ASC;
 
   /**
@@ -108,6 +108,24 @@ public @interface GroupOrderBy2 {
    */
   @Description("所属类型")
   Sort __typename() default Sort.ASC;
+
+  /**
+   * 组 数量
+   */
+  @Description("组 数量")
+  Sort idCount() default Sort.ASC;
+
+  /**
+   * ID 最大值
+   */
+  @Description("ID 最大值")
+  Sort idMax() default Sort.ASC;
+
+  /**
+   * ID 最小值
+   */
+  @Description("ID 最小值")
+  Sort idMin() default Sort.ASC;
 
   /**
    * 名称 数量
@@ -240,6 +258,12 @@ public @interface GroupOrderBy2 {
   String $createGroupId() default "";
 
   String $__typename() default "";
+
+  String $idCount() default "";
+
+  String $idMax() default "";
+
+  String $idMin() default "";
 
   String $nameCount() default "";
 

@@ -15,7 +15,7 @@ import "io/graphoenix/core/input_objects.proto";
 message QueryUserRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
-    io.graphoenix.core.StringExpression id = 3; /* id */
+    io.graphoenix.core.StringExpression id = 3; /* ID */
     io.graphoenix.core.StringExpression name = 4; /* 姓名 */
     io.graphoenix.core.StringExpression description = 5; /* 描述 */
     io.graphoenix.core.StringExpression last_name = 6; /* 姓氏 */
@@ -48,7 +48,7 @@ message QueryUserRequest {
 message QueryUserListRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
-    io.graphoenix.core.StringExpression id = 3; /* id */
+    io.graphoenix.core.StringExpression id = 3; /* ID */
     io.graphoenix.core.StringExpression name = 4; /* 姓名 */
     io.graphoenix.core.StringExpression description = 5; /* 描述 */
     io.graphoenix.core.StringExpression last_name = 6; /* 姓氏 */
@@ -87,7 +87,7 @@ message QueryUserListRequest {
 message QueryUserConnectionRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
-    io.graphoenix.core.StringExpression id = 3; /* id */
+    io.graphoenix.core.StringExpression id = 3; /* ID */
     io.graphoenix.core.StringExpression name = 4; /* 姓名 */
     io.graphoenix.core.StringExpression description = 5; /* 描述 */
     io.graphoenix.core.StringExpression last_name = 6; /* 姓氏 */
@@ -126,7 +126,7 @@ message QueryUserConnectionRequest {
 message QueryRoleRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
-    io.graphoenix.core.StringExpression id = 3; /* id */
+    io.graphoenix.core.StringExpression id = 3; /* ID */
     io.graphoenix.core.StringExpression name = 4; /* 名称 */
     io.graphoenix.core.StringExpression description = 5; /* 描述 */
     UserExpression users = 6; /* 用户 */
@@ -155,7 +155,7 @@ message QueryRoleRequest {
 message QueryRoleListRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
-    io.graphoenix.core.StringExpression id = 3; /* id */
+    io.graphoenix.core.StringExpression id = 3; /* ID */
     io.graphoenix.core.StringExpression name = 4; /* 名称 */
     io.graphoenix.core.StringExpression description = 5; /* 描述 */
     UserExpression users = 6; /* 用户 */
@@ -190,7 +190,7 @@ message QueryRoleListRequest {
 message QueryRoleConnectionRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
-    io.graphoenix.core.StringExpression id = 3; /* id */
+    io.graphoenix.core.StringExpression id = 3; /* ID */
     io.graphoenix.core.StringExpression name = 4; /* 名称 */
     io.graphoenix.core.StringExpression description = 5; /* 描述 */
     UserExpression users = 6; /* 用户 */
@@ -225,7 +225,7 @@ message QueryRoleConnectionRequest {
 message QueryGroupRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
-    io.graphoenix.core.StringExpression id = 3; /* id */
+    io.graphoenix.core.StringExpression id = 3; /* ID */
     io.graphoenix.core.StringExpression name = 4; /* 名称 */
     io.graphoenix.core.StringExpression description = 5; /* 描述 */
     io.graphoenix.core.StringExpression path = 6; /* 路径 */
@@ -255,7 +255,7 @@ message QueryGroupRequest {
 message QueryGroupListRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
-    io.graphoenix.core.StringExpression id = 3; /* id */
+    io.graphoenix.core.StringExpression id = 3; /* ID */
     io.graphoenix.core.StringExpression name = 4; /* 名称 */
     io.graphoenix.core.StringExpression description = 5; /* 描述 */
     io.graphoenix.core.StringExpression path = 6; /* 路径 */
@@ -291,7 +291,7 @@ message QueryGroupListRequest {
 message QueryGroupConnectionRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
-    io.graphoenix.core.StringExpression id = 3; /* id */
+    io.graphoenix.core.StringExpression id = 3; /* ID */
     io.graphoenix.core.StringExpression name = 4; /* 名称 */
     io.graphoenix.core.StringExpression description = 5; /* 描述 */
     io.graphoenix.core.StringExpression path = 6; /* 路径 */
@@ -327,7 +327,7 @@ message QueryGroupConnectionRequest {
 message QueryRealmRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
-    io.graphoenix.core.StringExpression id = 3; /* id */
+    io.graphoenix.core.StringExpression id = 3; /* ID */
     io.graphoenix.core.StringExpression name = 4; /* 名称 */
     io.graphoenix.core.StringExpression description = 5; /* 描述 */
     bool include_deprecated = 6; /* 包含已移除 */
@@ -347,7 +347,7 @@ message QueryRealmRequest {
 message QueryRealmListRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
-    io.graphoenix.core.StringExpression id = 3; /* id */
+    io.graphoenix.core.StringExpression id = 3; /* ID */
     io.graphoenix.core.StringExpression name = 4; /* 名称 */
     io.graphoenix.core.StringExpression description = 5; /* 描述 */
     bool include_deprecated = 6; /* 包含已移除 */
@@ -373,7 +373,7 @@ message QueryRealmListRequest {
 message QueryRealmConnectionRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
-    io.graphoenix.core.StringExpression id = 3; /* id */
+    io.graphoenix.core.StringExpression id = 3; /* ID */
     io.graphoenix.core.StringExpression name = 4; /* 名称 */
     io.graphoenix.core.StringExpression description = 5; /* 描述 */
     bool include_deprecated = 6; /* 包含已移除 */
@@ -399,7 +399,7 @@ message QueryRealmConnectionRequest {
 message QueryPermissionRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
-    io.graphoenix.core.StringExpression id = 3; /* id */
+    io.graphoenix.core.StringExpression id = 3; /* ID */
     io.graphoenix.core.StringExpression name = 4; /* 名称 */
     io.graphoenix.core.StringExpression description = 5; /* 描述 */
     io.graphoenix.core.StringExpression field = 6; /* 字段 */
@@ -425,7 +425,7 @@ message QueryPermissionRequest {
 message QueryPermissionListRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
-    io.graphoenix.core.StringExpression id = 3; /* id */
+    io.graphoenix.core.StringExpression id = 3; /* ID */
     io.graphoenix.core.StringExpression name = 4; /* 名称 */
     io.graphoenix.core.StringExpression description = 5; /* 描述 */
     io.graphoenix.core.StringExpression field = 6; /* 字段 */
@@ -457,7 +457,7 @@ message QueryPermissionListRequest {
 message QueryPermissionConnectionRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
-    io.graphoenix.core.StringExpression id = 3; /* id */
+    io.graphoenix.core.StringExpression id = 3; /* ID */
     io.graphoenix.core.StringExpression name = 4; /* 名称 */
     io.graphoenix.core.StringExpression description = 5; /* 描述 */
     io.graphoenix.core.StringExpression field = 6; /* 字段 */
@@ -489,7 +489,7 @@ message QueryPermissionConnectionRequest {
 message QueryUserPhonesRelationRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
-    io.graphoenix.core.StringExpression id = 3; /* id */
+    io.graphoenix.core.StringExpression id = 3; /* ID */
     io.graphoenix.core.StringExpression user_ref = 4; /* 用户 引用 */
     UserExpression user = 5; /* 用户 */
     io.graphoenix.core.StringExpression phones_ref = 6; /* 手机号 引用 */
@@ -510,7 +510,7 @@ message QueryUserPhonesRelationRequest {
 message QueryUserPhonesRelationListRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
-    io.graphoenix.core.StringExpression id = 3; /* id */
+    io.graphoenix.core.StringExpression id = 3; /* ID */
     io.graphoenix.core.StringExpression user_ref = 4; /* 用户 引用 */
     UserExpression user = 5; /* 用户 */
     io.graphoenix.core.StringExpression phones_ref = 6; /* 手机号 引用 */
@@ -537,7 +537,7 @@ message QueryUserPhonesRelationListRequest {
 message QueryUserPhonesRelationConnectionRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
-    io.graphoenix.core.StringExpression id = 3; /* id */
+    io.graphoenix.core.StringExpression id = 3; /* ID */
     io.graphoenix.core.StringExpression user_ref = 4; /* 用户 引用 */
     UserExpression user = 5; /* 用户 */
     io.graphoenix.core.StringExpression phones_ref = 6; /* 手机号 引用 */
@@ -564,7 +564,7 @@ message QueryUserPhonesRelationConnectionRequest {
 message QueryGroupUserRelationRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
-    io.graphoenix.core.StringExpression id = 3; /* id */
+    io.graphoenix.core.StringExpression id = 3; /* ID */
     io.graphoenix.core.StringExpression user_ref = 4; /* 用户 引用 */
     UserExpression user = 5; /* 用户 */
     io.graphoenix.core.StringExpression group_ref = 6; /* 组 引用 */
@@ -586,7 +586,7 @@ message QueryGroupUserRelationRequest {
 message QueryGroupUserRelationListRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
-    io.graphoenix.core.StringExpression id = 3; /* id */
+    io.graphoenix.core.StringExpression id = 3; /* ID */
     io.graphoenix.core.StringExpression user_ref = 4; /* 用户 引用 */
     UserExpression user = 5; /* 用户 */
     io.graphoenix.core.StringExpression group_ref = 6; /* 组 引用 */
@@ -614,7 +614,7 @@ message QueryGroupUserRelationListRequest {
 message QueryGroupUserRelationConnectionRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
-    io.graphoenix.core.StringExpression id = 3; /* id */
+    io.graphoenix.core.StringExpression id = 3; /* ID */
     io.graphoenix.core.StringExpression user_ref = 4; /* 用户 引用 */
     UserExpression user = 5; /* 用户 */
     io.graphoenix.core.StringExpression group_ref = 6; /* 组 引用 */
@@ -642,7 +642,7 @@ message QueryGroupUserRelationConnectionRequest {
 message QueryRoleUserRelationRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
-    io.graphoenix.core.StringExpression id = 3; /* id */
+    io.graphoenix.core.StringExpression id = 3; /* ID */
     io.graphoenix.core.StringExpression user_ref = 4; /* 用户 引用 */
     UserExpression user = 5; /* 用户 */
     io.graphoenix.core.StringExpression role_ref = 6; /* 角色 引用 */
@@ -664,7 +664,7 @@ message QueryRoleUserRelationRequest {
 message QueryRoleUserRelationListRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
-    io.graphoenix.core.StringExpression id = 3; /* id */
+    io.graphoenix.core.StringExpression id = 3; /* ID */
     io.graphoenix.core.StringExpression user_ref = 4; /* 用户 引用 */
     UserExpression user = 5; /* 用户 */
     io.graphoenix.core.StringExpression role_ref = 6; /* 角色 引用 */
@@ -692,7 +692,7 @@ message QueryRoleUserRelationListRequest {
 message QueryRoleUserRelationConnectionRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
-    io.graphoenix.core.StringExpression id = 3; /* id */
+    io.graphoenix.core.StringExpression id = 3; /* ID */
     io.graphoenix.core.StringExpression user_ref = 4; /* 用户 引用 */
     UserExpression user = 5; /* 用户 */
     io.graphoenix.core.StringExpression role_ref = 6; /* 角色 引用 */
@@ -720,7 +720,7 @@ message QueryRoleUserRelationConnectionRequest {
 message QueryGroupRoleRelationRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
-    io.graphoenix.core.StringExpression id = 3; /* id */
+    io.graphoenix.core.StringExpression id = 3; /* ID */
     io.graphoenix.core.StringExpression role_ref = 4; /* 角色 引用 */
     RoleExpression role = 5; /* 角色 */
     io.graphoenix.core.StringExpression group_ref = 6; /* 组 引用 */
@@ -742,7 +742,7 @@ message QueryGroupRoleRelationRequest {
 message QueryGroupRoleRelationListRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
-    io.graphoenix.core.StringExpression id = 3; /* id */
+    io.graphoenix.core.StringExpression id = 3; /* ID */
     io.graphoenix.core.StringExpression role_ref = 4; /* 角色 引用 */
     RoleExpression role = 5; /* 角色 */
     io.graphoenix.core.StringExpression group_ref = 6; /* 组 引用 */
@@ -770,7 +770,7 @@ message QueryGroupRoleRelationListRequest {
 message QueryGroupRoleRelationConnectionRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
-    io.graphoenix.core.StringExpression id = 3; /* id */
+    io.graphoenix.core.StringExpression id = 3; /* ID */
     io.graphoenix.core.StringExpression role_ref = 4; /* 角色 引用 */
     RoleExpression role = 5; /* 角色 */
     io.graphoenix.core.StringExpression group_ref = 6; /* 组 引用 */
@@ -798,7 +798,7 @@ message QueryGroupRoleRelationConnectionRequest {
 message QueryRoleCompositeRelationRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
-    io.graphoenix.core.StringExpression id = 3; /* id */
+    io.graphoenix.core.StringExpression id = 3; /* ID */
     io.graphoenix.core.StringExpression role_ref = 4; /* 角色 引用 */
     RoleExpression role = 5; /* 角色 */
     io.graphoenix.core.StringExpression composite_ref = 6; /* 角色 引用 */
@@ -820,7 +820,7 @@ message QueryRoleCompositeRelationRequest {
 message QueryRoleCompositeRelationListRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
-    io.graphoenix.core.StringExpression id = 3; /* id */
+    io.graphoenix.core.StringExpression id = 3; /* ID */
     io.graphoenix.core.StringExpression role_ref = 4; /* 角色 引用 */
     RoleExpression role = 5; /* 角色 */
     io.graphoenix.core.StringExpression composite_ref = 6; /* 角色 引用 */
@@ -848,7 +848,7 @@ message QueryRoleCompositeRelationListRequest {
 message QueryRoleCompositeRelationConnectionRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
-    io.graphoenix.core.StringExpression id = 3; /* id */
+    io.graphoenix.core.StringExpression id = 3; /* ID */
     io.graphoenix.core.StringExpression role_ref = 4; /* 角色 引用 */
     RoleExpression role = 5; /* 角色 */
     io.graphoenix.core.StringExpression composite_ref = 6; /* 角色 引用 */
@@ -876,7 +876,7 @@ message QueryRoleCompositeRelationConnectionRequest {
 message QueryRolePermissionRelationRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
-    io.graphoenix.core.StringExpression id = 3; /* id */
+    io.graphoenix.core.StringExpression id = 3; /* ID */
     io.graphoenix.core.StringExpression role_ref = 4; /* 角色 引用 */
     RoleExpression role = 5; /* 角色 */
     io.graphoenix.core.StringExpression permission_ref = 6; /* 权限 引用 */
@@ -898,7 +898,7 @@ message QueryRolePermissionRelationRequest {
 message QueryRolePermissionRelationListRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
-    io.graphoenix.core.StringExpression id = 3; /* id */
+    io.graphoenix.core.StringExpression id = 3; /* ID */
     io.graphoenix.core.StringExpression role_ref = 4; /* 角色 引用 */
     RoleExpression role = 5; /* 角色 */
     io.graphoenix.core.StringExpression permission_ref = 6; /* 权限 引用 */
@@ -926,7 +926,7 @@ message QueryRolePermissionRelationListRequest {
 message QueryRolePermissionRelationConnectionRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
-    io.graphoenix.core.StringExpression id = 3; /* id */
+    io.graphoenix.core.StringExpression id = 3; /* ID */
     io.graphoenix.core.StringExpression role_ref = 4; /* 角色 引用 */
     RoleExpression role = 5; /* 角色 */
     io.graphoenix.core.StringExpression permission_ref = 6; /* 权限 引用 */
@@ -951,10 +951,6 @@ message QueryRolePermissionRelationConnectionRequest {
     string after = 25; /* 取...之后 */
     string before = 26; /* 取...之前 */
 }
-message QueryPolicyListRequest {
-    optional string selection_set = 1;
-    optional string arguments = 2;
-}
 message QueryCurrentRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
@@ -971,4 +967,8 @@ message QueryCurrentPermissionNameListByTypesRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
     repeated string types = 3;
+}
+message QueryPolicyListRequest {
+    optional string selection_set = 1;
+    optional string arguments = 2;
 }

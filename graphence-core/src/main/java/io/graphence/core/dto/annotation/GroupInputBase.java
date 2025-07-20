@@ -19,9 +19,9 @@ import org.eclipse.microprofile.graphql.Description;
 @Description("组 变更内容")
 public @interface GroupInputBase {
   /**
-   * id
+   * ID
    */
-  @Description("id")
+  @Description("ID")
   String id() default "";
 
   /**

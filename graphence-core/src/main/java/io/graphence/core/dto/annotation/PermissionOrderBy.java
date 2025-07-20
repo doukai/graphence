@@ -20,9 +20,9 @@ import org.eclipse.microprofile.graphql.Description;
 @Description("权限 排序")
 public @interface PermissionOrderBy {
   /**
-   * id
+   * ID
    */
-  @Description("id")
+  @Description("ID")
   Sort id() default Sort.ASC;
 
   /**
@@ -139,6 +139,24 @@ public @interface PermissionOrderBy {
   @Description("角色 权限 关系 统计字段")
   RolePermissionRelationOrderBy1 rolePermissionRelationAggregate(
       ) default @RolePermissionRelationOrderBy1;
+
+  /**
+   * 权限 数量
+   */
+  @Description("权限 数量")
+  Sort idCount() default Sort.ASC;
+
+  /**
+   * ID 最大值
+   */
+  @Description("ID 最大值")
+  Sort idMax() default Sort.ASC;
+
+  /**
+   * ID 最小值
+   */
+  @Description("ID 最小值")
+  Sort idMin() default Sort.ASC;
 
   /**
    * 名称 数量
@@ -269,6 +287,12 @@ public @interface PermissionOrderBy {
   String $rolesAggregate() default "";
 
   String $rolePermissionRelationAggregate() default "";
+
+  String $idCount() default "";
+
+  String $idMax() default "";
+
+  String $idMin() default "";
 
   String $nameCount() default "";
 

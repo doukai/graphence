@@ -148,11 +148,11 @@ public class Mutation {
   @Description("角色 权限 关系列表 变更接口")
   private Collection<RolePermissionRelation> rolePermissionRelationList;
 
-  private String login;
-
   private User currentUserUpdate;
 
   private User currentUserResetPassword;
+
+  private String login;
 
   private Boolean syncModelPolicy;
 
@@ -336,14 +336,6 @@ public class Mutation {
     this.rolePermissionRelationList = rolePermissionRelationList;
   }
 
-  public String getLogin() {
-    return this.login;
-  }
-
-  public void setLogin(String login) {
-    this.login = login;
-  }
-
   public User getCurrentUserUpdate() {
     return this.currentUserUpdate;
   }
@@ -358,6 +350,14 @@ public class Mutation {
 
   public void setCurrentUserResetPassword(User currentUserResetPassword) {
     this.currentUserResetPassword = currentUserResetPassword;
+  }
+
+  public String getLogin() {
+    return this.login;
+  }
+
+  public void setLogin(String login) {
+    this.login = login;
   }
 
   public Boolean getSyncModelPolicy() {
