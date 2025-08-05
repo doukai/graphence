@@ -4,6 +4,7 @@ import com.password4j.Hash;
 import com.password4j.Password;
 import io.graphence.core.config.SecurityConfig;
 import io.graphence.core.dto.inputObjectType.UserInputBase;
+import io.graphence.core.handler.PasswordChecker;
 import io.graphence.core.repository.LoginRepository;
 import io.graphence.core.repository.RBACPolicyRepository;
 import io.graphence.core.dto.objectType.Permission;
@@ -15,7 +16,9 @@ import io.netty.handler.codec.http.HttpHeaderNames;
 import io.nozdormu.spi.async.Asyncable;
 import jakarta.annotation.security.PermitAll;
 import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.enterprise.inject.Default;
 import jakarta.inject.Inject;
+import jakarta.inject.Provider;
 import org.eclipse.microprofile.graphql.GraphQLApi;
 import org.eclipse.microprofile.graphql.Mutation;
 import org.eclipse.microprofile.graphql.NonNull;
@@ -25,6 +28,7 @@ import reactor.netty.http.server.HttpServerResponse;
 
 import java.util.Base64;
 import java.util.Collections;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -43,14 +47,22 @@ public class LoginApi implements Asyncable {
     private final JWTUtil jwtUtil;
     private final RBACPolicyRepository rbacPolicyRepository;
     private final RequestScopeInstanceFactory requestScopeInstanceFactory;
+    private final PasswordChecker passwordChecker;
 
     @Inject
-    public LoginApi(SecurityConfig config, LoginRepository loginRepository, JWTUtil jwtUtil, RequestScopeInstanceFactory requestScopeInstanceFactory, RBACPolicyRepository rbacPolicyRepository) {
+    public LoginApi(SecurityConfig config,
+                    LoginRepository loginRepository,
+                    JWTUtil jwtUtil,
+                    RequestScopeInstanceFactory requestScopeInstanceFactory,
+                    RBACPolicyRepository rbacPolicyRepository,
+                    Provider<PasswordChecker> passwordCheckerProvider,
+                    @Default PasswordChecker passwordChecker) {
         this.config = config;
         this.loginRepository = loginRepository;
         this.jwtUtil = jwtUtil;
         this.rbacPolicyRepository = rbacPolicyRepository;
         this.requestScopeInstanceFactory = requestScopeInstanceFactory;
+        this.passwordChecker = Optional.ofNullable(passwordCheckerProvider.get()).orElse(passwordChecker);
     }
 
     @Mutation
@@ -60,7 +72,7 @@ public class LoginApi implements Asyncable {
                 .flatMap(user -> {
                             if (user.getDisable()) {
                                 return Mono.error(new AuthenticationException(AUTHENTICATION_DISABLE));
-                            } else if (Password.check(password, new String(Base64.getDecoder().decode(user.getHash()))).addSalt(Base64.getDecoder().decode(user.getSalt())).withBcrypt()) {
+                            } else if (passwordChecker.check(password, user)) {
                                 return Mono.justOrEmpty(user);
                             } else {
                                 return Mono.error(new AuthenticationException(AUTHENTICATION_FAILED));
