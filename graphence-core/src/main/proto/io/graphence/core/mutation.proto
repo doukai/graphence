@@ -38,9 +38,9 @@ service MutationService {
     rpc RoleCompositeRelationList (MutationRoleCompositeRelationListRequest) returns (MutationRoleCompositeRelationListResponse); /* 角色 角色 关系列表 变更接口 */
     rpc RolePermissionRelation (MutationRolePermissionRelationRequest) returns (MutationRolePermissionRelationResponse); /* 角色 权限 关系 变更接口 */
     rpc RolePermissionRelationList (MutationRolePermissionRelationListRequest) returns (MutationRolePermissionRelationListResponse); /* 角色 权限 关系列表 变更接口 */
+    rpc SyncModelPolicy (MutationSyncModelPolicyRequest) returns (MutationSyncModelPolicyResponse);
+    rpc SyncPermissionRoleRelationPolicy (MutationSyncPermissionRoleRelationPolicyRequest) returns (MutationSyncPermissionRoleRelationPolicyResponse);
     rpc CurrentUserUpdate (MutationCurrentUserUpdateRequest) returns (MutationCurrentUserUpdateResponse);
     rpc CurrentUserResetPassword (MutationCurrentUserResetPasswordRequest) returns (MutationCurrentUserResetPasswordResponse);
     rpc Login (MutationLoginRequest) returns (MutationLoginResponse);
-    rpc SyncModelPolicy (MutationSyncModelPolicyRequest) returns (MutationSyncModelPolicyResponse);
-    rpc SyncPermissionRoleRelationPolicy (MutationSyncPermissionRoleRelationPolicyRequest) returns (MutationSyncPermissionRoleRelationPolicyResponse);
 }
