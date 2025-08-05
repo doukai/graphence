@@ -1,9 +1,9 @@
 package io.graphence.core.api;
 
-import com.password4j.Hash;
-import com.password4j.Password;
 import io.graphence.core.repository.RBACPolicyRepository;
 import io.graphence.core.repository.UserRepository;
+import io.graphence.core.handler.PasswordChecker;
+import io.graphence.core.handler.BcryptChecker;
 import io.graphence.core.dto.Current;
 import io.graphence.core.dto.inputObjectType.*;
 import io.graphence.core.dto.objectType.Permission;
@@ -21,8 +21,8 @@ import jakarta.inject.Provider;
 import org.eclipse.microprofile.graphql.*;
 import reactor.core.publisher.Mono;
 
-import java.util.Base64;
 import java.util.Collection;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -35,12 +35,17 @@ public class CurrentApi implements Asyncable {
     private final Provider<Mono<Current>> currentMonoProvider;
     private final RBACPolicyRepository rbacPolicyRepository;
     private final UserRepository userRepository;
+    private final PasswordChecker passwordChecker;
 
     @Inject
-    public CurrentApi(Provider<Mono<Current>> currentMonoProvider, RBACPolicyRepository rbacPolicyRepository, UserRepository userRepository) {
+    public CurrentApi(Provider<Mono<Current>> currentMonoProvider,
+                      RBACPolicyRepository rbacPolicyRepository,
+                      UserRepository userRepository,
+                      Provider<PasswordChecker> passwordCheckerProvider) {
         this.currentMonoProvider = currentMonoProvider;
         this.rbacPolicyRepository = rbacPolicyRepository;
         this.userRepository = userRepository;
+        this.passwordChecker = Optional.ofNullable(passwordCheckerProvider.get()).orElse(new BcryptChecker());
     }
 
     @Query
@@ -100,9 +105,10 @@ public class CurrentApi implements Asyncable {
         return currentMonoProvider.get()
                 .flatMap(currentUser -> userRepository.getUserById(currentUser.getId()))
                 .flatMap(user -> {
-                            if (Password.check(password, new String(Base64.getDecoder().decode(user.getHash()))).addSalt(Base64.getDecoder().decode(user.getSalt())).withBcrypt()) {
-                                Hash hash = Password.hash(newPassword).withBcrypt();
-                                return userRepository.resetPassword(user.getId(), Base64.getEncoder().encodeToString(hash.getSaltBytes()), Base64.getEncoder().encodeToString(hash.getResultAsBytes()));
+                            if (passwordChecker.check(password, user)) {
+                                UserInput userInput = user.toInput();
+                                passwordChecker.hash(newPassword, userInput);
+                                return userRepository.resetPassword(user.getId(), userInput.getSalt(), userInput.getHash());
                             } else {
                                 return Mono.error(new AuthenticationException(AUTHENTICATION_FAILED));
                             }

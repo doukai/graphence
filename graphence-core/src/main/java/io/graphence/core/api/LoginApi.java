@@ -1,10 +1,9 @@
 package io.graphence.core.api;
 
-import com.password4j.Hash;
-import com.password4j.Password;
 import io.graphence.core.config.SecurityConfig;
 import io.graphence.core.dto.inputObjectType.UserInputBase;
 import io.graphence.core.handler.PasswordChecker;
+import io.graphence.core.handler.BcryptChecker;
 import io.graphence.core.repository.LoginRepository;
 import io.graphence.core.repository.RBACPolicyRepository;
 import io.graphence.core.dto.objectType.Permission;
@@ -16,7 +15,6 @@ import io.netty.handler.codec.http.HttpHeaderNames;
 import io.nozdormu.spi.async.Asyncable;
 import jakarta.annotation.security.PermitAll;
 import jakarta.enterprise.context.ApplicationScoped;
-import jakarta.enterprise.inject.Default;
 import jakarta.inject.Inject;
 import jakarta.inject.Provider;
 import org.eclipse.microprofile.graphql.GraphQLApi;
@@ -26,7 +24,6 @@ import org.eclipse.microprofile.graphql.Source;
 import reactor.core.publisher.Mono;
 import reactor.netty.http.server.HttpServerResponse;
 
-import java.util.Base64;
 import java.util.Collections;
 import java.util.Optional;
 import java.util.Set;
@@ -55,14 +52,13 @@ public class LoginApi implements Asyncable {
                     JWTUtil jwtUtil,
                     RequestScopeInstanceFactory requestScopeInstanceFactory,
                     RBACPolicyRepository rbacPolicyRepository,
-                    Provider<PasswordChecker> passwordCheckerProvider,
-                    @Default PasswordChecker passwordChecker) {
+                    Provider<PasswordChecker> passwordCheckerProvider) {
         this.config = config;
         this.loginRepository = loginRepository;
         this.jwtUtil = jwtUtil;
         this.rbacPolicyRepository = rbacPolicyRepository;
         this.requestScopeInstanceFactory = requestScopeInstanceFactory;
-        this.passwordChecker = Optional.ofNullable(passwordCheckerProvider.get()).orElse(passwordChecker);
+        this.passwordChecker = Optional.ofNullable(passwordCheckerProvider.get()).orElse(new BcryptChecker());
     }
 
     @Mutation
@@ -101,9 +97,7 @@ public class LoginApi implements Asyncable {
                 userinputBase.getSalt() == null &&
                 userinputBase.getHash() == null
         ) {
-            Hash hash = Password.hash(config.getInitialPassword()).withBcrypt();
-            userinputBase.setSalt(Base64.getEncoder().encodeToString(hash.getSaltBytes()));
-            userinputBase.setHash(Base64.getEncoder().encodeToString(hash.getResultAsBytes()));
+            return passwordChecker.hash(config.getInitialPassword(), userinputBase);
         }
         return userinputBase;
     }
