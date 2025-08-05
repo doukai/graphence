@@ -9,7 +9,7 @@ type User implements NamedStruct {
     "姓氏"
     lastName: String @jsonSchema(maxLength: 20)
     "账号"
-    login: String! @options(unique: true) @jsonSchema(minLength: 10 maxLength: 20)
+    login: String! @options(unique: true) @jsonSchema(minLength: 6 maxLength: 20)
     "盐"
     salt: String
     "哈希"

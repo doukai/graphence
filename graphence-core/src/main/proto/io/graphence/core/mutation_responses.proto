@@ -77,6 +77,12 @@ message MutationRolePermissionRelationResponse {
 message MutationRolePermissionRelationListResponse {
     repeated RolePermissionRelation role_permission_relation_list = 1;
 }
+message MutationSyncModelPolicyResponse {
+    bool sync_model_policy = 1;
+}
+message MutationSyncPermissionRoleRelationPolicyResponse {
+    bool sync_permission_role_relation_policy = 1;
+}
 message MutationCurrentUserUpdateResponse {
     User current_user_update = 1;
 }
@@ -85,10 +91,4 @@ message MutationCurrentUserResetPasswordResponse {
 }
 message MutationLoginResponse {
     string login = 1;
-}
-message MutationSyncModelPolicyResponse {
-    bool sync_model_policy = 1;
-}
-message MutationSyncPermissionRoleRelationPolicyResponse {
-    bool sync_permission_role_relation_policy = 1;
 }

@@ -3903,6 +3903,11 @@ message RolePermissionRelationConnectionSubscriptionArguments {
 message Query_currentPermissionNameListByTypes_Arguments {
     repeated string types = 1;
 }
+message Mutation_syncPermissionRoleRelationPolicy_Arguments {
+    string role_id = 1;
+    repeated string permission_name_list = 2;
+    repeated string removed_permission_name_list = 3;
+}
 message Mutation_currentUserUpdate_Arguments {
     UserInput user_input = 1;
 }
@@ -3913,9 +3918,4 @@ message Mutation_currentUserResetPassword_Arguments {
 message Mutation_login_Arguments {
     string login = 1;
     string password = 2;
-}
-message Mutation_syncPermissionRoleRelationPolicy_Arguments {
-    string role_id = 1;
-    repeated string permission_name_list = 2;
-    repeated string removed_permission_name_list = 3;
 }
