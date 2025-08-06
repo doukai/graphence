@@ -1,6 +1,7 @@
 package io.graphence.security.event;
 
-import com.password4j.Password;
+import io.graphence.core.handler.PasswordChecker;
+import io.graphence.core.handler.BcryptChecker;
 import io.graphence.core.config.SecurityConfig;
 import io.graphence.core.repository.LoginRepository;
 import io.graphence.core.dto.Current;
@@ -18,12 +19,14 @@ import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.context.Initialized;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
+import jakarta.inject.Provider;
 import org.eclipse.microprofile.jwt.Claims;
 import reactor.core.publisher.Mono;
 import reactor.netty.http.server.HttpServerRequest;
 
 import java.util.Base64;
 import java.util.Map;
+import java.util.Optional;
 
 import static io.graphence.core.constant.Constant.*;
 import static io.graphence.core.error.AuthenticationErrorType.*;
@@ -40,14 +43,21 @@ public class JWTFilter extends BaseRequestFilter implements ScopeEvent {
     private final SecurityConfig securityConfig;
     private final JWTUtil jwtUtil;
     private final RequestScopeInstanceFactory requestScopeInstanceFactory;
+    private final PasswordChecker passwordChecker;
 
     @Inject
-    public JWTFilter(DocumentManager documentManager, LoginRepository loginRepository, SecurityConfig securityConfig, JWTUtil jwtUtil, RequestScopeInstanceFactory requestScopeInstanceFactory) {
+    public JWTFilter(DocumentManager documentManager,
+                     LoginRepository loginRepository,
+                     SecurityConfig securityConfig,
+                     JWTUtil jwtUtil,
+                     RequestScopeInstanceFactory requestScopeInstanceFactory,
+                     Provider<PasswordChecker> passwordCheckerProvider) {
         this.documentManager = documentManager;
         this.loginRepository = loginRepository;
         this.securityConfig = securityConfig;
         this.jwtUtil = jwtUtil;
         this.requestScopeInstanceFactory = requestScopeInstanceFactory;
+        this.passwordChecker = Optional.ofNullable(passwordCheckerProvider.get()).orElse(new BcryptChecker());
     }
 
     @Override
@@ -97,7 +107,7 @@ public class JWTFilter extends BaseRequestFilter implements ScopeEvent {
                     .flatMap(user -> {
                                 if (user.getDisable()) {
                                     return Mono.error(new AuthenticationException(AUTHENTICATION_DISABLE));
-                                } else if (Password.check(password, new String(Base64.getDecoder().decode(user.getHash()))).addSalt(Base64.getDecoder().decode(user.getSalt())).withBcrypt()) {
+                                } else if (passwordChecker.check(password, user)) {
                                     return Mono.justOrEmpty(user);
                                 } else {
                                     return Mono.error(new AuthenticationException(AUTHENTICATION_FAILED));
