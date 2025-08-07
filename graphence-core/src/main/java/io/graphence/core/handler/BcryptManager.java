@@ -7,7 +7,7 @@ import io.graphence.core.dto.objectType.User;
 
 import java.util.Base64;
 
-public class BcryptChecker implements PasswordChecker {
+public class BcryptManager implements PasswordManager {
 
     @Override
     public boolean check(String password, User user) {

@@ -2,8 +2,8 @@ package io.graphence.core.api;
 
 import io.graphence.core.config.SecurityConfig;
 import io.graphence.core.dto.inputObjectType.UserInputBase;
-import io.graphence.core.handler.PasswordChecker;
-import io.graphence.core.handler.BcryptChecker;
+import io.graphence.core.handler.BcryptManager;
+import io.graphence.core.handler.PasswordManager;
 import io.graphence.core.repository.LoginRepository;
 import io.graphence.core.repository.RBACPolicyRepository;
 import io.graphence.core.dto.objectType.Permission;
@@ -44,7 +44,7 @@ public class LoginApi implements Asyncable {
     private final JWTUtil jwtUtil;
     private final RBACPolicyRepository rbacPolicyRepository;
     private final RequestScopeInstanceFactory requestScopeInstanceFactory;
-    private final PasswordChecker passwordChecker;
+    private final PasswordManager passwordManager;
 
     @Inject
     public LoginApi(SecurityConfig config,
@@ -52,13 +52,13 @@ public class LoginApi implements Asyncable {
                     JWTUtil jwtUtil,
                     RequestScopeInstanceFactory requestScopeInstanceFactory,
                     RBACPolicyRepository rbacPolicyRepository,
-                    Provider<PasswordChecker> passwordCheckerProvider) {
+                    Provider<PasswordManager> passwordCheckerProvider) {
         this.config = config;
         this.loginRepository = loginRepository;
         this.jwtUtil = jwtUtil;
         this.rbacPolicyRepository = rbacPolicyRepository;
         this.requestScopeInstanceFactory = requestScopeInstanceFactory;
-        this.passwordChecker = Optional.ofNullable(passwordCheckerProvider.get()).orElse(new BcryptChecker());
+        this.passwordManager = Optional.ofNullable(passwordCheckerProvider.get()).orElse(new BcryptManager());
     }
 
     @Mutation
@@ -68,7 +68,7 @@ public class LoginApi implements Asyncable {
                 .flatMap(user -> {
                             if (user.getDisable()) {
                                 return Mono.error(new AuthenticationException(AUTHENTICATION_DISABLE));
-                            } else if (passwordChecker.check(password, user)) {
+                            } else if (passwordManager.check(password, user)) {
                                 return Mono.justOrEmpty(user);
                             } else {
                                 return Mono.error(new AuthenticationException(AUTHENTICATION_FAILED));
@@ -97,7 +97,7 @@ public class LoginApi implements Asyncable {
                 userinputBase.getSalt() == null &&
                 userinputBase.getHash() == null
         ) {
-            return passwordChecker.hash(config.getInitialPassword(), userinputBase);
+            return passwordManager.hash(config.getInitialPassword(), userinputBase);
         }
         return userinputBase;
     }

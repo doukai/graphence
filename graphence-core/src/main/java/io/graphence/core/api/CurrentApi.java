@@ -1,9 +1,9 @@
 package io.graphence.core.api;
 
+import io.graphence.core.handler.BcryptManager;
+import io.graphence.core.handler.PasswordManager;
 import io.graphence.core.repository.RBACPolicyRepository;
 import io.graphence.core.repository.UserRepository;
-import io.graphence.core.handler.PasswordChecker;
-import io.graphence.core.handler.BcryptChecker;
 import io.graphence.core.dto.Current;
 import io.graphence.core.dto.inputObjectType.*;
 import io.graphence.core.dto.objectType.Permission;
@@ -35,17 +35,17 @@ public class CurrentApi implements Asyncable {
     private final Provider<Mono<Current>> currentMonoProvider;
     private final RBACPolicyRepository rbacPolicyRepository;
     private final UserRepository userRepository;
-    private final PasswordChecker passwordChecker;
+    private final PasswordManager passwordManager;
 
     @Inject
     public CurrentApi(Provider<Mono<Current>> currentMonoProvider,
                       RBACPolicyRepository rbacPolicyRepository,
                       UserRepository userRepository,
-                      Provider<PasswordChecker> passwordCheckerProvider) {
+                      Provider<PasswordManager> passwordCheckerProvider) {
         this.currentMonoProvider = currentMonoProvider;
         this.rbacPolicyRepository = rbacPolicyRepository;
         this.userRepository = userRepository;
-        this.passwordChecker = Optional.ofNullable(passwordCheckerProvider.get()).orElse(new BcryptChecker());
+        this.passwordManager = Optional.ofNullable(passwordCheckerProvider.get()).orElse(new BcryptManager());
     }
 
     @Query
@@ -105,9 +105,9 @@ public class CurrentApi implements Asyncable {
         return currentMonoProvider.get()
                 .flatMap(currentUser -> userRepository.getUserById(currentUser.getId()))
                 .flatMap(user -> {
-                            if (passwordChecker.check(password, user)) {
+                            if (passwordManager.check(password, user)) {
                                 UserInput userInput = user.toInput();
-                                passwordChecker.hash(newPassword, userInput);
+                                passwordManager.hash(newPassword, userInput);
                                 return userRepository.resetPassword(user.getId(), userInput.getSalt(), userInput.getHash());
                             } else {
                                 return Mono.error(new AuthenticationException(AUTHENTICATION_FAILED));

@@ -1,7 +1,7 @@
 package io.graphence.security.event;
 
-import io.graphence.core.handler.PasswordChecker;
-import io.graphence.core.handler.BcryptChecker;
+import io.graphence.core.handler.PasswordManager;
+import io.graphence.core.handler.BcryptManager;
 import io.graphence.core.config.SecurityConfig;
 import io.graphence.core.repository.LoginRepository;
 import io.graphence.core.dto.Current;
@@ -43,7 +43,7 @@ public class JWTFilter extends BaseRequestFilter implements ScopeEvent {
     private final SecurityConfig securityConfig;
     private final JWTUtil jwtUtil;
     private final RequestScopeInstanceFactory requestScopeInstanceFactory;
-    private final PasswordChecker passwordChecker;
+    private final PasswordManager passwordManager;
 
     @Inject
     public JWTFilter(DocumentManager documentManager,
@@ -51,13 +51,13 @@ public class JWTFilter extends BaseRequestFilter implements ScopeEvent {
                      SecurityConfig securityConfig,
                      JWTUtil jwtUtil,
                      RequestScopeInstanceFactory requestScopeInstanceFactory,
-                     Provider<PasswordChecker> passwordCheckerProvider) {
+                     Provider<PasswordManager> passwordCheckerProvider) {
         this.documentManager = documentManager;
         this.loginRepository = loginRepository;
         this.securityConfig = securityConfig;
         this.jwtUtil = jwtUtil;
         this.requestScopeInstanceFactory = requestScopeInstanceFactory;
-        this.passwordChecker = Optional.ofNullable(passwordCheckerProvider.get()).orElse(new BcryptChecker());
+        this.passwordManager = Optional.ofNullable(passwordCheckerProvider.get()).orElse(new BcryptManager());
     }
 
     @Override
@@ -107,7 +107,7 @@ public class JWTFilter extends BaseRequestFilter implements ScopeEvent {
                     .flatMap(user -> {
                                 if (user.getDisable()) {
                                     return Mono.error(new AuthenticationException(AUTHENTICATION_DISABLE));
-                                } else if (passwordChecker.check(password, user)) {
+                                } else if (passwordManager.check(password, user)) {
                                     return Mono.justOrEmpty(user);
                                 } else {
                                     return Mono.error(new AuthenticationException(AUTHENTICATION_FAILED));

@@ -2,8 +2,8 @@ package io.graphence.core.event;
 
 import io.graphence.core.config.SecurityConfig;
 import io.graphence.core.dto.inputObjectType.UserInput;
-import io.graphence.core.handler.PasswordChecker;
-import io.graphence.core.handler.BcryptChecker;
+import io.graphence.core.handler.PasswordManager;
+import io.graphence.core.handler.BcryptManager;
 import io.graphence.core.repository.UserRepository;
 import io.nozdormu.spi.event.ScopeEvent;
 import jakarta.annotation.Priority;
@@ -26,15 +26,15 @@ public class RootUserBuildEvent implements ScopeEvent {
     public static final int ROOT_USER_BUILD_SCOPE_EVENT_PRIORITY = DOCUMENT_INITIALIZED_SCOPE_EVENT_PRIORITY + 110;
     private final SecurityConfig securityConfig;
     private final UserRepository userRepository;
-    private final PasswordChecker passwordChecker;
+    private final PasswordManager passwordManager;
 
     @Inject
     public RootUserBuildEvent(SecurityConfig securityConfig,
                               UserRepository userRepository,
-                              Provider<PasswordChecker> passwordCheckerProvider) {
+                              Provider<PasswordManager> passwordCheckerProvider) {
         this.securityConfig = securityConfig;
         this.userRepository = userRepository;
-        this.passwordChecker = Optional.ofNullable(passwordCheckerProvider.get()).orElse(new BcryptChecker());
+        this.passwordManager = Optional.ofNullable(passwordCheckerProvider.get()).orElse(new BcryptManager());
     }
 
     @Override
@@ -45,7 +45,7 @@ public class RootUserBuildEvent implements ScopeEvent {
         UserInput userInput = new UserInput();
         userInput.setLogin(securityConfig.getRootUser());
         userInput.setName(securityConfig.getRootUser());
-        passwordChecker.hash(securityConfig.getRootPassword(), userInput);
+        passwordManager.hash(securityConfig.getRootPassword(), userInput);
         return userRepository.getUserIdByLogin(securityConfig.getRootUser())
                 .map(user -> {
                             userInput.setId(user.getId());
