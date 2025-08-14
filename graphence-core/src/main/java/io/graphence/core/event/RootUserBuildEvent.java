@@ -10,7 +10,6 @@ import jakarta.annotation.Priority;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.context.Initialized;
 import jakarta.inject.Inject;
-import jakarta.inject.Provider;
 import reactor.core.publisher.Mono;
 
 import java.util.Map;
@@ -31,10 +30,10 @@ public class RootUserBuildEvent implements ScopeEvent {
     @Inject
     public RootUserBuildEvent(SecurityConfig securityConfig,
                               UserRepository userRepository,
-                              Provider<PasswordManager> passwordCheckerProvider) {
+                              PasswordManager passwordManager) {
         this.securityConfig = securityConfig;
         this.userRepository = userRepository;
-        this.passwordManager = Optional.ofNullable(passwordCheckerProvider.get()).orElse(new BcryptManager());
+        this.passwordManager = Optional.ofNullable(passwordManager).orElse(new BcryptManager());
     }
 
     @Override

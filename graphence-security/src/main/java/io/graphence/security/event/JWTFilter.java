@@ -19,7 +19,6 @@ import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.context.Initialized;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
-import jakarta.inject.Provider;
 import org.eclipse.microprofile.jwt.Claims;
 import reactor.core.publisher.Mono;
 import reactor.netty.http.server.HttpServerRequest;
@@ -51,13 +50,13 @@ public class JWTFilter extends BaseRequestFilter implements ScopeEvent {
                      SecurityConfig securityConfig,
                      JWTUtil jwtUtil,
                      RequestScopeInstanceFactory requestScopeInstanceFactory,
-                     Provider<PasswordManager> passwordCheckerProvider) {
+                     PasswordManager passwordManager) {
         this.documentManager = documentManager;
         this.loginRepository = loginRepository;
         this.securityConfig = securityConfig;
         this.jwtUtil = jwtUtil;
         this.requestScopeInstanceFactory = requestScopeInstanceFactory;
-        this.passwordManager = Optional.ofNullable(passwordCheckerProvider.get()).orElse(new BcryptManager());
+        this.passwordManager = Optional.ofNullable(passwordManager).orElse(new BcryptManager());
     }
 
     @Override

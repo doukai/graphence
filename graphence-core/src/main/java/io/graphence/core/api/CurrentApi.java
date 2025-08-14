@@ -41,11 +41,11 @@ public class CurrentApi implements Asyncable {
     public CurrentApi(Provider<Mono<Current>> currentMonoProvider,
                       RBACPolicyRepository rbacPolicyRepository,
                       UserRepository userRepository,
-                      Provider<PasswordManager> passwordCheckerProvider) {
+                      PasswordManager passwordManager) {
         this.currentMonoProvider = currentMonoProvider;
         this.rbacPolicyRepository = rbacPolicyRepository;
         this.userRepository = userRepository;
-        this.passwordManager = Optional.ofNullable(passwordCheckerProvider.get()).orElse(new BcryptManager());
+        this.passwordManager = Optional.ofNullable(passwordManager).orElse(new BcryptManager());
     }
 
     @Query

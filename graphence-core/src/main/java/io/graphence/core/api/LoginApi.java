@@ -16,7 +16,6 @@ import io.nozdormu.spi.async.Asyncable;
 import jakarta.annotation.security.PermitAll;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
-import jakarta.inject.Provider;
 import org.eclipse.microprofile.graphql.GraphQLApi;
 import org.eclipse.microprofile.graphql.Mutation;
 import org.eclipse.microprofile.graphql.NonNull;
@@ -52,13 +51,13 @@ public class LoginApi implements Asyncable {
                     JWTUtil jwtUtil,
                     RequestScopeInstanceFactory requestScopeInstanceFactory,
                     RBACPolicyRepository rbacPolicyRepository,
-                    Provider<PasswordManager> passwordCheckerProvider) {
+                    PasswordManager passwordManager) {
         this.config = config;
         this.loginRepository = loginRepository;
         this.jwtUtil = jwtUtil;
         this.rbacPolicyRepository = rbacPolicyRepository;
         this.requestScopeInstanceFactory = requestScopeInstanceFactory;
-        this.passwordManager = Optional.ofNullable(passwordCheckerProvider.get()).orElse(new BcryptManager());
+        this.passwordManager = Optional.ofNullable(passwordManager).orElse(new BcryptManager());
     }
 
     @Mutation
