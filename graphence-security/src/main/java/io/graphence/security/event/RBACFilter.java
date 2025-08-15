@@ -1,5 +1,6 @@
 package io.graphence.security.event;
 
+import com.google.common.collect.Streams;
 import io.graphence.core.dto.Current;
 import io.graphence.core.dto.enumType.PermissionType;
 import io.graphoenix.core.handler.DocumentManager;
@@ -57,7 +58,7 @@ public class RBACFilter implements OperationBeforeHandler {
                                         .flatMap(field -> {
                                                     FieldDefinition fieldDefinition = operationType.getField(field.getName());
                                                     if (fieldDefinition.isInvokeField()) {
-                                                        return enforceApi(currentUser, operationType, fieldDefinition, field, documentManager.isMutationOperationType(operation) ? WRITE : READ);
+                                                        return enforceApi(currentUser, operationType, fieldDefinition, field, operation.isMutation() ? WRITE : READ);
                                                     } else if (field.getFields() != null) {
                                                         return enforce(currentUser, operationType, fieldDefinition, field);
                                                     }
@@ -65,7 +66,7 @@ public class RBACFilter implements OperationBeforeHandler {
                                                 }
                                         )
                                         .map(field -> {
-                                                    if (documentManager.isMutationOperationType(operation) && field.getArguments() != null) {
+                                                    if (operation.isMutation() && field.getArguments() != null) {
                                                         return field.setArguments(enforce(currentUser, operationType.getField(field.getName()), field.getArguments().getArguments()));
                                                     }
                                                     return field;
@@ -380,7 +381,7 @@ public class RBACFilter implements OperationBeforeHandler {
     protected Map<String, ValueWithVariable> enforce(Current current, FieldDefinition fieldDefinition, Map<String, ValueWithVariable> arguments) {
         Definition fieldTypeDefinition = documentManager.getFieldTypeDefinition(fieldDefinition);
         if (fieldTypeDefinition.isObject() && !fieldTypeDefinition.asObject().isContainer()) {
-            return Stream
+            return Streams
                     .concat(
                             fieldTypeDefinition.asObject().getFields().stream()
                                     .flatMap(
@@ -430,7 +431,7 @@ public class RBACFilter implements OperationBeforeHandler {
                                                                                                         )
                                                                                                 )
                                                                                         ) {
-                                                                                            if (documentManager.getFieldTypeDefinition(subFieldDefinition).isObject() || !valueWithVariable.isNull()) {
+                                                                                            if (documentManager.getFieldTypeDefinition(subFieldDefinition).isObject() && !valueWithVariable.isNull()) {
                                                                                                 if (subFieldDefinition.getType().hasList()) {
                                                                                                     return Optional.of(
                                                                                                             new AbstractMap.SimpleEntry<>(
@@ -474,6 +475,24 @@ public class RBACFilter implements OperationBeforeHandler {
                                                                                     valueWithVariable.asArray().getValueWithVariables().stream()
                                                                                             .map(item -> enforce(current, fieldDefinition, item.asObject().getObjectValueWithVariable()))
                                                                                             .collect(Collectors.toList())
+                                                                            )
+                                                                    );
+                                                                }
+                                                                return new AbstractMap.SimpleEntry<>(inputValue.getName(), valueWithVariable);
+                                                            }
+                                                    )
+                                                    .stream()
+                                    ),
+                            fieldDefinition.getArgumentOrEmpty(INPUT_VALUE_INPUT_NAME).stream()
+                                    .flatMap(inputValue ->
+                                            Optional.ofNullable(arguments.get(inputValue.getName()))
+                                                    .or(() -> Optional.ofNullable(inputValue.getDefaultValue()))
+                                                    .map(valueWithVariable -> {
+                                                                if (!valueWithVariable.isNull()) {
+                                                                    return new AbstractMap.SimpleEntry<>(
+                                                                            inputValue.getName(),
+                                                                            ValueWithVariable.of(
+                                                                                    enforce(current, fieldDefinition, valueWithVariable.asObject().getObjectValueWithVariable())
                                                                             )
                                                                     );
                                                                 }
