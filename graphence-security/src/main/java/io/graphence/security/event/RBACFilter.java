@@ -9,6 +9,7 @@ import io.graphoenix.spi.graphql.common.ValueWithVariable;
 import io.graphoenix.spi.graphql.operation.Field;
 import io.graphoenix.spi.graphql.operation.Operation;
 import io.graphoenix.spi.graphql.type.FieldDefinition;
+import io.graphoenix.spi.graphql.type.InputValue;
 import io.graphoenix.spi.graphql.type.ObjectType;
 import io.graphoenix.spi.handler.OperationBeforeHandler;
 import jakarta.annotation.Priority;
@@ -438,7 +439,7 @@ public class RBACFilter implements OperationBeforeHandler {
                                                                                                                     inputValue.getName(),
                                                                                                                     ValueWithVariable.of(
                                                                                                                             valueWithVariable.asArray().getValueWithVariables().stream()
-                                                                                                                                    .map(item -> enforce(current, subFieldDefinition, item.asObject().getObjectValueWithVariable()))
+                                                                                                                                    .map(item -> enforce(current, subFieldDefinition, inputValue, item.asObject().getObjectValueWithVariable()))
                                                                                                                                     .collect(Collectors.toList())
                                                                                                                     )
                                                                                                             )
@@ -448,7 +449,7 @@ public class RBACFilter implements OperationBeforeHandler {
                                                                                                             new AbstractMap.SimpleEntry<>(
                                                                                                                     inputValue.getName(),
                                                                                                                     ValueWithVariable.of(
-                                                                                                                            enforce(current, subFieldDefinition, valueWithVariable.asObject().getObjectValueWithVariable())
+                                                                                                                            enforce(current, subFieldDefinition, inputValue, valueWithVariable.asObject().getObjectValueWithVariable())
                                                                                                                     )
                                                                                                             )
                                                                                                     );
@@ -473,7 +474,7 @@ public class RBACFilter implements OperationBeforeHandler {
                                                                             inputValue.getName(),
                                                                             ValueWithVariable.of(
                                                                                     valueWithVariable.asArray().getValueWithVariables().stream()
-                                                                                            .map(item -> enforce(current, fieldDefinition, item.asObject().getObjectValueWithVariable()))
+                                                                                            .map(item -> enforce(current, fieldDefinition, inputValue, item.asObject().getObjectValueWithVariable()))
                                                                                             .collect(Collectors.toList())
                                                                             )
                                                                     );
@@ -492,7 +493,7 @@ public class RBACFilter implements OperationBeforeHandler {
                                                                     return new AbstractMap.SimpleEntry<>(
                                                                             inputValue.getName(),
                                                                             ValueWithVariable.of(
-                                                                                    enforce(current, fieldDefinition, valueWithVariable.asObject().getObjectValueWithVariable())
+                                                                                    enforce(current, fieldDefinition, inputValue, valueWithVariable.asObject().getObjectValueWithVariable())
                                                                             )
                                                                     );
                                                                 }
@@ -500,10 +501,105 @@ public class RBACFilter implements OperationBeforeHandler {
                                                             }
                                                     )
                                                     .stream()
-                                    )
+                                    ),
+                            Stream.ofNullable(arguments.get(INPUT_VALUE_WHERE_NAME))
+                                    .map(valueWithVariable -> new AbstractMap.SimpleEntry<>(INPUT_VALUE_WHERE_NAME, valueWithVariable))
                     )
                     .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
         }
         return arguments;
+    }
+
+    protected Map<String, ValueWithVariable> enforce(Current current, FieldDefinition fieldDefinition, InputValue inputValue, Map<String, ValueWithVariable> objectValueWithVariables) {
+        Definition fieldTypeDefinition = documentManager.getFieldTypeDefinition(fieldDefinition);
+        Definition inputValueTypeDefinition = documentManager.getInputValueTypeDefinition(inputValue);
+        if (fieldTypeDefinition.isObject()) {
+            return Stream
+                    .concat(
+                            fieldTypeDefinition.asObject().getFields().stream()
+                                    .flatMap(subFieldDefinition ->
+                                            inputValueTypeDefinition.asInputObject().getInputValueOrEmpty(subFieldDefinition.getName())
+                                                    .flatMap(subInputValue ->
+                                                            Optional.ofNullable(objectValueWithVariables.get(subInputValue.getName()))
+                                                                    .or(() -> Optional.ofNullable(subInputValue.getDefaultValue()))
+                                                                    .flatMap(valueWithVariable -> {
+                                                                                if (!subFieldDefinition.isDenyAll() &&
+                                                                                        (subFieldDefinition.isPermitAll() ||
+                                                                                                enforcer.enforce(
+                                                                                                        USER_PREFIX + current.getId(),
+                                                                                                        Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY),
+                                                                                                        ANY.name() + SPACER + ANY.name(),
+                                                                                                        ANY.name()
+                                                                                                ) ||
+                                                                                                enforcer.enforce(
+                                                                                                        USER_PREFIX + current.getId(),
+                                                                                                        Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY),
+                                                                                                        ANY.name() + SPACER + ANY.name(),
+                                                                                                        WRITE.name()
+                                                                                                ) ||
+                                                                                                enforcer.enforce(
+                                                                                                        USER_PREFIX + current.getId(),
+                                                                                                        Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY),
+                                                                                                        fieldTypeDefinition.getName() + SPACER + ANY.name(),
+                                                                                                        ANY.name()
+                                                                                                ) ||
+                                                                                                enforcer.enforce(
+                                                                                                        USER_PREFIX + current.getId(),
+                                                                                                        Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY),
+                                                                                                        fieldTypeDefinition.getName() + SPACER + ANY.name(),
+                                                                                                        WRITE.name()
+                                                                                                ) ||
+                                                                                                enforcer.enforce(
+                                                                                                        USER_PREFIX + current.getId(),
+                                                                                                        Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY),
+                                                                                                        fieldTypeDefinition.getName() + SPACER + subInputValue.getName(),
+                                                                                                        ANY.name()
+                                                                                                ) ||
+                                                                                                enforcer.enforce(
+                                                                                                        USER_PREFIX + current.getId(),
+                                                                                                        Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY),
+                                                                                                        fieldTypeDefinition.getName() + SPACER + subInputValue.getName(),
+                                                                                                        WRITE.name()
+                                                                                                )
+                                                                                        )
+                                                                                ) {
+                                                                                    if (documentManager.getFieldTypeDefinition(subFieldDefinition).isObject() && !valueWithVariable.isNull()) {
+                                                                                        if (subFieldDefinition.getType().hasList()) {
+                                                                                            return Optional.of(
+                                                                                                    new AbstractMap.SimpleEntry<>(
+                                                                                                            subInputValue.getName(),
+                                                                                                            ValueWithVariable.of(
+                                                                                                                    valueWithVariable.asArray().getValueWithVariables().stream()
+                                                                                                                            .map(item -> enforce(current, subFieldDefinition, subInputValue, item.asObject().getObjectValueWithVariable()))
+                                                                                                                            .collect(Collectors.toList())
+                                                                                                            )
+                                                                                                    )
+                                                                                            );
+                                                                                        } else {
+                                                                                            return Optional.of(
+                                                                                                    new AbstractMap.SimpleEntry<>(
+                                                                                                            subInputValue.getName(),
+                                                                                                            ValueWithVariable.of(
+                                                                                                                    enforce(current, subFieldDefinition, subInputValue, valueWithVariable.asObject().getObjectValueWithVariable())
+                                                                                                            )
+                                                                                                    )
+                                                                                            );
+                                                                                        }
+                                                                                    } else {
+                                                                                        return Optional.of(new AbstractMap.SimpleEntry<>(subInputValue.getName(), valueWithVariable));
+                                                                                    }
+                                                                                }
+                                                                                return Optional.empty();
+                                                                            }
+                                                                    )
+                                                    )
+                                                    .stream()
+                                    ),
+                            Stream.ofNullable(objectValueWithVariables.get(INPUT_VALUE_WHERE_NAME))
+                                    .map(valueWithVariable -> new AbstractMap.SimpleEntry<>(INPUT_VALUE_WHERE_NAME, valueWithVariable))
+                    )
+                    .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+        }
+        return objectValueWithVariables;
     }
 }
