@@ -67,7 +67,8 @@ public class RBACFilter implements OperationBeforeHandler {
                                                 }
                                         )
                                         .map(field -> {
-                                                    if (operation.isMutation() && field.getArguments() != null) {
+                                                    FieldDefinition fieldDefinition = operationType.getField(field.getName());
+                                                    if (!fieldDefinition.isInvokeField() && operation.isMutation() && field.getArguments() != null) {
                                                         return field.setArguments(enforce(currentUser, operationType.getField(field.getName()), field.getArguments().getArguments()));
                                                     }
                                                     return field;
