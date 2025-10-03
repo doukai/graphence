@@ -32,22 +32,10 @@ public @interface RolePermissionRelationOrderBy {
   Sort roleRef() default Sort.ASC;
 
   /**
-   * 角色
-   */
-  @Description("角色")
-  RoleOrderBy1 role() default @RoleOrderBy1;
-
-  /**
    * 权限 引用
    */
   @Description("权限 引用")
   Sort permissionRef() default Sort.ASC;
-
-  /**
-   * 权限
-   */
-  @Description("权限")
-  PermissionOrderBy1 permission() default @PermissionOrderBy1;
 
   /**
    * 已移除
@@ -161,11 +149,7 @@ public @interface RolePermissionRelationOrderBy {
 
   String $roleRef() default "";
 
-  String $role() default "";
-
   String $permissionRef() default "";
-
-  String $permission() default "";
 
   String $isDeprecated() default "";
 

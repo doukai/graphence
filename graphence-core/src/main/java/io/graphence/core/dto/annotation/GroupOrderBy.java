@@ -56,36 +56,6 @@ public @interface GroupOrderBy {
   Sort parentId() default Sort.ASC;
 
   /**
-   * 上级
-   */
-  @Description("上级")
-  GroupOrderBy1 parent() default @GroupOrderBy1;
-
-  /**
-   * 下级
-   */
-  @Description("下级")
-  GroupOrderBy1 subGroups() default @GroupOrderBy1;
-
-  /**
-   * 用户
-   */
-  @Description("用户")
-  UserOrderBy1 users() default @UserOrderBy1;
-
-  /**
-   * 角色
-   */
-  @Description("角色")
-  RoleOrderBy1 roles() default @RoleOrderBy1;
-
-  /**
-   * 租户
-   */
-  @Description("租户")
-  RealmOrderBy realm() default @RealmOrderBy;
-
-  /**
    * 已移除
    */
   @Description("已移除")
@@ -138,48 +108,6 @@ public @interface GroupOrderBy {
    */
   @Description("所属类型")
   Sort __typename() default Sort.ASC;
-
-  /**
-   * 用户 组 关系
-   */
-  @Description("用户 组 关系")
-  GroupUserRelationOrderBy1 groupUserRelation() default @GroupUserRelationOrderBy1;
-
-  /**
-   * 角色 组 关系
-   */
-  @Description("角色 组 关系")
-  GroupRoleRelationOrderBy1 groupRoleRelation() default @GroupRoleRelationOrderBy1;
-
-  /**
-   * 下级 统计字段
-   */
-  @Description("下级 统计字段")
-  GroupOrderBy1 subGroupsAggregate() default @GroupOrderBy1;
-
-  /**
-   * 用户 统计字段
-   */
-  @Description("用户 统计字段")
-  UserOrderBy1 usersAggregate() default @UserOrderBy1;
-
-  /**
-   * 角色 统计字段
-   */
-  @Description("角色 统计字段")
-  RoleOrderBy1 rolesAggregate() default @RoleOrderBy1;
-
-  /**
-   * 用户 组 关系 统计字段
-   */
-  @Description("用户 组 关系 统计字段")
-  GroupUserRelationOrderBy1 groupUserRelationAggregate() default @GroupUserRelationOrderBy1;
-
-  /**
-   * 角色 组 关系 统计字段
-   */
-  @Description("角色 组 关系 统计字段")
-  GroupRoleRelationOrderBy1 groupRoleRelationAggregate() default @GroupRoleRelationOrderBy1;
 
   /**
    * 组 数量
@@ -313,16 +241,6 @@ public @interface GroupOrderBy {
 
   String $parentId() default "";
 
-  String $parent() default "";
-
-  String $subGroups() default "";
-
-  String $users() default "";
-
-  String $roles() default "";
-
-  String $realm() default "";
-
   String $isDeprecated() default "";
 
   String $version() default "";
@@ -340,20 +258,6 @@ public @interface GroupOrderBy {
   String $createGroupId() default "";
 
   String $__typename() default "";
-
-  String $groupUserRelation() default "";
-
-  String $groupRoleRelation() default "";
-
-  String $subGroupsAggregate() default "";
-
-  String $usersAggregate() default "";
-
-  String $rolesAggregate() default "";
-
-  String $groupUserRelationAggregate() default "";
-
-  String $groupRoleRelationAggregate() default "";
 
   String $idCount() default "";
 

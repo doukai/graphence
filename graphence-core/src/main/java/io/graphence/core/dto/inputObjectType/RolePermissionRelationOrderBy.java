@@ -27,22 +27,10 @@ public class RolePermissionRelationOrderBy {
   private Sort roleRef;
 
   /**
-   * 角色
-   */
-  @Description("角色")
-  private RoleOrderBy role;
-
-  /**
    * 权限 引用
    */
   @Description("权限 引用")
   private Sort permissionRef;
-
-  /**
-   * 权限
-   */
-  @Description("权限")
-  private PermissionOrderBy permission;
 
   /**
    * 已移除
@@ -168,28 +156,12 @@ public class RolePermissionRelationOrderBy {
     this.roleRef = roleRef;
   }
 
-  public RoleOrderBy getRole() {
-    return this.role;
-  }
-
-  public void setRole(RoleOrderBy role) {
-    this.role = role;
-  }
-
   public Sort getPermissionRef() {
     return this.permissionRef;
   }
 
   public void setPermissionRef(Sort permissionRef) {
     this.permissionRef = permissionRef;
-  }
-
-  public PermissionOrderBy getPermission() {
-    return this.permission;
-  }
-
-  public void setPermission(PermissionOrderBy permission) {
-    this.permission = permission;
   }
 
   public Sort getIsDeprecated() {

@@ -27,22 +27,10 @@ public class RoleUserRelationOrderBy {
   private Sort userRef;
 
   /**
-   * 用户
-   */
-  @Description("用户")
-  private UserOrderBy user;
-
-  /**
    * 角色 引用
    */
   @Description("角色 引用")
   private Sort roleRef;
-
-  /**
-   * 角色
-   */
-  @Description("角色")
-  private RoleOrderBy role;
 
   /**
    * 已移除
@@ -168,28 +156,12 @@ public class RoleUserRelationOrderBy {
     this.userRef = userRef;
   }
 
-  public UserOrderBy getUser() {
-    return this.user;
-  }
-
-  public void setUser(UserOrderBy user) {
-    this.user = user;
-  }
-
   public Sort getRoleRef() {
     return this.roleRef;
   }
 
   public void setRoleRef(Sort roleRef) {
     this.roleRef = roleRef;
-  }
-
-  public RoleOrderBy getRole() {
-    return this.role;
-  }
-
-  public void setRole(RoleOrderBy role) {
-    this.role = role;
   }
 
   public Sort getIsDeprecated() {

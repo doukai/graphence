@@ -32,22 +32,10 @@ public @interface GroupUserRelationOrderBy {
   Sort userRef() default Sort.ASC;
 
   /**
-   * 用户
-   */
-  @Description("用户")
-  UserOrderBy1 user() default @UserOrderBy1;
-
-  /**
    * 组 引用
    */
   @Description("组 引用")
   Sort groupRef() default Sort.ASC;
-
-  /**
-   * 组
-   */
-  @Description("组")
-  GroupOrderBy1 group() default @GroupOrderBy1;
 
   /**
    * 已移除
@@ -161,11 +149,7 @@ public @interface GroupUserRelationOrderBy {
 
   String $userRef() default "";
 
-  String $user() default "";
-
   String $groupRef() default "";
-
-  String $group() default "";
 
   String $isDeprecated() default "";
 

@@ -56,18 +56,6 @@ public @interface PermissionOrderBy {
   Sort permissionType() default Sort.ASC;
 
   /**
-   * 角色
-   */
-  @Description("角色")
-  RoleOrderBy1 roles() default @RoleOrderBy1;
-
-  /**
-   * 租户
-   */
-  @Description("租户")
-  RealmOrderBy realm() default @RealmOrderBy;
-
-  /**
    * 已移除
    */
   @Description("已移除")
@@ -120,25 +108,6 @@ public @interface PermissionOrderBy {
    */
   @Description("所属类型")
   Sort __typename() default Sort.ASC;
-
-  /**
-   * 角色 权限 关系
-   */
-  @Description("角色 权限 关系")
-  RolePermissionRelationOrderBy1 rolePermissionRelation() default @RolePermissionRelationOrderBy1;
-
-  /**
-   * 角色 统计字段
-   */
-  @Description("角色 统计字段")
-  RoleOrderBy1 rolesAggregate() default @RoleOrderBy1;
-
-  /**
-   * 角色 权限 关系 统计字段
-   */
-  @Description("角色 权限 关系 统计字段")
-  RolePermissionRelationOrderBy1 rolePermissionRelationAggregate(
-      ) default @RolePermissionRelationOrderBy1;
 
   /**
    * 权限 数量
@@ -260,10 +229,6 @@ public @interface PermissionOrderBy {
 
   String $permissionType() default "";
 
-  String $roles() default "";
-
-  String $realm() default "";
-
   String $isDeprecated() default "";
 
   String $version() default "";
@@ -281,12 +246,6 @@ public @interface PermissionOrderBy {
   String $createGroupId() default "";
 
   String $__typename() default "";
-
-  String $rolePermissionRelation() default "";
-
-  String $rolesAggregate() default "";
-
-  String $rolePermissionRelationAggregate() default "";
 
   String $idCount() default "";
 

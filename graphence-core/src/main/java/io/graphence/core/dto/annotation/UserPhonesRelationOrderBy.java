@@ -32,12 +32,6 @@ public @interface UserPhonesRelationOrderBy {
   Sort userRef() default Sort.ASC;
 
   /**
-   * 用户
-   */
-  @Description("用户")
-  UserOrderBy1 user() default @UserOrderBy1;
-
-  /**
    * 手机号 引用
    */
   @Description("手机号 引用")
@@ -154,8 +148,6 @@ public @interface UserPhonesRelationOrderBy {
   String $id() default "";
 
   String $userRef() default "";
-
-  String $user() default "";
 
   String $phonesRef() default "";
 

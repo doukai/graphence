@@ -51,36 +51,6 @@ public class GroupOrderBy {
   private Sort parentId;
 
   /**
-   * 上级
-   */
-  @Description("上级")
-  private GroupOrderBy parent;
-
-  /**
-   * 下级
-   */
-  @Description("下级")
-  private GroupOrderBy subGroups;
-
-  /**
-   * 用户
-   */
-  @Description("用户")
-  private UserOrderBy users;
-
-  /**
-   * 角色
-   */
-  @Description("角色")
-  private RoleOrderBy roles;
-
-  /**
-   * 租户
-   */
-  @Description("租户")
-  private RealmOrderBy realm;
-
-  /**
    * 已移除
    */
   @Description("已移除")
@@ -133,48 +103,6 @@ public class GroupOrderBy {
    */
   @Description("所属类型")
   private Sort __typename;
-
-  /**
-   * 用户 组 关系
-   */
-  @Description("用户 组 关系")
-  private GroupUserRelationOrderBy groupUserRelation;
-
-  /**
-   * 角色 组 关系
-   */
-  @Description("角色 组 关系")
-  private GroupRoleRelationOrderBy groupRoleRelation;
-
-  /**
-   * 下级 统计字段
-   */
-  @Description("下级 统计字段")
-  private GroupOrderBy subGroupsAggregate;
-
-  /**
-   * 用户 统计字段
-   */
-  @Description("用户 统计字段")
-  private UserOrderBy usersAggregate;
-
-  /**
-   * 角色 统计字段
-   */
-  @Description("角色 统计字段")
-  private RoleOrderBy rolesAggregate;
-
-  /**
-   * 用户 组 关系 统计字段
-   */
-  @Description("用户 组 关系 统计字段")
-  private GroupUserRelationOrderBy groupUserRelationAggregate;
-
-  /**
-   * 角色 组 关系 统计字段
-   */
-  @Description("角色 组 关系 统计字段")
-  private GroupRoleRelationOrderBy groupRoleRelationAggregate;
 
   /**
    * 组 数量
@@ -344,46 +272,6 @@ public class GroupOrderBy {
     this.parentId = parentId;
   }
 
-  public GroupOrderBy getParent() {
-    return this.parent;
-  }
-
-  public void setParent(GroupOrderBy parent) {
-    this.parent = parent;
-  }
-
-  public GroupOrderBy getSubGroups() {
-    return this.subGroups;
-  }
-
-  public void setSubGroups(GroupOrderBy subGroups) {
-    this.subGroups = subGroups;
-  }
-
-  public UserOrderBy getUsers() {
-    return this.users;
-  }
-
-  public void setUsers(UserOrderBy users) {
-    this.users = users;
-  }
-
-  public RoleOrderBy getRoles() {
-    return this.roles;
-  }
-
-  public void setRoles(RoleOrderBy roles) {
-    this.roles = roles;
-  }
-
-  public RealmOrderBy getRealm() {
-    return this.realm;
-  }
-
-  public void setRealm(RealmOrderBy realm) {
-    this.realm = realm;
-  }
-
   public Sort getIsDeprecated() {
     return this.isDeprecated;
   }
@@ -454,62 +342,6 @@ public class GroupOrderBy {
 
   public void set__typename(Sort __typename) {
     this.__typename = __typename;
-  }
-
-  public GroupUserRelationOrderBy getGroupUserRelation() {
-    return this.groupUserRelation;
-  }
-
-  public void setGroupUserRelation(GroupUserRelationOrderBy groupUserRelation) {
-    this.groupUserRelation = groupUserRelation;
-  }
-
-  public GroupRoleRelationOrderBy getGroupRoleRelation() {
-    return this.groupRoleRelation;
-  }
-
-  public void setGroupRoleRelation(GroupRoleRelationOrderBy groupRoleRelation) {
-    this.groupRoleRelation = groupRoleRelation;
-  }
-
-  public GroupOrderBy getSubGroupsAggregate() {
-    return this.subGroupsAggregate;
-  }
-
-  public void setSubGroupsAggregate(GroupOrderBy subGroupsAggregate) {
-    this.subGroupsAggregate = subGroupsAggregate;
-  }
-
-  public UserOrderBy getUsersAggregate() {
-    return this.usersAggregate;
-  }
-
-  public void setUsersAggregate(UserOrderBy usersAggregate) {
-    this.usersAggregate = usersAggregate;
-  }
-
-  public RoleOrderBy getRolesAggregate() {
-    return this.rolesAggregate;
-  }
-
-  public void setRolesAggregate(RoleOrderBy rolesAggregate) {
-    this.rolesAggregate = rolesAggregate;
-  }
-
-  public GroupUserRelationOrderBy getGroupUserRelationAggregate() {
-    return this.groupUserRelationAggregate;
-  }
-
-  public void setGroupUserRelationAggregate(GroupUserRelationOrderBy groupUserRelationAggregate) {
-    this.groupUserRelationAggregate = groupUserRelationAggregate;
-  }
-
-  public GroupRoleRelationOrderBy getGroupRoleRelationAggregate() {
-    return this.groupRoleRelationAggregate;
-  }
-
-  public void setGroupRoleRelationAggregate(GroupRoleRelationOrderBy groupRoleRelationAggregate) {
-    this.groupRoleRelationAggregate = groupRoleRelationAggregate;
   }
 
   public Sort getIdCount() {

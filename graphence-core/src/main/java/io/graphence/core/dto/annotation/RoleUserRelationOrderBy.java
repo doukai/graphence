@@ -32,22 +32,10 @@ public @interface RoleUserRelationOrderBy {
   Sort userRef() default Sort.ASC;
 
   /**
-   * 用户
-   */
-  @Description("用户")
-  UserOrderBy1 user() default @UserOrderBy1;
-
-  /**
    * 角色 引用
    */
   @Description("角色 引用")
   Sort roleRef() default Sort.ASC;
-
-  /**
-   * 角色
-   */
-  @Description("角色")
-  RoleOrderBy1 role() default @RoleOrderBy1;
 
   /**
    * 已移除
@@ -161,11 +149,7 @@ public @interface RoleUserRelationOrderBy {
 
   String $userRef() default "";
 
-  String $user() default "";
-
   String $roleRef() default "";
-
-  String $role() default "";
 
   String $isDeprecated() default "";
 

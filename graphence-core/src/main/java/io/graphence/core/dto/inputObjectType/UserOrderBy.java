@@ -75,24 +75,6 @@ public class UserOrderBy {
   private Sort disable;
 
   /**
-   * 组
-   */
-  @Description("组")
-  private GroupOrderBy groups;
-
-  /**
-   * 角色
-   */
-  @Description("角色")
-  private RoleOrderBy roles;
-
-  /**
-   * 租户
-   */
-  @Description("租户")
-  private RealmOrderBy realm;
-
-  /**
    * 已移除
    */
   @Description("已移除")
@@ -145,54 +127,6 @@ public class UserOrderBy {
    */
   @Description("所属类型")
   private Sort __typename;
-
-  /**
-   * 用户 手机号 关系
-   */
-  @Description("用户 手机号 关系")
-  private UserPhonesRelationOrderBy userPhonesRelation;
-
-  /**
-   * 用户 组 关系
-   */
-  @Description("用户 组 关系")
-  private GroupUserRelationOrderBy groupUserRelation;
-
-  /**
-   * 用户 角色 关系
-   */
-  @Description("用户 角色 关系")
-  private RoleUserRelationOrderBy roleUserRelation;
-
-  /**
-   * 组 统计字段
-   */
-  @Description("组 统计字段")
-  private GroupOrderBy groupsAggregate;
-
-  /**
-   * 角色 统计字段
-   */
-  @Description("角色 统计字段")
-  private RoleOrderBy rolesAggregate;
-
-  /**
-   * 用户 手机号 关系 统计字段
-   */
-  @Description("用户 手机号 关系 统计字段")
-  private UserPhonesRelationOrderBy userPhonesRelationAggregate;
-
-  /**
-   * 用户 组 关系 统计字段
-   */
-  @Description("用户 组 关系 统计字段")
-  private GroupUserRelationOrderBy groupUserRelationAggregate;
-
-  /**
-   * 用户 角色 关系 统计字段
-   */
-  @Description("用户 角色 关系 统计字段")
-  private RoleUserRelationOrderBy roleUserRelationAggregate;
 
   /**
    * 用户 数量
@@ -418,30 +352,6 @@ public class UserOrderBy {
     this.disable = disable;
   }
 
-  public GroupOrderBy getGroups() {
-    return this.groups;
-  }
-
-  public void setGroups(GroupOrderBy groups) {
-    this.groups = groups;
-  }
-
-  public RoleOrderBy getRoles() {
-    return this.roles;
-  }
-
-  public void setRoles(RoleOrderBy roles) {
-    this.roles = roles;
-  }
-
-  public RealmOrderBy getRealm() {
-    return this.realm;
-  }
-
-  public void setRealm(RealmOrderBy realm) {
-    this.realm = realm;
-  }
-
   public Sort getIsDeprecated() {
     return this.isDeprecated;
   }
@@ -512,71 +422,6 @@ public class UserOrderBy {
 
   public void set__typename(Sort __typename) {
     this.__typename = __typename;
-  }
-
-  public UserPhonesRelationOrderBy getUserPhonesRelation() {
-    return this.userPhonesRelation;
-  }
-
-  public void setUserPhonesRelation(UserPhonesRelationOrderBy userPhonesRelation) {
-    this.userPhonesRelation = userPhonesRelation;
-  }
-
-  public GroupUserRelationOrderBy getGroupUserRelation() {
-    return this.groupUserRelation;
-  }
-
-  public void setGroupUserRelation(GroupUserRelationOrderBy groupUserRelation) {
-    this.groupUserRelation = groupUserRelation;
-  }
-
-  public RoleUserRelationOrderBy getRoleUserRelation() {
-    return this.roleUserRelation;
-  }
-
-  public void setRoleUserRelation(RoleUserRelationOrderBy roleUserRelation) {
-    this.roleUserRelation = roleUserRelation;
-  }
-
-  public GroupOrderBy getGroupsAggregate() {
-    return this.groupsAggregate;
-  }
-
-  public void setGroupsAggregate(GroupOrderBy groupsAggregate) {
-    this.groupsAggregate = groupsAggregate;
-  }
-
-  public RoleOrderBy getRolesAggregate() {
-    return this.rolesAggregate;
-  }
-
-  public void setRolesAggregate(RoleOrderBy rolesAggregate) {
-    this.rolesAggregate = rolesAggregate;
-  }
-
-  public UserPhonesRelationOrderBy getUserPhonesRelationAggregate() {
-    return this.userPhonesRelationAggregate;
-  }
-
-  public void setUserPhonesRelationAggregate(
-      UserPhonesRelationOrderBy userPhonesRelationAggregate) {
-    this.userPhonesRelationAggregate = userPhonesRelationAggregate;
-  }
-
-  public GroupUserRelationOrderBy getGroupUserRelationAggregate() {
-    return this.groupUserRelationAggregate;
-  }
-
-  public void setGroupUserRelationAggregate(GroupUserRelationOrderBy groupUserRelationAggregate) {
-    this.groupUserRelationAggregate = groupUserRelationAggregate;
-  }
-
-  public RoleUserRelationOrderBy getRoleUserRelationAggregate() {
-    return this.roleUserRelationAggregate;
-  }
-
-  public void setRoleUserRelationAggregate(RoleUserRelationOrderBy roleUserRelationAggregate) {
-    this.roleUserRelationAggregate = roleUserRelationAggregate;
   }
 
   public Sort getIdCount() {

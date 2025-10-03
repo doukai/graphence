@@ -27,22 +27,10 @@ public class GroupRoleRelationOrderBy {
   private Sort roleRef;
 
   /**
-   * 角色
-   */
-  @Description("角色")
-  private RoleOrderBy role;
-
-  /**
    * 组 引用
    */
   @Description("组 引用")
   private Sort groupRef;
-
-  /**
-   * 组
-   */
-  @Description("组")
-  private GroupOrderBy group;
 
   /**
    * 已移除
@@ -168,28 +156,12 @@ public class GroupRoleRelationOrderBy {
     this.roleRef = roleRef;
   }
 
-  public RoleOrderBy getRole() {
-    return this.role;
-  }
-
-  public void setRole(RoleOrderBy role) {
-    this.role = role;
-  }
-
   public Sort getGroupRef() {
     return this.groupRef;
   }
 
   public void setGroupRef(Sort groupRef) {
     this.groupRef = groupRef;
-  }
-
-  public GroupOrderBy getGroup() {
-    return this.group;
-  }
-
-  public void setGroup(GroupOrderBy group) {
-    this.group = group;
   }
 
   public Sort getIsDeprecated() {

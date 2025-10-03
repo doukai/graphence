@@ -80,24 +80,6 @@ public @interface UserOrderBy {
   Sort disable() default Sort.ASC;
 
   /**
-   * 组
-   */
-  @Description("组")
-  GroupOrderBy1 groups() default @GroupOrderBy1;
-
-  /**
-   * 角色
-   */
-  @Description("角色")
-  RoleOrderBy1 roles() default @RoleOrderBy1;
-
-  /**
-   * 租户
-   */
-  @Description("租户")
-  RealmOrderBy realm() default @RealmOrderBy;
-
-  /**
    * 已移除
    */
   @Description("已移除")
@@ -150,54 +132,6 @@ public @interface UserOrderBy {
    */
   @Description("所属类型")
   Sort __typename() default Sort.ASC;
-
-  /**
-   * 用户 手机号 关系
-   */
-  @Description("用户 手机号 关系")
-  UserPhonesRelationOrderBy1 userPhonesRelation() default @UserPhonesRelationOrderBy1;
-
-  /**
-   * 用户 组 关系
-   */
-  @Description("用户 组 关系")
-  GroupUserRelationOrderBy1 groupUserRelation() default @GroupUserRelationOrderBy1;
-
-  /**
-   * 用户 角色 关系
-   */
-  @Description("用户 角色 关系")
-  RoleUserRelationOrderBy1 roleUserRelation() default @RoleUserRelationOrderBy1;
-
-  /**
-   * 组 统计字段
-   */
-  @Description("组 统计字段")
-  GroupOrderBy1 groupsAggregate() default @GroupOrderBy1;
-
-  /**
-   * 角色 统计字段
-   */
-  @Description("角色 统计字段")
-  RoleOrderBy1 rolesAggregate() default @RoleOrderBy1;
-
-  /**
-   * 用户 手机号 关系 统计字段
-   */
-  @Description("用户 手机号 关系 统计字段")
-  UserPhonesRelationOrderBy1 userPhonesRelationAggregate() default @UserPhonesRelationOrderBy1;
-
-  /**
-   * 用户 组 关系 统计字段
-   */
-  @Description("用户 组 关系 统计字段")
-  GroupUserRelationOrderBy1 groupUserRelationAggregate() default @GroupUserRelationOrderBy1;
-
-  /**
-   * 用户 角色 关系 统计字段
-   */
-  @Description("用户 角色 关系 统计字段")
-  RoleUserRelationOrderBy1 roleUserRelationAggregate() default @RoleUserRelationOrderBy1;
 
   /**
    * 用户 数量
@@ -363,12 +297,6 @@ public @interface UserOrderBy {
 
   String $disable() default "";
 
-  String $groups() default "";
-
-  String $roles() default "";
-
-  String $realm() default "";
-
   String $isDeprecated() default "";
 
   String $version() default "";
@@ -386,22 +314,6 @@ public @interface UserOrderBy {
   String $createGroupId() default "";
 
   String $__typename() default "";
-
-  String $userPhonesRelation() default "";
-
-  String $groupUserRelation() default "";
-
-  String $roleUserRelation() default "";
-
-  String $groupsAggregate() default "";
-
-  String $rolesAggregate() default "";
-
-  String $userPhonesRelationAggregate() default "";
-
-  String $groupUserRelationAggregate() default "";
-
-  String $roleUserRelationAggregate() default "";
 
   String $idCount() default "";
 

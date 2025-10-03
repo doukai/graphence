@@ -32,22 +32,10 @@ public @interface RoleCompositeRelationOrderBy {
   Sort roleRef() default Sort.ASC;
 
   /**
-   * 角色
-   */
-  @Description("角色")
-  RoleOrderBy1 role() default @RoleOrderBy1;
-
-  /**
    * 角色 引用
    */
   @Description("角色 引用")
   Sort compositeRef() default Sort.ASC;
-
-  /**
-   * 角色
-   */
-  @Description("角色")
-  RoleOrderBy1 composite() default @RoleOrderBy1;
 
   /**
    * 已移除
@@ -161,11 +149,7 @@ public @interface RoleCompositeRelationOrderBy {
 
   String $roleRef() default "";
 
-  String $role() default "";
-
   String $compositeRef() default "";
-
-  String $composite() default "";
 
   String $isDeprecated() default "";
 

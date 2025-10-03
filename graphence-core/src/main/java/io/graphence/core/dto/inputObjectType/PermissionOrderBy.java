@@ -51,18 +51,6 @@ public class PermissionOrderBy {
   private Sort permissionType;
 
   /**
-   * 角色
-   */
-  @Description("角色")
-  private RoleOrderBy roles;
-
-  /**
-   * 租户
-   */
-  @Description("租户")
-  private RealmOrderBy realm;
-
-  /**
    * 已移除
    */
   @Description("已移除")
@@ -115,24 +103,6 @@ public class PermissionOrderBy {
    */
   @Description("所属类型")
   private Sort __typename;
-
-  /**
-   * 角色 权限 关系
-   */
-  @Description("角色 权限 关系")
-  private RolePermissionRelationOrderBy rolePermissionRelation;
-
-  /**
-   * 角色 统计字段
-   */
-  @Description("角色 统计字段")
-  private RoleOrderBy rolesAggregate;
-
-  /**
-   * 角色 权限 关系 统计字段
-   */
-  @Description("角色 权限 关系 统计字段")
-  private RolePermissionRelationOrderBy rolePermissionRelationAggregate;
 
   /**
    * 权限 数量
@@ -290,22 +260,6 @@ public class PermissionOrderBy {
     this.permissionType = permissionType;
   }
 
-  public RoleOrderBy getRoles() {
-    return this.roles;
-  }
-
-  public void setRoles(RoleOrderBy roles) {
-    this.roles = roles;
-  }
-
-  public RealmOrderBy getRealm() {
-    return this.realm;
-  }
-
-  public void setRealm(RealmOrderBy realm) {
-    this.realm = realm;
-  }
-
   public Sort getIsDeprecated() {
     return this.isDeprecated;
   }
@@ -376,31 +330,6 @@ public class PermissionOrderBy {
 
   public void set__typename(Sort __typename) {
     this.__typename = __typename;
-  }
-
-  public RolePermissionRelationOrderBy getRolePermissionRelation() {
-    return this.rolePermissionRelation;
-  }
-
-  public void setRolePermissionRelation(RolePermissionRelationOrderBy rolePermissionRelation) {
-    this.rolePermissionRelation = rolePermissionRelation;
-  }
-
-  public RoleOrderBy getRolesAggregate() {
-    return this.rolesAggregate;
-  }
-
-  public void setRolesAggregate(RoleOrderBy rolesAggregate) {
-    this.rolesAggregate = rolesAggregate;
-  }
-
-  public RolePermissionRelationOrderBy getRolePermissionRelationAggregate() {
-    return this.rolePermissionRelationAggregate;
-  }
-
-  public void setRolePermissionRelationAggregate(
-      RolePermissionRelationOrderBy rolePermissionRelationAggregate) {
-    this.rolePermissionRelationAggregate = rolePermissionRelationAggregate;
   }
 
   public Sort getIdCount() {

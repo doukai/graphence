@@ -27,22 +27,10 @@ public class RoleCompositeRelationOrderBy {
   private Sort roleRef;
 
   /**
-   * 角色
-   */
-  @Description("角色")
-  private RoleOrderBy role;
-
-  /**
    * 角色 引用
    */
   @Description("角色 引用")
   private Sort compositeRef;
-
-  /**
-   * 角色
-   */
-  @Description("角色")
-  private RoleOrderBy composite;
 
   /**
    * 已移除
@@ -168,28 +156,12 @@ public class RoleCompositeRelationOrderBy {
     this.roleRef = roleRef;
   }
 
-  public RoleOrderBy getRole() {
-    return this.role;
-  }
-
-  public void setRole(RoleOrderBy role) {
-    this.role = role;
-  }
-
   public Sort getCompositeRef() {
     return this.compositeRef;
   }
 
   public void setCompositeRef(Sort compositeRef) {
     this.compositeRef = compositeRef;
-  }
-
-  public RoleOrderBy getComposite() {
-    return this.composite;
-  }
-
-  public void setComposite(RoleOrderBy composite) {
-    this.composite = composite;
   }
 
   public Sort getIsDeprecated() {

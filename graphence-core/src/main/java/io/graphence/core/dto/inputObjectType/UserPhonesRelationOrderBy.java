@@ -27,12 +27,6 @@ public class UserPhonesRelationOrderBy {
   private Sort userRef;
 
   /**
-   * 用户
-   */
-  @Description("用户")
-  private UserOrderBy user;
-
-  /**
    * 手机号 引用
    */
   @Description("手机号 引用")
@@ -160,14 +154,6 @@ public class UserPhonesRelationOrderBy {
 
   public void setUserRef(Sort userRef) {
     this.userRef = userRef;
-  }
-
-  public UserOrderBy getUser() {
-    return this.user;
-  }
-
-  public void setUser(UserOrderBy user) {
-    this.user = user;
   }
 
   public Sort getPhonesRef() {

@@ -33,36 +33,6 @@ public class RoleOrderBy {
   private Sort description;
 
   /**
-   * 用户
-   */
-  @Description("用户")
-  private UserOrderBy users;
-
-  /**
-   * 组
-   */
-  @Description("组")
-  private GroupOrderBy groups;
-
-  /**
-   * 组合
-   */
-  @Description("组合")
-  private RoleOrderBy composites;
-
-  /**
-   * 权限
-   */
-  @Description("权限")
-  private PermissionOrderBy permissions;
-
-  /**
-   * 租户
-   */
-  @Description("租户")
-  private RealmOrderBy realm;
-
-  /**
    * 已移除
    */
   @Description("已移除")
@@ -115,78 +85,6 @@ public class RoleOrderBy {
    */
   @Description("所属类型")
   private Sort __typename;
-
-  /**
-   * 用户 角色 关系
-   */
-  @Description("用户 角色 关系")
-  private RoleUserRelationOrderBy roleUserRelation;
-
-  /**
-   * 角色 组 关系
-   */
-  @Description("角色 组 关系")
-  private GroupRoleRelationOrderBy groupRoleRelation;
-
-  /**
-   * 角色 角色 关系
-   */
-  @Description("角色 角色 关系")
-  private RoleCompositeRelationOrderBy roleCompositeRelation;
-
-  /**
-   * 角色 权限 关系
-   */
-  @Description("角色 权限 关系")
-  private RolePermissionRelationOrderBy rolePermissionRelation;
-
-  /**
-   * 用户 统计字段
-   */
-  @Description("用户 统计字段")
-  private UserOrderBy usersAggregate;
-
-  /**
-   * 组 统计字段
-   */
-  @Description("组 统计字段")
-  private GroupOrderBy groupsAggregate;
-
-  /**
-   * 组合 统计字段
-   */
-  @Description("组合 统计字段")
-  private RoleOrderBy compositesAggregate;
-
-  /**
-   * 权限 统计字段
-   */
-  @Description("权限 统计字段")
-  private PermissionOrderBy permissionsAggregate;
-
-  /**
-   * 用户 角色 关系 统计字段
-   */
-  @Description("用户 角色 关系 统计字段")
-  private RoleUserRelationOrderBy roleUserRelationAggregate;
-
-  /**
-   * 角色 组 关系 统计字段
-   */
-  @Description("角色 组 关系 统计字段")
-  private GroupRoleRelationOrderBy groupRoleRelationAggregate;
-
-  /**
-   * 角色 角色 关系 统计字段
-   */
-  @Description("角色 角色 关系 统计字段")
-  private RoleCompositeRelationOrderBy roleCompositeRelationAggregate;
-
-  /**
-   * 角色 权限 关系 统计字段
-   */
-  @Description("角色 权限 关系 统计字段")
-  private RolePermissionRelationOrderBy rolePermissionRelationAggregate;
 
   /**
    * 角色 数量
@@ -266,46 +164,6 @@ public class RoleOrderBy {
     this.description = description;
   }
 
-  public UserOrderBy getUsers() {
-    return this.users;
-  }
-
-  public void setUsers(UserOrderBy users) {
-    this.users = users;
-  }
-
-  public GroupOrderBy getGroups() {
-    return this.groups;
-  }
-
-  public void setGroups(GroupOrderBy groups) {
-    this.groups = groups;
-  }
-
-  public RoleOrderBy getComposites() {
-    return this.composites;
-  }
-
-  public void setComposites(RoleOrderBy composites) {
-    this.composites = composites;
-  }
-
-  public PermissionOrderBy getPermissions() {
-    return this.permissions;
-  }
-
-  public void setPermissions(PermissionOrderBy permissions) {
-    this.permissions = permissions;
-  }
-
-  public RealmOrderBy getRealm() {
-    return this.realm;
-  }
-
-  public void setRealm(RealmOrderBy realm) {
-    this.realm = realm;
-  }
-
   public Sort getIsDeprecated() {
     return this.isDeprecated;
   }
@@ -376,104 +234,6 @@ public class RoleOrderBy {
 
   public void set__typename(Sort __typename) {
     this.__typename = __typename;
-  }
-
-  public RoleUserRelationOrderBy getRoleUserRelation() {
-    return this.roleUserRelation;
-  }
-
-  public void setRoleUserRelation(RoleUserRelationOrderBy roleUserRelation) {
-    this.roleUserRelation = roleUserRelation;
-  }
-
-  public GroupRoleRelationOrderBy getGroupRoleRelation() {
-    return this.groupRoleRelation;
-  }
-
-  public void setGroupRoleRelation(GroupRoleRelationOrderBy groupRoleRelation) {
-    this.groupRoleRelation = groupRoleRelation;
-  }
-
-  public RoleCompositeRelationOrderBy getRoleCompositeRelation() {
-    return this.roleCompositeRelation;
-  }
-
-  public void setRoleCompositeRelation(RoleCompositeRelationOrderBy roleCompositeRelation) {
-    this.roleCompositeRelation = roleCompositeRelation;
-  }
-
-  public RolePermissionRelationOrderBy getRolePermissionRelation() {
-    return this.rolePermissionRelation;
-  }
-
-  public void setRolePermissionRelation(RolePermissionRelationOrderBy rolePermissionRelation) {
-    this.rolePermissionRelation = rolePermissionRelation;
-  }
-
-  public UserOrderBy getUsersAggregate() {
-    return this.usersAggregate;
-  }
-
-  public void setUsersAggregate(UserOrderBy usersAggregate) {
-    this.usersAggregate = usersAggregate;
-  }
-
-  public GroupOrderBy getGroupsAggregate() {
-    return this.groupsAggregate;
-  }
-
-  public void setGroupsAggregate(GroupOrderBy groupsAggregate) {
-    this.groupsAggregate = groupsAggregate;
-  }
-
-  public RoleOrderBy getCompositesAggregate() {
-    return this.compositesAggregate;
-  }
-
-  public void setCompositesAggregate(RoleOrderBy compositesAggregate) {
-    this.compositesAggregate = compositesAggregate;
-  }
-
-  public PermissionOrderBy getPermissionsAggregate() {
-    return this.permissionsAggregate;
-  }
-
-  public void setPermissionsAggregate(PermissionOrderBy permissionsAggregate) {
-    this.permissionsAggregate = permissionsAggregate;
-  }
-
-  public RoleUserRelationOrderBy getRoleUserRelationAggregate() {
-    return this.roleUserRelationAggregate;
-  }
-
-  public void setRoleUserRelationAggregate(RoleUserRelationOrderBy roleUserRelationAggregate) {
-    this.roleUserRelationAggregate = roleUserRelationAggregate;
-  }
-
-  public GroupRoleRelationOrderBy getGroupRoleRelationAggregate() {
-    return this.groupRoleRelationAggregate;
-  }
-
-  public void setGroupRoleRelationAggregate(GroupRoleRelationOrderBy groupRoleRelationAggregate) {
-    this.groupRoleRelationAggregate = groupRoleRelationAggregate;
-  }
-
-  public RoleCompositeRelationOrderBy getRoleCompositeRelationAggregate() {
-    return this.roleCompositeRelationAggregate;
-  }
-
-  public void setRoleCompositeRelationAggregate(
-      RoleCompositeRelationOrderBy roleCompositeRelationAggregate) {
-    this.roleCompositeRelationAggregate = roleCompositeRelationAggregate;
-  }
-
-  public RolePermissionRelationOrderBy getRolePermissionRelationAggregate() {
-    return this.rolePermissionRelationAggregate;
-  }
-
-  public void setRolePermissionRelationAggregate(
-      RolePermissionRelationOrderBy rolePermissionRelationAggregate) {
-    this.rolePermissionRelationAggregate = rolePermissionRelationAggregate;
   }
 
   public Sort getIdCount() {

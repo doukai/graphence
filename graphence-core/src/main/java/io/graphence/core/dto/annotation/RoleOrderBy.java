@@ -38,36 +38,6 @@ public @interface RoleOrderBy {
   Sort description() default Sort.ASC;
 
   /**
-   * 用户
-   */
-  @Description("用户")
-  UserOrderBy1 users() default @UserOrderBy1;
-
-  /**
-   * 组
-   */
-  @Description("组")
-  GroupOrderBy1 groups() default @GroupOrderBy1;
-
-  /**
-   * 组合
-   */
-  @Description("组合")
-  RoleOrderBy1 composites() default @RoleOrderBy1;
-
-  /**
-   * 权限
-   */
-  @Description("权限")
-  PermissionOrderBy1 permissions() default @PermissionOrderBy1;
-
-  /**
-   * 租户
-   */
-  @Description("租户")
-  RealmOrderBy realm() default @RealmOrderBy;
-
-  /**
    * 已移除
    */
   @Description("已移除")
@@ -120,80 +90,6 @@ public @interface RoleOrderBy {
    */
   @Description("所属类型")
   Sort __typename() default Sort.ASC;
-
-  /**
-   * 用户 角色 关系
-   */
-  @Description("用户 角色 关系")
-  RoleUserRelationOrderBy1 roleUserRelation() default @RoleUserRelationOrderBy1;
-
-  /**
-   * 角色 组 关系
-   */
-  @Description("角色 组 关系")
-  GroupRoleRelationOrderBy1 groupRoleRelation() default @GroupRoleRelationOrderBy1;
-
-  /**
-   * 角色 角色 关系
-   */
-  @Description("角色 角色 关系")
-  RoleCompositeRelationOrderBy1 roleCompositeRelation() default @RoleCompositeRelationOrderBy1;
-
-  /**
-   * 角色 权限 关系
-   */
-  @Description("角色 权限 关系")
-  RolePermissionRelationOrderBy1 rolePermissionRelation() default @RolePermissionRelationOrderBy1;
-
-  /**
-   * 用户 统计字段
-   */
-  @Description("用户 统计字段")
-  UserOrderBy1 usersAggregate() default @UserOrderBy1;
-
-  /**
-   * 组 统计字段
-   */
-  @Description("组 统计字段")
-  GroupOrderBy1 groupsAggregate() default @GroupOrderBy1;
-
-  /**
-   * 组合 统计字段
-   */
-  @Description("组合 统计字段")
-  RoleOrderBy1 compositesAggregate() default @RoleOrderBy1;
-
-  /**
-   * 权限 统计字段
-   */
-  @Description("权限 统计字段")
-  PermissionOrderBy1 permissionsAggregate() default @PermissionOrderBy1;
-
-  /**
-   * 用户 角色 关系 统计字段
-   */
-  @Description("用户 角色 关系 统计字段")
-  RoleUserRelationOrderBy1 roleUserRelationAggregate() default @RoleUserRelationOrderBy1;
-
-  /**
-   * 角色 组 关系 统计字段
-   */
-  @Description("角色 组 关系 统计字段")
-  GroupRoleRelationOrderBy1 groupRoleRelationAggregate() default @GroupRoleRelationOrderBy1;
-
-  /**
-   * 角色 角色 关系 统计字段
-   */
-  @Description("角色 角色 关系 统计字段")
-  RoleCompositeRelationOrderBy1 roleCompositeRelationAggregate(
-      ) default @RoleCompositeRelationOrderBy1;
-
-  /**
-   * 角色 权限 关系 统计字段
-   */
-  @Description("角色 权限 关系 统计字段")
-  RolePermissionRelationOrderBy1 rolePermissionRelationAggregate(
-      ) default @RolePermissionRelationOrderBy1;
 
   /**
    * 角色 数量
@@ -255,16 +151,6 @@ public @interface RoleOrderBy {
 
   String $description() default "";
 
-  String $users() default "";
-
-  String $groups() default "";
-
-  String $composites() default "";
-
-  String $permissions() default "";
-
-  String $realm() default "";
-
   String $isDeprecated() default "";
 
   String $version() default "";
@@ -282,30 +168,6 @@ public @interface RoleOrderBy {
   String $createGroupId() default "";
 
   String $__typename() default "";
-
-  String $roleUserRelation() default "";
-
-  String $groupRoleRelation() default "";
-
-  String $roleCompositeRelation() default "";
-
-  String $rolePermissionRelation() default "";
-
-  String $usersAggregate() default "";
-
-  String $groupsAggregate() default "";
-
-  String $compositesAggregate() default "";
-
-  String $permissionsAggregate() default "";
-
-  String $roleUserRelationAggregate() default "";
-
-  String $groupRoleRelationAggregate() default "";
-
-  String $roleCompositeRelationAggregate() default "";
-
-  String $rolePermissionRelationAggregate() default "";
 
   String $idCount() default "";
 

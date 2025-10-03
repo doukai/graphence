@@ -27,22 +27,10 @@ public class GroupUserRelationOrderBy {
   private Sort userRef;
 
   /**
-   * 用户
-   */
-  @Description("用户")
-  private UserOrderBy user;
-
-  /**
    * 组 引用
    */
   @Description("组 引用")
   private Sort groupRef;
-
-  /**
-   * 组
-   */
-  @Description("组")
-  private GroupOrderBy group;
 
   /**
    * 已移除
@@ -168,28 +156,12 @@ public class GroupUserRelationOrderBy {
     this.userRef = userRef;
   }
 
-  public UserOrderBy getUser() {
-    return this.user;
-  }
-
-  public void setUser(UserOrderBy user) {
-    this.user = user;
-  }
-
   public Sort getGroupRef() {
     return this.groupRef;
   }
 
   public void setGroupRef(Sort groupRef) {
     this.groupRef = groupRef;
-  }
-
-  public GroupOrderBy getGroup() {
-    return this.group;
-  }
-
-  public void setGroup(GroupOrderBy group) {
-    this.group = group;
   }
 
   public Sort getIsDeprecated() {
