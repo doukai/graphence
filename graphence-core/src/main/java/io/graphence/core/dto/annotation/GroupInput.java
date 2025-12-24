@@ -10,13 +10,13 @@ import java.lang.annotation.Target;
 import org.eclipse.microprofile.graphql.Description;
 
 /**
- * 组 变更内容
+ * Mutation Input for 组
  */
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
 @Documented
 @Retention(RetentionPolicy.SOURCE)
 @Target(ElementType.METHOD)
-@Description("组 变更内容")
+@Description("Mutation Input for 组")
 public @interface GroupInput {
   /**
    * ID
@@ -85,75 +85,75 @@ public @interface GroupInput {
   RealmInput1 realm() default @RealmInput1;
 
   /**
-   * 已移除
+   * Is Deprecated
    */
-  @Description("已移除")
+  @Description("Is Deprecated")
   boolean isDeprecated() default false;
 
   /**
-   * 版本
+   * Version
    */
-  @Description("版本")
+  @Description("Version")
   int version() default 0;
 
   /**
-   * 域
+   * Realm ID
    */
-  @Description("域")
+  @Description("Realm ID")
   int realmId() default 0;
 
   /**
-   * 创建者
+   * Create User ID
    */
-  @Description("创建者")
+  @Description("Create User ID")
   String createUserId() default "";
 
   /**
-   * 创建时间
+   * Create Time
    */
-  @Description("创建时间")
+  @Description("Create Time")
   String createTime() default "";
 
   /**
-   * 更新者
+   * Update User ID
    */
-  @Description("更新者")
+  @Description("Update User ID")
   String updateUserId() default "";
 
   /**
-   * 更新时间
+   * Update Time
    */
-  @Description("更新时间")
+  @Description("Update Time")
   String updateTime() default "";
 
   /**
-   * 创建组
+   * Create Group ID
    */
-  @Description("创建组")
+  @Description("Create Group ID")
   String createGroupId() default "";
 
   /**
-   * 所属类型
+   * Type Name
    */
-  @Description("所属类型")
+  @Description("Type Name")
   String __typename() default "Group";
 
   /**
-   * 用户 组 关系
+   * Relationship Object between 用户 and 组
    */
-  @Description("用户 组 关系")
+  @Description("Relationship Object between 用户 and 组")
   GroupUserRelationInput1[] groupUserRelation() default {};
 
   /**
-   * 角色 组 关系
+   * Relationship Object between 角色 and 组
    */
-  @Description("角色 组 关系")
+  @Description("Relationship Object between 角色 and 组")
   GroupRoleRelationInput1[] groupRoleRelation() default {};
 
   /**
-   * 匹配条件
+   * Where
    */
-  @Description("匹配条件")
+  @Description("Where")
   GroupExpression1 where() default @GroupExpression1;
 
   String $id() default "";

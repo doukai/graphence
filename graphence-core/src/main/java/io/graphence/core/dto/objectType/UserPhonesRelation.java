@@ -14,12 +14,12 @@ import org.eclipse.microprofile.graphql.Id;
 import org.eclipse.microprofile.graphql.Type;
 
 /**
- * 用户 手机号 关系
+ * Relationship Object between 用户 and 手机号
  */
 @Type
 @CompiledJson
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
-@Description("用户 手机号 关系")
+@Description("Relationship Object between 用户 and 手机号")
 public class UserPhonesRelation implements Meta {
   /**
    * ID
@@ -29,9 +29,9 @@ public class UserPhonesRelation implements Meta {
   private String id;
 
   /**
-   * 用户 引用
+   * 用户 Reference
    */
-  @Description("用户 引用")
+  @Description("用户 Reference")
   private String userRef;
 
   /**
@@ -41,117 +41,117 @@ public class UserPhonesRelation implements Meta {
   private User user;
 
   /**
-   * 手机号 引用
+   * 手机号 Reference
    */
-  @Description("手机号 引用")
+  @Description("手机号 Reference")
   private String phonesRef;
 
   /**
-   * 已移除
+   * Is Deprecated
    */
-  @Description("已移除")
+  @Description("Is Deprecated")
   private Boolean isDeprecated = false;
 
   /**
-   * 版本
+   * Version
    */
-  @Description("版本")
+  @Description("Version")
   private Integer version;
 
   /**
-   * 域
+   * Realm ID
    */
-  @Description("域")
+  @Description("Realm ID")
   private Integer realmId;
 
   /**
-   * 创建者
+   * Create User ID
    */
-  @Description("创建者")
+  @Description("Create User ID")
   private String createUserId;
 
   /**
-   * 创建时间
+   * Create Time
    */
-  @Description("创建时间")
+  @Description("Create Time")
   private LocalDateTime createTime;
 
   /**
-   * 更新者
+   * Update User ID
    */
-  @Description("更新者")
+  @Description("Update User ID")
   private String updateUserId;
 
   /**
-   * 更新时间
+   * Update Time
    */
-  @Description("更新时间")
+  @Description("Update Time")
   private LocalDateTime updateTime;
 
   /**
-   * 创建组
+   * Create Group ID
    */
-  @Description("创建组")
+  @Description("Create Group ID")
   private String createGroupId;
 
   /**
-   * 所属类型
+   * Type Name
    */
-  @Description("所属类型")
+  @Description("Type Name")
   private String __typename = "UserPhonesRelation";
 
   /**
-   * 用户 手机号 关系 数量
+   * Count of Relationship Object between 用户 and 手机号
    */
-  @Description("用户 手机号 关系 数量")
+  @Description("Count of Relationship Object between 用户 and 手机号")
   private Integer idCount;
 
   /**
-   * ID 最大值
+   * Max of ID
    */
-  @Description("ID 最大值")
+  @Description("Max of ID")
   private Integer idMax;
 
   /**
-   * ID 最小值
+   * Min of ID
    */
-  @Description("ID 最小值")
+  @Description("Min of ID")
   private Integer idMin;
 
   /**
-   * 用户 引用 数量
+   * Count of 用户 Reference
    */
-  @Description("用户 引用 数量")
+  @Description("Count of 用户 Reference")
   private Integer userRefCount;
 
   /**
-   * 用户 引用 最大值
+   * Max of 用户 Reference
    */
-  @Description("用户 引用 最大值")
+  @Description("Max of 用户 Reference")
   private String userRefMax;
 
   /**
-   * 用户 引用 最小值
+   * Min of 用户 Reference
    */
-  @Description("用户 引用 最小值")
+  @Description("Min of 用户 Reference")
   private String userRefMin;
 
   /**
-   * 手机号 引用 数量
+   * Count of 手机号 Reference
    */
-  @Description("手机号 引用 数量")
+  @Description("Count of 手机号 Reference")
   private Integer phonesRefCount;
 
   /**
-   * 手机号 引用 最大值
+   * Max of 手机号 Reference
    */
-  @Description("手机号 引用 最大值")
+  @Description("Max of 手机号 Reference")
   private String phonesRefMax;
 
   /**
-   * 手机号 引用 最小值
+   * Min of 手机号 Reference
    */
-  @Description("手机号 引用 最小值")
+  @Description("Min of 手机号 Reference")
   private String phonesRefMin;
 
   @Override

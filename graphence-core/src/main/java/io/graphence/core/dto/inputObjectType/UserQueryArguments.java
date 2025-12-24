@@ -17,12 +17,12 @@ import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.Input;
 
 /**
- * 用户 查询参数
+ * Query Arguments for 用户
  */
 @CompiledJson
 @Input
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
-@Description("用户 查询参数")
+@Description("Query Arguments for 用户")
 public class UserQueryArguments implements NamedStructExpression, MetaExpression, UserExpressionBase {
   /**
    * ID
@@ -103,102 +103,102 @@ public class UserQueryArguments implements NamedStructExpression, MetaExpression
   private RealmExpression realm;
 
   /**
-   * 包含已移除
+   * Include Deprecated
    */
   @DefaultValue("false")
-  @Description("包含已移除")
+  @Description("Include Deprecated")
   private Boolean includeDeprecated = false;
 
   /**
-   * 版本
+   * Version
    */
-  @Description("版本")
+  @Description("Version")
   private IntExpression version;
 
   /**
-   * 域
+   * Realm ID
    */
-  @Description("域")
+  @Description("Realm ID")
   private IntExpression realmId;
 
   /**
-   * 创建者
+   * Create User ID
    */
-  @Description("创建者")
+  @Description("Create User ID")
   private StringExpression createUserId;
 
   /**
-   * 创建时间
+   * Create Time
    */
-  @Description("创建时间")
+  @Description("Create Time")
   private StringExpression createTime;
 
   /**
-   * 更新者
+   * Update User ID
    */
-  @Description("更新者")
+  @Description("Update User ID")
   private StringExpression updateUserId;
 
   /**
-   * 更新时间
+   * Update Time
    */
-  @Description("更新时间")
+  @Description("Update Time")
   private StringExpression updateTime;
 
   /**
-   * 创建组
+   * Create Group ID
    */
-  @Description("创建组")
+  @Description("Create Group ID")
   private StringExpression createGroupId;
 
   /**
-   * 所属类型
+   * Type Name
    */
-  @Description("所属类型")
+  @Description("Type Name")
   private StringExpression __typename;
 
   /**
-   * 用户 手机号 关系
+   * Relationship Object between 用户 and 手机号
    */
-  @Description("用户 手机号 关系")
+  @Description("Relationship Object between 用户 and 手机号")
   private UserPhonesRelationExpression userPhonesRelation;
 
   /**
-   * 用户 组 关系
+   * Relationship Object between 用户 and 组
    */
-  @Description("用户 组 关系")
+  @Description("Relationship Object between 用户 and 组")
   private GroupUserRelationExpression groupUserRelation;
 
   /**
-   * 用户 角色 关系
+   * Relationship Object between 用户 and 角色
    */
-  @Description("用户 角色 关系")
+  @Description("Relationship Object between 用户 and 角色")
   private RoleUserRelationExpression roleUserRelation;
 
   /**
-   * 分组
+   * Group By
    */
-  @Description("分组")
+  @Description("Group By")
   private Collection<String> groupBy;
 
   /**
-   * 取非
+   * Not
    */
   @DefaultValue("false")
-  @Description("取非")
+  @Description("Not")
   private Boolean not = false;
 
   /**
-   * 与/或
+   * Condition
    */
   @DefaultValue("AND")
-  @Description("与/或")
+  @Description("Condition")
   private Conditional cond = Conditional.AND;
 
   /**
-   * 查询表达式组
+   * Expressions
    */
-  @Description("查询表达式组")
+  @Description("Expressions")
   private Collection<UserExpression> exs;
 
   @Override

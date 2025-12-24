@@ -13,31 +13,31 @@ import "io/graphence/core/mutation_requests.proto";
 import "io/graphence/core/mutation_responses.proto";
 
 /**
-* 变更
+* Mutation
 */
 service MutationService {
-    rpc User (MutationUserRequest) returns (MutationUserResponse); /* 用户 变更接口 */
-    rpc UserList (MutationUserListRequest) returns (MutationUserListResponse); /* 用户列表 变更接口 */
-    rpc Role (MutationRoleRequest) returns (MutationRoleResponse); /* 角色 变更接口 */
-    rpc RoleList (MutationRoleListRequest) returns (MutationRoleListResponse); /* 角色列表 变更接口 */
-    rpc Group (MutationGroupRequest) returns (MutationGroupResponse); /* 组 变更接口 */
-    rpc GroupList (MutationGroupListRequest) returns (MutationGroupListResponse); /* 组列表 变更接口 */
-    rpc Realm (MutationRealmRequest) returns (MutationRealmResponse); /* 租户 变更接口 */
-    rpc RealmList (MutationRealmListRequest) returns (MutationRealmListResponse); /* 租户列表 变更接口 */
-    rpc Permission (MutationPermissionRequest) returns (MutationPermissionResponse); /* 权限 变更接口 */
-    rpc PermissionList (MutationPermissionListRequest) returns (MutationPermissionListResponse); /* 权限列表 变更接口 */
-    rpc UserPhonesRelation (MutationUserPhonesRelationRequest) returns (MutationUserPhonesRelationResponse); /* 用户 手机号 关系 变更接口 */
-    rpc UserPhonesRelationList (MutationUserPhonesRelationListRequest) returns (MutationUserPhonesRelationListResponse); /* 用户 手机号 关系列表 变更接口 */
-    rpc GroupUserRelation (MutationGroupUserRelationRequest) returns (MutationGroupUserRelationResponse); /* 用户 组 关系 变更接口 */
-    rpc GroupUserRelationList (MutationGroupUserRelationListRequest) returns (MutationGroupUserRelationListResponse); /* 用户 组 关系列表 变更接口 */
-    rpc RoleUserRelation (MutationRoleUserRelationRequest) returns (MutationRoleUserRelationResponse); /* 用户 角色 关系 变更接口 */
-    rpc RoleUserRelationList (MutationRoleUserRelationListRequest) returns (MutationRoleUserRelationListResponse); /* 用户 角色 关系列表 变更接口 */
-    rpc GroupRoleRelation (MutationGroupRoleRelationRequest) returns (MutationGroupRoleRelationResponse); /* 角色 组 关系 变更接口 */
-    rpc GroupRoleRelationList (MutationGroupRoleRelationListRequest) returns (MutationGroupRoleRelationListResponse); /* 角色 组 关系列表 变更接口 */
-    rpc RoleCompositeRelation (MutationRoleCompositeRelationRequest) returns (MutationRoleCompositeRelationResponse); /* 角色 角色 关系 变更接口 */
-    rpc RoleCompositeRelationList (MutationRoleCompositeRelationListRequest) returns (MutationRoleCompositeRelationListResponse); /* 角色 角色 关系列表 变更接口 */
-    rpc RolePermissionRelation (MutationRolePermissionRelationRequest) returns (MutationRolePermissionRelationResponse); /* 角色 权限 关系 变更接口 */
-    rpc RolePermissionRelationList (MutationRolePermissionRelationListRequest) returns (MutationRolePermissionRelationListResponse); /* 角色 权限 关系列表 变更接口 */
+    rpc User (MutationUserRequest) returns (MutationUserResponse); /* Mutation Field for 用户 */
+    rpc UserList (MutationUserListRequest) returns (MutationUserListResponse); /* Mutation Field for 用户 List */
+    rpc Role (MutationRoleRequest) returns (MutationRoleResponse); /* Mutation Field for 角色 */
+    rpc RoleList (MutationRoleListRequest) returns (MutationRoleListResponse); /* Mutation Field for 角色 List */
+    rpc Group (MutationGroupRequest) returns (MutationGroupResponse); /* Mutation Field for 组 */
+    rpc GroupList (MutationGroupListRequest) returns (MutationGroupListResponse); /* Mutation Field for 组 List */
+    rpc Realm (MutationRealmRequest) returns (MutationRealmResponse); /* Mutation Field for 租户 */
+    rpc RealmList (MutationRealmListRequest) returns (MutationRealmListResponse); /* Mutation Field for 租户 List */
+    rpc Permission (MutationPermissionRequest) returns (MutationPermissionResponse); /* Mutation Field for 权限 */
+    rpc PermissionList (MutationPermissionListRequest) returns (MutationPermissionListResponse); /* Mutation Field for 权限 List */
+    rpc UserPhonesRelation (MutationUserPhonesRelationRequest) returns (MutationUserPhonesRelationResponse); /* Mutation Field for Relationship Object between 用户 and 手机号 */
+    rpc UserPhonesRelationList (MutationUserPhonesRelationListRequest) returns (MutationUserPhonesRelationListResponse); /* Mutation Field for Relationship Object between 用户 and 手机号 List */
+    rpc GroupUserRelation (MutationGroupUserRelationRequest) returns (MutationGroupUserRelationResponse); /* Mutation Field for Relationship Object between 用户 and 组 */
+    rpc GroupUserRelationList (MutationGroupUserRelationListRequest) returns (MutationGroupUserRelationListResponse); /* Mutation Field for Relationship Object between 用户 and 组 List */
+    rpc RoleUserRelation (MutationRoleUserRelationRequest) returns (MutationRoleUserRelationResponse); /* Mutation Field for Relationship Object between 用户 and 角色 */
+    rpc RoleUserRelationList (MutationRoleUserRelationListRequest) returns (MutationRoleUserRelationListResponse); /* Mutation Field for Relationship Object between 用户 and 角色 List */
+    rpc GroupRoleRelation (MutationGroupRoleRelationRequest) returns (MutationGroupRoleRelationResponse); /* Mutation Field for Relationship Object between 角色 and 组 */
+    rpc GroupRoleRelationList (MutationGroupRoleRelationListRequest) returns (MutationGroupRoleRelationListResponse); /* Mutation Field for Relationship Object between 角色 and 组 List */
+    rpc RoleCompositeRelation (MutationRoleCompositeRelationRequest) returns (MutationRoleCompositeRelationResponse); /* Mutation Field for Relationship Object between 角色 and 角色 */
+    rpc RoleCompositeRelationList (MutationRoleCompositeRelationListRequest) returns (MutationRoleCompositeRelationListResponse); /* Mutation Field for Relationship Object between 角色 and 角色 List */
+    rpc RolePermissionRelation (MutationRolePermissionRelationRequest) returns (MutationRolePermissionRelationResponse); /* Mutation Field for Relationship Object between 角色 and 权限 */
+    rpc RolePermissionRelationList (MutationRolePermissionRelationListRequest) returns (MutationRolePermissionRelationListResponse); /* Mutation Field for Relationship Object between 角色 and 权限 List */
     rpc SyncModelPolicy (MutationSyncModelPolicyRequest) returns (MutationSyncModelPolicyResponse);
     rpc SyncPermissionRoleRelationPolicy (MutationSyncPermissionRoleRelationPolicyRequest) returns (MutationSyncPermissionRoleRelationPolicyResponse);
     rpc CurrentUserUpdate (MutationCurrentUserUpdateRequest) returns (MutationCurrentUserUpdateResponse);

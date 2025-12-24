@@ -11,11 +11,11 @@ import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.Input;
 
 /**
- * 租户 变更内容
+ * Mutation Input for 租户
  */
 @Input
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
-@Description("租户 变更内容")
+@Description("Mutation Input for 租户")
 public interface RealmInputBase extends NamedStructInput, MetaInput {
   /**
    * ID
@@ -36,63 +36,63 @@ public interface RealmInputBase extends NamedStructInput, MetaInput {
   String description = null;
 
   /**
-   * 已移除
+   * Is Deprecated
    */
-  @Description("已移除")
+  @Description("Is Deprecated")
   Boolean isDeprecated = false;
 
   /**
-   * 版本
+   * Version
    */
-  @Description("版本")
+  @Description("Version")
   Integer version = null;
 
   /**
-   * 域
+   * Realm ID
    */
-  @Description("域")
+  @Description("Realm ID")
   Integer realmId = null;
 
   /**
-   * 创建者
+   * Create User ID
    */
-  @Description("创建者")
+  @Description("Create User ID")
   String createUserId = null;
 
   /**
-   * 创建时间
+   * Create Time
    */
-  @Description("创建时间")
+  @Description("Create Time")
   LocalDateTime createTime = null;
 
   /**
-   * 更新者
+   * Update User ID
    */
-  @Description("更新者")
+  @Description("Update User ID")
   String updateUserId = null;
 
   /**
-   * 更新时间
+   * Update Time
    */
-  @Description("更新时间")
+  @Description("Update Time")
   LocalDateTime updateTime = null;
 
   /**
-   * 创建组
+   * Create Group ID
    */
-  @Description("创建组")
+  @Description("Create Group ID")
   String createGroupId = null;
 
   /**
-   * 所属类型
+   * Type Name
    */
-  @Description("所属类型")
+  @Description("Type Name")
   String __typename = "Realm";
 
   /**
-   * 匹配条件
+   * Where
    */
-  @Description("匹配条件")
+  @Description("Where")
   RealmExpression where = null;
 
   default String getId() {

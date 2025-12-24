@@ -9,13 +9,13 @@ import java.lang.annotation.Target;
 import org.eclipse.microprofile.graphql.Description;
 
 /**
- * 变更
+ * Mutation
  */
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
 @Documented
 @Retention(RetentionPolicy.SOURCE)
 @Target(ElementType.METHOD)
-@Description("变更")
+@Description("Mutation")
 public @interface Mutation {
   UserMutationArguments user() default @UserMutationArguments;
 

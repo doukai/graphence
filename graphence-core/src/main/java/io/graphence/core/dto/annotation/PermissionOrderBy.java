@@ -11,13 +11,13 @@ import java.lang.annotation.Target;
 import org.eclipse.microprofile.graphql.Description;
 
 /**
- * 权限 排序
+ * Order Input for 权限
  */
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
 @Documented
 @Retention(RetentionPolicy.SOURCE)
 @Target(ElementType.METHOD)
-@Description("权限 排序")
+@Description("Order Input for 权限")
 public @interface PermissionOrderBy {
   /**
    * ID
@@ -56,165 +56,165 @@ public @interface PermissionOrderBy {
   Sort permissionType() default Sort.ASC;
 
   /**
-   * 已移除
+   * Is Deprecated
    */
-  @Description("已移除")
+  @Description("Is Deprecated")
   Sort isDeprecated() default Sort.ASC;
 
   /**
-   * 版本
+   * Version
    */
-  @Description("版本")
+  @Description("Version")
   Sort version() default Sort.ASC;
 
   /**
-   * 域
+   * Realm ID
    */
-  @Description("域")
+  @Description("Realm ID")
   Sort realmId() default Sort.ASC;
 
   /**
-   * 创建者
+   * Create User ID
    */
-  @Description("创建者")
+  @Description("Create User ID")
   Sort createUserId() default Sort.ASC;
 
   /**
-   * 创建时间
+   * Create Time
    */
-  @Description("创建时间")
+  @Description("Create Time")
   Sort createTime() default Sort.ASC;
 
   /**
-   * 更新者
+   * Update User ID
    */
-  @Description("更新者")
+  @Description("Update User ID")
   Sort updateUserId() default Sort.ASC;
 
   /**
-   * 更新时间
+   * Update Time
    */
-  @Description("更新时间")
+  @Description("Update Time")
   Sort updateTime() default Sort.ASC;
 
   /**
-   * 创建组
+   * Create Group ID
    */
-  @Description("创建组")
+  @Description("Create Group ID")
   Sort createGroupId() default Sort.ASC;
 
   /**
-   * 所属类型
+   * Type Name
    */
-  @Description("所属类型")
+  @Description("Type Name")
   Sort __typename() default Sort.ASC;
 
   /**
-   * 权限 数量
+   * Count of 权限
    */
-  @Description("权限 数量")
+  @Description("Count of 权限")
   Sort idCount() default Sort.ASC;
 
   /**
-   * ID 最大值
+   * Max of ID
    */
-  @Description("ID 最大值")
+  @Description("Max of ID")
   Sort idMax() default Sort.ASC;
 
   /**
-   * ID 最小值
+   * Min of ID
    */
-  @Description("ID 最小值")
+  @Description("Min of ID")
   Sort idMin() default Sort.ASC;
 
   /**
-   * 名称 数量
+   * Count of 名称
    */
-  @Description("名称 数量")
+  @Description("Count of 名称")
   Sort nameCount() default Sort.ASC;
 
   /**
-   * 名称 最大值
+   * Max of 名称
    */
-  @Description("名称 最大值")
+  @Description("Max of 名称")
   Sort nameMax() default Sort.ASC;
 
   /**
-   * 名称 最小值
+   * Min of 名称
    */
-  @Description("名称 最小值")
+  @Description("Min of 名称")
   Sort nameMin() default Sort.ASC;
 
   /**
-   * 描述 数量
+   * Count of 描述
    */
-  @Description("描述 数量")
+  @Description("Count of 描述")
   Sort descriptionCount() default Sort.ASC;
 
   /**
-   * 描述 最大值
+   * Max of 描述
    */
-  @Description("描述 最大值")
+  @Description("Max of 描述")
   Sort descriptionMax() default Sort.ASC;
 
   /**
-   * 描述 最小值
+   * Min of 描述
    */
-  @Description("描述 最小值")
+  @Description("Min of 描述")
   Sort descriptionMin() default Sort.ASC;
 
   /**
-   * 字段 数量
+   * Count of 字段
    */
-  @Description("字段 数量")
+  @Description("Count of 字段")
   Sort fieldCount() default Sort.ASC;
 
   /**
-   * 字段 最大值
+   * Max of 字段
    */
-  @Description("字段 最大值")
+  @Description("Max of 字段")
   Sort fieldMax() default Sort.ASC;
 
   /**
-   * 字段 最小值
+   * Min of 字段
    */
-  @Description("字段 最小值")
+  @Description("Min of 字段")
   Sort fieldMin() default Sort.ASC;
 
   /**
-   * 实体 数量
+   * Count of 实体
    */
-  @Description("实体 数量")
+  @Description("Count of 实体")
   Sort typeCount() default Sort.ASC;
 
   /**
-   * 实体 最大值
+   * Max of 实体
    */
-  @Description("实体 最大值")
+  @Description("Max of 实体")
   Sort typeMax() default Sort.ASC;
 
   /**
-   * 实体 最小值
+   * Min of 实体
    */
-  @Description("实体 最小值")
+  @Description("Min of 实体")
   Sort typeMin() default Sort.ASC;
 
   /**
-   * 权限类型 数量
+   * Count of 权限类型
    */
-  @Description("权限类型 数量")
+  @Description("Count of 权限类型")
   Sort permissionTypeCount() default Sort.ASC;
 
   /**
-   * 权限类型 最大值
+   * Max of 权限类型
    */
-  @Description("权限类型 最大值")
+  @Description("Max of 权限类型")
   Sort permissionTypeMax() default Sort.ASC;
 
   /**
-   * 权限类型 最小值
+   * Min of 权限类型
    */
-  @Description("权限类型 最小值")
+  @Description("Min of 权限类型")
   Sort permissionTypeMin() default Sort.ASC;
 
   String $id() default "";

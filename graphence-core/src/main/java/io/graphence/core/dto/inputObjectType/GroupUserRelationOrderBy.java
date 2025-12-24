@@ -7,12 +7,12 @@ import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.Input;
 
 /**
- * 用户 组 关系 排序
+ * Order Input for Relationship Object between 用户 and 组
  */
 @CompiledJson
 @Input
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
-@Description("用户 组 关系 排序")
+@Description("Order Input for Relationship Object between 用户 and 组")
 public class GroupUserRelationOrderBy {
   /**
    * ID
@@ -21,123 +21,123 @@ public class GroupUserRelationOrderBy {
   private Sort id;
 
   /**
-   * 用户 引用
+   * 用户 Reference
    */
-  @Description("用户 引用")
+  @Description("用户 Reference")
   private Sort userRef;
 
   /**
-   * 组 引用
+   * 组 Reference
    */
-  @Description("组 引用")
+  @Description("组 Reference")
   private Sort groupRef;
 
   /**
-   * 已移除
+   * Is Deprecated
    */
-  @Description("已移除")
+  @Description("Is Deprecated")
   private Sort isDeprecated;
 
   /**
-   * 版本
+   * Version
    */
-  @Description("版本")
+  @Description("Version")
   private Sort version;
 
   /**
-   * 域
+   * Realm ID
    */
-  @Description("域")
+  @Description("Realm ID")
   private Sort realmId;
 
   /**
-   * 创建者
+   * Create User ID
    */
-  @Description("创建者")
+  @Description("Create User ID")
   private Sort createUserId;
 
   /**
-   * 创建时间
+   * Create Time
    */
-  @Description("创建时间")
+  @Description("Create Time")
   private Sort createTime;
 
   /**
-   * 更新者
+   * Update User ID
    */
-  @Description("更新者")
+  @Description("Update User ID")
   private Sort updateUserId;
 
   /**
-   * 更新时间
+   * Update Time
    */
-  @Description("更新时间")
+  @Description("Update Time")
   private Sort updateTime;
 
   /**
-   * 创建组
+   * Create Group ID
    */
-  @Description("创建组")
+  @Description("Create Group ID")
   private Sort createGroupId;
 
   /**
-   * 所属类型
+   * Type Name
    */
-  @Description("所属类型")
+  @Description("Type Name")
   private Sort __typename;
 
   /**
-   * 用户 组 关系 数量
+   * Count of Relationship Object between 用户 and 组
    */
-  @Description("用户 组 关系 数量")
+  @Description("Count of Relationship Object between 用户 and 组")
   private Sort idCount;
 
   /**
-   * ID 最大值
+   * Max of ID
    */
-  @Description("ID 最大值")
+  @Description("Max of ID")
   private Sort idMax;
 
   /**
-   * ID 最小值
+   * Min of ID
    */
-  @Description("ID 最小值")
+  @Description("Min of ID")
   private Sort idMin;
 
   /**
-   * 用户 引用 数量
+   * Count of 用户 Reference
    */
-  @Description("用户 引用 数量")
+  @Description("Count of 用户 Reference")
   private Sort userRefCount;
 
   /**
-   * 用户 引用 最大值
+   * Max of 用户 Reference
    */
-  @Description("用户 引用 最大值")
+  @Description("Max of 用户 Reference")
   private Sort userRefMax;
 
   /**
-   * 用户 引用 最小值
+   * Min of 用户 Reference
    */
-  @Description("用户 引用 最小值")
+  @Description("Min of 用户 Reference")
   private Sort userRefMin;
 
   /**
-   * 组 引用 数量
+   * Count of 组 Reference
    */
-  @Description("组 引用 数量")
+  @Description("Count of 组 Reference")
   private Sort groupRefCount;
 
   /**
-   * 组 引用 最大值
+   * Max of 组 Reference
    */
-  @Description("组 引用 最大值")
+  @Description("Max of 组 Reference")
   private Sort groupRefMax;
 
   /**
-   * 组 引用 最小值
+   * Min of 组 Reference
    */
-  @Description("组 引用 最小值")
+  @Description("Min of 组 Reference")
   private Sort groupRefMin;
 
   public Sort getId() {

@@ -107,279 +107,279 @@ public class User implements NamedStruct, Meta {
   private Realm realm;
 
   /**
-   * 已移除
+   * Is Deprecated
    */
-  @Description("已移除")
+  @Description("Is Deprecated")
   private Boolean isDeprecated = false;
 
   /**
-   * 版本
+   * Version
    */
-  @Description("版本")
+  @Description("Version")
   private Integer version;
 
   /**
-   * 域
+   * Realm ID
    */
-  @Description("域")
+  @Description("Realm ID")
   private Integer realmId;
 
   /**
-   * 创建者
+   * Create User ID
    */
-  @Description("创建者")
+  @Description("Create User ID")
   private String createUserId;
 
   /**
-   * 创建时间
+   * Create Time
    */
-  @Description("创建时间")
+  @Description("Create Time")
   private LocalDateTime createTime;
 
   /**
-   * 更新者
+   * Update User ID
    */
-  @Description("更新者")
+  @Description("Update User ID")
   private String updateUserId;
 
   /**
-   * 更新时间
+   * Update Time
    */
-  @Description("更新时间")
+  @Description("Update Time")
   private LocalDateTime updateTime;
 
   /**
-   * 创建组
+   * Create Group ID
    */
-  @Description("创建组")
+  @Description("Create Group ID")
   private String createGroupId;
 
   /**
-   * 所属类型
+   * Type Name
    */
-  @Description("所属类型")
+  @Description("Type Name")
   private String __typename = "User";
 
   /**
-   * 用户 手机号 关系
+   * Relationship Object between 用户 and 手机号
    */
-  @Description("用户 手机号 关系")
+  @Description("Relationship Object between 用户 and 手机号")
   private Collection<UserPhonesRelation> userPhonesRelation;
 
   /**
-   * 用户 组 关系
+   * Relationship Object between 用户 and 组
    */
-  @Description("用户 组 关系")
+  @Description("Relationship Object between 用户 and 组")
   private Collection<GroupUserRelation> groupUserRelation;
 
   /**
-   * 用户 角色 关系
+   * Relationship Object between 用户 and 角色
    */
-  @Description("用户 角色 关系")
+  @Description("Relationship Object between 用户 and 角色")
   private Collection<RoleUserRelation> roleUserRelation;
 
   /**
-   * 组 统计字段
+   * Aggregate Field for 组
    */
-  @Description("组 统计字段")
+  @Description("Aggregate Field for 组")
   private Group groupsAggregate;
 
   /**
-   * 组 连接
+   * Connection Field for 组
    */
-  @Description("组 连接")
+  @Description("Connection Field for 组")
   private GroupConnection groupsConnection;
 
   /**
-   * 角色 统计字段
+   * Aggregate Field for 角色
    */
-  @Description("角色 统计字段")
+  @Description("Aggregate Field for 角色")
   private Role rolesAggregate;
 
   /**
-   * 角色 连接
+   * Connection Field for 角色
    */
-  @Description("角色 连接")
+  @Description("Connection Field for 角色")
   private RoleConnection rolesConnection;
 
   /**
-   * 用户 手机号 关系 统计字段
+   * Aggregate Field for Relationship Object between 用户 and 手机号
    */
-  @Description("用户 手机号 关系 统计字段")
+  @Description("Aggregate Field for Relationship Object between 用户 and 手机号")
   private UserPhonesRelation userPhonesRelationAggregate;
 
   /**
-   * 用户 手机号 关系 连接
+   * Connection Field for Relationship Object between 用户 and 手机号
    */
-  @Description("用户 手机号 关系 连接")
+  @Description("Connection Field for Relationship Object between 用户 and 手机号")
   private UserPhonesRelationConnection userPhonesRelationConnection;
 
   /**
-   * 用户 组 关系 统计字段
+   * Aggregate Field for Relationship Object between 用户 and 组
    */
-  @Description("用户 组 关系 统计字段")
+  @Description("Aggregate Field for Relationship Object between 用户 and 组")
   private GroupUserRelation groupUserRelationAggregate;
 
   /**
-   * 用户 组 关系 连接
+   * Connection Field for Relationship Object between 用户 and 组
    */
-  @Description("用户 组 关系 连接")
+  @Description("Connection Field for Relationship Object between 用户 and 组")
   private GroupUserRelationConnection groupUserRelationConnection;
 
   /**
-   * 用户 角色 关系 统计字段
+   * Aggregate Field for Relationship Object between 用户 and 角色
    */
-  @Description("用户 角色 关系 统计字段")
+  @Description("Aggregate Field for Relationship Object between 用户 and 角色")
   private RoleUserRelation roleUserRelationAggregate;
 
   /**
-   * 用户 角色 关系 连接
+   * Connection Field for Relationship Object between 用户 and 角色
    */
-  @Description("用户 角色 关系 连接")
+  @Description("Connection Field for Relationship Object between 用户 and 角色")
   private RoleUserRelationConnection roleUserRelationConnection;
 
   /**
-   * 用户 数量
+   * Count of 用户
    */
-  @Description("用户 数量")
+  @Description("Count of 用户")
   private Integer idCount;
 
   /**
-   * ID 最大值
+   * Max of ID
    */
-  @Description("ID 最大值")
+  @Description("Max of ID")
   private Integer idMax;
 
   /**
-   * ID 最小值
+   * Min of ID
    */
-  @Description("ID 最小值")
+  @Description("Min of ID")
   private Integer idMin;
 
   /**
-   * 姓名 数量
+   * Count of 姓名
    */
-  @Description("姓名 数量")
+  @Description("Count of 姓名")
   private Integer nameCount;
 
   /**
-   * 姓名 最大值
+   * Max of 姓名
    */
-  @Description("姓名 最大值")
+  @Description("Max of 姓名")
   private String nameMax;
 
   /**
-   * 姓名 最小值
+   * Min of 姓名
    */
-  @Description("姓名 最小值")
+  @Description("Min of 姓名")
   private String nameMin;
 
   /**
-   * 描述 数量
+   * Count of 描述
    */
-  @Description("描述 数量")
+  @Description("Count of 描述")
   private Integer descriptionCount;
 
   /**
-   * 描述 最大值
+   * Max of 描述
    */
-  @Description("描述 最大值")
+  @Description("Max of 描述")
   private String descriptionMax;
 
   /**
-   * 描述 最小值
+   * Min of 描述
    */
-  @Description("描述 最小值")
+  @Description("Min of 描述")
   private String descriptionMin;
 
   /**
-   * 姓氏 数量
+   * Count of 姓氏
    */
-  @Description("姓氏 数量")
+  @Description("Count of 姓氏")
   private Integer lastNameCount;
 
   /**
-   * 姓氏 最大值
+   * Max of 姓氏
    */
-  @Description("姓氏 最大值")
+  @Description("Max of 姓氏")
   private String lastNameMax;
 
   /**
-   * 姓氏 最小值
+   * Min of 姓氏
    */
-  @Description("姓氏 最小值")
+  @Description("Min of 姓氏")
   private String lastNameMin;
 
   /**
-   * 账号 数量
+   * Count of 账号
    */
-  @Description("账号 数量")
+  @Description("Count of 账号")
   private Integer loginCount;
 
   /**
-   * 账号 最大值
+   * Max of 账号
    */
-  @Description("账号 最大值")
+  @Description("Max of 账号")
   private String loginMax;
 
   /**
-   * 账号 最小值
+   * Min of 账号
    */
-  @Description("账号 最小值")
+  @Description("Min of 账号")
   private String loginMin;
 
   /**
-   * 盐 数量
+   * Count of 盐
    */
-  @Description("盐 数量")
+  @Description("Count of 盐")
   private Integer saltCount;
 
   /**
-   * 盐 最大值
+   * Max of 盐
    */
-  @Description("盐 最大值")
+  @Description("Max of 盐")
   private String saltMax;
 
   /**
-   * 盐 最小值
+   * Min of 盐
    */
-  @Description("盐 最小值")
+  @Description("Min of 盐")
   private String saltMin;
 
   /**
-   * 哈希 数量
+   * Count of 哈希
    */
-  @Description("哈希 数量")
+  @Description("Count of 哈希")
   private Integer hashCount;
 
   /**
-   * 哈希 最大值
+   * Max of 哈希
    */
-  @Description("哈希 最大值")
+  @Description("Max of 哈希")
   private String hashMax;
 
   /**
-   * 哈希 最小值
+   * Min of 哈希
    */
-  @Description("哈希 最小值")
+  @Description("Min of 哈希")
   private String hashMin;
 
   /**
-   * 邮箱 数量
+   * Count of 邮箱
    */
-  @Description("邮箱 数量")
+  @Description("Count of 邮箱")
   private Integer emailCount;
 
   /**
-   * 邮箱 最大值
+   * Max of 邮箱
    */
-  @Description("邮箱 最大值")
+  @Description("Max of 邮箱")
   private String emailMax;
 
   /**
-   * 邮箱 最小值
+   * Min of 邮箱
    */
-  @Description("邮箱 最小值")
+  @Description("Min of 邮箱")
   private String emailMin;
 
   private Boolean syncUserPolicy;

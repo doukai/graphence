@@ -9,13 +9,13 @@ import java.lang.annotation.Target;
 import org.eclipse.microprofile.graphql.Description;
 
 /**
- * 订阅
+ * Subscription
  */
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
 @Documented
 @Retention(RetentionPolicy.SOURCE)
 @Target(ElementType.METHOD)
-@Description("订阅")
+@Description("Subscription")
 public @interface Subscription {
   UserSubscriptionArguments user() default @UserSubscriptionArguments;
 

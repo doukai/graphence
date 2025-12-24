@@ -7,12 +7,12 @@ import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.Input;
 
 /**
- * 权限 排序
+ * Order Input for 权限
  */
 @CompiledJson
 @Input
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
-@Description("权限 排序")
+@Description("Order Input for 权限")
 public class PermissionOrderBy {
   /**
    * ID
@@ -51,165 +51,165 @@ public class PermissionOrderBy {
   private Sort permissionType;
 
   /**
-   * 已移除
+   * Is Deprecated
    */
-  @Description("已移除")
+  @Description("Is Deprecated")
   private Sort isDeprecated;
 
   /**
-   * 版本
+   * Version
    */
-  @Description("版本")
+  @Description("Version")
   private Sort version;
 
   /**
-   * 域
+   * Realm ID
    */
-  @Description("域")
+  @Description("Realm ID")
   private Sort realmId;
 
   /**
-   * 创建者
+   * Create User ID
    */
-  @Description("创建者")
+  @Description("Create User ID")
   private Sort createUserId;
 
   /**
-   * 创建时间
+   * Create Time
    */
-  @Description("创建时间")
+  @Description("Create Time")
   private Sort createTime;
 
   /**
-   * 更新者
+   * Update User ID
    */
-  @Description("更新者")
+  @Description("Update User ID")
   private Sort updateUserId;
 
   /**
-   * 更新时间
+   * Update Time
    */
-  @Description("更新时间")
+  @Description("Update Time")
   private Sort updateTime;
 
   /**
-   * 创建组
+   * Create Group ID
    */
-  @Description("创建组")
+  @Description("Create Group ID")
   private Sort createGroupId;
 
   /**
-   * 所属类型
+   * Type Name
    */
-  @Description("所属类型")
+  @Description("Type Name")
   private Sort __typename;
 
   /**
-   * 权限 数量
+   * Count of 权限
    */
-  @Description("权限 数量")
+  @Description("Count of 权限")
   private Sort idCount;
 
   /**
-   * ID 最大值
+   * Max of ID
    */
-  @Description("ID 最大值")
+  @Description("Max of ID")
   private Sort idMax;
 
   /**
-   * ID 最小值
+   * Min of ID
    */
-  @Description("ID 最小值")
+  @Description("Min of ID")
   private Sort idMin;
 
   /**
-   * 名称 数量
+   * Count of 名称
    */
-  @Description("名称 数量")
+  @Description("Count of 名称")
   private Sort nameCount;
 
   /**
-   * 名称 最大值
+   * Max of 名称
    */
-  @Description("名称 最大值")
+  @Description("Max of 名称")
   private Sort nameMax;
 
   /**
-   * 名称 最小值
+   * Min of 名称
    */
-  @Description("名称 最小值")
+  @Description("Min of 名称")
   private Sort nameMin;
 
   /**
-   * 描述 数量
+   * Count of 描述
    */
-  @Description("描述 数量")
+  @Description("Count of 描述")
   private Sort descriptionCount;
 
   /**
-   * 描述 最大值
+   * Max of 描述
    */
-  @Description("描述 最大值")
+  @Description("Max of 描述")
   private Sort descriptionMax;
 
   /**
-   * 描述 最小值
+   * Min of 描述
    */
-  @Description("描述 最小值")
+  @Description("Min of 描述")
   private Sort descriptionMin;
 
   /**
-   * 字段 数量
+   * Count of 字段
    */
-  @Description("字段 数量")
+  @Description("Count of 字段")
   private Sort fieldCount;
 
   /**
-   * 字段 最大值
+   * Max of 字段
    */
-  @Description("字段 最大值")
+  @Description("Max of 字段")
   private Sort fieldMax;
 
   /**
-   * 字段 最小值
+   * Min of 字段
    */
-  @Description("字段 最小值")
+  @Description("Min of 字段")
   private Sort fieldMin;
 
   /**
-   * 实体 数量
+   * Count of 实体
    */
-  @Description("实体 数量")
+  @Description("Count of 实体")
   private Sort typeCount;
 
   /**
-   * 实体 最大值
+   * Max of 实体
    */
-  @Description("实体 最大值")
+  @Description("Max of 实体")
   private Sort typeMax;
 
   /**
-   * 实体 最小值
+   * Min of 实体
    */
-  @Description("实体 最小值")
+  @Description("Min of 实体")
   private Sort typeMin;
 
   /**
-   * 权限类型 数量
+   * Count of 权限类型
    */
-  @Description("权限类型 数量")
+  @Description("Count of 权限类型")
   private Sort permissionTypeCount;
 
   /**
-   * 权限类型 最大值
+   * Max of 权限类型
    */
-  @Description("权限类型 最大值")
+  @Description("Max of 权限类型")
   private Sort permissionTypeMax;
 
   /**
-   * 权限类型 最小值
+   * Min of 权限类型
    */
-  @Description("权限类型 最小值")
+  @Description("Min of 权限类型")
   private Sort permissionTypeMin;
 
   public Sort getId() {

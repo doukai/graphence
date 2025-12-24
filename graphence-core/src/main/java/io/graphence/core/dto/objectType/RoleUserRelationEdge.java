@@ -7,23 +7,23 @@ import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.Type;
 
 /**
- * 用户 角色 关系 边缘
+ * Edge Object for Relationship Object between 用户 and 角色
  */
 @Type
 @CompiledJson
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
-@Description("用户 角色 关系 边缘")
+@Description("Edge Object for Relationship Object between 用户 and 角色")
 public class RoleUserRelationEdge {
   /**
-   * 节点
+   * Node
    */
-  @Description("节点")
+  @Description("Node")
   private RoleUserRelation node;
 
   /**
-   * 游标
+   * Cursor
    */
-  @Description("游标")
+  @Description("Cursor")
   private String cursor;
 
   public RoleUserRelation getNode() {

@@ -11,30 +11,30 @@ import java.lang.annotation.Target;
 import org.eclipse.microprofile.graphql.Description;
 
 /**
- * 角色 角色 关系 查询表达式
+ * Query Expression Input for Relationship Object between 角色 and 角色
  */
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
 @Documented
 @Retention(RetentionPolicy.SOURCE)
 @Target(ElementType.METHOD)
-@Description("角色 角色 关系 查询表达式")
+@Description("Query Expression Input for Relationship Object between 角色 and 角色")
 public @interface RoleCompositeRelationExpression2 {
   /**
-   * 包含已移除
+   * Include Deprecated
    */
-  @Description("包含已移除")
+  @Description("Include Deprecated")
   boolean includeDeprecated() default false;
 
   /**
-   * 取非
+   * Not
    */
-  @Description("取非")
+  @Description("Not")
   boolean not() default false;
 
   /**
-   * 与/或
+   * Condition
    */
-  @Description("与/或")
+  @Description("Condition")
   Conditional cond() default Conditional.AND;
 
   String $includeDeprecated() default "";

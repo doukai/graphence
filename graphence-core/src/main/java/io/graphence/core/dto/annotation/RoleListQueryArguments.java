@@ -13,13 +13,13 @@ import java.lang.annotation.Target;
 import org.eclipse.microprofile.graphql.Description;
 
 /**
- * 角色列表 查询参数
+ * Query Arguments for 角色 List
  */
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
 @Documented
 @Retention(RetentionPolicy.SOURCE)
 @Target(ElementType.METHOD)
-@Description("角色列表 查询参数")
+@Description("Query Arguments for 角色 List")
 public @interface RoleListQueryArguments {
   /**
    * ID
@@ -70,142 +70,142 @@ public @interface RoleListQueryArguments {
   RealmExpression realm() default @RealmExpression;
 
   /**
-   * 包含已移除
+   * Include Deprecated
    */
-  @Description("包含已移除")
+  @Description("Include Deprecated")
   boolean includeDeprecated() default false;
 
   /**
-   * 版本
+   * Version
    */
-  @Description("版本")
+  @Description("Version")
   IntExpression version() default @IntExpression;
 
   /**
-   * 域
+   * Realm ID
    */
-  @Description("域")
+  @Description("Realm ID")
   IntExpression realmId() default @IntExpression;
 
   /**
-   * 创建者
+   * Create User ID
    */
-  @Description("创建者")
+  @Description("Create User ID")
   StringExpression createUserId() default @StringExpression;
 
   /**
-   * 创建时间
+   * Create Time
    */
-  @Description("创建时间")
+  @Description("Create Time")
   StringExpression createTime() default @StringExpression;
 
   /**
-   * 更新者
+   * Update User ID
    */
-  @Description("更新者")
+  @Description("Update User ID")
   StringExpression updateUserId() default @StringExpression;
 
   /**
-   * 更新时间
+   * Update Time
    */
-  @Description("更新时间")
+  @Description("Update Time")
   StringExpression updateTime() default @StringExpression;
 
   /**
-   * 创建组
+   * Create Group ID
    */
-  @Description("创建组")
+  @Description("Create Group ID")
   StringExpression createGroupId() default @StringExpression;
 
   /**
-   * 所属类型
+   * Type Name
    */
-  @Description("所属类型")
+  @Description("Type Name")
   StringExpression __typename() default @StringExpression;
 
   /**
-   * 用户 角色 关系
+   * Relationship Object between 用户 and 角色
    */
-  @Description("用户 角色 关系")
+  @Description("Relationship Object between 用户 and 角色")
   RoleUserRelationExpression roleUserRelation() default @RoleUserRelationExpression;
 
   /**
-   * 角色 组 关系
+   * Relationship Object between 角色 and 组
    */
-  @Description("角色 组 关系")
+  @Description("Relationship Object between 角色 and 组")
   GroupRoleRelationExpression groupRoleRelation() default @GroupRoleRelationExpression;
 
   /**
-   * 角色 角色 关系
+   * Relationship Object between 角色 and 角色
    */
-  @Description("角色 角色 关系")
+  @Description("Relationship Object between 角色 and 角色")
   RoleCompositeRelationExpression roleCompositeRelation() default @RoleCompositeRelationExpression;
 
   /**
-   * 角色 权限 关系
+   * Relationship Object between 角色 and 权限
    */
-  @Description("角色 权限 关系")
+  @Description("Relationship Object between 角色 and 权限")
   RolePermissionRelationExpression rolePermissionRelation(
       ) default @RolePermissionRelationExpression;
 
   /**
-   * 排序
+   * Order By
    */
-  @Description("排序")
+  @Description("Order By")
   RoleOrderBy orderBy() default @RoleOrderBy;
 
   /**
-   * 分组
+   * Group By
    */
-  @Description("分组")
+  @Description("Group By")
   String[] groupBy() default {};
 
   /**
-   * 取非
+   * Not
    */
-  @Description("取非")
+  @Description("Not")
   boolean not() default false;
 
   /**
-   * 与/或
+   * Condition
    */
-  @Description("与/或")
+  @Description("Condition")
   Conditional cond() default Conditional.AND;
 
   /**
-   * 查询表达式组
+   * Expressions
    */
-  @Description("查询表达式组")
+  @Description("Expressions")
   RoleExpression[] exs() default {};
 
   /**
-   * 前...条数
+   * First
    */
-  @Description("前...条数")
+  @Description("First")
   int first() default 0;
 
   /**
-   * 后...条数
+   * Last
    */
-  @Description("后...条数")
+  @Description("Last")
   int last() default 0;
 
   /**
-   * 偏移条数
+   * Offset
    */
-  @Description("偏移条数")
+  @Description("Offset")
   int offset() default 0;
 
   /**
-   * 取...之后
+   * After
    */
-  @Description("取...之后")
+  @Description("After")
   String after() default "";
 
   /**
-   * 取...之前
+   * Before
    */
-  @Description("取...之前")
+  @Description("Before")
   String before() default "";
 
   String $id() default "";

@@ -9,13 +9,13 @@ import java.lang.annotation.Target;
 import org.eclipse.microprofile.graphql.Description;
 
 /**
- * 查询
+ * Query
  */
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
 @Documented
 @Retention(RetentionPolicy.SOURCE)
 @Target(ElementType.METHOD)
-@Description("查询")
+@Description("Query")
 public @interface Query {
   UserQueryArguments user() default @UserQueryArguments;
 

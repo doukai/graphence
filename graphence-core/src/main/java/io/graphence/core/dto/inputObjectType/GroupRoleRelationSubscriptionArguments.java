@@ -15,12 +15,12 @@ import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.Input;
 
 /**
- * 角色 组 关系 订阅参数
+ * Subscription Arguments for Relationship Object between 角色 and 组
  */
 @CompiledJson
 @Input
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
-@Description("角色 组 关系 订阅参数")
+@Description("Subscription Arguments for Relationship Object between 角色 and 组")
 public class GroupRoleRelationSubscriptionArguments implements MetaExpression, GroupRoleRelationExpressionBase {
   /**
    * ID
@@ -29,9 +29,9 @@ public class GroupRoleRelationSubscriptionArguments implements MetaExpression, G
   private StringExpression id;
 
   /**
-   * 角色 引用
+   * 角色 Reference
    */
-  @Description("角色 引用")
+  @Description("角色 Reference")
   private StringExpression roleRef;
 
   /**
@@ -41,9 +41,9 @@ public class GroupRoleRelationSubscriptionArguments implements MetaExpression, G
   private RoleExpression role;
 
   /**
-   * 组 引用
+   * 组 Reference
    */
-  @Description("组 引用")
+  @Description("组 Reference")
   private StringExpression groupRef;
 
   /**
@@ -53,84 +53,84 @@ public class GroupRoleRelationSubscriptionArguments implements MetaExpression, G
   private GroupExpression group;
 
   /**
-   * 包含已移除
+   * Include Deprecated
    */
   @DefaultValue("false")
-  @Description("包含已移除")
+  @Description("Include Deprecated")
   private Boolean includeDeprecated = false;
 
   /**
-   * 版本
+   * Version
    */
-  @Description("版本")
+  @Description("Version")
   private IntExpression version;
 
   /**
-   * 域
+   * Realm ID
    */
-  @Description("域")
+  @Description("Realm ID")
   private IntExpression realmId;
 
   /**
-   * 创建者
+   * Create User ID
    */
-  @Description("创建者")
+  @Description("Create User ID")
   private StringExpression createUserId;
 
   /**
-   * 创建时间
+   * Create Time
    */
-  @Description("创建时间")
+  @Description("Create Time")
   private StringExpression createTime;
 
   /**
-   * 更新者
+   * Update User ID
    */
-  @Description("更新者")
+  @Description("Update User ID")
   private StringExpression updateUserId;
 
   /**
-   * 更新时间
+   * Update Time
    */
-  @Description("更新时间")
+  @Description("Update Time")
   private StringExpression updateTime;
 
   /**
-   * 创建组
+   * Create Group ID
    */
-  @Description("创建组")
+  @Description("Create Group ID")
   private StringExpression createGroupId;
 
   /**
-   * 所属类型
+   * Type Name
    */
-  @Description("所属类型")
+  @Description("Type Name")
   private StringExpression __typename;
 
   /**
-   * 分组
+   * Group By
    */
-  @Description("分组")
+  @Description("Group By")
   private Collection<String> groupBy;
 
   /**
-   * 取非
+   * Not
    */
   @DefaultValue("false")
-  @Description("取非")
+  @Description("Not")
   private Boolean not = false;
 
   /**
-   * 与/或
+   * Condition
    */
   @DefaultValue("AND")
-  @Description("与/或")
+  @Description("Condition")
   private Conditional cond = Conditional.AND;
 
   /**
-   * 查询表达式组
+   * Expressions
    */
-  @Description("查询表达式组")
+  @Description("Expressions")
   private Collection<GroupRoleRelationExpression> exs;
 
   @Override

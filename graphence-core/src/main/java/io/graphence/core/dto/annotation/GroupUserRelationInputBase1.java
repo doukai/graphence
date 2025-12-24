@@ -10,13 +10,13 @@ import java.lang.annotation.Target;
 import org.eclipse.microprofile.graphql.Description;
 
 /**
- * 用户 组 关系 变更内容
+ * Mutation Input for Relationship Object between 用户 and 组
  */
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
 @Documented
 @Retention(RetentionPolicy.SOURCE)
 @Target(ElementType.METHOD)
-@Description("用户 组 关系 变更内容")
+@Description("Mutation Input for Relationship Object between 用户 and 组")
 public @interface GroupUserRelationInputBase1 {
   /**
    * ID
@@ -25,9 +25,9 @@ public @interface GroupUserRelationInputBase1 {
   String id() default "";
 
   /**
-   * 用户 引用
+   * 用户 Reference
    */
-  @Description("用户 引用")
+  @Description("用户 Reference")
   String userRef() default "";
 
   /**
@@ -37,9 +37,9 @@ public @interface GroupUserRelationInputBase1 {
   UserInput2 user() default @UserInput2;
 
   /**
-   * 组 引用
+   * 组 Reference
    */
-  @Description("组 引用")
+  @Description("组 Reference")
   String groupRef() default "";
 
   /**
@@ -49,63 +49,63 @@ public @interface GroupUserRelationInputBase1 {
   GroupInput2 group() default @GroupInput2;
 
   /**
-   * 已移除
+   * Is Deprecated
    */
-  @Description("已移除")
+  @Description("Is Deprecated")
   boolean isDeprecated() default false;
 
   /**
-   * 版本
+   * Version
    */
-  @Description("版本")
+  @Description("Version")
   int version() default 0;
 
   /**
-   * 域
+   * Realm ID
    */
-  @Description("域")
+  @Description("Realm ID")
   int realmId() default 0;
 
   /**
-   * 创建者
+   * Create User ID
    */
-  @Description("创建者")
+  @Description("Create User ID")
   String createUserId() default "";
 
   /**
-   * 创建时间
+   * Create Time
    */
-  @Description("创建时间")
+  @Description("Create Time")
   String createTime() default "";
 
   /**
-   * 更新者
+   * Update User ID
    */
-  @Description("更新者")
+  @Description("Update User ID")
   String updateUserId() default "";
 
   /**
-   * 更新时间
+   * Update Time
    */
-  @Description("更新时间")
+  @Description("Update Time")
   String updateTime() default "";
 
   /**
-   * 创建组
+   * Create Group ID
    */
-  @Description("创建组")
+  @Description("Create Group ID")
   String createGroupId() default "";
 
   /**
-   * 所属类型
+   * Type Name
    */
-  @Description("所属类型")
+  @Description("Type Name")
   String __typename() default "GroupUserRelation";
 
   /**
-   * 匹配条件
+   * Where
    */
-  @Description("匹配条件")
+  @Description("Where")
   GroupUserRelationExpression2 where() default @GroupUserRelationExpression2;
 
   String $id() default "";

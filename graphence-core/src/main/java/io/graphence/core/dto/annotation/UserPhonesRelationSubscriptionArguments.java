@@ -13,13 +13,13 @@ import java.lang.annotation.Target;
 import org.eclipse.microprofile.graphql.Description;
 
 /**
- * 用户 手机号 关系 订阅参数
+ * Subscription Arguments for Relationship Object between 用户 and 手机号
  */
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
 @Documented
 @Retention(RetentionPolicy.SOURCE)
 @Target(ElementType.METHOD)
-@Description("用户 手机号 关系 订阅参数")
+@Description("Subscription Arguments for Relationship Object between 用户 and 手机号")
 public @interface UserPhonesRelationSubscriptionArguments {
   /**
    * ID
@@ -28,9 +28,9 @@ public @interface UserPhonesRelationSubscriptionArguments {
   StringExpression id() default @StringExpression;
 
   /**
-   * 用户 引用
+   * 用户 Reference
    */
-  @Description("用户 引用")
+  @Description("用户 Reference")
   StringExpression userRef() default @StringExpression;
 
   /**
@@ -40,87 +40,87 @@ public @interface UserPhonesRelationSubscriptionArguments {
   UserExpression user() default @UserExpression;
 
   /**
-   * 手机号 引用
+   * 手机号 Reference
    */
-  @Description("手机号 引用")
+  @Description("手机号 Reference")
   StringExpression phonesRef() default @StringExpression;
 
   /**
-   * 包含已移除
+   * Include Deprecated
    */
-  @Description("包含已移除")
+  @Description("Include Deprecated")
   boolean includeDeprecated() default false;
 
   /**
-   * 版本
+   * Version
    */
-  @Description("版本")
+  @Description("Version")
   IntExpression version() default @IntExpression;
 
   /**
-   * 域
+   * Realm ID
    */
-  @Description("域")
+  @Description("Realm ID")
   IntExpression realmId() default @IntExpression;
 
   /**
-   * 创建者
+   * Create User ID
    */
-  @Description("创建者")
+  @Description("Create User ID")
   StringExpression createUserId() default @StringExpression;
 
   /**
-   * 创建时间
+   * Create Time
    */
-  @Description("创建时间")
+  @Description("Create Time")
   StringExpression createTime() default @StringExpression;
 
   /**
-   * 更新者
+   * Update User ID
    */
-  @Description("更新者")
+  @Description("Update User ID")
   StringExpression updateUserId() default @StringExpression;
 
   /**
-   * 更新时间
+   * Update Time
    */
-  @Description("更新时间")
+  @Description("Update Time")
   StringExpression updateTime() default @StringExpression;
 
   /**
-   * 创建组
+   * Create Group ID
    */
-  @Description("创建组")
+  @Description("Create Group ID")
   StringExpression createGroupId() default @StringExpression;
 
   /**
-   * 所属类型
+   * Type Name
    */
-  @Description("所属类型")
+  @Description("Type Name")
   StringExpression __typename() default @StringExpression;
 
   /**
-   * 分组
+   * Group By
    */
-  @Description("分组")
+  @Description("Group By")
   String[] groupBy() default {};
 
   /**
-   * 取非
+   * Not
    */
-  @Description("取非")
+  @Description("Not")
   boolean not() default false;
 
   /**
-   * 与/或
+   * Condition
    */
-  @Description("与/或")
+  @Description("Condition")
   Conditional cond() default Conditional.AND;
 
   /**
-   * 查询表达式组
+   * Expressions
    */
-  @Description("查询表达式组")
+  @Description("Expressions")
   UserPhonesRelationExpression[] exs() default {};
 
   String $id() default "";

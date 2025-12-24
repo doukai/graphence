@@ -13,5 +13,12 @@ subprojects {
         mavenLocal()
     }
 
+    tasks.withType(JavaCompile).configureEach {
+        options.compilerArgs += [
+                "-AdecompileCacheDir=${rootProject.buildDir}/decompile-cache",
+                "-ArootProjectDir=${rootProject.rootDir}"
+        ]
+    }
+
     version "$graphenceVersion"
 }

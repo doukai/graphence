@@ -7,23 +7,23 @@ import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.Type;
 
 /**
- * 权限 边缘
+ * Edge Object for 权限
  */
 @Type
 @CompiledJson
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
-@Description("权限 边缘")
+@Description("Edge Object for 权限")
 public class PermissionEdge {
   /**
-   * 节点
+   * Node
    */
-  @Description("节点")
+  @Description("Node")
   private Permission node;
 
   /**
-   * 游标
+   * Cursor
    */
-  @Description("游标")
+  @Description("Cursor")
   private String cursor;
 
   public Permission getNode() {

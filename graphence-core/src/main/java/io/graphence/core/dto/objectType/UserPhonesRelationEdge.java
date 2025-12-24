@@ -7,23 +7,23 @@ import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.Type;
 
 /**
- * 用户 手机号 关系 边缘
+ * Edge Object for Relationship Object between 用户 and 手机号
  */
 @Type
 @CompiledJson
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
-@Description("用户 手机号 关系 边缘")
+@Description("Edge Object for Relationship Object between 用户 and 手机号")
 public class UserPhonesRelationEdge {
   /**
-   * 节点
+   * Node
    */
-  @Description("节点")
+  @Description("Node")
   private UserPhonesRelation node;
 
   /**
-   * 游标
+   * Cursor
    */
-  @Description("游标")
+  @Description("Cursor")
   private String cursor;
 
   public UserPhonesRelation getNode() {

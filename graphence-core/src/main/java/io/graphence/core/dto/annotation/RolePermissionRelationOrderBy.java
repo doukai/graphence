@@ -11,13 +11,13 @@ import java.lang.annotation.Target;
 import org.eclipse.microprofile.graphql.Description;
 
 /**
- * 角色 权限 关系 排序
+ * Order Input for Relationship Object between 角色 and 权限
  */
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
 @Documented
 @Retention(RetentionPolicy.SOURCE)
 @Target(ElementType.METHOD)
-@Description("角色 权限 关系 排序")
+@Description("Order Input for Relationship Object between 角色 and 权限")
 public @interface RolePermissionRelationOrderBy {
   /**
    * ID
@@ -26,123 +26,123 @@ public @interface RolePermissionRelationOrderBy {
   Sort id() default Sort.ASC;
 
   /**
-   * 角色 引用
+   * 角色 Reference
    */
-  @Description("角色 引用")
+  @Description("角色 Reference")
   Sort roleRef() default Sort.ASC;
 
   /**
-   * 权限 引用
+   * 权限 Reference
    */
-  @Description("权限 引用")
+  @Description("权限 Reference")
   Sort permissionRef() default Sort.ASC;
 
   /**
-   * 已移除
+   * Is Deprecated
    */
-  @Description("已移除")
+  @Description("Is Deprecated")
   Sort isDeprecated() default Sort.ASC;
 
   /**
-   * 版本
+   * Version
    */
-  @Description("版本")
+  @Description("Version")
   Sort version() default Sort.ASC;
 
   /**
-   * 域
+   * Realm ID
    */
-  @Description("域")
+  @Description("Realm ID")
   Sort realmId() default Sort.ASC;
 
   /**
-   * 创建者
+   * Create User ID
    */
-  @Description("创建者")
+  @Description("Create User ID")
   Sort createUserId() default Sort.ASC;
 
   /**
-   * 创建时间
+   * Create Time
    */
-  @Description("创建时间")
+  @Description("Create Time")
   Sort createTime() default Sort.ASC;
 
   /**
-   * 更新者
+   * Update User ID
    */
-  @Description("更新者")
+  @Description("Update User ID")
   Sort updateUserId() default Sort.ASC;
 
   /**
-   * 更新时间
+   * Update Time
    */
-  @Description("更新时间")
+  @Description("Update Time")
   Sort updateTime() default Sort.ASC;
 
   /**
-   * 创建组
+   * Create Group ID
    */
-  @Description("创建组")
+  @Description("Create Group ID")
   Sort createGroupId() default Sort.ASC;
 
   /**
-   * 所属类型
+   * Type Name
    */
-  @Description("所属类型")
+  @Description("Type Name")
   Sort __typename() default Sort.ASC;
 
   /**
-   * 角色 权限 关系 数量
+   * Count of Relationship Object between 角色 and 权限
    */
-  @Description("角色 权限 关系 数量")
+  @Description("Count of Relationship Object between 角色 and 权限")
   Sort idCount() default Sort.ASC;
 
   /**
-   * ID 最大值
+   * Max of ID
    */
-  @Description("ID 最大值")
+  @Description("Max of ID")
   Sort idMax() default Sort.ASC;
 
   /**
-   * ID 最小值
+   * Min of ID
    */
-  @Description("ID 最小值")
+  @Description("Min of ID")
   Sort idMin() default Sort.ASC;
 
   /**
-   * 角色 引用 数量
+   * Count of 角色 Reference
    */
-  @Description("角色 引用 数量")
+  @Description("Count of 角色 Reference")
   Sort roleRefCount() default Sort.ASC;
 
   /**
-   * 角色 引用 最大值
+   * Max of 角色 Reference
    */
-  @Description("角色 引用 最大值")
+  @Description("Max of 角色 Reference")
   Sort roleRefMax() default Sort.ASC;
 
   /**
-   * 角色 引用 最小值
+   * Min of 角色 Reference
    */
-  @Description("角色 引用 最小值")
+  @Description("Min of 角色 Reference")
   Sort roleRefMin() default Sort.ASC;
 
   /**
-   * 权限 引用 数量
+   * Count of 权限 Reference
    */
-  @Description("权限 引用 数量")
+  @Description("Count of 权限 Reference")
   Sort permissionRefCount() default Sort.ASC;
 
   /**
-   * 权限 引用 最大值
+   * Max of 权限 Reference
    */
-  @Description("权限 引用 最大值")
+  @Description("Max of 权限 Reference")
   Sort permissionRefMax() default Sort.ASC;
 
   /**
-   * 权限 引用 最小值
+   * Min of 权限 Reference
    */
-  @Description("权限 引用 最小值")
+  @Description("Min of 权限 Reference")
   Sort permissionRefMin() default Sort.ASC;
 
   String $id() default "";

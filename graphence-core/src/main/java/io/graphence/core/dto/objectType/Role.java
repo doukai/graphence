@@ -76,231 +76,231 @@ public class Role implements NamedStruct, Meta {
   private Realm realm;
 
   /**
-   * 已移除
+   * Is Deprecated
    */
-  @Description("已移除")
+  @Description("Is Deprecated")
   private Boolean isDeprecated = false;
 
   /**
-   * 版本
+   * Version
    */
-  @Description("版本")
+  @Description("Version")
   private Integer version;
 
   /**
-   * 域
+   * Realm ID
    */
-  @Description("域")
+  @Description("Realm ID")
   private Integer realmId;
 
   /**
-   * 创建者
+   * Create User ID
    */
-  @Description("创建者")
+  @Description("Create User ID")
   private String createUserId;
 
   /**
-   * 创建时间
+   * Create Time
    */
-  @Description("创建时间")
+  @Description("Create Time")
   private LocalDateTime createTime;
 
   /**
-   * 更新者
+   * Update User ID
    */
-  @Description("更新者")
+  @Description("Update User ID")
   private String updateUserId;
 
   /**
-   * 更新时间
+   * Update Time
    */
-  @Description("更新时间")
+  @Description("Update Time")
   private LocalDateTime updateTime;
 
   /**
-   * 创建组
+   * Create Group ID
    */
-  @Description("创建组")
+  @Description("Create Group ID")
   private String createGroupId;
 
   /**
-   * 所属类型
+   * Type Name
    */
-  @Description("所属类型")
+  @Description("Type Name")
   private String __typename = "Role";
 
   /**
-   * 用户 角色 关系
+   * Relationship Object between 用户 and 角色
    */
-  @Description("用户 角色 关系")
+  @Description("Relationship Object between 用户 and 角色")
   private Collection<RoleUserRelation> roleUserRelation;
 
   /**
-   * 角色 组 关系
+   * Relationship Object between 角色 and 组
    */
-  @Description("角色 组 关系")
+  @Description("Relationship Object between 角色 and 组")
   private Collection<GroupRoleRelation> groupRoleRelation;
 
   /**
-   * 角色 角色 关系
+   * Relationship Object between 角色 and 角色
    */
-  @Description("角色 角色 关系")
+  @Description("Relationship Object between 角色 and 角色")
   private Collection<RoleCompositeRelation> roleCompositeRelation;
 
   /**
-   * 角色 权限 关系
+   * Relationship Object between 角色 and 权限
    */
-  @Description("角色 权限 关系")
+  @Description("Relationship Object between 角色 and 权限")
   private Collection<RolePermissionRelation> rolePermissionRelation;
 
   /**
-   * 用户 统计字段
+   * Aggregate Field for 用户
    */
-  @Description("用户 统计字段")
+  @Description("Aggregate Field for 用户")
   private User usersAggregate;
 
   /**
-   * 用户 连接
+   * Connection Field for 用户
    */
-  @Description("用户 连接")
+  @Description("Connection Field for 用户")
   private UserConnection usersConnection;
 
   /**
-   * 组 统计字段
+   * Aggregate Field for 组
    */
-  @Description("组 统计字段")
+  @Description("Aggregate Field for 组")
   private Group groupsAggregate;
 
   /**
-   * 组 连接
+   * Connection Field for 组
    */
-  @Description("组 连接")
+  @Description("Connection Field for 组")
   private GroupConnection groupsConnection;
 
   /**
-   * 组合 统计字段
+   * Aggregate Field for 组合
    */
-  @Description("组合 统计字段")
+  @Description("Aggregate Field for 组合")
   private Role compositesAggregate;
 
   /**
-   * 组合 连接
+   * Connection Field for 组合
    */
-  @Description("组合 连接")
+  @Description("Connection Field for 组合")
   private RoleConnection compositesConnection;
 
   /**
-   * 权限 统计字段
+   * Aggregate Field for 权限
    */
-  @Description("权限 统计字段")
+  @Description("Aggregate Field for 权限")
   private Permission permissionsAggregate;
 
   /**
-   * 权限 连接
+   * Connection Field for 权限
    */
-  @Description("权限 连接")
+  @Description("Connection Field for 权限")
   private PermissionConnection permissionsConnection;
 
   /**
-   * 用户 角色 关系 统计字段
+   * Aggregate Field for Relationship Object between 用户 and 角色
    */
-  @Description("用户 角色 关系 统计字段")
+  @Description("Aggregate Field for Relationship Object between 用户 and 角色")
   private RoleUserRelation roleUserRelationAggregate;
 
   /**
-   * 用户 角色 关系 连接
+   * Connection Field for Relationship Object between 用户 and 角色
    */
-  @Description("用户 角色 关系 连接")
+  @Description("Connection Field for Relationship Object between 用户 and 角色")
   private RoleUserRelationConnection roleUserRelationConnection;
 
   /**
-   * 角色 组 关系 统计字段
+   * Aggregate Field for Relationship Object between 角色 and 组
    */
-  @Description("角色 组 关系 统计字段")
+  @Description("Aggregate Field for Relationship Object between 角色 and 组")
   private GroupRoleRelation groupRoleRelationAggregate;
 
   /**
-   * 角色 组 关系 连接
+   * Connection Field for Relationship Object between 角色 and 组
    */
-  @Description("角色 组 关系 连接")
+  @Description("Connection Field for Relationship Object between 角色 and 组")
   private GroupRoleRelationConnection groupRoleRelationConnection;
 
   /**
-   * 角色 角色 关系 统计字段
+   * Aggregate Field for Relationship Object between 角色 and 角色
    */
-  @Description("角色 角色 关系 统计字段")
+  @Description("Aggregate Field for Relationship Object between 角色 and 角色")
   private RoleCompositeRelation roleCompositeRelationAggregate;
 
   /**
-   * 角色 角色 关系 连接
+   * Connection Field for Relationship Object between 角色 and 角色
    */
-  @Description("角色 角色 关系 连接")
+  @Description("Connection Field for Relationship Object between 角色 and 角色")
   private RoleCompositeRelationConnection roleCompositeRelationConnection;
 
   /**
-   * 角色 权限 关系 统计字段
+   * Aggregate Field for Relationship Object between 角色 and 权限
    */
-  @Description("角色 权限 关系 统计字段")
+  @Description("Aggregate Field for Relationship Object between 角色 and 权限")
   private RolePermissionRelation rolePermissionRelationAggregate;
 
   /**
-   * 角色 权限 关系 连接
+   * Connection Field for Relationship Object between 角色 and 权限
    */
-  @Description("角色 权限 关系 连接")
+  @Description("Connection Field for Relationship Object between 角色 and 权限")
   private RolePermissionRelationConnection rolePermissionRelationConnection;
 
   /**
-   * 角色 数量
+   * Count of 角色
    */
-  @Description("角色 数量")
+  @Description("Count of 角色")
   private Integer idCount;
 
   /**
-   * ID 最大值
+   * Max of ID
    */
-  @Description("ID 最大值")
+  @Description("Max of ID")
   private Integer idMax;
 
   /**
-   * ID 最小值
+   * Min of ID
    */
-  @Description("ID 最小值")
+  @Description("Min of ID")
   private Integer idMin;
 
   /**
-   * 名称 数量
+   * Count of 名称
    */
-  @Description("名称 数量")
+  @Description("Count of 名称")
   private Integer nameCount;
 
   /**
-   * 名称 最大值
+   * Max of 名称
    */
-  @Description("名称 最大值")
+  @Description("Max of 名称")
   private String nameMax;
 
   /**
-   * 名称 最小值
+   * Min of 名称
    */
-  @Description("名称 最小值")
+  @Description("Min of 名称")
   private String nameMin;
 
   /**
-   * 描述 数量
+   * Count of 描述
    */
-  @Description("描述 数量")
+  @Description("Count of 描述")
   private Integer descriptionCount;
 
   /**
-   * 描述 最大值
+   * Max of 描述
    */
-  @Description("描述 最大值")
+  @Description("Max of 描述")
   private String descriptionMax;
 
   /**
-   * 描述 最小值
+   * Min of 描述
    */
-  @Description("描述 最小值")
+  @Description("Min of 描述")
   private String descriptionMin;
 
   private Boolean syncRolePolicy;

@@ -10,30 +10,30 @@ import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.Input;
 
 /**
- * 权限类型 查询表达式
+ * Query Expression Input for 权限类型
  */
 @CompiledJson
 @Input
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
-@Description("权限类型 查询表达式")
+@Description("Query Expression Input for 权限类型")
 public class PermissionTypeExpression {
   /**
-   * 条件
+   * Operators
    */
   @DefaultValue("EQ")
-  @Description("条件")
+  @Description("Operators")
   private Operator opr = Operator.EQ;
 
   /**
-   * 值
+   * Value
    */
-  @Description("值")
+  @Description("Value")
   private PermissionType val;
 
   /**
-   * 组
+   * Array
    */
-  @Description("组")
+  @Description("Array")
   private Collection<PermissionType> arr;
 
   public Operator getOpr() {

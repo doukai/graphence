@@ -7,12 +7,12 @@ import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.Input;
 
 /**
- * 用户 排序
+ * Order Input for 用户
  */
 @CompiledJson
 @Input
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
-@Description("用户 排序")
+@Description("Order Input for 用户")
 public class UserOrderBy {
   /**
    * ID
@@ -75,201 +75,201 @@ public class UserOrderBy {
   private Sort disable;
 
   /**
-   * 已移除
+   * Is Deprecated
    */
-  @Description("已移除")
+  @Description("Is Deprecated")
   private Sort isDeprecated;
 
   /**
-   * 版本
+   * Version
    */
-  @Description("版本")
+  @Description("Version")
   private Sort version;
 
   /**
-   * 域
+   * Realm ID
    */
-  @Description("域")
+  @Description("Realm ID")
   private Sort realmId;
 
   /**
-   * 创建者
+   * Create User ID
    */
-  @Description("创建者")
+  @Description("Create User ID")
   private Sort createUserId;
 
   /**
-   * 创建时间
+   * Create Time
    */
-  @Description("创建时间")
+  @Description("Create Time")
   private Sort createTime;
 
   /**
-   * 更新者
+   * Update User ID
    */
-  @Description("更新者")
+  @Description("Update User ID")
   private Sort updateUserId;
 
   /**
-   * 更新时间
+   * Update Time
    */
-  @Description("更新时间")
+  @Description("Update Time")
   private Sort updateTime;
 
   /**
-   * 创建组
+   * Create Group ID
    */
-  @Description("创建组")
+  @Description("Create Group ID")
   private Sort createGroupId;
 
   /**
-   * 所属类型
+   * Type Name
    */
-  @Description("所属类型")
+  @Description("Type Name")
   private Sort __typename;
 
   /**
-   * 用户 数量
+   * Count of 用户
    */
-  @Description("用户 数量")
+  @Description("Count of 用户")
   private Sort idCount;
 
   /**
-   * ID 最大值
+   * Max of ID
    */
-  @Description("ID 最大值")
+  @Description("Max of ID")
   private Sort idMax;
 
   /**
-   * ID 最小值
+   * Min of ID
    */
-  @Description("ID 最小值")
+  @Description("Min of ID")
   private Sort idMin;
 
   /**
-   * 姓名 数量
+   * Count of 姓名
    */
-  @Description("姓名 数量")
+  @Description("Count of 姓名")
   private Sort nameCount;
 
   /**
-   * 姓名 最大值
+   * Max of 姓名
    */
-  @Description("姓名 最大值")
+  @Description("Max of 姓名")
   private Sort nameMax;
 
   /**
-   * 姓名 最小值
+   * Min of 姓名
    */
-  @Description("姓名 最小值")
+  @Description("Min of 姓名")
   private Sort nameMin;
 
   /**
-   * 描述 数量
+   * Count of 描述
    */
-  @Description("描述 数量")
+  @Description("Count of 描述")
   private Sort descriptionCount;
 
   /**
-   * 描述 最大值
+   * Max of 描述
    */
-  @Description("描述 最大值")
+  @Description("Max of 描述")
   private Sort descriptionMax;
 
   /**
-   * 描述 最小值
+   * Min of 描述
    */
-  @Description("描述 最小值")
+  @Description("Min of 描述")
   private Sort descriptionMin;
 
   /**
-   * 姓氏 数量
+   * Count of 姓氏
    */
-  @Description("姓氏 数量")
+  @Description("Count of 姓氏")
   private Sort lastNameCount;
 
   /**
-   * 姓氏 最大值
+   * Max of 姓氏
    */
-  @Description("姓氏 最大值")
+  @Description("Max of 姓氏")
   private Sort lastNameMax;
 
   /**
-   * 姓氏 最小值
+   * Min of 姓氏
    */
-  @Description("姓氏 最小值")
+  @Description("Min of 姓氏")
   private Sort lastNameMin;
 
   /**
-   * 账号 数量
+   * Count of 账号
    */
-  @Description("账号 数量")
+  @Description("Count of 账号")
   private Sort loginCount;
 
   /**
-   * 账号 最大值
+   * Max of 账号
    */
-  @Description("账号 最大值")
+  @Description("Max of 账号")
   private Sort loginMax;
 
   /**
-   * 账号 最小值
+   * Min of 账号
    */
-  @Description("账号 最小值")
+  @Description("Min of 账号")
   private Sort loginMin;
 
   /**
-   * 盐 数量
+   * Count of 盐
    */
-  @Description("盐 数量")
+  @Description("Count of 盐")
   private Sort saltCount;
 
   /**
-   * 盐 最大值
+   * Max of 盐
    */
-  @Description("盐 最大值")
+  @Description("Max of 盐")
   private Sort saltMax;
 
   /**
-   * 盐 最小值
+   * Min of 盐
    */
-  @Description("盐 最小值")
+  @Description("Min of 盐")
   private Sort saltMin;
 
   /**
-   * 哈希 数量
+   * Count of 哈希
    */
-  @Description("哈希 数量")
+  @Description("Count of 哈希")
   private Sort hashCount;
 
   /**
-   * 哈希 最大值
+   * Max of 哈希
    */
-  @Description("哈希 最大值")
+  @Description("Max of 哈希")
   private Sort hashMax;
 
   /**
-   * 哈希 最小值
+   * Min of 哈希
    */
-  @Description("哈希 最小值")
+  @Description("Min of 哈希")
   private Sort hashMin;
 
   /**
-   * 邮箱 数量
+   * Count of 邮箱
    */
-  @Description("邮箱 数量")
+  @Description("Count of 邮箱")
   private Sort emailCount;
 
   /**
-   * 邮箱 最大值
+   * Max of 邮箱
    */
-  @Description("邮箱 最大值")
+  @Description("Max of 邮箱")
   private Sort emailMax;
 
   /**
-   * 邮箱 最小值
+   * Min of 邮箱
    */
-  @Description("邮箱 最小值")
+  @Description("Min of 邮箱")
   private Sort emailMin;
 
   public Sort getId() {

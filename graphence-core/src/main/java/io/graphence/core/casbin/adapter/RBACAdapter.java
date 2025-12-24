@@ -7,7 +7,8 @@ import jakarta.enterprise.context.ApplicationScoped;
 import org.casbin.jcasbin.model.Model;
 import org.casbin.jcasbin.persist.Adapter;
 import org.casbin.jcasbin.persist.Helper;
-import org.tinylog.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Collection;
 import java.util.List;
@@ -17,6 +18,8 @@ import java.util.stream.Stream;
 
 @ApplicationScoped
 public class RBACAdapter implements Adapter {
+
+    private static final Logger logger = LoggerFactory.getLogger(RBACAdapter.class);
 
     public static final String SPACER = "::";
 
@@ -116,7 +119,7 @@ public class RBACAdapter implements Adapter {
                     .distinct()
                     .forEach(line -> Helper.loadPolicyLine(line, model));
         } catch (Exception e) {
-            Logger.error(e);
+            logger.error(e.getMessage(), e);
         }
     }
 

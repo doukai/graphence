@@ -11,11 +11,11 @@ import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.Input;
 
 /**
- * 用户 手机号 关系 查询表达式
+ * Query Expression Input for Relationship Object between 用户 and 手机号
  */
 @Input
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
-@Description("用户 手机号 关系 查询表达式")
+@Description("Query Expression Input for Relationship Object between 用户 and 手机号")
 public interface UserPhonesRelationExpressionBase extends MetaExpression {
   /**
    * ID
@@ -24,9 +24,9 @@ public interface UserPhonesRelationExpressionBase extends MetaExpression {
   StringExpression id = null;
 
   /**
-   * 用户 引用
+   * 用户 Reference
    */
-  @Description("用户 引用")
+  @Description("用户 Reference")
   StringExpression userRef = null;
 
   /**
@@ -36,81 +36,81 @@ public interface UserPhonesRelationExpressionBase extends MetaExpression {
   UserExpression user = null;
 
   /**
-   * 手机号 引用
+   * 手机号 Reference
    */
-  @Description("手机号 引用")
+  @Description("手机号 Reference")
   StringExpression phonesRef = null;
 
   /**
-   * 包含已移除
+   * Include Deprecated
    */
-  @Description("包含已移除")
+  @Description("Include Deprecated")
   Boolean includeDeprecated = false;
 
   /**
-   * 版本
+   * Version
    */
-  @Description("版本")
+  @Description("Version")
   IntExpression version = null;
 
   /**
-   * 域
+   * Realm ID
    */
-  @Description("域")
+  @Description("Realm ID")
   IntExpression realmId = null;
 
   /**
-   * 创建者
+   * Create User ID
    */
-  @Description("创建者")
+  @Description("Create User ID")
   StringExpression createUserId = null;
 
   /**
-   * 创建时间
+   * Create Time
    */
-  @Description("创建时间")
+  @Description("Create Time")
   StringExpression createTime = null;
 
   /**
-   * 更新者
+   * Update User ID
    */
-  @Description("更新者")
+  @Description("Update User ID")
   StringExpression updateUserId = null;
 
   /**
-   * 更新时间
+   * Update Time
    */
-  @Description("更新时间")
+  @Description("Update Time")
   StringExpression updateTime = null;
 
   /**
-   * 创建组
+   * Create Group ID
    */
-  @Description("创建组")
+  @Description("Create Group ID")
   StringExpression createGroupId = null;
 
   /**
-   * 所属类型
+   * Type Name
    */
-  @Description("所属类型")
+  @Description("Type Name")
   StringExpression __typename = null;
 
   /**
-   * 取非
+   * Not
    */
-  @Description("取非")
+  @Description("Not")
   Boolean not = false;
 
   /**
-   * 与/或
+   * Condition
    */
-  @Description("与/或")
+  @Description("Condition")
   Conditional cond = Conditional.AND;
 
   /**
-   * 查询表达式组
+   * Expressions
    */
-  @Description("查询表达式组")
+  @Description("Expressions")
   Collection<UserPhonesRelationExpression> exs = null;
 
   default StringExpression getId() {

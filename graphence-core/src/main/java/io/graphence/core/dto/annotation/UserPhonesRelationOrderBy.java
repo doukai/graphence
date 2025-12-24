@@ -11,13 +11,13 @@ import java.lang.annotation.Target;
 import org.eclipse.microprofile.graphql.Description;
 
 /**
- * 用户 手机号 关系 排序
+ * Order Input for Relationship Object between 用户 and 手机号
  */
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
 @Documented
 @Retention(RetentionPolicy.SOURCE)
 @Target(ElementType.METHOD)
-@Description("用户 手机号 关系 排序")
+@Description("Order Input for Relationship Object between 用户 and 手机号")
 public @interface UserPhonesRelationOrderBy {
   /**
    * ID
@@ -26,123 +26,123 @@ public @interface UserPhonesRelationOrderBy {
   Sort id() default Sort.ASC;
 
   /**
-   * 用户 引用
+   * 用户 Reference
    */
-  @Description("用户 引用")
+  @Description("用户 Reference")
   Sort userRef() default Sort.ASC;
 
   /**
-   * 手机号 引用
+   * 手机号 Reference
    */
-  @Description("手机号 引用")
+  @Description("手机号 Reference")
   Sort phonesRef() default Sort.ASC;
 
   /**
-   * 已移除
+   * Is Deprecated
    */
-  @Description("已移除")
+  @Description("Is Deprecated")
   Sort isDeprecated() default Sort.ASC;
 
   /**
-   * 版本
+   * Version
    */
-  @Description("版本")
+  @Description("Version")
   Sort version() default Sort.ASC;
 
   /**
-   * 域
+   * Realm ID
    */
-  @Description("域")
+  @Description("Realm ID")
   Sort realmId() default Sort.ASC;
 
   /**
-   * 创建者
+   * Create User ID
    */
-  @Description("创建者")
+  @Description("Create User ID")
   Sort createUserId() default Sort.ASC;
 
   /**
-   * 创建时间
+   * Create Time
    */
-  @Description("创建时间")
+  @Description("Create Time")
   Sort createTime() default Sort.ASC;
 
   /**
-   * 更新者
+   * Update User ID
    */
-  @Description("更新者")
+  @Description("Update User ID")
   Sort updateUserId() default Sort.ASC;
 
   /**
-   * 更新时间
+   * Update Time
    */
-  @Description("更新时间")
+  @Description("Update Time")
   Sort updateTime() default Sort.ASC;
 
   /**
-   * 创建组
+   * Create Group ID
    */
-  @Description("创建组")
+  @Description("Create Group ID")
   Sort createGroupId() default Sort.ASC;
 
   /**
-   * 所属类型
+   * Type Name
    */
-  @Description("所属类型")
+  @Description("Type Name")
   Sort __typename() default Sort.ASC;
 
   /**
-   * 用户 手机号 关系 数量
+   * Count of Relationship Object between 用户 and 手机号
    */
-  @Description("用户 手机号 关系 数量")
+  @Description("Count of Relationship Object between 用户 and 手机号")
   Sort idCount() default Sort.ASC;
 
   /**
-   * ID 最大值
+   * Max of ID
    */
-  @Description("ID 最大值")
+  @Description("Max of ID")
   Sort idMax() default Sort.ASC;
 
   /**
-   * ID 最小值
+   * Min of ID
    */
-  @Description("ID 最小值")
+  @Description("Min of ID")
   Sort idMin() default Sort.ASC;
 
   /**
-   * 用户 引用 数量
+   * Count of 用户 Reference
    */
-  @Description("用户 引用 数量")
+  @Description("Count of 用户 Reference")
   Sort userRefCount() default Sort.ASC;
 
   /**
-   * 用户 引用 最大值
+   * Max of 用户 Reference
    */
-  @Description("用户 引用 最大值")
+  @Description("Max of 用户 Reference")
   Sort userRefMax() default Sort.ASC;
 
   /**
-   * 用户 引用 最小值
+   * Min of 用户 Reference
    */
-  @Description("用户 引用 最小值")
+  @Description("Min of 用户 Reference")
   Sort userRefMin() default Sort.ASC;
 
   /**
-   * 手机号 引用 数量
+   * Count of 手机号 Reference
    */
-  @Description("手机号 引用 数量")
+  @Description("Count of 手机号 Reference")
   Sort phonesRefCount() default Sort.ASC;
 
   /**
-   * 手机号 引用 最大值
+   * Max of 手机号 Reference
    */
-  @Description("手机号 引用 最大值")
+  @Description("Max of 手机号 Reference")
   Sort phonesRefMax() default Sort.ASC;
 
   /**
-   * 手机号 引用 最小值
+   * Min of 手机号 Reference
    */
-  @Description("手机号 引用 最小值")
+  @Description("Min of 手机号 Reference")
   Sort phonesRefMin() default Sort.ASC;
 
   String $id() default "";

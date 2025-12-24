@@ -4,6 +4,8 @@ import com.google.common.collect.Streams;
 import io.graphence.core.dto.Current;
 import io.graphence.core.dto.enumType.PermissionType;
 import io.graphoenix.core.handler.DocumentManager;
+import io.graphoenix.spi.error.GraphQLErrorType;
+import io.graphoenix.spi.error.GraphQLErrors;
 import io.graphoenix.spi.graphql.Definition;
 import io.graphoenix.spi.graphql.common.ValueWithVariable;
 import io.graphoenix.spi.graphql.operation.Field;
@@ -69,7 +71,7 @@ public class RBACFilter implements OperationBeforeHandler {
                                         .map(field -> {
                                                     FieldDefinition fieldDefinition = operationType.getField(field.getName());
                                                     if (!fieldDefinition.isInvokeField() && operation.isMutation() && field.getArguments() != null) {
-                                                        return field.setArguments(enforce(currentUser, operationType.getField(field.getName()), field.getArguments().getArguments()));
+                                                        return field.setArguments(enforce(currentUser, operationType.getField(field.getName()), field));
                                                     }
                                                     return field;
                                                 }
@@ -95,6 +97,9 @@ public class RBACFilter implements OperationBeforeHandler {
     }
 
     protected Stream<Field> enforceApi(Current current, ObjectType objectType, FieldDefinition fieldDefinition, Field field, PermissionType permissionType) {
+        if (fieldDefinition == null) {
+            throw new GraphQLErrors(GraphQLErrorType.FIELD_DEFINITION_NOT_EXIST.bind(field.getName()));
+        }
         if (!fieldDefinition.isDenyAll() &&
                 (fieldDefinition.isPermitAll() ||
                         enforcer.enforce(
@@ -141,6 +146,9 @@ public class RBACFilter implements OperationBeforeHandler {
     }
 
     protected Stream<Field> enforce(Current current, ObjectType objectType, FieldDefinition fieldDefinition, Field field) {
+        if (fieldDefinition == null) {
+            throw new GraphQLErrors(GraphQLErrorType.FIELD_DEFINITION_NOT_EXIST.bind(field.getName()));
+        }
         Definition fieldTypeDefinition = documentManager.getFieldTypeDefinition(fieldDefinition);
         if (fieldDefinition.isConnectionField()) {
             if (documentManager.isOperationType(objectType) ||
@@ -380,7 +388,11 @@ public class RBACFilter implements OperationBeforeHandler {
         return Stream.empty();
     }
 
-    protected Map<String, ValueWithVariable> enforce(Current current, FieldDefinition fieldDefinition, Map<String, ValueWithVariable> arguments) {
+    protected Map<String, ValueWithVariable> enforce(Current current, FieldDefinition fieldDefinition, Field field) {
+        if (fieldDefinition == null) {
+            throw new GraphQLErrors(GraphQLErrorType.FIELD_DEFINITION_NOT_EXIST.bind(field.getName()));
+        }
+        Map<String, ValueWithVariable> arguments = field.getArguments().getArguments();
         Definition fieldTypeDefinition = documentManager.getFieldTypeDefinition(fieldDefinition);
         if (fieldTypeDefinition.isObject() && !fieldTypeDefinition.asObject().isContainer()) {
             return Streams
@@ -512,6 +524,9 @@ public class RBACFilter implements OperationBeforeHandler {
     }
 
     protected Map<String, ValueWithVariable> enforce(Current current, FieldDefinition fieldDefinition, InputValue inputValue, Map<String, ValueWithVariable> objectValueWithVariables) {
+        if (fieldDefinition == null) {
+            throw new GraphQLErrors(GraphQLErrorType.FIELD_DEFINITION_NOT_EXIST.bind(inputValue.getName()));
+        }
         Definition fieldTypeDefinition = documentManager.getFieldTypeDefinition(fieldDefinition);
         Definition inputValueTypeDefinition = documentManager.getInputValueTypeDefinition(inputValue);
         if (fieldTypeDefinition.isObject()) {

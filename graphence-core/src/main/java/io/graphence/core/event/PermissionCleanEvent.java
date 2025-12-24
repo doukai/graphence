@@ -7,7 +7,8 @@ import jakarta.annotation.Priority;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.context.Initialized;
 import jakarta.inject.Inject;
-import org.tinylog.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import reactor.core.publisher.Mono;
 
 import java.util.Map;
@@ -18,6 +19,8 @@ import static io.graphence.core.event.PermissionBuildEvent.PERMISSION_BUILD_SCOP
 @Initialized(ApplicationScoped.class)
 @Priority(PermissionCleanEvent.PERMISSION_CLEAN_SCOPE_EVENT_PRIORITY)
 public class PermissionCleanEvent implements ScopeEvent {
+
+    private static final Logger logger = LoggerFactory.getLogger(PermissionCleanEvent.class);
 
     public static final int PERMISSION_CLEAN_SCOPE_EVENT_PRIORITY = PERMISSION_BUILD_SCOPE_EVENT_PRIORITY - 1;
 
@@ -36,9 +39,9 @@ public class PermissionCleanEvent implements ScopeEvent {
         if (!securityConfig.getBuildPermission()) {
             return Mono.empty();
         }
-        Logger.info("permissions clean started");
+        logger.info("permissions clean started");
         return typeEmptyHandler
                 .empty("Permission")
-                .doOnSuccess((v) -> Logger.info("permissions clean success"));
+                .doOnSuccess((v) -> logger.info("permissions clean success"));
     }
 }

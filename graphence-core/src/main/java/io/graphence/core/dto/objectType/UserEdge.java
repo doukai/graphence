@@ -7,23 +7,23 @@ import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.Type;
 
 /**
- * 用户 边缘
+ * Edge Object for 用户
  */
 @Type
 @CompiledJson
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
-@Description("用户 边缘")
+@Description("Edge Object for 用户")
 public class UserEdge {
   /**
-   * 节点
+   * Node
    */
-  @Description("节点")
+  @Description("Node")
   private User node;
 
   /**
-   * 游标
+   * Cursor
    */
-  @Description("游标")
+  @Description("Cursor")
   private String cursor;
 
   public User getNode() {

@@ -11,13 +11,13 @@ import java.lang.annotation.Target;
 import org.eclipse.microprofile.graphql.Description;
 
 /**
- * 用户 排序
+ * Order Input for 用户
  */
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
 @Documented
 @Retention(RetentionPolicy.SOURCE)
 @Target(ElementType.METHOD)
-@Description("用户 排序")
+@Description("Order Input for 用户")
 public @interface UserOrderBy {
   /**
    * ID
@@ -80,201 +80,201 @@ public @interface UserOrderBy {
   Sort disable() default Sort.ASC;
 
   /**
-   * 已移除
+   * Is Deprecated
    */
-  @Description("已移除")
+  @Description("Is Deprecated")
   Sort isDeprecated() default Sort.ASC;
 
   /**
-   * 版本
+   * Version
    */
-  @Description("版本")
+  @Description("Version")
   Sort version() default Sort.ASC;
 
   /**
-   * 域
+   * Realm ID
    */
-  @Description("域")
+  @Description("Realm ID")
   Sort realmId() default Sort.ASC;
 
   /**
-   * 创建者
+   * Create User ID
    */
-  @Description("创建者")
+  @Description("Create User ID")
   Sort createUserId() default Sort.ASC;
 
   /**
-   * 创建时间
+   * Create Time
    */
-  @Description("创建时间")
+  @Description("Create Time")
   Sort createTime() default Sort.ASC;
 
   /**
-   * 更新者
+   * Update User ID
    */
-  @Description("更新者")
+  @Description("Update User ID")
   Sort updateUserId() default Sort.ASC;
 
   /**
-   * 更新时间
+   * Update Time
    */
-  @Description("更新时间")
+  @Description("Update Time")
   Sort updateTime() default Sort.ASC;
 
   /**
-   * 创建组
+   * Create Group ID
    */
-  @Description("创建组")
+  @Description("Create Group ID")
   Sort createGroupId() default Sort.ASC;
 
   /**
-   * 所属类型
+   * Type Name
    */
-  @Description("所属类型")
+  @Description("Type Name")
   Sort __typename() default Sort.ASC;
 
   /**
-   * 用户 数量
+   * Count of 用户
    */
-  @Description("用户 数量")
+  @Description("Count of 用户")
   Sort idCount() default Sort.ASC;
 
   /**
-   * ID 最大值
+   * Max of ID
    */
-  @Description("ID 最大值")
+  @Description("Max of ID")
   Sort idMax() default Sort.ASC;
 
   /**
-   * ID 最小值
+   * Min of ID
    */
-  @Description("ID 最小值")
+  @Description("Min of ID")
   Sort idMin() default Sort.ASC;
 
   /**
-   * 姓名 数量
+   * Count of 姓名
    */
-  @Description("姓名 数量")
+  @Description("Count of 姓名")
   Sort nameCount() default Sort.ASC;
 
   /**
-   * 姓名 最大值
+   * Max of 姓名
    */
-  @Description("姓名 最大值")
+  @Description("Max of 姓名")
   Sort nameMax() default Sort.ASC;
 
   /**
-   * 姓名 最小值
+   * Min of 姓名
    */
-  @Description("姓名 最小值")
+  @Description("Min of 姓名")
   Sort nameMin() default Sort.ASC;
 
   /**
-   * 描述 数量
+   * Count of 描述
    */
-  @Description("描述 数量")
+  @Description("Count of 描述")
   Sort descriptionCount() default Sort.ASC;
 
   /**
-   * 描述 最大值
+   * Max of 描述
    */
-  @Description("描述 最大值")
+  @Description("Max of 描述")
   Sort descriptionMax() default Sort.ASC;
 
   /**
-   * 描述 最小值
+   * Min of 描述
    */
-  @Description("描述 最小值")
+  @Description("Min of 描述")
   Sort descriptionMin() default Sort.ASC;
 
   /**
-   * 姓氏 数量
+   * Count of 姓氏
    */
-  @Description("姓氏 数量")
+  @Description("Count of 姓氏")
   Sort lastNameCount() default Sort.ASC;
 
   /**
-   * 姓氏 最大值
+   * Max of 姓氏
    */
-  @Description("姓氏 最大值")
+  @Description("Max of 姓氏")
   Sort lastNameMax() default Sort.ASC;
 
   /**
-   * 姓氏 最小值
+   * Min of 姓氏
    */
-  @Description("姓氏 最小值")
+  @Description("Min of 姓氏")
   Sort lastNameMin() default Sort.ASC;
 
   /**
-   * 账号 数量
+   * Count of 账号
    */
-  @Description("账号 数量")
+  @Description("Count of 账号")
   Sort loginCount() default Sort.ASC;
 
   /**
-   * 账号 最大值
+   * Max of 账号
    */
-  @Description("账号 最大值")
+  @Description("Max of 账号")
   Sort loginMax() default Sort.ASC;
 
   /**
-   * 账号 最小值
+   * Min of 账号
    */
-  @Description("账号 最小值")
+  @Description("Min of 账号")
   Sort loginMin() default Sort.ASC;
 
   /**
-   * 盐 数量
+   * Count of 盐
    */
-  @Description("盐 数量")
+  @Description("Count of 盐")
   Sort saltCount() default Sort.ASC;
 
   /**
-   * 盐 最大值
+   * Max of 盐
    */
-  @Description("盐 最大值")
+  @Description("Max of 盐")
   Sort saltMax() default Sort.ASC;
 
   /**
-   * 盐 最小值
+   * Min of 盐
    */
-  @Description("盐 最小值")
+  @Description("Min of 盐")
   Sort saltMin() default Sort.ASC;
 
   /**
-   * 哈希 数量
+   * Count of 哈希
    */
-  @Description("哈希 数量")
+  @Description("Count of 哈希")
   Sort hashCount() default Sort.ASC;
 
   /**
-   * 哈希 最大值
+   * Max of 哈希
    */
-  @Description("哈希 最大值")
+  @Description("Max of 哈希")
   Sort hashMax() default Sort.ASC;
 
   /**
-   * 哈希 最小值
+   * Min of 哈希
    */
-  @Description("哈希 最小值")
+  @Description("Min of 哈希")
   Sort hashMin() default Sort.ASC;
 
   /**
-   * 邮箱 数量
+   * Count of 邮箱
    */
-  @Description("邮箱 数量")
+  @Description("Count of 邮箱")
   Sort emailCount() default Sort.ASC;
 
   /**
-   * 邮箱 最大值
+   * Max of 邮箱
    */
-  @Description("邮箱 最大值")
+  @Description("Max of 邮箱")
   Sort emailMax() default Sort.ASC;
 
   /**
-   * 邮箱 最小值
+   * Min of 邮箱
    */
-  @Description("邮箱 最小值")
+  @Description("Min of 邮箱")
   Sort emailMin() default Sort.ASC;
 
   String $id() default "";

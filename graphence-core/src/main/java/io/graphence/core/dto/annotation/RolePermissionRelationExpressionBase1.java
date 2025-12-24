@@ -13,13 +13,13 @@ import java.lang.annotation.Target;
 import org.eclipse.microprofile.graphql.Description;
 
 /**
- * 角色 权限 关系 查询表达式
+ * Query Expression Input for Relationship Object between 角色 and 权限
  */
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
 @Documented
 @Retention(RetentionPolicy.SOURCE)
 @Target(ElementType.METHOD)
-@Description("角色 权限 关系 查询表达式")
+@Description("Query Expression Input for Relationship Object between 角色 and 权限")
 public @interface RolePermissionRelationExpressionBase1 {
   /**
    * ID
@@ -28,9 +28,9 @@ public @interface RolePermissionRelationExpressionBase1 {
   StringExpression id() default @StringExpression;
 
   /**
-   * 角色 引用
+   * 角色 Reference
    */
-  @Description("角色 引用")
+  @Description("角色 Reference")
   StringExpression roleRef() default @StringExpression;
 
   /**
@@ -40,9 +40,9 @@ public @interface RolePermissionRelationExpressionBase1 {
   RoleExpression2 role() default @RoleExpression2;
 
   /**
-   * 权限 引用
+   * 权限 Reference
    */
-  @Description("权限 引用")
+  @Description("权限 Reference")
   StringExpression permissionRef() default @StringExpression;
 
   /**
@@ -52,75 +52,75 @@ public @interface RolePermissionRelationExpressionBase1 {
   PermissionExpression2 permission() default @PermissionExpression2;
 
   /**
-   * 包含已移除
+   * Include Deprecated
    */
-  @Description("包含已移除")
+  @Description("Include Deprecated")
   boolean includeDeprecated() default false;
 
   /**
-   * 版本
+   * Version
    */
-  @Description("版本")
+  @Description("Version")
   IntExpression version() default @IntExpression;
 
   /**
-   * 域
+   * Realm ID
    */
-  @Description("域")
+  @Description("Realm ID")
   IntExpression realmId() default @IntExpression;
 
   /**
-   * 创建者
+   * Create User ID
    */
-  @Description("创建者")
+  @Description("Create User ID")
   StringExpression createUserId() default @StringExpression;
 
   /**
-   * 创建时间
+   * Create Time
    */
-  @Description("创建时间")
+  @Description("Create Time")
   StringExpression createTime() default @StringExpression;
 
   /**
-   * 更新者
+   * Update User ID
    */
-  @Description("更新者")
+  @Description("Update User ID")
   StringExpression updateUserId() default @StringExpression;
 
   /**
-   * 更新时间
+   * Update Time
    */
-  @Description("更新时间")
+  @Description("Update Time")
   StringExpression updateTime() default @StringExpression;
 
   /**
-   * 创建组
+   * Create Group ID
    */
-  @Description("创建组")
+  @Description("Create Group ID")
   StringExpression createGroupId() default @StringExpression;
 
   /**
-   * 所属类型
+   * Type Name
    */
-  @Description("所属类型")
+  @Description("Type Name")
   StringExpression __typename() default @StringExpression;
 
   /**
-   * 取非
+   * Not
    */
-  @Description("取非")
+  @Description("Not")
   boolean not() default false;
 
   /**
-   * 与/或
+   * Condition
    */
-  @Description("与/或")
+  @Description("Condition")
   Conditional cond() default Conditional.AND;
 
   /**
-   * 查询表达式组
+   * Expressions
    */
-  @Description("查询表达式组")
+  @Description("Expressions")
   RolePermissionRelationExpression2[] exs() default {};
 
   String $id() default "";

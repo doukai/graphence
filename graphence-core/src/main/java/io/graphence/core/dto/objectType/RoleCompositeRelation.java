@@ -14,12 +14,12 @@ import org.eclipse.microprofile.graphql.Id;
 import org.eclipse.microprofile.graphql.Type;
 
 /**
- * 角色 角色 关系
+ * Relationship Object between 角色 and 角色
  */
 @Type
 @CompiledJson
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
-@Description("角色 角色 关系")
+@Description("Relationship Object between 角色 and 角色")
 public class RoleCompositeRelation implements Meta {
   /**
    * ID
@@ -29,9 +29,9 @@ public class RoleCompositeRelation implements Meta {
   private String id;
 
   /**
-   * 角色 引用
+   * 角色 Reference
    */
-  @Description("角色 引用")
+  @Description("角色 Reference")
   private String roleRef;
 
   /**
@@ -41,9 +41,9 @@ public class RoleCompositeRelation implements Meta {
   private Role role;
 
   /**
-   * 角色 引用
+   * 角色 Reference
    */
-  @Description("角色 引用")
+  @Description("角色 Reference")
   private String compositeRef;
 
   /**
@@ -53,111 +53,111 @@ public class RoleCompositeRelation implements Meta {
   private Role composite;
 
   /**
-   * 已移除
+   * Is Deprecated
    */
-  @Description("已移除")
+  @Description("Is Deprecated")
   private Boolean isDeprecated = false;
 
   /**
-   * 版本
+   * Version
    */
-  @Description("版本")
+  @Description("Version")
   private Integer version;
 
   /**
-   * 域
+   * Realm ID
    */
-  @Description("域")
+  @Description("Realm ID")
   private Integer realmId;
 
   /**
-   * 创建者
+   * Create User ID
    */
-  @Description("创建者")
+  @Description("Create User ID")
   private String createUserId;
 
   /**
-   * 创建时间
+   * Create Time
    */
-  @Description("创建时间")
+  @Description("Create Time")
   private LocalDateTime createTime;
 
   /**
-   * 更新者
+   * Update User ID
    */
-  @Description("更新者")
+  @Description("Update User ID")
   private String updateUserId;
 
   /**
-   * 更新时间
+   * Update Time
    */
-  @Description("更新时间")
+  @Description("Update Time")
   private LocalDateTime updateTime;
 
   /**
-   * 创建组
+   * Create Group ID
    */
-  @Description("创建组")
+  @Description("Create Group ID")
   private String createGroupId;
 
   /**
-   * 所属类型
+   * Type Name
    */
-  @Description("所属类型")
+  @Description("Type Name")
   private String __typename = "RoleCompositeRelation";
 
   /**
-   * 角色 角色 关系 数量
+   * Count of Relationship Object between 角色 and 角色
    */
-  @Description("角色 角色 关系 数量")
+  @Description("Count of Relationship Object between 角色 and 角色")
   private Integer idCount;
 
   /**
-   * ID 最大值
+   * Max of ID
    */
-  @Description("ID 最大值")
+  @Description("Max of ID")
   private Integer idMax;
 
   /**
-   * ID 最小值
+   * Min of ID
    */
-  @Description("ID 最小值")
+  @Description("Min of ID")
   private Integer idMin;
 
   /**
-   * 角色 引用 数量
+   * Count of 角色 Reference
    */
-  @Description("角色 引用 数量")
+  @Description("Count of 角色 Reference")
   private Integer roleRefCount;
 
   /**
-   * 角色 引用 最大值
+   * Max of 角色 Reference
    */
-  @Description("角色 引用 最大值")
+  @Description("Max of 角色 Reference")
   private String roleRefMax;
 
   /**
-   * 角色 引用 最小值
+   * Min of 角色 Reference
    */
-  @Description("角色 引用 最小值")
+  @Description("Min of 角色 Reference")
   private String roleRefMin;
 
   /**
-   * 角色 引用 数量
+   * Count of 角色 Reference
    */
-  @Description("角色 引用 数量")
+  @Description("Count of 角色 Reference")
   private Integer compositeRefCount;
 
   /**
-   * 角色 引用 最大值
+   * Max of 角色 Reference
    */
-  @Description("角色 引用 最大值")
+  @Description("Max of 角色 Reference")
   private String compositeRefMax;
 
   /**
-   * 角色 引用 最小值
+   * Min of 角色 Reference
    */
-  @Description("角色 引用 最小值")
+  @Description("Min of 角色 Reference")
   private String compositeRefMin;
 
   @Override

@@ -12,11 +12,11 @@ import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.Input;
 
 /**
- * 用户 变更内容
+ * Mutation Input for 用户
  */
 @Input
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
-@Description("用户 变更内容")
+@Description("Mutation Input for 用户")
 public interface UserInputBase extends NamedStructInput, MetaInput {
   /**
    * ID
@@ -97,81 +97,81 @@ public interface UserInputBase extends NamedStructInput, MetaInput {
   RealmInput realm = null;
 
   /**
-   * 已移除
+   * Is Deprecated
    */
-  @Description("已移除")
+  @Description("Is Deprecated")
   Boolean isDeprecated = false;
 
   /**
-   * 版本
+   * Version
    */
-  @Description("版本")
+  @Description("Version")
   Integer version = null;
 
   /**
-   * 域
+   * Realm ID
    */
-  @Description("域")
+  @Description("Realm ID")
   Integer realmId = null;
 
   /**
-   * 创建者
+   * Create User ID
    */
-  @Description("创建者")
+  @Description("Create User ID")
   String createUserId = null;
 
   /**
-   * 创建时间
+   * Create Time
    */
-  @Description("创建时间")
+  @Description("Create Time")
   LocalDateTime createTime = null;
 
   /**
-   * 更新者
+   * Update User ID
    */
-  @Description("更新者")
+  @Description("Update User ID")
   String updateUserId = null;
 
   /**
-   * 更新时间
+   * Update Time
    */
-  @Description("更新时间")
+  @Description("Update Time")
   LocalDateTime updateTime = null;
 
   /**
-   * 创建组
+   * Create Group ID
    */
-  @Description("创建组")
+  @Description("Create Group ID")
   String createGroupId = null;
 
   /**
-   * 所属类型
+   * Type Name
    */
-  @Description("所属类型")
+  @Description("Type Name")
   String __typename = "User";
 
   /**
-   * 用户 手机号 关系
+   * Relationship Object between 用户 and 手机号
    */
-  @Description("用户 手机号 关系")
+  @Description("Relationship Object between 用户 and 手机号")
   Collection<UserPhonesRelationInput> userPhonesRelation = null;
 
   /**
-   * 用户 组 关系
+   * Relationship Object between 用户 and 组
    */
-  @Description("用户 组 关系")
+  @Description("Relationship Object between 用户 and 组")
   Collection<GroupUserRelationInput> groupUserRelation = null;
 
   /**
-   * 用户 角色 关系
+   * Relationship Object between 用户 and 角色
    */
-  @Description("用户 角色 关系")
+  @Description("Relationship Object between 用户 and 角色")
   Collection<RoleUserRelationInput> roleUserRelation = null;
 
   /**
-   * 匹配条件
+   * Where
    */
-  @Description("匹配条件")
+  @Description("Where")
   UserExpression where = null;
 
   default String getId() {

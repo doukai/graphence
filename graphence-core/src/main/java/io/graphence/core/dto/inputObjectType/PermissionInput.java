@@ -15,12 +15,12 @@ import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.Input;
 
 /**
- * 权限 变更内容
+ * Mutation Input for 权限
  */
 @CompiledJson
 @Input
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
-@Description("权限 变更内容")
+@Description("Mutation Input for 权限")
 public class PermissionInput implements MetaInput, PermissionInputBase {
   /**
    * ID
@@ -71,71 +71,71 @@ public class PermissionInput implements MetaInput, PermissionInputBase {
   private RealmInput realm;
 
   /**
-   * 已移除
+   * Is Deprecated
    */
   @DefaultValue("false")
-  @Description("已移除")
+  @Description("Is Deprecated")
   private Boolean isDeprecated = false;
 
   /**
-   * 版本
+   * Version
    */
-  @Description("版本")
+  @Description("Version")
   private Integer version;
 
   /**
-   * 域
+   * Realm ID
    */
-  @Description("域")
+  @Description("Realm ID")
   private Integer realmId;
 
   /**
-   * 创建者
+   * Create User ID
    */
-  @Description("创建者")
+  @Description("Create User ID")
   private String createUserId;
 
   /**
-   * 创建时间
+   * Create Time
    */
-  @Description("创建时间")
+  @Description("Create Time")
   private LocalDateTime createTime;
 
   /**
-   * 更新者
+   * Update User ID
    */
-  @Description("更新者")
+  @Description("Update User ID")
   private String updateUserId;
 
   /**
-   * 更新时间
+   * Update Time
    */
-  @Description("更新时间")
+  @Description("Update Time")
   private LocalDateTime updateTime;
 
   /**
-   * 创建组
+   * Create Group ID
    */
-  @Description("创建组")
+  @Description("Create Group ID")
   private String createGroupId;
 
   /**
-   * 所属类型
+   * Type Name
    */
   @DefaultValue("Permission")
-  @Description("所属类型")
+  @Description("Type Name")
   private String __typename = "Permission";
 
   /**
-   * 角色 权限 关系
+   * Relationship Object between 角色 and 权限
    */
-  @Description("角色 权限 关系")
+  @Description("Relationship Object between 角色 and 权限")
   private Collection<RolePermissionRelationInput> rolePermissionRelation;
 
   /**
-   * 匹配条件
+   * Where
    */
-  @Description("匹配条件")
+  @Description("Where")
   private PermissionExpression where;
 
   @Override

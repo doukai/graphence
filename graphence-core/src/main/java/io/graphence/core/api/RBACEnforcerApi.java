@@ -13,7 +13,8 @@ import org.eclipse.microprofile.graphql.GraphQLApi;
 import org.eclipse.microprofile.graphql.Mutation;
 import org.eclipse.microprofile.graphql.Query;
 import org.eclipse.microprofile.graphql.Source;
-import org.tinylog.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import reactor.core.publisher.Mono;
 
 import java.util.Collection;
@@ -27,6 +28,8 @@ import static io.graphence.core.casbin.adapter.RBACAdapter.*;
 @GraphQLApi
 @ApplicationScoped
 public class RBACEnforcerApi {
+
+    private static final Logger logger = LoggerFactory.getLogger(RBACEnforcerApi.class);
 
     private final Model model;
     private final Enforcer enforcer;
@@ -135,7 +138,7 @@ public class RBACEnforcerApi {
                                                         .forEach(line -> Helper.loadPolicyLine(line, model));
                                                 return true;
                                             } catch (Exception e) {
-                                                Logger.error(e);
+                                                logger.error(e.getMessage(), e);
                                                 return false;
                                             }
                                         }

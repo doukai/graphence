@@ -9,154 +9,154 @@ import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.Type;
 
 /**
- * 变更
+ * Mutation
  */
 @Type
 @CompiledJson
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
-@Description("变更")
+@Description("Mutation")
 public class Mutation {
   /**
-   * 用户 变更接口
+   * Mutation Field for 用户
    */
-  @Description("用户 变更接口")
+  @Description("Mutation Field for 用户")
   private User user;
 
   /**
-   * 用户列表 变更接口
+   * Mutation Field for 用户 List
    */
-  @Description("用户列表 变更接口")
+  @Description("Mutation Field for 用户 List")
   private Collection<User> userList;
 
   /**
-   * 角色 变更接口
+   * Mutation Field for 角色
    */
-  @Description("角色 变更接口")
+  @Description("Mutation Field for 角色")
   private Role role;
 
   /**
-   * 角色列表 变更接口
+   * Mutation Field for 角色 List
    */
-  @Description("角色列表 变更接口")
+  @Description("Mutation Field for 角色 List")
   private Collection<Role> roleList;
 
   /**
-   * 组 变更接口
+   * Mutation Field for 组
    */
-  @Description("组 变更接口")
+  @Description("Mutation Field for 组")
   private Group group;
 
   /**
-   * 组列表 变更接口
+   * Mutation Field for 组 List
    */
-  @Description("组列表 变更接口")
+  @Description("Mutation Field for 组 List")
   private Collection<Group> groupList;
 
   /**
-   * 租户 变更接口
+   * Mutation Field for 租户
    */
-  @Description("租户 变更接口")
+  @Description("Mutation Field for 租户")
   private Realm realm;
 
   /**
-   * 租户列表 变更接口
+   * Mutation Field for 租户 List
    */
-  @Description("租户列表 变更接口")
+  @Description("Mutation Field for 租户 List")
   private Collection<Realm> realmList;
 
   /**
-   * 权限 变更接口
+   * Mutation Field for 权限
    */
-  @Description("权限 变更接口")
+  @Description("Mutation Field for 权限")
   private Permission permission;
 
   /**
-   * 权限列表 变更接口
+   * Mutation Field for 权限 List
    */
-  @Description("权限列表 变更接口")
+  @Description("Mutation Field for 权限 List")
   private Collection<Permission> permissionList;
 
   /**
-   * 用户 手机号 关系 变更接口
+   * Mutation Field for Relationship Object between 用户 and 手机号
    */
-  @Description("用户 手机号 关系 变更接口")
+  @Description("Mutation Field for Relationship Object between 用户 and 手机号")
   private UserPhonesRelation userPhonesRelation;
 
   /**
-   * 用户 手机号 关系列表 变更接口
+   * Mutation Field for Relationship Object between 用户 and 手机号 List
    */
-  @Description("用户 手机号 关系列表 变更接口")
+  @Description("Mutation Field for Relationship Object between 用户 and 手机号 List")
   private Collection<UserPhonesRelation> userPhonesRelationList;
 
   /**
-   * 用户 组 关系 变更接口
+   * Mutation Field for Relationship Object between 用户 and 组
    */
-  @Description("用户 组 关系 变更接口")
+  @Description("Mutation Field for Relationship Object between 用户 and 组")
   private GroupUserRelation groupUserRelation;
 
   /**
-   * 用户 组 关系列表 变更接口
+   * Mutation Field for Relationship Object between 用户 and 组 List
    */
-  @Description("用户 组 关系列表 变更接口")
+  @Description("Mutation Field for Relationship Object between 用户 and 组 List")
   private Collection<GroupUserRelation> groupUserRelationList;
 
   /**
-   * 用户 角色 关系 变更接口
+   * Mutation Field for Relationship Object between 用户 and 角色
    */
-  @Description("用户 角色 关系 变更接口")
+  @Description("Mutation Field for Relationship Object between 用户 and 角色")
   private RoleUserRelation roleUserRelation;
 
   /**
-   * 用户 角色 关系列表 变更接口
+   * Mutation Field for Relationship Object between 用户 and 角色 List
    */
-  @Description("用户 角色 关系列表 变更接口")
+  @Description("Mutation Field for Relationship Object between 用户 and 角色 List")
   private Collection<RoleUserRelation> roleUserRelationList;
 
   /**
-   * 角色 组 关系 变更接口
+   * Mutation Field for Relationship Object between 角色 and 组
    */
-  @Description("角色 组 关系 变更接口")
+  @Description("Mutation Field for Relationship Object between 角色 and 组")
   private GroupRoleRelation groupRoleRelation;
 
   /**
-   * 角色 组 关系列表 变更接口
+   * Mutation Field for Relationship Object between 角色 and 组 List
    */
-  @Description("角色 组 关系列表 变更接口")
+  @Description("Mutation Field for Relationship Object between 角色 and 组 List")
   private Collection<GroupRoleRelation> groupRoleRelationList;
 
   /**
-   * 角色 角色 关系 变更接口
+   * Mutation Field for Relationship Object between 角色 and 角色
    */
-  @Description("角色 角色 关系 变更接口")
+  @Description("Mutation Field for Relationship Object between 角色 and 角色")
   private RoleCompositeRelation roleCompositeRelation;
 
   /**
-   * 角色 角色 关系列表 变更接口
+   * Mutation Field for Relationship Object between 角色 and 角色 List
    */
-  @Description("角色 角色 关系列表 变更接口")
+  @Description("Mutation Field for Relationship Object between 角色 and 角色 List")
   private Collection<RoleCompositeRelation> roleCompositeRelationList;
 
   /**
-   * 角色 权限 关系 变更接口
+   * Mutation Field for Relationship Object between 角色 and 权限
    */
-  @Description("角色 权限 关系 变更接口")
+  @Description("Mutation Field for Relationship Object between 角色 and 权限")
   private RolePermissionRelation rolePermissionRelation;
 
   /**
-   * 角色 权限 关系列表 变更接口
+   * Mutation Field for Relationship Object between 角色 and 权限 List
    */
-  @Description("角色 权限 关系列表 变更接口")
+  @Description("Mutation Field for Relationship Object between 角色 and 权限 List")
   private Collection<RolePermissionRelation> rolePermissionRelationList;
 
-  private Boolean syncModelPolicy;
-
-  private Boolean syncPermissionRoleRelationPolicy;
+  private String login;
 
   private User currentUserUpdate;
 
   private User currentUserResetPassword;
 
-  private String login;
+  private Boolean syncModelPolicy;
+
+  private Boolean syncPermissionRoleRelationPolicy;
 
   public User getUser() {
     return this.user;
@@ -336,20 +336,12 @@ public class Mutation {
     this.rolePermissionRelationList = rolePermissionRelationList;
   }
 
-  public Boolean getSyncModelPolicy() {
-    return this.syncModelPolicy;
+  public String getLogin() {
+    return this.login;
   }
 
-  public void setSyncModelPolicy(Boolean syncModelPolicy) {
-    this.syncModelPolicy = syncModelPolicy;
-  }
-
-  public Boolean getSyncPermissionRoleRelationPolicy() {
-    return this.syncPermissionRoleRelationPolicy;
-  }
-
-  public void setSyncPermissionRoleRelationPolicy(Boolean syncPermissionRoleRelationPolicy) {
-    this.syncPermissionRoleRelationPolicy = syncPermissionRoleRelationPolicy;
+  public void setLogin(String login) {
+    this.login = login;
   }
 
   public User getCurrentUserUpdate() {
@@ -368,11 +360,19 @@ public class Mutation {
     this.currentUserResetPassword = currentUserResetPassword;
   }
 
-  public String getLogin() {
-    return this.login;
+  public Boolean getSyncModelPolicy() {
+    return this.syncModelPolicy;
   }
 
-  public void setLogin(String login) {
-    this.login = login;
+  public void setSyncModelPolicy(Boolean syncModelPolicy) {
+    this.syncModelPolicy = syncModelPolicy;
+  }
+
+  public Boolean getSyncPermissionRoleRelationPolicy() {
+    return this.syncPermissionRoleRelationPolicy;
+  }
+
+  public void setSyncPermissionRoleRelationPolicy(Boolean syncPermissionRoleRelationPolicy) {
+    this.syncPermissionRoleRelationPolicy = syncPermissionRoleRelationPolicy;
   }
 }

@@ -95,249 +95,249 @@ public class Group implements TreeStruct, NamedStruct, Meta {
   private Realm realm;
 
   /**
-   * 已移除
+   * Is Deprecated
    */
-  @Description("已移除")
+  @Description("Is Deprecated")
   private Boolean isDeprecated = false;
 
   /**
-   * 版本
+   * Version
    */
-  @Description("版本")
+  @Description("Version")
   private Integer version;
 
   /**
-   * 域
+   * Realm ID
    */
-  @Description("域")
+  @Description("Realm ID")
   private Integer realmId;
 
   /**
-   * 创建者
+   * Create User ID
    */
-  @Description("创建者")
+  @Description("Create User ID")
   private String createUserId;
 
   /**
-   * 创建时间
+   * Create Time
    */
-  @Description("创建时间")
+  @Description("Create Time")
   private LocalDateTime createTime;
 
   /**
-   * 更新者
+   * Update User ID
    */
-  @Description("更新者")
+  @Description("Update User ID")
   private String updateUserId;
 
   /**
-   * 更新时间
+   * Update Time
    */
-  @Description("更新时间")
+  @Description("Update Time")
   private LocalDateTime updateTime;
 
   /**
-   * 创建组
+   * Create Group ID
    */
-  @Description("创建组")
+  @Description("Create Group ID")
   private String createGroupId;
 
   /**
-   * 所属类型
+   * Type Name
    */
-  @Description("所属类型")
+  @Description("Type Name")
   private String __typename = "Group";
 
   /**
-   * 用户 组 关系
+   * Relationship Object between 用户 and 组
    */
-  @Description("用户 组 关系")
+  @Description("Relationship Object between 用户 and 组")
   private Collection<GroupUserRelation> groupUserRelation;
 
   /**
-   * 角色 组 关系
+   * Relationship Object between 角色 and 组
    */
-  @Description("角色 组 关系")
+  @Description("Relationship Object between 角色 and 组")
   private Collection<GroupRoleRelation> groupRoleRelation;
 
   /**
-   * 下级 统计字段
+   * Aggregate Field for 下级
    */
-  @Description("下级 统计字段")
+  @Description("Aggregate Field for 下级")
   private Group subGroupsAggregate;
 
   /**
-   * 下级 连接
+   * Connection Field for 下级
    */
-  @Description("下级 连接")
+  @Description("Connection Field for 下级")
   private GroupConnection subGroupsConnection;
 
   /**
-   * 用户 统计字段
+   * Aggregate Field for 用户
    */
-  @Description("用户 统计字段")
+  @Description("Aggregate Field for 用户")
   private User usersAggregate;
 
   /**
-   * 用户 连接
+   * Connection Field for 用户
    */
-  @Description("用户 连接")
+  @Description("Connection Field for 用户")
   private UserConnection usersConnection;
 
   /**
-   * 角色 统计字段
+   * Aggregate Field for 角色
    */
-  @Description("角色 统计字段")
+  @Description("Aggregate Field for 角色")
   private Role rolesAggregate;
 
   /**
-   * 角色 连接
+   * Connection Field for 角色
    */
-  @Description("角色 连接")
+  @Description("Connection Field for 角色")
   private RoleConnection rolesConnection;
 
   /**
-   * 用户 组 关系 统计字段
+   * Aggregate Field for Relationship Object between 用户 and 组
    */
-  @Description("用户 组 关系 统计字段")
+  @Description("Aggregate Field for Relationship Object between 用户 and 组")
   private GroupUserRelation groupUserRelationAggregate;
 
   /**
-   * 用户 组 关系 连接
+   * Connection Field for Relationship Object between 用户 and 组
    */
-  @Description("用户 组 关系 连接")
+  @Description("Connection Field for Relationship Object between 用户 and 组")
   private GroupUserRelationConnection groupUserRelationConnection;
 
   /**
-   * 角色 组 关系 统计字段
+   * Aggregate Field for Relationship Object between 角色 and 组
    */
-  @Description("角色 组 关系 统计字段")
+  @Description("Aggregate Field for Relationship Object between 角色 and 组")
   private GroupRoleRelation groupRoleRelationAggregate;
 
   /**
-   * 角色 组 关系 连接
+   * Connection Field for Relationship Object between 角色 and 组
    */
-  @Description("角色 组 关系 连接")
+  @Description("Connection Field for Relationship Object between 角色 and 组")
   private GroupRoleRelationConnection groupRoleRelationConnection;
 
   /**
-   * 组 数量
+   * Count of 组
    */
-  @Description("组 数量")
+  @Description("Count of 组")
   private Integer idCount;
 
   /**
-   * ID 最大值
+   * Max of ID
    */
-  @Description("ID 最大值")
+  @Description("Max of ID")
   private Integer idMax;
 
   /**
-   * ID 最小值
+   * Min of ID
    */
-  @Description("ID 最小值")
+  @Description("Min of ID")
   private Integer idMin;
 
   /**
-   * 名称 数量
+   * Count of 名称
    */
-  @Description("名称 数量")
+  @Description("Count of 名称")
   private Integer nameCount;
 
   /**
-   * 名称 最大值
+   * Max of 名称
    */
-  @Description("名称 最大值")
+  @Description("Max of 名称")
   private String nameMax;
 
   /**
-   * 名称 最小值
+   * Min of 名称
    */
-  @Description("名称 最小值")
+  @Description("Min of 名称")
   private String nameMin;
 
   /**
-   * 描述 数量
+   * Count of 描述
    */
-  @Description("描述 数量")
+  @Description("Count of 描述")
   private Integer descriptionCount;
 
   /**
-   * 描述 最大值
+   * Max of 描述
    */
-  @Description("描述 最大值")
+  @Description("Max of 描述")
   private String descriptionMax;
 
   /**
-   * 描述 最小值
+   * Min of 描述
    */
-  @Description("描述 最小值")
+  @Description("Min of 描述")
   private String descriptionMin;
 
   /**
-   * 路径 数量
+   * Count of 路径
    */
-  @Description("路径 数量")
+  @Description("Count of 路径")
   private Integer pathCount;
 
   /**
-   * 路径 最大值
+   * Max of 路径
    */
-  @Description("路径 最大值")
+  @Description("Max of 路径")
   private String pathMax;
 
   /**
-   * 路径 最小值
+   * Min of 路径
    */
-  @Description("路径 最小值")
+  @Description("Min of 路径")
   private String pathMin;
 
   /**
-   * 上级ID 数量
+   * Count of 上级ID
    */
-  @Description("上级ID 数量")
+  @Description("Count of 上级ID")
   private Integer parentIdCount;
 
   /**
-   * 上级ID 最大值
+   * Max of 上级ID
    */
-  @Description("上级ID 最大值")
+  @Description("Max of 上级ID")
   private String parentIdMax;
 
   /**
-   * 上级ID 最小值
+   * Min of 上级ID
    */
-  @Description("上级ID 最小值")
+  @Description("Min of 上级ID")
   private String parentIdMin;
 
   /**
-   * 层级 数量
+   * Count of 层级
    */
-  @Description("层级 数量")
+  @Description("Count of 层级")
   private Integer deepCount;
 
   /**
-   * 层级 合计
+   * Sum of 层级
    */
-  @Description("层级 合计")
+  @Description("Sum of 层级")
   private Integer deepSum;
 
   /**
-   * 层级 平均值
+   * Avg of 层级
    */
-  @Description("层级 平均值")
+  @Description("Avg of 层级")
   private Integer deepAvg;
 
   /**
-   * 层级 最大值
+   * Max of 层级
    */
-  @Description("层级 最大值")
+  @Description("Max of 层级")
   private Integer deepMax;
 
   /**
-   * 层级 最小值
+   * Min of 层级
    */
-  @Description("层级 最小值")
+  @Description("Min of 层级")
   private Integer deepMin;
 
   private Boolean syncGroupPolicy;

@@ -14,12 +14,12 @@ import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.Input;
 
 /**
- * 角色 组 关系列表 变更参数 
+ * Mutation Arguments for Relationship Object between 角色 and 组 List
  */
 @CompiledJson
 @Input
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
-@Description("角色 组 关系列表 变更参数 ")
+@Description("Mutation Arguments for Relationship Object between 角色 and 组 List")
 public class GroupRoleRelationListMutationArguments implements MetaInput, GroupRoleRelationInputBase {
   /**
    * ID
@@ -28,9 +28,9 @@ public class GroupRoleRelationListMutationArguments implements MetaInput, GroupR
   private String id;
 
   /**
-   * 角色 引用
+   * 角色 Reference
    */
-  @Description("角色 引用")
+  @Description("角色 Reference")
   private String roleRef;
 
   /**
@@ -40,9 +40,9 @@ public class GroupRoleRelationListMutationArguments implements MetaInput, GroupR
   private RoleInput role;
 
   /**
-   * 组 引用
+   * 组 Reference
    */
-  @Description("组 引用")
+  @Description("组 Reference")
   private String groupRef;
 
   /**
@@ -52,71 +52,71 @@ public class GroupRoleRelationListMutationArguments implements MetaInput, GroupR
   private GroupInput group;
 
   /**
-   * 已移除
+   * Is Deprecated
    */
   @DefaultValue("false")
-  @Description("已移除")
+  @Description("Is Deprecated")
   private Boolean isDeprecated = false;
 
   /**
-   * 版本
+   * Version
    */
-  @Description("版本")
+  @Description("Version")
   private Integer version;
 
   /**
-   * 域
+   * Realm ID
    */
-  @Description("域")
+  @Description("Realm ID")
   private Integer realmId;
 
   /**
-   * 创建者
+   * Create User ID
    */
-  @Description("创建者")
+  @Description("Create User ID")
   private String createUserId;
 
   /**
-   * 创建时间
+   * Create Time
    */
-  @Description("创建时间")
+  @Description("Create Time")
   private LocalDateTime createTime;
 
   /**
-   * 更新者
+   * Update User ID
    */
-  @Description("更新者")
+  @Description("Update User ID")
   private String updateUserId;
 
   /**
-   * 更新时间
+   * Update Time
    */
-  @Description("更新时间")
+  @Description("Update Time")
   private LocalDateTime updateTime;
 
   /**
-   * 创建组
+   * Create Group ID
    */
-  @Description("创建组")
+  @Description("Create Group ID")
   private String createGroupId;
 
   /**
-   * 所属类型
+   * Type Name
    */
   @DefaultValue("GroupRoleRelation")
-  @Description("所属类型")
+  @Description("Type Name")
   private String __typename = "GroupRoleRelation";
 
   /**
-   * 变更内容列表
+   * Input List
    */
-  @Description("变更内容列表")
+  @Description("Input List")
   private Collection<GroupRoleRelationInput> list;
 
   /**
-   * 匹配条件
+   * Where
    */
-  @Description("匹配条件")
+  @Description("Where")
   private GroupRoleRelationExpression where;
 
   @Override

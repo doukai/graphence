@@ -16,12 +16,12 @@ import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.Input;
 
 /**
- * 用户 角色 关系列表 订阅参数
+ * Subscription Arguments for Relationship Object between 用户 and 角色 List
  */
 @CompiledJson
 @Input
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
-@Description("用户 角色 关系列表 订阅参数")
+@Description("Subscription Arguments for Relationship Object between 用户 and 角色 List")
 public class RoleUserRelationConnectionSubscriptionArguments implements MetaExpression, RoleUserRelationExpressionBase {
   /**
    * ID
@@ -30,9 +30,9 @@ public class RoleUserRelationConnectionSubscriptionArguments implements MetaExpr
   private StringExpression id;
 
   /**
-   * 用户 引用
+   * 用户 Reference
    */
-  @Description("用户 引用")
+  @Description("用户 Reference")
   private StringExpression userRef;
 
   /**
@@ -42,9 +42,9 @@ public class RoleUserRelationConnectionSubscriptionArguments implements MetaExpr
   private UserExpression user;
 
   /**
-   * 角色 引用
+   * 角色 Reference
    */
-  @Description("角色 引用")
+  @Description("角色 Reference")
   private StringExpression roleRef;
 
   /**
@@ -54,120 +54,120 @@ public class RoleUserRelationConnectionSubscriptionArguments implements MetaExpr
   private RoleExpression role;
 
   /**
-   * 包含已移除
+   * Include Deprecated
    */
   @DefaultValue("false")
-  @Description("包含已移除")
+  @Description("Include Deprecated")
   private Boolean includeDeprecated = false;
 
   /**
-   * 版本
+   * Version
    */
-  @Description("版本")
+  @Description("Version")
   private IntExpression version;
 
   /**
-   * 域
+   * Realm ID
    */
-  @Description("域")
+  @Description("Realm ID")
   private IntExpression realmId;
 
   /**
-   * 创建者
+   * Create User ID
    */
-  @Description("创建者")
+  @Description("Create User ID")
   private StringExpression createUserId;
 
   /**
-   * 创建时间
+   * Create Time
    */
-  @Description("创建时间")
+  @Description("Create Time")
   private StringExpression createTime;
 
   /**
-   * 更新者
+   * Update User ID
    */
-  @Description("更新者")
+  @Description("Update User ID")
   private StringExpression updateUserId;
 
   /**
-   * 更新时间
+   * Update Time
    */
-  @Description("更新时间")
+  @Description("Update Time")
   private StringExpression updateTime;
 
   /**
-   * 创建组
+   * Create Group ID
    */
-  @Description("创建组")
+  @Description("Create Group ID")
   private StringExpression createGroupId;
 
   /**
-   * 所属类型
+   * Type Name
    */
-  @Description("所属类型")
+  @Description("Type Name")
   private StringExpression __typename;
 
   /**
-   * 排序
+   * Order By
    */
-  @Description("排序")
+  @Description("Order By")
   private RoleUserRelationOrderBy orderBy;
 
   /**
-   * 排序
+   * Order By
    */
-  @Description("排序")
+  @Description("Order By")
   private Collection<String> groupBy;
 
   /**
-   * 取非
+   * Not
    */
   @DefaultValue("false")
-  @Description("取非")
+  @Description("Not")
   private Boolean not = false;
 
   /**
-   * 与/或
+   * Condition
    */
   @DefaultValue("AND")
-  @Description("与/或")
+  @Description("Condition")
   private Conditional cond = Conditional.AND;
 
   /**
-   * 查询表达式组
+   * Expressions
    */
-  @Description("查询表达式组")
+  @Description("Expressions")
   private Collection<RoleUserRelationExpression> exs;
 
   /**
-   * 前...条数
+   * First
    */
-  @Description("前...条数")
+  @Description("First")
   private Integer first;
 
   /**
-   * 后...条数
+   * Last
    */
-  @Description("后...条数")
+  @Description("Last")
   private Integer last;
 
   /**
-   * 偏移条数
+   * Offset
    */
-  @Description("偏移条数")
+  @Description("Offset")
   private Integer offset;
 
   /**
-   * 取...之后
+   * After
    */
-  @Description("取...之后")
+  @Description("After")
   private String after;
 
   /**
-   * 取...之前
+   * Before
    */
-  @Description("取...之前")
+  @Description("Before")
   private String before;
 
   @Override

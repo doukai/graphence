@@ -7,209 +7,209 @@ import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.Type;
 
 /**
- * 订阅
+ * Subscription
  */
 @Type
 @CompiledJson
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
-@Description("订阅")
+@Description("Subscription")
 public class Subscription {
   /**
-   * 用户 订阅接口
+   * Subscription Field for 用户
    */
-  @Description("用户 订阅接口")
+  @Description("Subscription Field for 用户")
   private User user;
 
   /**
-   * 用户列表 订阅接口
+   * Subscription Field for 用户 List
    */
-  @Description("用户列表 订阅接口")
+  @Description("Subscription Field for 用户 List")
   private Collection<User> userList;
 
   /**
-   * 用户连接 订阅接口
+   * Subscription Field for 用户 Connection
    */
-  @Description("用户连接 订阅接口")
+  @Description("Subscription Field for 用户 Connection")
   private UserConnection userConnection;
 
   /**
-   * 角色 订阅接口
+   * Subscription Field for 角色
    */
-  @Description("角色 订阅接口")
+  @Description("Subscription Field for 角色")
   private Role role;
 
   /**
-   * 角色列表 订阅接口
+   * Subscription Field for 角色 List
    */
-  @Description("角色列表 订阅接口")
+  @Description("Subscription Field for 角色 List")
   private Collection<Role> roleList;
 
   /**
-   * 角色连接 订阅接口
+   * Subscription Field for 角色 Connection
    */
-  @Description("角色连接 订阅接口")
+  @Description("Subscription Field for 角色 Connection")
   private RoleConnection roleConnection;
 
   /**
-   * 组 订阅接口
+   * Subscription Field for 组
    */
-  @Description("组 订阅接口")
+  @Description("Subscription Field for 组")
   private Group group;
 
   /**
-   * 组列表 订阅接口
+   * Subscription Field for 组 List
    */
-  @Description("组列表 订阅接口")
+  @Description("Subscription Field for 组 List")
   private Collection<Group> groupList;
 
   /**
-   * 组连接 订阅接口
+   * Subscription Field for 组 Connection
    */
-  @Description("组连接 订阅接口")
+  @Description("Subscription Field for 组 Connection")
   private GroupConnection groupConnection;
 
   /**
-   * 租户 订阅接口
+   * Subscription Field for 租户
    */
-  @Description("租户 订阅接口")
+  @Description("Subscription Field for 租户")
   private Realm realm;
 
   /**
-   * 租户列表 订阅接口
+   * Subscription Field for 租户 List
    */
-  @Description("租户列表 订阅接口")
+  @Description("Subscription Field for 租户 List")
   private Collection<Realm> realmList;
 
   /**
-   * 租户连接 订阅接口
+   * Subscription Field for 租户 Connection
    */
-  @Description("租户连接 订阅接口")
+  @Description("Subscription Field for 租户 Connection")
   private RealmConnection realmConnection;
 
   /**
-   * 权限 订阅接口
+   * Subscription Field for 权限
    */
-  @Description("权限 订阅接口")
+  @Description("Subscription Field for 权限")
   private Permission permission;
 
   /**
-   * 权限列表 订阅接口
+   * Subscription Field for 权限 List
    */
-  @Description("权限列表 订阅接口")
+  @Description("Subscription Field for 权限 List")
   private Collection<Permission> permissionList;
 
   /**
-   * 权限连接 订阅接口
+   * Subscription Field for 权限 Connection
    */
-  @Description("权限连接 订阅接口")
+  @Description("Subscription Field for 权限 Connection")
   private PermissionConnection permissionConnection;
 
   /**
-   * 用户 手机号 关系 订阅接口
+   * Subscription Field for Relationship Object between 用户 and 手机号
    */
-  @Description("用户 手机号 关系 订阅接口")
+  @Description("Subscription Field for Relationship Object between 用户 and 手机号")
   private UserPhonesRelation userPhonesRelation;
 
   /**
-   * 用户 手机号 关系列表 订阅接口
+   * Subscription Field for Relationship Object between 用户 and 手机号 List
    */
-  @Description("用户 手机号 关系列表 订阅接口")
+  @Description("Subscription Field for Relationship Object between 用户 and 手机号 List")
   private Collection<UserPhonesRelation> userPhonesRelationList;
 
   /**
-   * 用户 手机号 关系连接 订阅接口
+   * Subscription Field for Relationship Object between 用户 and 手机号 Connection
    */
-  @Description("用户 手机号 关系连接 订阅接口")
+  @Description("Subscription Field for Relationship Object between 用户 and 手机号 Connection")
   private UserPhonesRelationConnection userPhonesRelationConnection;
 
   /**
-   * 用户 组 关系 订阅接口
+   * Subscription Field for Relationship Object between 用户 and 组
    */
-  @Description("用户 组 关系 订阅接口")
+  @Description("Subscription Field for Relationship Object between 用户 and 组")
   private GroupUserRelation groupUserRelation;
 
   /**
-   * 用户 组 关系列表 订阅接口
+   * Subscription Field for Relationship Object between 用户 and 组 List
    */
-  @Description("用户 组 关系列表 订阅接口")
+  @Description("Subscription Field for Relationship Object between 用户 and 组 List")
   private Collection<GroupUserRelation> groupUserRelationList;
 
   /**
-   * 用户 组 关系连接 订阅接口
+   * Subscription Field for Relationship Object between 用户 and 组 Connection
    */
-  @Description("用户 组 关系连接 订阅接口")
+  @Description("Subscription Field for Relationship Object between 用户 and 组 Connection")
   private GroupUserRelationConnection groupUserRelationConnection;
 
   /**
-   * 用户 角色 关系 订阅接口
+   * Subscription Field for Relationship Object between 用户 and 角色
    */
-  @Description("用户 角色 关系 订阅接口")
+  @Description("Subscription Field for Relationship Object between 用户 and 角色")
   private RoleUserRelation roleUserRelation;
 
   /**
-   * 用户 角色 关系列表 订阅接口
+   * Subscription Field for Relationship Object between 用户 and 角色 List
    */
-  @Description("用户 角色 关系列表 订阅接口")
+  @Description("Subscription Field for Relationship Object between 用户 and 角色 List")
   private Collection<RoleUserRelation> roleUserRelationList;
 
   /**
-   * 用户 角色 关系连接 订阅接口
+   * Subscription Field for Relationship Object between 用户 and 角色 Connection
    */
-  @Description("用户 角色 关系连接 订阅接口")
+  @Description("Subscription Field for Relationship Object between 用户 and 角色 Connection")
   private RoleUserRelationConnection roleUserRelationConnection;
 
   /**
-   * 角色 组 关系 订阅接口
+   * Subscription Field for Relationship Object between 角色 and 组
    */
-  @Description("角色 组 关系 订阅接口")
+  @Description("Subscription Field for Relationship Object between 角色 and 组")
   private GroupRoleRelation groupRoleRelation;
 
   /**
-   * 角色 组 关系列表 订阅接口
+   * Subscription Field for Relationship Object between 角色 and 组 List
    */
-  @Description("角色 组 关系列表 订阅接口")
+  @Description("Subscription Field for Relationship Object between 角色 and 组 List")
   private Collection<GroupRoleRelation> groupRoleRelationList;
 
   /**
-   * 角色 组 关系连接 订阅接口
+   * Subscription Field for Relationship Object between 角色 and 组 Connection
    */
-  @Description("角色 组 关系连接 订阅接口")
+  @Description("Subscription Field for Relationship Object between 角色 and 组 Connection")
   private GroupRoleRelationConnection groupRoleRelationConnection;
 
   /**
-   * 角色 角色 关系 订阅接口
+   * Subscription Field for Relationship Object between 角色 and 角色
    */
-  @Description("角色 角色 关系 订阅接口")
+  @Description("Subscription Field for Relationship Object between 角色 and 角色")
   private RoleCompositeRelation roleCompositeRelation;
 
   /**
-   * 角色 角色 关系列表 订阅接口
+   * Subscription Field for Relationship Object between 角色 and 角色 List
    */
-  @Description("角色 角色 关系列表 订阅接口")
+  @Description("Subscription Field for Relationship Object between 角色 and 角色 List")
   private Collection<RoleCompositeRelation> roleCompositeRelationList;
 
   /**
-   * 角色 角色 关系连接 订阅接口
+   * Subscription Field for Relationship Object between 角色 and 角色 Connection
    */
-  @Description("角色 角色 关系连接 订阅接口")
+  @Description("Subscription Field for Relationship Object between 角色 and 角色 Connection")
   private RoleCompositeRelationConnection roleCompositeRelationConnection;
 
   /**
-   * 角色 权限 关系 订阅接口
+   * Subscription Field for Relationship Object between 角色 and 权限
    */
-  @Description("角色 权限 关系 订阅接口")
+  @Description("Subscription Field for Relationship Object between 角色 and 权限")
   private RolePermissionRelation rolePermissionRelation;
 
   /**
-   * 角色 权限 关系列表 订阅接口
+   * Subscription Field for Relationship Object between 角色 and 权限 List
    */
-  @Description("角色 权限 关系列表 订阅接口")
+  @Description("Subscription Field for Relationship Object between 角色 and 权限 List")
   private Collection<RolePermissionRelation> rolePermissionRelationList;
 
   /**
-   * 角色 权限 关系连接 订阅接口
+   * Subscription Field for Relationship Object between 角色 and 权限 Connection
    */
-  @Description("角色 权限 关系连接 订阅接口")
+  @Description("Subscription Field for Relationship Object between 角色 and 权限 Connection")
   private RolePermissionRelationConnection rolePermissionRelationConnection;
 
   public User getUser() {

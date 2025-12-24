@@ -11,11 +11,11 @@ import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.Input;
 
 /**
- * 角色 角色 关系 查询表达式
+ * Query Expression Input for Relationship Object between 角色 and 角色
  */
 @Input
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
-@Description("角色 角色 关系 查询表达式")
+@Description("Query Expression Input for Relationship Object between 角色 and 角色")
 public interface RoleCompositeRelationExpressionBase extends MetaExpression {
   /**
    * ID
@@ -24,9 +24,9 @@ public interface RoleCompositeRelationExpressionBase extends MetaExpression {
   StringExpression id = null;
 
   /**
-   * 角色 引用
+   * 角色 Reference
    */
-  @Description("角色 引用")
+  @Description("角色 Reference")
   StringExpression roleRef = null;
 
   /**
@@ -36,9 +36,9 @@ public interface RoleCompositeRelationExpressionBase extends MetaExpression {
   RoleExpression role = null;
 
   /**
-   * 角色 引用
+   * 角色 Reference
    */
-  @Description("角色 引用")
+  @Description("角色 Reference")
   StringExpression compositeRef = null;
 
   /**
@@ -48,75 +48,75 @@ public interface RoleCompositeRelationExpressionBase extends MetaExpression {
   RoleExpression composite = null;
 
   /**
-   * 包含已移除
+   * Include Deprecated
    */
-  @Description("包含已移除")
+  @Description("Include Deprecated")
   Boolean includeDeprecated = false;
 
   /**
-   * 版本
+   * Version
    */
-  @Description("版本")
+  @Description("Version")
   IntExpression version = null;
 
   /**
-   * 域
+   * Realm ID
    */
-  @Description("域")
+  @Description("Realm ID")
   IntExpression realmId = null;
 
   /**
-   * 创建者
+   * Create User ID
    */
-  @Description("创建者")
+  @Description("Create User ID")
   StringExpression createUserId = null;
 
   /**
-   * 创建时间
+   * Create Time
    */
-  @Description("创建时间")
+  @Description("Create Time")
   StringExpression createTime = null;
 
   /**
-   * 更新者
+   * Update User ID
    */
-  @Description("更新者")
+  @Description("Update User ID")
   StringExpression updateUserId = null;
 
   /**
-   * 更新时间
+   * Update Time
    */
-  @Description("更新时间")
+  @Description("Update Time")
   StringExpression updateTime = null;
 
   /**
-   * 创建组
+   * Create Group ID
    */
-  @Description("创建组")
+  @Description("Create Group ID")
   StringExpression createGroupId = null;
 
   /**
-   * 所属类型
+   * Type Name
    */
-  @Description("所属类型")
+  @Description("Type Name")
   StringExpression __typename = null;
 
   /**
-   * 取非
+   * Not
    */
-  @Description("取非")
+  @Description("Not")
   Boolean not = false;
 
   /**
-   * 与/或
+   * Condition
    */
-  @Description("与/或")
+  @Description("Condition")
   Conditional cond = Conditional.AND;
 
   /**
-   * 查询表达式组
+   * Expressions
    */
-  @Description("查询表达式组")
+  @Description("Expressions")
   Collection<RoleCompositeRelationExpression> exs = null;
 
   default StringExpression getId() {

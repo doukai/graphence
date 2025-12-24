@@ -9,29 +9,29 @@ import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.Type;
 
 /**
- * 用户 角色 关系 连接
+ * Connection Object for Relationship Object between 用户 and 角色
  */
 @Type
 @CompiledJson
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
-@Description("用户 角色 关系 连接")
+@Description("Connection Object for Relationship Object between 用户 and 角色")
 public class RoleUserRelationConnection {
   /**
-   * 条数
+   * Total
    */
-  @Description("条数")
+  @Description("Total")
   private Integer totalCount;
 
   /**
-   * 分页信息
+   * Page Info
    */
-  @Description("分页信息")
+  @Description("Page Info")
   private PageInfo pageInfo;
 
   /**
-   * 边缘
+   * Edges
    */
-  @Description("边缘")
+  @Description("Edges")
   private Collection<RoleUserRelationEdge> edges;
 
   public Integer getTotalCount() {

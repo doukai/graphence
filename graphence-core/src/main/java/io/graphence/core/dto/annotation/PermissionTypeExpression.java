@@ -12,30 +12,30 @@ import java.lang.annotation.Target;
 import org.eclipse.microprofile.graphql.Description;
 
 /**
- * 权限类型 查询表达式
+ * Query Expression Input for 权限类型
  */
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
 @Documented
 @Retention(RetentionPolicy.SOURCE)
 @Target(ElementType.METHOD)
-@Description("权限类型 查询表达式")
+@Description("Query Expression Input for 权限类型")
 public @interface PermissionTypeExpression {
   /**
-   * 条件
+   * Operators
    */
-  @Description("条件")
+  @Description("Operators")
   Operator opr() default Operator.EQ;
 
   /**
-   * 值
+   * Value
    */
-  @Description("值")
+  @Description("Value")
   PermissionType val() default PermissionType.READ;
 
   /**
-   * 组
+   * Array
    */
-  @Description("组")
+  @Description("Array")
   PermissionType[] arr() default {};
 
   String $opr() default "";
