@@ -11,14 +11,14 @@ dependencies {
     implementation platform("org.graphoenix:nozdormu-platform:$nozdormuVersion")
 
     implementation project(':graphence-core')
-    implementation project(':graphence-security')
+//    implementation project(':graphence-security')
     implementation 'org.graphoenix:graphoenix-core'
     implementation 'org.graphoenix:graphoenix-gossip'
     implementation 'org.graphoenix:graphoenix-http-server'
     implementation 'org.graphoenix:graphoenix-grpc-server'
     implementation 'org.graphoenix:graphoenix-grpc-client'
     implementation 'org.graphoenix:graphoenix-r2dbc'
-    implementation 'org.graphoenix:graphoenix-rabbitmq'
+    implementation "org.graphoenix:graphoenix-redis-subscription:$graphoenixVersion"
     implementation 'org.graphoenix:graphoenix-introspection'
     implementation 'org.graphoenix:graphoenix-json-schema'
     implementation 'org.graphoenix:graphoenix-structure'
@@ -38,7 +38,7 @@ dependencies {
     annotationProcessor 'org.graphoenix:graphoenix-grpc-server'
     annotationProcessor 'org.graphoenix:graphoenix-grpc-client'
     annotationProcessor 'org.graphoenix:graphoenix-r2dbc'
-    annotationProcessor 'org.graphoenix:graphoenix-rabbitmq'
+    annotationProcessor "org.graphoenix:graphoenix-redis-subscription:$graphoenixVersion"
     annotationProcessor 'org.graphoenix:graphoenix-introspection'
     annotationProcessor 'org.graphoenix:graphoenix-json-schema'
     annotationProcessor 'org.graphoenix:graphoenix-structure'
