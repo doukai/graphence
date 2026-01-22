@@ -2,25 +2,21 @@ package io.graphence.core.event;
 
 import io.graphence.core.config.SecurityConfig;
 import io.graphoenix.spi.handler.TypeEmptyHandler;
-import io.nozdormu.spi.event.ScopeEvent;
 import jakarta.annotation.Priority;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.context.Initialized;
+import jakarta.enterprise.event.Observes;
 import jakarta.inject.Inject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import reactor.core.publisher.Mono;
 
-import java.util.Map;
-
-import static io.graphence.core.event.PermissionBuildEvent.PERMISSION_BUILD_SCOPE_EVENT_PRIORITY;
+import static io.graphence.core.event.PermissionBuilder.PERMISSION_BUILD_SCOPE_EVENT_PRIORITY;
 
 @ApplicationScoped
-@Initialized(ApplicationScoped.class)
-@Priority(PermissionCleanEvent.PERMISSION_CLEAN_SCOPE_EVENT_PRIORITY)
-public class PermissionCleanEvent implements ScopeEvent {
+public class PermissionCleaner {
 
-    private static final Logger logger = LoggerFactory.getLogger(PermissionCleanEvent.class);
+    private static final Logger logger = LoggerFactory.getLogger(PermissionCleaner.class);
 
     public static final int PERMISSION_CLEAN_SCOPE_EVENT_PRIORITY = PERMISSION_BUILD_SCOPE_EVENT_PRIORITY - 1;
 
@@ -28,14 +24,12 @@ public class PermissionCleanEvent implements ScopeEvent {
     private final TypeEmptyHandler typeEmptyHandler;
 
     @Inject
-    public PermissionCleanEvent(SecurityConfig securityConfig, TypeEmptyHandler typeEmptyHandler) {
+    public PermissionCleaner(SecurityConfig securityConfig, TypeEmptyHandler typeEmptyHandler) {
         this.securityConfig = securityConfig;
         this.typeEmptyHandler = typeEmptyHandler;
     }
 
-
-    @Override
-    public Mono<Void> fireAsync(Map<String, Object> context) {
+    public Mono<Void> cleanPermission(@Observes @Initialized(ApplicationScoped.class) @Priority(PermissionCleaner.PERMISSION_CLEAN_SCOPE_EVENT_PRIORITY) Object event) {
         if (!securityConfig.getBuildPermission()) {
             return Mono.empty();
         }

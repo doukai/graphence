@@ -8,8 +8,7 @@ import reactor.netty.http.server.HttpServerResponse;
 import java.util.Map;
 
 import static io.graphence.core.constant.Constant.*;
-import static io.graphoenix.http.server.context.RequestScopeInstanceFactory.REQUEST_ID;
-import static io.graphoenix.http.server.context.SessionScopeInstanceFactory.SESSION_ID;
+import static io.graphoenix.http.server.context.RequestBeanScoped.REQUEST_ID;
 import static io.graphoenix.http.server.handler.BaseHandler.*;
 
 public abstract class BaseRequestFilter {
@@ -36,13 +35,5 @@ public abstract class BaseRequestFilter {
 
     protected String getRequestId(Map<String, Object> context) {
         return (String) context.get(REQUEST_ID);
-    }
-
-    protected String getSessionId(Map<String, Object> context) {
-        return (String) context.get(SESSION_ID);
-    }
-
-    protected void setSessionId(Map<String, Object> context, String sessionId) {
-        context.put(SESSION_ID, sessionId);
     }
 }

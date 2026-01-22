@@ -10,12 +10,12 @@ import io.graphence.core.dto.objectType.Permission;
 import io.graphence.core.dto.objectType.Role;
 import io.graphence.core.error.AuthenticationException;
 import io.graphence.core.utils.JWTUtil;
-import io.graphoenix.http.server.context.RequestScopeInstanceFactory;
 import io.netty.handler.codec.http.HttpHeaderNames;
 import io.nozdormu.spi.async.Asyncable;
 import jakarta.annotation.security.PermitAll;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
+import jakarta.inject.Provider;
 import org.eclipse.microprofile.graphql.GraphQLApi;
 import org.eclipse.microprofile.graphql.Mutation;
 import org.eclipse.microprofile.graphql.NonNull;
@@ -42,21 +42,20 @@ public class LoginApi implements Asyncable {
     private final LoginRepository loginRepository;
     private final JWTUtil jwtUtil;
     private final RBACPolicyRepository rbacPolicyRepository;
-    private final RequestScopeInstanceFactory requestScopeInstanceFactory;
+    private final Provider<Mono<HttpServerResponse>> httpServerResponseMonoProvider;
     private final PasswordManager passwordManager;
 
     @Inject
     public LoginApi(SecurityConfig config,
                     LoginRepository loginRepository,
                     JWTUtil jwtUtil,
-                    RequestScopeInstanceFactory requestScopeInstanceFactory,
-                    RBACPolicyRepository rbacPolicyRepository,
+                    RBACPolicyRepository rbacPolicyRepository, Provider<Mono<HttpServerResponse>> httpServerResponseMonoProvider,
                     PasswordManager passwordManager) {
         this.config = config;
         this.loginRepository = loginRepository;
         this.jwtUtil = jwtUtil;
         this.rbacPolicyRepository = rbacPolicyRepository;
-        this.requestScopeInstanceFactory = requestScopeInstanceFactory;
+        this.httpServerResponseMonoProvider = httpServerResponseMonoProvider;
         this.passwordManager = Optional.ofNullable(passwordManager).orElse(new BcryptManager());
     }
 
@@ -65,25 +64,23 @@ public class LoginApi implements Asyncable {
     public Mono<String> login(@NonNull String login, @NonNull String password) {
         return loginRepository.getUserByLogin(login)
                 .flatMap(user -> {
-                            if (user.getDisable()) {
-                                return Mono.error(new AuthenticationException(AUTHENTICATION_DISABLE));
-                            } else if (passwordManager.check(password, user)) {
-                                return Mono.justOrEmpty(user);
-                            } else {
-                                return Mono.error(new AuthenticationException(AUTHENTICATION_FAILED));
-                            }
-                        }
-                )
+                    if (user.getDisable()) {
+                        return Mono.error(new AuthenticationException(AUTHENTICATION_DISABLE));
+                    } else if (passwordManager.check(password, user)) {
+                        return Mono.justOrEmpty(user);
+                    } else {
+                        return Mono.error(new AuthenticationException(AUTHENTICATION_FAILED));
+                    }
+                })
                 .switchIfEmpty(Mono.error(new AuthenticationException(AUTHENTICATION_FAILED)))
                 .flatMap(user -> {
-                            Set<String> roleIdSet = jwtUtil.getRoles(user).map(Role::getId).collect(Collectors.toSet());
-                            return rbacPolicyRepository.queryPermissionTypeList(roleIdSet)
-                                    .map(permissions -> jwtUtil.build(user, roleIdSet, permissions.stream().map(Permission::getType).collect(Collectors.toSet())))
-                                    .switchIfEmpty(Mono.defer(() -> Mono.just(jwtUtil.build(user, roleIdSet, Collections.emptySet()))));
-                        }
-                )
+                    Set<String> roleIdSet = jwtUtil.getRoles(user).map(Role::getId).collect(Collectors.toSet());
+                    return rbacPolicyRepository.queryPermissionTypeList(roleIdSet)
+                            .map(permissions -> jwtUtil.build(user, roleIdSet, permissions.stream().map(Permission::getType).collect(Collectors.toSet())))
+                            .switchIfEmpty(Mono.defer(() -> Mono.just(jwtUtil.build(user, roleIdSet, Collections.emptySet()))));
+                })
                 .flatMap(token ->
-                        requestScopeInstanceFactory.get(HttpServerResponse.class)
+                        httpServerResponseMonoProvider.get()
                                 .map(response -> response.addHeader(HttpHeaderNames.SET_COOKIE, AUTHORIZATION_HEADER + "=" + AUTHORIZATION_SCHEME_BEARER + " " + token))
                                 .thenReturn(token)
                 );

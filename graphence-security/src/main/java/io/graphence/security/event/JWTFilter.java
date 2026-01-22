@@ -9,15 +9,15 @@ import io.graphence.core.error.AuthenticationException;
 import io.graphence.core.jwt.GraphenceJsonWebToken;
 import io.graphence.core.utils.JWTUtil;
 import io.graphoenix.core.handler.DocumentManager;
-import io.graphoenix.http.server.context.RequestScopeInstanceFactory;
+import io.graphoenix.http.server.context.RequestBeanScoped;
 import io.graphoenix.spi.graphql.operation.Operation;
 import io.graphoenix.spi.graphql.type.ObjectType;
 import io.netty.handler.codec.http.QueryStringDecoder;
-import io.nozdormu.spi.event.ScopeEvent;
 import jakarta.annotation.Priority;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.context.Initialized;
 import jakarta.enterprise.context.RequestScoped;
+import jakarta.enterprise.event.Observes;
 import jakarta.inject.Inject;
 import org.eclipse.microprofile.jwt.Claims;
 import reactor.core.publisher.Mono;
@@ -33,7 +33,7 @@ import static io.graphence.core.error.AuthenticationErrorType.*;
 @ApplicationScoped
 @Initialized(RequestScoped.class)
 @Priority(JWTFilter.JWT_FILTER_SCOPE_EVENT_PRIORITY)
-public class JWTFilter extends BaseRequestFilter implements ScopeEvent {
+public class JWTFilter extends BaseRequestFilter {
 
     public static final int JWT_FILTER_SCOPE_EVENT_PRIORITY = 0;
 
@@ -41,7 +41,7 @@ public class JWTFilter extends BaseRequestFilter implements ScopeEvent {
     private final LoginRepository loginRepository;
     private final SecurityConfig securityConfig;
     private final JWTUtil jwtUtil;
-    private final RequestScopeInstanceFactory requestScopeInstanceFactory;
+    private final RequestBeanScoped requestScopeInstanceFactory;
     private final PasswordManager passwordManager;
 
     @Inject
@@ -49,7 +49,7 @@ public class JWTFilter extends BaseRequestFilter implements ScopeEvent {
                      LoginRepository loginRepository,
                      SecurityConfig securityConfig,
                      JWTUtil jwtUtil,
-                     RequestScopeInstanceFactory requestScopeInstanceFactory,
+                     RequestBeanScoped requestScopeInstanceFactory,
                      PasswordManager passwordManager) {
         this.documentManager = documentManager;
         this.loginRepository = loginRepository;
@@ -59,8 +59,9 @@ public class JWTFilter extends BaseRequestFilter implements ScopeEvent {
         this.passwordManager = Optional.ofNullable(passwordManager).orElse(new BcryptManager());
     }
 
-    @Override
-    public Mono<Void> fireAsync(Map<String, Object> context) {
+    @SuppressWarnings("unchecked")
+    public Mono<Void> buildRootUser(@Observes @Initialized(RequestScoped.class) @Priority(JWTFilter.JWT_FILTER_SCOPE_EVENT_PRIORITY) Object event) {
+        Map<String, Object> context = (Map<String, Object>) event;
         HttpServerRequest request = getRequest(context);
         String authorization = null;
         if (request.requestHeaders().contains(AUTHORIZATION_HEADER)) {
@@ -85,8 +86,7 @@ public class JWTFilter extends BaseRequestFilter implements ScopeEvent {
                         .setRoles(jsonWebToken.getClaim("roles"));
 
                 setCurrentUser(context, current);
-                setSessionId(context, jws);
-                return requestScopeInstanceFactory.compute(Current.class, current).then();
+                return requestScopeInstanceFactory.put(Current.class, current).then();
             } catch (Exception e) {
                 Operation operation = getOperation(context);
                 if (operation != null) {
@@ -115,12 +115,8 @@ public class JWTFilter extends BaseRequestFilter implements ScopeEvent {
                     )
                     .switchIfEmpty(Mono.error(new AuthenticationException(AUTHENTICATION_FAILED)))
                     .map(Current::of)
-                    .doOnSuccess(currentUser -> {
-                                setCurrentUser(context, currentUser);
-                                setSessionId(context, token);
-                            }
-                    )
-                    .flatMap(currentUser -> requestScopeInstanceFactory.compute(Current.class, currentUser))
+                    .doOnSuccess(currentUser -> setCurrentUser(context, currentUser))
+                    .flatMap(currentUser -> requestScopeInstanceFactory.put(Current.class, currentUser))
                     .then();
         }
         Operation operation = getOperation(context);
