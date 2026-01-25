@@ -10,12 +10,12 @@ import io.graphence.core.dto.objectType.Permission;
 import io.graphence.core.dto.objectType.Role;
 import io.graphence.core.error.AuthenticationException;
 import io.graphence.core.utils.JWTUtil;
+import io.graphoenix.http.server.context.RequestBeanScoped;
 import io.netty.handler.codec.http.HttpHeaderNames;
 import io.nozdormu.spi.async.Asyncable;
 import jakarta.annotation.security.PermitAll;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
-import jakarta.inject.Provider;
 import org.eclipse.microprofile.graphql.GraphQLApi;
 import org.eclipse.microprofile.graphql.Mutation;
 import org.eclipse.microprofile.graphql.NonNull;
@@ -42,20 +42,21 @@ public class LoginApi implements Asyncable {
     private final LoginRepository loginRepository;
     private final JWTUtil jwtUtil;
     private final RBACPolicyRepository rbacPolicyRepository;
-    private final Provider<Mono<HttpServerResponse>> httpServerResponseMonoProvider;
+    private final RequestBeanScoped requestBeanScoped;
     private final PasswordManager passwordManager;
 
     @Inject
     public LoginApi(SecurityConfig config,
                     LoginRepository loginRepository,
                     JWTUtil jwtUtil,
-                    RBACPolicyRepository rbacPolicyRepository, Provider<Mono<HttpServerResponse>> httpServerResponseMonoProvider,
+                    RBACPolicyRepository rbacPolicyRepository,
+                    RequestBeanScoped requestBeanScoped,
                     PasswordManager passwordManager) {
         this.config = config;
         this.loginRepository = loginRepository;
         this.jwtUtil = jwtUtil;
         this.rbacPolicyRepository = rbacPolicyRepository;
-        this.httpServerResponseMonoProvider = httpServerResponseMonoProvider;
+        this.requestBeanScoped = requestBeanScoped;
         this.passwordManager = Optional.ofNullable(passwordManager).orElse(new BcryptManager());
     }
 
@@ -80,7 +81,7 @@ public class LoginApi implements Asyncable {
                             .switchIfEmpty(Mono.defer(() -> Mono.just(jwtUtil.build(user, roleIdSet, Collections.emptySet()))));
                 })
                 .flatMap(token ->
-                        httpServerResponseMonoProvider.get()
+                        requestBeanScoped.get(HttpServerResponse.class)
                                 .map(response -> response.addHeader(HttpHeaderNames.SET_COOKIE, AUTHORIZATION_HEADER + "=" + AUTHORIZATION_SCHEME_BEARER + " " + token))
                                 .thenReturn(token)
                 );
