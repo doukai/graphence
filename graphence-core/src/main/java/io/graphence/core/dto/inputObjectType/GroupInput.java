@@ -20,7 +20,7 @@ import org.eclipse.microprofile.graphql.Input;
  */
 @CompiledJson
 @Input
-@Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
+@Generated("io.graphoenix.java.builder.TypeSpecBuilder")
 @Description("Mutation Input for 组")
 public class GroupInput implements TreeStructInput, NamedStructInput, MetaInput, GroupInputBase {
   /**

@@ -11,7 +11,8 @@ import reactor.core.publisher.Mono;
 @GraphQLOperation
 public interface LoginRepository {
 
-    @Query(user = @UserQueryArguments(login = @StringExpression($val = "login")))
-    @SelectionSet("{ id name lastName login salt hash email disable groups { id name path deep roles { id name composites { id name composites { id name } } } } roles { id name composites { id name composites { id name } } } realmId }")
-    Mono<User> getUserByLogin(String login);
+  @Query(user = @UserQueryArguments(login = @StringExpression($val = "login")))
+  @SelectionSet(
+      "{ id name lastName login salt hash email disable groups { id name path deep roles { id name composites { id name composites { id name } } } } roles { id name composites { id name composites { id name } } } realmId }")
+  Mono<User> getUserByLogin(String login);
 }

@@ -18,7 +18,7 @@ import org.eclipse.microprofile.graphql.Input;
  */
 @CompiledJson
 @Input
-@Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
+@Generated("io.graphoenix.java.builder.TypeSpecBuilder")
 @Description("Query Expression Input for 权限")
 public class PermissionExpression implements MetaExpression, PermissionExpressionBase {
   /**

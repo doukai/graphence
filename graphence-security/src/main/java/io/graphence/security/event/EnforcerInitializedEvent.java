@@ -15,29 +15,35 @@ import static io.graphence.core.event.PermissionBuilder.PERMISSION_BUILD_SCOPE_E
 @ApplicationScoped
 public class EnforcerInitializedEvent {
 
-    public static final int ENFORCER_INITIALIZED_SCOPE_EVENT_PRIORITY = PERMISSION_BUILD_SCOPE_EVENT_PRIORITY + 10;
+  public static final int ENFORCER_INITIALIZED_SCOPE_EVENT_PRIORITY =
+      PERMISSION_BUILD_SCOPE_EVENT_PRIORITY + 10;
 
-    private final RBACPolicyRepository rbacPolicyRepository;
-    private final RBACAdapter rbacAdapter;
-    private final Enforcer enforcer;
+  private final RBACPolicyRepository rbacPolicyRepository;
+  private final RBACAdapter rbacAdapter;
+  private final Enforcer enforcer;
 
-    @Inject
-    public EnforcerInitializedEvent(RBACPolicyRepository rbacPolicyRepository, RBACAdapter rbacAdapter, Enforcer enforcer) {
-        this.rbacPolicyRepository = rbacPolicyRepository;
-        this.rbacAdapter = rbacAdapter;
-        this.enforcer = enforcer;
-    }
+  @Inject
+  public EnforcerInitializedEvent(
+      RBACPolicyRepository rbacPolicyRepository, RBACAdapter rbacAdapter, Enforcer enforcer) {
+    this.rbacPolicyRepository = rbacPolicyRepository;
+    this.rbacAdapter = rbacAdapter;
+    this.enforcer = enforcer;
+  }
 
-    public Mono<Void> buildRootUser(@Observes @Initialized(ApplicationScoped.class) @Priority(EnforcerInitializedEvent.ENFORCER_INITIALIZED_SCOPE_EVENT_PRIORITY) Object event) {
-        return rbacPolicyRepository.queryRoleList()
-                .flatMap(roles ->
-                        rbacPolicyRepository.queryGroupList()
-                                .map(groups ->
-                                        rbacAdapter.init(roles, groups)
-                                )
-                )
-                .doOnSuccess(enforcer::setAdapter)
-                .doOnSuccess(adapter -> enforcer.loadPolicy())
-                .then();
-    }
+  public Mono<Void> buildRootUser(
+      @Observes
+          @Initialized(ApplicationScoped.class)
+          @Priority(EnforcerInitializedEvent.ENFORCER_INITIALIZED_SCOPE_EVENT_PRIORITY)
+          Object event) {
+    return rbacPolicyRepository
+        .queryRoleList()
+        .flatMap(
+            roles ->
+                rbacPolicyRepository
+                    .queryGroupList()
+                    .map(groups -> rbacAdapter.init(roles, groups)))
+        .doOnSuccess(enforcer::setAdapter)
+        .doOnSuccess(adapter -> enforcer.loadPolicy())
+        .then();
+  }
 }

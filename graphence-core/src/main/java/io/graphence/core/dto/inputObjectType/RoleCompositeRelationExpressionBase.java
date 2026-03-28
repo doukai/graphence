@@ -14,7 +14,7 @@ import org.eclipse.microprofile.graphql.Input;
  * Query Expression Input for Relationship Object between 角色 and 角色
  */
 @Input
-@Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
+@Generated("io.graphoenix.java.builder.TypeSpecBuilder")
 @Description("Query Expression Input for Relationship Object between 角色 and 角色")
 public interface RoleCompositeRelationExpressionBase extends MetaExpression {
   /**

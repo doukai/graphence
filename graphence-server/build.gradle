@@ -11,7 +11,7 @@ dependencies {
     implementation platform("org.graphoenix:nozdormu-platform:$nozdormuVersion")
 
     implementation project(':graphence-core')
-//    implementation project(':graphence-security')
+    implementation project(':graphence-security')
     implementation 'org.graphoenix:graphoenix-core'
     implementation 'org.graphoenix:graphoenix-gossip'
     implementation 'org.graphoenix:graphoenix-http-server'

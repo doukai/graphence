@@ -13,7 +13,7 @@ import org.eclipse.microprofile.graphql.Input;
  * Mutation Input for Relationship Object between 用户 and 角色
  */
 @Input
-@Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
+@Generated("io.graphoenix.java.builder.TypeSpecBuilder")
 @Description("Mutation Input for Relationship Object between 用户 and 角色")
 public interface RoleUserRelationInputBase extends MetaInput {
   /**

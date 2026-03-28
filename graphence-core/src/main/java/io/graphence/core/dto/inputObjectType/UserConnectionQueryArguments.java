@@ -22,7 +22,7 @@ import org.eclipse.microprofile.graphql.Input;
  */
 @CompiledJson
 @Input
-@Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
+@Generated("io.graphoenix.java.builder.TypeSpecBuilder")
 @Description("Query Arguments for 用户 Connection")
 public class UserConnectionQueryArguments implements NamedStructExpression, MetaExpression, UserExpressionBase {
   /**

@@ -35,97 +35,108 @@ import static io.graphence.core.error.AuthenticationErrorType.*;
 @Priority(JWTFilter.JWT_FILTER_SCOPE_EVENT_PRIORITY)
 public class JWTFilter extends BaseRequestFilter {
 
-    public static final int JWT_FILTER_SCOPE_EVENT_PRIORITY = 0;
+  public static final int JWT_FILTER_SCOPE_EVENT_PRIORITY = 0;
 
-    private final DocumentManager documentManager;
-    private final LoginRepository loginRepository;
-    private final SecurityConfig securityConfig;
-    private final JWTUtil jwtUtil;
-    private final RequestBeanScoped requestScopeInstanceFactory;
-    private final PasswordManager passwordManager;
+  private final DocumentManager documentManager;
+  private final LoginRepository loginRepository;
+  private final SecurityConfig securityConfig;
+  private final JWTUtil jwtUtil;
+  private final RequestBeanScoped requestScopeInstanceFactory;
+  private final PasswordManager passwordManager;
 
-    @Inject
-    public JWTFilter(DocumentManager documentManager,
-                     LoginRepository loginRepository,
-                     SecurityConfig securityConfig,
-                     JWTUtil jwtUtil,
-                     RequestBeanScoped requestScopeInstanceFactory,
-                     PasswordManager passwordManager) {
-        this.documentManager = documentManager;
-        this.loginRepository = loginRepository;
-        this.securityConfig = securityConfig;
-        this.jwtUtil = jwtUtil;
-        this.requestScopeInstanceFactory = requestScopeInstanceFactory;
-        this.passwordManager = Optional.ofNullable(passwordManager).orElse(new BcryptManager());
+  @Inject
+  public JWTFilter(
+      DocumentManager documentManager,
+      LoginRepository loginRepository,
+      SecurityConfig securityConfig,
+      JWTUtil jwtUtil,
+      RequestBeanScoped requestScopeInstanceFactory,
+      PasswordManager passwordManager) {
+    this.documentManager = documentManager;
+    this.loginRepository = loginRepository;
+    this.securityConfig = securityConfig;
+    this.jwtUtil = jwtUtil;
+    this.requestScopeInstanceFactory = requestScopeInstanceFactory;
+    this.passwordManager = Optional.ofNullable(passwordManager).orElse(new BcryptManager());
+  }
+
+  @SuppressWarnings("unchecked")
+  public Mono<Void> buildRootUser(
+      @Observes
+          @Initialized(RequestScoped.class)
+          @Priority(JWTFilter.JWT_FILTER_SCOPE_EVENT_PRIORITY)
+          Object event) {
+    Map<String, Object> context = (Map<String, Object>) event;
+    HttpServerRequest request = getRequest(context);
+    String authorization = null;
+    if (request.requestHeaders().contains(AUTHORIZATION_HEADER)) {
+      authorization = request.requestHeaders().get(AUTHORIZATION_HEADER);
+    } else {
+      QueryStringDecoder decoder = new QueryStringDecoder(request.uri());
+      if (decoder.parameters().containsKey(AUTHORIZATION_HEADER)) {
+        authorization = decoder.parameters().get(AUTHORIZATION_HEADER).get(0);
+      }
     }
 
-    @SuppressWarnings("unchecked")
-    public Mono<Void> buildRootUser(@Observes @Initialized(RequestScoped.class) @Priority(JWTFilter.JWT_FILTER_SCOPE_EVENT_PRIORITY) Object event) {
-        Map<String, Object> context = (Map<String, Object>) event;
-        HttpServerRequest request = getRequest(context);
-        String authorization = null;
-        if (request.requestHeaders().contains(AUTHORIZATION_HEADER)) {
-            authorization = request.requestHeaders().get(AUTHORIZATION_HEADER);
-        } else {
-            QueryStringDecoder decoder = new QueryStringDecoder(request.uri());
-            if (decoder.parameters().containsKey(AUTHORIZATION_HEADER)) {
-                authorization = decoder.parameters().get(AUTHORIZATION_HEADER).get(0);
-            }
-        }
+    if (authorization != null && authorization.startsWith(AUTHORIZATION_SCHEME_BEARER)) {
+      String jws = authorization.substring(7);
+      try {
+        GraphenceJsonWebToken jsonWebToken = jwtUtil.parser(jws);
+        Current current =
+            new Current()
+                .setId(jsonWebToken.getSubject())
+                .setName(jsonWebToken.getClaim(Claims.full_name))
+                .setLastName(jsonWebToken.getClaim(Claims.family_name))
+                .setRealmId(jsonWebToken.getClaim(Claims.upn))
+                .setGroups(jsonWebToken.getClaim(Claims.groups))
+                .setRoles(jsonWebToken.getClaim("roles"));
 
-        if (authorization != null && authorization.startsWith(AUTHORIZATION_SCHEME_BEARER)) {
-            String jws = authorization.substring(7);
-            try {
-                GraphenceJsonWebToken jsonWebToken = jwtUtil.parser(jws);
-                Current current = new Current()
-                        .setId(jsonWebToken.getSubject())
-                        .setName(jsonWebToken.getClaim(Claims.full_name))
-                        .setLastName(jsonWebToken.getClaim(Claims.family_name))
-                        .setRealmId(jsonWebToken.getClaim(Claims.upn))
-                        .setGroups(jsonWebToken.getClaim(Claims.groups))
-                        .setRoles(jsonWebToken.getClaim("roles"));
-
-                setCurrentUser(context, current);
-                return requestScopeInstanceFactory.put(Current.class, current).then();
-            } catch (Exception e) {
-                Operation operation = getOperation(context);
-                if (operation != null) {
-                    ObjectType operationType = documentManager.getOperationTypeOrError(operation);
-                    if (operation.getFields().stream().anyMatch(field -> operationType.getField(field.getName()).isPermitAll())) {
-                        return Mono.empty();
-                    }
-                }
-                throw new AuthenticationException(UN_AUTHENTICATION);
-            }
-        } else if (authorization != null && securityConfig.getBasicAuthentication() && authorization.startsWith(AUTHORIZATION_SCHEME_BASIC)) {
-            String token = authorization.substring(6);
-            String[] tokenDecode = new String(Base64.getDecoder().decode(token)).split(":");
-            String login = tokenDecode[0];
-            String password = tokenDecode[1];
-            return loginRepository.getUserByLogin(login)
-                    .flatMap(user -> {
-                                if (user.getDisable()) {
-                                    return Mono.error(new AuthenticationException(AUTHENTICATION_DISABLE));
-                                } else if (passwordManager.check(password, user)) {
-                                    return Mono.justOrEmpty(user);
-                                } else {
-                                    return Mono.error(new AuthenticationException(AUTHENTICATION_FAILED));
-                                }
-                            }
-                    )
-                    .switchIfEmpty(Mono.error(new AuthenticationException(AUTHENTICATION_FAILED)))
-                    .map(Current::of)
-                    .doOnSuccess(currentUser -> setCurrentUser(context, currentUser))
-                    .flatMap(currentUser -> requestScopeInstanceFactory.put(Current.class, currentUser))
-                    .then();
-        }
+        setCurrentUser(context, current);
+        return requestScopeInstanceFactory.put(Current.class, current).then();
+      } catch (Exception e) {
         Operation operation = getOperation(context);
         if (operation != null) {
-            ObjectType operationType = documentManager.getOperationTypeOrError(operation);
-            if (operation.getFields().stream().anyMatch(field -> operationType.getField(field.getName()).isPermitAll())) {
-                return Mono.empty();
-            }
+          ObjectType operationType = documentManager.getOperationTypeOrError(operation);
+          if (operation.getFields().stream()
+              .anyMatch(field -> operationType.getField(field.getName()).isPermitAll())) {
+            return Mono.empty();
+          }
         }
         throw new AuthenticationException(UN_AUTHENTICATION);
+      }
+    } else if (authorization != null
+        && securityConfig.getBasicAuthentication()
+        && authorization.startsWith(AUTHORIZATION_SCHEME_BASIC)) {
+      String token = authorization.substring(6);
+      String[] tokenDecode = new String(Base64.getDecoder().decode(token)).split(":");
+      String login = tokenDecode[0];
+      String password = tokenDecode[1];
+      return loginRepository
+          .getUserByLogin(login)
+          .flatMap(
+              user -> {
+                if (user.getDisable()) {
+                  return Mono.error(new AuthenticationException(AUTHENTICATION_DISABLE));
+                } else if (passwordManager.check(password, user)) {
+                  return Mono.justOrEmpty(user);
+                } else {
+                  return Mono.error(new AuthenticationException(AUTHENTICATION_FAILED));
+                }
+              })
+          .switchIfEmpty(Mono.error(new AuthenticationException(AUTHENTICATION_FAILED)))
+          .map(Current::of)
+          .doOnSuccess(currentUser -> setCurrentUser(context, currentUser))
+          .flatMap(currentUser -> requestScopeInstanceFactory.put(Current.class, currentUser))
+          .then();
     }
+    Operation operation = getOperation(context);
+    if (operation != null) {
+      ObjectType operationType = documentManager.getOperationTypeOrError(operation);
+      if (operation.getFields().stream()
+          .anyMatch(field -> operationType.getField(field.getName()).isPermitAll())) {
+        return Mono.empty();
+      }
+    }
+    throw new AuthenticationException(UN_AUTHENTICATION);
+  }
 }

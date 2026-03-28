@@ -22,7 +22,7 @@ import org.eclipse.microprofile.graphql.Input;
  */
 @CompiledJson
 @Input
-@Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
+@Generated("io.graphoenix.java.builder.TypeSpecBuilder")
 @Description("Subscription Arguments for 组 List")
 public class GroupListSubscriptionArguments implements TreeStructExpression, NamedStructExpression, MetaExpression, GroupExpressionBase {
   /**

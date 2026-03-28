@@ -14,7 +14,7 @@ import org.eclipse.microprofile.graphql.Input;
  * Mutation Input for 租户
  */
 @Input
-@Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
+@Generated("io.graphoenix.java.builder.TypeSpecBuilder")
 @Description("Mutation Input for 租户")
 public interface RealmInputBase extends NamedStructInput, MetaInput {
   /**

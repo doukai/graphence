@@ -21,7 +21,7 @@ import org.eclipse.microprofile.graphql.Input;
  */
 @CompiledJson
 @Input
-@Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
+@Generated("io.graphoenix.java.builder.TypeSpecBuilder")
 @Description("Query Arguments for 角色 List")
 public class RoleListQueryArguments implements NamedStructExpression, MetaExpression, RoleExpressionBase {
   /**

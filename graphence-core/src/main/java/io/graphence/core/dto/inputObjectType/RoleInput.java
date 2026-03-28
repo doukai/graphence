@@ -19,7 +19,7 @@ import org.eclipse.microprofile.graphql.Input;
  */
 @CompiledJson
 @Input
-@Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
+@Generated("io.graphoenix.java.builder.TypeSpecBuilder")
 @Description("Mutation Input for 角色")
 public class RoleInput implements NamedStructInput, MetaInput, RoleInputBase {
   /**

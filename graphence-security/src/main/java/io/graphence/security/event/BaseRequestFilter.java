@@ -13,27 +13,27 @@ import static io.graphoenix.http.server.handler.BaseHandler.*;
 
 public abstract class BaseRequestFilter {
 
-    protected HttpServerRequest getRequest(Map<String, Object> context) {
-        return (HttpServerRequest) context.get(REQUEST);
-    }
+  protected HttpServerRequest getRequest(Map<String, Object> context) {
+    return (HttpServerRequest) context.get(REQUEST);
+  }
 
-    protected HttpServerResponse getResponse(Map<String, Object> context) {
-        return (HttpServerResponse) context.get(RESPONSE);
-    }
+  protected HttpServerResponse getResponse(Map<String, Object> context) {
+    return (HttpServerResponse) context.get(RESPONSE);
+  }
 
-    protected Operation getOperation(Map<String, Object> context) {
-        return (Operation) context.get(OPERATION);
-    }
+  protected Operation getOperation(Map<String, Object> context) {
+    return (Operation) context.get(OPERATION);
+  }
 
-    protected Current getCurrentUser(Map<String, Object> context) {
-        return (Current) context.get(CURRENT_USER);
-    }
+  protected Current getCurrentUser(Map<String, Object> context) {
+    return (Current) context.get(CURRENT_USER);
+  }
 
-    protected void setCurrentUser(Map<String, Object> context, Current current) {
-        context.put(CURRENT_USER, current);
-    }
+  protected void setCurrentUser(Map<String, Object> context, Current current) {
+    context.put(CURRENT_USER, current);
+  }
 
-    protected String getRequestId(Map<String, Object> context) {
-        return (String) context.get(REQUEST_ID);
-    }
+  protected String getRequestId(Map<String, Object> context) {
+    return (String) context.get(REQUEST_ID);
+  }
 }

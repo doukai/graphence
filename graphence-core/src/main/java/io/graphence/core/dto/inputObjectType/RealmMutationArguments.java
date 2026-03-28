@@ -18,7 +18,7 @@ import org.eclipse.microprofile.graphql.Input;
  */
 @CompiledJson
 @Input
-@Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
+@Generated("io.graphoenix.java.builder.TypeSpecBuilder")
 @Description("Mutation Arguments for 租户")
 public class RealmMutationArguments implements NamedStructInput, MetaInput, RealmInputBase {
   /**

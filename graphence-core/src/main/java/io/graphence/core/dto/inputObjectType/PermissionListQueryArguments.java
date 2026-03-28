@@ -20,7 +20,7 @@ import org.eclipse.microprofile.graphql.Input;
  */
 @CompiledJson
 @Input
-@Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
+@Generated("io.graphoenix.java.builder.TypeSpecBuilder")
 @Description("Query Arguments for 权限 List")
 public class PermissionListQueryArguments implements MetaExpression, PermissionExpressionBase {
   /**

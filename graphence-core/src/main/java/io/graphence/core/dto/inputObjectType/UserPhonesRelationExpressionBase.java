@@ -14,7 +14,7 @@ import org.eclipse.microprofile.graphql.Input;
  * Query Expression Input for Relationship Object between 用户 and 手机号
  */
 @Input
-@Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
+@Generated("io.graphoenix.java.builder.TypeSpecBuilder")
 @Description("Query Expression Input for Relationship Object between 用户 and 手机号")
 public interface UserPhonesRelationExpressionBase extends MetaExpression {
   /**

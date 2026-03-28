@@ -16,7 +16,7 @@ import org.eclipse.microprofile.graphql.Description;
 /**
  * Query Expression Input for 用户
  */
-@Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
+@Generated("io.graphoenix.java.builder.TypeSpecBuilder")
 @Documented
 @Retention(RetentionPolicy.SOURCE)
 @Target(ElementType.METHOD)

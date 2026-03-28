@@ -17,7 +17,7 @@ import org.eclipse.microprofile.graphql.Input;
  */
 @CompiledJson
 @Input
-@Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
+@Generated("io.graphoenix.java.builder.TypeSpecBuilder")
 @Description("Mutation Input for Relationship Object between 用户 and 手机号")
 public class UserPhonesRelationInput implements MetaInput, UserPhonesRelationInputBase {
   /**

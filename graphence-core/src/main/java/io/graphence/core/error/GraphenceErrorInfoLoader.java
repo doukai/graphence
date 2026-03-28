@@ -18,15 +18,37 @@ import static io.graphence.core.error.AuthorizationErrorType.AUTHORIZATION_FAILE
 @AutoService(ErrorInfoLoader.class)
 public class GraphenceErrorInfoLoader implements ErrorInfoLoader {
 
-    @Override
-    public void load() {
-        ErrorInfo.put(JwtException.class, AUTHENTICATION_FAILED.getCode(), AUTHENTICATION_FAILED.toString());
-        ErrorInfo.put(SignatureException.class, AUTHENTICATION_FAILED.getCode(), AUTHENTICATION_FAILED.toString());
-        ErrorInfo.put(CasbinAdapterException.class, AUTHORIZATION_FAILED.getCode(), AUTHORIZATION_FAILED.toString());
-        ErrorInfo.put(CasbinConfigException.class, AUTHORIZATION_FAILED.getCode(), AUTHORIZATION_FAILED.toString());
-        ErrorInfo.put(CasbinEffectorException.class, AUTHORIZATION_FAILED.getCode(), AUTHORIZATION_FAILED.toString());
-        ErrorInfo.put(CasbinMatcherException.class, AUTHORIZATION_FAILED.getCode(), AUTHORIZATION_FAILED.toString());
-        ErrorInfo.put(CasbinNameNotExistException.class, AUTHORIZATION_FAILED.getCode(), AUTHORIZATION_FAILED.toString());
-        ErrorInfo.put(CasbinPolicyFileNotFoundException.class, AUTHORIZATION_FAILED.getCode(), AUTHORIZATION_FAILED.toString());
-    }
+  @Override
+  public void load() {
+    ErrorInfo.put(
+        JwtException.class, AUTHENTICATION_FAILED.getCode(), AUTHENTICATION_FAILED.toString());
+    ErrorInfo.put(
+        SignatureException.class,
+        AUTHENTICATION_FAILED.getCode(),
+        AUTHENTICATION_FAILED.toString());
+    ErrorInfo.put(
+        CasbinAdapterException.class,
+        AUTHORIZATION_FAILED.getCode(),
+        AUTHORIZATION_FAILED.toString());
+    ErrorInfo.put(
+        CasbinConfigException.class,
+        AUTHORIZATION_FAILED.getCode(),
+        AUTHORIZATION_FAILED.toString());
+    ErrorInfo.put(
+        CasbinEffectorException.class,
+        AUTHORIZATION_FAILED.getCode(),
+        AUTHORIZATION_FAILED.toString());
+    ErrorInfo.put(
+        CasbinMatcherException.class,
+        AUTHORIZATION_FAILED.getCode(),
+        AUTHORIZATION_FAILED.toString());
+    ErrorInfo.put(
+        CasbinNameNotExistException.class,
+        AUTHORIZATION_FAILED.getCode(),
+        AUTHORIZATION_FAILED.toString());
+    ErrorInfo.put(
+        CasbinPolicyFileNotFoundException.class,
+        AUTHORIZATION_FAILED.getCode(),
+        AUTHORIZATION_FAILED.toString());
+  }
 }

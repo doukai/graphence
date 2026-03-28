@@ -16,26 +16,31 @@ import static io.graphence.core.event.PermissionBuilder.PERMISSION_BUILD_SCOPE_E
 @ApplicationScoped
 public class PermissionCleaner {
 
-    private static final Logger logger = LoggerFactory.getLogger(PermissionCleaner.class);
+  private static final Logger logger = LoggerFactory.getLogger(PermissionCleaner.class);
 
-    public static final int PERMISSION_CLEAN_SCOPE_EVENT_PRIORITY = PERMISSION_BUILD_SCOPE_EVENT_PRIORITY - 1;
+  public static final int PERMISSION_CLEAN_SCOPE_EVENT_PRIORITY =
+      PERMISSION_BUILD_SCOPE_EVENT_PRIORITY - 1;
 
-    private final SecurityConfig securityConfig;
-    private final TypeEmptyHandler typeEmptyHandler;
+  private final SecurityConfig securityConfig;
+  private final TypeEmptyHandler typeEmptyHandler;
 
-    @Inject
-    public PermissionCleaner(SecurityConfig securityConfig, TypeEmptyHandler typeEmptyHandler) {
-        this.securityConfig = securityConfig;
-        this.typeEmptyHandler = typeEmptyHandler;
+  @Inject
+  public PermissionCleaner(SecurityConfig securityConfig, TypeEmptyHandler typeEmptyHandler) {
+    this.securityConfig = securityConfig;
+    this.typeEmptyHandler = typeEmptyHandler;
+  }
+
+  public Mono<Void> cleanPermission(
+      @Observes
+          @Initialized(ApplicationScoped.class)
+          @Priority(PermissionCleaner.PERMISSION_CLEAN_SCOPE_EVENT_PRIORITY)
+          Object event) {
+    if (!securityConfig.getBuildPermission()) {
+      return Mono.empty();
     }
-
-    public Mono<Void> cleanPermission(@Observes @Initialized(ApplicationScoped.class) @Priority(PermissionCleaner.PERMISSION_CLEAN_SCOPE_EVENT_PRIORITY) Object event) {
-        if (!securityConfig.getBuildPermission()) {
-            return Mono.empty();
-        }
-        logger.info("permissions clean started");
-        return typeEmptyHandler
-                .empty("Permission")
-                .doOnSuccess((v) -> logger.info("permissions clean success"));
-    }
+    logger.info("permissions clean started");
+    return typeEmptyHandler
+        .empty("Permission")
+        .doOnSuccess((v) -> logger.info("permissions clean success"));
+  }
 }

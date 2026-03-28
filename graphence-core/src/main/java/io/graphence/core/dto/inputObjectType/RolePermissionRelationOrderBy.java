@@ -11,7 +11,7 @@ import org.eclipse.microprofile.graphql.Input;
  */
 @CompiledJson
 @Input
-@Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
+@Generated("io.graphoenix.java.builder.TypeSpecBuilder")
 @Description("Order Input for Relationship Object between 角色 and 权限")
 public class RolePermissionRelationOrderBy {
   /**

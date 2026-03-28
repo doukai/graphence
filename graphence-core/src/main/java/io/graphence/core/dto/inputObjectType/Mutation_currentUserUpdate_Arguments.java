@@ -6,7 +6,7 @@ import org.eclipse.microprofile.graphql.Input;
 
 @CompiledJson
 @Input
-@Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
+@Generated("io.graphoenix.java.builder.TypeSpecBuilder")
 public class Mutation_currentUserUpdate_Arguments {
   private UserInput userInput;
 

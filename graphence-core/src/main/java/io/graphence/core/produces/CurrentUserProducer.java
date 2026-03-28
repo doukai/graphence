@@ -8,9 +8,9 @@ import jakarta.enterprise.inject.Produces;
 @ApplicationScoped
 public class CurrentUserProducer {
 
-    @Produces
-    @RequestScoped
-    public Current currentUser() {
-        return new Current();
-    }
+  @Produces
+  @RequestScoped
+  public Current currentUser() {
+    return new Current();
+  }
 }

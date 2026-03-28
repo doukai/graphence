@@ -19,7 +19,7 @@ import org.eclipse.microprofile.graphql.Input;
  */
 @CompiledJson
 @Input
-@Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
+@Generated("io.graphoenix.java.builder.TypeSpecBuilder")
 @Description("Subscription Arguments for Relationship Object between 用户 and 组")
 public class GroupUserRelationSubscriptionArguments implements MetaExpression, GroupUserRelationExpressionBase {
   /**

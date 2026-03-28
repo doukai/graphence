@@ -588,22 +588,22 @@ message RolePermissionRelationEdge {
     RolePermissionRelation node = 1; /* Node */
     string cursor = 2; /* Cursor */
 }
-message Current {
-    repeated string groups = 1;
-    repeated string roles = 2;
-    string login = 3;
-    string name = 4;
-    string last_name = 5;
-    int32 realm_id = 6;
-    string id = 7;
-}
 message Policy {
     string id = 1;
-    string v5 = 2;
-    string policy = 3;
-    string v2 = 4;
-    string v3 = 5;
-    string v1 = 6;
-    string v4 = 7;
-    string v0 = 8;
+    string policy = 2;
+    string v1 = 3;
+    string v5 = 4;
+    string v2 = 5;
+    string v4 = 6;
+    string v0 = 7;
+    string v3 = 8;
+}
+message Current {
+    int32 realm_id = 1;
+    string login = 2;
+    string name = 3;
+    repeated string roles = 4;
+    string last_name = 5;
+    string id = 6;
+    repeated string groups = 7;
 }

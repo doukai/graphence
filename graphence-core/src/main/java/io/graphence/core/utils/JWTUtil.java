@@ -25,77 +25,74 @@ import java.util.stream.Stream;
 @ApplicationScoped
 public class JWTUtil {
 
-    private final JWTConfig jwtConfig;
-    private final SecurityConfig securityConfig;
+  private final JWTConfig jwtConfig;
+  private final SecurityConfig securityConfig;
 
-    private final Key key;
+  private final Key key;
 
-    @Inject
-    public JWTUtil(JWTConfig jwtConfig, SecurityConfig securityConfig) {
-        this.jwtConfig = jwtConfig;
-        this.securityConfig = securityConfig;
-        this.key = Keys.secretKeyFor(SignatureAlgorithm.forName(jwtConfig.getAlgorithm()));
-    }
+  @Inject
+  public JWTUtil(JWTConfig jwtConfig, SecurityConfig securityConfig) {
+    this.jwtConfig = jwtConfig;
+    this.securityConfig = securityConfig;
+    this.key = Keys.secretKeyFor(SignatureAlgorithm.forName(jwtConfig.getAlgorithm()));
+  }
 
-    public String build(User user, Set<String> roles, Set<String> permissionTypes) {
-        Date issuedAt = getIssuedAt();
-        return Jwts.builder()
-                .setIssuer(jwtConfig.getIssuer())
-                .setSubject(user.getId())
-                .claim(Claims.full_name.name(), user.getName())
-                .claim(Claims.family_name.name(), user.getLastName())
-                .claim(Claims.upn.name(), user.getRealmId())
-                .claim(Claims.groups.name(), getGroups(user))
-                .claim("roles", roles.toArray(String[]::new))
-                .claim("permission_types", permissionTypes.toArray(String[]::new))
-                .claim("is_root", securityConfig.getRootUser() != null && user.getLogin().equals(securityConfig.getRootUser()))
-                .setIssuedAt(issuedAt)
-                .setExpiration(getExpiration(issuedAt))
-                .signWith(key)
-                .compact();
-    }
+  public String build(User user, Set<String> roles, Set<String> permissionTypes) {
+    Date issuedAt = getIssuedAt();
+    return Jwts.builder()
+        .setIssuer(jwtConfig.getIssuer())
+        .setSubject(user.getId())
+        .claim(Claims.full_name.name(), user.getName())
+        .claim(Claims.family_name.name(), user.getLastName())
+        .claim(Claims.upn.name(), user.getRealmId())
+        .claim(Claims.groups.name(), getGroups(user))
+        .claim("roles", roles.toArray(String[]::new))
+        .claim("permission_types", permissionTypes.toArray(String[]::new))
+        .claim(
+            "is_root",
+            securityConfig.getRootUser() != null
+                && user.getLogin().equals(securityConfig.getRootUser()))
+        .setIssuedAt(issuedAt)
+        .setExpiration(getExpiration(issuedAt))
+        .signWith(key)
+        .compact();
+  }
 
-    protected Date getIssuedAt() {
-        return new Date();
-    }
+  protected Date getIssuedAt() {
+    return new Date();
+  }
 
-    protected Date getExpiration(Date issuedAt) {
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(issuedAt);
-        calendar.add(Calendar.SECOND, jwtConfig.getValidityPeriod());
-        return calendar.getTime();
-    }
+  protected Date getExpiration(Date issuedAt) {
+    Calendar calendar = Calendar.getInstance();
+    calendar.setTime(issuedAt);
+    calendar.add(Calendar.SECOND, jwtConfig.getValidityPeriod());
+    return calendar.getTime();
+  }
 
-    protected String[] getGroups(User user) {
-        return Stream.ofNullable(user.getGroups()).flatMap(Collection::stream).map(Group::getId).toArray(String[]::new);
-    }
+  protected String[] getGroups(User user) {
+    return Stream.ofNullable(user.getGroups())
+        .flatMap(Collection::stream)
+        .map(Group::getId)
+        .toArray(String[]::new);
+  }
 
-    public Stream<Role> getRoles(User user) {
-        return Stream.concat(
-                getRoles(user.getRoles()),
-                Stream.ofNullable(user.getGroups())
-                        .flatMap(Collection::stream)
-                        .flatMap(group -> getRoles(group.getRoles()))
-        );
-    }
+  public Stream<Role> getRoles(User user) {
+    return Stream.concat(
+        getRoles(user.getRoles()),
+        Stream.ofNullable(user.getGroups())
+            .flatMap(Collection::stream)
+            .flatMap(group -> getRoles(group.getRoles())));
+  }
 
-    public Stream<Role> getRoles(Collection<Role> roles) {
-        return Stream.ofNullable(roles)
-                .flatMap(Collection::stream)
-                .flatMap(role ->
-                        Stream.concat(
-                                Stream.of(role),
-                                getRoles(role.getComposites())
-                        )
-                );
-    }
+  public Stream<Role> getRoles(Collection<Role> roles) {
+    return Stream.ofNullable(roles)
+        .flatMap(Collection::stream)
+        .flatMap(role -> Stream.concat(Stream.of(role), getRoles(role.getComposites())));
+  }
 
-    public GraphenceJsonWebToken parser(String compactJws) throws JwtException {
-        Jws<io.jsonwebtoken.Claims> claimsJws = Jwts
-                .parserBuilder()
-                .setSigningKey(key)
-                .build()
-                .parseClaimsJws(compactJws);
-        return new GraphenceJsonWebToken(claimsJws);
-    }
+  public GraphenceJsonWebToken parser(String compactJws) throws JwtException {
+    Jws<io.jsonwebtoken.Claims> claimsJws =
+        Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(compactJws);
+    return new GraphenceJsonWebToken(claimsJws);
+  }
 }

@@ -15,7 +15,7 @@ import org.eclipse.microprofile.graphql.Description;
 /**
  * Subscription Arguments for 租户 List
  */
-@Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
+@Generated("io.graphoenix.java.builder.TypeSpecBuilder")
 @Documented
 @Retention(RetentionPolicy.SOURCE)
 @Target(ElementType.METHOD)

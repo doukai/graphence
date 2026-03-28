@@ -21,7 +21,7 @@ import org.eclipse.microprofile.graphql.Input;
  */
 @CompiledJson
 @Input
-@Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
+@Generated("io.graphoenix.java.builder.TypeSpecBuilder")
 @Description("Query Arguments for 组")
 public class GroupQueryArguments implements TreeStructExpression, NamedStructExpression, MetaExpression, GroupExpressionBase {
   /**

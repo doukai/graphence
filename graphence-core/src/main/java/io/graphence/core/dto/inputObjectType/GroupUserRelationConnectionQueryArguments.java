@@ -20,7 +20,7 @@ import org.eclipse.microprofile.graphql.Input;
  */
 @CompiledJson
 @Input
-@Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
+@Generated("io.graphoenix.java.builder.TypeSpecBuilder")
 @Description("Query Arguments for Relationship Object between 用户 and 组 Connection")
 public class GroupUserRelationConnectionQueryArguments implements MetaExpression, GroupUserRelationExpressionBase {
   /**

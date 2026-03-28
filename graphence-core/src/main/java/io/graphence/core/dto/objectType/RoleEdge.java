@@ -11,7 +11,7 @@ import org.eclipse.microprofile.graphql.Type;
  */
 @Type
 @CompiledJson
-@Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
+@Generated("io.graphoenix.java.builder.TypeSpecBuilder")
 @Description("Edge Object for 角色")
 public class RoleEdge {
   /**

@@ -12,7 +12,7 @@ import org.eclipse.microprofile.graphql.Description;
 /**
  * Mutation Input for Relationship Object between 用户 and 角色
  */
-@Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
+@Generated("io.graphoenix.java.builder.TypeSpecBuilder")
 @Documented
 @Retention(RetentionPolicy.SOURCE)
 @Target(ElementType.METHOD)

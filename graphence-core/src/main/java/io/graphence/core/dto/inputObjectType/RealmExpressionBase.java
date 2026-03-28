@@ -15,7 +15,7 @@ import org.eclipse.microprofile.graphql.Input;
  * Query Expression Input for 租户
  */
 @Input
-@Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
+@Generated("io.graphoenix.java.builder.TypeSpecBuilder")
 @Description("Query Expression Input for 租户")
 public interface RealmExpressionBase extends NamedStructExpression, MetaExpression {
   /**

@@ -22,7 +22,7 @@ import org.eclipse.microprofile.graphql.Type;
  */
 @Type
 @CompiledJson
-@Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
+@Generated("io.graphoenix.java.builder.TypeSpecBuilder")
 @Description("角色")
 public class Role implements NamedStruct, Meta {
   /**

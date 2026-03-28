@@ -21,7 +21,7 @@ import org.eclipse.microprofile.graphql.Input;
  */
 @CompiledJson
 @Input
-@Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
+@Generated("io.graphoenix.java.builder.TypeSpecBuilder")
 @Description("Subscription Arguments for 用户")
 public class UserSubscriptionArguments implements NamedStructExpression, MetaExpression, UserExpressionBase {
   /**

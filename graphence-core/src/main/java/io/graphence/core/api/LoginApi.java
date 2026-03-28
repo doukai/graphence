@@ -33,69 +33,91 @@ import static io.graphence.core.constant.Constant.AUTHORIZATION_SCHEME_BEARER;
 import static io.graphence.core.error.AuthenticationErrorType.AUTHENTICATION_DISABLE;
 import static io.graphence.core.error.AuthenticationErrorType.AUTHENTICATION_FAILED;
 
-
 @GraphQLApi
 @ApplicationScoped
 public class LoginApi implements Asyncable {
 
-    private final SecurityConfig config;
-    private final LoginRepository loginRepository;
-    private final JWTUtil jwtUtil;
-    private final RBACPolicyRepository rbacPolicyRepository;
-    private final RequestBeanScoped requestBeanScoped;
-    private final PasswordManager passwordManager;
+  private final SecurityConfig config;
+  private final LoginRepository loginRepository;
+  private final JWTUtil jwtUtil;
+  private final RBACPolicyRepository rbacPolicyRepository;
+  private final RequestBeanScoped requestBeanScoped;
+  private final PasswordManager passwordManager;
 
-    @Inject
-    public LoginApi(SecurityConfig config,
-                    LoginRepository loginRepository,
-                    JWTUtil jwtUtil,
-                    RBACPolicyRepository rbacPolicyRepository,
-                    RequestBeanScoped requestBeanScoped,
-                    PasswordManager passwordManager) {
-        this.config = config;
-        this.loginRepository = loginRepository;
-        this.jwtUtil = jwtUtil;
-        this.rbacPolicyRepository = rbacPolicyRepository;
-        this.requestBeanScoped = requestBeanScoped;
-        this.passwordManager = Optional.ofNullable(passwordManager).orElse(new BcryptManager());
-    }
+  @Inject
+  public LoginApi(
+      SecurityConfig config,
+      LoginRepository loginRepository,
+      JWTUtil jwtUtil,
+      RBACPolicyRepository rbacPolicyRepository,
+      RequestBeanScoped requestBeanScoped,
+      PasswordManager passwordManager) {
+    this.config = config;
+    this.loginRepository = loginRepository;
+    this.jwtUtil = jwtUtil;
+    this.rbacPolicyRepository = rbacPolicyRepository;
+    this.requestBeanScoped = requestBeanScoped;
+    this.passwordManager = Optional.ofNullable(passwordManager).orElse(new BcryptManager());
+  }
 
-    @Mutation
-    @PermitAll
-    public Mono<String> login(@NonNull String login, @NonNull String password) {
-        return loginRepository.getUserByLogin(login)
-                .flatMap(user -> {
-                    if (user.getDisable()) {
-                        return Mono.error(new AuthenticationException(AUTHENTICATION_DISABLE));
-                    } else if (passwordManager.check(password, user)) {
-                        return Mono.justOrEmpty(user);
-                    } else {
-                        return Mono.error(new AuthenticationException(AUTHENTICATION_FAILED));
-                    }
-                })
-                .switchIfEmpty(Mono.error(new AuthenticationException(AUTHENTICATION_FAILED)))
-                .flatMap(user -> {
-                    Set<String> roleIdSet = jwtUtil.getRoles(user).map(Role::getId).collect(Collectors.toSet());
-                    return rbacPolicyRepository.queryPermissionTypeList(roleIdSet)
-                            .map(permissions -> jwtUtil.build(user, roleIdSet, permissions.stream().map(Permission::getType).collect(Collectors.toSet())))
-                            .switchIfEmpty(Mono.defer(() -> Mono.just(jwtUtil.build(user, roleIdSet, Collections.emptySet()))));
-                })
-                .flatMap(token ->
-                        requestBeanScoped.get(HttpServerResponse.class)
-                                .map(response -> response.addHeader(HttpHeaderNames.SET_COOKIE, AUTHORIZATION_HEADER + "=" + AUTHORIZATION_SCHEME_BEARER + " " + token))
-                                .thenReturn(token)
-                );
-    }
+  @Mutation
+  @PermitAll
+  public Mono<String> login(@NonNull String login, @NonNull String password) {
+    return loginRepository
+        .getUserByLogin(login)
+        .flatMap(
+            user -> {
+              if (user.getDisable()) {
+                return Mono.error(new AuthenticationException(AUTHENTICATION_DISABLE));
+              } else if (passwordManager.check(password, user)) {
+                return Mono.justOrEmpty(user);
+              } else {
+                return Mono.error(new AuthenticationException(AUTHENTICATION_FAILED));
+              }
+            })
+        .switchIfEmpty(Mono.error(new AuthenticationException(AUTHENTICATION_FAILED)))
+        .flatMap(
+            user -> {
+              Set<String> roleIdSet =
+                  jwtUtil.getRoles(user).map(Role::getId).collect(Collectors.toSet());
+              return rbacPolicyRepository
+                  .queryPermissionTypeList(roleIdSet)
+                  .map(
+                      permissions ->
+                          jwtUtil.build(
+                              user,
+                              roleIdSet,
+                              permissions.stream()
+                                  .map(Permission::getType)
+                                  .collect(Collectors.toSet())))
+                  .switchIfEmpty(
+                      Mono.defer(
+                          () -> Mono.just(jwtUtil.build(user, roleIdSet, Collections.emptySet()))));
+            })
+        .flatMap(
+            token ->
+                requestBeanScoped
+                    .get(HttpServerResponse.class)
+                    .map(
+                        response ->
+                            response.addHeader(
+                                HttpHeaderNames.SET_COOKIE,
+                                AUTHORIZATION_HEADER
+                                    + "="
+                                    + AUTHORIZATION_SCHEME_BEARER
+                                    + " "
+                                    + token))
+                    .thenReturn(token));
+  }
 
-    public UserInputBase hashPassword(@Source UserInputBase userinputBase) {
-        if (config.getInitialPassword() != null &&
-                userinputBase.getId() == null &&
-                userinputBase.getWhere() == null &&
-                userinputBase.getSalt() == null &&
-                userinputBase.getHash() == null
-        ) {
-            return passwordManager.hash(config.getInitialPassword(), userinputBase);
-        }
-        return userinputBase;
+  public UserInputBase hashPassword(@Source UserInputBase userinputBase) {
+    if (config.getInitialPassword() != null
+        && userinputBase.getId() == null
+        && userinputBase.getWhere() == null
+        && userinputBase.getSalt() == null
+        && userinputBase.getHash() == null) {
+      return passwordManager.hash(config.getInitialPassword(), userinputBase);
     }
+    return userinputBase;
+  }
 }

@@ -8,7 +8,7 @@ import org.eclipse.microprofile.graphql.Enum;
  * 权限类型
  */
 @Enum
-@Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
+@Generated("io.graphoenix.java.builder.TypeSpecBuilder")
 @Description("权限类型")
 public enum PermissionType {
   /**

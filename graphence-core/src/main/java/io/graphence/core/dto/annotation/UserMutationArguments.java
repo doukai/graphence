@@ -12,7 +12,7 @@ import org.eclipse.microprofile.graphql.Description;
 /**
  * Mutation Arguments for 用户
  */
-@Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
+@Generated("io.graphoenix.java.builder.TypeSpecBuilder")
 @Documented
 @Retention(RetentionPolicy.SOURCE)
 @Target(ElementType.METHOD)

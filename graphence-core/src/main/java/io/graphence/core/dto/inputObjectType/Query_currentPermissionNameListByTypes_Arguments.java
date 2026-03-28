@@ -8,7 +8,7 @@ import org.eclipse.microprofile.graphql.Input;
 
 @CompiledJson
 @Input
-@Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
+@Generated("io.graphoenix.java.builder.TypeSpecBuilder")
 public class Query_currentPermissionNameListByTypes_Arguments {
   private Collection<String> types;
 

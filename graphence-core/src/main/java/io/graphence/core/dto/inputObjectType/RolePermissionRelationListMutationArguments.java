@@ -18,7 +18,7 @@ import org.eclipse.microprofile.graphql.Input;
  */
 @CompiledJson
 @Input
-@Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
+@Generated("io.graphoenix.java.builder.TypeSpecBuilder")
 @Description("Mutation Arguments for Relationship Object between 角色 and 权限 List")
 public class RolePermissionRelationListMutationArguments implements MetaInput, RolePermissionRelationInputBase {
   /**

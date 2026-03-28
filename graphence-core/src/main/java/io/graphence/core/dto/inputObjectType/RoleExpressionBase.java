@@ -15,7 +15,7 @@ import org.eclipse.microprofile.graphql.Input;
  * Query Expression Input for 角色
  */
 @Input
-@Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
+@Generated("io.graphoenix.java.builder.TypeSpecBuilder")
 @Description("Query Expression Input for 角色")
 public interface RoleExpressionBase extends NamedStructExpression, MetaExpression {
   /**

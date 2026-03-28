@@ -20,7 +20,7 @@ import org.eclipse.microprofile.graphql.Input;
  */
 @CompiledJson
 @Input
-@Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
+@Generated("io.graphoenix.java.builder.TypeSpecBuilder")
 @Description("Query Expression Input for 用户")
 public class UserExpression implements NamedStructExpression, MetaExpression, UserExpressionBase {
   /**

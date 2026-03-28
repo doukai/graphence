@@ -17,7 +17,7 @@ import org.eclipse.microprofile.graphql.Input;
  */
 @CompiledJson
 @Input
-@Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
+@Generated("io.graphoenix.java.builder.TypeSpecBuilder")
 @Description("Mutation Input for Relationship Object between 角色 and 角色")
 public class RoleCompositeRelationInput implements MetaInput, RoleCompositeRelationInputBase {
   /**

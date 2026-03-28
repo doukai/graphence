@@ -16,7 +16,7 @@ import org.eclipse.microprofile.graphql.Input;
  * Query Expression Input for 组
  */
 @Input
-@Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
+@Generated("io.graphoenix.java.builder.TypeSpecBuilder")
 @Description("Query Expression Input for 组")
 public interface GroupExpressionBase extends TreeStructExpression, NamedStructExpression, MetaExpression {
   /**

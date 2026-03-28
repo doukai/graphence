@@ -13,7 +13,7 @@ import org.eclipse.microprofile.graphql.Type;
  */
 @Type
 @CompiledJson
-@Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
+@Generated("io.graphoenix.java.builder.TypeSpecBuilder")
 @Description("Connection Object for Relationship Object between 用户 and 组")
 public class GroupUserRelationConnection {
   /**

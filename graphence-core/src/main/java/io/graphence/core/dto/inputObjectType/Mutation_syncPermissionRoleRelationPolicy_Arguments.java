@@ -8,7 +8,7 @@ import org.eclipse.microprofile.graphql.Input;
 
 @CompiledJson
 @Input
-@Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
+@Generated("io.graphoenix.java.builder.TypeSpecBuilder")
 public class Mutation_syncPermissionRoleRelationPolicy_Arguments {
   private String roleId;
 

@@ -16,30 +16,31 @@ import java.util.Objects;
 @ApplicationScoped
 public class CasbinProducer {
 
-    private final CasbinConfig config;
+  private final CasbinConfig config;
 
-    @Inject
-    public CasbinProducer(CasbinConfig config) {
-        this.config = config;
-    }
+  @Inject
+  public CasbinProducer(CasbinConfig config) {
+    this.config = config;
+  }
 
-    @Produces
-    @ApplicationScoped
-    public Enforcer enforcer(Model model) {
-        return new SyncedEnforcer(model);
-    }
+  @Produces
+  @ApplicationScoped
+  public Enforcer enforcer(Model model) {
+    return new SyncedEnforcer(model);
+  }
 
-    @Produces
-    @ApplicationScoped
-    public Model model() {
-        try {
-            Model model = new Model();
-            InputStream inputStream = getClass().getClassLoader().getResourceAsStream(config.getModel());
-            String modelText = new String(Objects.requireNonNull(inputStream).readAllBytes(), StandardCharsets.UTF_8);
-            model.loadModelFromText(modelText);
-            return model;
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+  @Produces
+  @ApplicationScoped
+  public Model model() {
+    try {
+      Model model = new Model();
+      InputStream inputStream = getClass().getClassLoader().getResourceAsStream(config.getModel());
+      String modelText =
+          new String(Objects.requireNonNull(inputStream).readAllBytes(), StandardCharsets.UTF_8);
+      model.loadModelFromText(modelText);
+      return model;
+    } catch (IOException e) {
+      throw new RuntimeException(e);
     }
+  }
 }

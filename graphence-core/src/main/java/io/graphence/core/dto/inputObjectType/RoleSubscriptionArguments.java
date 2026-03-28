@@ -20,7 +20,7 @@ import org.eclipse.microprofile.graphql.Input;
  */
 @CompiledJson
 @Input
-@Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
+@Generated("io.graphoenix.java.builder.TypeSpecBuilder")
 @Description("Subscription Arguments for 角色")
 public class RoleSubscriptionArguments implements NamedStructExpression, MetaExpression, RoleExpressionBase {
   /**

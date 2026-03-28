@@ -16,7 +16,7 @@ import org.eclipse.microprofile.graphql.Input;
  * Mutation Input for 组
  */
 @Input
-@Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
+@Generated("io.graphoenix.java.builder.TypeSpecBuilder")
 @Description("Mutation Input for 组")
 public interface GroupInputBase extends TreeStructInput, NamedStructInput, MetaInput {
   /**

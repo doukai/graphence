@@ -951,10 +951,6 @@ message QueryRolePermissionRelationConnectionRequest {
     string after = 25; /* After */
     string before = 26; /* Before */
 }
-message QueryPolicyListRequest {
-    optional string selection_set = 1;
-    optional string arguments = 2;
-}
 message QueryCurrentRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
@@ -971,4 +967,8 @@ message QueryCurrentPermissionNameListByTypesRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
     repeated string types = 3;
+}
+message QueryPolicyListRequest {
+    optional string selection_set = 1;
+    optional string arguments = 2;
 }

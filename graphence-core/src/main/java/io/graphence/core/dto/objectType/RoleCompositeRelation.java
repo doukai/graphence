@@ -18,7 +18,7 @@ import org.eclipse.microprofile.graphql.Type;
  */
 @Type
 @CompiledJson
-@Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
+@Generated("io.graphoenix.java.builder.TypeSpecBuilder")
 @Description("Relationship Object between 角色 and 角色")
 public class RoleCompositeRelation implements Meta {
   /**

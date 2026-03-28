@@ -13,7 +13,7 @@ import org.eclipse.microprofile.graphql.Description;
 /**
  * Query Expression Input for Relationship Object between 角色 and 权限
  */
-@Generated("io.graphoenix.java.builder.TypeSpecBuilder_Proxy")
+@Generated("io.graphoenix.java.builder.TypeSpecBuilder")
 @Documented
 @Retention(RetentionPolicy.SOURCE)
 @Target(ElementType.METHOD)
