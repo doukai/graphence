@@ -111,12 +111,12 @@ public class Current {
         .setRoles(
             Stream.ofNullable(user.getRoles())
                 .flatMap(Collection::stream)
-                .map(Role::getName)
+                .map(Role::getId)
                 .collect(Collectors.toList()))
         .setGroups(
             Stream.ofNullable(user.getGroups())
                 .flatMap(Collection::stream)
-                .map(Group::getName)
+                .map(Group::getId)
                 .collect(Collectors.toList()));
   }
 }

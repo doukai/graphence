@@ -75,7 +75,8 @@ public class RBACFilter implements OperationBeforeHandler {
                                     field,
                                     operation.isMutation() ? WRITE : READ);
                               } else if (field.getFields() != null) {
-                                return enforce(currentUser, operationType, fieldDefinition, field);
+                                return enforceFields(
+                                    currentUser, operationType, fieldDefinition, field);
                               }
                               return Stream.of(field);
                             })
@@ -87,8 +88,9 @@ public class RBACFilter implements OperationBeforeHandler {
                                   && operation.isMutation()
                                   && field.getArguments() != null) {
                                 return field.setArguments(
-                                    enforce(
+                                    enforceArguments(
                                         currentUser,
+                                        operationType,
                                         operationType.getField(field.getName()),
                                         field));
                               }
@@ -118,7 +120,8 @@ public class RBACFilter implements OperationBeforeHandler {
       Field field,
       PermissionType permissionType) {
     if (fieldDefinition == null) {
-      throw new GraphQLErrors(GraphQLErrorType.FIELD_DEFINITION_NOT_EXIST.bind(field.getName()));
+      throw new GraphQLErrors(
+          GraphQLErrorType.FIELD_DEFINITION_NOT_EXIST.bind(objectType.getName(), field.getName()));
     }
     if (!fieldDefinition.isDenyAll()
         && (fieldDefinition.isPermitAll()
@@ -157,10 +160,11 @@ public class RBACFilter implements OperationBeforeHandler {
     return Stream.empty();
   }
 
-  protected Stream<Field> enforce(
+  protected Stream<Field> enforceFields(
       Current current, ObjectType objectType, FieldDefinition fieldDefinition, Field field) {
     if (fieldDefinition == null) {
-      throw new GraphQLErrors(GraphQLErrorType.FIELD_DEFINITION_NOT_EXIST.bind(field.getName()));
+      throw new GraphQLErrors(
+          GraphQLErrorType.FIELD_DEFINITION_NOT_EXIST.bind(objectType.getName(), field.getName()));
     }
     Definition fieldTypeDefinition = documentManager.getFieldTypeDefinition(fieldDefinition);
     if (fieldDefinition.isConnectionField()) {
@@ -227,7 +231,7 @@ public class RBACFilter implements OperationBeforeHandler {
                             node.getFields().stream()
                                 .flatMap(
                                     nodeSubField ->
-                                        enforce(
+                                        enforceFields(
                                             current,
                                             originalFieldTypeDefinition.asObject(),
                                             originalFieldTypeDefinition
@@ -313,7 +317,7 @@ public class RBACFilter implements OperationBeforeHandler {
             field.getFields().stream()
                 .flatMap(
                     subField ->
-                        enforce(
+                        enforceFields(
                             current,
                             fieldTypeDefinition.asObject(),
                             fieldTypeDefinition.asObject().getField(subField.getName()),
@@ -385,10 +389,11 @@ public class RBACFilter implements OperationBeforeHandler {
     return Stream.empty();
   }
 
-  protected Map<String, ValueWithVariable> enforce(
-      Current current, FieldDefinition fieldDefinition, Field field) {
+  protected Map<String, ValueWithVariable> enforceArguments(
+      Current current, ObjectType objectType, FieldDefinition fieldDefinition, Field field) {
     if (fieldDefinition == null) {
-      throw new GraphQLErrors(GraphQLErrorType.FIELD_DEFINITION_NOT_EXIST.bind(field.getName()));
+      throw new GraphQLErrors(
+          GraphQLErrorType.FIELD_DEFINITION_NOT_EXIST.bind(objectType.getName(), field.getName()));
     }
     Map<String, ValueWithVariable> arguments = field.getArguments().getArguments();
     Definition fieldTypeDefinition = documentManager.getFieldTypeDefinition(fieldDefinition);
@@ -481,8 +486,10 @@ public class RBACFilter implements OperationBeforeHandler {
                                                                       .stream()
                                                                       .map(
                                                                           item ->
-                                                                              enforce(
+                                                                              enforceObjectValueWithVariables(
                                                                                   current,
+                                                                                  fieldTypeDefinition
+                                                                                      .asObject(),
                                                                                   subFieldDefinition,
                                                                                   inputValue,
                                                                                   item.asObject()
@@ -494,8 +501,10 @@ public class RBACFilter implements OperationBeforeHandler {
                                                           new AbstractMap.SimpleEntry<>(
                                                               inputValue.getName(),
                                                               ValueWithVariable.of(
-                                                                  enforce(
+                                                                  enforceObjectValueWithVariables(
                                                                       current,
+                                                                      fieldTypeDefinition
+                                                                          .asObject(),
                                                                       subFieldDefinition,
                                                                       inputValue,
                                                                       valueWithVariable
@@ -529,8 +538,9 @@ public class RBACFilter implements OperationBeforeHandler {
                                                   .stream()
                                                   .map(
                                                       item ->
-                                                          enforce(
+                                                          enforceObjectValueWithVariables(
                                                               current,
+                                                              objectType,
                                                               fieldDefinition,
                                                               inputValue,
                                                               item.asObject()
@@ -552,8 +562,9 @@ public class RBACFilter implements OperationBeforeHandler {
                                       return new AbstractMap.SimpleEntry<>(
                                           inputValue.getName(),
                                           ValueWithVariable.of(
-                                              enforce(
+                                              enforceObjectValueWithVariables(
                                                   current,
+                                                  objectType,
                                                   fieldDefinition,
                                                   inputValue,
                                                   valueWithVariable
@@ -573,14 +584,16 @@ public class RBACFilter implements OperationBeforeHandler {
     return arguments;
   }
 
-  protected Map<String, ValueWithVariable> enforce(
+  protected Map<String, ValueWithVariable> enforceObjectValueWithVariables(
       Current current,
+      ObjectType objectType,
       FieldDefinition fieldDefinition,
       InputValue inputValue,
       Map<String, ValueWithVariable> objectValueWithVariables) {
     if (fieldDefinition == null) {
       throw new GraphQLErrors(
-          GraphQLErrorType.FIELD_DEFINITION_NOT_EXIST.bind(inputValue.getName()));
+          GraphQLErrorType.FIELD_DEFINITION_NOT_EXIST.bind(
+              objectType.getName(), inputValue.getName()));
     }
     Definition fieldTypeDefinition = documentManager.getFieldTypeDefinition(fieldDefinition);
     Definition inputValueTypeDefinition = documentManager.getInputValueTypeDefinition(inputValue);
@@ -676,8 +689,10 @@ public class RBACFilter implements OperationBeforeHandler {
                                                                       .stream()
                                                                       .map(
                                                                           item ->
-                                                                              enforce(
+                                                                              enforceObjectValueWithVariables(
                                                                                   current,
+                                                                                  fieldTypeDefinition
+                                                                                      .asObject(),
                                                                                   subFieldDefinition,
                                                                                   subInputValue,
                                                                                   item.asObject()
@@ -689,8 +704,10 @@ public class RBACFilter implements OperationBeforeHandler {
                                                           new AbstractMap.SimpleEntry<>(
                                                               subInputValue.getName(),
                                                               ValueWithVariable.of(
-                                                                  enforce(
+                                                                  enforceObjectValueWithVariables(
                                                                       current,
+                                                                      fieldTypeDefinition
+                                                                          .asObject(),
                                                                       subFieldDefinition,
                                                                       subInputValue,
                                                                       valueWithVariable
