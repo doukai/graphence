@@ -123,38 +123,12 @@ public class RBACFilter implements OperationBeforeHandler {
       throw new GraphQLErrors(
           GraphQLErrorType.FIELD_DEFINITION_NOT_EXIST.bind(objectType.getName(), field.getName()));
     }
-    if (!fieldDefinition.isDenyAll()
-        && (fieldDefinition.isPermitAll()
-            || enforcer.enforce(
-                USER_PREFIX + current.getId(),
-                Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY),
-                ANY.name() + SPACER + ANY.name(),
-                ANY.name())
-            || enforcer.enforce(
-                USER_PREFIX + current.getId(),
-                Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY),
-                ANY.name() + SPACER + ANY.name(),
-                permissionType.name())
-            || enforcer.enforce(
-                USER_PREFIX + current.getId(),
-                Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY),
-                objectType.getName() + SPACER + ANY.name(),
-                ANY.name())
-            || enforcer.enforce(
-                USER_PREFIX + current.getId(),
-                Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY),
-                objectType.getName() + SPACER + ANY.name(),
-                permissionType.name())
-            || enforcer.enforce(
-                USER_PREFIX + current.getId(),
-                Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY),
-                objectType.getName() + SPACER + fieldDefinition.getName(),
-                ANY.name())
-            || enforcer.enforce(
-                USER_PREFIX + current.getId(),
-                Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY),
-                objectType.getName() + SPACER + fieldDefinition.getName(),
-                permissionType.name()))) {
+    if (isPermitted(
+        current,
+        fieldDefinition,
+        objectType.getName(),
+        fieldDefinition.getName(),
+        permissionType)) {
       return Stream.of(field);
     }
     return Stream.empty();
@@ -169,53 +143,13 @@ public class RBACFilter implements OperationBeforeHandler {
     Definition fieldTypeDefinition = documentManager.getFieldTypeDefinition(fieldDefinition);
     if (fieldDefinition.isConnectionField()) {
       if (documentManager.isOperationType(objectType)
-          || !fieldDefinition.isDenyAll()
-              && (fieldDefinition.isPermitAll()
-                  || enforcer.enforce(
-                      USER_PREFIX + current.getId(),
-                      Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY),
-                      ANY.name() + SPACER + ANY.name(),
-                      ANY.name())
-                  || enforcer.enforce(
-                      USER_PREFIX + current.getId(),
-                      Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY),
-                      ANY.name() + SPACER + ANY.name(),
-                      WRITE.name())
-                  || enforcer.enforce(
-                      USER_PREFIX + current.getId(),
-                      Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY),
-                      ANY.name() + SPACER + ANY.name(),
-                      READ.name())
-                  || enforcer.enforce(
-                      USER_PREFIX + current.getId(),
-                      Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY),
-                      objectType.getName() + SPACER + ANY.name(),
-                      ANY.name())
-                  || enforcer.enforce(
-                      USER_PREFIX + current.getId(),
-                      Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY),
-                      objectType.getName() + SPACER + ANY.name(),
-                      WRITE.name())
-                  || enforcer.enforce(
-                      USER_PREFIX + current.getId(),
-                      Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY),
-                      objectType.getName() + SPACER + ANY.name(),
-                      READ.name())
-                  || enforcer.enforce(
-                      USER_PREFIX + current.getId(),
-                      Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY),
-                      objectType.getName() + SPACER + fieldDefinition.getConnectionFieldOrError(),
-                      ANY.name())
-                  || enforcer.enforce(
-                      USER_PREFIX + current.getId(),
-                      Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY),
-                      objectType.getName() + SPACER + fieldDefinition.getConnectionFieldOrError(),
-                      WRITE.name())
-                  || enforcer.enforce(
-                      USER_PREFIX + current.getId(),
-                      Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY),
-                      objectType.getName() + SPACER + fieldDefinition.getConnectionFieldOrError(),
-                      READ.name()))) {
+          || isPermitted(
+              current,
+              fieldDefinition,
+              objectType.getName(),
+              fieldDefinition.getConnectionFieldOrError(),
+              WRITE,
+              READ)) {
         field.setSelections(
             field.getFields().stream()
                 .flatMap(
@@ -266,53 +200,7 @@ public class RBACFilter implements OperationBeforeHandler {
         fieldName = fieldDefinition.getName();
       }
       if (documentManager.isOperationType(objectType)
-          || !fieldDefinition.isDenyAll()
-              && (fieldDefinition.isPermitAll()
-                  || enforcer.enforce(
-                      USER_PREFIX + current.getId(),
-                      Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY),
-                      ANY.name() + SPACER + ANY.name(),
-                      ANY.name())
-                  || enforcer.enforce(
-                      USER_PREFIX + current.getId(),
-                      Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY),
-                      ANY.name() + SPACER + ANY.name(),
-                      WRITE.name())
-                  || enforcer.enforce(
-                      USER_PREFIX + current.getId(),
-                      Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY),
-                      ANY.name() + SPACER + ANY.name(),
-                      READ.name())
-                  || enforcer.enforce(
-                      USER_PREFIX + current.getId(),
-                      Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY),
-                      objectType.getName() + SPACER + ANY.name(),
-                      ANY.name())
-                  || enforcer.enforce(
-                      USER_PREFIX + current.getId(),
-                      Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY),
-                      objectType.getName() + SPACER + ANY.name(),
-                      WRITE.name())
-                  || enforcer.enforce(
-                      USER_PREFIX + current.getId(),
-                      Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY),
-                      objectType.getName() + SPACER + ANY.name(),
-                      READ.name())
-                  || enforcer.enforce(
-                      USER_PREFIX + current.getId(),
-                      Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY),
-                      objectType.getName() + SPACER + fieldName,
-                      ANY.name())
-                  || enforcer.enforce(
-                      USER_PREFIX + current.getId(),
-                      Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY),
-                      objectType.getName() + SPACER + fieldName,
-                      WRITE.name())
-                  || enforcer.enforce(
-                      USER_PREFIX + current.getId(),
-                      Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY),
-                      objectType.getName() + SPACER + fieldName,
-                      READ.name()))) {
+          || isPermitted(current, fieldDefinition, objectType.getName(), fieldName, WRITE, READ)) {
         List<Field> fieldList =
             field.getFields().stream()
                 .flatMap(
@@ -336,53 +224,7 @@ public class RBACFilter implements OperationBeforeHandler {
       } else {
         fieldName = fieldDefinition.getName();
       }
-      if (!fieldDefinition.isDenyAll()
-          && (fieldDefinition.isPermitAll()
-              || enforcer.enforce(
-                  USER_PREFIX + current.getId(),
-                  Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY),
-                  ANY.name() + SPACER + ANY.name(),
-                  ANY.name())
-              || enforcer.enforce(
-                  USER_PREFIX + current.getId(),
-                  Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY),
-                  ANY.name() + SPACER + ANY.name(),
-                  WRITE.name())
-              || enforcer.enforce(
-                  USER_PREFIX + current.getId(),
-                  Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY),
-                  ANY.name() + SPACER + ANY.name(),
-                  READ.name())
-              || enforcer.enforce(
-                  USER_PREFIX + current.getId(),
-                  Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY),
-                  objectType.getName() + SPACER + ANY.name(),
-                  ANY.name())
-              || enforcer.enforce(
-                  USER_PREFIX + current.getId(),
-                  Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY),
-                  objectType.getName() + SPACER + ANY.name(),
-                  WRITE.name())
-              || enforcer.enforce(
-                  USER_PREFIX + current.getId(),
-                  Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY),
-                  objectType.getName() + SPACER + ANY.name(),
-                  READ.name())
-              || enforcer.enforce(
-                  USER_PREFIX + current.getId(),
-                  Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY),
-                  objectType.getName() + SPACER + fieldName,
-                  ANY.name())
-              || enforcer.enforce(
-                  USER_PREFIX + current.getId(),
-                  Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY),
-                  objectType.getName() + SPACER + fieldName,
-                  WRITE.name())
-              || enforcer.enforce(
-                  USER_PREFIX + current.getId(),
-                  Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY),
-                  objectType.getName() + SPACER + fieldName,
-                  READ.name()))) {
+      if (isPermitted(current, fieldDefinition, objectType.getName(), fieldName, WRITE, READ)) {
         return Stream.of(field);
       }
     }
@@ -412,64 +254,12 @@ public class RBACFilter implements OperationBeforeHandler {
                                                   Optional.ofNullable(inputValue.getDefaultValue()))
                                           .flatMap(
                                               valueWithVariable -> {
-                                                if (!subFieldDefinition.isDenyAll()
-                                                    && (subFieldDefinition.isPermitAll()
-                                                        || enforcer.enforce(
-                                                            USER_PREFIX + current.getId(),
-                                                            Optional.ofNullable(
-                                                                    current.getRealmId())
-                                                                .map(String::valueOf)
-                                                                .orElse(EMPTY),
-                                                            ANY.name() + SPACER + ANY.name(),
-                                                            ANY.name())
-                                                        || enforcer.enforce(
-                                                            USER_PREFIX + current.getId(),
-                                                            Optional.ofNullable(
-                                                                    current.getRealmId())
-                                                                .map(String::valueOf)
-                                                                .orElse(EMPTY),
-                                                            ANY.name() + SPACER + ANY.name(),
-                                                            WRITE.name())
-                                                        || enforcer.enforce(
-                                                            USER_PREFIX + current.getId(),
-                                                            Optional.ofNullable(
-                                                                    current.getRealmId())
-                                                                .map(String::valueOf)
-                                                                .orElse(EMPTY),
-                                                            fieldTypeDefinition.getName()
-                                                                + SPACER
-                                                                + ANY.name(),
-                                                            ANY.name())
-                                                        || enforcer.enforce(
-                                                            USER_PREFIX + current.getId(),
-                                                            Optional.ofNullable(
-                                                                    current.getRealmId())
-                                                                .map(String::valueOf)
-                                                                .orElse(EMPTY),
-                                                            fieldTypeDefinition.getName()
-                                                                + SPACER
-                                                                + ANY.name(),
-                                                            WRITE.name())
-                                                        || enforcer.enforce(
-                                                            USER_PREFIX + current.getId(),
-                                                            Optional.ofNullable(
-                                                                    current.getRealmId())
-                                                                .map(String::valueOf)
-                                                                .orElse(EMPTY),
-                                                            fieldTypeDefinition.getName()
-                                                                + SPACER
-                                                                + inputValue.getName(),
-                                                            ANY.name())
-                                                        || enforcer.enforce(
-                                                            USER_PREFIX + current.getId(),
-                                                            Optional.ofNullable(
-                                                                    current.getRealmId())
-                                                                .map(String::valueOf)
-                                                                .orElse(EMPTY),
-                                                            fieldTypeDefinition.getName()
-                                                                + SPACER
-                                                                + inputValue.getName(),
-                                                            WRITE.name()))) {
+                                                if (isPermitted(
+                                                    current,
+                                                    subFieldDefinition,
+                                                    fieldTypeDefinition.getName(),
+                                                    inputValue.getName(),
+                                                    WRITE)) {
                                                   if (documentManager
                                                           .getFieldTypeDefinition(
                                                               subFieldDefinition)
@@ -615,64 +405,13 @@ public class RBACFilter implements OperationBeforeHandler {
                                                       subInputValue.getDefaultValue()))
                                           .flatMap(
                                               valueWithVariable -> {
-                                                if (!subFieldDefinition.isDenyAll()
-                                                    && (subFieldDefinition.isPermitAll()
-                                                        || enforcer.enforce(
-                                                            USER_PREFIX + current.getId(),
-                                                            Optional.ofNullable(
-                                                                    current.getRealmId())
-                                                                .map(String::valueOf)
-                                                                .orElse(EMPTY),
-                                                            ANY.name() + SPACER + ANY.name(),
-                                                            ANY.name())
-                                                        || enforcer.enforce(
-                                                            USER_PREFIX + current.getId(),
-                                                            Optional.ofNullable(
-                                                                    current.getRealmId())
-                                                                .map(String::valueOf)
-                                                                .orElse(EMPTY),
-                                                            ANY.name() + SPACER + ANY.name(),
-                                                            WRITE.name())
-                                                        || enforcer.enforce(
-                                                            USER_PREFIX + current.getId(),
-                                                            Optional.ofNullable(
-                                                                    current.getRealmId())
-                                                                .map(String::valueOf)
-                                                                .orElse(EMPTY),
-                                                            fieldTypeDefinition.getName()
-                                                                + SPACER
-                                                                + ANY.name(),
-                                                            ANY.name())
-                                                        || enforcer.enforce(
-                                                            USER_PREFIX + current.getId(),
-                                                            Optional.ofNullable(
-                                                                    current.getRealmId())
-                                                                .map(String::valueOf)
-                                                                .orElse(EMPTY),
-                                                            fieldTypeDefinition.getName()
-                                                                + SPACER
-                                                                + ANY.name(),
-                                                            WRITE.name())
-                                                        || enforcer.enforce(
-                                                            USER_PREFIX + current.getId(),
-                                                            Optional.ofNullable(
-                                                                    current.getRealmId())
-                                                                .map(String::valueOf)
-                                                                .orElse(EMPTY),
-                                                            fieldTypeDefinition.getName()
-                                                                + SPACER
-                                                                + subInputValue.getName(),
-                                                            ANY.name())
-                                                        || enforcer.enforce(
-                                                            USER_PREFIX + current.getId(),
-                                                            Optional.ofNullable(
-                                                                    current.getRealmId())
-                                                                .map(String::valueOf)
-                                                                .orElse(EMPTY),
-                                                            fieldTypeDefinition.getName()
-                                                                + SPACER
-                                                                + subInputValue.getName(),
-                                                            WRITE.name()))) {
+                                                if (isIdField(subFieldDefinition)
+                                                    || isPermitted(
+                                                        current,
+                                                        subFieldDefinition,
+                                                        fieldTypeDefinition.getName(),
+                                                        subInputValue.getName(),
+                                                        WRITE)) {
                                                   if (documentManager
                                                           .getFieldTypeDefinition(
                                                               subFieldDefinition)
@@ -731,5 +470,66 @@ public class RBACFilter implements OperationBeforeHandler {
           .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
     }
     return objectValueWithVariables;
+  }
+
+  private boolean isPermitted(
+      Current current,
+      FieldDefinition fieldDefinition,
+      String objectName,
+      String fieldName,
+      PermissionType... permissionTypes) {
+    return !fieldDefinition.isDenyAll()
+        && (fieldDefinition.isPermitAll()
+            || hasPermission(current, objectName, fieldName, permissionTypes));
+  }
+
+  private boolean hasPermission(
+      Current current, String objectName, String fieldName, PermissionType... permissionTypes) {
+    String subject = subject(current);
+    String realm = realm(current);
+    if (enforcer.enforce(subject, realm, permissionObject(ANY.name(), ANY.name()), ANY.name())) {
+      return true;
+    }
+    for (PermissionType permissionType : permissionTypes) {
+      if (enforcer.enforce(
+          subject, realm, permissionObject(ANY.name(), ANY.name()), permissionType.name())) {
+        return true;
+      }
+    }
+    if (enforcer.enforce(subject, realm, permissionObject(objectName, ANY.name()), ANY.name())) {
+      return true;
+    }
+    for (PermissionType permissionType : permissionTypes) {
+      if (enforcer.enforce(
+          subject, realm, permissionObject(objectName, ANY.name()), permissionType.name())) {
+        return true;
+      }
+    }
+    if (enforcer.enforce(subject, realm, permissionObject(objectName, fieldName), ANY.name())) {
+      return true;
+    }
+    for (PermissionType permissionType : permissionTypes) {
+      if (enforcer.enforce(
+          subject, realm, permissionObject(objectName, fieldName), permissionType.name())) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  private boolean isIdField(FieldDefinition fieldDefinition) {
+    return SCALA_ID_NAME.equals(documentManager.getFieldTypeDefinition(fieldDefinition).getName());
+  }
+
+  private String subject(Current current) {
+    return USER_PREFIX + current.getId();
+  }
+
+  private String realm(Current current) {
+    return Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY);
+  }
+
+  private String permissionObject(String objectName, String fieldName) {
+    return objectName + SPACER + fieldName;
   }
 }

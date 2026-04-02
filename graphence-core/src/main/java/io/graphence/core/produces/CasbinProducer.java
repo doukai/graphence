@@ -11,7 +11,6 @@ import org.casbin.jcasbin.model.Model;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
-import java.util.Objects;
 
 @ApplicationScoped
 public class CasbinProducer {
@@ -32,15 +31,17 @@ public class CasbinProducer {
   @Produces
   @ApplicationScoped
   public Model model() {
-    try {
+    try (InputStream inputStream =
+        getClass().getClassLoader().getResourceAsStream(config.getModel())) {
+      if (inputStream == null) {
+        throw new IllegalStateException("casbin model not found: " + config.getModel());
+      }
       Model model = new Model();
-      InputStream inputStream = getClass().getClassLoader().getResourceAsStream(config.getModel());
-      String modelText =
-          new String(Objects.requireNonNull(inputStream).readAllBytes(), StandardCharsets.UTF_8);
+      String modelText = new String(inputStream.readAllBytes(), StandardCharsets.UTF_8);
       model.loadModelFromText(modelText);
       return model;
     } catch (IOException e) {
-      throw new RuntimeException(e);
+      throw new IllegalStateException("failed to load casbin model: " + config.getModel(), e);
     }
   }
 }
