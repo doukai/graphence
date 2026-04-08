@@ -51,7 +51,7 @@ public interface RBACPolicyRepository {
       permissionList =
           @PermissionListQueryArguments(
               roles = @RoleExpression(id = @StringExpression($arr = "roleIdList")),
-              groupBy = {"type"}))
+              groupBy = @PermissionGroupBy(by = {"type"})))
   @SelectionSet("{ type }")
   Mono<List<Permission>> queryPermissionTypeList(Collection<String> roleIdList);
 

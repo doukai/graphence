@@ -32,10 +32,22 @@ public @interface RoleUserRelationOrderBy {
   Sort userRef() default Sort.ASC;
 
   /**
+   * 用户
+   */
+  @Description("用户")
+  UserOrderBy1 user() default @UserOrderBy1;
+
+  /**
    * 角色 Reference
    */
   @Description("角色 Reference")
   Sort roleRef() default Sort.ASC;
+
+  /**
+   * 角色
+   */
+  @Description("角色")
+  RoleOrderBy1 role() default @RoleOrderBy1;
 
   /**
    * Is Deprecated
@@ -98,34 +110,10 @@ public @interface RoleUserRelationOrderBy {
   Sort idCount() default Sort.ASC;
 
   /**
-   * Max of ID
-   */
-  @Description("Max of ID")
-  Sort idMax() default Sort.ASC;
-
-  /**
-   * Min of ID
-   */
-  @Description("Min of ID")
-  Sort idMin() default Sort.ASC;
-
-  /**
    * Count of 用户 Reference
    */
   @Description("Count of 用户 Reference")
   Sort userRefCount() default Sort.ASC;
-
-  /**
-   * Max of 用户 Reference
-   */
-  @Description("Max of 用户 Reference")
-  Sort userRefMax() default Sort.ASC;
-
-  /**
-   * Min of 用户 Reference
-   */
-  @Description("Min of 用户 Reference")
-  Sort userRefMin() default Sort.ASC;
 
   /**
    * Count of 角色 Reference
@@ -134,22 +122,80 @@ public @interface RoleUserRelationOrderBy {
   Sort roleRefCount() default Sort.ASC;
 
   /**
-   * Max of 角色 Reference
+   * Year of Create Time
    */
-  @Description("Max of 角色 Reference")
-  Sort roleRefMax() default Sort.ASC;
+  @Description("Year of Create Time")
+  Sort createTimeYear() default Sort.ASC;
 
   /**
-   * Min of 角色 Reference
+   * Month of Create Time
    */
-  @Description("Min of 角色 Reference")
-  Sort roleRefMin() default Sort.ASC;
+  @Description("Month of Create Time")
+  Sort createTimeMonth() default Sort.ASC;
+
+  /**
+   * Day of Create Time
+   */
+  @Description("Day of Create Time")
+  Sort createTimeDay() default Sort.ASC;
+
+  /**
+   * Week of Create Time
+   */
+  @Description("Week of Create Time")
+  Sort createTimeWeek() default Sort.ASC;
+
+  /**
+   * Quarter of Create Time
+   */
+  @Description("Quarter of Create Time")
+  Sort createTimeQuarter() default Sort.ASC;
+
+  /**
+   * Year of Update Time
+   */
+  @Description("Year of Update Time")
+  Sort updateTimeYear() default Sort.ASC;
+
+  /**
+   * Month of Update Time
+   */
+  @Description("Month of Update Time")
+  Sort updateTimeMonth() default Sort.ASC;
+
+  /**
+   * Day of Update Time
+   */
+  @Description("Day of Update Time")
+  Sort updateTimeDay() default Sort.ASC;
+
+  /**
+   * Week of Update Time
+   */
+  @Description("Week of Update Time")
+  Sort updateTimeWeek() default Sort.ASC;
+
+  /**
+   * Quarter of Update Time
+   */
+  @Description("Quarter of Update Time")
+  Sort updateTimeQuarter() default Sort.ASC;
+
+  /**
+   * OrderByes
+   */
+  @Description("OrderByes")
+  RoleUserRelationOrderBy1[] obs() default {};
 
   String $id() default "";
 
   String $userRef() default "";
 
+  String $user() default "";
+
   String $roleRef() default "";
+
+  String $role() default "";
 
   String $isDeprecated() default "";
 
@@ -171,19 +217,29 @@ public @interface RoleUserRelationOrderBy {
 
   String $idCount() default "";
 
-  String $idMax() default "";
-
-  String $idMin() default "";
-
   String $userRefCount() default "";
-
-  String $userRefMax() default "";
-
-  String $userRefMin() default "";
 
   String $roleRefCount() default "";
 
-  String $roleRefMax() default "";
+  String $createTimeYear() default "";
 
-  String $roleRefMin() default "";
+  String $createTimeMonth() default "";
+
+  String $createTimeDay() default "";
+
+  String $createTimeWeek() default "";
+
+  String $createTimeQuarter() default "";
+
+  String $updateTimeYear() default "";
+
+  String $updateTimeMonth() default "";
+
+  String $updateTimeDay() default "";
+
+  String $updateTimeWeek() default "";
+
+  String $updateTimeQuarter() default "";
+
+  String $obs() default "";
 }

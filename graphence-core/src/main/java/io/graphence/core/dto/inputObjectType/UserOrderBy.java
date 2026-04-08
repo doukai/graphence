@@ -3,6 +3,7 @@ package io.graphence.core.dto.inputObjectType;
 import com.dslplatform.json.CompiledJson;
 import io.graphoenix.core.dto.enumType.Sort;
 import jakarta.annotation.Generated;
+import java.util.Collection;
 import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.Input;
 
@@ -75,6 +76,24 @@ public class UserOrderBy {
   private Sort disable;
 
   /**
+   * 组
+   */
+  @Description("组")
+  private GroupOrderBy groups;
+
+  /**
+   * 角色
+   */
+  @Description("角色")
+  private RoleOrderBy roles;
+
+  /**
+   * 租户
+   */
+  @Description("租户")
+  private RealmOrderBy realm;
+
+  /**
    * Is Deprecated
    */
   @Description("Is Deprecated")
@@ -129,22 +148,58 @@ public class UserOrderBy {
   private Sort __typename;
 
   /**
+   * Relationship Object between 用户 and 手机号
+   */
+  @Description("Relationship Object between 用户 and 手机号")
+  private UserPhonesRelationOrderBy userPhonesRelation;
+
+  /**
+   * Relationship Object between 用户 and 组
+   */
+  @Description("Relationship Object between 用户 and 组")
+  private GroupUserRelationOrderBy groupUserRelation;
+
+  /**
+   * Relationship Object between 用户 and 角色
+   */
+  @Description("Relationship Object between 用户 and 角色")
+  private RoleUserRelationOrderBy roleUserRelation;
+
+  /**
+   * Aggregate Field for 组
+   */
+  @Description("Aggregate Field for 组")
+  private GroupOrderBy groupsAggregate;
+
+  /**
+   * Aggregate Field for 角色
+   */
+  @Description("Aggregate Field for 角色")
+  private RoleOrderBy rolesAggregate;
+
+  /**
+   * Aggregate Field for Relationship Object between 用户 and 手机号
+   */
+  @Description("Aggregate Field for Relationship Object between 用户 and 手机号")
+  private UserPhonesRelationOrderBy userPhonesRelationAggregate;
+
+  /**
+   * Aggregate Field for Relationship Object between 用户 and 组
+   */
+  @Description("Aggregate Field for Relationship Object between 用户 and 组")
+  private GroupUserRelationOrderBy groupUserRelationAggregate;
+
+  /**
+   * Aggregate Field for Relationship Object between 用户 and 角色
+   */
+  @Description("Aggregate Field for Relationship Object between 用户 and 角色")
+  private RoleUserRelationOrderBy roleUserRelationAggregate;
+
+  /**
    * Count of 用户
    */
   @Description("Count of 用户")
   private Sort idCount;
-
-  /**
-   * Max of ID
-   */
-  @Description("Max of ID")
-  private Sort idMax;
-
-  /**
-   * Min of ID
-   */
-  @Description("Min of ID")
-  private Sort idMin;
 
   /**
    * Count of 姓名
@@ -153,34 +208,10 @@ public class UserOrderBy {
   private Sort nameCount;
 
   /**
-   * Max of 姓名
-   */
-  @Description("Max of 姓名")
-  private Sort nameMax;
-
-  /**
-   * Min of 姓名
-   */
-  @Description("Min of 姓名")
-  private Sort nameMin;
-
-  /**
    * Count of 描述
    */
   @Description("Count of 描述")
   private Sort descriptionCount;
-
-  /**
-   * Max of 描述
-   */
-  @Description("Max of 描述")
-  private Sort descriptionMax;
-
-  /**
-   * Min of 描述
-   */
-  @Description("Min of 描述")
-  private Sort descriptionMin;
 
   /**
    * Count of 姓氏
@@ -189,34 +220,10 @@ public class UserOrderBy {
   private Sort lastNameCount;
 
   /**
-   * Max of 姓氏
-   */
-  @Description("Max of 姓氏")
-  private Sort lastNameMax;
-
-  /**
-   * Min of 姓氏
-   */
-  @Description("Min of 姓氏")
-  private Sort lastNameMin;
-
-  /**
    * Count of 账号
    */
   @Description("Count of 账号")
   private Sort loginCount;
-
-  /**
-   * Max of 账号
-   */
-  @Description("Max of 账号")
-  private Sort loginMax;
-
-  /**
-   * Min of 账号
-   */
-  @Description("Min of 账号")
-  private Sort loginMin;
 
   /**
    * Count of 盐
@@ -225,34 +232,10 @@ public class UserOrderBy {
   private Sort saltCount;
 
   /**
-   * Max of 盐
-   */
-  @Description("Max of 盐")
-  private Sort saltMax;
-
-  /**
-   * Min of 盐
-   */
-  @Description("Min of 盐")
-  private Sort saltMin;
-
-  /**
    * Count of 哈希
    */
   @Description("Count of 哈希")
   private Sort hashCount;
-
-  /**
-   * Max of 哈希
-   */
-  @Description("Max of 哈希")
-  private Sort hashMax;
-
-  /**
-   * Min of 哈希
-   */
-  @Description("Min of 哈希")
-  private Sort hashMin;
 
   /**
    * Count of 邮箱
@@ -261,16 +244,76 @@ public class UserOrderBy {
   private Sort emailCount;
 
   /**
-   * Max of 邮箱
+   * Count of 禁用
    */
-  @Description("Max of 邮箱")
-  private Sort emailMax;
+  @Description("Count of 禁用")
+  private Sort disableCount;
 
   /**
-   * Min of 邮箱
+   * Year of Create Time
    */
-  @Description("Min of 邮箱")
-  private Sort emailMin;
+  @Description("Year of Create Time")
+  private Sort createTimeYear;
+
+  /**
+   * Month of Create Time
+   */
+  @Description("Month of Create Time")
+  private Sort createTimeMonth;
+
+  /**
+   * Day of Create Time
+   */
+  @Description("Day of Create Time")
+  private Sort createTimeDay;
+
+  /**
+   * Week of Create Time
+   */
+  @Description("Week of Create Time")
+  private Sort createTimeWeek;
+
+  /**
+   * Quarter of Create Time
+   */
+  @Description("Quarter of Create Time")
+  private Sort createTimeQuarter;
+
+  /**
+   * Year of Update Time
+   */
+  @Description("Year of Update Time")
+  private Sort updateTimeYear;
+
+  /**
+   * Month of Update Time
+   */
+  @Description("Month of Update Time")
+  private Sort updateTimeMonth;
+
+  /**
+   * Day of Update Time
+   */
+  @Description("Day of Update Time")
+  private Sort updateTimeDay;
+
+  /**
+   * Week of Update Time
+   */
+  @Description("Week of Update Time")
+  private Sort updateTimeWeek;
+
+  /**
+   * Quarter of Update Time
+   */
+  @Description("Quarter of Update Time")
+  private Sort updateTimeQuarter;
+
+  /**
+   * OrderByes
+   */
+  @Description("OrderByes")
+  private Collection<UserOrderBy> obs;
 
   public Sort getId() {
     return this.id;
@@ -352,6 +395,30 @@ public class UserOrderBy {
     this.disable = disable;
   }
 
+  public GroupOrderBy getGroups() {
+    return this.groups;
+  }
+
+  public void setGroups(GroupOrderBy groups) {
+    this.groups = groups;
+  }
+
+  public RoleOrderBy getRoles() {
+    return this.roles;
+  }
+
+  public void setRoles(RoleOrderBy roles) {
+    this.roles = roles;
+  }
+
+  public RealmOrderBy getRealm() {
+    return this.realm;
+  }
+
+  public void setRealm(RealmOrderBy realm) {
+    this.realm = realm;
+  }
+
   public Sort getIsDeprecated() {
     return this.isDeprecated;
   }
@@ -424,28 +491,77 @@ public class UserOrderBy {
     this.__typename = __typename;
   }
 
+  public UserPhonesRelationOrderBy getUserPhonesRelation() {
+    return this.userPhonesRelation;
+  }
+
+  public void setUserPhonesRelation(UserPhonesRelationOrderBy userPhonesRelation) {
+    this.userPhonesRelation = userPhonesRelation;
+  }
+
+  public GroupUserRelationOrderBy getGroupUserRelation() {
+    return this.groupUserRelation;
+  }
+
+  public void setGroupUserRelation(GroupUserRelationOrderBy groupUserRelation) {
+    this.groupUserRelation = groupUserRelation;
+  }
+
+  public RoleUserRelationOrderBy getRoleUserRelation() {
+    return this.roleUserRelation;
+  }
+
+  public void setRoleUserRelation(RoleUserRelationOrderBy roleUserRelation) {
+    this.roleUserRelation = roleUserRelation;
+  }
+
+  public GroupOrderBy getGroupsAggregate() {
+    return this.groupsAggregate;
+  }
+
+  public void setGroupsAggregate(GroupOrderBy groupsAggregate) {
+    this.groupsAggregate = groupsAggregate;
+  }
+
+  public RoleOrderBy getRolesAggregate() {
+    return this.rolesAggregate;
+  }
+
+  public void setRolesAggregate(RoleOrderBy rolesAggregate) {
+    this.rolesAggregate = rolesAggregate;
+  }
+
+  public UserPhonesRelationOrderBy getUserPhonesRelationAggregate() {
+    return this.userPhonesRelationAggregate;
+  }
+
+  public void setUserPhonesRelationAggregate(
+      UserPhonesRelationOrderBy userPhonesRelationAggregate) {
+    this.userPhonesRelationAggregate = userPhonesRelationAggregate;
+  }
+
+  public GroupUserRelationOrderBy getGroupUserRelationAggregate() {
+    return this.groupUserRelationAggregate;
+  }
+
+  public void setGroupUserRelationAggregate(GroupUserRelationOrderBy groupUserRelationAggregate) {
+    this.groupUserRelationAggregate = groupUserRelationAggregate;
+  }
+
+  public RoleUserRelationOrderBy getRoleUserRelationAggregate() {
+    return this.roleUserRelationAggregate;
+  }
+
+  public void setRoleUserRelationAggregate(RoleUserRelationOrderBy roleUserRelationAggregate) {
+    this.roleUserRelationAggregate = roleUserRelationAggregate;
+  }
+
   public Sort getIdCount() {
     return this.idCount;
   }
 
   public void setIdCount(Sort idCount) {
     this.idCount = idCount;
-  }
-
-  public Sort getIdMax() {
-    return this.idMax;
-  }
-
-  public void setIdMax(Sort idMax) {
-    this.idMax = idMax;
-  }
-
-  public Sort getIdMin() {
-    return this.idMin;
-  }
-
-  public void setIdMin(Sort idMin) {
-    this.idMin = idMin;
   }
 
   public Sort getNameCount() {
@@ -456,44 +572,12 @@ public class UserOrderBy {
     this.nameCount = nameCount;
   }
 
-  public Sort getNameMax() {
-    return this.nameMax;
-  }
-
-  public void setNameMax(Sort nameMax) {
-    this.nameMax = nameMax;
-  }
-
-  public Sort getNameMin() {
-    return this.nameMin;
-  }
-
-  public void setNameMin(Sort nameMin) {
-    this.nameMin = nameMin;
-  }
-
   public Sort getDescriptionCount() {
     return this.descriptionCount;
   }
 
   public void setDescriptionCount(Sort descriptionCount) {
     this.descriptionCount = descriptionCount;
-  }
-
-  public Sort getDescriptionMax() {
-    return this.descriptionMax;
-  }
-
-  public void setDescriptionMax(Sort descriptionMax) {
-    this.descriptionMax = descriptionMax;
-  }
-
-  public Sort getDescriptionMin() {
-    return this.descriptionMin;
-  }
-
-  public void setDescriptionMin(Sort descriptionMin) {
-    this.descriptionMin = descriptionMin;
   }
 
   public Sort getLastNameCount() {
@@ -504,44 +588,12 @@ public class UserOrderBy {
     this.lastNameCount = lastNameCount;
   }
 
-  public Sort getLastNameMax() {
-    return this.lastNameMax;
-  }
-
-  public void setLastNameMax(Sort lastNameMax) {
-    this.lastNameMax = lastNameMax;
-  }
-
-  public Sort getLastNameMin() {
-    return this.lastNameMin;
-  }
-
-  public void setLastNameMin(Sort lastNameMin) {
-    this.lastNameMin = lastNameMin;
-  }
-
   public Sort getLoginCount() {
     return this.loginCount;
   }
 
   public void setLoginCount(Sort loginCount) {
     this.loginCount = loginCount;
-  }
-
-  public Sort getLoginMax() {
-    return this.loginMax;
-  }
-
-  public void setLoginMax(Sort loginMax) {
-    this.loginMax = loginMax;
-  }
-
-  public Sort getLoginMin() {
-    return this.loginMin;
-  }
-
-  public void setLoginMin(Sort loginMin) {
-    this.loginMin = loginMin;
   }
 
   public Sort getSaltCount() {
@@ -552,44 +604,12 @@ public class UserOrderBy {
     this.saltCount = saltCount;
   }
 
-  public Sort getSaltMax() {
-    return this.saltMax;
-  }
-
-  public void setSaltMax(Sort saltMax) {
-    this.saltMax = saltMax;
-  }
-
-  public Sort getSaltMin() {
-    return this.saltMin;
-  }
-
-  public void setSaltMin(Sort saltMin) {
-    this.saltMin = saltMin;
-  }
-
   public Sort getHashCount() {
     return this.hashCount;
   }
 
   public void setHashCount(Sort hashCount) {
     this.hashCount = hashCount;
-  }
-
-  public Sort getHashMax() {
-    return this.hashMax;
-  }
-
-  public void setHashMax(Sort hashMax) {
-    this.hashMax = hashMax;
-  }
-
-  public Sort getHashMin() {
-    return this.hashMin;
-  }
-
-  public void setHashMin(Sort hashMin) {
-    this.hashMin = hashMin;
   }
 
   public Sort getEmailCount() {
@@ -600,19 +620,99 @@ public class UserOrderBy {
     this.emailCount = emailCount;
   }
 
-  public Sort getEmailMax() {
-    return this.emailMax;
+  public Sort getDisableCount() {
+    return this.disableCount;
   }
 
-  public void setEmailMax(Sort emailMax) {
-    this.emailMax = emailMax;
+  public void setDisableCount(Sort disableCount) {
+    this.disableCount = disableCount;
   }
 
-  public Sort getEmailMin() {
-    return this.emailMin;
+  public Sort getCreateTimeYear() {
+    return this.createTimeYear;
   }
 
-  public void setEmailMin(Sort emailMin) {
-    this.emailMin = emailMin;
+  public void setCreateTimeYear(Sort createTimeYear) {
+    this.createTimeYear = createTimeYear;
+  }
+
+  public Sort getCreateTimeMonth() {
+    return this.createTimeMonth;
+  }
+
+  public void setCreateTimeMonth(Sort createTimeMonth) {
+    this.createTimeMonth = createTimeMonth;
+  }
+
+  public Sort getCreateTimeDay() {
+    return this.createTimeDay;
+  }
+
+  public void setCreateTimeDay(Sort createTimeDay) {
+    this.createTimeDay = createTimeDay;
+  }
+
+  public Sort getCreateTimeWeek() {
+    return this.createTimeWeek;
+  }
+
+  public void setCreateTimeWeek(Sort createTimeWeek) {
+    this.createTimeWeek = createTimeWeek;
+  }
+
+  public Sort getCreateTimeQuarter() {
+    return this.createTimeQuarter;
+  }
+
+  public void setCreateTimeQuarter(Sort createTimeQuarter) {
+    this.createTimeQuarter = createTimeQuarter;
+  }
+
+  public Sort getUpdateTimeYear() {
+    return this.updateTimeYear;
+  }
+
+  public void setUpdateTimeYear(Sort updateTimeYear) {
+    this.updateTimeYear = updateTimeYear;
+  }
+
+  public Sort getUpdateTimeMonth() {
+    return this.updateTimeMonth;
+  }
+
+  public void setUpdateTimeMonth(Sort updateTimeMonth) {
+    this.updateTimeMonth = updateTimeMonth;
+  }
+
+  public Sort getUpdateTimeDay() {
+    return this.updateTimeDay;
+  }
+
+  public void setUpdateTimeDay(Sort updateTimeDay) {
+    this.updateTimeDay = updateTimeDay;
+  }
+
+  public Sort getUpdateTimeWeek() {
+    return this.updateTimeWeek;
+  }
+
+  public void setUpdateTimeWeek(Sort updateTimeWeek) {
+    this.updateTimeWeek = updateTimeWeek;
+  }
+
+  public Sort getUpdateTimeQuarter() {
+    return this.updateTimeQuarter;
+  }
+
+  public void setUpdateTimeQuarter(Sort updateTimeQuarter) {
+    this.updateTimeQuarter = updateTimeQuarter;
+  }
+
+  public Collection<UserOrderBy> getObs() {
+    return this.obs;
+  }
+
+  public void setObs(Collection<UserOrderBy> obs) {
+    this.obs = obs;
   }
 }

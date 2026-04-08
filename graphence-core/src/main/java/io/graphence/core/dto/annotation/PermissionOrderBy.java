@@ -56,6 +56,18 @@ public @interface PermissionOrderBy {
   Sort permissionType() default Sort.ASC;
 
   /**
+   * 角色
+   */
+  @Description("角色")
+  RoleOrderBy1 roles() default @RoleOrderBy1;
+
+  /**
+   * 租户
+   */
+  @Description("租户")
+  RealmOrderBy1 realm() default @RealmOrderBy1;
+
+  /**
    * Is Deprecated
    */
   @Description("Is Deprecated")
@@ -110,22 +122,29 @@ public @interface PermissionOrderBy {
   Sort __typename() default Sort.ASC;
 
   /**
+   * Relationship Object between 角色 and 权限
+   */
+  @Description("Relationship Object between 角色 and 权限")
+  RolePermissionRelationOrderBy1 rolePermissionRelation() default @RolePermissionRelationOrderBy1;
+
+  /**
+   * Aggregate Field for 角色
+   */
+  @Description("Aggregate Field for 角色")
+  RoleOrderBy1 rolesAggregate() default @RoleOrderBy1;
+
+  /**
+   * Aggregate Field for Relationship Object between 角色 and 权限
+   */
+  @Description("Aggregate Field for Relationship Object between 角色 and 权限")
+  RolePermissionRelationOrderBy1 rolePermissionRelationAggregate(
+      ) default @RolePermissionRelationOrderBy1;
+
+  /**
    * Count of 权限
    */
   @Description("Count of 权限")
   Sort idCount() default Sort.ASC;
-
-  /**
-   * Max of ID
-   */
-  @Description("Max of ID")
-  Sort idMax() default Sort.ASC;
-
-  /**
-   * Min of ID
-   */
-  @Description("Min of ID")
-  Sort idMin() default Sort.ASC;
 
   /**
    * Count of 名称
@@ -134,34 +153,10 @@ public @interface PermissionOrderBy {
   Sort nameCount() default Sort.ASC;
 
   /**
-   * Max of 名称
-   */
-  @Description("Max of 名称")
-  Sort nameMax() default Sort.ASC;
-
-  /**
-   * Min of 名称
-   */
-  @Description("Min of 名称")
-  Sort nameMin() default Sort.ASC;
-
-  /**
    * Count of 描述
    */
   @Description("Count of 描述")
   Sort descriptionCount() default Sort.ASC;
-
-  /**
-   * Max of 描述
-   */
-  @Description("Max of 描述")
-  Sort descriptionMax() default Sort.ASC;
-
-  /**
-   * Min of 描述
-   */
-  @Description("Min of 描述")
-  Sort descriptionMin() default Sort.ASC;
 
   /**
    * Count of 字段
@@ -170,34 +165,10 @@ public @interface PermissionOrderBy {
   Sort fieldCount() default Sort.ASC;
 
   /**
-   * Max of 字段
-   */
-  @Description("Max of 字段")
-  Sort fieldMax() default Sort.ASC;
-
-  /**
-   * Min of 字段
-   */
-  @Description("Min of 字段")
-  Sort fieldMin() default Sort.ASC;
-
-  /**
    * Count of 实体
    */
   @Description("Count of 实体")
   Sort typeCount() default Sort.ASC;
-
-  /**
-   * Max of 实体
-   */
-  @Description("Max of 实体")
-  Sort typeMax() default Sort.ASC;
-
-  /**
-   * Min of 实体
-   */
-  @Description("Min of 实体")
-  Sort typeMin() default Sort.ASC;
 
   /**
    * Count of 权限类型
@@ -206,16 +177,70 @@ public @interface PermissionOrderBy {
   Sort permissionTypeCount() default Sort.ASC;
 
   /**
-   * Max of 权限类型
+   * Year of Create Time
    */
-  @Description("Max of 权限类型")
-  Sort permissionTypeMax() default Sort.ASC;
+  @Description("Year of Create Time")
+  Sort createTimeYear() default Sort.ASC;
 
   /**
-   * Min of 权限类型
+   * Month of Create Time
    */
-  @Description("Min of 权限类型")
-  Sort permissionTypeMin() default Sort.ASC;
+  @Description("Month of Create Time")
+  Sort createTimeMonth() default Sort.ASC;
+
+  /**
+   * Day of Create Time
+   */
+  @Description("Day of Create Time")
+  Sort createTimeDay() default Sort.ASC;
+
+  /**
+   * Week of Create Time
+   */
+  @Description("Week of Create Time")
+  Sort createTimeWeek() default Sort.ASC;
+
+  /**
+   * Quarter of Create Time
+   */
+  @Description("Quarter of Create Time")
+  Sort createTimeQuarter() default Sort.ASC;
+
+  /**
+   * Year of Update Time
+   */
+  @Description("Year of Update Time")
+  Sort updateTimeYear() default Sort.ASC;
+
+  /**
+   * Month of Update Time
+   */
+  @Description("Month of Update Time")
+  Sort updateTimeMonth() default Sort.ASC;
+
+  /**
+   * Day of Update Time
+   */
+  @Description("Day of Update Time")
+  Sort updateTimeDay() default Sort.ASC;
+
+  /**
+   * Week of Update Time
+   */
+  @Description("Week of Update Time")
+  Sort updateTimeWeek() default Sort.ASC;
+
+  /**
+   * Quarter of Update Time
+   */
+  @Description("Quarter of Update Time")
+  Sort updateTimeQuarter() default Sort.ASC;
+
+  /**
+   * OrderByes
+   */
+  @Description("OrderByes")
+  PermissionOrderBy1[] obs() default {};
 
   String $id() default "";
 
@@ -228,6 +253,10 @@ public @interface PermissionOrderBy {
   String $type() default "";
 
   String $permissionType() default "";
+
+  String $roles() default "";
+
+  String $realm() default "";
 
   String $isDeprecated() default "";
 
@@ -247,39 +276,43 @@ public @interface PermissionOrderBy {
 
   String $__typename() default "";
 
+  String $rolePermissionRelation() default "";
+
+  String $rolesAggregate() default "";
+
+  String $rolePermissionRelationAggregate() default "";
+
   String $idCount() default "";
-
-  String $idMax() default "";
-
-  String $idMin() default "";
 
   String $nameCount() default "";
 
-  String $nameMax() default "";
-
-  String $nameMin() default "";
-
   String $descriptionCount() default "";
-
-  String $descriptionMax() default "";
-
-  String $descriptionMin() default "";
 
   String $fieldCount() default "";
 
-  String $fieldMax() default "";
-
-  String $fieldMin() default "";
-
   String $typeCount() default "";
-
-  String $typeMax() default "";
-
-  String $typeMin() default "";
 
   String $permissionTypeCount() default "";
 
-  String $permissionTypeMax() default "";
+  String $createTimeYear() default "";
 
-  String $permissionTypeMin() default "";
+  String $createTimeMonth() default "";
+
+  String $createTimeDay() default "";
+
+  String $createTimeWeek() default "";
+
+  String $createTimeQuarter() default "";
+
+  String $updateTimeYear() default "";
+
+  String $updateTimeMonth() default "";
+
+  String $updateTimeDay() default "";
+
+  String $updateTimeWeek() default "";
+
+  String $updateTimeQuarter() default "";
+
+  String $obs() default "";
 }

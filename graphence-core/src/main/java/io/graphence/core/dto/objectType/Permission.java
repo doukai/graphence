@@ -169,34 +169,10 @@ public class Permission implements Meta {
   private Integer idCount;
 
   /**
-   * Max of ID
-   */
-  @Description("Max of ID")
-  private Integer idMax;
-
-  /**
-   * Min of ID
-   */
-  @Description("Min of ID")
-  private Integer idMin;
-
-  /**
    * Count of 名称
    */
   @Description("Count of 名称")
   private Integer nameCount;
-
-  /**
-   * Max of 名称
-   */
-  @Description("Max of 名称")
-  private String nameMax;
-
-  /**
-   * Min of 名称
-   */
-  @Description("Min of 名称")
-  private String nameMin;
 
   /**
    * Count of 描述
@@ -205,34 +181,10 @@ public class Permission implements Meta {
   private Integer descriptionCount;
 
   /**
-   * Max of 描述
-   */
-  @Description("Max of 描述")
-  private String descriptionMax;
-
-  /**
-   * Min of 描述
-   */
-  @Description("Min of 描述")
-  private String descriptionMin;
-
-  /**
    * Count of 字段
    */
   @Description("Count of 字段")
   private Integer fieldCount;
-
-  /**
-   * Max of 字段
-   */
-  @Description("Max of 字段")
-  private String fieldMax;
-
-  /**
-   * Min of 字段
-   */
-  @Description("Min of 字段")
-  private String fieldMin;
 
   /**
    * Count of 实体
@@ -241,34 +193,70 @@ public class Permission implements Meta {
   private Integer typeCount;
 
   /**
-   * Max of 实体
-   */
-  @Description("Max of 实体")
-  private String typeMax;
-
-  /**
-   * Min of 实体
-   */
-  @Description("Min of 实体")
-  private String typeMin;
-
-  /**
    * Count of 权限类型
    */
   @Description("Count of 权限类型")
   private Integer permissionTypeCount;
 
   /**
-   * Max of 权限类型
+   * Year of Create Time
    */
-  @Description("Max of 权限类型")
-  private PermissionType permissionTypeMax;
+  @Description("Year of Create Time")
+  private Integer createTimeYear;
 
   /**
-   * Min of 权限类型
+   * Month of Create Time
    */
-  @Description("Min of 权限类型")
-  private PermissionType permissionTypeMin;
+  @Description("Month of Create Time")
+  private Integer createTimeMonth;
+
+  /**
+   * Day of Create Time
+   */
+  @Description("Day of Create Time")
+  private Integer createTimeDay;
+
+  /**
+   * Week of Create Time
+   */
+  @Description("Week of Create Time")
+  private Integer createTimeWeek;
+
+  /**
+   * Quarter of Create Time
+   */
+  @Description("Quarter of Create Time")
+  private Integer createTimeQuarter;
+
+  /**
+   * Year of Update Time
+   */
+  @Description("Year of Update Time")
+  private Integer updateTimeYear;
+
+  /**
+   * Month of Update Time
+   */
+  @Description("Month of Update Time")
+  private Integer updateTimeMonth;
+
+  /**
+   * Day of Update Time
+   */
+  @Description("Day of Update Time")
+  private Integer updateTimeDay;
+
+  /**
+   * Week of Update Time
+   */
+  @Description("Week of Update Time")
+  private Integer updateTimeWeek;
+
+  /**
+   * Quarter of Update Time
+   */
+  @Description("Quarter of Update Time")
+  private Integer updateTimeQuarter;
 
   private Boolean syncPermissionPolicy;
 
@@ -476,44 +464,12 @@ public class Permission implements Meta {
     this.idCount = idCount;
   }
 
-  public Integer getIdMax() {
-    return this.idMax;
-  }
-
-  public void setIdMax(Integer idMax) {
-    this.idMax = idMax;
-  }
-
-  public Integer getIdMin() {
-    return this.idMin;
-  }
-
-  public void setIdMin(Integer idMin) {
-    this.idMin = idMin;
-  }
-
   public Integer getNameCount() {
     return this.nameCount;
   }
 
   public void setNameCount(Integer nameCount) {
     this.nameCount = nameCount;
-  }
-
-  public String getNameMax() {
-    return this.nameMax;
-  }
-
-  public void setNameMax(String nameMax) {
-    this.nameMax = nameMax;
-  }
-
-  public String getNameMin() {
-    return this.nameMin;
-  }
-
-  public void setNameMin(String nameMin) {
-    this.nameMin = nameMin;
   }
 
   public Integer getDescriptionCount() {
@@ -524,44 +480,12 @@ public class Permission implements Meta {
     this.descriptionCount = descriptionCount;
   }
 
-  public String getDescriptionMax() {
-    return this.descriptionMax;
-  }
-
-  public void setDescriptionMax(String descriptionMax) {
-    this.descriptionMax = descriptionMax;
-  }
-
-  public String getDescriptionMin() {
-    return this.descriptionMin;
-  }
-
-  public void setDescriptionMin(String descriptionMin) {
-    this.descriptionMin = descriptionMin;
-  }
-
   public Integer getFieldCount() {
     return this.fieldCount;
   }
 
   public void setFieldCount(Integer fieldCount) {
     this.fieldCount = fieldCount;
-  }
-
-  public String getFieldMax() {
-    return this.fieldMax;
-  }
-
-  public void setFieldMax(String fieldMax) {
-    this.fieldMax = fieldMax;
-  }
-
-  public String getFieldMin() {
-    return this.fieldMin;
-  }
-
-  public void setFieldMin(String fieldMin) {
-    this.fieldMin = fieldMin;
   }
 
   public Integer getTypeCount() {
@@ -572,22 +496,6 @@ public class Permission implements Meta {
     this.typeCount = typeCount;
   }
 
-  public String getTypeMax() {
-    return this.typeMax;
-  }
-
-  public void setTypeMax(String typeMax) {
-    this.typeMax = typeMax;
-  }
-
-  public String getTypeMin() {
-    return this.typeMin;
-  }
-
-  public void setTypeMin(String typeMin) {
-    this.typeMin = typeMin;
-  }
-
   public Integer getPermissionTypeCount() {
     return this.permissionTypeCount;
   }
@@ -596,20 +504,84 @@ public class Permission implements Meta {
     this.permissionTypeCount = permissionTypeCount;
   }
 
-  public PermissionType getPermissionTypeMax() {
-    return this.permissionTypeMax;
+  public Integer getCreateTimeYear() {
+    return this.createTimeYear;
   }
 
-  public void setPermissionTypeMax(PermissionType permissionTypeMax) {
-    this.permissionTypeMax = permissionTypeMax;
+  public void setCreateTimeYear(Integer createTimeYear) {
+    this.createTimeYear = createTimeYear;
   }
 
-  public PermissionType getPermissionTypeMin() {
-    return this.permissionTypeMin;
+  public Integer getCreateTimeMonth() {
+    return this.createTimeMonth;
   }
 
-  public void setPermissionTypeMin(PermissionType permissionTypeMin) {
-    this.permissionTypeMin = permissionTypeMin;
+  public void setCreateTimeMonth(Integer createTimeMonth) {
+    this.createTimeMonth = createTimeMonth;
+  }
+
+  public Integer getCreateTimeDay() {
+    return this.createTimeDay;
+  }
+
+  public void setCreateTimeDay(Integer createTimeDay) {
+    this.createTimeDay = createTimeDay;
+  }
+
+  public Integer getCreateTimeWeek() {
+    return this.createTimeWeek;
+  }
+
+  public void setCreateTimeWeek(Integer createTimeWeek) {
+    this.createTimeWeek = createTimeWeek;
+  }
+
+  public Integer getCreateTimeQuarter() {
+    return this.createTimeQuarter;
+  }
+
+  public void setCreateTimeQuarter(Integer createTimeQuarter) {
+    this.createTimeQuarter = createTimeQuarter;
+  }
+
+  public Integer getUpdateTimeYear() {
+    return this.updateTimeYear;
+  }
+
+  public void setUpdateTimeYear(Integer updateTimeYear) {
+    this.updateTimeYear = updateTimeYear;
+  }
+
+  public Integer getUpdateTimeMonth() {
+    return this.updateTimeMonth;
+  }
+
+  public void setUpdateTimeMonth(Integer updateTimeMonth) {
+    this.updateTimeMonth = updateTimeMonth;
+  }
+
+  public Integer getUpdateTimeDay() {
+    return this.updateTimeDay;
+  }
+
+  public void setUpdateTimeDay(Integer updateTimeDay) {
+    this.updateTimeDay = updateTimeDay;
+  }
+
+  public Integer getUpdateTimeWeek() {
+    return this.updateTimeWeek;
+  }
+
+  public void setUpdateTimeWeek(Integer updateTimeWeek) {
+    this.updateTimeWeek = updateTimeWeek;
+  }
+
+  public Integer getUpdateTimeQuarter() {
+    return this.updateTimeQuarter;
+  }
+
+  public void setUpdateTimeQuarter(Integer updateTimeQuarter) {
+    this.updateTimeQuarter = updateTimeQuarter;
   }
 
   public Boolean getSyncPermissionPolicy() {

@@ -3,6 +3,7 @@ package io.graphence.core.dto.inputObjectType;
 import com.dslplatform.json.CompiledJson;
 import io.graphoenix.core.dto.enumType.Sort;
 import jakarta.annotation.Generated;
+import java.util.Collection;
 import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.Input;
 
@@ -49,6 +50,36 @@ public class GroupOrderBy {
    */
   @Description("上级ID")
   private Sort parentId;
+
+  /**
+   * 上级
+   */
+  @Description("上级")
+  private GroupOrderBy parent;
+
+  /**
+   * 下级
+   */
+  @Description("下级")
+  private GroupOrderBy subGroups;
+
+  /**
+   * 用户
+   */
+  @Description("用户")
+  private UserOrderBy users;
+
+  /**
+   * 角色
+   */
+  @Description("角色")
+  private RoleOrderBy roles;
+
+  /**
+   * 租户
+   */
+  @Description("租户")
+  private RealmOrderBy realm;
 
   /**
    * Is Deprecated
@@ -105,22 +136,52 @@ public class GroupOrderBy {
   private Sort __typename;
 
   /**
+   * Relationship Object between 用户 and 组
+   */
+  @Description("Relationship Object between 用户 and 组")
+  private GroupUserRelationOrderBy groupUserRelation;
+
+  /**
+   * Relationship Object between 角色 and 组
+   */
+  @Description("Relationship Object between 角色 and 组")
+  private GroupRoleRelationOrderBy groupRoleRelation;
+
+  /**
+   * Aggregate Field for 下级
+   */
+  @Description("Aggregate Field for 下级")
+  private GroupOrderBy subGroupsAggregate;
+
+  /**
+   * Aggregate Field for 用户
+   */
+  @Description("Aggregate Field for 用户")
+  private UserOrderBy usersAggregate;
+
+  /**
+   * Aggregate Field for 角色
+   */
+  @Description("Aggregate Field for 角色")
+  private RoleOrderBy rolesAggregate;
+
+  /**
+   * Aggregate Field for Relationship Object between 用户 and 组
+   */
+  @Description("Aggregate Field for Relationship Object between 用户 and 组")
+  private GroupUserRelationOrderBy groupUserRelationAggregate;
+
+  /**
+   * Aggregate Field for Relationship Object between 角色 and 组
+   */
+  @Description("Aggregate Field for Relationship Object between 角色 and 组")
+  private GroupRoleRelationOrderBy groupRoleRelationAggregate;
+
+  /**
    * Count of 组
    */
   @Description("Count of 组")
   private Sort idCount;
-
-  /**
-   * Max of ID
-   */
-  @Description("Max of ID")
-  private Sort idMax;
-
-  /**
-   * Min of ID
-   */
-  @Description("Min of ID")
-  private Sort idMin;
 
   /**
    * Count of 名称
@@ -129,34 +190,10 @@ public class GroupOrderBy {
   private Sort nameCount;
 
   /**
-   * Max of 名称
-   */
-  @Description("Max of 名称")
-  private Sort nameMax;
-
-  /**
-   * Min of 名称
-   */
-  @Description("Min of 名称")
-  private Sort nameMin;
-
-  /**
    * Count of 描述
    */
   @Description("Count of 描述")
   private Sort descriptionCount;
-
-  /**
-   * Max of 描述
-   */
-  @Description("Max of 描述")
-  private Sort descriptionMax;
-
-  /**
-   * Min of 描述
-   */
-  @Description("Min of 描述")
-  private Sort descriptionMin;
 
   /**
    * Count of 路径
@@ -165,16 +202,10 @@ public class GroupOrderBy {
   private Sort pathCount;
 
   /**
-   * Max of 路径
+   * Count of 层级
    */
-  @Description("Max of 路径")
-  private Sort pathMax;
-
-  /**
-   * Min of 路径
-   */
-  @Description("Min of 路径")
-  private Sort pathMin;
+  @Description("Count of 层级")
+  private Sort deepCount;
 
   /**
    * Count of 上级ID
@@ -183,22 +214,16 @@ public class GroupOrderBy {
   private Sort parentIdCount;
 
   /**
-   * Max of 上级ID
+   * Max of 层级
    */
-  @Description("Max of 上级ID")
-  private Sort parentIdMax;
+  @Description("Max of 层级")
+  private Sort deepMax;
 
   /**
-   * Min of 上级ID
+   * Min of 层级
    */
-  @Description("Min of 上级ID")
-  private Sort parentIdMin;
-
-  /**
-   * Count of 层级
-   */
-  @Description("Count of 层级")
-  private Sort deepCount;
+  @Description("Min of 层级")
+  private Sort deepMin;
 
   /**
    * Sum of 层级
@@ -213,16 +238,70 @@ public class GroupOrderBy {
   private Sort deepAvg;
 
   /**
-   * Max of 层级
+   * Year of Create Time
    */
-  @Description("Max of 层级")
-  private Sort deepMax;
+  @Description("Year of Create Time")
+  private Sort createTimeYear;
 
   /**
-   * Min of 层级
+   * Month of Create Time
    */
-  @Description("Min of 层级")
-  private Sort deepMin;
+  @Description("Month of Create Time")
+  private Sort createTimeMonth;
+
+  /**
+   * Day of Create Time
+   */
+  @Description("Day of Create Time")
+  private Sort createTimeDay;
+
+  /**
+   * Week of Create Time
+   */
+  @Description("Week of Create Time")
+  private Sort createTimeWeek;
+
+  /**
+   * Quarter of Create Time
+   */
+  @Description("Quarter of Create Time")
+  private Sort createTimeQuarter;
+
+  /**
+   * Year of Update Time
+   */
+  @Description("Year of Update Time")
+  private Sort updateTimeYear;
+
+  /**
+   * Month of Update Time
+   */
+  @Description("Month of Update Time")
+  private Sort updateTimeMonth;
+
+  /**
+   * Day of Update Time
+   */
+  @Description("Day of Update Time")
+  private Sort updateTimeDay;
+
+  /**
+   * Week of Update Time
+   */
+  @Description("Week of Update Time")
+  private Sort updateTimeWeek;
+
+  /**
+   * Quarter of Update Time
+   */
+  @Description("Quarter of Update Time")
+  private Sort updateTimeQuarter;
+
+  /**
+   * OrderByes
+   */
+  @Description("OrderByes")
+  private Collection<GroupOrderBy> obs;
 
   public Sort getId() {
     return this.id;
@@ -270,6 +349,46 @@ public class GroupOrderBy {
 
   public void setParentId(Sort parentId) {
     this.parentId = parentId;
+  }
+
+  public GroupOrderBy getParent() {
+    return this.parent;
+  }
+
+  public void setParent(GroupOrderBy parent) {
+    this.parent = parent;
+  }
+
+  public GroupOrderBy getSubGroups() {
+    return this.subGroups;
+  }
+
+  public void setSubGroups(GroupOrderBy subGroups) {
+    this.subGroups = subGroups;
+  }
+
+  public UserOrderBy getUsers() {
+    return this.users;
+  }
+
+  public void setUsers(UserOrderBy users) {
+    this.users = users;
+  }
+
+  public RoleOrderBy getRoles() {
+    return this.roles;
+  }
+
+  public void setRoles(RoleOrderBy roles) {
+    this.roles = roles;
+  }
+
+  public RealmOrderBy getRealm() {
+    return this.realm;
+  }
+
+  public void setRealm(RealmOrderBy realm) {
+    this.realm = realm;
   }
 
   public Sort getIsDeprecated() {
@@ -344,28 +463,68 @@ public class GroupOrderBy {
     this.__typename = __typename;
   }
 
+  public GroupUserRelationOrderBy getGroupUserRelation() {
+    return this.groupUserRelation;
+  }
+
+  public void setGroupUserRelation(GroupUserRelationOrderBy groupUserRelation) {
+    this.groupUserRelation = groupUserRelation;
+  }
+
+  public GroupRoleRelationOrderBy getGroupRoleRelation() {
+    return this.groupRoleRelation;
+  }
+
+  public void setGroupRoleRelation(GroupRoleRelationOrderBy groupRoleRelation) {
+    this.groupRoleRelation = groupRoleRelation;
+  }
+
+  public GroupOrderBy getSubGroupsAggregate() {
+    return this.subGroupsAggregate;
+  }
+
+  public void setSubGroupsAggregate(GroupOrderBy subGroupsAggregate) {
+    this.subGroupsAggregate = subGroupsAggregate;
+  }
+
+  public UserOrderBy getUsersAggregate() {
+    return this.usersAggregate;
+  }
+
+  public void setUsersAggregate(UserOrderBy usersAggregate) {
+    this.usersAggregate = usersAggregate;
+  }
+
+  public RoleOrderBy getRolesAggregate() {
+    return this.rolesAggregate;
+  }
+
+  public void setRolesAggregate(RoleOrderBy rolesAggregate) {
+    this.rolesAggregate = rolesAggregate;
+  }
+
+  public GroupUserRelationOrderBy getGroupUserRelationAggregate() {
+    return this.groupUserRelationAggregate;
+  }
+
+  public void setGroupUserRelationAggregate(GroupUserRelationOrderBy groupUserRelationAggregate) {
+    this.groupUserRelationAggregate = groupUserRelationAggregate;
+  }
+
+  public GroupRoleRelationOrderBy getGroupRoleRelationAggregate() {
+    return this.groupRoleRelationAggregate;
+  }
+
+  public void setGroupRoleRelationAggregate(GroupRoleRelationOrderBy groupRoleRelationAggregate) {
+    this.groupRoleRelationAggregate = groupRoleRelationAggregate;
+  }
+
   public Sort getIdCount() {
     return this.idCount;
   }
 
   public void setIdCount(Sort idCount) {
     this.idCount = idCount;
-  }
-
-  public Sort getIdMax() {
-    return this.idMax;
-  }
-
-  public void setIdMax(Sort idMax) {
-    this.idMax = idMax;
-  }
-
-  public Sort getIdMin() {
-    return this.idMin;
-  }
-
-  public void setIdMin(Sort idMin) {
-    this.idMin = idMin;
   }
 
   public Sort getNameCount() {
@@ -376,44 +535,12 @@ public class GroupOrderBy {
     this.nameCount = nameCount;
   }
 
-  public Sort getNameMax() {
-    return this.nameMax;
-  }
-
-  public void setNameMax(Sort nameMax) {
-    this.nameMax = nameMax;
-  }
-
-  public Sort getNameMin() {
-    return this.nameMin;
-  }
-
-  public void setNameMin(Sort nameMin) {
-    this.nameMin = nameMin;
-  }
-
   public Sort getDescriptionCount() {
     return this.descriptionCount;
   }
 
   public void setDescriptionCount(Sort descriptionCount) {
     this.descriptionCount = descriptionCount;
-  }
-
-  public Sort getDescriptionMax() {
-    return this.descriptionMax;
-  }
-
-  public void setDescriptionMax(Sort descriptionMax) {
-    this.descriptionMax = descriptionMax;
-  }
-
-  public Sort getDescriptionMin() {
-    return this.descriptionMin;
-  }
-
-  public void setDescriptionMin(Sort descriptionMin) {
-    this.descriptionMin = descriptionMin;
   }
 
   public Sort getPathCount() {
@@ -424,20 +551,12 @@ public class GroupOrderBy {
     this.pathCount = pathCount;
   }
 
-  public Sort getPathMax() {
-    return this.pathMax;
+  public Sort getDeepCount() {
+    return this.deepCount;
   }
 
-  public void setPathMax(Sort pathMax) {
-    this.pathMax = pathMax;
-  }
-
-  public Sort getPathMin() {
-    return this.pathMin;
-  }
-
-  public void setPathMin(Sort pathMin) {
-    this.pathMin = pathMin;
+  public void setDeepCount(Sort deepCount) {
+    this.deepCount = deepCount;
   }
 
   public Sort getParentIdCount() {
@@ -448,28 +567,20 @@ public class GroupOrderBy {
     this.parentIdCount = parentIdCount;
   }
 
-  public Sort getParentIdMax() {
-    return this.parentIdMax;
+  public Sort getDeepMax() {
+    return this.deepMax;
   }
 
-  public void setParentIdMax(Sort parentIdMax) {
-    this.parentIdMax = parentIdMax;
+  public void setDeepMax(Sort deepMax) {
+    this.deepMax = deepMax;
   }
 
-  public Sort getParentIdMin() {
-    return this.parentIdMin;
+  public Sort getDeepMin() {
+    return this.deepMin;
   }
 
-  public void setParentIdMin(Sort parentIdMin) {
-    this.parentIdMin = parentIdMin;
-  }
-
-  public Sort getDeepCount() {
-    return this.deepCount;
-  }
-
-  public void setDeepCount(Sort deepCount) {
-    this.deepCount = deepCount;
+  public void setDeepMin(Sort deepMin) {
+    this.deepMin = deepMin;
   }
 
   public Sort getDeepSum() {
@@ -488,19 +599,91 @@ public class GroupOrderBy {
     this.deepAvg = deepAvg;
   }
 
-  public Sort getDeepMax() {
-    return this.deepMax;
+  public Sort getCreateTimeYear() {
+    return this.createTimeYear;
   }
 
-  public void setDeepMax(Sort deepMax) {
-    this.deepMax = deepMax;
+  public void setCreateTimeYear(Sort createTimeYear) {
+    this.createTimeYear = createTimeYear;
   }
 
-  public Sort getDeepMin() {
-    return this.deepMin;
+  public Sort getCreateTimeMonth() {
+    return this.createTimeMonth;
   }
 
-  public void setDeepMin(Sort deepMin) {
-    this.deepMin = deepMin;
+  public void setCreateTimeMonth(Sort createTimeMonth) {
+    this.createTimeMonth = createTimeMonth;
+  }
+
+  public Sort getCreateTimeDay() {
+    return this.createTimeDay;
+  }
+
+  public void setCreateTimeDay(Sort createTimeDay) {
+    this.createTimeDay = createTimeDay;
+  }
+
+  public Sort getCreateTimeWeek() {
+    return this.createTimeWeek;
+  }
+
+  public void setCreateTimeWeek(Sort createTimeWeek) {
+    this.createTimeWeek = createTimeWeek;
+  }
+
+  public Sort getCreateTimeQuarter() {
+    return this.createTimeQuarter;
+  }
+
+  public void setCreateTimeQuarter(Sort createTimeQuarter) {
+    this.createTimeQuarter = createTimeQuarter;
+  }
+
+  public Sort getUpdateTimeYear() {
+    return this.updateTimeYear;
+  }
+
+  public void setUpdateTimeYear(Sort updateTimeYear) {
+    this.updateTimeYear = updateTimeYear;
+  }
+
+  public Sort getUpdateTimeMonth() {
+    return this.updateTimeMonth;
+  }
+
+  public void setUpdateTimeMonth(Sort updateTimeMonth) {
+    this.updateTimeMonth = updateTimeMonth;
+  }
+
+  public Sort getUpdateTimeDay() {
+    return this.updateTimeDay;
+  }
+
+  public void setUpdateTimeDay(Sort updateTimeDay) {
+    this.updateTimeDay = updateTimeDay;
+  }
+
+  public Sort getUpdateTimeWeek() {
+    return this.updateTimeWeek;
+  }
+
+  public void setUpdateTimeWeek(Sort updateTimeWeek) {
+    this.updateTimeWeek = updateTimeWeek;
+  }
+
+  public Sort getUpdateTimeQuarter() {
+    return this.updateTimeQuarter;
+  }
+
+  public void setUpdateTimeQuarter(Sort updateTimeQuarter) {
+    this.updateTimeQuarter = updateTimeQuarter;
+  }
+
+  public Collection<GroupOrderBy> getObs() {
+    return this.obs;
+  }
+
+  public void setObs(Collection<GroupOrderBy> obs) {
+    this.obs = obs;
   }
 }

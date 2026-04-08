@@ -49,30 +49,25 @@ message User {
     RoleUserRelation role_user_relation_aggregate = 34; /* Aggregate Field for Relationship Object between 用户 and 角色 */
     RoleUserRelationConnection role_user_relation_connection = 35; /* Connection Field for Relationship Object between 用户 and 角色 */
     int32 id_count = 36; /* Count of 用户 */
-    int32 id_max = 37; /* Max of ID */
-    int32 id_min = 38; /* Min of ID */
-    int32 name_count = 39; /* Count of 姓名 */
-    string name_max = 40; /* Max of 姓名 */
-    string name_min = 41; /* Min of 姓名 */
-    int32 description_count = 42; /* Count of 描述 */
-    string description_max = 43; /* Max of 描述 */
-    string description_min = 44; /* Min of 描述 */
-    int32 last_name_count = 45; /* Count of 姓氏 */
-    string last_name_max = 46; /* Max of 姓氏 */
-    string last_name_min = 47; /* Min of 姓氏 */
-    int32 login_count = 48; /* Count of 账号 */
-    string login_max = 49; /* Max of 账号 */
-    string login_min = 50; /* Min of 账号 */
-    int32 salt_count = 51; /* Count of 盐 */
-    string salt_max = 52; /* Max of 盐 */
-    string salt_min = 53; /* Min of 盐 */
-    int32 hash_count = 54; /* Count of 哈希 */
-    string hash_max = 55; /* Max of 哈希 */
-    string hash_min = 56; /* Min of 哈希 */
-    int32 email_count = 57; /* Count of 邮箱 */
-    string email_max = 58; /* Max of 邮箱 */
-    string email_min = 59; /* Min of 邮箱 */
-    bool sync_user_policy = 60;
+    int32 name_count = 37; /* Count of 姓名 */
+    int32 description_count = 38; /* Count of 描述 */
+    int32 last_name_count = 39; /* Count of 姓氏 */
+    int32 login_count = 40; /* Count of 账号 */
+    int32 salt_count = 41; /* Count of 盐 */
+    int32 hash_count = 42; /* Count of 哈希 */
+    int32 email_count = 43; /* Count of 邮箱 */
+    int32 disable_count = 44; /* Count of 禁用 */
+    int32 create_time_year = 45; /* Year of Create Time */
+    int32 create_time_month = 46; /* Month of Create Time */
+    int32 create_time_day = 47; /* Day of Create Time */
+    int32 create_time_week = 48; /* Week of Create Time */
+    int32 create_time_quarter = 49; /* Quarter of Create Time */
+    int32 update_time_year = 50; /* Year of Update Time */
+    int32 update_time_month = 51; /* Month of Update Time */
+    int32 update_time_day = 52; /* Day of Update Time */
+    int32 update_time_week = 53; /* Week of Update Time */
+    int32 update_time_quarter = 54; /* Quarter of Update Time */
+    bool sync_user_policy = 55;
 }
 /**
 * 角色
@@ -116,15 +111,19 @@ message Role {
     RolePermissionRelation role_permission_relation_aggregate = 36; /* Aggregate Field for Relationship Object between 角色 and 权限 */
     RolePermissionRelationConnection role_permission_relation_connection = 37; /* Connection Field for Relationship Object between 角色 and 权限 */
     int32 id_count = 38; /* Count of 角色 */
-    int32 id_max = 39; /* Max of ID */
-    int32 id_min = 40; /* Min of ID */
-    int32 name_count = 41; /* Count of 名称 */
-    string name_max = 42; /* Max of 名称 */
-    string name_min = 43; /* Min of 名称 */
-    int32 description_count = 44; /* Count of 描述 */
-    string description_max = 45; /* Max of 描述 */
-    string description_min = 46; /* Min of 描述 */
-    bool sync_role_policy = 47;
+    int32 name_count = 39; /* Count of 名称 */
+    int32 description_count = 40; /* Count of 描述 */
+    int32 create_time_year = 41; /* Year of Create Time */
+    int32 create_time_month = 42; /* Month of Create Time */
+    int32 create_time_day = 43; /* Day of Create Time */
+    int32 create_time_week = 44; /* Week of Create Time */
+    int32 create_time_quarter = 45; /* Quarter of Create Time */
+    int32 update_time_year = 46; /* Year of Update Time */
+    int32 update_time_month = 47; /* Month of Update Time */
+    int32 update_time_day = 48; /* Day of Update Time */
+    int32 update_time_week = 49; /* Week of Update Time */
+    int32 update_time_quarter = 50; /* Quarter of Update Time */
+    bool sync_role_policy = 51;
 }
 /**
 * 组
@@ -163,25 +162,25 @@ message Group {
     GroupRoleRelation group_role_relation_aggregate = 31; /* Aggregate Field for Relationship Object between 角色 and 组 */
     GroupRoleRelationConnection group_role_relation_connection = 32; /* Connection Field for Relationship Object between 角色 and 组 */
     int32 id_count = 33; /* Count of 组 */
-    int32 id_max = 34; /* Max of ID */
-    int32 id_min = 35; /* Min of ID */
-    int32 name_count = 36; /* Count of 名称 */
-    string name_max = 37; /* Max of 名称 */
-    string name_min = 38; /* Min of 名称 */
-    int32 description_count = 39; /* Count of 描述 */
-    string description_max = 40; /* Max of 描述 */
-    string description_min = 41; /* Min of 描述 */
-    int32 path_count = 42; /* Count of 路径 */
-    string path_max = 43; /* Max of 路径 */
-    string path_min = 44; /* Min of 路径 */
-    int32 parent_id_count = 45; /* Count of 上级ID */
-    string parent_id_max = 46; /* Max of 上级ID */
-    string parent_id_min = 47; /* Min of 上级ID */
-    int32 deep_count = 48; /* Count of 层级 */
-    int32 deep_sum = 49; /* Sum of 层级 */
-    int32 deep_avg = 50; /* Avg of 层级 */
-    int32 deep_max = 51; /* Max of 层级 */
-    int32 deep_min = 52; /* Min of 层级 */
+    int32 name_count = 34; /* Count of 名称 */
+    int32 description_count = 35; /* Count of 描述 */
+    int32 path_count = 36; /* Count of 路径 */
+    int32 deep_count = 37; /* Count of 层级 */
+    int32 parent_id_count = 38; /* Count of 上级ID */
+    int32 deep_max = 39; /* Max of 层级 */
+    int32 deep_min = 40; /* Min of 层级 */
+    int32 deep_sum = 41; /* Sum of 层级 */
+    int32 deep_avg = 42; /* Avg of 层级 */
+    int32 create_time_year = 43; /* Year of Create Time */
+    int32 create_time_month = 44; /* Month of Create Time */
+    int32 create_time_day = 45; /* Day of Create Time */
+    int32 create_time_week = 46; /* Week of Create Time */
+    int32 create_time_quarter = 47; /* Quarter of Create Time */
+    int32 update_time_year = 48; /* Year of Update Time */
+    int32 update_time_month = 49; /* Month of Update Time */
+    int32 update_time_day = 50; /* Day of Update Time */
+    int32 update_time_week = 51; /* Week of Update Time */
+    int32 update_time_quarter = 52; /* Quarter of Update Time */
     bool sync_group_policy = 53;
 }
 /**
@@ -201,14 +200,18 @@ message Realm {
     string create_group_id = 11; /* Create Group ID */
     string intro_typename = 12; /* Type Name */
     int32 id_count = 13; /* Count of 租户 */
-    int32 id_max = 14; /* Max of ID */
-    int32 id_min = 15; /* Min of ID */
-    int32 name_count = 16; /* Count of 名称 */
-    string name_max = 17; /* Max of 名称 */
-    string name_min = 18; /* Min of 名称 */
-    int32 description_count = 19; /* Count of 描述 */
-    string description_max = 20; /* Max of 描述 */
-    string description_min = 21; /* Min of 描述 */
+    int32 name_count = 14; /* Count of 名称 */
+    int32 description_count = 15; /* Count of 描述 */
+    int32 create_time_year = 16; /* Year of Create Time */
+    int32 create_time_month = 17; /* Month of Create Time */
+    int32 create_time_day = 18; /* Day of Create Time */
+    int32 create_time_week = 19; /* Week of Create Time */
+    int32 create_time_quarter = 20; /* Quarter of Create Time */
+    int32 update_time_year = 21; /* Year of Update Time */
+    int32 update_time_month = 22; /* Month of Update Time */
+    int32 update_time_day = 23; /* Day of Update Time */
+    int32 update_time_week = 24; /* Week of Update Time */
+    int32 update_time_quarter = 25; /* Quarter of Update Time */
 }
 /**
 * 权限
@@ -237,24 +240,22 @@ message Permission {
     RolePermissionRelation role_permission_relation_aggregate = 21; /* Aggregate Field for Relationship Object between 角色 and 权限 */
     RolePermissionRelationConnection role_permission_relation_connection = 22; /* Connection Field for Relationship Object between 角色 and 权限 */
     int32 id_count = 23; /* Count of 权限 */
-    int32 id_max = 24; /* Max of ID */
-    int32 id_min = 25; /* Min of ID */
-    int32 name_count = 26; /* Count of 名称 */
-    string name_max = 27; /* Max of 名称 */
-    string name_min = 28; /* Min of 名称 */
-    int32 description_count = 29; /* Count of 描述 */
-    string description_max = 30; /* Max of 描述 */
-    string description_min = 31; /* Min of 描述 */
-    int32 field_count = 32; /* Count of 字段 */
-    string field_max = 33; /* Max of 字段 */
-    string field_min = 34; /* Min of 字段 */
-    int32 type_count = 35; /* Count of 实体 */
-    string type_max = 36; /* Max of 实体 */
-    string type_min = 37; /* Min of 实体 */
-    int32 permission_type_count = 38; /* Count of 权限类型 */
-    PermissionType permission_type_max = 39; /* Max of 权限类型 */
-    PermissionType permission_type_min = 40; /* Min of 权限类型 */
-    bool sync_permission_policy = 41;
+    int32 name_count = 24; /* Count of 名称 */
+    int32 description_count = 25; /* Count of 描述 */
+    int32 field_count = 26; /* Count of 字段 */
+    int32 type_count = 27; /* Count of 实体 */
+    int32 permission_type_count = 28; /* Count of 权限类型 */
+    int32 create_time_year = 29; /* Year of Create Time */
+    int32 create_time_month = 30; /* Month of Create Time */
+    int32 create_time_day = 31; /* Day of Create Time */
+    int32 create_time_week = 32; /* Week of Create Time */
+    int32 create_time_quarter = 33; /* Quarter of Create Time */
+    int32 update_time_year = 34; /* Year of Update Time */
+    int32 update_time_month = 35; /* Month of Update Time */
+    int32 update_time_day = 36; /* Day of Update Time */
+    int32 update_time_week = 37; /* Week of Update Time */
+    int32 update_time_quarter = 38; /* Quarter of Update Time */
+    bool sync_permission_policy = 39;
 }
 /**
 * Relationship Object between 用户 and 手机号
@@ -274,14 +275,18 @@ message UserPhonesRelation {
     string create_group_id = 12; /* Create Group ID */
     string intro_typename = 13; /* Type Name */
     int32 id_count = 14; /* Count of Relationship Object between 用户 and 手机号 */
-    int32 id_max = 15; /* Max of ID */
-    int32 id_min = 16; /* Min of ID */
-    int32 user_ref_count = 17; /* Count of 用户 Reference */
-    string user_ref_max = 18; /* Max of 用户 Reference */
-    string user_ref_min = 19; /* Min of 用户 Reference */
-    int32 phones_ref_count = 20; /* Count of 手机号 Reference */
-    string phones_ref_max = 21; /* Max of 手机号 Reference */
-    string phones_ref_min = 22; /* Min of 手机号 Reference */
+    int32 user_ref_count = 15; /* Count of 用户 Reference */
+    int32 phones_ref_count = 16; /* Count of 手机号 Reference */
+    int32 create_time_year = 17; /* Year of Create Time */
+    int32 create_time_month = 18; /* Month of Create Time */
+    int32 create_time_day = 19; /* Day of Create Time */
+    int32 create_time_week = 20; /* Week of Create Time */
+    int32 create_time_quarter = 21; /* Quarter of Create Time */
+    int32 update_time_year = 22; /* Year of Update Time */
+    int32 update_time_month = 23; /* Month of Update Time */
+    int32 update_time_day = 24; /* Day of Update Time */
+    int32 update_time_week = 25; /* Week of Update Time */
+    int32 update_time_quarter = 26; /* Quarter of Update Time */
 }
 /**
 * Relationship Object between 用户 and 组
@@ -302,14 +307,18 @@ message GroupUserRelation {
     string create_group_id = 13; /* Create Group ID */
     string intro_typename = 14; /* Type Name */
     int32 id_count = 15; /* Count of Relationship Object between 用户 and 组 */
-    int32 id_max = 16; /* Max of ID */
-    int32 id_min = 17; /* Min of ID */
-    int32 user_ref_count = 18; /* Count of 用户 Reference */
-    string user_ref_max = 19; /* Max of 用户 Reference */
-    string user_ref_min = 20; /* Min of 用户 Reference */
-    int32 group_ref_count = 21; /* Count of 组 Reference */
-    string group_ref_max = 22; /* Max of 组 Reference */
-    string group_ref_min = 23; /* Min of 组 Reference */
+    int32 user_ref_count = 16; /* Count of 用户 Reference */
+    int32 group_ref_count = 17; /* Count of 组 Reference */
+    int32 create_time_year = 18; /* Year of Create Time */
+    int32 create_time_month = 19; /* Month of Create Time */
+    int32 create_time_day = 20; /* Day of Create Time */
+    int32 create_time_week = 21; /* Week of Create Time */
+    int32 create_time_quarter = 22; /* Quarter of Create Time */
+    int32 update_time_year = 23; /* Year of Update Time */
+    int32 update_time_month = 24; /* Month of Update Time */
+    int32 update_time_day = 25; /* Day of Update Time */
+    int32 update_time_week = 26; /* Week of Update Time */
+    int32 update_time_quarter = 27; /* Quarter of Update Time */
 }
 /**
 * Relationship Object between 用户 and 角色
@@ -330,14 +339,18 @@ message RoleUserRelation {
     string create_group_id = 13; /* Create Group ID */
     string intro_typename = 14; /* Type Name */
     int32 id_count = 15; /* Count of Relationship Object between 用户 and 角色 */
-    int32 id_max = 16; /* Max of ID */
-    int32 id_min = 17; /* Min of ID */
-    int32 user_ref_count = 18; /* Count of 用户 Reference */
-    string user_ref_max = 19; /* Max of 用户 Reference */
-    string user_ref_min = 20; /* Min of 用户 Reference */
-    int32 role_ref_count = 21; /* Count of 角色 Reference */
-    string role_ref_max = 22; /* Max of 角色 Reference */
-    string role_ref_min = 23; /* Min of 角色 Reference */
+    int32 user_ref_count = 16; /* Count of 用户 Reference */
+    int32 role_ref_count = 17; /* Count of 角色 Reference */
+    int32 create_time_year = 18; /* Year of Create Time */
+    int32 create_time_month = 19; /* Month of Create Time */
+    int32 create_time_day = 20; /* Day of Create Time */
+    int32 create_time_week = 21; /* Week of Create Time */
+    int32 create_time_quarter = 22; /* Quarter of Create Time */
+    int32 update_time_year = 23; /* Year of Update Time */
+    int32 update_time_month = 24; /* Month of Update Time */
+    int32 update_time_day = 25; /* Day of Update Time */
+    int32 update_time_week = 26; /* Week of Update Time */
+    int32 update_time_quarter = 27; /* Quarter of Update Time */
 }
 /**
 * Relationship Object between 角色 and 组
@@ -358,14 +371,18 @@ message GroupRoleRelation {
     string create_group_id = 13; /* Create Group ID */
     string intro_typename = 14; /* Type Name */
     int32 id_count = 15; /* Count of Relationship Object between 角色 and 组 */
-    int32 id_max = 16; /* Max of ID */
-    int32 id_min = 17; /* Min of ID */
-    int32 role_ref_count = 18; /* Count of 角色 Reference */
-    string role_ref_max = 19; /* Max of 角色 Reference */
-    string role_ref_min = 20; /* Min of 角色 Reference */
-    int32 group_ref_count = 21; /* Count of 组 Reference */
-    string group_ref_max = 22; /* Max of 组 Reference */
-    string group_ref_min = 23; /* Min of 组 Reference */
+    int32 role_ref_count = 16; /* Count of 角色 Reference */
+    int32 group_ref_count = 17; /* Count of 组 Reference */
+    int32 create_time_year = 18; /* Year of Create Time */
+    int32 create_time_month = 19; /* Month of Create Time */
+    int32 create_time_day = 20; /* Day of Create Time */
+    int32 create_time_week = 21; /* Week of Create Time */
+    int32 create_time_quarter = 22; /* Quarter of Create Time */
+    int32 update_time_year = 23; /* Year of Update Time */
+    int32 update_time_month = 24; /* Month of Update Time */
+    int32 update_time_day = 25; /* Day of Update Time */
+    int32 update_time_week = 26; /* Week of Update Time */
+    int32 update_time_quarter = 27; /* Quarter of Update Time */
 }
 /**
 * Relationship Object between 角色 and 角色
@@ -386,14 +403,18 @@ message RoleCompositeRelation {
     string create_group_id = 13; /* Create Group ID */
     string intro_typename = 14; /* Type Name */
     int32 id_count = 15; /* Count of Relationship Object between 角色 and 角色 */
-    int32 id_max = 16; /* Max of ID */
-    int32 id_min = 17; /* Min of ID */
-    int32 role_ref_count = 18; /* Count of 角色 Reference */
-    string role_ref_max = 19; /* Max of 角色 Reference */
-    string role_ref_min = 20; /* Min of 角色 Reference */
-    int32 composite_ref_count = 21; /* Count of 角色 Reference */
-    string composite_ref_max = 22; /* Max of 角色 Reference */
-    string composite_ref_min = 23; /* Min of 角色 Reference */
+    int32 role_ref_count = 16; /* Count of 角色 Reference */
+    int32 composite_ref_count = 17; /* Count of 角色 Reference */
+    int32 create_time_year = 18; /* Year of Create Time */
+    int32 create_time_month = 19; /* Month of Create Time */
+    int32 create_time_day = 20; /* Day of Create Time */
+    int32 create_time_week = 21; /* Week of Create Time */
+    int32 create_time_quarter = 22; /* Quarter of Create Time */
+    int32 update_time_year = 23; /* Year of Update Time */
+    int32 update_time_month = 24; /* Month of Update Time */
+    int32 update_time_day = 25; /* Day of Update Time */
+    int32 update_time_week = 26; /* Week of Update Time */
+    int32 update_time_quarter = 27; /* Quarter of Update Time */
 }
 /**
 * Relationship Object between 角色 and 权限
@@ -414,14 +435,18 @@ message RolePermissionRelation {
     string create_group_id = 13; /* Create Group ID */
     string intro_typename = 14; /* Type Name */
     int32 id_count = 15; /* Count of Relationship Object between 角色 and 权限 */
-    int32 id_max = 16; /* Max of ID */
-    int32 id_min = 17; /* Min of ID */
-    int32 role_ref_count = 18; /* Count of 角色 Reference */
-    string role_ref_max = 19; /* Max of 角色 Reference */
-    string role_ref_min = 20; /* Min of 角色 Reference */
-    int32 permission_ref_count = 21; /* Count of 权限 Reference */
-    string permission_ref_max = 22; /* Max of 权限 Reference */
-    string permission_ref_min = 23; /* Min of 权限 Reference */
+    int32 role_ref_count = 16; /* Count of 角色 Reference */
+    int32 permission_ref_count = 17; /* Count of 权限 Reference */
+    int32 create_time_year = 18; /* Year of Create Time */
+    int32 create_time_month = 19; /* Month of Create Time */
+    int32 create_time_day = 20; /* Day of Create Time */
+    int32 create_time_week = 21; /* Week of Create Time */
+    int32 create_time_quarter = 22; /* Quarter of Create Time */
+    int32 update_time_year = 23; /* Year of Update Time */
+    int32 update_time_month = 24; /* Month of Update Time */
+    int32 update_time_day = 25; /* Day of Update Time */
+    int32 update_time_week = 26; /* Week of Update Time */
+    int32 update_time_quarter = 27; /* Quarter of Update Time */
 }
 /**
 * Connection Object for 用户
@@ -588,22 +613,22 @@ message RolePermissionRelationEdge {
     RolePermissionRelation node = 1; /* Node */
     string cursor = 2; /* Cursor */
 }
-message Policy {
-    string id = 1;
-    string policy = 2;
-    string v1 = 3;
-    string v5 = 4;
-    string v2 = 5;
-    string v4 = 6;
-    string v0 = 7;
-    string v3 = 8;
-}
 message Current {
-    int32 realm_id = 1;
-    string login = 2;
-    string name = 3;
-    repeated string roles = 4;
-    string last_name = 5;
-    string id = 6;
-    repeated string groups = 7;
+    repeated string roles = 1;
+    repeated string groups = 2;
+    string login = 3;
+    string id = 4;
+    string name = 5;
+    string last_name = 6;
+    int32 realm_id = 7;
+}
+message Policy {
+    string v1 = 1;
+    string id = 2;
+    string v4 = 3;
+    string v2 = 4;
+    string v3 = 5;
+    string v5 = 6;
+    string policy = 7;
+    string v0 = 8;
 }

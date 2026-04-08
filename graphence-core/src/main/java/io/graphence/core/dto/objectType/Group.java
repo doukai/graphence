@@ -227,34 +227,10 @@ public class Group implements TreeStruct, NamedStruct, Meta {
   private Integer idCount;
 
   /**
-   * Max of ID
-   */
-  @Description("Max of ID")
-  private Integer idMax;
-
-  /**
-   * Min of ID
-   */
-  @Description("Min of ID")
-  private Integer idMin;
-
-  /**
    * Count of 名称
    */
   @Description("Count of 名称")
   private Integer nameCount;
-
-  /**
-   * Max of 名称
-   */
-  @Description("Max of 名称")
-  private String nameMax;
-
-  /**
-   * Min of 名称
-   */
-  @Description("Min of 名称")
-  private String nameMin;
 
   /**
    * Count of 描述
@@ -263,34 +239,16 @@ public class Group implements TreeStruct, NamedStruct, Meta {
   private Integer descriptionCount;
 
   /**
-   * Max of 描述
-   */
-  @Description("Max of 描述")
-  private String descriptionMax;
-
-  /**
-   * Min of 描述
-   */
-  @Description("Min of 描述")
-  private String descriptionMin;
-
-  /**
    * Count of 路径
    */
   @Description("Count of 路径")
   private Integer pathCount;
 
   /**
-   * Max of 路径
+   * Count of 层级
    */
-  @Description("Max of 路径")
-  private String pathMax;
-
-  /**
-   * Min of 路径
-   */
-  @Description("Min of 路径")
-  private String pathMin;
+  @Description("Count of 层级")
+  private Integer deepCount;
 
   /**
    * Count of 上级ID
@@ -299,22 +257,16 @@ public class Group implements TreeStruct, NamedStruct, Meta {
   private Integer parentIdCount;
 
   /**
-   * Max of 上级ID
+   * Max of 层级
    */
-  @Description("Max of 上级ID")
-  private String parentIdMax;
+  @Description("Max of 层级")
+  private Integer deepMax;
 
   /**
-   * Min of 上级ID
+   * Min of 层级
    */
-  @Description("Min of 上级ID")
-  private String parentIdMin;
-
-  /**
-   * Count of 层级
-   */
-  @Description("Count of 层级")
-  private Integer deepCount;
+  @Description("Min of 层级")
+  private Integer deepMin;
 
   /**
    * Sum of 层级
@@ -329,16 +281,64 @@ public class Group implements TreeStruct, NamedStruct, Meta {
   private Integer deepAvg;
 
   /**
-   * Max of 层级
+   * Year of Create Time
    */
-  @Description("Max of 层级")
-  private Integer deepMax;
+  @Description("Year of Create Time")
+  private Integer createTimeYear;
 
   /**
-   * Min of 层级
+   * Month of Create Time
    */
-  @Description("Min of 层级")
-  private Integer deepMin;
+  @Description("Month of Create Time")
+  private Integer createTimeMonth;
+
+  /**
+   * Day of Create Time
+   */
+  @Description("Day of Create Time")
+  private Integer createTimeDay;
+
+  /**
+   * Week of Create Time
+   */
+  @Description("Week of Create Time")
+  private Integer createTimeWeek;
+
+  /**
+   * Quarter of Create Time
+   */
+  @Description("Quarter of Create Time")
+  private Integer createTimeQuarter;
+
+  /**
+   * Year of Update Time
+   */
+  @Description("Year of Update Time")
+  private Integer updateTimeYear;
+
+  /**
+   * Month of Update Time
+   */
+  @Description("Month of Update Time")
+  private Integer updateTimeMonth;
+
+  /**
+   * Day of Update Time
+   */
+  @Description("Day of Update Time")
+  private Integer updateTimeDay;
+
+  /**
+   * Week of Update Time
+   */
+  @Description("Week of Update Time")
+  private Integer updateTimeWeek;
+
+  /**
+   * Quarter of Update Time
+   */
+  @Description("Quarter of Update Time")
+  private Integer updateTimeQuarter;
 
   private Boolean syncGroupPolicy;
 
@@ -632,44 +632,12 @@ public class Group implements TreeStruct, NamedStruct, Meta {
     this.idCount = idCount;
   }
 
-  public Integer getIdMax() {
-    return this.idMax;
-  }
-
-  public void setIdMax(Integer idMax) {
-    this.idMax = idMax;
-  }
-
-  public Integer getIdMin() {
-    return this.idMin;
-  }
-
-  public void setIdMin(Integer idMin) {
-    this.idMin = idMin;
-  }
-
   public Integer getNameCount() {
     return this.nameCount;
   }
 
   public void setNameCount(Integer nameCount) {
     this.nameCount = nameCount;
-  }
-
-  public String getNameMax() {
-    return this.nameMax;
-  }
-
-  public void setNameMax(String nameMax) {
-    this.nameMax = nameMax;
-  }
-
-  public String getNameMin() {
-    return this.nameMin;
-  }
-
-  public void setNameMin(String nameMin) {
-    this.nameMin = nameMin;
   }
 
   public Integer getDescriptionCount() {
@@ -680,22 +648,6 @@ public class Group implements TreeStruct, NamedStruct, Meta {
     this.descriptionCount = descriptionCount;
   }
 
-  public String getDescriptionMax() {
-    return this.descriptionMax;
-  }
-
-  public void setDescriptionMax(String descriptionMax) {
-    this.descriptionMax = descriptionMax;
-  }
-
-  public String getDescriptionMin() {
-    return this.descriptionMin;
-  }
-
-  public void setDescriptionMin(String descriptionMin) {
-    this.descriptionMin = descriptionMin;
-  }
-
   public Integer getPathCount() {
     return this.pathCount;
   }
@@ -704,20 +656,12 @@ public class Group implements TreeStruct, NamedStruct, Meta {
     this.pathCount = pathCount;
   }
 
-  public String getPathMax() {
-    return this.pathMax;
+  public Integer getDeepCount() {
+    return this.deepCount;
   }
 
-  public void setPathMax(String pathMax) {
-    this.pathMax = pathMax;
-  }
-
-  public String getPathMin() {
-    return this.pathMin;
-  }
-
-  public void setPathMin(String pathMin) {
-    this.pathMin = pathMin;
+  public void setDeepCount(Integer deepCount) {
+    this.deepCount = deepCount;
   }
 
   public Integer getParentIdCount() {
@@ -728,28 +672,20 @@ public class Group implements TreeStruct, NamedStruct, Meta {
     this.parentIdCount = parentIdCount;
   }
 
-  public String getParentIdMax() {
-    return this.parentIdMax;
+  public Integer getDeepMax() {
+    return this.deepMax;
   }
 
-  public void setParentIdMax(String parentIdMax) {
-    this.parentIdMax = parentIdMax;
+  public void setDeepMax(Integer deepMax) {
+    this.deepMax = deepMax;
   }
 
-  public String getParentIdMin() {
-    return this.parentIdMin;
+  public Integer getDeepMin() {
+    return this.deepMin;
   }
 
-  public void setParentIdMin(String parentIdMin) {
-    this.parentIdMin = parentIdMin;
-  }
-
-  public Integer getDeepCount() {
-    return this.deepCount;
-  }
-
-  public void setDeepCount(Integer deepCount) {
-    this.deepCount = deepCount;
+  public void setDeepMin(Integer deepMin) {
+    this.deepMin = deepMin;
   }
 
   public Integer getDeepSum() {
@@ -768,20 +704,84 @@ public class Group implements TreeStruct, NamedStruct, Meta {
     this.deepAvg = deepAvg;
   }
 
-  public Integer getDeepMax() {
-    return this.deepMax;
+  public Integer getCreateTimeYear() {
+    return this.createTimeYear;
   }
 
-  public void setDeepMax(Integer deepMax) {
-    this.deepMax = deepMax;
+  public void setCreateTimeYear(Integer createTimeYear) {
+    this.createTimeYear = createTimeYear;
   }
 
-  public Integer getDeepMin() {
-    return this.deepMin;
+  public Integer getCreateTimeMonth() {
+    return this.createTimeMonth;
   }
 
-  public void setDeepMin(Integer deepMin) {
-    this.deepMin = deepMin;
+  public void setCreateTimeMonth(Integer createTimeMonth) {
+    this.createTimeMonth = createTimeMonth;
+  }
+
+  public Integer getCreateTimeDay() {
+    return this.createTimeDay;
+  }
+
+  public void setCreateTimeDay(Integer createTimeDay) {
+    this.createTimeDay = createTimeDay;
+  }
+
+  public Integer getCreateTimeWeek() {
+    return this.createTimeWeek;
+  }
+
+  public void setCreateTimeWeek(Integer createTimeWeek) {
+    this.createTimeWeek = createTimeWeek;
+  }
+
+  public Integer getCreateTimeQuarter() {
+    return this.createTimeQuarter;
+  }
+
+  public void setCreateTimeQuarter(Integer createTimeQuarter) {
+    this.createTimeQuarter = createTimeQuarter;
+  }
+
+  public Integer getUpdateTimeYear() {
+    return this.updateTimeYear;
+  }
+
+  public void setUpdateTimeYear(Integer updateTimeYear) {
+    this.updateTimeYear = updateTimeYear;
+  }
+
+  public Integer getUpdateTimeMonth() {
+    return this.updateTimeMonth;
+  }
+
+  public void setUpdateTimeMonth(Integer updateTimeMonth) {
+    this.updateTimeMonth = updateTimeMonth;
+  }
+
+  public Integer getUpdateTimeDay() {
+    return this.updateTimeDay;
+  }
+
+  public void setUpdateTimeDay(Integer updateTimeDay) {
+    this.updateTimeDay = updateTimeDay;
+  }
+
+  public Integer getUpdateTimeWeek() {
+    return this.updateTimeWeek;
+  }
+
+  public void setUpdateTimeWeek(Integer updateTimeWeek) {
+    this.updateTimeWeek = updateTimeWeek;
+  }
+
+  public Integer getUpdateTimeQuarter() {
+    return this.updateTimeQuarter;
+  }
+
+  public void setUpdateTimeQuarter(Integer updateTimeQuarter) {
+    this.updateTimeQuarter = updateTimeQuarter;
   }
 
   public Boolean getSyncGroupPolicy() {

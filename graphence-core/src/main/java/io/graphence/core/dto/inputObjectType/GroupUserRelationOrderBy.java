@@ -3,6 +3,7 @@ package io.graphence.core.dto.inputObjectType;
 import com.dslplatform.json.CompiledJson;
 import io.graphoenix.core.dto.enumType.Sort;
 import jakarta.annotation.Generated;
+import java.util.Collection;
 import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.Input;
 
@@ -27,10 +28,22 @@ public class GroupUserRelationOrderBy {
   private Sort userRef;
 
   /**
+   * 用户
+   */
+  @Description("用户")
+  private UserOrderBy user;
+
+  /**
    * 组 Reference
    */
   @Description("组 Reference")
   private Sort groupRef;
+
+  /**
+   * 组
+   */
+  @Description("组")
+  private GroupOrderBy group;
 
   /**
    * Is Deprecated
@@ -93,34 +106,10 @@ public class GroupUserRelationOrderBy {
   private Sort idCount;
 
   /**
-   * Max of ID
-   */
-  @Description("Max of ID")
-  private Sort idMax;
-
-  /**
-   * Min of ID
-   */
-  @Description("Min of ID")
-  private Sort idMin;
-
-  /**
    * Count of 用户 Reference
    */
   @Description("Count of 用户 Reference")
   private Sort userRefCount;
-
-  /**
-   * Max of 用户 Reference
-   */
-  @Description("Max of 用户 Reference")
-  private Sort userRefMax;
-
-  /**
-   * Min of 用户 Reference
-   */
-  @Description("Min of 用户 Reference")
-  private Sort userRefMin;
 
   /**
    * Count of 组 Reference
@@ -129,16 +118,70 @@ public class GroupUserRelationOrderBy {
   private Sort groupRefCount;
 
   /**
-   * Max of 组 Reference
+   * Year of Create Time
    */
-  @Description("Max of 组 Reference")
-  private Sort groupRefMax;
+  @Description("Year of Create Time")
+  private Sort createTimeYear;
 
   /**
-   * Min of 组 Reference
+   * Month of Create Time
    */
-  @Description("Min of 组 Reference")
-  private Sort groupRefMin;
+  @Description("Month of Create Time")
+  private Sort createTimeMonth;
+
+  /**
+   * Day of Create Time
+   */
+  @Description("Day of Create Time")
+  private Sort createTimeDay;
+
+  /**
+   * Week of Create Time
+   */
+  @Description("Week of Create Time")
+  private Sort createTimeWeek;
+
+  /**
+   * Quarter of Create Time
+   */
+  @Description("Quarter of Create Time")
+  private Sort createTimeQuarter;
+
+  /**
+   * Year of Update Time
+   */
+  @Description("Year of Update Time")
+  private Sort updateTimeYear;
+
+  /**
+   * Month of Update Time
+   */
+  @Description("Month of Update Time")
+  private Sort updateTimeMonth;
+
+  /**
+   * Day of Update Time
+   */
+  @Description("Day of Update Time")
+  private Sort updateTimeDay;
+
+  /**
+   * Week of Update Time
+   */
+  @Description("Week of Update Time")
+  private Sort updateTimeWeek;
+
+  /**
+   * Quarter of Update Time
+   */
+  @Description("Quarter of Update Time")
+  private Sort updateTimeQuarter;
+
+  /**
+   * OrderByes
+   */
+  @Description("OrderByes")
+  private Collection<GroupUserRelationOrderBy> obs;
 
   public Sort getId() {
     return this.id;
@@ -156,12 +199,28 @@ public class GroupUserRelationOrderBy {
     this.userRef = userRef;
   }
 
+  public UserOrderBy getUser() {
+    return this.user;
+  }
+
+  public void setUser(UserOrderBy user) {
+    this.user = user;
+  }
+
   public Sort getGroupRef() {
     return this.groupRef;
   }
 
   public void setGroupRef(Sort groupRef) {
     this.groupRef = groupRef;
+  }
+
+  public GroupOrderBy getGroup() {
+    return this.group;
+  }
+
+  public void setGroup(GroupOrderBy group) {
+    this.group = group;
   }
 
   public Sort getIsDeprecated() {
@@ -244,44 +303,12 @@ public class GroupUserRelationOrderBy {
     this.idCount = idCount;
   }
 
-  public Sort getIdMax() {
-    return this.idMax;
-  }
-
-  public void setIdMax(Sort idMax) {
-    this.idMax = idMax;
-  }
-
-  public Sort getIdMin() {
-    return this.idMin;
-  }
-
-  public void setIdMin(Sort idMin) {
-    this.idMin = idMin;
-  }
-
   public Sort getUserRefCount() {
     return this.userRefCount;
   }
 
   public void setUserRefCount(Sort userRefCount) {
     this.userRefCount = userRefCount;
-  }
-
-  public Sort getUserRefMax() {
-    return this.userRefMax;
-  }
-
-  public void setUserRefMax(Sort userRefMax) {
-    this.userRefMax = userRefMax;
-  }
-
-  public Sort getUserRefMin() {
-    return this.userRefMin;
-  }
-
-  public void setUserRefMin(Sort userRefMin) {
-    this.userRefMin = userRefMin;
   }
 
   public Sort getGroupRefCount() {
@@ -292,19 +319,91 @@ public class GroupUserRelationOrderBy {
     this.groupRefCount = groupRefCount;
   }
 
-  public Sort getGroupRefMax() {
-    return this.groupRefMax;
+  public Sort getCreateTimeYear() {
+    return this.createTimeYear;
   }
 
-  public void setGroupRefMax(Sort groupRefMax) {
-    this.groupRefMax = groupRefMax;
+  public void setCreateTimeYear(Sort createTimeYear) {
+    this.createTimeYear = createTimeYear;
   }
 
-  public Sort getGroupRefMin() {
-    return this.groupRefMin;
+  public Sort getCreateTimeMonth() {
+    return this.createTimeMonth;
   }
 
-  public void setGroupRefMin(Sort groupRefMin) {
-    this.groupRefMin = groupRefMin;
+  public void setCreateTimeMonth(Sort createTimeMonth) {
+    this.createTimeMonth = createTimeMonth;
+  }
+
+  public Sort getCreateTimeDay() {
+    return this.createTimeDay;
+  }
+
+  public void setCreateTimeDay(Sort createTimeDay) {
+    this.createTimeDay = createTimeDay;
+  }
+
+  public Sort getCreateTimeWeek() {
+    return this.createTimeWeek;
+  }
+
+  public void setCreateTimeWeek(Sort createTimeWeek) {
+    this.createTimeWeek = createTimeWeek;
+  }
+
+  public Sort getCreateTimeQuarter() {
+    return this.createTimeQuarter;
+  }
+
+  public void setCreateTimeQuarter(Sort createTimeQuarter) {
+    this.createTimeQuarter = createTimeQuarter;
+  }
+
+  public Sort getUpdateTimeYear() {
+    return this.updateTimeYear;
+  }
+
+  public void setUpdateTimeYear(Sort updateTimeYear) {
+    this.updateTimeYear = updateTimeYear;
+  }
+
+  public Sort getUpdateTimeMonth() {
+    return this.updateTimeMonth;
+  }
+
+  public void setUpdateTimeMonth(Sort updateTimeMonth) {
+    this.updateTimeMonth = updateTimeMonth;
+  }
+
+  public Sort getUpdateTimeDay() {
+    return this.updateTimeDay;
+  }
+
+  public void setUpdateTimeDay(Sort updateTimeDay) {
+    this.updateTimeDay = updateTimeDay;
+  }
+
+  public Sort getUpdateTimeWeek() {
+    return this.updateTimeWeek;
+  }
+
+  public void setUpdateTimeWeek(Sort updateTimeWeek) {
+    this.updateTimeWeek = updateTimeWeek;
+  }
+
+  public Sort getUpdateTimeQuarter() {
+    return this.updateTimeQuarter;
+  }
+
+  public void setUpdateTimeQuarter(Sort updateTimeQuarter) {
+    this.updateTimeQuarter = updateTimeQuarter;
+  }
+
+  public Collection<GroupUserRelationOrderBy> getObs() {
+    return this.obs;
+  }
+
+  public void setObs(Collection<GroupUserRelationOrderBy> obs) {
+    this.obs = obs;
   }
 }

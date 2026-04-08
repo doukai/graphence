@@ -3,6 +3,7 @@ package io.graphence.core.dto.inputObjectType;
 import com.dslplatform.json.CompiledJson;
 import io.graphoenix.core.dto.enumType.Sort;
 import jakarta.annotation.Generated;
+import java.util.Collection;
 import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.Input;
 
@@ -27,10 +28,22 @@ public class RoleCompositeRelationOrderBy {
   private Sort roleRef;
 
   /**
+   * 角色
+   */
+  @Description("角色")
+  private RoleOrderBy role;
+
+  /**
    * 角色 Reference
    */
   @Description("角色 Reference")
   private Sort compositeRef;
+
+  /**
+   * 角色
+   */
+  @Description("角色")
+  private RoleOrderBy composite;
 
   /**
    * Is Deprecated
@@ -93,34 +106,10 @@ public class RoleCompositeRelationOrderBy {
   private Sort idCount;
 
   /**
-   * Max of ID
-   */
-  @Description("Max of ID")
-  private Sort idMax;
-
-  /**
-   * Min of ID
-   */
-  @Description("Min of ID")
-  private Sort idMin;
-
-  /**
    * Count of 角色 Reference
    */
   @Description("Count of 角色 Reference")
   private Sort roleRefCount;
-
-  /**
-   * Max of 角色 Reference
-   */
-  @Description("Max of 角色 Reference")
-  private Sort roleRefMax;
-
-  /**
-   * Min of 角色 Reference
-   */
-  @Description("Min of 角色 Reference")
-  private Sort roleRefMin;
 
   /**
    * Count of 角色 Reference
@@ -129,16 +118,70 @@ public class RoleCompositeRelationOrderBy {
   private Sort compositeRefCount;
 
   /**
-   * Max of 角色 Reference
+   * Year of Create Time
    */
-  @Description("Max of 角色 Reference")
-  private Sort compositeRefMax;
+  @Description("Year of Create Time")
+  private Sort createTimeYear;
 
   /**
-   * Min of 角色 Reference
+   * Month of Create Time
    */
-  @Description("Min of 角色 Reference")
-  private Sort compositeRefMin;
+  @Description("Month of Create Time")
+  private Sort createTimeMonth;
+
+  /**
+   * Day of Create Time
+   */
+  @Description("Day of Create Time")
+  private Sort createTimeDay;
+
+  /**
+   * Week of Create Time
+   */
+  @Description("Week of Create Time")
+  private Sort createTimeWeek;
+
+  /**
+   * Quarter of Create Time
+   */
+  @Description("Quarter of Create Time")
+  private Sort createTimeQuarter;
+
+  /**
+   * Year of Update Time
+   */
+  @Description("Year of Update Time")
+  private Sort updateTimeYear;
+
+  /**
+   * Month of Update Time
+   */
+  @Description("Month of Update Time")
+  private Sort updateTimeMonth;
+
+  /**
+   * Day of Update Time
+   */
+  @Description("Day of Update Time")
+  private Sort updateTimeDay;
+
+  /**
+   * Week of Update Time
+   */
+  @Description("Week of Update Time")
+  private Sort updateTimeWeek;
+
+  /**
+   * Quarter of Update Time
+   */
+  @Description("Quarter of Update Time")
+  private Sort updateTimeQuarter;
+
+  /**
+   * OrderByes
+   */
+  @Description("OrderByes")
+  private Collection<RoleCompositeRelationOrderBy> obs;
 
   public Sort getId() {
     return this.id;
@@ -156,12 +199,28 @@ public class RoleCompositeRelationOrderBy {
     this.roleRef = roleRef;
   }
 
+  public RoleOrderBy getRole() {
+    return this.role;
+  }
+
+  public void setRole(RoleOrderBy role) {
+    this.role = role;
+  }
+
   public Sort getCompositeRef() {
     return this.compositeRef;
   }
 
   public void setCompositeRef(Sort compositeRef) {
     this.compositeRef = compositeRef;
+  }
+
+  public RoleOrderBy getComposite() {
+    return this.composite;
+  }
+
+  public void setComposite(RoleOrderBy composite) {
+    this.composite = composite;
   }
 
   public Sort getIsDeprecated() {
@@ -244,44 +303,12 @@ public class RoleCompositeRelationOrderBy {
     this.idCount = idCount;
   }
 
-  public Sort getIdMax() {
-    return this.idMax;
-  }
-
-  public void setIdMax(Sort idMax) {
-    this.idMax = idMax;
-  }
-
-  public Sort getIdMin() {
-    return this.idMin;
-  }
-
-  public void setIdMin(Sort idMin) {
-    this.idMin = idMin;
-  }
-
   public Sort getRoleRefCount() {
     return this.roleRefCount;
   }
 
   public void setRoleRefCount(Sort roleRefCount) {
     this.roleRefCount = roleRefCount;
-  }
-
-  public Sort getRoleRefMax() {
-    return this.roleRefMax;
-  }
-
-  public void setRoleRefMax(Sort roleRefMax) {
-    this.roleRefMax = roleRefMax;
-  }
-
-  public Sort getRoleRefMin() {
-    return this.roleRefMin;
-  }
-
-  public void setRoleRefMin(Sort roleRefMin) {
-    this.roleRefMin = roleRefMin;
   }
 
   public Sort getCompositeRefCount() {
@@ -292,19 +319,91 @@ public class RoleCompositeRelationOrderBy {
     this.compositeRefCount = compositeRefCount;
   }
 
-  public Sort getCompositeRefMax() {
-    return this.compositeRefMax;
+  public Sort getCreateTimeYear() {
+    return this.createTimeYear;
   }
 
-  public void setCompositeRefMax(Sort compositeRefMax) {
-    this.compositeRefMax = compositeRefMax;
+  public void setCreateTimeYear(Sort createTimeYear) {
+    this.createTimeYear = createTimeYear;
   }
 
-  public Sort getCompositeRefMin() {
-    return this.compositeRefMin;
+  public Sort getCreateTimeMonth() {
+    return this.createTimeMonth;
   }
 
-  public void setCompositeRefMin(Sort compositeRefMin) {
-    this.compositeRefMin = compositeRefMin;
+  public void setCreateTimeMonth(Sort createTimeMonth) {
+    this.createTimeMonth = createTimeMonth;
+  }
+
+  public Sort getCreateTimeDay() {
+    return this.createTimeDay;
+  }
+
+  public void setCreateTimeDay(Sort createTimeDay) {
+    this.createTimeDay = createTimeDay;
+  }
+
+  public Sort getCreateTimeWeek() {
+    return this.createTimeWeek;
+  }
+
+  public void setCreateTimeWeek(Sort createTimeWeek) {
+    this.createTimeWeek = createTimeWeek;
+  }
+
+  public Sort getCreateTimeQuarter() {
+    return this.createTimeQuarter;
+  }
+
+  public void setCreateTimeQuarter(Sort createTimeQuarter) {
+    this.createTimeQuarter = createTimeQuarter;
+  }
+
+  public Sort getUpdateTimeYear() {
+    return this.updateTimeYear;
+  }
+
+  public void setUpdateTimeYear(Sort updateTimeYear) {
+    this.updateTimeYear = updateTimeYear;
+  }
+
+  public Sort getUpdateTimeMonth() {
+    return this.updateTimeMonth;
+  }
+
+  public void setUpdateTimeMonth(Sort updateTimeMonth) {
+    this.updateTimeMonth = updateTimeMonth;
+  }
+
+  public Sort getUpdateTimeDay() {
+    return this.updateTimeDay;
+  }
+
+  public void setUpdateTimeDay(Sort updateTimeDay) {
+    this.updateTimeDay = updateTimeDay;
+  }
+
+  public Sort getUpdateTimeWeek() {
+    return this.updateTimeWeek;
+  }
+
+  public void setUpdateTimeWeek(Sort updateTimeWeek) {
+    this.updateTimeWeek = updateTimeWeek;
+  }
+
+  public Sort getUpdateTimeQuarter() {
+    return this.updateTimeQuarter;
+  }
+
+  public void setUpdateTimeQuarter(Sort updateTimeQuarter) {
+    this.updateTimeQuarter = updateTimeQuarter;
+  }
+
+  public Collection<RoleCompositeRelationOrderBy> getObs() {
+    return this.obs;
+  }
+
+  public void setObs(Collection<RoleCompositeRelationOrderBy> obs) {
+    this.obs = obs;
   }
 }

@@ -245,34 +245,10 @@ public class User implements NamedStruct, Meta {
   private Integer idCount;
 
   /**
-   * Max of ID
-   */
-  @Description("Max of ID")
-  private Integer idMax;
-
-  /**
-   * Min of ID
-   */
-  @Description("Min of ID")
-  private Integer idMin;
-
-  /**
    * Count of 姓名
    */
   @Description("Count of 姓名")
   private Integer nameCount;
-
-  /**
-   * Max of 姓名
-   */
-  @Description("Max of 姓名")
-  private String nameMax;
-
-  /**
-   * Min of 姓名
-   */
-  @Description("Min of 姓名")
-  private String nameMin;
 
   /**
    * Count of 描述
@@ -281,34 +257,10 @@ public class User implements NamedStruct, Meta {
   private Integer descriptionCount;
 
   /**
-   * Max of 描述
-   */
-  @Description("Max of 描述")
-  private String descriptionMax;
-
-  /**
-   * Min of 描述
-   */
-  @Description("Min of 描述")
-  private String descriptionMin;
-
-  /**
    * Count of 姓氏
    */
   @Description("Count of 姓氏")
   private Integer lastNameCount;
-
-  /**
-   * Max of 姓氏
-   */
-  @Description("Max of 姓氏")
-  private String lastNameMax;
-
-  /**
-   * Min of 姓氏
-   */
-  @Description("Min of 姓氏")
-  private String lastNameMin;
 
   /**
    * Count of 账号
@@ -317,34 +269,10 @@ public class User implements NamedStruct, Meta {
   private Integer loginCount;
 
   /**
-   * Max of 账号
-   */
-  @Description("Max of 账号")
-  private String loginMax;
-
-  /**
-   * Min of 账号
-   */
-  @Description("Min of 账号")
-  private String loginMin;
-
-  /**
    * Count of 盐
    */
   @Description("Count of 盐")
   private Integer saltCount;
-
-  /**
-   * Max of 盐
-   */
-  @Description("Max of 盐")
-  private String saltMax;
-
-  /**
-   * Min of 盐
-   */
-  @Description("Min of 盐")
-  private String saltMin;
 
   /**
    * Count of 哈希
@@ -353,34 +281,76 @@ public class User implements NamedStruct, Meta {
   private Integer hashCount;
 
   /**
-   * Max of 哈希
-   */
-  @Description("Max of 哈希")
-  private String hashMax;
-
-  /**
-   * Min of 哈希
-   */
-  @Description("Min of 哈希")
-  private String hashMin;
-
-  /**
    * Count of 邮箱
    */
   @Description("Count of 邮箱")
   private Integer emailCount;
 
   /**
-   * Max of 邮箱
+   * Count of 禁用
    */
-  @Description("Max of 邮箱")
-  private String emailMax;
+  @Description("Count of 禁用")
+  private Integer disableCount;
 
   /**
-   * Min of 邮箱
+   * Year of Create Time
    */
-  @Description("Min of 邮箱")
-  private String emailMin;
+  @Description("Year of Create Time")
+  private Integer createTimeYear;
+
+  /**
+   * Month of Create Time
+   */
+  @Description("Month of Create Time")
+  private Integer createTimeMonth;
+
+  /**
+   * Day of Create Time
+   */
+  @Description("Day of Create Time")
+  private Integer createTimeDay;
+
+  /**
+   * Week of Create Time
+   */
+  @Description("Week of Create Time")
+  private Integer createTimeWeek;
+
+  /**
+   * Quarter of Create Time
+   */
+  @Description("Quarter of Create Time")
+  private Integer createTimeQuarter;
+
+  /**
+   * Year of Update Time
+   */
+  @Description("Year of Update Time")
+  private Integer updateTimeYear;
+
+  /**
+   * Month of Update Time
+   */
+  @Description("Month of Update Time")
+  private Integer updateTimeMonth;
+
+  /**
+   * Day of Update Time
+   */
+  @Description("Day of Update Time")
+  private Integer updateTimeDay;
+
+  /**
+   * Week of Update Time
+   */
+  @Description("Week of Update Time")
+  private Integer updateTimeWeek;
+
+  /**
+   * Quarter of Update Time
+   */
+  @Description("Quarter of Update Time")
+  private Integer updateTimeQuarter;
 
   private Boolean syncUserPolicy;
 
@@ -696,44 +666,12 @@ public class User implements NamedStruct, Meta {
     this.idCount = idCount;
   }
 
-  public Integer getIdMax() {
-    return this.idMax;
-  }
-
-  public void setIdMax(Integer idMax) {
-    this.idMax = idMax;
-  }
-
-  public Integer getIdMin() {
-    return this.idMin;
-  }
-
-  public void setIdMin(Integer idMin) {
-    this.idMin = idMin;
-  }
-
   public Integer getNameCount() {
     return this.nameCount;
   }
 
   public void setNameCount(Integer nameCount) {
     this.nameCount = nameCount;
-  }
-
-  public String getNameMax() {
-    return this.nameMax;
-  }
-
-  public void setNameMax(String nameMax) {
-    this.nameMax = nameMax;
-  }
-
-  public String getNameMin() {
-    return this.nameMin;
-  }
-
-  public void setNameMin(String nameMin) {
-    this.nameMin = nameMin;
   }
 
   public Integer getDescriptionCount() {
@@ -744,44 +682,12 @@ public class User implements NamedStruct, Meta {
     this.descriptionCount = descriptionCount;
   }
 
-  public String getDescriptionMax() {
-    return this.descriptionMax;
-  }
-
-  public void setDescriptionMax(String descriptionMax) {
-    this.descriptionMax = descriptionMax;
-  }
-
-  public String getDescriptionMin() {
-    return this.descriptionMin;
-  }
-
-  public void setDescriptionMin(String descriptionMin) {
-    this.descriptionMin = descriptionMin;
-  }
-
   public Integer getLastNameCount() {
     return this.lastNameCount;
   }
 
   public void setLastNameCount(Integer lastNameCount) {
     this.lastNameCount = lastNameCount;
-  }
-
-  public String getLastNameMax() {
-    return this.lastNameMax;
-  }
-
-  public void setLastNameMax(String lastNameMax) {
-    this.lastNameMax = lastNameMax;
-  }
-
-  public String getLastNameMin() {
-    return this.lastNameMin;
-  }
-
-  public void setLastNameMin(String lastNameMin) {
-    this.lastNameMin = lastNameMin;
   }
 
   public Integer getLoginCount() {
@@ -792,44 +698,12 @@ public class User implements NamedStruct, Meta {
     this.loginCount = loginCount;
   }
 
-  public String getLoginMax() {
-    return this.loginMax;
-  }
-
-  public void setLoginMax(String loginMax) {
-    this.loginMax = loginMax;
-  }
-
-  public String getLoginMin() {
-    return this.loginMin;
-  }
-
-  public void setLoginMin(String loginMin) {
-    this.loginMin = loginMin;
-  }
-
   public Integer getSaltCount() {
     return this.saltCount;
   }
 
   public void setSaltCount(Integer saltCount) {
     this.saltCount = saltCount;
-  }
-
-  public String getSaltMax() {
-    return this.saltMax;
-  }
-
-  public void setSaltMax(String saltMax) {
-    this.saltMax = saltMax;
-  }
-
-  public String getSaltMin() {
-    return this.saltMin;
-  }
-
-  public void setSaltMin(String saltMin) {
-    this.saltMin = saltMin;
   }
 
   public Integer getHashCount() {
@@ -840,22 +714,6 @@ public class User implements NamedStruct, Meta {
     this.hashCount = hashCount;
   }
 
-  public String getHashMax() {
-    return this.hashMax;
-  }
-
-  public void setHashMax(String hashMax) {
-    this.hashMax = hashMax;
-  }
-
-  public String getHashMin() {
-    return this.hashMin;
-  }
-
-  public void setHashMin(String hashMin) {
-    this.hashMin = hashMin;
-  }
-
   public Integer getEmailCount() {
     return this.emailCount;
   }
@@ -864,20 +722,92 @@ public class User implements NamedStruct, Meta {
     this.emailCount = emailCount;
   }
 
-  public String getEmailMax() {
-    return this.emailMax;
+  public Integer getDisableCount() {
+    return this.disableCount;
   }
 
-  public void setEmailMax(String emailMax) {
-    this.emailMax = emailMax;
+  public void setDisableCount(Integer disableCount) {
+    this.disableCount = disableCount;
   }
 
-  public String getEmailMin() {
-    return this.emailMin;
+  public Integer getCreateTimeYear() {
+    return this.createTimeYear;
   }
 
-  public void setEmailMin(String emailMin) {
-    this.emailMin = emailMin;
+  public void setCreateTimeYear(Integer createTimeYear) {
+    this.createTimeYear = createTimeYear;
+  }
+
+  public Integer getCreateTimeMonth() {
+    return this.createTimeMonth;
+  }
+
+  public void setCreateTimeMonth(Integer createTimeMonth) {
+    this.createTimeMonth = createTimeMonth;
+  }
+
+  public Integer getCreateTimeDay() {
+    return this.createTimeDay;
+  }
+
+  public void setCreateTimeDay(Integer createTimeDay) {
+    this.createTimeDay = createTimeDay;
+  }
+
+  public Integer getCreateTimeWeek() {
+    return this.createTimeWeek;
+  }
+
+  public void setCreateTimeWeek(Integer createTimeWeek) {
+    this.createTimeWeek = createTimeWeek;
+  }
+
+  public Integer getCreateTimeQuarter() {
+    return this.createTimeQuarter;
+  }
+
+  public void setCreateTimeQuarter(Integer createTimeQuarter) {
+    this.createTimeQuarter = createTimeQuarter;
+  }
+
+  public Integer getUpdateTimeYear() {
+    return this.updateTimeYear;
+  }
+
+  public void setUpdateTimeYear(Integer updateTimeYear) {
+    this.updateTimeYear = updateTimeYear;
+  }
+
+  public Integer getUpdateTimeMonth() {
+    return this.updateTimeMonth;
+  }
+
+  public void setUpdateTimeMonth(Integer updateTimeMonth) {
+    this.updateTimeMonth = updateTimeMonth;
+  }
+
+  public Integer getUpdateTimeDay() {
+    return this.updateTimeDay;
+  }
+
+  public void setUpdateTimeDay(Integer updateTimeDay) {
+    this.updateTimeDay = updateTimeDay;
+  }
+
+  public Integer getUpdateTimeWeek() {
+    return this.updateTimeWeek;
+  }
+
+  public void setUpdateTimeWeek(Integer updateTimeWeek) {
+    this.updateTimeWeek = updateTimeWeek;
+  }
+
+  public Integer getUpdateTimeQuarter() {
+    return this.updateTimeQuarter;
+  }
+
+  public void setUpdateTimeQuarter(Integer updateTimeQuarter) {
+    this.updateTimeQuarter = updateTimeQuarter;
   }
 
   public Boolean getSyncUserPolicy() {

@@ -131,6 +131,66 @@ public @interface PermissionListSubscriptionArguments {
       ) default @RolePermissionRelationExpression;
 
   /**
+   * Year of Create Time
+   */
+  @Description("Year of Create Time")
+  IntExpression createTimeYear() default @IntExpression;
+
+  /**
+   * Month of Create Time
+   */
+  @Description("Month of Create Time")
+  IntExpression createTimeMonth() default @IntExpression;
+
+  /**
+   * Day of Create Time
+   */
+  @Description("Day of Create Time")
+  IntExpression createTimeDay() default @IntExpression;
+
+  /**
+   * Week of Create Time
+   */
+  @Description("Week of Create Time")
+  IntExpression createTimeWeek() default @IntExpression;
+
+  /**
+   * Quarter of Create Time
+   */
+  @Description("Quarter of Create Time")
+  IntExpression createTimeQuarter() default @IntExpression;
+
+  /**
+   * Year of Update Time
+   */
+  @Description("Year of Update Time")
+  IntExpression updateTimeYear() default @IntExpression;
+
+  /**
+   * Month of Update Time
+   */
+  @Description("Month of Update Time")
+  IntExpression updateTimeMonth() default @IntExpression;
+
+  /**
+   * Day of Update Time
+   */
+  @Description("Day of Update Time")
+  IntExpression updateTimeDay() default @IntExpression;
+
+  /**
+   * Week of Update Time
+   */
+  @Description("Week of Update Time")
+  IntExpression updateTimeWeek() default @IntExpression;
+
+  /**
+   * Quarter of Update Time
+   */
+  @Description("Quarter of Update Time")
+  IntExpression updateTimeQuarter() default @IntExpression;
+
+  /**
    * Order By
    */
   @Description("Order By")
@@ -140,7 +200,7 @@ public @interface PermissionListSubscriptionArguments {
    * Group By
    */
   @Description("Group By")
-  String[] groupBy() default {};
+  PermissionGroupBy groupBy() default @PermissionGroupBy;
 
   /**
    * Not
@@ -225,6 +285,26 @@ public @interface PermissionListSubscriptionArguments {
   String $__typename() default "";
 
   String $rolePermissionRelation() default "";
+
+  String $createTimeYear() default "";
+
+  String $createTimeMonth() default "";
+
+  String $createTimeDay() default "";
+
+  String $createTimeWeek() default "";
+
+  String $createTimeQuarter() default "";
+
+  String $updateTimeYear() default "";
+
+  String $updateTimeMonth() default "";
+
+  String $updateTimeDay() default "";
+
+  String $updateTimeWeek() default "";
+
+  String $updateTimeQuarter() default "";
 
   String $orderBy() default "";
 

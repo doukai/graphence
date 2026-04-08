@@ -80,6 +80,24 @@ public @interface UserOrderBy {
   Sort disable() default Sort.ASC;
 
   /**
+   * 组
+   */
+  @Description("组")
+  GroupOrderBy1 groups() default @GroupOrderBy1;
+
+  /**
+   * 角色
+   */
+  @Description("角色")
+  RoleOrderBy1 roles() default @RoleOrderBy1;
+
+  /**
+   * 租户
+   */
+  @Description("租户")
+  RealmOrderBy1 realm() default @RealmOrderBy1;
+
+  /**
    * Is Deprecated
    */
   @Description("Is Deprecated")
@@ -134,22 +152,58 @@ public @interface UserOrderBy {
   Sort __typename() default Sort.ASC;
 
   /**
+   * Relationship Object between 用户 and 手机号
+   */
+  @Description("Relationship Object between 用户 and 手机号")
+  UserPhonesRelationOrderBy1 userPhonesRelation() default @UserPhonesRelationOrderBy1;
+
+  /**
+   * Relationship Object between 用户 and 组
+   */
+  @Description("Relationship Object between 用户 and 组")
+  GroupUserRelationOrderBy1 groupUserRelation() default @GroupUserRelationOrderBy1;
+
+  /**
+   * Relationship Object between 用户 and 角色
+   */
+  @Description("Relationship Object between 用户 and 角色")
+  RoleUserRelationOrderBy1 roleUserRelation() default @RoleUserRelationOrderBy1;
+
+  /**
+   * Aggregate Field for 组
+   */
+  @Description("Aggregate Field for 组")
+  GroupOrderBy1 groupsAggregate() default @GroupOrderBy1;
+
+  /**
+   * Aggregate Field for 角色
+   */
+  @Description("Aggregate Field for 角色")
+  RoleOrderBy1 rolesAggregate() default @RoleOrderBy1;
+
+  /**
+   * Aggregate Field for Relationship Object between 用户 and 手机号
+   */
+  @Description("Aggregate Field for Relationship Object between 用户 and 手机号")
+  UserPhonesRelationOrderBy1 userPhonesRelationAggregate() default @UserPhonesRelationOrderBy1;
+
+  /**
+   * Aggregate Field for Relationship Object between 用户 and 组
+   */
+  @Description("Aggregate Field for Relationship Object between 用户 and 组")
+  GroupUserRelationOrderBy1 groupUserRelationAggregate() default @GroupUserRelationOrderBy1;
+
+  /**
+   * Aggregate Field for Relationship Object between 用户 and 角色
+   */
+  @Description("Aggregate Field for Relationship Object between 用户 and 角色")
+  RoleUserRelationOrderBy1 roleUserRelationAggregate() default @RoleUserRelationOrderBy1;
+
+  /**
    * Count of 用户
    */
   @Description("Count of 用户")
   Sort idCount() default Sort.ASC;
-
-  /**
-   * Max of ID
-   */
-  @Description("Max of ID")
-  Sort idMax() default Sort.ASC;
-
-  /**
-   * Min of ID
-   */
-  @Description("Min of ID")
-  Sort idMin() default Sort.ASC;
 
   /**
    * Count of 姓名
@@ -158,34 +212,10 @@ public @interface UserOrderBy {
   Sort nameCount() default Sort.ASC;
 
   /**
-   * Max of 姓名
-   */
-  @Description("Max of 姓名")
-  Sort nameMax() default Sort.ASC;
-
-  /**
-   * Min of 姓名
-   */
-  @Description("Min of 姓名")
-  Sort nameMin() default Sort.ASC;
-
-  /**
    * Count of 描述
    */
   @Description("Count of 描述")
   Sort descriptionCount() default Sort.ASC;
-
-  /**
-   * Max of 描述
-   */
-  @Description("Max of 描述")
-  Sort descriptionMax() default Sort.ASC;
-
-  /**
-   * Min of 描述
-   */
-  @Description("Min of 描述")
-  Sort descriptionMin() default Sort.ASC;
 
   /**
    * Count of 姓氏
@@ -194,34 +224,10 @@ public @interface UserOrderBy {
   Sort lastNameCount() default Sort.ASC;
 
   /**
-   * Max of 姓氏
-   */
-  @Description("Max of 姓氏")
-  Sort lastNameMax() default Sort.ASC;
-
-  /**
-   * Min of 姓氏
-   */
-  @Description("Min of 姓氏")
-  Sort lastNameMin() default Sort.ASC;
-
-  /**
    * Count of 账号
    */
   @Description("Count of 账号")
   Sort loginCount() default Sort.ASC;
-
-  /**
-   * Max of 账号
-   */
-  @Description("Max of 账号")
-  Sort loginMax() default Sort.ASC;
-
-  /**
-   * Min of 账号
-   */
-  @Description("Min of 账号")
-  Sort loginMin() default Sort.ASC;
 
   /**
    * Count of 盐
@@ -230,34 +236,10 @@ public @interface UserOrderBy {
   Sort saltCount() default Sort.ASC;
 
   /**
-   * Max of 盐
-   */
-  @Description("Max of 盐")
-  Sort saltMax() default Sort.ASC;
-
-  /**
-   * Min of 盐
-   */
-  @Description("Min of 盐")
-  Sort saltMin() default Sort.ASC;
-
-  /**
    * Count of 哈希
    */
   @Description("Count of 哈希")
   Sort hashCount() default Sort.ASC;
-
-  /**
-   * Max of 哈希
-   */
-  @Description("Max of 哈希")
-  Sort hashMax() default Sort.ASC;
-
-  /**
-   * Min of 哈希
-   */
-  @Description("Min of 哈希")
-  Sort hashMin() default Sort.ASC;
 
   /**
    * Count of 邮箱
@@ -266,16 +248,76 @@ public @interface UserOrderBy {
   Sort emailCount() default Sort.ASC;
 
   /**
-   * Max of 邮箱
+   * Count of 禁用
    */
-  @Description("Max of 邮箱")
-  Sort emailMax() default Sort.ASC;
+  @Description("Count of 禁用")
+  Sort disableCount() default Sort.ASC;
 
   /**
-   * Min of 邮箱
+   * Year of Create Time
    */
-  @Description("Min of 邮箱")
-  Sort emailMin() default Sort.ASC;
+  @Description("Year of Create Time")
+  Sort createTimeYear() default Sort.ASC;
+
+  /**
+   * Month of Create Time
+   */
+  @Description("Month of Create Time")
+  Sort createTimeMonth() default Sort.ASC;
+
+  /**
+   * Day of Create Time
+   */
+  @Description("Day of Create Time")
+  Sort createTimeDay() default Sort.ASC;
+
+  /**
+   * Week of Create Time
+   */
+  @Description("Week of Create Time")
+  Sort createTimeWeek() default Sort.ASC;
+
+  /**
+   * Quarter of Create Time
+   */
+  @Description("Quarter of Create Time")
+  Sort createTimeQuarter() default Sort.ASC;
+
+  /**
+   * Year of Update Time
+   */
+  @Description("Year of Update Time")
+  Sort updateTimeYear() default Sort.ASC;
+
+  /**
+   * Month of Update Time
+   */
+  @Description("Month of Update Time")
+  Sort updateTimeMonth() default Sort.ASC;
+
+  /**
+   * Day of Update Time
+   */
+  @Description("Day of Update Time")
+  Sort updateTimeDay() default Sort.ASC;
+
+  /**
+   * Week of Update Time
+   */
+  @Description("Week of Update Time")
+  Sort updateTimeWeek() default Sort.ASC;
+
+  /**
+   * Quarter of Update Time
+   */
+  @Description("Quarter of Update Time")
+  Sort updateTimeQuarter() default Sort.ASC;
+
+  /**
+   * OrderByes
+   */
+  @Description("OrderByes")
+  UserOrderBy1[] obs() default {};
 
   String $id() default "";
 
@@ -297,6 +339,12 @@ public @interface UserOrderBy {
 
   String $disable() default "";
 
+  String $groups() default "";
+
+  String $roles() default "";
+
+  String $realm() default "";
+
   String $isDeprecated() default "";
 
   String $version() default "";
@@ -315,51 +363,59 @@ public @interface UserOrderBy {
 
   String $__typename() default "";
 
+  String $userPhonesRelation() default "";
+
+  String $groupUserRelation() default "";
+
+  String $roleUserRelation() default "";
+
+  String $groupsAggregate() default "";
+
+  String $rolesAggregate() default "";
+
+  String $userPhonesRelationAggregate() default "";
+
+  String $groupUserRelationAggregate() default "";
+
+  String $roleUserRelationAggregate() default "";
+
   String $idCount() default "";
-
-  String $idMax() default "";
-
-  String $idMin() default "";
 
   String $nameCount() default "";
 
-  String $nameMax() default "";
-
-  String $nameMin() default "";
-
   String $descriptionCount() default "";
-
-  String $descriptionMax() default "";
-
-  String $descriptionMin() default "";
 
   String $lastNameCount() default "";
 
-  String $lastNameMax() default "";
-
-  String $lastNameMin() default "";
-
   String $loginCount() default "";
-
-  String $loginMax() default "";
-
-  String $loginMin() default "";
 
   String $saltCount() default "";
 
-  String $saltMax() default "";
-
-  String $saltMin() default "";
-
   String $hashCount() default "";
-
-  String $hashMax() default "";
-
-  String $hashMin() default "";
 
   String $emailCount() default "";
 
-  String $emailMax() default "";
+  String $disableCount() default "";
 
-  String $emailMin() default "";
+  String $createTimeYear() default "";
+
+  String $createTimeMonth() default "";
+
+  String $createTimeDay() default "";
+
+  String $createTimeWeek() default "";
+
+  String $createTimeQuarter() default "";
+
+  String $updateTimeYear() default "";
+
+  String $updateTimeMonth() default "";
+
+  String $updateTimeDay() default "";
+
+  String $updateTimeWeek() default "";
+
+  String $updateTimeQuarter() default "";
+
+  String $obs() default "";
 }

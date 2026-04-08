@@ -113,34 +113,10 @@ public class GroupRoleRelation implements Meta {
   private Integer idCount;
 
   /**
-   * Max of ID
-   */
-  @Description("Max of ID")
-  private Integer idMax;
-
-  /**
-   * Min of ID
-   */
-  @Description("Min of ID")
-  private Integer idMin;
-
-  /**
    * Count of 角色 Reference
    */
   @Description("Count of 角色 Reference")
   private Integer roleRefCount;
-
-  /**
-   * Max of 角色 Reference
-   */
-  @Description("Max of 角色 Reference")
-  private String roleRefMax;
-
-  /**
-   * Min of 角色 Reference
-   */
-  @Description("Min of 角色 Reference")
-  private String roleRefMin;
 
   /**
    * Count of 组 Reference
@@ -149,16 +125,64 @@ public class GroupRoleRelation implements Meta {
   private Integer groupRefCount;
 
   /**
-   * Max of 组 Reference
+   * Year of Create Time
    */
-  @Description("Max of 组 Reference")
-  private String groupRefMax;
+  @Description("Year of Create Time")
+  private Integer createTimeYear;
 
   /**
-   * Min of 组 Reference
+   * Month of Create Time
    */
-  @Description("Min of 组 Reference")
-  private String groupRefMin;
+  @Description("Month of Create Time")
+  private Integer createTimeMonth;
+
+  /**
+   * Day of Create Time
+   */
+  @Description("Day of Create Time")
+  private Integer createTimeDay;
+
+  /**
+   * Week of Create Time
+   */
+  @Description("Week of Create Time")
+  private Integer createTimeWeek;
+
+  /**
+   * Quarter of Create Time
+   */
+  @Description("Quarter of Create Time")
+  private Integer createTimeQuarter;
+
+  /**
+   * Year of Update Time
+   */
+  @Description("Year of Update Time")
+  private Integer updateTimeYear;
+
+  /**
+   * Month of Update Time
+   */
+  @Description("Month of Update Time")
+  private Integer updateTimeMonth;
+
+  /**
+   * Day of Update Time
+   */
+  @Description("Day of Update Time")
+  private Integer updateTimeDay;
+
+  /**
+   * Week of Update Time
+   */
+  @Description("Week of Update Time")
+  private Integer updateTimeWeek;
+
+  /**
+   * Quarter of Update Time
+   */
+  @Description("Quarter of Update Time")
+  private Integer updateTimeQuarter;
 
   @Override
   public String getId() {
@@ -298,44 +322,12 @@ public class GroupRoleRelation implements Meta {
     this.idCount = idCount;
   }
 
-  public Integer getIdMax() {
-    return this.idMax;
-  }
-
-  public void setIdMax(Integer idMax) {
-    this.idMax = idMax;
-  }
-
-  public Integer getIdMin() {
-    return this.idMin;
-  }
-
-  public void setIdMin(Integer idMin) {
-    this.idMin = idMin;
-  }
-
   public Integer getRoleRefCount() {
     return this.roleRefCount;
   }
 
   public void setRoleRefCount(Integer roleRefCount) {
     this.roleRefCount = roleRefCount;
-  }
-
-  public String getRoleRefMax() {
-    return this.roleRefMax;
-  }
-
-  public void setRoleRefMax(String roleRefMax) {
-    this.roleRefMax = roleRefMax;
-  }
-
-  public String getRoleRefMin() {
-    return this.roleRefMin;
-  }
-
-  public void setRoleRefMin(String roleRefMin) {
-    this.roleRefMin = roleRefMin;
   }
 
   public Integer getGroupRefCount() {
@@ -346,20 +338,84 @@ public class GroupRoleRelation implements Meta {
     this.groupRefCount = groupRefCount;
   }
 
-  public String getGroupRefMax() {
-    return this.groupRefMax;
+  public Integer getCreateTimeYear() {
+    return this.createTimeYear;
   }
 
-  public void setGroupRefMax(String groupRefMax) {
-    this.groupRefMax = groupRefMax;
+  public void setCreateTimeYear(Integer createTimeYear) {
+    this.createTimeYear = createTimeYear;
   }
 
-  public String getGroupRefMin() {
-    return this.groupRefMin;
+  public Integer getCreateTimeMonth() {
+    return this.createTimeMonth;
   }
 
-  public void setGroupRefMin(String groupRefMin) {
-    this.groupRefMin = groupRefMin;
+  public void setCreateTimeMonth(Integer createTimeMonth) {
+    this.createTimeMonth = createTimeMonth;
+  }
+
+  public Integer getCreateTimeDay() {
+    return this.createTimeDay;
+  }
+
+  public void setCreateTimeDay(Integer createTimeDay) {
+    this.createTimeDay = createTimeDay;
+  }
+
+  public Integer getCreateTimeWeek() {
+    return this.createTimeWeek;
+  }
+
+  public void setCreateTimeWeek(Integer createTimeWeek) {
+    this.createTimeWeek = createTimeWeek;
+  }
+
+  public Integer getCreateTimeQuarter() {
+    return this.createTimeQuarter;
+  }
+
+  public void setCreateTimeQuarter(Integer createTimeQuarter) {
+    this.createTimeQuarter = createTimeQuarter;
+  }
+
+  public Integer getUpdateTimeYear() {
+    return this.updateTimeYear;
+  }
+
+  public void setUpdateTimeYear(Integer updateTimeYear) {
+    this.updateTimeYear = updateTimeYear;
+  }
+
+  public Integer getUpdateTimeMonth() {
+    return this.updateTimeMonth;
+  }
+
+  public void setUpdateTimeMonth(Integer updateTimeMonth) {
+    this.updateTimeMonth = updateTimeMonth;
+  }
+
+  public Integer getUpdateTimeDay() {
+    return this.updateTimeDay;
+  }
+
+  public void setUpdateTimeDay(Integer updateTimeDay) {
+    this.updateTimeDay = updateTimeDay;
+  }
+
+  public Integer getUpdateTimeWeek() {
+    return this.updateTimeWeek;
+  }
+
+  public void setUpdateTimeWeek(Integer updateTimeWeek) {
+    this.updateTimeWeek = updateTimeWeek;
+  }
+
+  public Integer getUpdateTimeQuarter() {
+    return this.updateTimeQuarter;
+  }
+
+  public void setUpdateTimeQuarter(Integer updateTimeQuarter) {
+    this.updateTimeQuarter = updateTimeQuarter;
   }
 
   public GroupRoleRelationInput toInput() {

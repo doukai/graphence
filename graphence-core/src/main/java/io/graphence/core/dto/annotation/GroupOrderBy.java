@@ -56,6 +56,36 @@ public @interface GroupOrderBy {
   Sort parentId() default Sort.ASC;
 
   /**
+   * 上级
+   */
+  @Description("上级")
+  GroupOrderBy1 parent() default @GroupOrderBy1;
+
+  /**
+   * 下级
+   */
+  @Description("下级")
+  GroupOrderBy1 subGroups() default @GroupOrderBy1;
+
+  /**
+   * 用户
+   */
+  @Description("用户")
+  UserOrderBy1 users() default @UserOrderBy1;
+
+  /**
+   * 角色
+   */
+  @Description("角色")
+  RoleOrderBy1 roles() default @RoleOrderBy1;
+
+  /**
+   * 租户
+   */
+  @Description("租户")
+  RealmOrderBy1 realm() default @RealmOrderBy1;
+
+  /**
    * Is Deprecated
    */
   @Description("Is Deprecated")
@@ -110,22 +140,52 @@ public @interface GroupOrderBy {
   Sort __typename() default Sort.ASC;
 
   /**
+   * Relationship Object between 用户 and 组
+   */
+  @Description("Relationship Object between 用户 and 组")
+  GroupUserRelationOrderBy1 groupUserRelation() default @GroupUserRelationOrderBy1;
+
+  /**
+   * Relationship Object between 角色 and 组
+   */
+  @Description("Relationship Object between 角色 and 组")
+  GroupRoleRelationOrderBy1 groupRoleRelation() default @GroupRoleRelationOrderBy1;
+
+  /**
+   * Aggregate Field for 下级
+   */
+  @Description("Aggregate Field for 下级")
+  GroupOrderBy1 subGroupsAggregate() default @GroupOrderBy1;
+
+  /**
+   * Aggregate Field for 用户
+   */
+  @Description("Aggregate Field for 用户")
+  UserOrderBy1 usersAggregate() default @UserOrderBy1;
+
+  /**
+   * Aggregate Field for 角色
+   */
+  @Description("Aggregate Field for 角色")
+  RoleOrderBy1 rolesAggregate() default @RoleOrderBy1;
+
+  /**
+   * Aggregate Field for Relationship Object between 用户 and 组
+   */
+  @Description("Aggregate Field for Relationship Object between 用户 and 组")
+  GroupUserRelationOrderBy1 groupUserRelationAggregate() default @GroupUserRelationOrderBy1;
+
+  /**
+   * Aggregate Field for Relationship Object between 角色 and 组
+   */
+  @Description("Aggregate Field for Relationship Object between 角色 and 组")
+  GroupRoleRelationOrderBy1 groupRoleRelationAggregate() default @GroupRoleRelationOrderBy1;
+
+  /**
    * Count of 组
    */
   @Description("Count of 组")
   Sort idCount() default Sort.ASC;
-
-  /**
-   * Max of ID
-   */
-  @Description("Max of ID")
-  Sort idMax() default Sort.ASC;
-
-  /**
-   * Min of ID
-   */
-  @Description("Min of ID")
-  Sort idMin() default Sort.ASC;
 
   /**
    * Count of 名称
@@ -134,34 +194,10 @@ public @interface GroupOrderBy {
   Sort nameCount() default Sort.ASC;
 
   /**
-   * Max of 名称
-   */
-  @Description("Max of 名称")
-  Sort nameMax() default Sort.ASC;
-
-  /**
-   * Min of 名称
-   */
-  @Description("Min of 名称")
-  Sort nameMin() default Sort.ASC;
-
-  /**
    * Count of 描述
    */
   @Description("Count of 描述")
   Sort descriptionCount() default Sort.ASC;
-
-  /**
-   * Max of 描述
-   */
-  @Description("Max of 描述")
-  Sort descriptionMax() default Sort.ASC;
-
-  /**
-   * Min of 描述
-   */
-  @Description("Min of 描述")
-  Sort descriptionMin() default Sort.ASC;
 
   /**
    * Count of 路径
@@ -170,16 +206,10 @@ public @interface GroupOrderBy {
   Sort pathCount() default Sort.ASC;
 
   /**
-   * Max of 路径
+   * Count of 层级
    */
-  @Description("Max of 路径")
-  Sort pathMax() default Sort.ASC;
-
-  /**
-   * Min of 路径
-   */
-  @Description("Min of 路径")
-  Sort pathMin() default Sort.ASC;
+  @Description("Count of 层级")
+  Sort deepCount() default Sort.ASC;
 
   /**
    * Count of 上级ID
@@ -188,22 +218,16 @@ public @interface GroupOrderBy {
   Sort parentIdCount() default Sort.ASC;
 
   /**
-   * Max of 上级ID
+   * Max of 层级
    */
-  @Description("Max of 上级ID")
-  Sort parentIdMax() default Sort.ASC;
+  @Description("Max of 层级")
+  Sort deepMax() default Sort.ASC;
 
   /**
-   * Min of 上级ID
+   * Min of 层级
    */
-  @Description("Min of 上级ID")
-  Sort parentIdMin() default Sort.ASC;
-
-  /**
-   * Count of 层级
-   */
-  @Description("Count of 层级")
-  Sort deepCount() default Sort.ASC;
+  @Description("Min of 层级")
+  Sort deepMin() default Sort.ASC;
 
   /**
    * Sum of 层级
@@ -218,16 +242,70 @@ public @interface GroupOrderBy {
   Sort deepAvg() default Sort.ASC;
 
   /**
-   * Max of 层级
+   * Year of Create Time
    */
-  @Description("Max of 层级")
-  Sort deepMax() default Sort.ASC;
+  @Description("Year of Create Time")
+  Sort createTimeYear() default Sort.ASC;
 
   /**
-   * Min of 层级
+   * Month of Create Time
    */
-  @Description("Min of 层级")
-  Sort deepMin() default Sort.ASC;
+  @Description("Month of Create Time")
+  Sort createTimeMonth() default Sort.ASC;
+
+  /**
+   * Day of Create Time
+   */
+  @Description("Day of Create Time")
+  Sort createTimeDay() default Sort.ASC;
+
+  /**
+   * Week of Create Time
+   */
+  @Description("Week of Create Time")
+  Sort createTimeWeek() default Sort.ASC;
+
+  /**
+   * Quarter of Create Time
+   */
+  @Description("Quarter of Create Time")
+  Sort createTimeQuarter() default Sort.ASC;
+
+  /**
+   * Year of Update Time
+   */
+  @Description("Year of Update Time")
+  Sort updateTimeYear() default Sort.ASC;
+
+  /**
+   * Month of Update Time
+   */
+  @Description("Month of Update Time")
+  Sort updateTimeMonth() default Sort.ASC;
+
+  /**
+   * Day of Update Time
+   */
+  @Description("Day of Update Time")
+  Sort updateTimeDay() default Sort.ASC;
+
+  /**
+   * Week of Update Time
+   */
+  @Description("Week of Update Time")
+  Sort updateTimeWeek() default Sort.ASC;
+
+  /**
+   * Quarter of Update Time
+   */
+  @Description("Quarter of Update Time")
+  Sort updateTimeQuarter() default Sort.ASC;
+
+  /**
+   * OrderByes
+   */
+  @Description("OrderByes")
+  GroupOrderBy1[] obs() default {};
 
   String $id() default "";
 
@@ -240,6 +318,16 @@ public @interface GroupOrderBy {
   String $deep() default "";
 
   String $parentId() default "";
+
+  String $parent() default "";
+
+  String $subGroups() default "";
+
+  String $users() default "";
+
+  String $roles() default "";
+
+  String $realm() default "";
 
   String $isDeprecated() default "";
 
@@ -259,43 +347,59 @@ public @interface GroupOrderBy {
 
   String $__typename() default "";
 
+  String $groupUserRelation() default "";
+
+  String $groupRoleRelation() default "";
+
+  String $subGroupsAggregate() default "";
+
+  String $usersAggregate() default "";
+
+  String $rolesAggregate() default "";
+
+  String $groupUserRelationAggregate() default "";
+
+  String $groupRoleRelationAggregate() default "";
+
   String $idCount() default "";
-
-  String $idMax() default "";
-
-  String $idMin() default "";
 
   String $nameCount() default "";
 
-  String $nameMax() default "";
-
-  String $nameMin() default "";
-
   String $descriptionCount() default "";
-
-  String $descriptionMax() default "";
-
-  String $descriptionMin() default "";
 
   String $pathCount() default "";
 
-  String $pathMax() default "";
-
-  String $pathMin() default "";
+  String $deepCount() default "";
 
   String $parentIdCount() default "";
 
-  String $parentIdMax() default "";
+  String $deepMax() default "";
 
-  String $parentIdMin() default "";
-
-  String $deepCount() default "";
+  String $deepMin() default "";
 
   String $deepSum() default "";
 
   String $deepAvg() default "";
 
-  String $deepMax() default "";
+  String $createTimeYear() default "";
 
-  String $deepMin() default "";
+  String $createTimeMonth() default "";
+
+  String $createTimeDay() default "";
+
+  String $createTimeWeek() default "";
+
+  String $createTimeQuarter() default "";
+
+  String $updateTimeYear() default "";
+
+  String $updateTimeMonth() default "";
+
+  String $updateTimeDay() default "";
+
+  String $updateTimeWeek() default "";
+
+  String $updateTimeQuarter() default "";
+
+  String $obs() default "";
 }

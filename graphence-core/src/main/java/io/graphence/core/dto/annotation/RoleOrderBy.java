@@ -38,6 +38,36 @@ public @interface RoleOrderBy {
   Sort description() default Sort.ASC;
 
   /**
+   * 用户
+   */
+  @Description("用户")
+  UserOrderBy1 users() default @UserOrderBy1;
+
+  /**
+   * 组
+   */
+  @Description("组")
+  GroupOrderBy1 groups() default @GroupOrderBy1;
+
+  /**
+   * 组合
+   */
+  @Description("组合")
+  RoleOrderBy1 composites() default @RoleOrderBy1;
+
+  /**
+   * 权限
+   */
+  @Description("权限")
+  PermissionOrderBy1 permissions() default @PermissionOrderBy1;
+
+  /**
+   * 租户
+   */
+  @Description("租户")
+  RealmOrderBy1 realm() default @RealmOrderBy1;
+
+  /**
    * Is Deprecated
    */
   @Description("Is Deprecated")
@@ -92,22 +122,84 @@ public @interface RoleOrderBy {
   Sort __typename() default Sort.ASC;
 
   /**
+   * Relationship Object between 用户 and 角色
+   */
+  @Description("Relationship Object between 用户 and 角色")
+  RoleUserRelationOrderBy1 roleUserRelation() default @RoleUserRelationOrderBy1;
+
+  /**
+   * Relationship Object between 角色 and 组
+   */
+  @Description("Relationship Object between 角色 and 组")
+  GroupRoleRelationOrderBy1 groupRoleRelation() default @GroupRoleRelationOrderBy1;
+
+  /**
+   * Relationship Object between 角色 and 角色
+   */
+  @Description("Relationship Object between 角色 and 角色")
+  RoleCompositeRelationOrderBy1 roleCompositeRelation() default @RoleCompositeRelationOrderBy1;
+
+  /**
+   * Relationship Object between 角色 and 权限
+   */
+  @Description("Relationship Object between 角色 and 权限")
+  RolePermissionRelationOrderBy1 rolePermissionRelation() default @RolePermissionRelationOrderBy1;
+
+  /**
+   * Aggregate Field for 用户
+   */
+  @Description("Aggregate Field for 用户")
+  UserOrderBy1 usersAggregate() default @UserOrderBy1;
+
+  /**
+   * Aggregate Field for 组
+   */
+  @Description("Aggregate Field for 组")
+  GroupOrderBy1 groupsAggregate() default @GroupOrderBy1;
+
+  /**
+   * Aggregate Field for 组合
+   */
+  @Description("Aggregate Field for 组合")
+  RoleOrderBy1 compositesAggregate() default @RoleOrderBy1;
+
+  /**
+   * Aggregate Field for 权限
+   */
+  @Description("Aggregate Field for 权限")
+  PermissionOrderBy1 permissionsAggregate() default @PermissionOrderBy1;
+
+  /**
+   * Aggregate Field for Relationship Object between 用户 and 角色
+   */
+  @Description("Aggregate Field for Relationship Object between 用户 and 角色")
+  RoleUserRelationOrderBy1 roleUserRelationAggregate() default @RoleUserRelationOrderBy1;
+
+  /**
+   * Aggregate Field for Relationship Object between 角色 and 组
+   */
+  @Description("Aggregate Field for Relationship Object between 角色 and 组")
+  GroupRoleRelationOrderBy1 groupRoleRelationAggregate() default @GroupRoleRelationOrderBy1;
+
+  /**
+   * Aggregate Field for Relationship Object between 角色 and 角色
+   */
+  @Description("Aggregate Field for Relationship Object between 角色 and 角色")
+  RoleCompositeRelationOrderBy1 roleCompositeRelationAggregate(
+      ) default @RoleCompositeRelationOrderBy1;
+
+  /**
+   * Aggregate Field for Relationship Object between 角色 and 权限
+   */
+  @Description("Aggregate Field for Relationship Object between 角色 and 权限")
+  RolePermissionRelationOrderBy1 rolePermissionRelationAggregate(
+      ) default @RolePermissionRelationOrderBy1;
+
+  /**
    * Count of 角色
    */
   @Description("Count of 角色")
   Sort idCount() default Sort.ASC;
-
-  /**
-   * Max of ID
-   */
-  @Description("Max of ID")
-  Sort idMax() default Sort.ASC;
-
-  /**
-   * Min of ID
-   */
-  @Description("Min of ID")
-  Sort idMin() default Sort.ASC;
 
   /**
    * Count of 名称
@@ -116,40 +208,92 @@ public @interface RoleOrderBy {
   Sort nameCount() default Sort.ASC;
 
   /**
-   * Max of 名称
-   */
-  @Description("Max of 名称")
-  Sort nameMax() default Sort.ASC;
-
-  /**
-   * Min of 名称
-   */
-  @Description("Min of 名称")
-  Sort nameMin() default Sort.ASC;
-
-  /**
    * Count of 描述
    */
   @Description("Count of 描述")
   Sort descriptionCount() default Sort.ASC;
 
   /**
-   * Max of 描述
+   * Year of Create Time
    */
-  @Description("Max of 描述")
-  Sort descriptionMax() default Sort.ASC;
+  @Description("Year of Create Time")
+  Sort createTimeYear() default Sort.ASC;
 
   /**
-   * Min of 描述
+   * Month of Create Time
    */
-  @Description("Min of 描述")
-  Sort descriptionMin() default Sort.ASC;
+  @Description("Month of Create Time")
+  Sort createTimeMonth() default Sort.ASC;
+
+  /**
+   * Day of Create Time
+   */
+  @Description("Day of Create Time")
+  Sort createTimeDay() default Sort.ASC;
+
+  /**
+   * Week of Create Time
+   */
+  @Description("Week of Create Time")
+  Sort createTimeWeek() default Sort.ASC;
+
+  /**
+   * Quarter of Create Time
+   */
+  @Description("Quarter of Create Time")
+  Sort createTimeQuarter() default Sort.ASC;
+
+  /**
+   * Year of Update Time
+   */
+  @Description("Year of Update Time")
+  Sort updateTimeYear() default Sort.ASC;
+
+  /**
+   * Month of Update Time
+   */
+  @Description("Month of Update Time")
+  Sort updateTimeMonth() default Sort.ASC;
+
+  /**
+   * Day of Update Time
+   */
+  @Description("Day of Update Time")
+  Sort updateTimeDay() default Sort.ASC;
+
+  /**
+   * Week of Update Time
+   */
+  @Description("Week of Update Time")
+  Sort updateTimeWeek() default Sort.ASC;
+
+  /**
+   * Quarter of Update Time
+   */
+  @Description("Quarter of Update Time")
+  Sort updateTimeQuarter() default Sort.ASC;
+
+  /**
+   * OrderByes
+   */
+  @Description("OrderByes")
+  RoleOrderBy1[] obs() default {};
 
   String $id() default "";
 
   String $name() default "";
 
   String $description() default "";
+
+  String $users() default "";
+
+  String $groups() default "";
+
+  String $composites() default "";
+
+  String $permissions() default "";
+
+  String $realm() default "";
 
   String $isDeprecated() default "";
 
@@ -169,21 +313,55 @@ public @interface RoleOrderBy {
 
   String $__typename() default "";
 
+  String $roleUserRelation() default "";
+
+  String $groupRoleRelation() default "";
+
+  String $roleCompositeRelation() default "";
+
+  String $rolePermissionRelation() default "";
+
+  String $usersAggregate() default "";
+
+  String $groupsAggregate() default "";
+
+  String $compositesAggregate() default "";
+
+  String $permissionsAggregate() default "";
+
+  String $roleUserRelationAggregate() default "";
+
+  String $groupRoleRelationAggregate() default "";
+
+  String $roleCompositeRelationAggregate() default "";
+
+  String $rolePermissionRelationAggregate() default "";
+
   String $idCount() default "";
-
-  String $idMax() default "";
-
-  String $idMin() default "";
 
   String $nameCount() default "";
 
-  String $nameMax() default "";
-
-  String $nameMin() default "";
-
   String $descriptionCount() default "";
 
-  String $descriptionMax() default "";
+  String $createTimeYear() default "";
 
-  String $descriptionMin() default "";
+  String $createTimeMonth() default "";
+
+  String $createTimeDay() default "";
+
+  String $createTimeWeek() default "";
+
+  String $createTimeQuarter() default "";
+
+  String $updateTimeYear() default "";
+
+  String $updateTimeMonth() default "";
+
+  String $updateTimeDay() default "";
+
+  String $updateTimeWeek() default "";
+
+  String $updateTimeQuarter() default "";
+
+  String $obs() default "";
 }

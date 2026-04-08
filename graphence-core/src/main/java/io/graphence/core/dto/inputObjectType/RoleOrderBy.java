@@ -3,6 +3,7 @@ package io.graphence.core.dto.inputObjectType;
 import com.dslplatform.json.CompiledJson;
 import io.graphoenix.core.dto.enumType.Sort;
 import jakarta.annotation.Generated;
+import java.util.Collection;
 import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.Input;
 
@@ -31,6 +32,36 @@ public class RoleOrderBy {
    */
   @Description("描述")
   private Sort description;
+
+  /**
+   * 用户
+   */
+  @Description("用户")
+  private UserOrderBy users;
+
+  /**
+   * 组
+   */
+  @Description("组")
+  private GroupOrderBy groups;
+
+  /**
+   * 组合
+   */
+  @Description("组合")
+  private RoleOrderBy composites;
+
+  /**
+   * 权限
+   */
+  @Description("权限")
+  private PermissionOrderBy permissions;
+
+  /**
+   * 租户
+   */
+  @Description("租户")
+  private RealmOrderBy realm;
 
   /**
    * Is Deprecated
@@ -87,22 +118,82 @@ public class RoleOrderBy {
   private Sort __typename;
 
   /**
+   * Relationship Object between 用户 and 角色
+   */
+  @Description("Relationship Object between 用户 and 角色")
+  private RoleUserRelationOrderBy roleUserRelation;
+
+  /**
+   * Relationship Object between 角色 and 组
+   */
+  @Description("Relationship Object between 角色 and 组")
+  private GroupRoleRelationOrderBy groupRoleRelation;
+
+  /**
+   * Relationship Object between 角色 and 角色
+   */
+  @Description("Relationship Object between 角色 and 角色")
+  private RoleCompositeRelationOrderBy roleCompositeRelation;
+
+  /**
+   * Relationship Object between 角色 and 权限
+   */
+  @Description("Relationship Object between 角色 and 权限")
+  private RolePermissionRelationOrderBy rolePermissionRelation;
+
+  /**
+   * Aggregate Field for 用户
+   */
+  @Description("Aggregate Field for 用户")
+  private UserOrderBy usersAggregate;
+
+  /**
+   * Aggregate Field for 组
+   */
+  @Description("Aggregate Field for 组")
+  private GroupOrderBy groupsAggregate;
+
+  /**
+   * Aggregate Field for 组合
+   */
+  @Description("Aggregate Field for 组合")
+  private RoleOrderBy compositesAggregate;
+
+  /**
+   * Aggregate Field for 权限
+   */
+  @Description("Aggregate Field for 权限")
+  private PermissionOrderBy permissionsAggregate;
+
+  /**
+   * Aggregate Field for Relationship Object between 用户 and 角色
+   */
+  @Description("Aggregate Field for Relationship Object between 用户 and 角色")
+  private RoleUserRelationOrderBy roleUserRelationAggregate;
+
+  /**
+   * Aggregate Field for Relationship Object between 角色 and 组
+   */
+  @Description("Aggregate Field for Relationship Object between 角色 and 组")
+  private GroupRoleRelationOrderBy groupRoleRelationAggregate;
+
+  /**
+   * Aggregate Field for Relationship Object between 角色 and 角色
+   */
+  @Description("Aggregate Field for Relationship Object between 角色 and 角色")
+  private RoleCompositeRelationOrderBy roleCompositeRelationAggregate;
+
+  /**
+   * Aggregate Field for Relationship Object between 角色 and 权限
+   */
+  @Description("Aggregate Field for Relationship Object between 角色 and 权限")
+  private RolePermissionRelationOrderBy rolePermissionRelationAggregate;
+
+  /**
    * Count of 角色
    */
   @Description("Count of 角色")
   private Sort idCount;
-
-  /**
-   * Max of ID
-   */
-  @Description("Max of ID")
-  private Sort idMax;
-
-  /**
-   * Min of ID
-   */
-  @Description("Min of ID")
-  private Sort idMin;
 
   /**
    * Count of 名称
@@ -111,34 +202,76 @@ public class RoleOrderBy {
   private Sort nameCount;
 
   /**
-   * Max of 名称
-   */
-  @Description("Max of 名称")
-  private Sort nameMax;
-
-  /**
-   * Min of 名称
-   */
-  @Description("Min of 名称")
-  private Sort nameMin;
-
-  /**
    * Count of 描述
    */
   @Description("Count of 描述")
   private Sort descriptionCount;
 
   /**
-   * Max of 描述
+   * Year of Create Time
    */
-  @Description("Max of 描述")
-  private Sort descriptionMax;
+  @Description("Year of Create Time")
+  private Sort createTimeYear;
 
   /**
-   * Min of 描述
+   * Month of Create Time
    */
-  @Description("Min of 描述")
-  private Sort descriptionMin;
+  @Description("Month of Create Time")
+  private Sort createTimeMonth;
+
+  /**
+   * Day of Create Time
+   */
+  @Description("Day of Create Time")
+  private Sort createTimeDay;
+
+  /**
+   * Week of Create Time
+   */
+  @Description("Week of Create Time")
+  private Sort createTimeWeek;
+
+  /**
+   * Quarter of Create Time
+   */
+  @Description("Quarter of Create Time")
+  private Sort createTimeQuarter;
+
+  /**
+   * Year of Update Time
+   */
+  @Description("Year of Update Time")
+  private Sort updateTimeYear;
+
+  /**
+   * Month of Update Time
+   */
+  @Description("Month of Update Time")
+  private Sort updateTimeMonth;
+
+  /**
+   * Day of Update Time
+   */
+  @Description("Day of Update Time")
+  private Sort updateTimeDay;
+
+  /**
+   * Week of Update Time
+   */
+  @Description("Week of Update Time")
+  private Sort updateTimeWeek;
+
+  /**
+   * Quarter of Update Time
+   */
+  @Description("Quarter of Update Time")
+  private Sort updateTimeQuarter;
+
+  /**
+   * OrderByes
+   */
+  @Description("OrderByes")
+  private Collection<RoleOrderBy> obs;
 
   public Sort getId() {
     return this.id;
@@ -162,6 +295,46 @@ public class RoleOrderBy {
 
   public void setDescription(Sort description) {
     this.description = description;
+  }
+
+  public UserOrderBy getUsers() {
+    return this.users;
+  }
+
+  public void setUsers(UserOrderBy users) {
+    this.users = users;
+  }
+
+  public GroupOrderBy getGroups() {
+    return this.groups;
+  }
+
+  public void setGroups(GroupOrderBy groups) {
+    this.groups = groups;
+  }
+
+  public RoleOrderBy getComposites() {
+    return this.composites;
+  }
+
+  public void setComposites(RoleOrderBy composites) {
+    this.composites = composites;
+  }
+
+  public PermissionOrderBy getPermissions() {
+    return this.permissions;
+  }
+
+  public void setPermissions(PermissionOrderBy permissions) {
+    this.permissions = permissions;
+  }
+
+  public RealmOrderBy getRealm() {
+    return this.realm;
+  }
+
+  public void setRealm(RealmOrderBy realm) {
+    this.realm = realm;
   }
 
   public Sort getIsDeprecated() {
@@ -236,28 +409,110 @@ public class RoleOrderBy {
     this.__typename = __typename;
   }
 
+  public RoleUserRelationOrderBy getRoleUserRelation() {
+    return this.roleUserRelation;
+  }
+
+  public void setRoleUserRelation(RoleUserRelationOrderBy roleUserRelation) {
+    this.roleUserRelation = roleUserRelation;
+  }
+
+  public GroupRoleRelationOrderBy getGroupRoleRelation() {
+    return this.groupRoleRelation;
+  }
+
+  public void setGroupRoleRelation(GroupRoleRelationOrderBy groupRoleRelation) {
+    this.groupRoleRelation = groupRoleRelation;
+  }
+
+  public RoleCompositeRelationOrderBy getRoleCompositeRelation() {
+    return this.roleCompositeRelation;
+  }
+
+  public void setRoleCompositeRelation(RoleCompositeRelationOrderBy roleCompositeRelation) {
+    this.roleCompositeRelation = roleCompositeRelation;
+  }
+
+  public RolePermissionRelationOrderBy getRolePermissionRelation() {
+    return this.rolePermissionRelation;
+  }
+
+  public void setRolePermissionRelation(RolePermissionRelationOrderBy rolePermissionRelation) {
+    this.rolePermissionRelation = rolePermissionRelation;
+  }
+
+  public UserOrderBy getUsersAggregate() {
+    return this.usersAggregate;
+  }
+
+  public void setUsersAggregate(UserOrderBy usersAggregate) {
+    this.usersAggregate = usersAggregate;
+  }
+
+  public GroupOrderBy getGroupsAggregate() {
+    return this.groupsAggregate;
+  }
+
+  public void setGroupsAggregate(GroupOrderBy groupsAggregate) {
+    this.groupsAggregate = groupsAggregate;
+  }
+
+  public RoleOrderBy getCompositesAggregate() {
+    return this.compositesAggregate;
+  }
+
+  public void setCompositesAggregate(RoleOrderBy compositesAggregate) {
+    this.compositesAggregate = compositesAggregate;
+  }
+
+  public PermissionOrderBy getPermissionsAggregate() {
+    return this.permissionsAggregate;
+  }
+
+  public void setPermissionsAggregate(PermissionOrderBy permissionsAggregate) {
+    this.permissionsAggregate = permissionsAggregate;
+  }
+
+  public RoleUserRelationOrderBy getRoleUserRelationAggregate() {
+    return this.roleUserRelationAggregate;
+  }
+
+  public void setRoleUserRelationAggregate(RoleUserRelationOrderBy roleUserRelationAggregate) {
+    this.roleUserRelationAggregate = roleUserRelationAggregate;
+  }
+
+  public GroupRoleRelationOrderBy getGroupRoleRelationAggregate() {
+    return this.groupRoleRelationAggregate;
+  }
+
+  public void setGroupRoleRelationAggregate(GroupRoleRelationOrderBy groupRoleRelationAggregate) {
+    this.groupRoleRelationAggregate = groupRoleRelationAggregate;
+  }
+
+  public RoleCompositeRelationOrderBy getRoleCompositeRelationAggregate() {
+    return this.roleCompositeRelationAggregate;
+  }
+
+  public void setRoleCompositeRelationAggregate(
+      RoleCompositeRelationOrderBy roleCompositeRelationAggregate) {
+    this.roleCompositeRelationAggregate = roleCompositeRelationAggregate;
+  }
+
+  public RolePermissionRelationOrderBy getRolePermissionRelationAggregate() {
+    return this.rolePermissionRelationAggregate;
+  }
+
+  public void setRolePermissionRelationAggregate(
+      RolePermissionRelationOrderBy rolePermissionRelationAggregate) {
+    this.rolePermissionRelationAggregate = rolePermissionRelationAggregate;
+  }
+
   public Sort getIdCount() {
     return this.idCount;
   }
 
   public void setIdCount(Sort idCount) {
     this.idCount = idCount;
-  }
-
-  public Sort getIdMax() {
-    return this.idMax;
-  }
-
-  public void setIdMax(Sort idMax) {
-    this.idMax = idMax;
-  }
-
-  public Sort getIdMin() {
-    return this.idMin;
-  }
-
-  public void setIdMin(Sort idMin) {
-    this.idMin = idMin;
   }
 
   public Sort getNameCount() {
@@ -268,22 +523,6 @@ public class RoleOrderBy {
     this.nameCount = nameCount;
   }
 
-  public Sort getNameMax() {
-    return this.nameMax;
-  }
-
-  public void setNameMax(Sort nameMax) {
-    this.nameMax = nameMax;
-  }
-
-  public Sort getNameMin() {
-    return this.nameMin;
-  }
-
-  public void setNameMin(Sort nameMin) {
-    this.nameMin = nameMin;
-  }
-
   public Sort getDescriptionCount() {
     return this.descriptionCount;
   }
@@ -292,19 +531,91 @@ public class RoleOrderBy {
     this.descriptionCount = descriptionCount;
   }
 
-  public Sort getDescriptionMax() {
-    return this.descriptionMax;
+  public Sort getCreateTimeYear() {
+    return this.createTimeYear;
   }
 
-  public void setDescriptionMax(Sort descriptionMax) {
-    this.descriptionMax = descriptionMax;
+  public void setCreateTimeYear(Sort createTimeYear) {
+    this.createTimeYear = createTimeYear;
   }
 
-  public Sort getDescriptionMin() {
-    return this.descriptionMin;
+  public Sort getCreateTimeMonth() {
+    return this.createTimeMonth;
   }
 
-  public void setDescriptionMin(Sort descriptionMin) {
-    this.descriptionMin = descriptionMin;
+  public void setCreateTimeMonth(Sort createTimeMonth) {
+    this.createTimeMonth = createTimeMonth;
+  }
+
+  public Sort getCreateTimeDay() {
+    return this.createTimeDay;
+  }
+
+  public void setCreateTimeDay(Sort createTimeDay) {
+    this.createTimeDay = createTimeDay;
+  }
+
+  public Sort getCreateTimeWeek() {
+    return this.createTimeWeek;
+  }
+
+  public void setCreateTimeWeek(Sort createTimeWeek) {
+    this.createTimeWeek = createTimeWeek;
+  }
+
+  public Sort getCreateTimeQuarter() {
+    return this.createTimeQuarter;
+  }
+
+  public void setCreateTimeQuarter(Sort createTimeQuarter) {
+    this.createTimeQuarter = createTimeQuarter;
+  }
+
+  public Sort getUpdateTimeYear() {
+    return this.updateTimeYear;
+  }
+
+  public void setUpdateTimeYear(Sort updateTimeYear) {
+    this.updateTimeYear = updateTimeYear;
+  }
+
+  public Sort getUpdateTimeMonth() {
+    return this.updateTimeMonth;
+  }
+
+  public void setUpdateTimeMonth(Sort updateTimeMonth) {
+    this.updateTimeMonth = updateTimeMonth;
+  }
+
+  public Sort getUpdateTimeDay() {
+    return this.updateTimeDay;
+  }
+
+  public void setUpdateTimeDay(Sort updateTimeDay) {
+    this.updateTimeDay = updateTimeDay;
+  }
+
+  public Sort getUpdateTimeWeek() {
+    return this.updateTimeWeek;
+  }
+
+  public void setUpdateTimeWeek(Sort updateTimeWeek) {
+    this.updateTimeWeek = updateTimeWeek;
+  }
+
+  public Sort getUpdateTimeQuarter() {
+    return this.updateTimeQuarter;
+  }
+
+  public void setUpdateTimeQuarter(Sort updateTimeQuarter) {
+    this.updateTimeQuarter = updateTimeQuarter;
+  }
+
+  public Collection<RoleOrderBy> getObs() {
+    return this.obs;
+  }
+
+  public void setObs(Collection<RoleOrderBy> obs) {
+    this.obs = obs;
   }
 }
