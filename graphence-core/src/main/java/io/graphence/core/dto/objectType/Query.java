@@ -215,8 +215,6 @@ public class Query {
   @Description("Query Field for Relationship Object between 角色 and 权限 Connection")
   private RolePermissionRelationConnection rolePermissionRelationConnection;
 
-  private Collection<Policy> policyList;
-
   private Current current;
 
   private User currentUser;
@@ -224,6 +222,8 @@ public class Query {
   private Collection<String> currentPermissionTypeList;
 
   private Collection<String> currentPermissionNameListByTypes;
+
+  private Collection<Policy> policyList;
 
   public User getUser() {
     return this.user;
@@ -496,14 +496,6 @@ public class Query {
     this.rolePermissionRelationConnection = rolePermissionRelationConnection;
   }
 
-  public Collection<Policy> getPolicyList() {
-    return this.policyList;
-  }
-
-  public void setPolicyList(Collection<Policy> policyList) {
-    this.policyList = policyList;
-  }
-
   public Current getCurrent() {
     return this.current;
   }
@@ -535,5 +527,13 @@ public class Query {
   public void setCurrentPermissionNameListByTypes(
       Collection<String> currentPermissionNameListByTypes) {
     this.currentPermissionNameListByTypes = currentPermissionNameListByTypes;
+  }
+
+  public Collection<Policy> getPolicyList() {
+    return this.policyList;
+  }
+
+  public void setPolicyList(Collection<Policy> policyList) {
+    this.policyList = policyList;
   }
 }

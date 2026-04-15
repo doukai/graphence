@@ -148,15 +148,15 @@ public class Mutation {
   @Description("Mutation Field for Relationship Object between 角色 and 权限 List")
   private Collection<RolePermissionRelation> rolePermissionRelationList;
 
-  private Boolean syncModelPolicy;
-
-  private Boolean syncPermissionRoleRelationPolicy;
+  private String login;
 
   private User currentUserUpdate;
 
   private User currentUserResetPassword;
 
-  private String login;
+  private Boolean syncModelPolicy;
+
+  private Boolean syncPermissionRoleRelationPolicy;
 
   public User getUser() {
     return this.user;
@@ -336,20 +336,12 @@ public class Mutation {
     this.rolePermissionRelationList = rolePermissionRelationList;
   }
 
-  public Boolean getSyncModelPolicy() {
-    return this.syncModelPolicy;
+  public String getLogin() {
+    return this.login;
   }
 
-  public void setSyncModelPolicy(Boolean syncModelPolicy) {
-    this.syncModelPolicy = syncModelPolicy;
-  }
-
-  public Boolean getSyncPermissionRoleRelationPolicy() {
-    return this.syncPermissionRoleRelationPolicy;
-  }
-
-  public void setSyncPermissionRoleRelationPolicy(Boolean syncPermissionRoleRelationPolicy) {
-    this.syncPermissionRoleRelationPolicy = syncPermissionRoleRelationPolicy;
+  public void setLogin(String login) {
+    this.login = login;
   }
 
   public User getCurrentUserUpdate() {
@@ -368,11 +360,19 @@ public class Mutation {
     this.currentUserResetPassword = currentUserResetPassword;
   }
 
-  public String getLogin() {
-    return this.login;
+  public Boolean getSyncModelPolicy() {
+    return this.syncModelPolicy;
   }
 
-  public void setLogin(String login) {
-    this.login = login;
+  public void setSyncModelPolicy(Boolean syncModelPolicy) {
+    this.syncModelPolicy = syncModelPolicy;
+  }
+
+  public Boolean getSyncPermissionRoleRelationPolicy() {
+    return this.syncPermissionRoleRelationPolicy;
+  }
+
+  public void setSyncPermissionRoleRelationPolicy(Boolean syncPermissionRoleRelationPolicy) {
+    this.syncPermissionRoleRelationPolicy = syncPermissionRoleRelationPolicy;
   }
 }
