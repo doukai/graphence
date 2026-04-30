@@ -151,6 +151,18 @@ public @interface GroupInput1 {
   GroupRoleRelationInput2[] groupRoleRelation() default {};
 
   /**
+   * Input
+   */
+  @Description("Input")
+  GroupInput2 input() default @GroupInput2;
+
+  /**
+   * Input List
+   */
+  @Description("Input List")
+  GroupInput2[] list() default {};
+
+  /**
    * Where
    */
   @Description("Where")
@@ -199,6 +211,10 @@ public @interface GroupInput1 {
   String $groupUserRelation() default "";
 
   String $groupRoleRelation() default "";
+
+  String $input() default "";
+
+  String $list() default "";
 
   String $where() default "";
 }

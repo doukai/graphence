@@ -9,6 +9,7 @@ import java.lang.Integer;
 import java.lang.Override;
 import java.lang.String;
 import java.time.LocalDateTime;
+import java.util.Collection;
 import org.eclipse.microprofile.graphql.DefaultValue;
 import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.Input;
@@ -20,7 +21,7 @@ import org.eclipse.microprofile.graphql.Input;
 @Input
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder")
 @Description("Mutation Input for 租户")
-public class RealmInput implements NamedStructInput, MetaInput, RealmInputBase {
+public class RealmInput implements NamedStructInput, MetaInput {
   /**
    * ID
    */
@@ -94,6 +95,18 @@ public class RealmInput implements NamedStructInput, MetaInput, RealmInputBase {
   @DefaultValue("Realm")
   @Description("Type Name")
   private String __typename = "Realm";
+
+  /**
+   * Input
+   */
+  @Description("Input")
+  private RealmInput input;
+
+  /**
+   * Input List
+   */
+  @Description("Input List")
+  private Collection<RealmInput> list;
 
   /**
    * Where
@@ -211,23 +224,35 @@ public class RealmInput implements NamedStructInput, MetaInput, RealmInputBase {
     this.createGroupId = (String)createGroupId;
   }
 
-  @Override
   public String get__typename() {
     return this.__typename;
   }
 
-  @Override
   public void set__typename(String __typename) {
-    this.__typename = (String)__typename;
+    this.__typename = __typename;
   }
 
-  @Override
+  public RealmInput getInput() {
+    return this.input;
+  }
+
+  public void setInput(RealmInput input) {
+    this.input = input;
+  }
+
+  public Collection<RealmInput> getList() {
+    return this.list;
+  }
+
+  public void setList(Collection<RealmInput> list) {
+    this.list = list;
+  }
+
   public RealmExpression getWhere() {
     return this.where;
   }
 
-  @Override
   public void setWhere(RealmExpression where) {
-    this.where = (RealmExpression)where;
+    this.where = where;
   }
 }

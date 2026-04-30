@@ -128,12 +128,7 @@ public class CurrentApi implements Asyncable {
   @Async(defaultIfEmpty = "metaInput")
   public MetaInput invokeMetaInput(@Source MetaInput metaInput) {
     Current current = await(currentMonoProvider.get());
-    if (!(metaInput instanceof RealmInput
-        || metaInput instanceof RealmMutationArguments
-        || metaInput instanceof RealmListMutationArguments
-        || metaInput instanceof PermissionInput
-        || metaInput instanceof PermissionMutationArguments
-        || metaInput instanceof PermissionListMutationArguments)) {
+    if (!(metaInput instanceof RealmInput || metaInput instanceof PermissionInput)) {
       if (current.getRealmId() != null) {
         metaInput.setRealmId(current.getRealmId());
       }
@@ -150,13 +145,7 @@ public class CurrentApi implements Asyncable {
   public MetaExpression invokeMetaExpression(@Source MetaExpression metaExpression) {
     Current current = await(currentMonoProvider.get());
     if (!(metaExpression instanceof RealmExpression
-        || metaExpression instanceof RealmQueryArguments
-        || metaExpression instanceof RealmConnectionQueryArguments
-        || metaExpression instanceof RealmListQueryArguments
-        || metaExpression instanceof PermissionExpression
-        || metaExpression instanceof PermissionQueryArguments
-        || metaExpression instanceof PermissionConnectionQueryArguments
-        || metaExpression instanceof PermissionListQueryArguments)) {
+        || metaExpression instanceof PermissionExpression)) {
       if (current.getRealmId() != null) {
         IntExpression intExpression = new IntExpression();
         intExpression.setVal(current.getRealmId());

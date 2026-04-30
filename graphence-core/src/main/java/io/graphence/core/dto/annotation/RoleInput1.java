@@ -145,6 +145,18 @@ public @interface RoleInput1 {
   RolePermissionRelationInput2[] rolePermissionRelation() default {};
 
   /**
+   * Input
+   */
+  @Description("Input")
+  RoleInput2 input() default @RoleInput2;
+
+  /**
+   * Input List
+   */
+  @Description("Input List")
+  RoleInput2[] list() default {};
+
+  /**
    * Where
    */
   @Description("Where")
@@ -191,6 +203,10 @@ public @interface RoleInput1 {
   String $roleCompositeRelation() default "";
 
   String $rolePermissionRelation() default "";
+
+  String $input() default "";
+
+  String $list() default "";
 
   String $where() default "";
 }

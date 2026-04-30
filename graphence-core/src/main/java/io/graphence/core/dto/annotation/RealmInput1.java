@@ -91,6 +91,18 @@ public @interface RealmInput1 {
   String __typename() default "Realm";
 
   /**
+   * Input
+   */
+  @Description("Input")
+  RealmInput2 input() default @RealmInput2;
+
+  /**
+   * Input List
+   */
+  @Description("Input List")
+  RealmInput2[] list() default {};
+
+  /**
    * Where
    */
   @Description("Where")
@@ -119,6 +131,10 @@ public @interface RealmInput1 {
   String $createGroupId() default "";
 
   String $__typename() default "";
+
+  String $input() default "";
+
+  String $list() default "";
 
   String $where() default "";
 }

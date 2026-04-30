@@ -21,7 +21,7 @@ import org.eclipse.microprofile.graphql.Input;
 @Input
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder")
 @Description("Mutation Input for 用户")
-public class UserInput implements NamedStructInput, MetaInput, UserInputBase {
+public class UserInput implements NamedStructInput, MetaInput {
   /**
    * ID
    */
@@ -175,6 +175,18 @@ public class UserInput implements NamedStructInput, MetaInput, UserInputBase {
   private Collection<RoleUserRelationInput> roleUserRelation;
 
   /**
+   * Input
+   */
+  @Description("Input")
+  private UserInput input;
+
+  /**
+   * Input List
+   */
+  @Description("Input List")
+  private Collection<UserInput> list;
+
+  /**
    * Where
    */
   @Description("Where")
@@ -210,104 +222,84 @@ public class UserInput implements NamedStructInput, MetaInput, UserInputBase {
     this.description = (String)description;
   }
 
-  @Override
   public String getLastName() {
     return this.lastName;
   }
 
-  @Override
   public void setLastName(String lastName) {
-    this.lastName = (String)lastName;
+    this.lastName = lastName;
   }
 
-  @Override
   public String getLogin() {
     return this.login;
   }
 
-  @Override
   public void setLogin(String login) {
-    this.login = (String)login;
+    this.login = login;
   }
 
-  @Override
   public String getSalt() {
     return this.salt;
   }
 
-  @Override
   public void setSalt(String salt) {
-    this.salt = (String)salt;
+    this.salt = salt;
   }
 
-  @Override
   public String getHash() {
     return this.hash;
   }
 
-  @Override
   public void setHash(String hash) {
-    this.hash = (String)hash;
+    this.hash = hash;
   }
 
-  @Override
   public String getEmail() {
     return this.email;
   }
 
-  @Override
   public void setEmail(String email) {
-    this.email = (String)email;
+    this.email = email;
   }
 
-  @Override
   public Collection<String> getPhones() {
     return this.phones;
   }
 
-  @Override
   public void setPhones(Collection<String> phones) {
-    this.phones = (Collection<String>)phones;
+    this.phones = phones;
   }
 
-  @Override
   public Boolean getDisable() {
     return this.disable;
   }
 
-  @Override
   public void setDisable(Boolean disable) {
-    this.disable = (Boolean)disable;
+    this.disable = disable;
   }
 
-  @Override
   public Collection<GroupInput> getGroups() {
     return this.groups;
   }
 
-  @Override
   public void setGroups(Collection<GroupInput> groups) {
-    this.groups = (Collection<GroupInput>)groups;
+    this.groups = groups;
   }
 
-  @Override
   public Collection<RoleInput> getRoles() {
     return this.roles;
   }
 
-  @Override
   public void setRoles(Collection<RoleInput> roles) {
-    this.roles = (Collection<RoleInput>)roles;
+    this.roles = roles;
   }
 
-  @Override
   public RealmInput getRealm() {
     return this.realm;
   }
 
-  @Override
   public void setRealm(RealmInput realm) {
-    this.realm = (RealmInput)realm;
+    this.realm = realm;
   }
 
   @Override
@@ -390,53 +382,59 @@ public class UserInput implements NamedStructInput, MetaInput, UserInputBase {
     this.createGroupId = (String)createGroupId;
   }
 
-  @Override
   public String get__typename() {
     return this.__typename;
   }
 
-  @Override
   public void set__typename(String __typename) {
-    this.__typename = (String)__typename;
+    this.__typename = __typename;
   }
 
-  @Override
   public Collection<UserPhonesRelationInput> getUserPhonesRelation() {
     return this.userPhonesRelation;
   }
 
-  @Override
   public void setUserPhonesRelation(Collection<UserPhonesRelationInput> userPhonesRelation) {
-    this.userPhonesRelation = (Collection<UserPhonesRelationInput>)userPhonesRelation;
+    this.userPhonesRelation = userPhonesRelation;
   }
 
-  @Override
   public Collection<GroupUserRelationInput> getGroupUserRelation() {
     return this.groupUserRelation;
   }
 
-  @Override
   public void setGroupUserRelation(Collection<GroupUserRelationInput> groupUserRelation) {
-    this.groupUserRelation = (Collection<GroupUserRelationInput>)groupUserRelation;
+    this.groupUserRelation = groupUserRelation;
   }
 
-  @Override
   public Collection<RoleUserRelationInput> getRoleUserRelation() {
     return this.roleUserRelation;
   }
 
-  @Override
   public void setRoleUserRelation(Collection<RoleUserRelationInput> roleUserRelation) {
-    this.roleUserRelation = (Collection<RoleUserRelationInput>)roleUserRelation;
+    this.roleUserRelation = roleUserRelation;
   }
 
-  @Override
+  public UserInput getInput() {
+    return this.input;
+  }
+
+  public void setInput(UserInput input) {
+    this.input = input;
+  }
+
+  public Collection<UserInput> getList() {
+    return this.list;
+  }
+
+  public void setList(Collection<UserInput> list) {
+    this.list = list;
+  }
+
   public UserExpression getWhere() {
     return this.where;
   }
 
-  @Override
   public void setWhere(UserExpression where) {
-    this.where = (UserExpression)where;
+    this.where = where;
   }
 }

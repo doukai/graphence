@@ -8,6 +8,7 @@ import java.lang.Integer;
 import java.lang.Override;
 import java.lang.String;
 import java.time.LocalDateTime;
+import java.util.Collection;
 import org.eclipse.microprofile.graphql.DefaultValue;
 import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.Input;
@@ -19,7 +20,7 @@ import org.eclipse.microprofile.graphql.Input;
 @Input
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder")
 @Description("Mutation Input for Relationship Object between 角色 and 角色")
-public class RoleCompositeRelationInput implements MetaInput, RoleCompositeRelationInputBase {
+public class RoleCompositeRelationInput implements MetaInput {
   /**
    * ID
    */
@@ -107,6 +108,18 @@ public class RoleCompositeRelationInput implements MetaInput, RoleCompositeRelat
   private String __typename = "RoleCompositeRelation";
 
   /**
+   * Input
+   */
+  @Description("Input")
+  private RoleCompositeRelationInput input;
+
+  /**
+   * Input List
+   */
+  @Description("Input List")
+  private Collection<RoleCompositeRelationInput> list;
+
+  /**
    * Where
    */
   @Description("Where")
@@ -122,54 +135,44 @@ public class RoleCompositeRelationInput implements MetaInput, RoleCompositeRelat
     this.id = (String)id;
   }
 
-  @Override
   public String getRoleRef() {
     return this.roleRef;
   }
 
-  @Override
   public void setRoleRef(String roleRef) {
-    this.roleRef = (String)roleRef;
+    this.roleRef = roleRef;
   }
 
-  @Override
   public RoleInput getRole() {
     return this.role;
   }
 
-  @Override
   public void setRole(RoleInput role) {
-    this.role = (RoleInput)role;
+    this.role = role;
   }
 
-  @Override
   public String getCompositeRef() {
     return this.compositeRef;
   }
 
-  @Override
   public void setCompositeRef(String compositeRef) {
-    this.compositeRef = (String)compositeRef;
+    this.compositeRef = compositeRef;
   }
 
-  @Override
   public RoleInput getComposite() {
     return this.composite;
   }
 
-  @Override
   public void setComposite(RoleInput composite) {
-    this.composite = (RoleInput)composite;
+    this.composite = composite;
   }
 
-  @Override
   public Boolean getIsDeprecated() {
     return this.isDeprecated;
   }
 
-  @Override
   public void setIsDeprecated(Boolean isDeprecated) {
-    this.isDeprecated = (Boolean)isDeprecated;
+    this.isDeprecated = isDeprecated;
   }
 
   @Override
@@ -242,23 +245,35 @@ public class RoleCompositeRelationInput implements MetaInput, RoleCompositeRelat
     this.createGroupId = (String)createGroupId;
   }
 
-  @Override
   public String get__typename() {
     return this.__typename;
   }
 
-  @Override
   public void set__typename(String __typename) {
-    this.__typename = (String)__typename;
+    this.__typename = __typename;
   }
 
-  @Override
+  public RoleCompositeRelationInput getInput() {
+    return this.input;
+  }
+
+  public void setInput(RoleCompositeRelationInput input) {
+    this.input = input;
+  }
+
+  public Collection<RoleCompositeRelationInput> getList() {
+    return this.list;
+  }
+
+  public void setList(Collection<RoleCompositeRelationInput> list) {
+    this.list = list;
+  }
+
   public RoleCompositeRelationExpression getWhere() {
     return this.where;
   }
 
-  @Override
   public void setWhere(RoleCompositeRelationExpression where) {
-    this.where = (RoleCompositeRelationExpression)where;
+    this.where = where;
   }
 }

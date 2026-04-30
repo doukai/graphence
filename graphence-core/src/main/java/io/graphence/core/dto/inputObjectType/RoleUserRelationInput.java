@@ -8,6 +8,7 @@ import java.lang.Integer;
 import java.lang.Override;
 import java.lang.String;
 import java.time.LocalDateTime;
+import java.util.Collection;
 import org.eclipse.microprofile.graphql.DefaultValue;
 import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.Input;
@@ -19,7 +20,7 @@ import org.eclipse.microprofile.graphql.Input;
 @Input
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder")
 @Description("Mutation Input for Relationship Object between 用户 and 角色")
-public class RoleUserRelationInput implements MetaInput, RoleUserRelationInputBase {
+public class RoleUserRelationInput implements MetaInput {
   /**
    * ID
    */
@@ -107,6 +108,18 @@ public class RoleUserRelationInput implements MetaInput, RoleUserRelationInputBa
   private String __typename = "RoleUserRelation";
 
   /**
+   * Input
+   */
+  @Description("Input")
+  private RoleUserRelationInput input;
+
+  /**
+   * Input List
+   */
+  @Description("Input List")
+  private Collection<RoleUserRelationInput> list;
+
+  /**
    * Where
    */
   @Description("Where")
@@ -122,54 +135,44 @@ public class RoleUserRelationInput implements MetaInput, RoleUserRelationInputBa
     this.id = (String)id;
   }
 
-  @Override
   public String getUserRef() {
     return this.userRef;
   }
 
-  @Override
   public void setUserRef(String userRef) {
-    this.userRef = (String)userRef;
+    this.userRef = userRef;
   }
 
-  @Override
   public UserInput getUser() {
     return this.user;
   }
 
-  @Override
   public void setUser(UserInput user) {
-    this.user = (UserInput)user;
+    this.user = user;
   }
 
-  @Override
   public String getRoleRef() {
     return this.roleRef;
   }
 
-  @Override
   public void setRoleRef(String roleRef) {
-    this.roleRef = (String)roleRef;
+    this.roleRef = roleRef;
   }
 
-  @Override
   public RoleInput getRole() {
     return this.role;
   }
 
-  @Override
   public void setRole(RoleInput role) {
-    this.role = (RoleInput)role;
+    this.role = role;
   }
 
-  @Override
   public Boolean getIsDeprecated() {
     return this.isDeprecated;
   }
 
-  @Override
   public void setIsDeprecated(Boolean isDeprecated) {
-    this.isDeprecated = (Boolean)isDeprecated;
+    this.isDeprecated = isDeprecated;
   }
 
   @Override
@@ -242,23 +245,35 @@ public class RoleUserRelationInput implements MetaInput, RoleUserRelationInputBa
     this.createGroupId = (String)createGroupId;
   }
 
-  @Override
   public String get__typename() {
     return this.__typename;
   }
 
-  @Override
   public void set__typename(String __typename) {
-    this.__typename = (String)__typename;
+    this.__typename = __typename;
   }
 
-  @Override
+  public RoleUserRelationInput getInput() {
+    return this.input;
+  }
+
+  public void setInput(RoleUserRelationInput input) {
+    this.input = input;
+  }
+
+  public Collection<RoleUserRelationInput> getList() {
+    return this.list;
+  }
+
+  public void setList(Collection<RoleUserRelationInput> list) {
+    this.list = list;
+  }
+
   public RoleUserRelationExpression getWhere() {
     return this.where;
   }
 
-  @Override
   public void setWhere(RoleUserRelationExpression where) {
-    this.where = (RoleUserRelationExpression)where;
+    this.where = where;
   }
 }

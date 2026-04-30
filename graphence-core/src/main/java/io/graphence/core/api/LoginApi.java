@@ -1,7 +1,7 @@
 package io.graphence.core.api;
 
 import io.graphence.core.config.SecurityConfig;
-import io.graphence.core.dto.inputObjectType.UserInputBase;
+import io.graphence.core.dto.inputObjectType.UserInput;
 import io.graphence.core.handler.BcryptManager;
 import io.graphence.core.handler.PasswordManager;
 import io.graphence.core.repository.LoginRepository;
@@ -110,14 +110,14 @@ public class LoginApi implements Asyncable {
                     .thenReturn(token));
   }
 
-  public UserInputBase hashPassword(@Source UserInputBase userinputBase) {
+  public UserInput hashPassword(@Source UserInput userInput) {
     if (config.getInitialPassword() != null
-        && userinputBase.getId() == null
-        && userinputBase.getWhere() == null
-        && userinputBase.getSalt() == null
-        && userinputBase.getHash() == null) {
-      return passwordManager.hash(config.getInitialPassword(), userinputBase);
+        && userInput.getId() == null
+        && userInput.getWhere() == null
+        && userInput.getSalt() == null
+        && userInput.getHash() == null) {
+      return passwordManager.hash(config.getInitialPassword(), userInput);
     }
-    return userinputBase;
+    return userInput;
   }
 }

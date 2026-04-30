@@ -103,6 +103,18 @@ public @interface RoleCompositeRelationInput1 {
   String __typename() default "RoleCompositeRelation";
 
   /**
+   * Input
+   */
+  @Description("Input")
+  RoleCompositeRelationInput2 input() default @RoleCompositeRelationInput2;
+
+  /**
+   * Input List
+   */
+  @Description("Input List")
+  RoleCompositeRelationInput2[] list() default {};
+
+  /**
    * Where
    */
   @Description("Where")
@@ -135,6 +147,10 @@ public @interface RoleCompositeRelationInput1 {
   String $createGroupId() default "";
 
   String $__typename() default "";
+
+  String $input() default "";
+
+  String $list() default "";
 
   String $where() default "";
 }

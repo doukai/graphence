@@ -8,7 +8,9 @@ import io.graphoenix.core.dto.inputObjectType.StringExpression;
 import io.graphoenix.structure.dto.inputObjectType.NamedStructExpression;
 import jakarta.annotation.Generated;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.Override;
+import java.lang.String;
 import java.util.Collection;
 import org.eclipse.microprofile.graphql.DefaultValue;
 import org.eclipse.microprofile.graphql.Description;
@@ -21,7 +23,7 @@ import org.eclipse.microprofile.graphql.Input;
 @Input
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder")
 @Description("Query Expression Input for 角色")
-public class RoleExpression implements NamedStructExpression, MetaExpression, RoleExpressionBase {
+public class RoleExpression implements NamedStructExpression, MetaExpression {
   /**
    * ID
    */
@@ -229,6 +231,48 @@ public class RoleExpression implements NamedStructExpression, MetaExpression, Ro
   @Description("Expressions")
   private Collection<RoleExpression> exs;
 
+  /**
+   * Order By
+   */
+  @Description("Order By")
+  private RoleOrderBy orderBy;
+
+  /**
+   * Group By
+   */
+  @Description("Group By")
+  private RoleGroupBy groupBy;
+
+  /**
+   * First
+   */
+  @Description("First")
+  private Integer first;
+
+  /**
+   * Last
+   */
+  @Description("Last")
+  private Integer last;
+
+  /**
+   * Offset
+   */
+  @Description("Offset")
+  private Integer offset;
+
+  /**
+   * After
+   */
+  @Description("After")
+  private String after;
+
+  /**
+   * Before
+   */
+  @Description("Before")
+  private String before;
+
   @Override
   public StringExpression getId() {
     return this.id;
@@ -259,54 +303,44 @@ public class RoleExpression implements NamedStructExpression, MetaExpression, Ro
     this.description = (StringExpression)description;
   }
 
-  @Override
   public UserExpression getUsers() {
     return this.users;
   }
 
-  @Override
   public void setUsers(UserExpression users) {
-    this.users = (UserExpression)users;
+    this.users = users;
   }
 
-  @Override
   public GroupExpression getGroups() {
     return this.groups;
   }
 
-  @Override
   public void setGroups(GroupExpression groups) {
-    this.groups = (GroupExpression)groups;
+    this.groups = groups;
   }
 
-  @Override
   public RoleExpression getComposites() {
     return this.composites;
   }
 
-  @Override
   public void setComposites(RoleExpression composites) {
-    this.composites = (RoleExpression)composites;
+    this.composites = composites;
   }
 
-  @Override
   public PermissionExpression getPermissions() {
     return this.permissions;
   }
 
-  @Override
   public void setPermissions(PermissionExpression permissions) {
-    this.permissions = (PermissionExpression)permissions;
+    this.permissions = permissions;
   }
 
-  @Override
   public RealmExpression getRealm() {
     return this.realm;
   }
 
-  @Override
   public void setRealm(RealmExpression realm) {
-    this.realm = (RealmExpression)realm;
+    this.realm = realm;
   }
 
   @Override
@@ -389,154 +423,124 @@ public class RoleExpression implements NamedStructExpression, MetaExpression, Ro
     this.createGroupId = (StringExpression)createGroupId;
   }
 
-  @Override
   public StringExpression get__typename() {
     return this.__typename;
   }
 
-  @Override
   public void set__typename(StringExpression __typename) {
-    this.__typename = (StringExpression)__typename;
+    this.__typename = __typename;
   }
 
-  @Override
   public RoleUserRelationExpression getRoleUserRelation() {
     return this.roleUserRelation;
   }
 
-  @Override
   public void setRoleUserRelation(RoleUserRelationExpression roleUserRelation) {
-    this.roleUserRelation = (RoleUserRelationExpression)roleUserRelation;
+    this.roleUserRelation = roleUserRelation;
   }
 
-  @Override
   public GroupRoleRelationExpression getGroupRoleRelation() {
     return this.groupRoleRelation;
   }
 
-  @Override
   public void setGroupRoleRelation(GroupRoleRelationExpression groupRoleRelation) {
-    this.groupRoleRelation = (GroupRoleRelationExpression)groupRoleRelation;
+    this.groupRoleRelation = groupRoleRelation;
   }
 
-  @Override
   public RoleCompositeRelationExpression getRoleCompositeRelation() {
     return this.roleCompositeRelation;
   }
 
-  @Override
   public void setRoleCompositeRelation(RoleCompositeRelationExpression roleCompositeRelation) {
-    this.roleCompositeRelation = (RoleCompositeRelationExpression)roleCompositeRelation;
+    this.roleCompositeRelation = roleCompositeRelation;
   }
 
-  @Override
   public RolePermissionRelationExpression getRolePermissionRelation() {
     return this.rolePermissionRelation;
   }
 
-  @Override
   public void setRolePermissionRelation(RolePermissionRelationExpression rolePermissionRelation) {
-    this.rolePermissionRelation = (RolePermissionRelationExpression)rolePermissionRelation;
+    this.rolePermissionRelation = rolePermissionRelation;
   }
 
-  @Override
   public IntExpression getCreateTimeYear() {
     return this.createTimeYear;
   }
 
-  @Override
   public void setCreateTimeYear(IntExpression createTimeYear) {
-    this.createTimeYear = (IntExpression)createTimeYear;
+    this.createTimeYear = createTimeYear;
   }
 
-  @Override
   public IntExpression getCreateTimeMonth() {
     return this.createTimeMonth;
   }
 
-  @Override
   public void setCreateTimeMonth(IntExpression createTimeMonth) {
-    this.createTimeMonth = (IntExpression)createTimeMonth;
+    this.createTimeMonth = createTimeMonth;
   }
 
-  @Override
   public IntExpression getCreateTimeDay() {
     return this.createTimeDay;
   }
 
-  @Override
   public void setCreateTimeDay(IntExpression createTimeDay) {
-    this.createTimeDay = (IntExpression)createTimeDay;
+    this.createTimeDay = createTimeDay;
   }
 
-  @Override
   public IntExpression getCreateTimeWeek() {
     return this.createTimeWeek;
   }
 
-  @Override
   public void setCreateTimeWeek(IntExpression createTimeWeek) {
-    this.createTimeWeek = (IntExpression)createTimeWeek;
+    this.createTimeWeek = createTimeWeek;
   }
 
-  @Override
   public IntExpression getCreateTimeQuarter() {
     return this.createTimeQuarter;
   }
 
-  @Override
   public void setCreateTimeQuarter(IntExpression createTimeQuarter) {
-    this.createTimeQuarter = (IntExpression)createTimeQuarter;
+    this.createTimeQuarter = createTimeQuarter;
   }
 
-  @Override
   public IntExpression getUpdateTimeYear() {
     return this.updateTimeYear;
   }
 
-  @Override
   public void setUpdateTimeYear(IntExpression updateTimeYear) {
-    this.updateTimeYear = (IntExpression)updateTimeYear;
+    this.updateTimeYear = updateTimeYear;
   }
 
-  @Override
   public IntExpression getUpdateTimeMonth() {
     return this.updateTimeMonth;
   }
 
-  @Override
   public void setUpdateTimeMonth(IntExpression updateTimeMonth) {
-    this.updateTimeMonth = (IntExpression)updateTimeMonth;
+    this.updateTimeMonth = updateTimeMonth;
   }
 
-  @Override
   public IntExpression getUpdateTimeDay() {
     return this.updateTimeDay;
   }
 
-  @Override
   public void setUpdateTimeDay(IntExpression updateTimeDay) {
-    this.updateTimeDay = (IntExpression)updateTimeDay;
+    this.updateTimeDay = updateTimeDay;
   }
 
-  @Override
   public IntExpression getUpdateTimeWeek() {
     return this.updateTimeWeek;
   }
 
-  @Override
   public void setUpdateTimeWeek(IntExpression updateTimeWeek) {
-    this.updateTimeWeek = (IntExpression)updateTimeWeek;
+    this.updateTimeWeek = updateTimeWeek;
   }
 
-  @Override
   public IntExpression getUpdateTimeQuarter() {
     return this.updateTimeQuarter;
   }
 
-  @Override
   public void setUpdateTimeQuarter(IntExpression updateTimeQuarter) {
-    this.updateTimeQuarter = (IntExpression)updateTimeQuarter;
+    this.updateTimeQuarter = updateTimeQuarter;
   }
 
   @Override
@@ -559,13 +563,67 @@ public class RoleExpression implements NamedStructExpression, MetaExpression, Ro
     this.cond = (Conditional)cond;
   }
 
-  @Override
   public Collection<RoleExpression> getExs() {
     return this.exs;
   }
 
-  @Override
   public void setExs(Collection<RoleExpression> exs) {
-    this.exs = (Collection<RoleExpression>)exs;
+    this.exs = exs;
+  }
+
+  public RoleOrderBy getOrderBy() {
+    return this.orderBy;
+  }
+
+  public void setOrderBy(RoleOrderBy orderBy) {
+    this.orderBy = orderBy;
+  }
+
+  public RoleGroupBy getGroupBy() {
+    return this.groupBy;
+  }
+
+  public void setGroupBy(RoleGroupBy groupBy) {
+    this.groupBy = groupBy;
+  }
+
+  public Integer getFirst() {
+    return this.first;
+  }
+
+  public void setFirst(Integer first) {
+    this.first = first;
+  }
+
+  public Integer getLast() {
+    return this.last;
+  }
+
+  public void setLast(Integer last) {
+    this.last = last;
+  }
+
+  public Integer getOffset() {
+    return this.offset;
+  }
+
+  public void setOffset(Integer offset) {
+    this.offset = offset;
+  }
+
+  public String getAfter() {
+    return this.after;
+  }
+
+  public void setAfter(String after) {
+    this.after = after;
+  }
+
+  public String getBefore() {
+    return this.before;
+  }
+
+  public void setBefore(String before) {
+    this.before = before;
   }
 }

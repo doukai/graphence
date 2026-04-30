@@ -9,7 +9,9 @@ import io.graphoenix.core.dto.inputObjectType.StringExpression;
 import io.graphoenix.structure.dto.inputObjectType.NamedStructExpression;
 import jakarta.annotation.Generated;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.Override;
+import java.lang.String;
 import java.util.Collection;
 import org.eclipse.microprofile.graphql.DefaultValue;
 import org.eclipse.microprofile.graphql.Description;
@@ -22,7 +24,7 @@ import org.eclipse.microprofile.graphql.Input;
 @Input
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder")
 @Description("Query Expression Input for 用户")
-public class UserExpression implements NamedStructExpression, MetaExpression, UserExpressionBase {
+public class UserExpression implements NamedStructExpression, MetaExpression {
   /**
    * ID
    */
@@ -254,6 +256,48 @@ public class UserExpression implements NamedStructExpression, MetaExpression, Us
   @Description("Expressions")
   private Collection<UserExpression> exs;
 
+  /**
+   * Order By
+   */
+  @Description("Order By")
+  private UserOrderBy orderBy;
+
+  /**
+   * Group By
+   */
+  @Description("Group By")
+  private UserGroupBy groupBy;
+
+  /**
+   * First
+   */
+  @Description("First")
+  private Integer first;
+
+  /**
+   * Last
+   */
+  @Description("Last")
+  private Integer last;
+
+  /**
+   * Offset
+   */
+  @Description("Offset")
+  private Integer offset;
+
+  /**
+   * After
+   */
+  @Description("After")
+  private String after;
+
+  /**
+   * Before
+   */
+  @Description("Before")
+  private String before;
+
   @Override
   public StringExpression getId() {
     return this.id;
@@ -284,104 +328,84 @@ public class UserExpression implements NamedStructExpression, MetaExpression, Us
     this.description = (StringExpression)description;
   }
 
-  @Override
   public StringExpression getLastName() {
     return this.lastName;
   }
 
-  @Override
   public void setLastName(StringExpression lastName) {
-    this.lastName = (StringExpression)lastName;
+    this.lastName = lastName;
   }
 
-  @Override
   public StringExpression getLogin() {
     return this.login;
   }
 
-  @Override
   public void setLogin(StringExpression login) {
-    this.login = (StringExpression)login;
+    this.login = login;
   }
 
-  @Override
   public StringExpression getSalt() {
     return this.salt;
   }
 
-  @Override
   public void setSalt(StringExpression salt) {
-    this.salt = (StringExpression)salt;
+    this.salt = salt;
   }
 
-  @Override
   public StringExpression getHash() {
     return this.hash;
   }
 
-  @Override
   public void setHash(StringExpression hash) {
-    this.hash = (StringExpression)hash;
+    this.hash = hash;
   }
 
-  @Override
   public StringExpression getEmail() {
     return this.email;
   }
 
-  @Override
   public void setEmail(StringExpression email) {
-    this.email = (StringExpression)email;
+    this.email = email;
   }
 
-  @Override
   public StringExpression getPhones() {
     return this.phones;
   }
 
-  @Override
   public void setPhones(StringExpression phones) {
-    this.phones = (StringExpression)phones;
+    this.phones = phones;
   }
 
-  @Override
   public BooleanExpression getDisable() {
     return this.disable;
   }
 
-  @Override
   public void setDisable(BooleanExpression disable) {
-    this.disable = (BooleanExpression)disable;
+    this.disable = disable;
   }
 
-  @Override
   public GroupExpression getGroups() {
     return this.groups;
   }
 
-  @Override
   public void setGroups(GroupExpression groups) {
-    this.groups = (GroupExpression)groups;
+    this.groups = groups;
   }
 
-  @Override
   public RoleExpression getRoles() {
     return this.roles;
   }
 
-  @Override
   public void setRoles(RoleExpression roles) {
-    this.roles = (RoleExpression)roles;
+    this.roles = roles;
   }
 
-  @Override
   public RealmExpression getRealm() {
     return this.realm;
   }
 
-  @Override
   public void setRealm(RealmExpression realm) {
-    this.realm = (RealmExpression)realm;
+    this.realm = realm;
   }
 
   @Override
@@ -464,144 +488,116 @@ public class UserExpression implements NamedStructExpression, MetaExpression, Us
     this.createGroupId = (StringExpression)createGroupId;
   }
 
-  @Override
   public StringExpression get__typename() {
     return this.__typename;
   }
 
-  @Override
   public void set__typename(StringExpression __typename) {
-    this.__typename = (StringExpression)__typename;
+    this.__typename = __typename;
   }
 
-  @Override
   public UserPhonesRelationExpression getUserPhonesRelation() {
     return this.userPhonesRelation;
   }
 
-  @Override
   public void setUserPhonesRelation(UserPhonesRelationExpression userPhonesRelation) {
-    this.userPhonesRelation = (UserPhonesRelationExpression)userPhonesRelation;
+    this.userPhonesRelation = userPhonesRelation;
   }
 
-  @Override
   public GroupUserRelationExpression getGroupUserRelation() {
     return this.groupUserRelation;
   }
 
-  @Override
   public void setGroupUserRelation(GroupUserRelationExpression groupUserRelation) {
-    this.groupUserRelation = (GroupUserRelationExpression)groupUserRelation;
+    this.groupUserRelation = groupUserRelation;
   }
 
-  @Override
   public RoleUserRelationExpression getRoleUserRelation() {
     return this.roleUserRelation;
   }
 
-  @Override
   public void setRoleUserRelation(RoleUserRelationExpression roleUserRelation) {
-    this.roleUserRelation = (RoleUserRelationExpression)roleUserRelation;
+    this.roleUserRelation = roleUserRelation;
   }
 
-  @Override
   public IntExpression getCreateTimeYear() {
     return this.createTimeYear;
   }
 
-  @Override
   public void setCreateTimeYear(IntExpression createTimeYear) {
-    this.createTimeYear = (IntExpression)createTimeYear;
+    this.createTimeYear = createTimeYear;
   }
 
-  @Override
   public IntExpression getCreateTimeMonth() {
     return this.createTimeMonth;
   }
 
-  @Override
   public void setCreateTimeMonth(IntExpression createTimeMonth) {
-    this.createTimeMonth = (IntExpression)createTimeMonth;
+    this.createTimeMonth = createTimeMonth;
   }
 
-  @Override
   public IntExpression getCreateTimeDay() {
     return this.createTimeDay;
   }
 
-  @Override
   public void setCreateTimeDay(IntExpression createTimeDay) {
-    this.createTimeDay = (IntExpression)createTimeDay;
+    this.createTimeDay = createTimeDay;
   }
 
-  @Override
   public IntExpression getCreateTimeWeek() {
     return this.createTimeWeek;
   }
 
-  @Override
   public void setCreateTimeWeek(IntExpression createTimeWeek) {
-    this.createTimeWeek = (IntExpression)createTimeWeek;
+    this.createTimeWeek = createTimeWeek;
   }
 
-  @Override
   public IntExpression getCreateTimeQuarter() {
     return this.createTimeQuarter;
   }
 
-  @Override
   public void setCreateTimeQuarter(IntExpression createTimeQuarter) {
-    this.createTimeQuarter = (IntExpression)createTimeQuarter;
+    this.createTimeQuarter = createTimeQuarter;
   }
 
-  @Override
   public IntExpression getUpdateTimeYear() {
     return this.updateTimeYear;
   }
 
-  @Override
   public void setUpdateTimeYear(IntExpression updateTimeYear) {
-    this.updateTimeYear = (IntExpression)updateTimeYear;
+    this.updateTimeYear = updateTimeYear;
   }
 
-  @Override
   public IntExpression getUpdateTimeMonth() {
     return this.updateTimeMonth;
   }
 
-  @Override
   public void setUpdateTimeMonth(IntExpression updateTimeMonth) {
-    this.updateTimeMonth = (IntExpression)updateTimeMonth;
+    this.updateTimeMonth = updateTimeMonth;
   }
 
-  @Override
   public IntExpression getUpdateTimeDay() {
     return this.updateTimeDay;
   }
 
-  @Override
   public void setUpdateTimeDay(IntExpression updateTimeDay) {
-    this.updateTimeDay = (IntExpression)updateTimeDay;
+    this.updateTimeDay = updateTimeDay;
   }
 
-  @Override
   public IntExpression getUpdateTimeWeek() {
     return this.updateTimeWeek;
   }
 
-  @Override
   public void setUpdateTimeWeek(IntExpression updateTimeWeek) {
-    this.updateTimeWeek = (IntExpression)updateTimeWeek;
+    this.updateTimeWeek = updateTimeWeek;
   }
 
-  @Override
   public IntExpression getUpdateTimeQuarter() {
     return this.updateTimeQuarter;
   }
 
-  @Override
   public void setUpdateTimeQuarter(IntExpression updateTimeQuarter) {
-    this.updateTimeQuarter = (IntExpression)updateTimeQuarter;
+    this.updateTimeQuarter = updateTimeQuarter;
   }
 
   @Override
@@ -624,13 +620,67 @@ public class UserExpression implements NamedStructExpression, MetaExpression, Us
     this.cond = (Conditional)cond;
   }
 
-  @Override
   public Collection<UserExpression> getExs() {
     return this.exs;
   }
 
-  @Override
   public void setExs(Collection<UserExpression> exs) {
-    this.exs = (Collection<UserExpression>)exs;
+    this.exs = exs;
+  }
+
+  public UserOrderBy getOrderBy() {
+    return this.orderBy;
+  }
+
+  public void setOrderBy(UserOrderBy orderBy) {
+    this.orderBy = orderBy;
+  }
+
+  public UserGroupBy getGroupBy() {
+    return this.groupBy;
+  }
+
+  public void setGroupBy(UserGroupBy groupBy) {
+    this.groupBy = groupBy;
+  }
+
+  public Integer getFirst() {
+    return this.first;
+  }
+
+  public void setFirst(Integer first) {
+    this.first = first;
+  }
+
+  public Integer getLast() {
+    return this.last;
+  }
+
+  public void setLast(Integer last) {
+    this.last = last;
+  }
+
+  public Integer getOffset() {
+    return this.offset;
+  }
+
+  public void setOffset(Integer offset) {
+    this.offset = offset;
+  }
+
+  public String getAfter() {
+    return this.after;
+  }
+
+  public void setAfter(String after) {
+    this.after = after;
+  }
+
+  public String getBefore() {
+    return this.before;
+  }
+
+  public void setBefore(String before) {
+    this.before = before;
   }
 }

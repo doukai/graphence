@@ -14,496 +14,112 @@ import "google/protobuf/timestamp.proto";
 message MutationUserRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
-    string id = 3; /* ID */
-    string name = 4; /* 姓名 */
-    string description = 5; /* 描述 */
-    string last_name = 6; /* 姓氏 */
-    string login = 7; /* 账号 */
-    string salt = 8; /* 盐 */
-    string hash = 9; /* 哈希 */
-    string email = 10; /* 邮箱 */
-    repeated string phones = 11; /* 手机号 */
-    bool disable = 12; /* 禁用 */
-    repeated GroupInput groups = 13; /* 组 */
-    repeated RoleInput roles = 14; /* 角色 */
-    RealmInput realm = 15; /* 租户 */
-    bool is_deprecated = 16; /* Is Deprecated */
-    int32 version = 17; /* Version */
-    int32 realm_id = 18; /* Realm ID */
-    string create_user_id = 19; /* Create User ID */
-    google.protobuf.Timestamp create_time = 20; /* Create Time */
-    string update_user_id = 21; /* Update User ID */
-    google.protobuf.Timestamp update_time = 22; /* Update Time */
-    string create_group_id = 23; /* Create Group ID */
-    string intro_typename = 24; /* Type Name */
-    repeated UserPhonesRelationInput user_phones_relation = 25; /* Relationship Object between 用户 and 手机号 */
-    repeated GroupUserRelationInput group_user_relation = 26; /* Relationship Object between 用户 and 组 */
-    repeated RoleUserRelationInput role_user_relation = 27; /* Relationship Object between 用户 and 角色 */
-    UserInput input = 28; /* Input */
-    UserExpression where = 29; /* Where */
+    UserInput input = 3;
 }
 message MutationUserListRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
-    string id = 3; /* ID */
-    string name = 4; /* 姓名 */
-    string description = 5; /* 描述 */
-    string last_name = 6; /* 姓氏 */
-    string login = 7; /* 账号 */
-    string salt = 8; /* 盐 */
-    string hash = 9; /* 哈希 */
-    string email = 10; /* 邮箱 */
-    repeated string phones = 11; /* 手机号 */
-    bool disable = 12; /* 禁用 */
-    repeated GroupInput groups = 13; /* 组 */
-    repeated RoleInput roles = 14; /* 角色 */
-    RealmInput realm = 15; /* 租户 */
-    bool is_deprecated = 16; /* Is Deprecated */
-    int32 version = 17; /* Version */
-    int32 realm_id = 18; /* Realm ID */
-    string create_user_id = 19; /* Create User ID */
-    google.protobuf.Timestamp create_time = 20; /* Create Time */
-    string update_user_id = 21; /* Update User ID */
-    google.protobuf.Timestamp update_time = 22; /* Update Time */
-    string create_group_id = 23; /* Create Group ID */
-    string intro_typename = 24; /* Type Name */
-    repeated UserPhonesRelationInput user_phones_relation = 25; /* Relationship Object between 用户 and 手机号 */
-    repeated GroupUserRelationInput group_user_relation = 26; /* Relationship Object between 用户 and 组 */
-    repeated RoleUserRelationInput role_user_relation = 27; /* Relationship Object between 用户 and 角色 */
-    repeated UserInput list = 28; /* Input List */
-    UserExpression where = 29; /* Where */
+    UserInput input = 3;
 }
 message MutationRoleRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
-    string id = 3; /* ID */
-    string name = 4; /* 名称 */
-    string description = 5; /* 描述 */
-    repeated UserInput users = 6; /* 用户 */
-    repeated GroupInput groups = 7; /* 组 */
-    repeated RoleInput composites = 8; /* 组合 */
-    repeated PermissionInput permissions = 9; /* 权限 */
-    RealmInput realm = 10; /* 租户 */
-    bool is_deprecated = 11; /* Is Deprecated */
-    int32 version = 12; /* Version */
-    int32 realm_id = 13; /* Realm ID */
-    string create_user_id = 14; /* Create User ID */
-    google.protobuf.Timestamp create_time = 15; /* Create Time */
-    string update_user_id = 16; /* Update User ID */
-    google.protobuf.Timestamp update_time = 17; /* Update Time */
-    string create_group_id = 18; /* Create Group ID */
-    string intro_typename = 19; /* Type Name */
-    repeated RoleUserRelationInput role_user_relation = 20; /* Relationship Object between 用户 and 角色 */
-    repeated GroupRoleRelationInput group_role_relation = 21; /* Relationship Object between 角色 and 组 */
-    repeated RoleCompositeRelationInput role_composite_relation = 22; /* Relationship Object between 角色 and 角色 */
-    repeated RolePermissionRelationInput role_permission_relation = 23; /* Relationship Object between 角色 and 权限 */
-    RoleInput input = 24; /* Input */
-    RoleExpression where = 25; /* Where */
+    RoleInput input = 3;
 }
 message MutationRoleListRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
-    string id = 3; /* ID */
-    string name = 4; /* 名称 */
-    string description = 5; /* 描述 */
-    repeated UserInput users = 6; /* 用户 */
-    repeated GroupInput groups = 7; /* 组 */
-    repeated RoleInput composites = 8; /* 组合 */
-    repeated PermissionInput permissions = 9; /* 权限 */
-    RealmInput realm = 10; /* 租户 */
-    bool is_deprecated = 11; /* Is Deprecated */
-    int32 version = 12; /* Version */
-    int32 realm_id = 13; /* Realm ID */
-    string create_user_id = 14; /* Create User ID */
-    google.protobuf.Timestamp create_time = 15; /* Create Time */
-    string update_user_id = 16; /* Update User ID */
-    google.protobuf.Timestamp update_time = 17; /* Update Time */
-    string create_group_id = 18; /* Create Group ID */
-    string intro_typename = 19; /* Type Name */
-    repeated RoleUserRelationInput role_user_relation = 20; /* Relationship Object between 用户 and 角色 */
-    repeated GroupRoleRelationInput group_role_relation = 21; /* Relationship Object between 角色 and 组 */
-    repeated RoleCompositeRelationInput role_composite_relation = 22; /* Relationship Object between 角色 and 角色 */
-    repeated RolePermissionRelationInput role_permission_relation = 23; /* Relationship Object between 角色 and 权限 */
-    repeated RoleInput list = 24; /* Input List */
-    RoleExpression where = 25; /* Where */
+    RoleInput input = 3;
 }
 message MutationGroupRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
-    string id = 3; /* ID */
-    string name = 4; /* 名称 */
-    string description = 5; /* 描述 */
-    string path = 6; /* 路径 */
-    int32 deep = 7; /* 层级 */
-    string parent_id = 8; /* 上级ID */
-    GroupInput parent = 9; /* 上级 */
-    repeated GroupInput sub_groups = 10; /* 下级 */
-    repeated UserInput users = 11; /* 用户 */
-    repeated RoleInput roles = 12; /* 角色 */
-    RealmInput realm = 13; /* 租户 */
-    bool is_deprecated = 14; /* Is Deprecated */
-    int32 version = 15; /* Version */
-    int32 realm_id = 16; /* Realm ID */
-    string create_user_id = 17; /* Create User ID */
-    google.protobuf.Timestamp create_time = 18; /* Create Time */
-    string update_user_id = 19; /* Update User ID */
-    google.protobuf.Timestamp update_time = 20; /* Update Time */
-    string create_group_id = 21; /* Create Group ID */
-    string intro_typename = 22; /* Type Name */
-    repeated GroupUserRelationInput group_user_relation = 23; /* Relationship Object between 用户 and 组 */
-    repeated GroupRoleRelationInput group_role_relation = 24; /* Relationship Object between 角色 and 组 */
-    GroupInput input = 25; /* Input */
-    GroupExpression where = 26; /* Where */
+    GroupInput input = 3;
 }
 message MutationGroupListRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
-    string id = 3; /* ID */
-    string name = 4; /* 名称 */
-    string description = 5; /* 描述 */
-    string path = 6; /* 路径 */
-    int32 deep = 7; /* 层级 */
-    string parent_id = 8; /* 上级ID */
-    GroupInput parent = 9; /* 上级 */
-    repeated GroupInput sub_groups = 10; /* 下级 */
-    repeated UserInput users = 11; /* 用户 */
-    repeated RoleInput roles = 12; /* 角色 */
-    RealmInput realm = 13; /* 租户 */
-    bool is_deprecated = 14; /* Is Deprecated */
-    int32 version = 15; /* Version */
-    int32 realm_id = 16; /* Realm ID */
-    string create_user_id = 17; /* Create User ID */
-    google.protobuf.Timestamp create_time = 18; /* Create Time */
-    string update_user_id = 19; /* Update User ID */
-    google.protobuf.Timestamp update_time = 20; /* Update Time */
-    string create_group_id = 21; /* Create Group ID */
-    string intro_typename = 22; /* Type Name */
-    repeated GroupUserRelationInput group_user_relation = 23; /* Relationship Object between 用户 and 组 */
-    repeated GroupRoleRelationInput group_role_relation = 24; /* Relationship Object between 角色 and 组 */
-    repeated GroupInput list = 25; /* Input List */
-    GroupExpression where = 26; /* Where */
+    GroupInput input = 3;
 }
 message MutationRealmRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
-    string id = 3; /* ID */
-    string name = 4; /* 名称 */
-    string description = 5; /* 描述 */
-    bool is_deprecated = 6; /* Is Deprecated */
-    int32 version = 7; /* Version */
-    int32 realm_id = 8; /* Realm ID */
-    string create_user_id = 9; /* Create User ID */
-    google.protobuf.Timestamp create_time = 10; /* Create Time */
-    string update_user_id = 11; /* Update User ID */
-    google.protobuf.Timestamp update_time = 12; /* Update Time */
-    string create_group_id = 13; /* Create Group ID */
-    string intro_typename = 14; /* Type Name */
-    RealmInput input = 15; /* Input */
-    RealmExpression where = 16; /* Where */
+    RealmInput input = 3;
 }
 message MutationRealmListRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
-    string id = 3; /* ID */
-    string name = 4; /* 名称 */
-    string description = 5; /* 描述 */
-    bool is_deprecated = 6; /* Is Deprecated */
-    int32 version = 7; /* Version */
-    int32 realm_id = 8; /* Realm ID */
-    string create_user_id = 9; /* Create User ID */
-    google.protobuf.Timestamp create_time = 10; /* Create Time */
-    string update_user_id = 11; /* Update User ID */
-    google.protobuf.Timestamp update_time = 12; /* Update Time */
-    string create_group_id = 13; /* Create Group ID */
-    string intro_typename = 14; /* Type Name */
-    repeated RealmInput list = 15; /* Input List */
-    RealmExpression where = 16; /* Where */
+    RealmInput input = 3;
 }
 message MutationPermissionRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
-    string id = 3; /* ID */
-    string name = 4; /* 名称 */
-    string description = 5; /* 描述 */
-    string field = 6; /* 字段 */
-    string type = 7; /* 实体 */
-    PermissionType permission_type = 8; /* 权限类型 */
-    repeated RoleInput roles = 9; /* 角色 */
-    RealmInput realm = 10; /* 租户 */
-    bool is_deprecated = 11; /* Is Deprecated */
-    int32 version = 12; /* Version */
-    int32 realm_id = 13; /* Realm ID */
-    string create_user_id = 14; /* Create User ID */
-    google.protobuf.Timestamp create_time = 15; /* Create Time */
-    string update_user_id = 16; /* Update User ID */
-    google.protobuf.Timestamp update_time = 17; /* Update Time */
-    string create_group_id = 18; /* Create Group ID */
-    string intro_typename = 19; /* Type Name */
-    repeated RolePermissionRelationInput role_permission_relation = 20; /* Relationship Object between 角色 and 权限 */
-    PermissionInput input = 21; /* Input */
-    PermissionExpression where = 22; /* Where */
+    PermissionInput input = 3;
 }
 message MutationPermissionListRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
-    string id = 3; /* ID */
-    string name = 4; /* 名称 */
-    string description = 5; /* 描述 */
-    string field = 6; /* 字段 */
-    string type = 7; /* 实体 */
-    PermissionType permission_type = 8; /* 权限类型 */
-    repeated RoleInput roles = 9; /* 角色 */
-    RealmInput realm = 10; /* 租户 */
-    bool is_deprecated = 11; /* Is Deprecated */
-    int32 version = 12; /* Version */
-    int32 realm_id = 13; /* Realm ID */
-    string create_user_id = 14; /* Create User ID */
-    google.protobuf.Timestamp create_time = 15; /* Create Time */
-    string update_user_id = 16; /* Update User ID */
-    google.protobuf.Timestamp update_time = 17; /* Update Time */
-    string create_group_id = 18; /* Create Group ID */
-    string intro_typename = 19; /* Type Name */
-    repeated RolePermissionRelationInput role_permission_relation = 20; /* Relationship Object between 角色 and 权限 */
-    repeated PermissionInput list = 21; /* Input List */
-    PermissionExpression where = 22; /* Where */
+    PermissionInput input = 3;
 }
 message MutationUserPhonesRelationRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
-    string id = 3; /* ID */
-    string user_ref = 4; /* 用户 Reference */
-    UserInput user = 5; /* 用户 */
-    string phones_ref = 6; /* 手机号 Reference */
-    bool is_deprecated = 7; /* Is Deprecated */
-    int32 version = 8; /* Version */
-    int32 realm_id = 9; /* Realm ID */
-    string create_user_id = 10; /* Create User ID */
-    google.protobuf.Timestamp create_time = 11; /* Create Time */
-    string update_user_id = 12; /* Update User ID */
-    google.protobuf.Timestamp update_time = 13; /* Update Time */
-    string create_group_id = 14; /* Create Group ID */
-    string intro_typename = 15; /* Type Name */
-    UserPhonesRelationInput input = 16; /* Input */
-    UserPhonesRelationExpression where = 17; /* Where */
+    UserPhonesRelationInput input = 3;
 }
 message MutationUserPhonesRelationListRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
-    string id = 3; /* ID */
-    string user_ref = 4; /* 用户 Reference */
-    UserInput user = 5; /* 用户 */
-    string phones_ref = 6; /* 手机号 Reference */
-    bool is_deprecated = 7; /* Is Deprecated */
-    int32 version = 8; /* Version */
-    int32 realm_id = 9; /* Realm ID */
-    string create_user_id = 10; /* Create User ID */
-    google.protobuf.Timestamp create_time = 11; /* Create Time */
-    string update_user_id = 12; /* Update User ID */
-    google.protobuf.Timestamp update_time = 13; /* Update Time */
-    string create_group_id = 14; /* Create Group ID */
-    string intro_typename = 15; /* Type Name */
-    repeated UserPhonesRelationInput list = 16; /* Input List */
-    UserPhonesRelationExpression where = 17; /* Where */
+    UserPhonesRelationInput input = 3;
 }
 message MutationGroupUserRelationRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
-    string id = 3; /* ID */
-    string user_ref = 4; /* 用户 Reference */
-    UserInput user = 5; /* 用户 */
-    string group_ref = 6; /* 组 Reference */
-    GroupInput group = 7; /* 组 */
-    bool is_deprecated = 8; /* Is Deprecated */
-    int32 version = 9; /* Version */
-    int32 realm_id = 10; /* Realm ID */
-    string create_user_id = 11; /* Create User ID */
-    google.protobuf.Timestamp create_time = 12; /* Create Time */
-    string update_user_id = 13; /* Update User ID */
-    google.protobuf.Timestamp update_time = 14; /* Update Time */
-    string create_group_id = 15; /* Create Group ID */
-    string intro_typename = 16; /* Type Name */
-    GroupUserRelationInput input = 17; /* Input */
-    GroupUserRelationExpression where = 18; /* Where */
+    GroupUserRelationInput input = 3;
 }
 message MutationGroupUserRelationListRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
-    string id = 3; /* ID */
-    string user_ref = 4; /* 用户 Reference */
-    UserInput user = 5; /* 用户 */
-    string group_ref = 6; /* 组 Reference */
-    GroupInput group = 7; /* 组 */
-    bool is_deprecated = 8; /* Is Deprecated */
-    int32 version = 9; /* Version */
-    int32 realm_id = 10; /* Realm ID */
-    string create_user_id = 11; /* Create User ID */
-    google.protobuf.Timestamp create_time = 12; /* Create Time */
-    string update_user_id = 13; /* Update User ID */
-    google.protobuf.Timestamp update_time = 14; /* Update Time */
-    string create_group_id = 15; /* Create Group ID */
-    string intro_typename = 16; /* Type Name */
-    repeated GroupUserRelationInput list = 17; /* Input List */
-    GroupUserRelationExpression where = 18; /* Where */
+    GroupUserRelationInput input = 3;
 }
 message MutationRoleUserRelationRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
-    string id = 3; /* ID */
-    string user_ref = 4; /* 用户 Reference */
-    UserInput user = 5; /* 用户 */
-    string role_ref = 6; /* 角色 Reference */
-    RoleInput role = 7; /* 角色 */
-    bool is_deprecated = 8; /* Is Deprecated */
-    int32 version = 9; /* Version */
-    int32 realm_id = 10; /* Realm ID */
-    string create_user_id = 11; /* Create User ID */
-    google.protobuf.Timestamp create_time = 12; /* Create Time */
-    string update_user_id = 13; /* Update User ID */
-    google.protobuf.Timestamp update_time = 14; /* Update Time */
-    string create_group_id = 15; /* Create Group ID */
-    string intro_typename = 16; /* Type Name */
-    RoleUserRelationInput input = 17; /* Input */
-    RoleUserRelationExpression where = 18; /* Where */
+    RoleUserRelationInput input = 3;
 }
 message MutationRoleUserRelationListRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
-    string id = 3; /* ID */
-    string user_ref = 4; /* 用户 Reference */
-    UserInput user = 5; /* 用户 */
-    string role_ref = 6; /* 角色 Reference */
-    RoleInput role = 7; /* 角色 */
-    bool is_deprecated = 8; /* Is Deprecated */
-    int32 version = 9; /* Version */
-    int32 realm_id = 10; /* Realm ID */
-    string create_user_id = 11; /* Create User ID */
-    google.protobuf.Timestamp create_time = 12; /* Create Time */
-    string update_user_id = 13; /* Update User ID */
-    google.protobuf.Timestamp update_time = 14; /* Update Time */
-    string create_group_id = 15; /* Create Group ID */
-    string intro_typename = 16; /* Type Name */
-    repeated RoleUserRelationInput list = 17; /* Input List */
-    RoleUserRelationExpression where = 18; /* Where */
+    RoleUserRelationInput input = 3;
 }
 message MutationGroupRoleRelationRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
-    string id = 3; /* ID */
-    string role_ref = 4; /* 角色 Reference */
-    RoleInput role = 5; /* 角色 */
-    string group_ref = 6; /* 组 Reference */
-    GroupInput group = 7; /* 组 */
-    bool is_deprecated = 8; /* Is Deprecated */
-    int32 version = 9; /* Version */
-    int32 realm_id = 10; /* Realm ID */
-    string create_user_id = 11; /* Create User ID */
-    google.protobuf.Timestamp create_time = 12; /* Create Time */
-    string update_user_id = 13; /* Update User ID */
-    google.protobuf.Timestamp update_time = 14; /* Update Time */
-    string create_group_id = 15; /* Create Group ID */
-    string intro_typename = 16; /* Type Name */
-    GroupRoleRelationInput input = 17; /* Input */
-    GroupRoleRelationExpression where = 18; /* Where */
+    GroupRoleRelationInput input = 3;
 }
 message MutationGroupRoleRelationListRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
-    string id = 3; /* ID */
-    string role_ref = 4; /* 角色 Reference */
-    RoleInput role = 5; /* 角色 */
-    string group_ref = 6; /* 组 Reference */
-    GroupInput group = 7; /* 组 */
-    bool is_deprecated = 8; /* Is Deprecated */
-    int32 version = 9; /* Version */
-    int32 realm_id = 10; /* Realm ID */
-    string create_user_id = 11; /* Create User ID */
-    google.protobuf.Timestamp create_time = 12; /* Create Time */
-    string update_user_id = 13; /* Update User ID */
-    google.protobuf.Timestamp update_time = 14; /* Update Time */
-    string create_group_id = 15; /* Create Group ID */
-    string intro_typename = 16; /* Type Name */
-    repeated GroupRoleRelationInput list = 17; /* Input List */
-    GroupRoleRelationExpression where = 18; /* Where */
+    GroupRoleRelationInput input = 3;
 }
 message MutationRoleCompositeRelationRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
-    string id = 3; /* ID */
-    string role_ref = 4; /* 角色 Reference */
-    RoleInput role = 5; /* 角色 */
-    string composite_ref = 6; /* 角色 Reference */
-    RoleInput composite = 7; /* 角色 */
-    bool is_deprecated = 8; /* Is Deprecated */
-    int32 version = 9; /* Version */
-    int32 realm_id = 10; /* Realm ID */
-    string create_user_id = 11; /* Create User ID */
-    google.protobuf.Timestamp create_time = 12; /* Create Time */
-    string update_user_id = 13; /* Update User ID */
-    google.protobuf.Timestamp update_time = 14; /* Update Time */
-    string create_group_id = 15; /* Create Group ID */
-    string intro_typename = 16; /* Type Name */
-    RoleCompositeRelationInput input = 17; /* Input */
-    RoleCompositeRelationExpression where = 18; /* Where */
+    RoleCompositeRelationInput input = 3;
 }
 message MutationRoleCompositeRelationListRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
-    string id = 3; /* ID */
-    string role_ref = 4; /* 角色 Reference */
-    RoleInput role = 5; /* 角色 */
-    string composite_ref = 6; /* 角色 Reference */
-    RoleInput composite = 7; /* 角色 */
-    bool is_deprecated = 8; /* Is Deprecated */
-    int32 version = 9; /* Version */
-    int32 realm_id = 10; /* Realm ID */
-    string create_user_id = 11; /* Create User ID */
-    google.protobuf.Timestamp create_time = 12; /* Create Time */
-    string update_user_id = 13; /* Update User ID */
-    google.protobuf.Timestamp update_time = 14; /* Update Time */
-    string create_group_id = 15; /* Create Group ID */
-    string intro_typename = 16; /* Type Name */
-    repeated RoleCompositeRelationInput list = 17; /* Input List */
-    RoleCompositeRelationExpression where = 18; /* Where */
+    RoleCompositeRelationInput input = 3;
 }
 message MutationRolePermissionRelationRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
-    string id = 3; /* ID */
-    string role_ref = 4; /* 角色 Reference */
-    RoleInput role = 5; /* 角色 */
-    string permission_ref = 6; /* 权限 Reference */
-    PermissionInput permission = 7; /* 权限 */
-    bool is_deprecated = 8; /* Is Deprecated */
-    int32 version = 9; /* Version */
-    int32 realm_id = 10; /* Realm ID */
-    string create_user_id = 11; /* Create User ID */
-    google.protobuf.Timestamp create_time = 12; /* Create Time */
-    string update_user_id = 13; /* Update User ID */
-    google.protobuf.Timestamp update_time = 14; /* Update Time */
-    string create_group_id = 15; /* Create Group ID */
-    string intro_typename = 16; /* Type Name */
-    RolePermissionRelationInput input = 17; /* Input */
-    RolePermissionRelationExpression where = 18; /* Where */
+    RolePermissionRelationInput input = 3;
 }
 message MutationRolePermissionRelationListRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
-    string id = 3; /* ID */
-    string role_ref = 4; /* 角色 Reference */
-    RoleInput role = 5; /* 角色 */
-    string permission_ref = 6; /* 权限 Reference */
-    PermissionInput permission = 7; /* 权限 */
-    bool is_deprecated = 8; /* Is Deprecated */
-    int32 version = 9; /* Version */
-    int32 realm_id = 10; /* Realm ID */
-    string create_user_id = 11; /* Create User ID */
-    google.protobuf.Timestamp create_time = 12; /* Create Time */
-    string update_user_id = 13; /* Update User ID */
-    google.protobuf.Timestamp update_time = 14; /* Update Time */
-    string create_group_id = 15; /* Create Group ID */
-    string intro_typename = 16; /* Type Name */
-    repeated RolePermissionRelationInput list = 17; /* Input List */
-    RolePermissionRelationExpression where = 18; /* Where */
+    RolePermissionRelationInput input = 3;
 }
 message MutationSyncModelPolicyRequest {
     optional string selection_set = 1;
@@ -516,6 +132,12 @@ message MutationSyncPermissionRoleRelationPolicyRequest {
     repeated string permission_name_list = 4;
     repeated string removed_permission_name_list = 5;
 }
+message MutationLoginRequest {
+    optional string selection_set = 1;
+    optional string arguments = 2;
+    string login = 3;
+    string password = 4;
+}
 message MutationCurrentUserUpdateRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
@@ -526,10 +148,4 @@ message MutationCurrentUserResetPasswordRequest {
     optional string arguments = 2;
     string password = 3;
     string new_password = 4;
-}
-message MutationLoginRequest {
-    optional string selection_set = 1;
-    optional string arguments = 2;
-    string login = 3;
-    string password = 4;
 }

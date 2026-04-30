@@ -183,6 +183,48 @@ public @interface RoleCompositeRelationExpression1 {
   @Description("Expressions")
   RoleCompositeRelationExpression2[] exs() default {};
 
+  /**
+   * Order By
+   */
+  @Description("Order By")
+  RoleCompositeRelationOrderBy2 orderBy() default @RoleCompositeRelationOrderBy2;
+
+  /**
+   * Group By
+   */
+  @Description("Group By")
+  RoleCompositeRelationGroupBy2 groupBy() default @RoleCompositeRelationGroupBy2;
+
+  /**
+   * First
+   */
+  @Description("First")
+  int first() default 0;
+
+  /**
+   * Last
+   */
+  @Description("Last")
+  int last() default 0;
+
+  /**
+   * Offset
+   */
+  @Description("Offset")
+  int offset() default 0;
+
+  /**
+   * After
+   */
+  @Description("After")
+  String after() default "";
+
+  /**
+   * Before
+   */
+  @Description("Before")
+  String before() default "";
+
   String $id() default "";
 
   String $roleRef() default "";
@@ -236,4 +278,18 @@ public @interface RoleCompositeRelationExpression1 {
   String $cond() default "";
 
   String $exs() default "";
+
+  String $orderBy() default "";
+
+  String $groupBy() default "";
+
+  String $first() default "";
+
+  String $last() default "";
+
+  String $offset() default "";
+
+  String $after() default "";
+
+  String $before() default "";
 }

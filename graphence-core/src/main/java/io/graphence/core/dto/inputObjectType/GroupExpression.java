@@ -9,7 +9,9 @@ import io.graphoenix.structure.dto.inputObjectType.NamedStructExpression;
 import io.graphoenix.structure.dto.inputObjectType.TreeStructExpression;
 import jakarta.annotation.Generated;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.Override;
+import java.lang.String;
 import java.util.Collection;
 import org.eclipse.microprofile.graphql.DefaultValue;
 import org.eclipse.microprofile.graphql.Description;
@@ -22,7 +24,7 @@ import org.eclipse.microprofile.graphql.Input;
 @Input
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder")
 @Description("Query Expression Input for 组")
-public class GroupExpression implements TreeStructExpression, NamedStructExpression, MetaExpression, GroupExpressionBase {
+public class GroupExpression implements TreeStructExpression, NamedStructExpression, MetaExpression {
   /**
    * ID
    */
@@ -236,6 +238,48 @@ public class GroupExpression implements TreeStructExpression, NamedStructExpress
   @Description("Expressions")
   private Collection<GroupExpression> exs;
 
+  /**
+   * Order By
+   */
+  @Description("Order By")
+  private GroupOrderBy orderBy;
+
+  /**
+   * Group By
+   */
+  @Description("Group By")
+  private GroupGroupBy groupBy;
+
+  /**
+   * First
+   */
+  @Description("First")
+  private Integer first;
+
+  /**
+   * Last
+   */
+  @Description("Last")
+  private Integer last;
+
+  /**
+   * Offset
+   */
+  @Description("Offset")
+  private Integer offset;
+
+  /**
+   * After
+   */
+  @Description("After")
+  private String after;
+
+  /**
+   * Before
+   */
+  @Description("Before")
+  private String before;
+
   @Override
   public StringExpression getId() {
     return this.id;
@@ -266,24 +310,20 @@ public class GroupExpression implements TreeStructExpression, NamedStructExpress
     this.description = (StringExpression)description;
   }
 
-  @Override
   public StringExpression getPath() {
     return this.path;
   }
 
-  @Override
   public void setPath(StringExpression path) {
-    this.path = (StringExpression)path;
+    this.path = path;
   }
 
-  @Override
   public IntExpression getDeep() {
     return this.deep;
   }
 
-  @Override
   public void setDeep(IntExpression deep) {
-    this.deep = (IntExpression)deep;
+    this.deep = deep;
   }
 
   @Override
@@ -296,54 +336,44 @@ public class GroupExpression implements TreeStructExpression, NamedStructExpress
     this.parentId = (StringExpression)parentId;
   }
 
-  @Override
   public GroupExpression getParent() {
     return this.parent;
   }
 
-  @Override
   public void setParent(GroupExpression parent) {
-    this.parent = (GroupExpression)parent;
+    this.parent = parent;
   }
 
-  @Override
   public GroupExpression getSubGroups() {
     return this.subGroups;
   }
 
-  @Override
   public void setSubGroups(GroupExpression subGroups) {
-    this.subGroups = (GroupExpression)subGroups;
+    this.subGroups = subGroups;
   }
 
-  @Override
   public UserExpression getUsers() {
     return this.users;
   }
 
-  @Override
   public void setUsers(UserExpression users) {
-    this.users = (UserExpression)users;
+    this.users = users;
   }
 
-  @Override
   public RoleExpression getRoles() {
     return this.roles;
   }
 
-  @Override
   public void setRoles(RoleExpression roles) {
-    this.roles = (RoleExpression)roles;
+    this.roles = roles;
   }
 
-  @Override
   public RealmExpression getRealm() {
     return this.realm;
   }
 
-  @Override
   public void setRealm(RealmExpression realm) {
-    this.realm = (RealmExpression)realm;
+    this.realm = realm;
   }
 
   @Override
@@ -426,134 +456,108 @@ public class GroupExpression implements TreeStructExpression, NamedStructExpress
     this.createGroupId = (StringExpression)createGroupId;
   }
 
-  @Override
   public StringExpression get__typename() {
     return this.__typename;
   }
 
-  @Override
   public void set__typename(StringExpression __typename) {
-    this.__typename = (StringExpression)__typename;
+    this.__typename = __typename;
   }
 
-  @Override
   public GroupUserRelationExpression getGroupUserRelation() {
     return this.groupUserRelation;
   }
 
-  @Override
   public void setGroupUserRelation(GroupUserRelationExpression groupUserRelation) {
-    this.groupUserRelation = (GroupUserRelationExpression)groupUserRelation;
+    this.groupUserRelation = groupUserRelation;
   }
 
-  @Override
   public GroupRoleRelationExpression getGroupRoleRelation() {
     return this.groupRoleRelation;
   }
 
-  @Override
   public void setGroupRoleRelation(GroupRoleRelationExpression groupRoleRelation) {
-    this.groupRoleRelation = (GroupRoleRelationExpression)groupRoleRelation;
+    this.groupRoleRelation = groupRoleRelation;
   }
 
-  @Override
   public IntExpression getCreateTimeYear() {
     return this.createTimeYear;
   }
 
-  @Override
   public void setCreateTimeYear(IntExpression createTimeYear) {
-    this.createTimeYear = (IntExpression)createTimeYear;
+    this.createTimeYear = createTimeYear;
   }
 
-  @Override
   public IntExpression getCreateTimeMonth() {
     return this.createTimeMonth;
   }
 
-  @Override
   public void setCreateTimeMonth(IntExpression createTimeMonth) {
-    this.createTimeMonth = (IntExpression)createTimeMonth;
+    this.createTimeMonth = createTimeMonth;
   }
 
-  @Override
   public IntExpression getCreateTimeDay() {
     return this.createTimeDay;
   }
 
-  @Override
   public void setCreateTimeDay(IntExpression createTimeDay) {
-    this.createTimeDay = (IntExpression)createTimeDay;
+    this.createTimeDay = createTimeDay;
   }
 
-  @Override
   public IntExpression getCreateTimeWeek() {
     return this.createTimeWeek;
   }
 
-  @Override
   public void setCreateTimeWeek(IntExpression createTimeWeek) {
-    this.createTimeWeek = (IntExpression)createTimeWeek;
+    this.createTimeWeek = createTimeWeek;
   }
 
-  @Override
   public IntExpression getCreateTimeQuarter() {
     return this.createTimeQuarter;
   }
 
-  @Override
   public void setCreateTimeQuarter(IntExpression createTimeQuarter) {
-    this.createTimeQuarter = (IntExpression)createTimeQuarter;
+    this.createTimeQuarter = createTimeQuarter;
   }
 
-  @Override
   public IntExpression getUpdateTimeYear() {
     return this.updateTimeYear;
   }
 
-  @Override
   public void setUpdateTimeYear(IntExpression updateTimeYear) {
-    this.updateTimeYear = (IntExpression)updateTimeYear;
+    this.updateTimeYear = updateTimeYear;
   }
 
-  @Override
   public IntExpression getUpdateTimeMonth() {
     return this.updateTimeMonth;
   }
 
-  @Override
   public void setUpdateTimeMonth(IntExpression updateTimeMonth) {
-    this.updateTimeMonth = (IntExpression)updateTimeMonth;
+    this.updateTimeMonth = updateTimeMonth;
   }
 
-  @Override
   public IntExpression getUpdateTimeDay() {
     return this.updateTimeDay;
   }
 
-  @Override
   public void setUpdateTimeDay(IntExpression updateTimeDay) {
-    this.updateTimeDay = (IntExpression)updateTimeDay;
+    this.updateTimeDay = updateTimeDay;
   }
 
-  @Override
   public IntExpression getUpdateTimeWeek() {
     return this.updateTimeWeek;
   }
 
-  @Override
   public void setUpdateTimeWeek(IntExpression updateTimeWeek) {
-    this.updateTimeWeek = (IntExpression)updateTimeWeek;
+    this.updateTimeWeek = updateTimeWeek;
   }
 
-  @Override
   public IntExpression getUpdateTimeQuarter() {
     return this.updateTimeQuarter;
   }
 
-  @Override
   public void setUpdateTimeQuarter(IntExpression updateTimeQuarter) {
-    this.updateTimeQuarter = (IntExpression)updateTimeQuarter;
+    this.updateTimeQuarter = updateTimeQuarter;
   }
 
   @Override
@@ -576,13 +580,67 @@ public class GroupExpression implements TreeStructExpression, NamedStructExpress
     this.cond = (Conditional)cond;
   }
 
-  @Override
   public Collection<GroupExpression> getExs() {
     return this.exs;
   }
 
-  @Override
   public void setExs(Collection<GroupExpression> exs) {
-    this.exs = (Collection<GroupExpression>)exs;
+    this.exs = exs;
+  }
+
+  public GroupOrderBy getOrderBy() {
+    return this.orderBy;
+  }
+
+  public void setOrderBy(GroupOrderBy orderBy) {
+    this.orderBy = orderBy;
+  }
+
+  public GroupGroupBy getGroupBy() {
+    return this.groupBy;
+  }
+
+  public void setGroupBy(GroupGroupBy groupBy) {
+    this.groupBy = groupBy;
+  }
+
+  public Integer getFirst() {
+    return this.first;
+  }
+
+  public void setFirst(Integer first) {
+    this.first = first;
+  }
+
+  public Integer getLast() {
+    return this.last;
+  }
+
+  public void setLast(Integer last) {
+    this.last = last;
+  }
+
+  public Integer getOffset() {
+    return this.offset;
+  }
+
+  public void setOffset(Integer offset) {
+    this.offset = offset;
+  }
+
+  public String getAfter() {
+    return this.after;
+  }
+
+  public void setAfter(String after) {
+    this.after = after;
+  }
+
+  public String getBefore() {
+    return this.before;
+  }
+
+  public void setBefore(String before) {
+    this.before = before;
   }
 }

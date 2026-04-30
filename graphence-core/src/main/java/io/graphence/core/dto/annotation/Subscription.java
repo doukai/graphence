@@ -17,90 +17,74 @@ import org.eclipse.microprofile.graphql.Description;
 @Target(ElementType.METHOD)
 @Description("Subscription")
 public @interface Subscription {
-  UserSubscriptionArguments user() default @UserSubscriptionArguments;
+  UserExpression user() default @UserExpression;
 
-  UserListSubscriptionArguments userList() default @UserListSubscriptionArguments;
+  UserExpression userList() default @UserExpression;
 
-  UserConnectionSubscriptionArguments userConnection() default @UserConnectionSubscriptionArguments;
+  UserExpression userConnection() default @UserExpression;
 
-  RoleSubscriptionArguments role() default @RoleSubscriptionArguments;
+  RoleExpression role() default @RoleExpression;
 
-  RoleListSubscriptionArguments roleList() default @RoleListSubscriptionArguments;
+  RoleExpression roleList() default @RoleExpression;
 
-  RoleConnectionSubscriptionArguments roleConnection() default @RoleConnectionSubscriptionArguments;
+  RoleExpression roleConnection() default @RoleExpression;
 
-  GroupSubscriptionArguments group() default @GroupSubscriptionArguments;
+  GroupExpression group() default @GroupExpression;
 
-  GroupListSubscriptionArguments groupList() default @GroupListSubscriptionArguments;
+  GroupExpression groupList() default @GroupExpression;
 
-  GroupConnectionSubscriptionArguments groupConnection(
-      ) default @GroupConnectionSubscriptionArguments;
+  GroupExpression groupConnection() default @GroupExpression;
 
-  RealmSubscriptionArguments realm() default @RealmSubscriptionArguments;
+  RealmExpression realm() default @RealmExpression;
 
-  RealmListSubscriptionArguments realmList() default @RealmListSubscriptionArguments;
+  RealmExpression realmList() default @RealmExpression;
 
-  RealmConnectionSubscriptionArguments realmConnection(
-      ) default @RealmConnectionSubscriptionArguments;
+  RealmExpression realmConnection() default @RealmExpression;
 
-  PermissionSubscriptionArguments permission() default @PermissionSubscriptionArguments;
+  PermissionExpression permission() default @PermissionExpression;
 
-  PermissionListSubscriptionArguments permissionList() default @PermissionListSubscriptionArguments;
+  PermissionExpression permissionList() default @PermissionExpression;
 
-  PermissionConnectionSubscriptionArguments permissionConnection(
-      ) default @PermissionConnectionSubscriptionArguments;
+  PermissionExpression permissionConnection() default @PermissionExpression;
 
-  UserPhonesRelationSubscriptionArguments userPhonesRelation(
-      ) default @UserPhonesRelationSubscriptionArguments;
+  UserPhonesRelationExpression userPhonesRelation() default @UserPhonesRelationExpression;
 
-  UserPhonesRelationListSubscriptionArguments userPhonesRelationList(
-      ) default @UserPhonesRelationListSubscriptionArguments;
+  UserPhonesRelationExpression userPhonesRelationList() default @UserPhonesRelationExpression;
 
-  UserPhonesRelationConnectionSubscriptionArguments userPhonesRelationConnection(
-      ) default @UserPhonesRelationConnectionSubscriptionArguments;
+  UserPhonesRelationExpression userPhonesRelationConnection() default @UserPhonesRelationExpression;
 
-  GroupUserRelationSubscriptionArguments groupUserRelation(
-      ) default @GroupUserRelationSubscriptionArguments;
+  GroupUserRelationExpression groupUserRelation() default @GroupUserRelationExpression;
 
-  GroupUserRelationListSubscriptionArguments groupUserRelationList(
-      ) default @GroupUserRelationListSubscriptionArguments;
+  GroupUserRelationExpression groupUserRelationList() default @GroupUserRelationExpression;
 
-  GroupUserRelationConnectionSubscriptionArguments groupUserRelationConnection(
-      ) default @GroupUserRelationConnectionSubscriptionArguments;
+  GroupUserRelationExpression groupUserRelationConnection() default @GroupUserRelationExpression;
 
-  RoleUserRelationSubscriptionArguments roleUserRelation(
-      ) default @RoleUserRelationSubscriptionArguments;
+  RoleUserRelationExpression roleUserRelation() default @RoleUserRelationExpression;
 
-  RoleUserRelationListSubscriptionArguments roleUserRelationList(
-      ) default @RoleUserRelationListSubscriptionArguments;
+  RoleUserRelationExpression roleUserRelationList() default @RoleUserRelationExpression;
 
-  RoleUserRelationConnectionSubscriptionArguments roleUserRelationConnection(
-      ) default @RoleUserRelationConnectionSubscriptionArguments;
+  RoleUserRelationExpression roleUserRelationConnection() default @RoleUserRelationExpression;
 
-  GroupRoleRelationSubscriptionArguments groupRoleRelation(
-      ) default @GroupRoleRelationSubscriptionArguments;
+  GroupRoleRelationExpression groupRoleRelation() default @GroupRoleRelationExpression;
 
-  GroupRoleRelationListSubscriptionArguments groupRoleRelationList(
-      ) default @GroupRoleRelationListSubscriptionArguments;
+  GroupRoleRelationExpression groupRoleRelationList() default @GroupRoleRelationExpression;
 
-  GroupRoleRelationConnectionSubscriptionArguments groupRoleRelationConnection(
-      ) default @GroupRoleRelationConnectionSubscriptionArguments;
+  GroupRoleRelationExpression groupRoleRelationConnection() default @GroupRoleRelationExpression;
 
-  RoleCompositeRelationSubscriptionArguments roleCompositeRelation(
-      ) default @RoleCompositeRelationSubscriptionArguments;
+  RoleCompositeRelationExpression roleCompositeRelation() default @RoleCompositeRelationExpression;
 
-  RoleCompositeRelationListSubscriptionArguments roleCompositeRelationList(
-      ) default @RoleCompositeRelationListSubscriptionArguments;
+  RoleCompositeRelationExpression roleCompositeRelationList(
+      ) default @RoleCompositeRelationExpression;
 
-  RoleCompositeRelationConnectionSubscriptionArguments roleCompositeRelationConnection(
-      ) default @RoleCompositeRelationConnectionSubscriptionArguments;
+  RoleCompositeRelationExpression roleCompositeRelationConnection(
+      ) default @RoleCompositeRelationExpression;
 
-  RolePermissionRelationSubscriptionArguments rolePermissionRelation(
-      ) default @RolePermissionRelationSubscriptionArguments;
+  RolePermissionRelationExpression rolePermissionRelation(
+      ) default @RolePermissionRelationExpression;
 
-  RolePermissionRelationListSubscriptionArguments rolePermissionRelationList(
-      ) default @RolePermissionRelationListSubscriptionArguments;
+  RolePermissionRelationExpression rolePermissionRelationList(
+      ) default @RolePermissionRelationExpression;
 
-  RolePermissionRelationConnectionSubscriptionArguments rolePermissionRelationConnection(
-      ) default @RolePermissionRelationConnectionSubscriptionArguments;
+  RolePermissionRelationExpression rolePermissionRelationConnection(
+      ) default @RolePermissionRelationExpression;
 }

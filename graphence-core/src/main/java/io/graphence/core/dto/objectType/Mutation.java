@@ -148,15 +148,15 @@ public class Mutation {
   @Description("Mutation Field for Relationship Object between 角色 and 权限 List")
   private Collection<RolePermissionRelation> rolePermissionRelationList;
 
+  private Boolean syncModelPolicy;
+
+  private Boolean syncPermissionRoleRelationPolicy;
+
   private String login;
 
   private User currentUserUpdate;
 
   private User currentUserResetPassword;
-
-  private Boolean syncModelPolicy;
-
-  private Boolean syncPermissionRoleRelationPolicy;
 
   public User getUser() {
     return this.user;
@@ -336,6 +336,22 @@ public class Mutation {
     this.rolePermissionRelationList = rolePermissionRelationList;
   }
 
+  public Boolean getSyncModelPolicy() {
+    return this.syncModelPolicy;
+  }
+
+  public void setSyncModelPolicy(Boolean syncModelPolicy) {
+    this.syncModelPolicy = syncModelPolicy;
+  }
+
+  public Boolean getSyncPermissionRoleRelationPolicy() {
+    return this.syncPermissionRoleRelationPolicy;
+  }
+
+  public void setSyncPermissionRoleRelationPolicy(Boolean syncPermissionRoleRelationPolicy) {
+    this.syncPermissionRoleRelationPolicy = syncPermissionRoleRelationPolicy;
+  }
+
   public String getLogin() {
     return this.login;
   }
@@ -358,21 +374,5 @@ public class Mutation {
 
   public void setCurrentUserResetPassword(User currentUserResetPassword) {
     this.currentUserResetPassword = currentUserResetPassword;
-  }
-
-  public Boolean getSyncModelPolicy() {
-    return this.syncModelPolicy;
-  }
-
-  public void setSyncModelPolicy(Boolean syncModelPolicy) {
-    this.syncModelPolicy = syncModelPolicy;
-  }
-
-  public Boolean getSyncPermissionRoleRelationPolicy() {
-    return this.syncPermissionRoleRelationPolicy;
-  }
-
-  public void setSyncPermissionRoleRelationPolicy(Boolean syncPermissionRoleRelationPolicy) {
-    this.syncPermissionRoleRelationPolicy = syncPermissionRoleRelationPolicy;
   }
 }

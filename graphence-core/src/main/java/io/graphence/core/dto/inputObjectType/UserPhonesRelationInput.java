@@ -8,6 +8,7 @@ import java.lang.Integer;
 import java.lang.Override;
 import java.lang.String;
 import java.time.LocalDateTime;
+import java.util.Collection;
 import org.eclipse.microprofile.graphql.DefaultValue;
 import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.Input;
@@ -19,7 +20,7 @@ import org.eclipse.microprofile.graphql.Input;
 @Input
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder")
 @Description("Mutation Input for Relationship Object between 用户 and 手机号")
-public class UserPhonesRelationInput implements MetaInput, UserPhonesRelationInputBase {
+public class UserPhonesRelationInput implements MetaInput {
   /**
    * ID
    */
@@ -101,6 +102,18 @@ public class UserPhonesRelationInput implements MetaInput, UserPhonesRelationInp
   private String __typename = "UserPhonesRelation";
 
   /**
+   * Input
+   */
+  @Description("Input")
+  private UserPhonesRelationInput input;
+
+  /**
+   * Input List
+   */
+  @Description("Input List")
+  private Collection<UserPhonesRelationInput> list;
+
+  /**
    * Where
    */
   @Description("Where")
@@ -116,44 +129,36 @@ public class UserPhonesRelationInput implements MetaInput, UserPhonesRelationInp
     this.id = (String)id;
   }
 
-  @Override
   public String getUserRef() {
     return this.userRef;
   }
 
-  @Override
   public void setUserRef(String userRef) {
-    this.userRef = (String)userRef;
+    this.userRef = userRef;
   }
 
-  @Override
   public UserInput getUser() {
     return this.user;
   }
 
-  @Override
   public void setUser(UserInput user) {
-    this.user = (UserInput)user;
+    this.user = user;
   }
 
-  @Override
   public String getPhonesRef() {
     return this.phonesRef;
   }
 
-  @Override
   public void setPhonesRef(String phonesRef) {
-    this.phonesRef = (String)phonesRef;
+    this.phonesRef = phonesRef;
   }
 
-  @Override
   public Boolean getIsDeprecated() {
     return this.isDeprecated;
   }
 
-  @Override
   public void setIsDeprecated(Boolean isDeprecated) {
-    this.isDeprecated = (Boolean)isDeprecated;
+    this.isDeprecated = isDeprecated;
   }
 
   @Override
@@ -226,23 +231,35 @@ public class UserPhonesRelationInput implements MetaInput, UserPhonesRelationInp
     this.createGroupId = (String)createGroupId;
   }
 
-  @Override
   public String get__typename() {
     return this.__typename;
   }
 
-  @Override
   public void set__typename(String __typename) {
-    this.__typename = (String)__typename;
+    this.__typename = __typename;
   }
 
-  @Override
+  public UserPhonesRelationInput getInput() {
+    return this.input;
+  }
+
+  public void setInput(UserPhonesRelationInput input) {
+    this.input = input;
+  }
+
+  public Collection<UserPhonesRelationInput> getList() {
+    return this.list;
+  }
+
+  public void setList(Collection<UserPhonesRelationInput> list) {
+    this.list = list;
+  }
+
   public UserPhonesRelationExpression getWhere() {
     return this.where;
   }
 
-  @Override
   public void setWhere(UserPhonesRelationExpression where) {
-    this.where = (UserPhonesRelationExpression)where;
+    this.where = where;
   }
 }

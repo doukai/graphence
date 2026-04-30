@@ -17,84 +17,74 @@ import org.eclipse.microprofile.graphql.Description;
 @Target(ElementType.METHOD)
 @Description("Query")
 public @interface Query {
-  UserQueryArguments user() default @UserQueryArguments;
+  UserExpression user() default @UserExpression;
 
-  UserListQueryArguments userList() default @UserListQueryArguments;
+  UserExpression userList() default @UserExpression;
 
-  UserConnectionQueryArguments userConnection() default @UserConnectionQueryArguments;
+  UserExpression userConnection() default @UserExpression;
 
-  RoleQueryArguments role() default @RoleQueryArguments;
+  RoleExpression role() default @RoleExpression;
 
-  RoleListQueryArguments roleList() default @RoleListQueryArguments;
+  RoleExpression roleList() default @RoleExpression;
 
-  RoleConnectionQueryArguments roleConnection() default @RoleConnectionQueryArguments;
+  RoleExpression roleConnection() default @RoleExpression;
 
-  GroupQueryArguments group() default @GroupQueryArguments;
+  GroupExpression group() default @GroupExpression;
 
-  GroupListQueryArguments groupList() default @GroupListQueryArguments;
+  GroupExpression groupList() default @GroupExpression;
 
-  GroupConnectionQueryArguments groupConnection() default @GroupConnectionQueryArguments;
+  GroupExpression groupConnection() default @GroupExpression;
 
-  RealmQueryArguments realm() default @RealmQueryArguments;
+  RealmExpression realm() default @RealmExpression;
 
-  RealmListQueryArguments realmList() default @RealmListQueryArguments;
+  RealmExpression realmList() default @RealmExpression;
 
-  RealmConnectionQueryArguments realmConnection() default @RealmConnectionQueryArguments;
+  RealmExpression realmConnection() default @RealmExpression;
 
-  PermissionQueryArguments permission() default @PermissionQueryArguments;
+  PermissionExpression permission() default @PermissionExpression;
 
-  PermissionListQueryArguments permissionList() default @PermissionListQueryArguments;
+  PermissionExpression permissionList() default @PermissionExpression;
 
-  PermissionConnectionQueryArguments permissionConnection(
-      ) default @PermissionConnectionQueryArguments;
+  PermissionExpression permissionConnection() default @PermissionExpression;
 
-  UserPhonesRelationQueryArguments userPhonesRelation() default @UserPhonesRelationQueryArguments;
+  UserPhonesRelationExpression userPhonesRelation() default @UserPhonesRelationExpression;
 
-  UserPhonesRelationListQueryArguments userPhonesRelationList(
-      ) default @UserPhonesRelationListQueryArguments;
+  UserPhonesRelationExpression userPhonesRelationList() default @UserPhonesRelationExpression;
 
-  UserPhonesRelationConnectionQueryArguments userPhonesRelationConnection(
-      ) default @UserPhonesRelationConnectionQueryArguments;
+  UserPhonesRelationExpression userPhonesRelationConnection() default @UserPhonesRelationExpression;
 
-  GroupUserRelationQueryArguments groupUserRelation() default @GroupUserRelationQueryArguments;
+  GroupUserRelationExpression groupUserRelation() default @GroupUserRelationExpression;
 
-  GroupUserRelationListQueryArguments groupUserRelationList(
-      ) default @GroupUserRelationListQueryArguments;
+  GroupUserRelationExpression groupUserRelationList() default @GroupUserRelationExpression;
 
-  GroupUserRelationConnectionQueryArguments groupUserRelationConnection(
-      ) default @GroupUserRelationConnectionQueryArguments;
+  GroupUserRelationExpression groupUserRelationConnection() default @GroupUserRelationExpression;
 
-  RoleUserRelationQueryArguments roleUserRelation() default @RoleUserRelationQueryArguments;
+  RoleUserRelationExpression roleUserRelation() default @RoleUserRelationExpression;
 
-  RoleUserRelationListQueryArguments roleUserRelationList(
-      ) default @RoleUserRelationListQueryArguments;
+  RoleUserRelationExpression roleUserRelationList() default @RoleUserRelationExpression;
 
-  RoleUserRelationConnectionQueryArguments roleUserRelationConnection(
-      ) default @RoleUserRelationConnectionQueryArguments;
+  RoleUserRelationExpression roleUserRelationConnection() default @RoleUserRelationExpression;
 
-  GroupRoleRelationQueryArguments groupRoleRelation() default @GroupRoleRelationQueryArguments;
+  GroupRoleRelationExpression groupRoleRelation() default @GroupRoleRelationExpression;
 
-  GroupRoleRelationListQueryArguments groupRoleRelationList(
-      ) default @GroupRoleRelationListQueryArguments;
+  GroupRoleRelationExpression groupRoleRelationList() default @GroupRoleRelationExpression;
 
-  GroupRoleRelationConnectionQueryArguments groupRoleRelationConnection(
-      ) default @GroupRoleRelationConnectionQueryArguments;
+  GroupRoleRelationExpression groupRoleRelationConnection() default @GroupRoleRelationExpression;
 
-  RoleCompositeRelationQueryArguments roleCompositeRelation(
-      ) default @RoleCompositeRelationQueryArguments;
+  RoleCompositeRelationExpression roleCompositeRelation() default @RoleCompositeRelationExpression;
 
-  RoleCompositeRelationListQueryArguments roleCompositeRelationList(
-      ) default @RoleCompositeRelationListQueryArguments;
+  RoleCompositeRelationExpression roleCompositeRelationList(
+      ) default @RoleCompositeRelationExpression;
 
-  RoleCompositeRelationConnectionQueryArguments roleCompositeRelationConnection(
-      ) default @RoleCompositeRelationConnectionQueryArguments;
+  RoleCompositeRelationExpression roleCompositeRelationConnection(
+      ) default @RoleCompositeRelationExpression;
 
-  RolePermissionRelationQueryArguments rolePermissionRelation(
-      ) default @RolePermissionRelationQueryArguments;
+  RolePermissionRelationExpression rolePermissionRelation(
+      ) default @RolePermissionRelationExpression;
 
-  RolePermissionRelationListQueryArguments rolePermissionRelationList(
-      ) default @RolePermissionRelationListQueryArguments;
+  RolePermissionRelationExpression rolePermissionRelationList(
+      ) default @RolePermissionRelationExpression;
 
-  RolePermissionRelationConnectionQueryArguments rolePermissionRelationConnection(
-      ) default @RolePermissionRelationConnectionQueryArguments;
+  RolePermissionRelationExpression rolePermissionRelationConnection(
+      ) default @RolePermissionRelationExpression;
 }

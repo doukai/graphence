@@ -97,6 +97,18 @@ public @interface UserPhonesRelationInput {
   String __typename() default "UserPhonesRelation";
 
   /**
+   * Input
+   */
+  @Description("Input")
+  UserPhonesRelationInput1 input() default @UserPhonesRelationInput1;
+
+  /**
+   * Input List
+   */
+  @Description("Input List")
+  UserPhonesRelationInput1[] list() default {};
+
+  /**
    * Where
    */
   @Description("Where")
@@ -127,6 +139,10 @@ public @interface UserPhonesRelationInput {
   String $createGroupId() default "";
 
   String $__typename() default "";
+
+  String $input() default "";
+
+  String $list() default "";
 
   String $where() default "";
 }

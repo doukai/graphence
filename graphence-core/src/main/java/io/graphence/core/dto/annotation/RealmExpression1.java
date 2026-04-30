@@ -171,6 +171,48 @@ public @interface RealmExpression1 {
   @Description("Expressions")
   RealmExpression2[] exs() default {};
 
+  /**
+   * Order By
+   */
+  @Description("Order By")
+  RealmOrderBy2 orderBy() default @RealmOrderBy2;
+
+  /**
+   * Group By
+   */
+  @Description("Group By")
+  RealmGroupBy2 groupBy() default @RealmGroupBy2;
+
+  /**
+   * First
+   */
+  @Description("First")
+  int first() default 0;
+
+  /**
+   * Last
+   */
+  @Description("Last")
+  int last() default 0;
+
+  /**
+   * Offset
+   */
+  @Description("Offset")
+  int offset() default 0;
+
+  /**
+   * After
+   */
+  @Description("After")
+  String after() default "";
+
+  /**
+   * Before
+   */
+  @Description("Before")
+  String before() default "";
+
   String $id() default "";
 
   String $name() default "";
@@ -220,4 +262,18 @@ public @interface RealmExpression1 {
   String $cond() default "";
 
   String $exs() default "";
+
+  String $orderBy() default "";
+
+  String $groupBy() default "";
+
+  String $first() default "";
+
+  String $last() default "";
+
+  String $offset() default "";
+
+  String $after() default "";
+
+  String $before() default "";
 }

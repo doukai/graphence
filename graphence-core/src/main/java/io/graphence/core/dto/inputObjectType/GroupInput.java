@@ -22,7 +22,7 @@ import org.eclipse.microprofile.graphql.Input;
 @Input
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder")
 @Description("Mutation Input for 组")
-public class GroupInput implements TreeStructInput, NamedStructInput, MetaInput, GroupInputBase {
+public class GroupInput implements TreeStructInput, NamedStructInput, MetaInput {
   /**
    * ID
    */
@@ -158,6 +158,18 @@ public class GroupInput implements TreeStructInput, NamedStructInput, MetaInput,
   private Collection<GroupRoleRelationInput> groupRoleRelation;
 
   /**
+   * Input
+   */
+  @Description("Input")
+  private GroupInput input;
+
+  /**
+   * Input List
+   */
+  @Description("Input List")
+  private Collection<GroupInput> list;
+
+  /**
    * Where
    */
   @Description("Where")
@@ -193,24 +205,20 @@ public class GroupInput implements TreeStructInput, NamedStructInput, MetaInput,
     this.description = (String)description;
   }
 
-  @Override
   public String getPath() {
     return this.path;
   }
 
-  @Override
   public void setPath(String path) {
-    this.path = (String)path;
+    this.path = path;
   }
 
-  @Override
   public Integer getDeep() {
     return this.deep;
   }
 
-  @Override
   public void setDeep(Integer deep) {
-    this.deep = (Integer)deep;
+    this.deep = deep;
   }
 
   @Override
@@ -223,54 +231,44 @@ public class GroupInput implements TreeStructInput, NamedStructInput, MetaInput,
     this.parentId = (String)parentId;
   }
 
-  @Override
   public GroupInput getParent() {
     return this.parent;
   }
 
-  @Override
   public void setParent(GroupInput parent) {
-    this.parent = (GroupInput)parent;
+    this.parent = parent;
   }
 
-  @Override
   public Collection<GroupInput> getSubGroups() {
     return this.subGroups;
   }
 
-  @Override
   public void setSubGroups(Collection<GroupInput> subGroups) {
-    this.subGroups = (Collection<GroupInput>)subGroups;
+    this.subGroups = subGroups;
   }
 
-  @Override
   public Collection<UserInput> getUsers() {
     return this.users;
   }
 
-  @Override
   public void setUsers(Collection<UserInput> users) {
-    this.users = (Collection<UserInput>)users;
+    this.users = users;
   }
 
-  @Override
   public Collection<RoleInput> getRoles() {
     return this.roles;
   }
 
-  @Override
   public void setRoles(Collection<RoleInput> roles) {
-    this.roles = (Collection<RoleInput>)roles;
+    this.roles = roles;
   }
 
-  @Override
   public RealmInput getRealm() {
     return this.realm;
   }
 
-  @Override
   public void setRealm(RealmInput realm) {
-    this.realm = (RealmInput)realm;
+    this.realm = realm;
   }
 
   @Override
@@ -353,43 +351,51 @@ public class GroupInput implements TreeStructInput, NamedStructInput, MetaInput,
     this.createGroupId = (String)createGroupId;
   }
 
-  @Override
   public String get__typename() {
     return this.__typename;
   }
 
-  @Override
   public void set__typename(String __typename) {
-    this.__typename = (String)__typename;
+    this.__typename = __typename;
   }
 
-  @Override
   public Collection<GroupUserRelationInput> getGroupUserRelation() {
     return this.groupUserRelation;
   }
 
-  @Override
   public void setGroupUserRelation(Collection<GroupUserRelationInput> groupUserRelation) {
-    this.groupUserRelation = (Collection<GroupUserRelationInput>)groupUserRelation;
+    this.groupUserRelation = groupUserRelation;
   }
 
-  @Override
   public Collection<GroupRoleRelationInput> getGroupRoleRelation() {
     return this.groupRoleRelation;
   }
 
-  @Override
   public void setGroupRoleRelation(Collection<GroupRoleRelationInput> groupRoleRelation) {
-    this.groupRoleRelation = (Collection<GroupRoleRelationInput>)groupRoleRelation;
+    this.groupRoleRelation = groupRoleRelation;
   }
 
-  @Override
+  public GroupInput getInput() {
+    return this.input;
+  }
+
+  public void setInput(GroupInput input) {
+    this.input = input;
+  }
+
+  public Collection<GroupInput> getList() {
+    return this.list;
+  }
+
+  public void setList(Collection<GroupInput> list) {
+    this.list = list;
+  }
+
   public GroupExpression getWhere() {
     return this.where;
   }
 
-  @Override
   public void setWhere(GroupExpression where) {
-    this.where = (GroupExpression)where;
+    this.where = where;
   }
 }

@@ -17,58 +17,47 @@ import org.eclipse.microprofile.graphql.Description;
 @Target(ElementType.METHOD)
 @Description("Mutation")
 public @interface Mutation {
-  UserMutationArguments user() default @UserMutationArguments;
+  UserInput user() default @UserInput;
 
-  UserListMutationArguments userList() default @UserListMutationArguments;
+  UserInput userList() default @UserInput;
 
-  RoleMutationArguments role() default @RoleMutationArguments;
+  RoleInput role() default @RoleInput;
 
-  RoleListMutationArguments roleList() default @RoleListMutationArguments;
+  RoleInput roleList() default @RoleInput;
 
-  GroupMutationArguments group() default @GroupMutationArguments;
+  GroupInput group() default @GroupInput;
 
-  GroupListMutationArguments groupList() default @GroupListMutationArguments;
+  GroupInput groupList() default @GroupInput;
 
-  RealmMutationArguments realm() default @RealmMutationArguments;
+  RealmInput realm() default @RealmInput;
 
-  RealmListMutationArguments realmList() default @RealmListMutationArguments;
+  RealmInput realmList() default @RealmInput;
 
-  PermissionMutationArguments permission() default @PermissionMutationArguments;
+  PermissionInput permission() default @PermissionInput;
 
-  PermissionListMutationArguments permissionList() default @PermissionListMutationArguments;
+  PermissionInput permissionList() default @PermissionInput;
 
-  UserPhonesRelationMutationArguments userPhonesRelation(
-      ) default @UserPhonesRelationMutationArguments;
+  UserPhonesRelationInput userPhonesRelation() default @UserPhonesRelationInput;
 
-  UserPhonesRelationListMutationArguments userPhonesRelationList(
-      ) default @UserPhonesRelationListMutationArguments;
+  UserPhonesRelationInput userPhonesRelationList() default @UserPhonesRelationInput;
 
-  GroupUserRelationMutationArguments groupUserRelation(
-      ) default @GroupUserRelationMutationArguments;
+  GroupUserRelationInput groupUserRelation() default @GroupUserRelationInput;
 
-  GroupUserRelationListMutationArguments groupUserRelationList(
-      ) default @GroupUserRelationListMutationArguments;
+  GroupUserRelationInput groupUserRelationList() default @GroupUserRelationInput;
 
-  RoleUserRelationMutationArguments roleUserRelation() default @RoleUserRelationMutationArguments;
+  RoleUserRelationInput roleUserRelation() default @RoleUserRelationInput;
 
-  RoleUserRelationListMutationArguments roleUserRelationList(
-      ) default @RoleUserRelationListMutationArguments;
+  RoleUserRelationInput roleUserRelationList() default @RoleUserRelationInput;
 
-  GroupRoleRelationMutationArguments groupRoleRelation(
-      ) default @GroupRoleRelationMutationArguments;
+  GroupRoleRelationInput groupRoleRelation() default @GroupRoleRelationInput;
 
-  GroupRoleRelationListMutationArguments groupRoleRelationList(
-      ) default @GroupRoleRelationListMutationArguments;
+  GroupRoleRelationInput groupRoleRelationList() default @GroupRoleRelationInput;
 
-  RoleCompositeRelationMutationArguments roleCompositeRelation(
-      ) default @RoleCompositeRelationMutationArguments;
+  RoleCompositeRelationInput roleCompositeRelation() default @RoleCompositeRelationInput;
 
-  RoleCompositeRelationListMutationArguments roleCompositeRelationList(
-      ) default @RoleCompositeRelationListMutationArguments;
+  RoleCompositeRelationInput roleCompositeRelationList() default @RoleCompositeRelationInput;
 
-  RolePermissionRelationMutationArguments rolePermissionRelation(
-      ) default @RolePermissionRelationMutationArguments;
+  RolePermissionRelationInput rolePermissionRelation() default @RolePermissionRelationInput;
 
-  RolePermissionRelationListMutationArguments rolePermissionRelationList(
-      ) default @RolePermissionRelationListMutationArguments;
+  RolePermissionRelationInput rolePermissionRelationList() default @RolePermissionRelationInput;
 }

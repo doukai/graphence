@@ -128,6 +128,18 @@ public @interface PermissionInput {
   RolePermissionRelationInput1[] rolePermissionRelation() default {};
 
   /**
+   * Input
+   */
+  @Description("Input")
+  PermissionInput1 input() default @PermissionInput1;
+
+  /**
+   * Input List
+   */
+  @Description("Input List")
+  PermissionInput1[] list() default {};
+
+  /**
    * Where
    */
   @Description("Where")
@@ -168,6 +180,10 @@ public @interface PermissionInput {
   String $__typename() default "";
 
   String $rolePermissionRelation() default "";
+
+  String $input() default "";
+
+  String $list() default "";
 
   String $where() default "";
 }

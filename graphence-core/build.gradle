@@ -85,11 +85,6 @@ dependencies {
     annotationProcessor 'org.casbin:jcasbin'
     annotationProcessor 'com.password4j:password4j'
 
-    protobuf platform("org.graphoenix:graphoenix-platform:$graphoenixVersion")
-    protobuf 'org.graphoenix:graphoenix-core'
-    protobuf 'org.graphoenix:graphoenix-introspection'
-    protobuf 'org.graphoenix:graphoenix-structure'
-
     testImplementation 'org.junit.jupiter:junit-jupiter'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }

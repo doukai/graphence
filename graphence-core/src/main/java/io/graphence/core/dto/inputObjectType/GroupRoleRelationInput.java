@@ -8,6 +8,7 @@ import java.lang.Integer;
 import java.lang.Override;
 import java.lang.String;
 import java.time.LocalDateTime;
+import java.util.Collection;
 import org.eclipse.microprofile.graphql.DefaultValue;
 import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.Input;
@@ -19,7 +20,7 @@ import org.eclipse.microprofile.graphql.Input;
 @Input
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder")
 @Description("Mutation Input for Relationship Object between 角色 and 组")
-public class GroupRoleRelationInput implements MetaInput, GroupRoleRelationInputBase {
+public class GroupRoleRelationInput implements MetaInput {
   /**
    * ID
    */
@@ -107,6 +108,18 @@ public class GroupRoleRelationInput implements MetaInput, GroupRoleRelationInput
   private String __typename = "GroupRoleRelation";
 
   /**
+   * Input
+   */
+  @Description("Input")
+  private GroupRoleRelationInput input;
+
+  /**
+   * Input List
+   */
+  @Description("Input List")
+  private Collection<GroupRoleRelationInput> list;
+
+  /**
    * Where
    */
   @Description("Where")
@@ -122,54 +135,44 @@ public class GroupRoleRelationInput implements MetaInput, GroupRoleRelationInput
     this.id = (String)id;
   }
 
-  @Override
   public String getRoleRef() {
     return this.roleRef;
   }
 
-  @Override
   public void setRoleRef(String roleRef) {
-    this.roleRef = (String)roleRef;
+    this.roleRef = roleRef;
   }
 
-  @Override
   public RoleInput getRole() {
     return this.role;
   }
 
-  @Override
   public void setRole(RoleInput role) {
-    this.role = (RoleInput)role;
+    this.role = role;
   }
 
-  @Override
   public String getGroupRef() {
     return this.groupRef;
   }
 
-  @Override
   public void setGroupRef(String groupRef) {
-    this.groupRef = (String)groupRef;
+    this.groupRef = groupRef;
   }
 
-  @Override
   public GroupInput getGroup() {
     return this.group;
   }
 
-  @Override
   public void setGroup(GroupInput group) {
-    this.group = (GroupInput)group;
+    this.group = group;
   }
 
-  @Override
   public Boolean getIsDeprecated() {
     return this.isDeprecated;
   }
 
-  @Override
   public void setIsDeprecated(Boolean isDeprecated) {
-    this.isDeprecated = (Boolean)isDeprecated;
+    this.isDeprecated = isDeprecated;
   }
 
   @Override
@@ -242,23 +245,35 @@ public class GroupRoleRelationInput implements MetaInput, GroupRoleRelationInput
     this.createGroupId = (String)createGroupId;
   }
 
-  @Override
   public String get__typename() {
     return this.__typename;
   }
 
-  @Override
   public void set__typename(String __typename) {
-    this.__typename = (String)__typename;
+    this.__typename = __typename;
   }
 
-  @Override
+  public GroupRoleRelationInput getInput() {
+    return this.input;
+  }
+
+  public void setInput(GroupRoleRelationInput input) {
+    this.input = input;
+  }
+
+  public Collection<GroupRoleRelationInput> getList() {
+    return this.list;
+  }
+
+  public void setList(Collection<GroupRoleRelationInput> list) {
+    this.list = list;
+  }
+
   public GroupRoleRelationExpression getWhere() {
     return this.where;
   }
 
-  @Override
   public void setWhere(GroupRoleRelationExpression where) {
-    this.where = (GroupRoleRelationExpression)where;
+    this.where = where;
   }
 }

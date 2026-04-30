@@ -169,6 +169,18 @@ public @interface UserInput1 {
   RoleUserRelationInput2[] roleUserRelation() default {};
 
   /**
+   * Input
+   */
+  @Description("Input")
+  UserInput2 input() default @UserInput2;
+
+  /**
+   * Input List
+   */
+  @Description("Input List")
+  UserInput2[] list() default {};
+
+  /**
    * Where
    */
   @Description("Where")
@@ -223,6 +235,10 @@ public @interface UserInput1 {
   String $groupUserRelation() default "";
 
   String $roleUserRelation() default "";
+
+  String $input() default "";
+
+  String $list() default "";
 
   String $where() default "";
 }

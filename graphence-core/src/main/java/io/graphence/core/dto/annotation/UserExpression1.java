@@ -250,6 +250,48 @@ public @interface UserExpression1 {
   @Description("Expressions")
   UserExpression2[] exs() default {};
 
+  /**
+   * Order By
+   */
+  @Description("Order By")
+  UserOrderBy2 orderBy() default @UserOrderBy2;
+
+  /**
+   * Group By
+   */
+  @Description("Group By")
+  UserGroupBy2 groupBy() default @UserGroupBy2;
+
+  /**
+   * First
+   */
+  @Description("First")
+  int first() default 0;
+
+  /**
+   * Last
+   */
+  @Description("Last")
+  int last() default 0;
+
+  /**
+   * Offset
+   */
+  @Description("Offset")
+  int offset() default 0;
+
+  /**
+   * After
+   */
+  @Description("After")
+  String after() default "";
+
+  /**
+   * Before
+   */
+  @Description("Before")
+  String before() default "";
+
   String $id() default "";
 
   String $name() default "";
@@ -325,4 +367,18 @@ public @interface UserExpression1 {
   String $cond() default "";
 
   String $exs() default "";
+
+  String $orderBy() default "";
+
+  String $groupBy() default "";
+
+  String $first() default "";
+
+  String $last() default "";
+
+  String $offset() default "";
+
+  String $after() default "";
+
+  String $before() default "";
 }

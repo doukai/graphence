@@ -8,6 +8,7 @@ import java.lang.Integer;
 import java.lang.Override;
 import java.lang.String;
 import java.time.LocalDateTime;
+import java.util.Collection;
 import org.eclipse.microprofile.graphql.DefaultValue;
 import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.Input;
@@ -19,7 +20,7 @@ import org.eclipse.microprofile.graphql.Input;
 @Input
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder")
 @Description("Mutation Input for Relationship Object between 角色 and 权限")
-public class RolePermissionRelationInput implements MetaInput, RolePermissionRelationInputBase {
+public class RolePermissionRelationInput implements MetaInput {
   /**
    * ID
    */
@@ -107,6 +108,18 @@ public class RolePermissionRelationInput implements MetaInput, RolePermissionRel
   private String __typename = "RolePermissionRelation";
 
   /**
+   * Input
+   */
+  @Description("Input")
+  private RolePermissionRelationInput input;
+
+  /**
+   * Input List
+   */
+  @Description("Input List")
+  private Collection<RolePermissionRelationInput> list;
+
+  /**
    * Where
    */
   @Description("Where")
@@ -122,54 +135,44 @@ public class RolePermissionRelationInput implements MetaInput, RolePermissionRel
     this.id = (String)id;
   }
 
-  @Override
   public String getRoleRef() {
     return this.roleRef;
   }
 
-  @Override
   public void setRoleRef(String roleRef) {
-    this.roleRef = (String)roleRef;
+    this.roleRef = roleRef;
   }
 
-  @Override
   public RoleInput getRole() {
     return this.role;
   }
 
-  @Override
   public void setRole(RoleInput role) {
-    this.role = (RoleInput)role;
+    this.role = role;
   }
 
-  @Override
   public String getPermissionRef() {
     return this.permissionRef;
   }
 
-  @Override
   public void setPermissionRef(String permissionRef) {
-    this.permissionRef = (String)permissionRef;
+    this.permissionRef = permissionRef;
   }
 
-  @Override
   public PermissionInput getPermission() {
     return this.permission;
   }
 
-  @Override
   public void setPermission(PermissionInput permission) {
-    this.permission = (PermissionInput)permission;
+    this.permission = permission;
   }
 
-  @Override
   public Boolean getIsDeprecated() {
     return this.isDeprecated;
   }
 
-  @Override
   public void setIsDeprecated(Boolean isDeprecated) {
-    this.isDeprecated = (Boolean)isDeprecated;
+    this.isDeprecated = isDeprecated;
   }
 
   @Override
@@ -242,23 +245,35 @@ public class RolePermissionRelationInput implements MetaInput, RolePermissionRel
     this.createGroupId = (String)createGroupId;
   }
 
-  @Override
   public String get__typename() {
     return this.__typename;
   }
 
-  @Override
   public void set__typename(String __typename) {
-    this.__typename = (String)__typename;
+    this.__typename = __typename;
   }
 
-  @Override
+  public RolePermissionRelationInput getInput() {
+    return this.input;
+  }
+
+  public void setInput(RolePermissionRelationInput input) {
+    this.input = input;
+  }
+
+  public Collection<RolePermissionRelationInput> getList() {
+    return this.list;
+  }
+
+  public void setList(Collection<RolePermissionRelationInput> list) {
+    this.list = list;
+  }
+
   public RolePermissionRelationExpression getWhere() {
     return this.where;
   }
 
-  @Override
   public void setWhere(RolePermissionRelationExpression where) {
-    this.where = (RolePermissionRelationExpression)where;
+    this.where = where;
   }
 }

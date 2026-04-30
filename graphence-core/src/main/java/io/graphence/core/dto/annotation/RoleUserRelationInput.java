@@ -103,6 +103,18 @@ public @interface RoleUserRelationInput {
   String __typename() default "RoleUserRelation";
 
   /**
+   * Input
+   */
+  @Description("Input")
+  RoleUserRelationInput1 input() default @RoleUserRelationInput1;
+
+  /**
+   * Input List
+   */
+  @Description("Input List")
+  RoleUserRelationInput1[] list() default {};
+
+  /**
    * Where
    */
   @Description("Where")
@@ -135,6 +147,10 @@ public @interface RoleUserRelationInput {
   String $createGroupId() default "";
 
   String $__typename() default "";
+
+  String $input() default "";
+
+  String $list() default "";
 
   String $where() default "";
 }

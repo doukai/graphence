@@ -40,7 +40,7 @@ service MutationService {
     rpc RolePermissionRelationList (MutationRolePermissionRelationListRequest) returns (MutationRolePermissionRelationListResponse); /* Mutation Field for Relationship Object between 角色 and 权限 List */
     rpc SyncModelPolicy (MutationSyncModelPolicyRequest) returns (MutationSyncModelPolicyResponse);
     rpc SyncPermissionRoleRelationPolicy (MutationSyncPermissionRoleRelationPolicyRequest) returns (MutationSyncPermissionRoleRelationPolicyResponse);
+    rpc Login (MutationLoginRequest) returns (MutationLoginResponse);
     rpc CurrentUserUpdate (MutationCurrentUserUpdateRequest) returns (MutationCurrentUserUpdateResponse);
     rpc CurrentUserResetPassword (MutationCurrentUserResetPasswordRequest) returns (MutationCurrentUserResetPasswordResponse);
-    rpc Login (MutationLoginRequest) returns (MutationLoginResponse);
 }

@@ -183,6 +183,48 @@ public @interface GroupUserRelationExpression {
   @Description("Expressions")
   GroupUserRelationExpression1[] exs() default {};
 
+  /**
+   * Order By
+   */
+  @Description("Order By")
+  GroupUserRelationOrderBy1 orderBy() default @GroupUserRelationOrderBy1;
+
+  /**
+   * Group By
+   */
+  @Description("Group By")
+  GroupUserRelationGroupBy1 groupBy() default @GroupUserRelationGroupBy1;
+
+  /**
+   * First
+   */
+  @Description("First")
+  int first() default 0;
+
+  /**
+   * Last
+   */
+  @Description("Last")
+  int last() default 0;
+
+  /**
+   * Offset
+   */
+  @Description("Offset")
+  int offset() default 0;
+
+  /**
+   * After
+   */
+  @Description("After")
+  String after() default "";
+
+  /**
+   * Before
+   */
+  @Description("Before")
+  String before() default "";
+
   String $id() default "";
 
   String $userRef() default "";
@@ -236,4 +278,18 @@ public @interface GroupUserRelationExpression {
   String $cond() default "";
 
   String $exs() default "";
+
+  String $orderBy() default "";
+
+  String $groupBy() default "";
+
+  String $first() default "";
+
+  String $last() default "";
+
+  String $offset() default "";
+
+  String $after() default "";
+
+  String $before() default "";
 }

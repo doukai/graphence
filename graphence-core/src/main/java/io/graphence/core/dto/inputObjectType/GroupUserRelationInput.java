@@ -8,6 +8,7 @@ import java.lang.Integer;
 import java.lang.Override;
 import java.lang.String;
 import java.time.LocalDateTime;
+import java.util.Collection;
 import org.eclipse.microprofile.graphql.DefaultValue;
 import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.Input;
@@ -19,7 +20,7 @@ import org.eclipse.microprofile.graphql.Input;
 @Input
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder")
 @Description("Mutation Input for Relationship Object between 用户 and 组")
-public class GroupUserRelationInput implements MetaInput, GroupUserRelationInputBase {
+public class GroupUserRelationInput implements MetaInput {
   /**
    * ID
    */
@@ -107,6 +108,18 @@ public class GroupUserRelationInput implements MetaInput, GroupUserRelationInput
   private String __typename = "GroupUserRelation";
 
   /**
+   * Input
+   */
+  @Description("Input")
+  private GroupUserRelationInput input;
+
+  /**
+   * Input List
+   */
+  @Description("Input List")
+  private Collection<GroupUserRelationInput> list;
+
+  /**
    * Where
    */
   @Description("Where")
@@ -122,54 +135,44 @@ public class GroupUserRelationInput implements MetaInput, GroupUserRelationInput
     this.id = (String)id;
   }
 
-  @Override
   public String getUserRef() {
     return this.userRef;
   }
 
-  @Override
   public void setUserRef(String userRef) {
-    this.userRef = (String)userRef;
+    this.userRef = userRef;
   }
 
-  @Override
   public UserInput getUser() {
     return this.user;
   }
 
-  @Override
   public void setUser(UserInput user) {
-    this.user = (UserInput)user;
+    this.user = user;
   }
 
-  @Override
   public String getGroupRef() {
     return this.groupRef;
   }
 
-  @Override
   public void setGroupRef(String groupRef) {
-    this.groupRef = (String)groupRef;
+    this.groupRef = groupRef;
   }
 
-  @Override
   public GroupInput getGroup() {
     return this.group;
   }
 
-  @Override
   public void setGroup(GroupInput group) {
-    this.group = (GroupInput)group;
+    this.group = group;
   }
 
-  @Override
   public Boolean getIsDeprecated() {
     return this.isDeprecated;
   }
 
-  @Override
   public void setIsDeprecated(Boolean isDeprecated) {
-    this.isDeprecated = (Boolean)isDeprecated;
+    this.isDeprecated = isDeprecated;
   }
 
   @Override
@@ -242,23 +245,35 @@ public class GroupUserRelationInput implements MetaInput, GroupUserRelationInput
     this.createGroupId = (String)createGroupId;
   }
 
-  @Override
   public String get__typename() {
     return this.__typename;
   }
 
-  @Override
   public void set__typename(String __typename) {
-    this.__typename = (String)__typename;
+    this.__typename = __typename;
   }
 
-  @Override
+  public GroupUserRelationInput getInput() {
+    return this.input;
+  }
+
+  public void setInput(GroupUserRelationInput input) {
+    this.input = input;
+  }
+
+  public Collection<GroupUserRelationInput> getList() {
+    return this.list;
+  }
+
+  public void setList(Collection<GroupUserRelationInput> list) {
+    this.list = list;
+  }
+
   public GroupUserRelationExpression getWhere() {
     return this.where;
   }
 
-  @Override
   public void setWhere(GroupUserRelationExpression where) {
-    this.where = (GroupUserRelationExpression)where;
+    this.where = where;
   }
 }

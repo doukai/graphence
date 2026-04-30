@@ -13,19 +13,17 @@ import java.util.List;
 @GraphQLOperation
 public interface GroupRepository {
 
-  @Query(group = @GroupQueryArguments(id = @StringExpression($val = "id")))
+  @Query(group = @GroupExpression(id = @StringExpression($val = "id")))
   @SelectionSet("{ id path deep }")
   Mono<Group> getGroupById(String id);
 
-  @Query(groupList = @GroupListQueryArguments(parentId = @StringExpression($val = "parentId")))
+  @Query(groupList = @GroupExpression(parentId = @StringExpression($val = "parentId")))
   Mono<List<Group>> getGroupListByParentId(String parentId);
 
-  @Query(
-      groupList =
-          @GroupListQueryArguments(path = @StringExpression(opr = Operator.LK, $val = "path")))
+  @Query(groupList = @GroupExpression(path = @StringExpression(opr = Operator.LK, $val = "path")))
   Mono<List<Group>> getGroupListByPath(String path);
 
-  @Mutation(groupList = @GroupListMutationArguments($list = "groupList"))
+  @Mutation(groupList = @GroupInput($list = "groupList"))
   @SelectionSet("{ id }")
   Mono<List<Group>> updateGroupList(List<Group> groupList);
 }
