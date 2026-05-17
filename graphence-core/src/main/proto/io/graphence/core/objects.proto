@@ -10,6 +10,64 @@ import "io/graphoenix/core/objects.proto";
 import "google/protobuf/timestamp.proto";
 
 /**
+* API Key
+*/
+message ApiKey {
+    string id = 1; /* ID */
+    optional string name = 2; /* 名称 */
+    string description = 3; /* 描述 */
+    optional string access_key = 4; /* Access Key */
+    optional string secret = 5; /* Secret */
+    bool disable = 6; /* 禁用 */
+    google.protobuf.Timestamp expires_at = 7; /* 过期时间 */
+    google.protobuf.Timestamp last_used_at = 8; /* 最后使用时间 */
+    optional string user_id = 9; /* 用户ID */
+    User user = 10; /* 用户 */
+    Realm realm = 11; /* 租户 */
+    bool is_deprecated = 12; /* Is Deprecated */
+    int32 version = 13; /* Version */
+    int32 realm_id = 14; /* Realm ID */
+    string create_user_id = 15; /* Create User ID */
+    google.protobuf.Timestamp create_time = 16; /* Create Time */
+    string update_user_id = 17; /* Update User ID */
+    google.protobuf.Timestamp update_time = 18; /* Update Time */
+    string create_group_id = 19; /* Create Group ID */
+    string intro_typename = 20; /* Type Name */
+    int32 id_count = 21; /* Count of API Key */
+    int32 name_count = 22; /* Count of 名称 */
+    int32 description_count = 23; /* Count of 描述 */
+    int32 access_key_count = 24; /* Count of Access Key */
+    int32 secret_count = 25; /* Count of Secret */
+    int32 disable_count = 26; /* Count of 禁用 */
+    int32 expires_at_count = 27; /* Count of 过期时间 */
+    int32 last_used_at_count = 28; /* Count of 最后使用时间 */
+    int32 user_id_count = 29; /* Count of 用户ID */
+    google.protobuf.Timestamp expires_at_max = 30; /* Max of 过期时间 */
+    google.protobuf.Timestamp expires_at_min = 31; /* Min of 过期时间 */
+    google.protobuf.Timestamp last_used_at_max = 32; /* Max of 最后使用时间 */
+    google.protobuf.Timestamp last_used_at_min = 33; /* Min of 最后使用时间 */
+    int32 expires_at_year = 34; /* Year of 过期时间 */
+    int32 expires_at_month = 35; /* Month of 过期时间 */
+    int32 expires_at_day = 36; /* Day of 过期时间 */
+    int32 expires_at_week = 37; /* Week of 过期时间 */
+    int32 expires_at_quarter = 38; /* Quarter of 过期时间 */
+    int32 last_used_at_year = 39; /* Year of 最后使用时间 */
+    int32 last_used_at_month = 40; /* Month of 最后使用时间 */
+    int32 last_used_at_day = 41; /* Day of 最后使用时间 */
+    int32 last_used_at_week = 42; /* Week of 最后使用时间 */
+    int32 last_used_at_quarter = 43; /* Quarter of 最后使用时间 */
+    int32 create_time_year = 44; /* Year of Create Time */
+    int32 create_time_month = 45; /* Month of Create Time */
+    int32 create_time_day = 46; /* Day of Create Time */
+    int32 create_time_week = 47; /* Week of Create Time */
+    int32 create_time_quarter = 48; /* Quarter of Create Time */
+    int32 update_time_year = 49; /* Year of Update Time */
+    int32 update_time_month = 50; /* Month of Update Time */
+    int32 update_time_day = 51; /* Day of Update Time */
+    int32 update_time_week = 52; /* Week of Update Time */
+    int32 update_time_quarter = 53; /* Quarter of Update Time */
+}
+/**
 * 用户
 */
 message User {
@@ -25,49 +83,52 @@ message User {
     bool disable = 10; /* 禁用 */
     repeated Group groups = 11; /* 组 */
     repeated Role roles = 12; /* 角色 */
-    Realm realm = 13; /* 租户 */
-    bool is_deprecated = 14; /* Is Deprecated */
-    int32 version = 15; /* Version */
-    int32 realm_id = 16; /* Realm ID */
-    string create_user_id = 17; /* Create User ID */
-    google.protobuf.Timestamp create_time = 18; /* Create Time */
-    string update_user_id = 19; /* Update User ID */
-    google.protobuf.Timestamp update_time = 20; /* Update Time */
-    string create_group_id = 21; /* Create Group ID */
-    string intro_typename = 22; /* Type Name */
-    repeated UserPhonesRelation user_phones_relation = 23; /* Relationship Object between 用户 and 手机号 */
-    repeated GroupUserRelation group_user_relation = 24; /* Relationship Object between 用户 and 组 */
-    repeated RoleUserRelation role_user_relation = 25; /* Relationship Object between 用户 and 角色 */
-    Group groups_aggregate = 26; /* Aggregate Field for 组 */
-    GroupConnection groups_connection = 27; /* Connection Field for 组 */
-    Role roles_aggregate = 28; /* Aggregate Field for 角色 */
-    RoleConnection roles_connection = 29; /* Connection Field for 角色 */
-    UserPhonesRelation user_phones_relation_aggregate = 30; /* Aggregate Field for Relationship Object between 用户 and 手机号 */
-    UserPhonesRelationConnection user_phones_relation_connection = 31; /* Connection Field for Relationship Object between 用户 and 手机号 */
-    GroupUserRelation group_user_relation_aggregate = 32; /* Aggregate Field for Relationship Object between 用户 and 组 */
-    GroupUserRelationConnection group_user_relation_connection = 33; /* Connection Field for Relationship Object between 用户 and 组 */
-    RoleUserRelation role_user_relation_aggregate = 34; /* Aggregate Field for Relationship Object between 用户 and 角色 */
-    RoleUserRelationConnection role_user_relation_connection = 35; /* Connection Field for Relationship Object between 用户 and 角色 */
-    int32 id_count = 36; /* Count of 用户 */
-    int32 name_count = 37; /* Count of 姓名 */
-    int32 description_count = 38; /* Count of 描述 */
-    int32 last_name_count = 39; /* Count of 姓氏 */
-    int32 login_count = 40; /* Count of 账号 */
-    int32 salt_count = 41; /* Count of 盐 */
-    int32 hash_count = 42; /* Count of 哈希 */
-    int32 email_count = 43; /* Count of 邮箱 */
-    int32 disable_count = 44; /* Count of 禁用 */
-    int32 create_time_year = 45; /* Year of Create Time */
-    int32 create_time_month = 46; /* Month of Create Time */
-    int32 create_time_day = 47; /* Day of Create Time */
-    int32 create_time_week = 48; /* Week of Create Time */
-    int32 create_time_quarter = 49; /* Quarter of Create Time */
-    int32 update_time_year = 50; /* Year of Update Time */
-    int32 update_time_month = 51; /* Month of Update Time */
-    int32 update_time_day = 52; /* Day of Update Time */
-    int32 update_time_week = 53; /* Week of Update Time */
-    int32 update_time_quarter = 54; /* Quarter of Update Time */
-    bool sync_user_policy = 55;
+    repeated ApiKey api_keys = 13; /* API Key */
+    Realm realm = 14; /* 租户 */
+    bool is_deprecated = 15; /* Is Deprecated */
+    int32 version = 16; /* Version */
+    int32 realm_id = 17; /* Realm ID */
+    string create_user_id = 18; /* Create User ID */
+    google.protobuf.Timestamp create_time = 19; /* Create Time */
+    string update_user_id = 20; /* Update User ID */
+    google.protobuf.Timestamp update_time = 21; /* Update Time */
+    string create_group_id = 22; /* Create Group ID */
+    string intro_typename = 23; /* Type Name */
+    repeated UserPhonesRelation user_phones_relation = 24; /* Relationship Object between 用户 and 手机号 */
+    repeated GroupUserRelation group_user_relation = 25; /* Relationship Object between 用户 and 组 */
+    repeated RoleUserRelation role_user_relation = 26; /* Relationship Object between 用户 and 角色 */
+    Group groups_aggregate = 27; /* Aggregate Field for 组 */
+    GroupConnection groups_connection = 28; /* Connection Field for 组 */
+    Role roles_aggregate = 29; /* Aggregate Field for 角色 */
+    RoleConnection roles_connection = 30; /* Connection Field for 角色 */
+    ApiKey api_keys_aggregate = 31; /* Aggregate Field for API Key */
+    ApiKeyConnection api_keys_connection = 32; /* Connection Field for API Key */
+    UserPhonesRelation user_phones_relation_aggregate = 33; /* Aggregate Field for Relationship Object between 用户 and 手机号 */
+    UserPhonesRelationConnection user_phones_relation_connection = 34; /* Connection Field for Relationship Object between 用户 and 手机号 */
+    GroupUserRelation group_user_relation_aggregate = 35; /* Aggregate Field for Relationship Object between 用户 and 组 */
+    GroupUserRelationConnection group_user_relation_connection = 36; /* Connection Field for Relationship Object between 用户 and 组 */
+    RoleUserRelation role_user_relation_aggregate = 37; /* Aggregate Field for Relationship Object between 用户 and 角色 */
+    RoleUserRelationConnection role_user_relation_connection = 38; /* Connection Field for Relationship Object between 用户 and 角色 */
+    int32 id_count = 39; /* Count of 用户 */
+    int32 name_count = 40; /* Count of 姓名 */
+    int32 description_count = 41; /* Count of 描述 */
+    int32 last_name_count = 42; /* Count of 姓氏 */
+    int32 login_count = 43; /* Count of 账号 */
+    int32 salt_count = 44; /* Count of 盐 */
+    int32 hash_count = 45; /* Count of 哈希 */
+    int32 email_count = 46; /* Count of 邮箱 */
+    int32 disable_count = 47; /* Count of 禁用 */
+    int32 create_time_year = 48; /* Year of Create Time */
+    int32 create_time_month = 49; /* Month of Create Time */
+    int32 create_time_day = 50; /* Day of Create Time */
+    int32 create_time_week = 51; /* Week of Create Time */
+    int32 create_time_quarter = 52; /* Quarter of Create Time */
+    int32 update_time_year = 53; /* Year of Update Time */
+    int32 update_time_month = 54; /* Month of Update Time */
+    int32 update_time_day = 55; /* Day of Update Time */
+    int32 update_time_week = 56; /* Week of Update Time */
+    int32 update_time_quarter = 57; /* Quarter of Update Time */
+    bool sync_user_policy = 58;
 }
 /**
 * 角色
@@ -449,6 +510,21 @@ message RolePermissionRelation {
     int32 update_time_quarter = 27; /* Quarter of Update Time */
 }
 /**
+* Connection Object for API Key
+*/
+message ApiKeyConnection {
+    int32 total_count = 1; /* Total */
+    io.graphoenix.core.PageInfo page_info = 2; /* Page Info */
+    repeated ApiKeyEdge edges = 3; /* Edges */
+}
+/**
+* Edge Object for API Key
+*/
+message ApiKeyEdge {
+    ApiKey node = 1; /* Node */
+    string cursor = 2; /* Cursor */
+}
+/**
 * Connection Object for 用户
 */
 message UserConnection {
@@ -613,22 +689,27 @@ message RolePermissionRelationEdge {
     RolePermissionRelation node = 1; /* Node */
     string cursor = 2; /* Cursor */
 }
+message ApiKeySecret {
+    ApiKey api_key = 1;
+    string access_key = 2;
+    string secret = 3;
+}
 message Policy {
     string v0 = 1;
-    string policy = 2;
-    string v3 = 3;
-    string v2 = 4;
-    string v4 = 5;
-    string id = 6;
-    string v1 = 7;
-    string v5 = 8;
+    string v3 = 2;
+    string v2 = 3;
+    string v5 = 4;
+    string policy = 5;
+    string v1 = 6;
+    string v4 = 7;
+    string id = 8;
 }
 message Current {
     string login = 1;
-    string last_name = 2;
-    string name = 3;
+    string id = 2;
+    repeated string groups = 3;
     repeated string roles = 4;
     int32 realm_id = 5;
-    repeated string groups = 6;
-    string id = 7;
+    string name = 6;
+    string last_name = 7;
 }

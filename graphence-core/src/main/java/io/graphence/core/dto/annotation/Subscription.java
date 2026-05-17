@@ -17,6 +17,12 @@ import org.eclipse.microprofile.graphql.Description;
 @Target(ElementType.METHOD)
 @Description("Subscription")
 public @interface Subscription {
+  ApiKeyExpression apiKey() default @ApiKeyExpression;
+
+  ApiKeyExpression apiKeyList() default @ApiKeyExpression;
+
+  ApiKeyExpression apiKeyConnection() default @ApiKeyExpression;
+
   UserExpression user() default @UserExpression;
 
   UserExpression userList() default @UserExpression;

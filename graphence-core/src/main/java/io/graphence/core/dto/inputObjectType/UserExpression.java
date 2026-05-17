@@ -98,6 +98,12 @@ public class UserExpression implements NamedStructExpression, MetaExpression {
   private RoleExpression roles;
 
   /**
+   * API Key
+   */
+  @Description("API Key")
+  private ApiKeyExpression apiKeys;
+
+  /**
    * 租户
    */
   @Description("租户")
@@ -398,6 +404,14 @@ public class UserExpression implements NamedStructExpression, MetaExpression {
 
   public void setRoles(RoleExpression roles) {
     this.roles = roles;
+  }
+
+  public ApiKeyExpression getApiKeys() {
+    return this.apiKeys;
+  }
+
+  public void setApiKeys(ApiKeyExpression apiKeys) {
+    this.apiKeys = apiKeys;
   }
 
   public RealmExpression getRealm() {

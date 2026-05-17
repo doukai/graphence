@@ -88,6 +88,12 @@ public class UserOrderBy {
   private RoleOrderBy roles;
 
   /**
+   * API Key
+   */
+  @Description("API Key")
+  private ApiKeyOrderBy apiKeys;
+
+  /**
    * 租户
    */
   @Description("租户")
@@ -176,6 +182,12 @@ public class UserOrderBy {
    */
   @Description("Aggregate Field for 角色")
   private RoleOrderBy rolesAggregate;
+
+  /**
+   * Aggregate Field for API Key
+   */
+  @Description("Aggregate Field for API Key")
+  private ApiKeyOrderBy apiKeysAggregate;
 
   /**
    * Aggregate Field for Relationship Object between 用户 and 手机号
@@ -411,6 +423,14 @@ public class UserOrderBy {
     this.roles = roles;
   }
 
+  public ApiKeyOrderBy getApiKeys() {
+    return this.apiKeys;
+  }
+
+  public void setApiKeys(ApiKeyOrderBy apiKeys) {
+    this.apiKeys = apiKeys;
+  }
+
   public RealmOrderBy getRealm() {
     return this.realm;
   }
@@ -529,6 +549,14 @@ public class UserOrderBy {
 
   public void setRolesAggregate(RoleOrderBy rolesAggregate) {
     this.rolesAggregate = rolesAggregate;
+  }
+
+  public ApiKeyOrderBy getApiKeysAggregate() {
+    return this.apiKeysAggregate;
+  }
+
+  public void setApiKeysAggregate(ApiKeyOrderBy apiKeysAggregate) {
+    this.apiKeysAggregate = apiKeysAggregate;
   }
 
   public UserPhonesRelationOrderBy getUserPhonesRelationAggregate() {

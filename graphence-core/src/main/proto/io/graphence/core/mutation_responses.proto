@@ -10,7 +10,14 @@ import "io/graphence/core/objects.proto";
 import "io/graphence/core/interfaces.proto";
 import "io/graphence/core/input_objects.proto";
 import "google/protobuf/timestamp.proto";
+import "google/type/datetime.proto";
 
+message MutationApiKeyResponse {
+    ApiKey api_key = 1;
+}
+message MutationApiKeyListResponse {
+    repeated ApiKey api_key_list = 1;
+}
 message MutationUserResponse {
     User user = 1;
 }
@@ -91,4 +98,13 @@ message MutationCurrentUserUpdateResponse {
 }
 message MutationCurrentUserResetPasswordResponse {
     User current_user_reset_password = 1;
+}
+message MutationCreateCurrentApiKeyResponse {
+    ApiKeySecret create_current_api_key = 1;
+}
+message MutationDisableCurrentApiKeyResponse {
+    ApiKey disable_current_api_key = 1;
+}
+message MutationRotateCurrentApiKeySecretResponse {
+    ApiKeySecret rotate_current_api_key_secret = 1;
 }

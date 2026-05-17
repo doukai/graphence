@@ -95,6 +95,12 @@ public class UserInput implements NamedStructInput, MetaInput {
   private Collection<RoleInput> roles;
 
   /**
+   * API Key
+   */
+  @Description("API Key")
+  private Collection<ApiKeyInput> apiKeys;
+
+  /**
    * 租户
    */
   @Description("租户")
@@ -292,6 +298,14 @@ public class UserInput implements NamedStructInput, MetaInput {
 
   public void setRoles(Collection<RoleInput> roles) {
     this.roles = roles;
+  }
+
+  public Collection<ApiKeyInput> getApiKeys() {
+    return this.apiKeys;
+  }
+
+  public void setApiKeys(Collection<ApiKeyInput> apiKeys) {
+    this.apiKeys = apiKeys;
   }
 
   public RealmInput getRealm() {

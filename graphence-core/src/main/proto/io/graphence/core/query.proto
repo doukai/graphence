@@ -16,6 +16,9 @@ import "io/graphence/core/query_responses.proto";
 * Query
 */
 service QueryService {
+    rpc ApiKey (QueryApiKeyRequest) returns (QueryApiKeyResponse); /* Query Field for API Key */
+    rpc ApiKeyList (QueryApiKeyListRequest) returns (QueryApiKeyListResponse); /* Query Field for API Key List */
+    rpc ApiKeyConnection (QueryApiKeyConnectionRequest) returns (QueryApiKeyConnectionResponse); /* Query Field for API Key Connection */
     rpc User (QueryUserRequest) returns (QueryUserResponse); /* Query Field for 用户 */
     rpc UserList (QueryUserListRequest) returns (QueryUserListResponse); /* Query Field for 用户 List */
     rpc UserConnection (QueryUserConnectionRequest) returns (QueryUserConnectionResponse); /* Query Field for 用户 Connection */
@@ -54,4 +57,5 @@ service QueryService {
     rpc CurrentUser (QueryCurrentUserRequest) returns (QueryCurrentUserResponse);
     rpc CurrentPermissionTypeList (QueryCurrentPermissionTypeListRequest) returns (QueryCurrentPermissionTypeListResponse);
     rpc CurrentPermissionNameListByTypes (QueryCurrentPermissionNameListByTypesRequest) returns (QueryCurrentPermissionNameListByTypesResponse);
+    rpc CurrentApiKeyList (QueryCurrentApiKeyListRequest) returns (QueryCurrentApiKeyListResponse);
 }

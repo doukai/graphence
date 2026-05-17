@@ -9,7 +9,159 @@ import "io/graphence/core/enums.proto";
 import "io/graphoenix/core/enums.proto";
 import "io/graphoenix/core/input_objects.proto";
 import "google/protobuf/timestamp.proto";
+import "google/type/datetime.proto";
 
+/**
+* Query Expression Input for API Key
+*/
+message ApiKeyExpression {
+    io.graphoenix.core.StringExpression id = 1; /* ID */
+    io.graphoenix.core.StringExpression name = 2; /* 名称 */
+    io.graphoenix.core.StringExpression description = 3; /* 描述 */
+    io.graphoenix.core.StringExpression access_key = 4; /* Access Key */
+    io.graphoenix.core.StringExpression secret = 5; /* Secret */
+    io.graphoenix.core.BooleanExpression disable = 6; /* 禁用 */
+    io.graphoenix.core.StringExpression expires_at = 7; /* 过期时间 */
+    io.graphoenix.core.StringExpression last_used_at = 8; /* 最后使用时间 */
+    io.graphoenix.core.StringExpression user_id = 9; /* 用户ID */
+    UserExpression user = 10; /* 用户 */
+    RealmExpression realm = 11; /* 租户 */
+    bool include_deprecated = 12; /* Include Deprecated */
+    io.graphoenix.core.IntExpression version = 13; /* Version */
+    io.graphoenix.core.IntExpression realm_id = 14; /* Realm ID */
+    io.graphoenix.core.StringExpression create_user_id = 15; /* Create User ID */
+    io.graphoenix.core.StringExpression create_time = 16; /* Create Time */
+    io.graphoenix.core.StringExpression update_user_id = 17; /* Update User ID */
+    io.graphoenix.core.StringExpression update_time = 18; /* Update Time */
+    io.graphoenix.core.StringExpression create_group_id = 19; /* Create Group ID */
+    io.graphoenix.core.StringExpression intro_typename = 20; /* Type Name */
+    io.graphoenix.core.IntExpression expires_at_year = 21; /* Year of 过期时间 */
+    io.graphoenix.core.IntExpression expires_at_month = 22; /* Month of 过期时间 */
+    io.graphoenix.core.IntExpression expires_at_day = 23; /* Day of 过期时间 */
+    io.graphoenix.core.IntExpression expires_at_week = 24; /* Week of 过期时间 */
+    io.graphoenix.core.IntExpression expires_at_quarter = 25; /* Quarter of 过期时间 */
+    io.graphoenix.core.IntExpression last_used_at_year = 26; /* Year of 最后使用时间 */
+    io.graphoenix.core.IntExpression last_used_at_month = 27; /* Month of 最后使用时间 */
+    io.graphoenix.core.IntExpression last_used_at_day = 28; /* Day of 最后使用时间 */
+    io.graphoenix.core.IntExpression last_used_at_week = 29; /* Week of 最后使用时间 */
+    io.graphoenix.core.IntExpression last_used_at_quarter = 30; /* Quarter of 最后使用时间 */
+    io.graphoenix.core.IntExpression create_time_year = 31; /* Year of Create Time */
+    io.graphoenix.core.IntExpression create_time_month = 32; /* Month of Create Time */
+    io.graphoenix.core.IntExpression create_time_day = 33; /* Day of Create Time */
+    io.graphoenix.core.IntExpression create_time_week = 34; /* Week of Create Time */
+    io.graphoenix.core.IntExpression create_time_quarter = 35; /* Quarter of Create Time */
+    io.graphoenix.core.IntExpression update_time_year = 36; /* Year of Update Time */
+    io.graphoenix.core.IntExpression update_time_month = 37; /* Month of Update Time */
+    io.graphoenix.core.IntExpression update_time_day = 38; /* Day of Update Time */
+    io.graphoenix.core.IntExpression update_time_week = 39; /* Week of Update Time */
+    io.graphoenix.core.IntExpression update_time_quarter = 40; /* Quarter of Update Time */
+    bool not = 41; /* Not */
+    io.graphoenix.core.Conditional cond = 42; /* Condition */
+    repeated ApiKeyExpression exs = 43; /* Expressions */
+    ApiKeyOrderBy order_by = 44; /* Order By */
+    ApiKeyGroupBy group_by = 45; /* Group By */
+    int32 first = 46; /* First */
+    int32 last = 47; /* Last */
+    int32 offset = 48; /* Offset */
+    string after = 49; /* After */
+    string before = 50; /* Before */
+}
+/**
+* Mutation Input for API Key
+*/
+message ApiKeyInput {
+    string id = 1; /* ID */
+    string name = 2; /* 名称 */
+    string description = 3; /* 描述 */
+    string access_key = 4; /* Access Key */
+    string secret = 5; /* Secret */
+    bool disable = 6; /* 禁用 */
+    google.protobuf.Timestamp expires_at = 7; /* 过期时间 */
+    google.protobuf.Timestamp last_used_at = 8; /* 最后使用时间 */
+    string user_id = 9; /* 用户ID */
+    UserInput user = 10; /* 用户 */
+    RealmInput realm = 11; /* 租户 */
+    bool is_deprecated = 12; /* Is Deprecated */
+    int32 version = 13; /* Version */
+    int32 realm_id = 14; /* Realm ID */
+    string create_user_id = 15; /* Create User ID */
+    google.protobuf.Timestamp create_time = 16; /* Create Time */
+    string update_user_id = 17; /* Update User ID */
+    google.protobuf.Timestamp update_time = 18; /* Update Time */
+    string create_group_id = 19; /* Create Group ID */
+    string intro_typename = 20; /* Type Name */
+    ApiKeyInput input = 21; /* Input */
+    repeated ApiKeyInput list = 22; /* Input List */
+    ApiKeyExpression where = 23; /* Where */
+}
+/**
+* Order Input for API Key
+*/
+message ApiKeyOrderBy {
+    io.graphoenix.core.Sort id = 1; /* ID */
+    io.graphoenix.core.Sort name = 2; /* 名称 */
+    io.graphoenix.core.Sort description = 3; /* 描述 */
+    io.graphoenix.core.Sort access_key = 4; /* Access Key */
+    io.graphoenix.core.Sort secret = 5; /* Secret */
+    io.graphoenix.core.Sort disable = 6; /* 禁用 */
+    io.graphoenix.core.Sort expires_at = 7; /* 过期时间 */
+    io.graphoenix.core.Sort last_used_at = 8; /* 最后使用时间 */
+    io.graphoenix.core.Sort user_id = 9; /* 用户ID */
+    UserOrderBy user = 10; /* 用户 */
+    RealmOrderBy realm = 11; /* 租户 */
+    io.graphoenix.core.Sort is_deprecated = 12; /* Is Deprecated */
+    io.graphoenix.core.Sort version = 13; /* Version */
+    io.graphoenix.core.Sort realm_id = 14; /* Realm ID */
+    io.graphoenix.core.Sort create_user_id = 15; /* Create User ID */
+    io.graphoenix.core.Sort create_time = 16; /* Create Time */
+    io.graphoenix.core.Sort update_user_id = 17; /* Update User ID */
+    io.graphoenix.core.Sort update_time = 18; /* Update Time */
+    io.graphoenix.core.Sort create_group_id = 19; /* Create Group ID */
+    io.graphoenix.core.Sort intro_typename = 20; /* Type Name */
+    io.graphoenix.core.Sort id_count = 21; /* Count of API Key */
+    io.graphoenix.core.Sort name_count = 22; /* Count of 名称 */
+    io.graphoenix.core.Sort description_count = 23; /* Count of 描述 */
+    io.graphoenix.core.Sort access_key_count = 24; /* Count of Access Key */
+    io.graphoenix.core.Sort secret_count = 25; /* Count of Secret */
+    io.graphoenix.core.Sort disable_count = 26; /* Count of 禁用 */
+    io.graphoenix.core.Sort expires_at_count = 27; /* Count of 过期时间 */
+    io.graphoenix.core.Sort last_used_at_count = 28; /* Count of 最后使用时间 */
+    io.graphoenix.core.Sort user_id_count = 29; /* Count of 用户ID */
+    io.graphoenix.core.Sort expires_at_max = 30; /* Max of 过期时间 */
+    io.graphoenix.core.Sort expires_at_min = 31; /* Min of 过期时间 */
+    io.graphoenix.core.Sort last_used_at_max = 32; /* Max of 最后使用时间 */
+    io.graphoenix.core.Sort last_used_at_min = 33; /* Min of 最后使用时间 */
+    io.graphoenix.core.Sort expires_at_year = 34; /* Year of 过期时间 */
+    io.graphoenix.core.Sort expires_at_month = 35; /* Month of 过期时间 */
+    io.graphoenix.core.Sort expires_at_day = 36; /* Day of 过期时间 */
+    io.graphoenix.core.Sort expires_at_week = 37; /* Week of 过期时间 */
+    io.graphoenix.core.Sort expires_at_quarter = 38; /* Quarter of 过期时间 */
+    io.graphoenix.core.Sort last_used_at_year = 39; /* Year of 最后使用时间 */
+    io.graphoenix.core.Sort last_used_at_month = 40; /* Month of 最后使用时间 */
+    io.graphoenix.core.Sort last_used_at_day = 41; /* Day of 最后使用时间 */
+    io.graphoenix.core.Sort last_used_at_week = 42; /* Week of 最后使用时间 */
+    io.graphoenix.core.Sort last_used_at_quarter = 43; /* Quarter of 最后使用时间 */
+    io.graphoenix.core.Sort create_time_year = 44; /* Year of Create Time */
+    io.graphoenix.core.Sort create_time_month = 45; /* Month of Create Time */
+    io.graphoenix.core.Sort create_time_day = 46; /* Day of Create Time */
+    io.graphoenix.core.Sort create_time_week = 47; /* Week of Create Time */
+    io.graphoenix.core.Sort create_time_quarter = 48; /* Quarter of Create Time */
+    io.graphoenix.core.Sort update_time_year = 49; /* Year of Update Time */
+    io.graphoenix.core.Sort update_time_month = 50; /* Month of Update Time */
+    io.graphoenix.core.Sort update_time_day = 51; /* Day of Update Time */
+    io.graphoenix.core.Sort update_time_week = 52; /* Week of Update Time */
+    io.graphoenix.core.Sort update_time_quarter = 53; /* Quarter of Update Time */
+    repeated ApiKeyOrderBy obs = 54; /* OrderByes */
+}
+/**
+* Group Input for API Key
+*/
+message ApiKeyGroupBy {
+    repeated string by = 1; /* Group By Field Names */
+    UserGroupBy user = 2; /* 用户 */
+    RealmGroupBy realm = 3; /* 租户 */
+    repeated ApiKeyGroupBy gbs = 4; /* OrderByes */
+}
 /**
 * Query Expression Input for 用户
 */
@@ -26,39 +178,40 @@ message UserExpression {
     io.graphoenix.core.BooleanExpression disable = 10; /* 禁用 */
     GroupExpression groups = 11; /* 组 */
     RoleExpression roles = 12; /* 角色 */
-    RealmExpression realm = 13; /* 租户 */
-    bool include_deprecated = 14; /* Include Deprecated */
-    io.graphoenix.core.IntExpression version = 15; /* Version */
-    io.graphoenix.core.IntExpression realm_id = 16; /* Realm ID */
-    io.graphoenix.core.StringExpression create_user_id = 17; /* Create User ID */
-    io.graphoenix.core.StringExpression create_time = 18; /* Create Time */
-    io.graphoenix.core.StringExpression update_user_id = 19; /* Update User ID */
-    io.graphoenix.core.StringExpression update_time = 20; /* Update Time */
-    io.graphoenix.core.StringExpression create_group_id = 21; /* Create Group ID */
-    io.graphoenix.core.StringExpression intro_typename = 22; /* Type Name */
-    UserPhonesRelationExpression user_phones_relation = 23; /* Relationship Object between 用户 and 手机号 */
-    GroupUserRelationExpression group_user_relation = 24; /* Relationship Object between 用户 and 组 */
-    RoleUserRelationExpression role_user_relation = 25; /* Relationship Object between 用户 and 角色 */
-    io.graphoenix.core.IntExpression create_time_year = 26; /* Year of Create Time */
-    io.graphoenix.core.IntExpression create_time_month = 27; /* Month of Create Time */
-    io.graphoenix.core.IntExpression create_time_day = 28; /* Day of Create Time */
-    io.graphoenix.core.IntExpression create_time_week = 29; /* Week of Create Time */
-    io.graphoenix.core.IntExpression create_time_quarter = 30; /* Quarter of Create Time */
-    io.graphoenix.core.IntExpression update_time_year = 31; /* Year of Update Time */
-    io.graphoenix.core.IntExpression update_time_month = 32; /* Month of Update Time */
-    io.graphoenix.core.IntExpression update_time_day = 33; /* Day of Update Time */
-    io.graphoenix.core.IntExpression update_time_week = 34; /* Week of Update Time */
-    io.graphoenix.core.IntExpression update_time_quarter = 35; /* Quarter of Update Time */
-    bool not = 36; /* Not */
-    io.graphoenix.core.Conditional cond = 37; /* Condition */
-    repeated UserExpression exs = 38; /* Expressions */
-    UserOrderBy order_by = 39; /* Order By */
-    UserGroupBy group_by = 40; /* Group By */
-    int32 first = 41; /* First */
-    int32 last = 42; /* Last */
-    int32 offset = 43; /* Offset */
-    string after = 44; /* After */
-    string before = 45; /* Before */
+    ApiKeyExpression api_keys = 13; /* API Key */
+    RealmExpression realm = 14; /* 租户 */
+    bool include_deprecated = 15; /* Include Deprecated */
+    io.graphoenix.core.IntExpression version = 16; /* Version */
+    io.graphoenix.core.IntExpression realm_id = 17; /* Realm ID */
+    io.graphoenix.core.StringExpression create_user_id = 18; /* Create User ID */
+    io.graphoenix.core.StringExpression create_time = 19; /* Create Time */
+    io.graphoenix.core.StringExpression update_user_id = 20; /* Update User ID */
+    io.graphoenix.core.StringExpression update_time = 21; /* Update Time */
+    io.graphoenix.core.StringExpression create_group_id = 22; /* Create Group ID */
+    io.graphoenix.core.StringExpression intro_typename = 23; /* Type Name */
+    UserPhonesRelationExpression user_phones_relation = 24; /* Relationship Object between 用户 and 手机号 */
+    GroupUserRelationExpression group_user_relation = 25; /* Relationship Object between 用户 and 组 */
+    RoleUserRelationExpression role_user_relation = 26; /* Relationship Object between 用户 and 角色 */
+    io.graphoenix.core.IntExpression create_time_year = 27; /* Year of Create Time */
+    io.graphoenix.core.IntExpression create_time_month = 28; /* Month of Create Time */
+    io.graphoenix.core.IntExpression create_time_day = 29; /* Day of Create Time */
+    io.graphoenix.core.IntExpression create_time_week = 30; /* Week of Create Time */
+    io.graphoenix.core.IntExpression create_time_quarter = 31; /* Quarter of Create Time */
+    io.graphoenix.core.IntExpression update_time_year = 32; /* Year of Update Time */
+    io.graphoenix.core.IntExpression update_time_month = 33; /* Month of Update Time */
+    io.graphoenix.core.IntExpression update_time_day = 34; /* Day of Update Time */
+    io.graphoenix.core.IntExpression update_time_week = 35; /* Week of Update Time */
+    io.graphoenix.core.IntExpression update_time_quarter = 36; /* Quarter of Update Time */
+    bool not = 37; /* Not */
+    io.graphoenix.core.Conditional cond = 38; /* Condition */
+    repeated UserExpression exs = 39; /* Expressions */
+    UserOrderBy order_by = 40; /* Order By */
+    UserGroupBy group_by = 41; /* Group By */
+    int32 first = 42; /* First */
+    int32 last = 43; /* Last */
+    int32 offset = 44; /* Offset */
+    string after = 45; /* After */
+    string before = 46; /* Before */
 }
 /**
 * Mutation Input for 用户
@@ -76,22 +229,23 @@ message UserInput {
     bool disable = 10; /* 禁用 */
     repeated GroupInput groups = 11; /* 组 */
     repeated RoleInput roles = 12; /* 角色 */
-    RealmInput realm = 13; /* 租户 */
-    bool is_deprecated = 14; /* Is Deprecated */
-    int32 version = 15; /* Version */
-    int32 realm_id = 16; /* Realm ID */
-    string create_user_id = 17; /* Create User ID */
-    google.protobuf.Timestamp create_time = 18; /* Create Time */
-    string update_user_id = 19; /* Update User ID */
-    google.protobuf.Timestamp update_time = 20; /* Update Time */
-    string create_group_id = 21; /* Create Group ID */
-    string intro_typename = 22; /* Type Name */
-    repeated UserPhonesRelationInput user_phones_relation = 23; /* Relationship Object between 用户 and 手机号 */
-    repeated GroupUserRelationInput group_user_relation = 24; /* Relationship Object between 用户 and 组 */
-    repeated RoleUserRelationInput role_user_relation = 25; /* Relationship Object between 用户 and 角色 */
-    UserInput input = 26; /* Input */
-    repeated UserInput list = 27; /* Input List */
-    UserExpression where = 28; /* Where */
+    repeated ApiKeyInput api_keys = 13; /* API Key */
+    RealmInput realm = 14; /* 租户 */
+    bool is_deprecated = 15; /* Is Deprecated */
+    int32 version = 16; /* Version */
+    int32 realm_id = 17; /* Realm ID */
+    string create_user_id = 18; /* Create User ID */
+    google.protobuf.Timestamp create_time = 19; /* Create Time */
+    string update_user_id = 20; /* Update User ID */
+    google.protobuf.Timestamp update_time = 21; /* Update Time */
+    string create_group_id = 22; /* Create Group ID */
+    string intro_typename = 23; /* Type Name */
+    repeated UserPhonesRelationInput user_phones_relation = 24; /* Relationship Object between 用户 and 手机号 */
+    repeated GroupUserRelationInput group_user_relation = 25; /* Relationship Object between 用户 and 组 */
+    repeated RoleUserRelationInput role_user_relation = 26; /* Relationship Object between 用户 and 角色 */
+    UserInput input = 27; /* Input */
+    repeated UserInput list = 28; /* Input List */
+    UserExpression where = 29; /* Where */
 }
 /**
 * Order Input for 用户
@@ -109,44 +263,46 @@ message UserOrderBy {
     io.graphoenix.core.Sort disable = 10; /* 禁用 */
     GroupOrderBy groups = 11; /* 组 */
     RoleOrderBy roles = 12; /* 角色 */
-    RealmOrderBy realm = 13; /* 租户 */
-    io.graphoenix.core.Sort is_deprecated = 14; /* Is Deprecated */
-    io.graphoenix.core.Sort version = 15; /* Version */
-    io.graphoenix.core.Sort realm_id = 16; /* Realm ID */
-    io.graphoenix.core.Sort create_user_id = 17; /* Create User ID */
-    io.graphoenix.core.Sort create_time = 18; /* Create Time */
-    io.graphoenix.core.Sort update_user_id = 19; /* Update User ID */
-    io.graphoenix.core.Sort update_time = 20; /* Update Time */
-    io.graphoenix.core.Sort create_group_id = 21; /* Create Group ID */
-    io.graphoenix.core.Sort intro_typename = 22; /* Type Name */
-    UserPhonesRelationOrderBy user_phones_relation = 23; /* Relationship Object between 用户 and 手机号 */
-    GroupUserRelationOrderBy group_user_relation = 24; /* Relationship Object between 用户 and 组 */
-    RoleUserRelationOrderBy role_user_relation = 25; /* Relationship Object between 用户 and 角色 */
-    GroupOrderBy groups_aggregate = 26; /* Aggregate Field for 组 */
-    RoleOrderBy roles_aggregate = 27; /* Aggregate Field for 角色 */
-    UserPhonesRelationOrderBy user_phones_relation_aggregate = 28; /* Aggregate Field for Relationship Object between 用户 and 手机号 */
-    GroupUserRelationOrderBy group_user_relation_aggregate = 29; /* Aggregate Field for Relationship Object between 用户 and 组 */
-    RoleUserRelationOrderBy role_user_relation_aggregate = 30; /* Aggregate Field for Relationship Object between 用户 and 角色 */
-    io.graphoenix.core.Sort id_count = 31; /* Count of 用户 */
-    io.graphoenix.core.Sort name_count = 32; /* Count of 姓名 */
-    io.graphoenix.core.Sort description_count = 33; /* Count of 描述 */
-    io.graphoenix.core.Sort last_name_count = 34; /* Count of 姓氏 */
-    io.graphoenix.core.Sort login_count = 35; /* Count of 账号 */
-    io.graphoenix.core.Sort salt_count = 36; /* Count of 盐 */
-    io.graphoenix.core.Sort hash_count = 37; /* Count of 哈希 */
-    io.graphoenix.core.Sort email_count = 38; /* Count of 邮箱 */
-    io.graphoenix.core.Sort disable_count = 39; /* Count of 禁用 */
-    io.graphoenix.core.Sort create_time_year = 40; /* Year of Create Time */
-    io.graphoenix.core.Sort create_time_month = 41; /* Month of Create Time */
-    io.graphoenix.core.Sort create_time_day = 42; /* Day of Create Time */
-    io.graphoenix.core.Sort create_time_week = 43; /* Week of Create Time */
-    io.graphoenix.core.Sort create_time_quarter = 44; /* Quarter of Create Time */
-    io.graphoenix.core.Sort update_time_year = 45; /* Year of Update Time */
-    io.graphoenix.core.Sort update_time_month = 46; /* Month of Update Time */
-    io.graphoenix.core.Sort update_time_day = 47; /* Day of Update Time */
-    io.graphoenix.core.Sort update_time_week = 48; /* Week of Update Time */
-    io.graphoenix.core.Sort update_time_quarter = 49; /* Quarter of Update Time */
-    repeated UserOrderBy obs = 50; /* OrderByes */
+    ApiKeyOrderBy api_keys = 13; /* API Key */
+    RealmOrderBy realm = 14; /* 租户 */
+    io.graphoenix.core.Sort is_deprecated = 15; /* Is Deprecated */
+    io.graphoenix.core.Sort version = 16; /* Version */
+    io.graphoenix.core.Sort realm_id = 17; /* Realm ID */
+    io.graphoenix.core.Sort create_user_id = 18; /* Create User ID */
+    io.graphoenix.core.Sort create_time = 19; /* Create Time */
+    io.graphoenix.core.Sort update_user_id = 20; /* Update User ID */
+    io.graphoenix.core.Sort update_time = 21; /* Update Time */
+    io.graphoenix.core.Sort create_group_id = 22; /* Create Group ID */
+    io.graphoenix.core.Sort intro_typename = 23; /* Type Name */
+    UserPhonesRelationOrderBy user_phones_relation = 24; /* Relationship Object between 用户 and 手机号 */
+    GroupUserRelationOrderBy group_user_relation = 25; /* Relationship Object between 用户 and 组 */
+    RoleUserRelationOrderBy role_user_relation = 26; /* Relationship Object between 用户 and 角色 */
+    GroupOrderBy groups_aggregate = 27; /* Aggregate Field for 组 */
+    RoleOrderBy roles_aggregate = 28; /* Aggregate Field for 角色 */
+    ApiKeyOrderBy api_keys_aggregate = 29; /* Aggregate Field for API Key */
+    UserPhonesRelationOrderBy user_phones_relation_aggregate = 30; /* Aggregate Field for Relationship Object between 用户 and 手机号 */
+    GroupUserRelationOrderBy group_user_relation_aggregate = 31; /* Aggregate Field for Relationship Object between 用户 and 组 */
+    RoleUserRelationOrderBy role_user_relation_aggregate = 32; /* Aggregate Field for Relationship Object between 用户 and 角色 */
+    io.graphoenix.core.Sort id_count = 33; /* Count of 用户 */
+    io.graphoenix.core.Sort name_count = 34; /* Count of 姓名 */
+    io.graphoenix.core.Sort description_count = 35; /* Count of 描述 */
+    io.graphoenix.core.Sort last_name_count = 36; /* Count of 姓氏 */
+    io.graphoenix.core.Sort login_count = 37; /* Count of 账号 */
+    io.graphoenix.core.Sort salt_count = 38; /* Count of 盐 */
+    io.graphoenix.core.Sort hash_count = 39; /* Count of 哈希 */
+    io.graphoenix.core.Sort email_count = 40; /* Count of 邮箱 */
+    io.graphoenix.core.Sort disable_count = 41; /* Count of 禁用 */
+    io.graphoenix.core.Sort create_time_year = 42; /* Year of Create Time */
+    io.graphoenix.core.Sort create_time_month = 43; /* Month of Create Time */
+    io.graphoenix.core.Sort create_time_day = 44; /* Day of Create Time */
+    io.graphoenix.core.Sort create_time_week = 45; /* Week of Create Time */
+    io.graphoenix.core.Sort create_time_quarter = 46; /* Quarter of Create Time */
+    io.graphoenix.core.Sort update_time_year = 47; /* Year of Update Time */
+    io.graphoenix.core.Sort update_time_month = 48; /* Month of Update Time */
+    io.graphoenix.core.Sort update_time_day = 49; /* Day of Update Time */
+    io.graphoenix.core.Sort update_time_week = 50; /* Week of Update Time */
+    io.graphoenix.core.Sort update_time_quarter = 51; /* Quarter of Update Time */
+    repeated UserOrderBy obs = 52; /* OrderByes */
 }
 /**
 * Group Input for 用户
@@ -155,11 +311,12 @@ message UserGroupBy {
     repeated string by = 1; /* Group By Field Names */
     GroupGroupBy groups = 2; /* 组 */
     RoleGroupBy roles = 3; /* 角色 */
-    RealmGroupBy realm = 4; /* 租户 */
-    UserPhonesRelationGroupBy user_phones_relation = 5; /* Relationship Object between 用户 and 手机号 */
-    GroupUserRelationGroupBy group_user_relation = 6; /* Relationship Object between 用户 and 组 */
-    RoleUserRelationGroupBy role_user_relation = 7; /* Relationship Object between 用户 and 角色 */
-    repeated UserGroupBy gbs = 8; /* OrderByes */
+    ApiKeyGroupBy api_keys = 4; /* API Key */
+    RealmGroupBy realm = 5; /* 租户 */
+    UserPhonesRelationGroupBy user_phones_relation = 6; /* Relationship Object between 用户 and 手机号 */
+    GroupUserRelationGroupBy group_user_relation = 7; /* Relationship Object between 用户 and 组 */
+    RoleUserRelationGroupBy role_user_relation = 8; /* Relationship Object between 用户 and 角色 */
+    repeated UserGroupBy gbs = 9; /* OrderByes */
 }
 /**
 * Query Expression Input for 角色
@@ -1300,4 +1457,15 @@ message Mutation_currentUserUpdate_Arguments {
 message Mutation_currentUserResetPassword_Arguments {
     string password = 1;
     string new_password = 2;
+}
+message Mutation_createCurrentApiKey_Arguments {
+    string name = 1;
+    string description = 2;
+    google.type.DateTime expires_at = 3;
+}
+message Mutation_disableCurrentApiKey_Arguments {
+    string id = 1;
+}
+message Mutation_rotateCurrentApiKeySecret_Arguments {
+    string id = 1;
 }

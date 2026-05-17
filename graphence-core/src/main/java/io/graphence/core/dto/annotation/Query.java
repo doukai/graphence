@@ -17,6 +17,12 @@ import org.eclipse.microprofile.graphql.Description;
 @Target(ElementType.METHOD)
 @Description("Query")
 public @interface Query {
+  ApiKeyExpression apiKey() default @ApiKeyExpression;
+
+  ApiKeyExpression apiKeyList() default @ApiKeyExpression;
+
+  ApiKeyExpression apiKeyConnection() default @ApiKeyExpression;
+
   UserExpression user() default @UserExpression;
 
   UserExpression userList() default @UserExpression;

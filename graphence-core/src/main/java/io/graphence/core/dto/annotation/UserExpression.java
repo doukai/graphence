@@ -95,6 +95,12 @@ public @interface UserExpression {
   RoleExpression1 roles() default @RoleExpression1;
 
   /**
+   * API Key
+   */
+  @Description("API Key")
+  ApiKeyExpression1 apiKeys() default @ApiKeyExpression1;
+
+  /**
    * 租户
    */
   @Description("租户")
@@ -315,6 +321,8 @@ public @interface UserExpression {
   String $groups() default "";
 
   String $roles() default "";
+
+  String $apiKeys() default "";
 
   String $realm() default "";
 

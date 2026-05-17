@@ -2,9 +2,12 @@ package io.graphence.security.event;
 
 import io.graphence.core.handler.PasswordManager;
 import io.graphence.core.handler.BcryptManager;
+import io.graphence.core.config.ApiAuthConfig;
 import io.graphence.core.config.SecurityConfig;
+import io.graphence.core.repository.ApiKeyRepository;
 import io.graphence.core.repository.LoginRepository;
 import io.graphence.core.dto.Current;
+import io.graphence.core.dto.objectType.ApiKey;
 import io.graphence.core.error.AuthenticationException;
 import io.graphence.core.jwt.GraphenceJsonWebToken;
 import io.graphence.core.utils.JWTUtil;
@@ -24,6 +27,7 @@ import reactor.core.publisher.Mono;
 import reactor.netty.http.server.HttpServerRequest;
 
 import java.util.Base64;
+import java.time.LocalDateTime;
 import java.util.Map;
 import java.util.Optional;
 
@@ -40,24 +44,36 @@ public class JWTFilter extends BaseRequestFilter {
   private final DocumentManager documentManager;
   private final LoginRepository loginRepository;
   private final SecurityConfig securityConfig;
+  private final ApiAuthConfig apiAuthConfig;
   private final JWTUtil jwtUtil;
+  private final ApiKeyRepository apiKeyRepository;
   private final RequestBeanScoped requestScopeInstanceFactory;
   private final PasswordManager passwordManager;
+  private final SigV4Verifier sigV4Verifier;
+  private final NonceCache nonceCache;
 
   @Inject
   public JWTFilter(
       DocumentManager documentManager,
       LoginRepository loginRepository,
       SecurityConfig securityConfig,
+      ApiAuthConfig apiAuthConfig,
       JWTUtil jwtUtil,
+      ApiKeyRepository apiKeyRepository,
       RequestBeanScoped requestScopeInstanceFactory,
-      PasswordManager passwordManager) {
+      PasswordManager passwordManager,
+      SigV4Verifier sigV4Verifier,
+      NonceCache nonceCache) {
     this.documentManager = documentManager;
     this.loginRepository = loginRepository;
     this.securityConfig = securityConfig;
+    this.apiAuthConfig = apiAuthConfig;
     this.jwtUtil = jwtUtil;
+    this.apiKeyRepository = apiKeyRepository;
     this.requestScopeInstanceFactory = requestScopeInstanceFactory;
     this.passwordManager = Optional.ofNullable(passwordManager).orElse(new BcryptManager());
+    this.sigV4Verifier = sigV4Verifier;
+    this.nonceCache = nonceCache;
   }
 
   @SuppressWarnings("unchecked")
@@ -78,7 +94,35 @@ public class JWTFilter extends BaseRequestFilter {
       }
     }
 
-    if (authorization != null && authorization.startsWith(AUTHORIZATION_SCHEME_BEARER)) {
+    if (authorization != null
+        && Boolean.TRUE.equals(apiAuthConfig.getEnabled())
+        && authorization.startsWith(SigV4Verifier.ALGORITHM)) {
+      String accessKey = extractSigV4AccessKey(authorization);
+      return apiKeyRepository
+          .getApiKeyByAccessKey(accessKey)
+          .switchIfEmpty(Mono.error(new AuthenticationException(AUTHENTICATION_FAILED)))
+          .flatMap(
+              apiKey -> {
+                SigV4Authentication authentication = sigV4Verifier.verify(request, apiKey.getSecret());
+                if (!nonceCache.putIfAbsent(authentication.getAccessKey() + ":" + authentication.getNonce())) {
+                  return Mono.error(new AuthenticationException(AUTHENTICATION_FAILED));
+                }
+                if (Boolean.TRUE.equals(apiKey.getDisable())
+                    || apiKey.getUser() == null
+                    || Boolean.TRUE.equals(apiKey.getUser().getDisable())
+                    || (apiKey.getExpiresAt() != null
+                        && apiKey.getExpiresAt().isBefore(LocalDateTime.now()))) {
+                  return Mono.error(new AuthenticationException(AUTHENTICATION_DISABLE));
+                }
+                Current current = Current.of(apiKey.getUser());
+                setCurrentUser(context, current);
+                return apiKeyRepository
+                    .updateLastUsedAt(apiKey.getAccessKey(), LocalDateTime.now())
+                    .onErrorReturn(new ApiKey())
+                    .then(requestScopeInstanceFactory.put(Current.class, current));
+              })
+          .then();
+    } else if (authorization != null && authorization.startsWith(AUTHORIZATION_SCHEME_BEARER)) {
       String jws = authorization.substring(7);
       try {
         GraphenceJsonWebToken jsonWebToken = jwtUtil.parser(jws);
@@ -138,5 +182,15 @@ public class JWTFilter extends BaseRequestFilter {
       }
     }
     throw new AuthenticationException(UN_AUTHENTICATION);
+  }
+
+  private String extractSigV4AccessKey(String authorization) {
+    return java.util.Arrays.stream(authorization.substring(SigV4Verifier.ALGORITHM.length() + 1).split(","))
+        .map(String::trim)
+        .filter(part -> part.startsWith("Credential="))
+        .map(part -> part.substring("Credential=".length()))
+        .map(credential -> credential.split("/")[0])
+        .findFirst()
+        .orElseThrow(() -> new AuthenticationException(AUTHENTICATION_FAILED));
   }
 }

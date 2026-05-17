@@ -16,6 +16,8 @@ import "io/graphence/core/mutation_responses.proto";
 * Mutation
 */
 service MutationService {
+    rpc ApiKey (MutationApiKeyRequest) returns (MutationApiKeyResponse); /* Mutation Field for API Key */
+    rpc ApiKeyList (MutationApiKeyListRequest) returns (MutationApiKeyListResponse); /* Mutation Field for API Key List */
     rpc User (MutationUserRequest) returns (MutationUserResponse); /* Mutation Field for 用户 */
     rpc UserList (MutationUserListRequest) returns (MutationUserListResponse); /* Mutation Field for 用户 List */
     rpc Role (MutationRoleRequest) returns (MutationRoleResponse); /* Mutation Field for 角色 */
@@ -43,4 +45,7 @@ service MutationService {
     rpc Login (MutationLoginRequest) returns (MutationLoginResponse);
     rpc CurrentUserUpdate (MutationCurrentUserUpdateRequest) returns (MutationCurrentUserUpdateResponse);
     rpc CurrentUserResetPassword (MutationCurrentUserResetPasswordRequest) returns (MutationCurrentUserResetPasswordResponse);
+    rpc CreateCurrentApiKey (MutationCreateCurrentApiKeyRequest) returns (MutationCreateCurrentApiKeyResponse);
+    rpc DisableCurrentApiKey (MutationDisableCurrentApiKeyRequest) returns (MutationDisableCurrentApiKeyResponse);
+    rpc RotateCurrentApiKeySecret (MutationRotateCurrentApiKeySecretRequest) returns (MutationRotateCurrentApiKeySecretResponse);
 }

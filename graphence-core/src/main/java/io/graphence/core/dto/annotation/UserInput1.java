@@ -91,6 +91,12 @@ public @interface UserInput1 {
   RoleInput2[] roles() default {};
 
   /**
+   * API Key
+   */
+  @Description("API Key")
+  ApiKeyInput2[] apiKeys() default {};
+
+  /**
    * 租户
    */
   @Description("租户")
@@ -209,6 +215,8 @@ public @interface UserInput1 {
   String $groups() default "";
 
   String $roles() default "";
+
+  String $apiKeys() default "";
 
   String $realm() default "";
 

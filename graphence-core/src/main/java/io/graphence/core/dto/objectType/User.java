@@ -101,6 +101,12 @@ public class User implements NamedStruct, Meta {
   private Collection<Role> roles;
 
   /**
+   * API Key
+   */
+  @Description("API Key")
+  private Collection<ApiKey> apiKeys;
+
+  /**
    * 租户
    */
   @Description("租户")
@@ -201,6 +207,18 @@ public class User implements NamedStruct, Meta {
    */
   @Description("Connection Field for 角色")
   private RoleConnection rolesConnection;
+
+  /**
+   * Aggregate Field for API Key
+   */
+  @Description("Aggregate Field for API Key")
+  private ApiKey apiKeysAggregate;
+
+  /**
+   * Connection Field for API Key
+   */
+  @Description("Connection Field for API Key")
+  private ApiKeyConnection apiKeysConnection;
 
   /**
    * Aggregate Field for Relationship Object between 用户 and 手机号
@@ -456,6 +474,14 @@ public class User implements NamedStruct, Meta {
     this.roles = roles;
   }
 
+  public Collection<ApiKey> getApiKeys() {
+    return this.apiKeys;
+  }
+
+  public void setApiKeys(Collection<ApiKey> apiKeys) {
+    this.apiKeys = apiKeys;
+  }
+
   public Realm getRealm() {
     return this.realm;
   }
@@ -606,6 +632,22 @@ public class User implements NamedStruct, Meta {
 
   public void setRolesConnection(RoleConnection rolesConnection) {
     this.rolesConnection = rolesConnection;
+  }
+
+  public ApiKey getApiKeysAggregate() {
+    return this.apiKeysAggregate;
+  }
+
+  public void setApiKeysAggregate(ApiKey apiKeysAggregate) {
+    this.apiKeysAggregate = apiKeysAggregate;
+  }
+
+  public ApiKeyConnection getApiKeysConnection() {
+    return this.apiKeysConnection;
+  }
+
+  public void setApiKeysConnection(ApiKeyConnection apiKeysConnection) {
+    this.apiKeysConnection = apiKeysConnection;
   }
 
   public UserPhonesRelation getUserPhonesRelationAggregate() {
@@ -835,6 +877,9 @@ public class User implements NamedStruct, Meta {
     }
     if(getRoles() != null) {
       input.setRoles(this.getRoles().stream().map(item -> item.toInput()).collect(Collectors.toList()));
+    }
+    if(getApiKeys() != null) {
+      input.setApiKeys(this.getApiKeys().stream().map(item -> item.toInput()).collect(Collectors.toList()));
     }
     if(getRealm() != null) {
       input.setRealm(this.getRealm().toInput());

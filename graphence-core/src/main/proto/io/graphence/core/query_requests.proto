@@ -12,6 +12,21 @@ import "io/graphence/core/input_objects.proto";
 import "io/graphoenix/core/enums.proto";
 import "io/graphoenix/core/input_objects.proto";
 
+message QueryApiKeyRequest {
+    optional string selection_set = 1;
+    optional string arguments = 2;
+    ApiKeyExpression expression = 3;
+}
+message QueryApiKeyListRequest {
+    optional string selection_set = 1;
+    optional string arguments = 2;
+    ApiKeyExpression expression = 3;
+}
+message QueryApiKeyConnectionRequest {
+    optional string selection_set = 1;
+    optional string arguments = 2;
+    ApiKeyExpression expression = 3;
+}
 message QueryUserRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
@@ -197,4 +212,8 @@ message QueryCurrentPermissionNameListByTypesRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
     repeated string types = 3;
+}
+message QueryCurrentApiKeyListRequest {
+    optional string selection_set = 1;
+    optional string arguments = 2;
 }

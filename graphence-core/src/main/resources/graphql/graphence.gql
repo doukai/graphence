@@ -1,3 +1,29 @@
+"API Key"
+type ApiKey implements NamedStruct {
+    "ID"
+    id: ID @jsonSchema(maxLength: 50)
+    "名称"
+    name: String! @jsonSchema(minLength: 2 maxLength: 50)
+    "描述"
+    description: String @jsonSchema(maxLength: 100)
+    "Access Key"
+    accessKey: String! @options(unique: true) @jsonSchema(maxLength: 80)
+    "Secret"
+    secret: String! @jsonSchema(maxLength: 512)
+    "禁用"
+    disable: Boolean
+    "过期时间"
+    expiresAt: Timestamp
+    "最后使用时间"
+    lastUsedAt: Timestamp
+    "用户ID"
+    userId: String!
+    "用户"
+    user: User @map(from: "userId" to: "id" anchor: true)
+    "租户"
+    realm: Realm @map(from: "realmId" to: "id" anchor: true)
+}
+
 "用户"
 type User implements NamedStruct {
     "ID"
@@ -24,6 +50,8 @@ type User implements NamedStruct {
     groups: [Group]
     "角色"
     roles: [Role]
+    "API Key"
+    apiKeys: [ApiKey] @map(from: "id" to: "userId")
     "租户"
     realm: Realm @map(from: "realmId" to: "id" anchor: true)
 }

@@ -17,6 +17,10 @@ import org.eclipse.microprofile.graphql.Description;
 @Target(ElementType.METHOD)
 @Description("Mutation")
 public @interface Mutation {
+  ApiKeyInput apiKey() default @ApiKeyInput;
+
+  ApiKeyInput apiKeyList() default @ApiKeyInput;
+
   UserInput user() default @UserInput;
 
   UserInput userList() default @UserInput;

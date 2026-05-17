@@ -37,6 +37,12 @@ public @interface UserGroupBy1 {
   RoleGroupBy2 roles() default @RoleGroupBy2;
 
   /**
+   * API Key
+   */
+  @Description("API Key")
+  ApiKeyGroupBy2 apiKeys() default @ApiKeyGroupBy2;
+
+  /**
    * 租户
    */
   @Description("租户")
@@ -71,6 +77,8 @@ public @interface UserGroupBy1 {
   String $groups() default "";
 
   String $roles() default "";
+
+  String $apiKeys() default "";
 
   String $realm() default "";
 

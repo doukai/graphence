@@ -1,6 +1,7 @@
 package io.graphence.core.dto.objectType;
 
 import com.dslplatform.json.CompiledJson;
+import io.graphence.core.dto.ApiKeySecret;
 import jakarta.annotation.Generated;
 import java.lang.Boolean;
 import java.lang.String;
@@ -16,6 +17,18 @@ import org.eclipse.microprofile.graphql.Type;
 @Generated("io.graphoenix.java.builder.TypeSpecBuilder")
 @Description("Mutation")
 public class Mutation {
+  /**
+   * Mutation Field for API Key
+   */
+  @Description("Mutation Field for API Key")
+  private ApiKey apiKey;
+
+  /**
+   * Mutation Field for API Key List
+   */
+  @Description("Mutation Field for API Key List")
+  private Collection<ApiKey> apiKeyList;
+
   /**
    * Mutation Field for 用户
    */
@@ -148,15 +161,37 @@ public class Mutation {
   @Description("Mutation Field for Relationship Object between 角色 and 权限 List")
   private Collection<RolePermissionRelation> rolePermissionRelationList;
 
-  private Boolean syncModelPolicy;
-
-  private Boolean syncPermissionRoleRelationPolicy;
-
   private String login;
 
   private User currentUserUpdate;
 
   private User currentUserResetPassword;
+
+  private Boolean syncModelPolicy;
+
+  private Boolean syncPermissionRoleRelationPolicy;
+
+  private ApiKeySecret createCurrentApiKey;
+
+  private ApiKey disableCurrentApiKey;
+
+  private ApiKeySecret rotateCurrentApiKeySecret;
+
+  public ApiKey getApiKey() {
+    return this.apiKey;
+  }
+
+  public void setApiKey(ApiKey apiKey) {
+    this.apiKey = apiKey;
+  }
+
+  public Collection<ApiKey> getApiKeyList() {
+    return this.apiKeyList;
+  }
+
+  public void setApiKeyList(Collection<ApiKey> apiKeyList) {
+    this.apiKeyList = apiKeyList;
+  }
 
   public User getUser() {
     return this.user;
@@ -336,22 +371,6 @@ public class Mutation {
     this.rolePermissionRelationList = rolePermissionRelationList;
   }
 
-  public Boolean getSyncModelPolicy() {
-    return this.syncModelPolicy;
-  }
-
-  public void setSyncModelPolicy(Boolean syncModelPolicy) {
-    this.syncModelPolicy = syncModelPolicy;
-  }
-
-  public Boolean getSyncPermissionRoleRelationPolicy() {
-    return this.syncPermissionRoleRelationPolicy;
-  }
-
-  public void setSyncPermissionRoleRelationPolicy(Boolean syncPermissionRoleRelationPolicy) {
-    this.syncPermissionRoleRelationPolicy = syncPermissionRoleRelationPolicy;
-  }
-
   public String getLogin() {
     return this.login;
   }
@@ -374,5 +393,45 @@ public class Mutation {
 
   public void setCurrentUserResetPassword(User currentUserResetPassword) {
     this.currentUserResetPassword = currentUserResetPassword;
+  }
+
+  public Boolean getSyncModelPolicy() {
+    return this.syncModelPolicy;
+  }
+
+  public void setSyncModelPolicy(Boolean syncModelPolicy) {
+    this.syncModelPolicy = syncModelPolicy;
+  }
+
+  public Boolean getSyncPermissionRoleRelationPolicy() {
+    return this.syncPermissionRoleRelationPolicy;
+  }
+
+  public void setSyncPermissionRoleRelationPolicy(Boolean syncPermissionRoleRelationPolicy) {
+    this.syncPermissionRoleRelationPolicy = syncPermissionRoleRelationPolicy;
+  }
+
+  public ApiKeySecret getCreateCurrentApiKey() {
+    return this.createCurrentApiKey;
+  }
+
+  public void setCreateCurrentApiKey(ApiKeySecret createCurrentApiKey) {
+    this.createCurrentApiKey = createCurrentApiKey;
+  }
+
+  public ApiKey getDisableCurrentApiKey() {
+    return this.disableCurrentApiKey;
+  }
+
+  public void setDisableCurrentApiKey(ApiKey disableCurrentApiKey) {
+    this.disableCurrentApiKey = disableCurrentApiKey;
+  }
+
+  public ApiKeySecret getRotateCurrentApiKeySecret() {
+    return this.rotateCurrentApiKeySecret;
+  }
+
+  public void setRotateCurrentApiKeySecret(ApiKeySecret rotateCurrentApiKeySecret) {
+    this.rotateCurrentApiKeySecret = rotateCurrentApiKeySecret;
   }
 }

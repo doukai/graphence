@@ -15,6 +15,24 @@ import org.eclipse.microprofile.graphql.Type;
 @Description("Subscription")
 public class Subscription {
   /**
+   * Subscription Field for API Key
+   */
+  @Description("Subscription Field for API Key")
+  private ApiKey apiKey;
+
+  /**
+   * Subscription Field for API Key List
+   */
+  @Description("Subscription Field for API Key List")
+  private Collection<ApiKey> apiKeyList;
+
+  /**
+   * Subscription Field for API Key Connection
+   */
+  @Description("Subscription Field for API Key Connection")
+  private ApiKeyConnection apiKeyConnection;
+
+  /**
    * Subscription Field for 用户
    */
   @Description("Subscription Field for 用户")
@@ -211,6 +229,30 @@ public class Subscription {
    */
   @Description("Subscription Field for Relationship Object between 角色 and 权限 Connection")
   private RolePermissionRelationConnection rolePermissionRelationConnection;
+
+  public ApiKey getApiKey() {
+    return this.apiKey;
+  }
+
+  public void setApiKey(ApiKey apiKey) {
+    this.apiKey = apiKey;
+  }
+
+  public Collection<ApiKey> getApiKeyList() {
+    return this.apiKeyList;
+  }
+
+  public void setApiKeyList(Collection<ApiKey> apiKeyList) {
+    this.apiKeyList = apiKeyList;
+  }
+
+  public ApiKeyConnection getApiKeyConnection() {
+    return this.apiKeyConnection;
+  }
+
+  public void setApiKeyConnection(ApiKeyConnection apiKeyConnection) {
+    this.apiKeyConnection = apiKeyConnection;
+  }
 
   public User getUser() {
     return this.user;

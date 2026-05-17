@@ -92,6 +92,12 @@ public @interface UserOrderBy {
   RoleOrderBy1 roles() default @RoleOrderBy1;
 
   /**
+   * API Key
+   */
+  @Description("API Key")
+  ApiKeyOrderBy1 apiKeys() default @ApiKeyOrderBy1;
+
+  /**
    * 租户
    */
   @Description("租户")
@@ -180,6 +186,12 @@ public @interface UserOrderBy {
    */
   @Description("Aggregate Field for 角色")
   RoleOrderBy1 rolesAggregate() default @RoleOrderBy1;
+
+  /**
+   * Aggregate Field for API Key
+   */
+  @Description("Aggregate Field for API Key")
+  ApiKeyOrderBy1 apiKeysAggregate() default @ApiKeyOrderBy1;
 
   /**
    * Aggregate Field for Relationship Object between 用户 and 手机号
@@ -343,6 +355,8 @@ public @interface UserOrderBy {
 
   String $roles() default "";
 
+  String $apiKeys() default "";
+
   String $realm() default "";
 
   String $isDeprecated() default "";
@@ -372,6 +386,8 @@ public @interface UserOrderBy {
   String $groupsAggregate() default "";
 
   String $rolesAggregate() default "";
+
+  String $apiKeysAggregate() default "";
 
   String $userPhonesRelationAggregate() default "";
 

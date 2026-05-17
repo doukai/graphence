@@ -10,7 +10,18 @@ import "io/graphence/core/objects.proto";
 import "io/graphence/core/interfaces.proto";
 import "io/graphence/core/input_objects.proto";
 import "google/protobuf/timestamp.proto";
+import "google/type/datetime.proto";
 
+message MutationApiKeyRequest {
+    optional string selection_set = 1;
+    optional string arguments = 2;
+    ApiKeyInput input = 3;
+}
+message MutationApiKeyListRequest {
+    optional string selection_set = 1;
+    optional string arguments = 2;
+    ApiKeyInput input = 3;
+}
 message MutationUserRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
@@ -148,4 +159,21 @@ message MutationCurrentUserResetPasswordRequest {
     optional string arguments = 2;
     string password = 3;
     string new_password = 4;
+}
+message MutationCreateCurrentApiKeyRequest {
+    optional string selection_set = 1;
+    optional string arguments = 2;
+    string name = 3;
+    string description = 4;
+    google.type.DateTime expires_at = 5;
+}
+message MutationDisableCurrentApiKeyRequest {
+    optional string selection_set = 1;
+    optional string arguments = 2;
+    string id = 3;
+}
+message MutationRotateCurrentApiKeySecretRequest {
+    optional string selection_set = 1;
+    optional string arguments = 2;
+    string id = 3;
 }

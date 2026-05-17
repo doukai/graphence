@@ -34,6 +34,12 @@ public class UserGroupBy {
   private RoleGroupBy roles;
 
   /**
+   * API Key
+   */
+  @Description("API Key")
+  private ApiKeyGroupBy apiKeys;
+
+  /**
    * 租户
    */
   @Description("租户")
@@ -85,6 +91,14 @@ public class UserGroupBy {
 
   public void setRoles(RoleGroupBy roles) {
     this.roles = roles;
+  }
+
+  public ApiKeyGroupBy getApiKeys() {
+    return this.apiKeys;
+  }
+
+  public void setApiKeys(ApiKeyGroupBy apiKeys) {
+    this.apiKeys = apiKeys;
   }
 
   public RealmGroupBy getRealm() {

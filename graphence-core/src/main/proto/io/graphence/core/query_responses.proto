@@ -12,6 +12,15 @@ import "io/graphence/core/input_objects.proto";
 import "io/graphoenix/core/enums.proto";
 import "io/graphoenix/core/input_objects.proto";
 
+message QueryApiKeyResponse {
+    ApiKey api_key = 1;
+}
+message QueryApiKeyListResponse {
+    repeated ApiKey api_key_list = 1;
+}
+message QueryApiKeyConnectionResponse {
+    ApiKeyConnection api_key_connection = 1;
+}
 message QueryUserResponse {
     User user = 1;
 }
@@ -125,4 +134,7 @@ message QueryCurrentPermissionTypeListResponse {
 }
 message QueryCurrentPermissionNameListByTypesResponse {
     repeated string current_permission_name_list_by_types = 1;
+}
+message QueryCurrentApiKeyListResponse {
+    repeated ApiKey current_api_key_list = 1;
 }
