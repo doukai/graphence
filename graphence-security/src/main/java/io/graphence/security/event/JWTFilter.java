@@ -7,6 +7,7 @@ import io.graphence.core.repository.LoginRepository;
 import io.graphence.core.dto.Current;
 import io.graphence.core.error.AuthenticationException;
 import io.graphence.core.jwt.GraphenceJsonWebToken;
+import io.graphence.core.service.FileSignedUrlService;
 import io.graphence.core.utils.JWTUtil;
 import io.graphoenix.core.handler.DocumentManager;
 import io.graphoenix.http.server.context.RequestBeanScoped;
@@ -26,6 +27,7 @@ import reactor.netty.http.server.HttpServerRequest;
 import java.util.Base64;
 import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import static io.graphence.core.constant.Constant.*;
 import static io.graphence.core.error.AuthenticationErrorType.*;
@@ -43,6 +45,7 @@ public class JWTFilter extends BaseRequestFilter {
   private final JWTUtil jwtUtil;
   private final RequestBeanScoped requestScopeInstanceFactory;
   private final PasswordManager passwordManager;
+  private final FileSignedUrlService fileSignedUrlService;
 
   @Inject
   public JWTFilter(
@@ -51,13 +54,15 @@ public class JWTFilter extends BaseRequestFilter {
       SecurityConfig securityConfig,
       JWTUtil jwtUtil,
       RequestBeanScoped requestScopeInstanceFactory,
-      PasswordManager passwordManager) {
+      PasswordManager passwordManager,
+      FileSignedUrlService fileSignedUrlService) {
     this.documentManager = documentManager;
     this.loginRepository = loginRepository;
     this.securityConfig = securityConfig;
     this.jwtUtil = jwtUtil;
     this.requestScopeInstanceFactory = requestScopeInstanceFactory;
     this.passwordManager = Optional.ofNullable(passwordManager).orElse(new BcryptManager());
+    this.fileSignedUrlService = fileSignedUrlService;
   }
 
   @SuppressWarnings("unchecked")
@@ -128,6 +133,21 @@ public class JWTFilter extends BaseRequestFilter {
           .doOnSuccess(currentUser -> setCurrentUser(context, currentUser))
           .flatMap(currentUser -> requestScopeInstanceFactory.put(Current.class, currentUser))
           .then();
+    } else if (authorization == null) {
+      QueryStringDecoder decoder = new QueryStringDecoder(request.uri());
+      Map<String, String> parameters =
+          decoder.parameters().entrySet().stream()
+              .filter(entry -> !entry.getValue().isEmpty())
+              .collect(
+                  Collectors.toMap(
+                      Map.Entry::getKey, entry -> entry.getValue().get(0), (first, second) -> first));
+      Optional<Current> signedUrlCurrent =
+          fileSignedUrlService.verify(request.method().name(), decoder.path(), parameters);
+      if (signedUrlCurrent.isPresent()) {
+        Current current = signedUrlCurrent.get();
+        setCurrentUser(context, current);
+        return requestScopeInstanceFactory.put(Current.class, current).then();
+      }
     }
     Operation operation = getOperation(context);
     if (operation != null) {

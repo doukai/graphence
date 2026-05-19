@@ -3,6 +3,7 @@ package io.graphence.security.event;
 import com.google.common.collect.Streams;
 import io.graphence.core.dto.Current;
 import io.graphence.core.dto.enumType.PermissionType;
+import io.graphence.core.service.RBACPermissionService;
 import io.graphoenix.core.handler.DocumentManager;
 import io.graphoenix.spi.error.GraphQLErrorType;
 import io.graphoenix.spi.error.GraphQLErrors;
@@ -19,7 +20,6 @@ import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.inject.Provider;
 import jakarta.json.JsonValue;
-import org.casbin.jcasbin.main.Enforcer;
 import reactor.core.publisher.Mono;
 
 import java.util.AbstractMap;
@@ -29,7 +29,6 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import static io.graphence.core.casbin.adapter.RBACAdapter.*;
 import static io.graphence.core.dto.enumType.PermissionType.*;
 import static io.graphoenix.core.handler.before.FragmentHandler.FRAGMENT_HANDLER_PRIORITY;
 import static io.graphoenix.spi.constant.Hammurabi.*;
@@ -41,16 +40,16 @@ public class RBACFilter implements OperationBeforeHandler {
   public static final int RBAC_FILTER_PRIORITY = FRAGMENT_HANDLER_PRIORITY + 10;
 
   private final DocumentManager documentManager;
-  private final Enforcer enforcer;
+  private final RBACPermissionService rbacPermissionService;
   private final Provider<Mono<Current>> currentUserMonoProvider;
 
   @Inject
   public RBACFilter(
       DocumentManager documentManager,
-      Enforcer enforcer,
+      RBACPermissionService rbacPermissionService,
       Provider<Mono<Current>> currentUserMonoProvider) {
     this.documentManager = documentManager;
-    this.enforcer = enforcer;
+    this.rbacPermissionService = rbacPermissionService;
     this.currentUserMonoProvider = currentUserMonoProvider;
   }
 
@@ -480,56 +479,10 @@ public class RBACFilter implements OperationBeforeHandler {
       PermissionType... permissionTypes) {
     return !fieldDefinition.isDenyAll()
         && (fieldDefinition.isPermitAll()
-            || hasPermission(current, objectName, fieldName, permissionTypes));
-  }
-
-  private boolean hasPermission(
-      Current current, String objectName, String fieldName, PermissionType... permissionTypes) {
-    String subject = subject(current);
-    String realm = realm(current);
-    if (enforcer.enforce(subject, realm, permissionObject(ANY.name(), ANY.name()), ANY.name())) {
-      return true;
-    }
-    for (PermissionType permissionType : permissionTypes) {
-      if (enforcer.enforce(
-          subject, realm, permissionObject(ANY.name(), ANY.name()), permissionType.name())) {
-        return true;
-      }
-    }
-    if (enforcer.enforce(subject, realm, permissionObject(objectName, ANY.name()), ANY.name())) {
-      return true;
-    }
-    for (PermissionType permissionType : permissionTypes) {
-      if (enforcer.enforce(
-          subject, realm, permissionObject(objectName, ANY.name()), permissionType.name())) {
-        return true;
-      }
-    }
-    if (enforcer.enforce(subject, realm, permissionObject(objectName, fieldName), ANY.name())) {
-      return true;
-    }
-    for (PermissionType permissionType : permissionTypes) {
-      if (enforcer.enforce(
-          subject, realm, permissionObject(objectName, fieldName), permissionType.name())) {
-        return true;
-      }
-    }
-    return false;
+            || rbacPermissionService.hasPermission(current, objectName, fieldName, permissionTypes));
   }
 
   private boolean isIdField(FieldDefinition fieldDefinition) {
     return SCALA_ID_NAME.equals(documentManager.getFieldTypeDefinition(fieldDefinition).getName());
-  }
-
-  private String subject(Current current) {
-    return USER_PREFIX + current.getId();
-  }
-
-  private String realm(Current current) {
-    return Optional.ofNullable(current.getRealmId()).map(String::valueOf).orElse(EMPTY);
-  }
-
-  private String permissionObject(String objectName, String fieldName) {
-    return objectName + SPACER + fieldName;
   }
 }

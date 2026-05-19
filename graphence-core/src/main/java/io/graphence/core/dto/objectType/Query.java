@@ -217,6 +217,8 @@ public class Query {
 
   private Collection<Policy> policyList;
 
+  private String createCurrentFileSignedUrl;
+
   private Current current;
 
   private User currentUser;
@@ -502,6 +504,14 @@ public class Query {
 
   public void setPolicyList(Collection<Policy> policyList) {
     this.policyList = policyList;
+  }
+
+  public String getCreateCurrentFileSignedUrl() {
+    return this.createCurrentFileSignedUrl;
+  }
+
+  public void setCreateCurrentFileSignedUrl(String createCurrentFileSignedUrl) {
+    this.createCurrentFileSignedUrl = createCurrentFileSignedUrl;
   }
 
   public Current getCurrent() {

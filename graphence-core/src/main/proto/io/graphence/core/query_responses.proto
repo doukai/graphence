@@ -114,6 +114,9 @@ message QueryRolePermissionRelationConnectionResponse {
 message QueryPolicyListResponse {
     repeated Policy policy_list = 1;
 }
+message QueryCreateCurrentFileSignedUrlResponse {
+    string create_current_file_signed_url = 1;
+}
 message QueryCurrentResponse {
     Current current = 1;
 }

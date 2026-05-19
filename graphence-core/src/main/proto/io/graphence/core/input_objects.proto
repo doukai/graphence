@@ -1282,6 +1282,10 @@ message PermissionTypeExpression {
     PermissionType val = 2; /* Value */
     repeated PermissionType arr = 3; /* Array */
 }
+message Query_createCurrentFileSignedUrl_Arguments {
+    string file_id = 1;
+    int32 ttl_seconds = 2;
+}
 message Query_currentPermissionNameListByTypes_Arguments {
     repeated string types = 1;
 }
