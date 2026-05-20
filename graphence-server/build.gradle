@@ -59,7 +59,7 @@ test {
 
 jar {
     manifest {
-        attributes 'Main-Class': 'io.graphence.core.App'
+        attributes 'Main-Class': 'io.graphence.core.GraphenceApplication'
     }
 }
 
