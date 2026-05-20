@@ -6,7 +6,7 @@ import io.graphence.core.config.SecurityConfig;
 import io.graphence.core.repository.LoginRepository;
 import io.graphence.core.dto.Current;
 import io.graphence.core.error.AuthenticationException;
-import io.graphence.core.jwt.GraphenceJsonWebToken;
+import io.graphence.core.jwt.JsonWebToken;
 import io.graphence.core.service.FileSignedUrlService;
 import io.graphence.core.utils.JWTUtil;
 import io.graphoenix.core.handler.DocumentManager;
@@ -86,7 +86,7 @@ public class JWTFilter extends BaseRequestFilter {
     if (authorization != null && authorization.startsWith(AUTHORIZATION_SCHEME_BEARER)) {
       String jws = authorization.substring(7);
       try {
-        GraphenceJsonWebToken jsonWebToken = jwtUtil.parser(jws);
+        JsonWebToken jsonWebToken = jwtUtil.parser(jws);
         Current current =
             new Current()
                 .setId(jsonWebToken.getSubject())

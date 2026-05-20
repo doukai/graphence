@@ -5,7 +5,7 @@ import io.graphence.core.config.SecurityConfig;
 import io.graphence.core.dto.objectType.Group;
 import io.graphence.core.dto.objectType.Role;
 import io.graphence.core.dto.objectType.User;
-import io.graphence.core.jwt.GraphenceJsonWebToken;
+import io.graphence.core.jwt.JsonWebToken;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
@@ -90,9 +90,9 @@ public class JWTUtil {
         .flatMap(role -> Stream.concat(Stream.of(role), getRoles(role.getComposites())));
   }
 
-  public GraphenceJsonWebToken parser(String compactJws) throws JwtException {
+  public JsonWebToken parser(String compactJws) throws JwtException {
     Jws<io.jsonwebtoken.Claims> claimsJws =
         Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(compactJws);
-    return new GraphenceJsonWebToken(claimsJws);
+    return new JsonWebToken(claimsJws);
   }
 }

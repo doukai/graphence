@@ -2,16 +2,15 @@ package io.graphence.core.jwt;
 
 import io.jsonwebtoken.Jws;
 import org.eclipse.microprofile.jwt.Claims;
-import org.eclipse.microprofile.jwt.JsonWebToken;
 
 import java.util.HashSet;
 import java.util.Set;
 
-public class GraphenceJsonWebToken implements JsonWebToken {
+public class JsonWebToken implements org.eclipse.microprofile.jwt.JsonWebToken {
 
   private final Jws<io.jsonwebtoken.Claims> claimsJws;
 
-  public GraphenceJsonWebToken(Jws<io.jsonwebtoken.Claims> claimsJws) {
+  public JsonWebToken(Jws<io.jsonwebtoken.Claims> claimsJws) {
     this.claimsJws = claimsJws;
   }
 

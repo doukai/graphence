@@ -1,6 +1,5 @@
 package io.graphence.core.service;
 
-import io.graphence.core.config.ApiAuthConfig;
 import io.graphence.core.config.FileSignedUrlConfig;
 import io.graphence.core.dto.Current;
 import io.graphence.core.error.AuthenticationException;
@@ -11,7 +10,6 @@ import java.net.URI;
 import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
-import java.util.Base64;
 import java.util.Map;
 import java.util.stream.Collectors;
 
@@ -40,7 +38,8 @@ class FileSignedUrlServiceTest {
 
     service.setNow(1_061L);
 
-    assertThrows(AuthenticationException.class, () -> service.verify("GET", uri.getPath(), query(uri)));
+    assertThrows(
+        AuthenticationException.class, () -> service.verify("GET", uri.getPath(), query(uri)));
   }
 
   @Test
@@ -48,7 +47,8 @@ class FileSignedUrlServiceTest {
     TestFileSignedUrlService service = service(1_000L);
     URI uri = URI.create(service.create(new Current().setId("u1"), "file-1", 60));
 
-    assertThrows(AuthenticationException.class, () -> service.verify("POST", uri.getPath(), query(uri)));
+    assertThrows(
+        AuthenticationException.class, () -> service.verify("POST", uri.getPath(), query(uri)));
   }
 
   @Test
@@ -107,7 +107,6 @@ class FileSignedUrlServiceTest {
   void shouldCreateAndVerifyUrlWithoutConfiguredSecret() {
     TestFileSignedUrlService service = service(1_000L);
     service.config.setSignedUrlSecret(null);
-    service.apiAuthConfig.setSecretEncryptionKey(null);
 
     URI uri = URI.create(service.createLocalFileDownloadUrl("file-1", 60));
 
@@ -121,10 +120,7 @@ class FileSignedUrlServiceTest {
     config.setSignedUrlBaseUrl("https://example.test");
     config.setSignedUrlDefaultTtlSeconds(300);
     config.setSignedUrlMaxTtlSeconds(300);
-    ApiAuthConfig apiAuthConfig = new ApiAuthConfig();
-    apiAuthConfig.setSecretEncryptionKey(
-        Base64.getEncoder().encodeToString("test-secret-32-bytes".getBytes(StandardCharsets.UTF_8)));
-    return new TestFileSignedUrlService(config, apiAuthConfig, new HttpServerConfig(), now);
+    return new TestFileSignedUrlService(config, new HttpServerConfig(), now);
   }
 
   private Map<String, String> query(URI uri) {
@@ -132,8 +128,7 @@ class FileSignedUrlServiceTest {
         .map(part -> part.split("=", 2))
         .collect(
             Collectors.toMap(
-                parts -> decode(parts[0]),
-                parts -> parts.length == 2 ? decode(parts[1]) : ""));
+                parts -> decode(parts[0]), parts -> parts.length == 2 ? decode(parts[1]) : ""));
   }
 
   private String decode(String value) {
@@ -143,17 +138,12 @@ class FileSignedUrlServiceTest {
   private static class TestFileSignedUrlService extends FileSignedUrlService {
 
     private final FileSignedUrlConfig config;
-    private final ApiAuthConfig apiAuthConfig;
     private long now;
 
     private TestFileSignedUrlService(
-        FileSignedUrlConfig config,
-        ApiAuthConfig apiAuthConfig,
-        HttpServerConfig httpServerConfig,
-        long now) {
-      super(config, apiAuthConfig, httpServerConfig, null);
+        FileSignedUrlConfig config, HttpServerConfig httpServerConfig, long now) {
+      super(config, httpServerConfig, null);
       this.config = config;
-      this.apiAuthConfig = apiAuthConfig;
       this.now = now;
     }
 

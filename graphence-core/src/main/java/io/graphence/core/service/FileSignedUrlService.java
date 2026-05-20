@@ -1,6 +1,5 @@
 package io.graphence.core.service;
 
-import io.graphence.core.config.ApiAuthConfig;
 import io.graphence.core.config.FileSignedUrlConfig;
 import io.graphence.core.dto.Current;
 import io.graphence.core.error.AuthenticationException;
@@ -41,18 +40,15 @@ public class FileSignedUrlService {
   private static final byte[] GENERATED_SECRET = generatedSecret();
 
   private final FileSignedUrlConfig config;
-  private final ApiAuthConfig apiAuthConfig;
   private final HttpServerConfig httpServerConfig;
   private final RequestBeanScoped requestBeanScoped;
 
   @Inject
   public FileSignedUrlService(
       FileSignedUrlConfig config,
-      ApiAuthConfig apiAuthConfig,
       HttpServerConfig httpServerConfig,
       RequestBeanScoped requestBeanScoped) {
     this.config = config;
-    this.apiAuthConfig = apiAuthConfig;
     this.httpServerConfig = httpServerConfig;
     this.requestBeanScoped = requestBeanScoped;
   }
@@ -95,7 +91,8 @@ public class FileSignedUrlService {
         || !parameters.containsKey(SIGNATURE_PARAM)) {
       return Optional.empty();
     }
-    if (!METHOD.equals(method) || !path.startsWith(httpServerConfig.getDownloadContextPath() + "/")) {
+    if (!METHOD.equals(method)
+        || !path.startsWith(httpServerConfig.getDownloadContextPath() + "/")) {
       throw new AuthenticationException(AUTHENTICATION_FAILED);
     }
     long expiresAt;
@@ -173,7 +170,8 @@ public class FileSignedUrlService {
 
   private String sign(
       String method, String path, String fileId, String subject, String realm, long expiresAt) {
-    String payload = String.join("\n", method, path, fileId, subject, realm, String.valueOf(expiresAt));
+    String payload =
+        String.join("\n", method, path, fileId, subject, realm, String.valueOf(expiresAt));
     try {
       Mac mac = Mac.getInstance(HMAC_SHA256);
       mac.init(new SecretKeySpec(secret(), HMAC_SHA256));
@@ -186,10 +184,7 @@ public class FileSignedUrlService {
   }
 
   private byte[] secret() {
-    String secret =
-        Optional.ofNullable(config.getSignedUrlSecret())
-            .filter(value -> !value.isBlank())
-            .orElseGet(apiAuthConfig::getSecretEncryptionKey);
+    String secret = config.getSignedUrlSecret();
     if (secret == null || secret.isBlank()) {
       return GENERATED_SECRET;
     }
