@@ -83,6 +83,18 @@ public @interface UserExpression1 {
   BooleanExpression disable() default @BooleanExpression;
 
   /**
+   * 数据权限等级
+   */
+  @Description("数据权限等级")
+  DataPermissionLevelExpression dataPermissionLevel() default @DataPermissionLevelExpression;
+
+  /**
+   * 归属
+   */
+  @Description("归属")
+  GroupExpression2 group() default @GroupExpression2;
+
+  /**
    * 组
    */
   @Description("组")
@@ -153,6 +165,12 @@ public @interface UserExpression1 {
    */
   @Description("Type Name")
   StringExpression __typename() default @StringExpression;
+
+  /**
+   * 归属 Reference
+   */
+  @Description("归属 Reference")
+  StringExpression groupId() default @StringExpression;
 
   /**
    * Relationship Object between 用户 and 手机号
@@ -312,6 +330,10 @@ public @interface UserExpression1 {
 
   String $disable() default "";
 
+  String $dataPermissionLevel() default "";
+
+  String $group() default "";
+
   String $groups() default "";
 
   String $roles() default "";
@@ -335,6 +357,8 @@ public @interface UserExpression1 {
   String $createGroupId() default "";
 
   String $__typename() default "";
+
+  String $groupId() default "";
 
   String $userPhonesRelation() default "";
 

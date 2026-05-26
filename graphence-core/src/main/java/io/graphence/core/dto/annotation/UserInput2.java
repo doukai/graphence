@@ -1,5 +1,6 @@
 package io.graphence.core.dto.annotation;
 
+import io.graphence.core.dto.enumType.DataPermissionLevel;
 import jakarta.annotation.Generated;
 import java.lang.String;
 import java.lang.annotation.Documented;
@@ -79,6 +80,12 @@ public @interface UserInput2 {
   boolean disable() default false;
 
   /**
+   * 数据权限等级
+   */
+  @Description("数据权限等级")
+  DataPermissionLevel dataPermissionLevel() default DataPermissionLevel.ALL;
+
+  /**
    * Is Deprecated
    */
   @Description("Is Deprecated")
@@ -132,6 +139,12 @@ public @interface UserInput2 {
   @Description("Type Name")
   String __typename() default "User";
 
+  /**
+   * 归属 Reference
+   */
+  @Description("归属 Reference")
+  String groupId() default "";
+
   String $id() default "";
 
   String $name() default "";
@@ -152,6 +165,8 @@ public @interface UserInput2 {
 
   String $disable() default "";
 
+  String $dataPermissionLevel() default "";
+
   String $isDeprecated() default "";
 
   String $version() default "";
@@ -169,4 +184,6 @@ public @interface UserInput2 {
   String $createGroupId() default "";
 
   String $__typename() default "";
+
+  String $groupId() default "";
 }

@@ -184,8 +184,6 @@ message QueryPolicyListRequest {
 message QueryCreateCurrentFileSignedUrlRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
-    string file_id = 3;
-    int32 ttl_seconds = 4;
 }
 message QueryCurrentRequest {
     optional string selection_set = 1;
@@ -202,5 +200,4 @@ message QueryCurrentPermissionTypeListRequest {
 message QueryCurrentPermissionNameListByTypesRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
-    repeated string types = 3;
 }

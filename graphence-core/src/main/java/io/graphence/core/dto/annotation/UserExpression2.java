@@ -83,6 +83,12 @@ public @interface UserExpression2 {
   BooleanExpression disable() default @BooleanExpression;
 
   /**
+   * 数据权限等级
+   */
+  @Description("数据权限等级")
+  DataPermissionLevelExpression dataPermissionLevel() default @DataPermissionLevelExpression;
+
+  /**
    * Include Deprecated
    */
   @Description("Include Deprecated")
@@ -135,6 +141,12 @@ public @interface UserExpression2 {
    */
   @Description("Type Name")
   StringExpression __typename() default @StringExpression;
+
+  /**
+   * 归属 Reference
+   */
+  @Description("归属 Reference")
+  StringExpression groupId() default @StringExpression;
 
   /**
    * Year of Create Time
@@ -258,6 +270,8 @@ public @interface UserExpression2 {
 
   String $disable() default "";
 
+  String $dataPermissionLevel() default "";
+
   String $includeDeprecated() default "";
 
   String $version() default "";
@@ -275,6 +289,8 @@ public @interface UserExpression2 {
   String $createGroupId() default "";
 
   String $__typename() default "";
+
+  String $groupId() default "";
 
   String $createTimeYear() default "";
 

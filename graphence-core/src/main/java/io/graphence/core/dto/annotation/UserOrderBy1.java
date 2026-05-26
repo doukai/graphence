@@ -80,6 +80,18 @@ public @interface UserOrderBy1 {
   Sort disable() default Sort.ASC;
 
   /**
+   * 数据权限等级
+   */
+  @Description("数据权限等级")
+  Sort dataPermissionLevel() default Sort.ASC;
+
+  /**
+   * 归属
+   */
+  @Description("归属")
+  GroupOrderBy2 group() default @GroupOrderBy2;
+
+  /**
    * 组
    */
   @Description("组")
@@ -150,6 +162,12 @@ public @interface UserOrderBy1 {
    */
   @Description("Type Name")
   Sort __typename() default Sort.ASC;
+
+  /**
+   * 归属 Reference
+   */
+  @Description("归属 Reference")
+  Sort groupId() default Sort.ASC;
 
   /**
    * Relationship Object between 用户 and 手机号
@@ -254,6 +272,18 @@ public @interface UserOrderBy1 {
   Sort disableCount() default Sort.ASC;
 
   /**
+   * Count of 数据权限等级
+   */
+  @Description("Count of 数据权限等级")
+  Sort dataPermissionLevelCount() default Sort.ASC;
+
+  /**
+   * Count of 归属 Reference
+   */
+  @Description("Count of 归属 Reference")
+  Sort groupIdCount() default Sort.ASC;
+
+  /**
    * Year of Create Time
    */
   @Description("Year of Create Time")
@@ -339,6 +369,10 @@ public @interface UserOrderBy1 {
 
   String $disable() default "";
 
+  String $dataPermissionLevel() default "";
+
+  String $group() default "";
+
   String $groups() default "";
 
   String $roles() default "";
@@ -362,6 +396,8 @@ public @interface UserOrderBy1 {
   String $createGroupId() default "";
 
   String $__typename() default "";
+
+  String $groupId() default "";
 
   String $userPhonesRelation() default "";
 
@@ -396,6 +432,10 @@ public @interface UserOrderBy1 {
   String $emailCount() default "";
 
   String $disableCount() default "";
+
+  String $dataPermissionLevelCount() default "";
+
+  String $groupIdCount() default "";
 
   String $createTimeYear() default "";
 

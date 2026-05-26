@@ -452,12 +452,14 @@ public class RoleCompositeRelationExpression implements MetaExpression {
     this.cond = cond;
   }
 
+  @Override
   public Collection<RoleCompositeRelationExpression> getExs() {
     return this.exs;
   }
 
-  public void setExs(Collection<RoleCompositeRelationExpression> exs) {
-    this.exs = exs;
+  @Override
+  public void setExs(Collection<? extends MetaExpression> exs) {
+    this.exs = (Collection<RoleCompositeRelationExpression>)exs;
   }
 
   public RoleCompositeRelationOrderBy getOrderBy() {

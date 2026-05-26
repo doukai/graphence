@@ -452,12 +452,14 @@ public class RolePermissionRelationExpression implements MetaExpression {
     this.cond = cond;
   }
 
+  @Override
   public Collection<RolePermissionRelationExpression> getExs() {
     return this.exs;
   }
 
-  public void setExs(Collection<RolePermissionRelationExpression> exs) {
-    this.exs = exs;
+  @Override
+  public void setExs(Collection<? extends MetaExpression> exs) {
+    this.exs = (Collection<RolePermissionRelationExpression>)exs;
   }
 
   public RolePermissionRelationOrderBy getOrderBy() {

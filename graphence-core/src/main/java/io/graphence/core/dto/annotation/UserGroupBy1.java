@@ -25,6 +25,12 @@ public @interface UserGroupBy1 {
   String[] by() default {};
 
   /**
+   * 归属
+   */
+  @Description("归属")
+  GroupGroupBy2 group() default @GroupGroupBy2;
+
+  /**
    * 组
    */
   @Description("组")
@@ -67,6 +73,8 @@ public @interface UserGroupBy1 {
   UserGroupBy2[] gbs() default {};
 
   String $by() default "";
+
+  String $group() default "";
 
   String $groups() default "";
 

@@ -86,6 +86,18 @@ public class UserExpression implements NamedStructExpression, MetaExpression {
   private BooleanExpression disable;
 
   /**
+   * 数据权限等级
+   */
+  @Description("数据权限等级")
+  private DataPermissionLevelExpression dataPermissionLevel;
+
+  /**
+   * 归属
+   */
+  @Description("归属")
+  private GroupExpression group;
+
+  /**
    * 组
    */
   @Description("组")
@@ -157,6 +169,12 @@ public class UserExpression implements NamedStructExpression, MetaExpression {
    */
   @Description("Type Name")
   private StringExpression __typename;
+
+  /**
+   * 归属 Reference
+   */
+  @Description("归属 Reference")
+  private StringExpression groupId;
 
   /**
    * Relationship Object between 用户 and 手机号
@@ -384,6 +402,22 @@ public class UserExpression implements NamedStructExpression, MetaExpression {
     this.disable = disable;
   }
 
+  public DataPermissionLevelExpression getDataPermissionLevel() {
+    return this.dataPermissionLevel;
+  }
+
+  public void setDataPermissionLevel(DataPermissionLevelExpression dataPermissionLevel) {
+    this.dataPermissionLevel = dataPermissionLevel;
+  }
+
+  public GroupExpression getGroup() {
+    return this.group;
+  }
+
+  public void setGroup(GroupExpression group) {
+    this.group = group;
+  }
+
   public GroupExpression getGroups() {
     return this.groups;
   }
@@ -494,6 +528,14 @@ public class UserExpression implements NamedStructExpression, MetaExpression {
 
   public void set__typename(StringExpression __typename) {
     this.__typename = __typename;
+  }
+
+  public StringExpression getGroupId() {
+    return this.groupId;
+  }
+
+  public void setGroupId(StringExpression groupId) {
+    this.groupId = groupId;
   }
 
   public UserPhonesRelationExpression getUserPhonesRelation() {
@@ -620,12 +662,14 @@ public class UserExpression implements NamedStructExpression, MetaExpression {
     this.cond = (Conditional)cond;
   }
 
+  @Override
   public Collection<UserExpression> getExs() {
     return this.exs;
   }
 
-  public void setExs(Collection<UserExpression> exs) {
-    this.exs = exs;
+  @Override
+  public void setExs(Collection<? extends MetaExpression> exs) {
+    this.exs = (Collection<UserExpression>)exs;
   }
 
   public UserOrderBy getOrderBy() {

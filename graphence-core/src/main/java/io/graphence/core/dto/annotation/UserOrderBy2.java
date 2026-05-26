@@ -80,6 +80,12 @@ public @interface UserOrderBy2 {
   Sort disable() default Sort.ASC;
 
   /**
+   * 数据权限等级
+   */
+  @Description("数据权限等级")
+  Sort dataPermissionLevel() default Sort.ASC;
+
+  /**
    * Is Deprecated
    */
   @Description("Is Deprecated")
@@ -134,6 +140,12 @@ public @interface UserOrderBy2 {
   Sort __typename() default Sort.ASC;
 
   /**
+   * 归属 Reference
+   */
+  @Description("归属 Reference")
+  Sort groupId() default Sort.ASC;
+
+  /**
    * Count of 用户
    */
   @Description("Count of 用户")
@@ -186,6 +198,18 @@ public @interface UserOrderBy2 {
    */
   @Description("Count of 禁用")
   Sort disableCount() default Sort.ASC;
+
+  /**
+   * Count of 数据权限等级
+   */
+  @Description("Count of 数据权限等级")
+  Sort dataPermissionLevelCount() default Sort.ASC;
+
+  /**
+   * Count of 归属 Reference
+   */
+  @Description("Count of 归属 Reference")
+  Sort groupIdCount() default Sort.ASC;
 
   /**
    * Year of Create Time
@@ -267,6 +291,8 @@ public @interface UserOrderBy2 {
 
   String $disable() default "";
 
+  String $dataPermissionLevel() default "";
+
   String $isDeprecated() default "";
 
   String $version() default "";
@@ -285,6 +311,8 @@ public @interface UserOrderBy2 {
 
   String $__typename() default "";
 
+  String $groupId() default "";
+
   String $idCount() default "";
 
   String $nameCount() default "";
@@ -302,6 +330,10 @@ public @interface UserOrderBy2 {
   String $emailCount() default "";
 
   String $disableCount() default "";
+
+  String $dataPermissionLevelCount() default "";
+
+  String $groupIdCount() default "";
 
   String $createTimeYear() default "";
 

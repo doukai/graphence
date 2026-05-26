@@ -508,12 +508,14 @@ public class PermissionExpression implements MetaExpression {
     this.cond = cond;
   }
 
+  @Override
   public Collection<PermissionExpression> getExs() {
     return this.exs;
   }
 
-  public void setExs(Collection<PermissionExpression> exs) {
-    this.exs = exs;
+  @Override
+  public void setExs(Collection<? extends MetaExpression> exs) {
+    this.exs = (Collection<PermissionExpression>)exs;
   }
 
   public PermissionOrderBy getOrderBy() {

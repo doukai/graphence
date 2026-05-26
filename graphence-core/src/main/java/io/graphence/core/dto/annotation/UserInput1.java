@@ -1,5 +1,6 @@
 package io.graphence.core.dto.annotation;
 
+import io.graphence.core.dto.enumType.DataPermissionLevel;
 import jakarta.annotation.Generated;
 import java.lang.String;
 import java.lang.annotation.Documented;
@@ -79,6 +80,18 @@ public @interface UserInput1 {
   boolean disable() default false;
 
   /**
+   * 数据权限等级
+   */
+  @Description("数据权限等级")
+  DataPermissionLevel dataPermissionLevel() default DataPermissionLevel.ALL;
+
+  /**
+   * 归属
+   */
+  @Description("归属")
+  GroupInput2 group() default @GroupInput2;
+
+  /**
    * 组
    */
   @Description("组")
@@ -151,6 +164,12 @@ public @interface UserInput1 {
   String __typename() default "User";
 
   /**
+   * 归属 Reference
+   */
+  @Description("归属 Reference")
+  String groupId() default "";
+
+  /**
    * Relationship Object between 用户 and 手机号
    */
   @Description("Relationship Object between 用户 and 手机号")
@@ -206,6 +225,10 @@ public @interface UserInput1 {
 
   String $disable() default "";
 
+  String $dataPermissionLevel() default "";
+
+  String $group() default "";
+
   String $groups() default "";
 
   String $roles() default "";
@@ -229,6 +252,8 @@ public @interface UserInput1 {
   String $createGroupId() default "";
 
   String $__typename() default "";
+
+  String $groupId() default "";
 
   String $userPhonesRelation() default "";
 

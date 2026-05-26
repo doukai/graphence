@@ -32,11 +32,17 @@ public class Current {
   @Description("租户ID")
   private Integer realmId;
 
+  @Description("归属")
+  private String groupId;
+
   @Description("组")
   private List<String> groups;
 
   @Description("角色")
   private List<String> roles;
+
+  @Description("数据权限等级")
+  private Integer dataPermissionLevel;
 
   public String getId() {
     return id;
@@ -83,6 +89,15 @@ public class Current {
     return this;
   }
 
+  public String getGroupId() {
+    return groupId;
+  }
+
+  public Current setGroupId(String groupId) {
+    this.groupId = groupId;
+    return this;
+  }
+
   public List<String> getGroups() {
     return groups;
   }
@@ -101,6 +116,15 @@ public class Current {
     return this;
   }
 
+  public Integer getDataPermissionLevel() {
+    return dataPermissionLevel;
+  }
+
+  public Current setDataPermissionLevel(Integer dataPermissionLevel) {
+    this.dataPermissionLevel = dataPermissionLevel;
+    return this;
+  }
+
   public static Current of(User user) {
     return new Current()
         .setId(user.getId())
@@ -113,10 +137,12 @@ public class Current {
                 .flatMap(Collection::stream)
                 .map(Role::getId)
                 .collect(Collectors.toList()))
+        .setGroupId(user.getGroupId())
         .setGroups(
             Stream.ofNullable(user.getGroups())
                 .flatMap(Collection::stream)
                 .map(Group::getId)
-                .collect(Collectors.toList()));
+                .collect(Collectors.toList()))
+        .setDataPermissionLevel(user.getDataPermissionLevel().ordinal());
   }
 }

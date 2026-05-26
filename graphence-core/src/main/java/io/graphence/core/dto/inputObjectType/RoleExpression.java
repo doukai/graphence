@@ -563,12 +563,14 @@ public class RoleExpression implements NamedStructExpression, MetaExpression {
     this.cond = (Conditional)cond;
   }
 
+  @Override
   public Collection<RoleExpression> getExs() {
     return this.exs;
   }
 
-  public void setExs(Collection<RoleExpression> exs) {
-    this.exs = exs;
+  @Override
+  public void setExs(Collection<? extends MetaExpression> exs) {
+    this.exs = (Collection<RoleExpression>)exs;
   }
 
   public RoleOrderBy getOrderBy() {

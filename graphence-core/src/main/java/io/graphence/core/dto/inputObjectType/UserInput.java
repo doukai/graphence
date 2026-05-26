@@ -1,6 +1,8 @@
 package io.graphence.core.dto.inputObjectType;
 
 import com.dslplatform.json.CompiledJson;
+import io.graphence.core.dto.enumType.DataPermissionLevel;
+import io.graphoenix.core.dto.inputObjectType.MetaExpression;
 import io.graphoenix.core.dto.inputObjectType.MetaInput;
 import io.graphoenix.structure.dto.inputObjectType.NamedStructInput;
 import jakarta.annotation.Generated;
@@ -83,6 +85,18 @@ public class UserInput implements NamedStructInput, MetaInput {
   private Boolean disable;
 
   /**
+   * 数据权限等级
+   */
+  @Description("数据权限等级")
+  private DataPermissionLevel dataPermissionLevel;
+
+  /**
+   * 归属
+   */
+  @Description("归属")
+  private GroupInput group;
+
+  /**
    * 组
    */
   @Description("组")
@@ -155,6 +169,12 @@ public class UserInput implements NamedStructInput, MetaInput {
   @DefaultValue("User")
   @Description("Type Name")
   private String __typename = "User";
+
+  /**
+   * 归属 Reference
+   */
+  @Description("归属 Reference")
+  private String groupId;
 
   /**
    * Relationship Object between 用户 and 手机号
@@ -278,6 +298,22 @@ public class UserInput implements NamedStructInput, MetaInput {
     this.disable = disable;
   }
 
+  public DataPermissionLevel getDataPermissionLevel() {
+    return this.dataPermissionLevel;
+  }
+
+  public void setDataPermissionLevel(DataPermissionLevel dataPermissionLevel) {
+    this.dataPermissionLevel = dataPermissionLevel;
+  }
+
+  public GroupInput getGroup() {
+    return this.group;
+  }
+
+  public void setGroup(GroupInput group) {
+    this.group = group;
+  }
+
   public Collection<GroupInput> getGroups() {
     return this.groups;
   }
@@ -390,6 +426,14 @@ public class UserInput implements NamedStructInput, MetaInput {
     this.__typename = __typename;
   }
 
+  public String getGroupId() {
+    return this.groupId;
+  }
+
+  public void setGroupId(String groupId) {
+    this.groupId = groupId;
+  }
+
   public Collection<UserPhonesRelationInput> getUserPhonesRelation() {
     return this.userPhonesRelation;
   }
@@ -430,11 +474,13 @@ public class UserInput implements NamedStructInput, MetaInput {
     this.list = list;
   }
 
+  @Override
   public UserExpression getWhere() {
     return this.where;
   }
 
-  public void setWhere(UserExpression where) {
-    this.where = where;
+  @Override
+  public void setWhere(MetaExpression where) {
+    this.where = (UserExpression)where;
   }
 }

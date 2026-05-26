@@ -438,12 +438,14 @@ public class UserPhonesRelationExpression implements MetaExpression {
     this.cond = cond;
   }
 
+  @Override
   public Collection<UserPhonesRelationExpression> getExs() {
     return this.exs;
   }
 
-  public void setExs(Collection<UserPhonesRelationExpression> exs) {
-    this.exs = exs;
+  @Override
+  public void setExs(Collection<? extends MetaExpression> exs) {
+    this.exs = (Collection<UserPhonesRelationExpression>)exs;
   }
 
   public UserPhonesRelationOrderBy getOrderBy() {

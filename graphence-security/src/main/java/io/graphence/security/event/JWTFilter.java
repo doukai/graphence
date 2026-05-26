@@ -94,7 +94,9 @@ public class JWTFilter extends BaseRequestFilter {
                 .setLastName(jsonWebToken.getClaim(Claims.family_name))
                 .setRealmId(jsonWebToken.getClaim(Claims.upn))
                 .setGroups(jsonWebToken.getClaim(Claims.groups))
-                .setRoles(jsonWebToken.getClaim("roles"));
+                .setGroupId(jsonWebToken.getClaim("group"))
+                .setRoles(jsonWebToken.getClaim("roles"))
+                .setDataPermissionLevel(jsonWebToken.getClaim("permission_level"));
 
         setCurrentUser(context, current);
         return requestScopeInstanceFactory.put(Current.class, current).then();
@@ -140,7 +142,9 @@ public class JWTFilter extends BaseRequestFilter {
               .filter(entry -> !entry.getValue().isEmpty())
               .collect(
                   Collectors.toMap(
-                      Map.Entry::getKey, entry -> entry.getValue().get(0), (first, second) -> first));
+                      Map.Entry::getKey,
+                      entry -> entry.getValue().get(0),
+                      (first, second) -> first));
       Optional<Current> signedUrlCurrent =
           fileSignedUrlService.verify(request.method().name(), decoder.path(), parameters);
       if (signedUrlCurrent.isPresent()) {

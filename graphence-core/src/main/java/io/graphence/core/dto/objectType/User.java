@@ -1,6 +1,7 @@
 package io.graphence.core.dto.objectType;
 
 import com.dslplatform.json.CompiledJson;
+import io.graphence.core.dto.enumType.DataPermissionLevel;
 import io.graphence.core.dto.inputObjectType.UserInput;
 import io.graphoenix.core.dto.interfaceType.Meta;
 import io.graphoenix.structure.dto.interfaceType.NamedStruct;
@@ -89,6 +90,18 @@ public class User implements NamedStruct, Meta {
   private Boolean disable;
 
   /**
+   * 数据权限等级
+   */
+  @Description("数据权限等级")
+  private DataPermissionLevel dataPermissionLevel;
+
+  /**
+   * 归属
+   */
+  @Description("归属")
+  private Group group;
+
+  /**
    * 组
    */
   @Description("组")
@@ -159,6 +172,12 @@ public class User implements NamedStruct, Meta {
    */
   @Description("Type Name")
   private String __typename = "User";
+
+  /**
+   * 归属 Reference
+   */
+  @Description("归属 Reference")
+  private String groupId;
 
   /**
    * Relationship Object between 用户 and 手机号
@@ -291,6 +310,18 @@ public class User implements NamedStruct, Meta {
    */
   @Description("Count of 禁用")
   private Integer disableCount;
+
+  /**
+   * Count of 数据权限等级
+   */
+  @Description("Count of 数据权限等级")
+  private Integer dataPermissionLevelCount;
+
+  /**
+   * Count of 归属 Reference
+   */
+  @Description("Count of 归属 Reference")
+  private Integer groupIdCount;
 
   /**
    * Year of Create Time
@@ -440,6 +471,22 @@ public class User implements NamedStruct, Meta {
     this.disable = disable;
   }
 
+  public DataPermissionLevel getDataPermissionLevel() {
+    return this.dataPermissionLevel;
+  }
+
+  public void setDataPermissionLevel(DataPermissionLevel dataPermissionLevel) {
+    this.dataPermissionLevel = dataPermissionLevel;
+  }
+
+  public Group getGroup() {
+    return this.group;
+  }
+
+  public void setGroup(Group group) {
+    this.group = group;
+  }
+
   public Collection<Group> getGroups() {
     return this.groups;
   }
@@ -550,6 +597,14 @@ public class User implements NamedStruct, Meta {
 
   public void set__typename(String __typename) {
     this.__typename = __typename;
+  }
+
+  public String getGroupId() {
+    return this.groupId;
+  }
+
+  public void setGroupId(String groupId) {
+    this.groupId = groupId;
   }
 
   public Collection<UserPhonesRelation> getUserPhonesRelation() {
@@ -730,6 +785,22 @@ public class User implements NamedStruct, Meta {
     this.disableCount = disableCount;
   }
 
+  public Integer getDataPermissionLevelCount() {
+    return this.dataPermissionLevelCount;
+  }
+
+  public void setDataPermissionLevelCount(Integer dataPermissionLevelCount) {
+    this.dataPermissionLevelCount = dataPermissionLevelCount;
+  }
+
+  public Integer getGroupIdCount() {
+    return this.groupIdCount;
+  }
+
+  public void setGroupIdCount(Integer groupIdCount) {
+    this.groupIdCount = groupIdCount;
+  }
+
   public Integer getCreateTimeYear() {
     return this.createTimeYear;
   }
@@ -830,6 +901,10 @@ public class User implements NamedStruct, Meta {
     input.setEmail(this.getEmail());
     input.setPhones(this.getPhones());
     input.setDisable(this.getDisable());
+    input.setDataPermissionLevel(this.getDataPermissionLevel());
+    if(getGroup() != null) {
+      input.setGroup(this.getGroup().toInput());
+    }
     if(getGroups() != null) {
       input.setGroups(this.getGroups().stream().map(item -> item.toInput()).collect(Collectors.toList()));
     }
@@ -848,6 +923,7 @@ public class User implements NamedStruct, Meta {
     input.setUpdateTime(this.getUpdateTime());
     input.setCreateGroupId(this.getCreateGroupId());
     input.set__typename(this.get__typename());
+    input.setGroupId(this.getGroupId());
     if(getUserPhonesRelation() != null) {
       input.setUserPhonesRelation(this.getUserPhonesRelation().stream().map(item -> item.toInput()).collect(Collectors.toList()));
     }

@@ -452,12 +452,14 @@ public class GroupRoleRelationExpression implements MetaExpression {
     this.cond = cond;
   }
 
+  @Override
   public Collection<GroupRoleRelationExpression> getExs() {
     return this.exs;
   }
 
-  public void setExs(Collection<GroupRoleRelationExpression> exs) {
-    this.exs = exs;
+  @Override
+  public void setExs(Collection<? extends MetaExpression> exs) {
+    this.exs = (Collection<GroupRoleRelationExpression>)exs;
   }
 
   public GroupRoleRelationOrderBy getOrderBy() {

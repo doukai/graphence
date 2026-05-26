@@ -437,12 +437,14 @@ public class RealmExpression implements NamedStructExpression, MetaExpression {
     this.cond = (Conditional)cond;
   }
 
+  @Override
   public Collection<RealmExpression> getExs() {
     return this.exs;
   }
 
-  public void setExs(Collection<RealmExpression> exs) {
-    this.exs = exs;
+  @Override
+  public void setExs(Collection<? extends MetaExpression> exs) {
+    this.exs = (Collection<RealmExpression>)exs;
   }
 
   public RealmOrderBy getOrderBy() {

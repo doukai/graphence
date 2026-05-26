@@ -76,6 +76,18 @@ public class UserOrderBy {
   private Sort disable;
 
   /**
+   * 数据权限等级
+   */
+  @Description("数据权限等级")
+  private Sort dataPermissionLevel;
+
+  /**
+   * 归属
+   */
+  @Description("归属")
+  private GroupOrderBy group;
+
+  /**
    * 组
    */
   @Description("组")
@@ -146,6 +158,12 @@ public class UserOrderBy {
    */
   @Description("Type Name")
   private Sort __typename;
+
+  /**
+   * 归属 Reference
+   */
+  @Description("归属 Reference")
+  private Sort groupId;
 
   /**
    * Relationship Object between 用户 and 手机号
@@ -248,6 +266,18 @@ public class UserOrderBy {
    */
   @Description("Count of 禁用")
   private Sort disableCount;
+
+  /**
+   * Count of 数据权限等级
+   */
+  @Description("Count of 数据权限等级")
+  private Sort dataPermissionLevelCount;
+
+  /**
+   * Count of 归属 Reference
+   */
+  @Description("Count of 归属 Reference")
+  private Sort groupIdCount;
 
   /**
    * Year of Create Time
@@ -395,6 +425,22 @@ public class UserOrderBy {
     this.disable = disable;
   }
 
+  public Sort getDataPermissionLevel() {
+    return this.dataPermissionLevel;
+  }
+
+  public void setDataPermissionLevel(Sort dataPermissionLevel) {
+    this.dataPermissionLevel = dataPermissionLevel;
+  }
+
+  public GroupOrderBy getGroup() {
+    return this.group;
+  }
+
+  public void setGroup(GroupOrderBy group) {
+    this.group = group;
+  }
+
   public GroupOrderBy getGroups() {
     return this.groups;
   }
@@ -489,6 +535,14 @@ public class UserOrderBy {
 
   public void set__typename(Sort __typename) {
     this.__typename = __typename;
+  }
+
+  public Sort getGroupId() {
+    return this.groupId;
+  }
+
+  public void setGroupId(Sort groupId) {
+    this.groupId = groupId;
   }
 
   public UserPhonesRelationOrderBy getUserPhonesRelation() {
@@ -626,6 +680,22 @@ public class UserOrderBy {
 
   public void setDisableCount(Sort disableCount) {
     this.disableCount = disableCount;
+  }
+
+  public Sort getDataPermissionLevelCount() {
+    return this.dataPermissionLevelCount;
+  }
+
+  public void setDataPermissionLevelCount(Sort dataPermissionLevelCount) {
+    this.dataPermissionLevelCount = dataPermissionLevelCount;
+  }
+
+  public Sort getGroupIdCount() {
+    return this.groupIdCount;
+  }
+
+  public void setGroupIdCount(Sort groupIdCount) {
+    this.groupIdCount = groupIdCount;
   }
 
   public Sort getCreateTimeYear() {

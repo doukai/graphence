@@ -20,12 +20,16 @@ type User implements NamedStruct {
     phones: [String] @jsonSchema(maxLength: 11)
     "禁用"
     disable: Boolean
+    "数据权限等级"
+    dataPermissionLevel: DataPermissionLevel
+    "归属"
+    group: Group @map(from: "groupId" to: "id")
     "组"
     groups: [Group]
     "角色"
     roles: [Role]
     "租户"
-    realm: Realm @map(from: "realmId" to: "id" anchor: true)
+    realm: Realm @map(from: "realmId" to: "id")
 }
 
 "角色"
@@ -45,7 +49,7 @@ type Role implements NamedStruct {
     "权限"
     permissions: [Permission] @map(from: "id" with: { type: "RolePermissionRelation" from: "roleRef" to: "permissionRef" } to: "name")
     "租户"
-    realm: Realm @map(from: "realmId" to: "id" anchor: true)
+    realm: Realm @map(from: "realmId" to: "id")
 }
 
 "组"
@@ -63,7 +67,7 @@ type Group implements NamedStruct & TreeStruct {
     "上级ID"
     parentId: String
     "上级"
-    parent: Group @map(from: "parentId" to: "id" anchor: true)
+    parent: Group @map(from: "parentId" to: "id")
     "下级"
     subGroups: [Group] @map(from: "id" to: "parentId")
     "用户"
@@ -71,7 +75,7 @@ type Group implements NamedStruct & TreeStruct {
     "角色"
     roles: [Role]
     "租户"
-    realm: Realm @map(from: "realmId" to: "id" anchor: true)
+    realm: Realm @map(from: "realmId" to: "id")
 }
 
 "租户"
@@ -101,7 +105,7 @@ type Permission {
     "角色"
     roles: [Role] @map(from: "name" with: { type: "RolePermissionRelation" from: "permissionRef" to: "roleRef" } to: "id")
     "租户"
-    realm: Realm @map(from: "realmId" to: "id" anchor: true)
+    realm: Realm @map(from: "realmId" to: "id")
 }
 
 "权限类型"
@@ -112,4 +116,16 @@ enum PermissionType {
     WRITE
     "全部"
     ANY
+}
+
+"数据权限等级"
+enum DataPermissionLevel {
+    "全部"
+    ALL
+    "同级"
+    SAME_LEVEL
+    "同级与下级"
+    SAME_AND_LOWER
+    "仅下级"
+    LOWER_ONLY
 }

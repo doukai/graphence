@@ -2,6 +2,7 @@ package io.graphence.core.utils;
 
 import io.graphence.core.config.JWTConfig;
 import io.graphence.core.config.SecurityConfig;
+import io.graphence.core.dto.enumType.DataPermissionLevel;
 import io.graphence.core.dto.objectType.Group;
 import io.graphence.core.dto.objectType.Role;
 import io.graphence.core.dto.objectType.User;
@@ -20,6 +21,7 @@ import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
 import java.util.Set;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 @ApplicationScoped
@@ -46,8 +48,10 @@ public class JWTUtil {
         .claim(Claims.family_name.name(), user.getLastName())
         .claim(Claims.upn.name(), user.getRealmId())
         .claim(Claims.groups.name(), getGroups(user))
+        .claim("group", user.getGroupId())
         .claim("roles", roles.toArray(String[]::new))
         .claim("permission_types", permissionTypes.toArray(String[]::new))
+        .claim("permission_level", user.getDataPermissionLevel().ordinal())
         .claim(
             "is_root",
             securityConfig.getRootUser() != null
@@ -70,9 +74,21 @@ public class JWTUtil {
   }
 
   protected String[] getGroups(User user) {
-    return Stream.ofNullable(user.getGroups())
-        .flatMap(Collection::stream)
-        .map(Group::getId)
+    Stream<Group> groups = Stream.empty();
+    if (user.getGroup() != null && user.getDataPermissionLevel() != null) {
+      if (user.getDataPermissionLevel().equals(DataPermissionLevel.SAME_LEVEL)) {
+        groups = Stream.of(user.getGroup());
+      } else if (user.getDataPermissionLevel().equals(DataPermissionLevel.LOWER_ONLY)) {
+        groups = getGroups(user.getGroup().getSubGroups());
+      } else {
+        groups = getGroups(user.getGroup());
+      }
+    }
+
+    return Stream.concat(
+            groups.map(Group::getId),
+            Stream.ofNullable(user.getGroups()).flatMap(Collection::stream).map(Group::getId))
+        .collect(Collectors.toSet())
         .toArray(String[]::new);
   }
 
@@ -88,6 +104,14 @@ public class JWTUtil {
     return Stream.ofNullable(roles)
         .flatMap(Collection::stream)
         .flatMap(role -> Stream.concat(Stream.of(role), getRoles(role.getComposites())));
+  }
+
+  public Stream<Group> getGroups(Group group) {
+    return Stream.concat(Stream.of(group), getGroups(group.getSubGroups()));
+  }
+
+  public Stream<Group> getGroups(Collection<Group> groups) {
+    return Stream.ofNullable(groups).flatMap(Collection::stream).flatMap(this::getGroups);
   }
 
   public JsonWebToken parser(String compactJws) throws JwtException {

@@ -13,3 +13,12 @@ enum PermissionType {
     WRITE_PERMISSION_TYPE = 1; /* 写入 */
     ANY_PERMISSION_TYPE = 2; /* 全部 */
 }
+/**
+* 数据权限等级
+*/
+enum DataPermissionLevel {
+    ALL_DATA_PERMISSION_LEVEL = 0; /* 全部 */
+    SAME_LEVEL_DATA_PERMISSION_LEVEL = 1; /* 同级 */
+    SAME_AND_LOWER_DATA_PERMISSION_LEVEL = 2; /* 同级与下级 */
+    LOWER_ONLY_DATA_PERMISSION_LEVEL = 3; /* 仅下级 */
+}

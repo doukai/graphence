@@ -580,12 +580,14 @@ public class GroupExpression implements TreeStructExpression, NamedStructExpress
     this.cond = (Conditional)cond;
   }
 
+  @Override
   public Collection<GroupExpression> getExs() {
     return this.exs;
   }
 
-  public void setExs(Collection<GroupExpression> exs) {
-    this.exs = exs;
+  @Override
+  public void setExs(Collection<? extends MetaExpression> exs) {
+    this.exs = (Collection<GroupExpression>)exs;
   }
 
   public GroupOrderBy getOrderBy() {

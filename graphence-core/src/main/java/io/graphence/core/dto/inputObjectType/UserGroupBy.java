@@ -22,6 +22,12 @@ public class UserGroupBy {
   private Collection<String> by;
 
   /**
+   * 归属
+   */
+  @Description("归属")
+  private GroupGroupBy group;
+
+  /**
    * 组
    */
   @Description("组")
@@ -69,6 +75,14 @@ public class UserGroupBy {
 
   public void setBy(Collection<String> by) {
     this.by = by;
+  }
+
+  public GroupGroupBy getGroup() {
+    return this.group;
+  }
+
+  public void setGroup(GroupGroupBy group) {
+    this.group = group;
   }
 
   public GroupGroupBy getGroups() {
