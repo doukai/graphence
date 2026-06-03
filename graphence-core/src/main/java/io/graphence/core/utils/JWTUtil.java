@@ -17,10 +17,7 @@ import jakarta.inject.Inject;
 import org.eclipse.microprofile.jwt.Claims;
 
 import java.security.Key;
-import java.util.Calendar;
-import java.util.Collection;
-import java.util.Date;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -51,7 +48,11 @@ public class JWTUtil {
         .claim("group", user.getGroupId())
         .claim("roles", roles.toArray(String[]::new))
         .claim("permission_types", permissionTypes.toArray(String[]::new))
-        .claim("permission_level", user.getDataPermissionLevel().ordinal())
+        .claim(
+            "permission_level",
+            Objects.requireNonNullElse(
+                    user.getDataPermissionLevel(), DataPermissionLevel.SAME_LEVEL)
+                .ordinal())
         .claim(
             "is_root",
             securityConfig.getRootUser() != null

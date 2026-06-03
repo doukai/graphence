@@ -1,6 +1,7 @@
 package io.graphence.core.dto;
 
 import com.dslplatform.json.CompiledJson;
+import io.graphence.core.dto.enumType.DataPermissionLevel;
 import io.graphence.core.dto.objectType.Group;
 import io.graphence.core.dto.objectType.Role;
 import io.graphence.core.dto.objectType.User;
@@ -9,6 +10,7 @@ import org.eclipse.microprofile.graphql.Type;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -143,6 +145,9 @@ public class Current {
                 .flatMap(Collection::stream)
                 .map(Group::getId)
                 .collect(Collectors.toList()))
-        .setDataPermissionLevel(user.getDataPermissionLevel().ordinal());
+        .setDataPermissionLevel(
+            Objects.requireNonNullElse(
+                    user.getDataPermissionLevel(), DataPermissionLevel.SAME_LEVEL)
+                .ordinal());
   }
 }
