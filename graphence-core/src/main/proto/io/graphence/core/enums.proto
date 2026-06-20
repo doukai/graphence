@@ -21,4 +21,5 @@ enum DataPermissionLevel {
     SAME_LEVEL_DATA_PERMISSION_LEVEL = 1; /* 同级 */
     SAME_AND_LOWER_DATA_PERMISSION_LEVEL = 2; /* 同级与下级 */
     LOWER_ONLY_DATA_PERMISSION_LEVEL = 3; /* 仅下级 */
+    SELF_ONLY_DATA_PERMISSION_LEVEL = 4; /* 仅自己 */
 }

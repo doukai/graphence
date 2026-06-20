@@ -25,7 +25,7 @@ message UserExpression {
     io.graphoenix.core.StringExpression phones = 9; /* 手机号 */
     io.graphoenix.core.BooleanExpression disable = 10; /* 禁用 */
     DataPermissionLevelExpression data_permission_level = 11; /* 数据权限等级 */
-    GroupExpression group = 12; /* 归属 */
+    GroupExpression group = 12; /* 当前组 */
     GroupExpression groups = 13; /* 组 */
     RoleExpression roles = 14; /* 角色 */
     RealmExpression realm = 15; /* 租户 */
@@ -38,7 +38,7 @@ message UserExpression {
     io.graphoenix.core.StringExpression update_time = 22; /* Update Time */
     io.graphoenix.core.StringExpression create_group_id = 23; /* Create Group ID */
     io.graphoenix.core.StringExpression intro_typename = 24; /* Type Name */
-    io.graphoenix.core.StringExpression group_id = 25; /* 归属 Reference */
+    io.graphoenix.core.StringExpression group_id = 25; /* 当前组 Reference */
     UserPhonesRelationExpression user_phones_relation = 26; /* Relationship Object between 用户 and 手机号 */
     GroupUserRelationExpression group_user_relation = 27; /* Relationship Object between 用户 and 组 */
     RoleUserRelationExpression role_user_relation = 28; /* Relationship Object between 用户 and 角色 */
@@ -78,7 +78,7 @@ message UserInput {
     repeated string phones = 9; /* 手机号 */
     bool disable = 10; /* 禁用 */
     DataPermissionLevel data_permission_level = 11; /* 数据权限等级 */
-    GroupInput group = 12; /* 归属 */
+    GroupInput group = 12; /* 当前组 */
     repeated GroupInput groups = 13; /* 组 */
     repeated RoleInput roles = 14; /* 角色 */
     RealmInput realm = 15; /* 租户 */
@@ -91,7 +91,7 @@ message UserInput {
     google.protobuf.Timestamp update_time = 22; /* Update Time */
     string create_group_id = 23; /* Create Group ID */
     string intro_typename = 24; /* Type Name */
-    string group_id = 25; /* 归属 Reference */
+    string group_id = 25; /* 当前组 Reference */
     repeated UserPhonesRelationInput user_phones_relation = 26; /* Relationship Object between 用户 and 手机号 */
     repeated GroupUserRelationInput group_user_relation = 27; /* Relationship Object between 用户 and 组 */
     repeated RoleUserRelationInput role_user_relation = 28; /* Relationship Object between 用户 and 角色 */
@@ -114,7 +114,7 @@ message UserOrderBy {
     io.graphoenix.core.Sort phones = 9; /* 手机号 */
     io.graphoenix.core.Sort disable = 10; /* 禁用 */
     io.graphoenix.core.Sort data_permission_level = 11; /* 数据权限等级 */
-    GroupOrderBy group = 12; /* 归属 */
+    GroupOrderBy group = 12; /* 当前组 */
     GroupOrderBy groups = 13; /* 组 */
     RoleOrderBy roles = 14; /* 角色 */
     RealmOrderBy realm = 15; /* 租户 */
@@ -127,7 +127,7 @@ message UserOrderBy {
     io.graphoenix.core.Sort update_time = 22; /* Update Time */
     io.graphoenix.core.Sort create_group_id = 23; /* Create Group ID */
     io.graphoenix.core.Sort intro_typename = 24; /* Type Name */
-    io.graphoenix.core.Sort group_id = 25; /* 归属 Reference */
+    io.graphoenix.core.Sort group_id = 25; /* 当前组 Reference */
     UserPhonesRelationOrderBy user_phones_relation = 26; /* Relationship Object between 用户 and 手机号 */
     GroupUserRelationOrderBy group_user_relation = 27; /* Relationship Object between 用户 and 组 */
     RoleUserRelationOrderBy role_user_relation = 28; /* Relationship Object between 用户 and 角色 */
@@ -146,7 +146,7 @@ message UserOrderBy {
     io.graphoenix.core.Sort email_count = 41; /* Count of 邮箱 */
     io.graphoenix.core.Sort disable_count = 42; /* Count of 禁用 */
     io.graphoenix.core.Sort data_permission_level_count = 43; /* Count of 数据权限等级 */
-    io.graphoenix.core.Sort group_id_count = 44; /* Count of 归属 Reference */
+    io.graphoenix.core.Sort group_id_count = 44; /* Count of 当前组 Reference */
     io.graphoenix.core.Sort create_time_year = 45; /* Year of Create Time */
     io.graphoenix.core.Sort create_time_month = 46; /* Month of Create Time */
     io.graphoenix.core.Sort create_time_day = 47; /* Day of Create Time */
@@ -164,7 +164,7 @@ message UserOrderBy {
 */
 message UserGroupBy {
     repeated string by = 1; /* Group By Field Names */
-    GroupGroupBy group = 2; /* 归属 */
+    GroupGroupBy group = 2; /* 当前组 */
     GroupGroupBy groups = 3; /* 组 */
     RoleGroupBy roles = 4; /* 角色 */
     RealmGroupBy realm = 5; /* 租户 */
@@ -1285,6 +1285,36 @@ message RolePermissionRelationGroupBy {
     RoleGroupBy role = 2; /* 角色 */
     PermissionGroupBy permission = 3; /* 权限 */
     repeated RolePermissionRelationGroupBy gbs = 4; /* OrderByes */
+}
+/**
+* Query Expression Input for 数据归属
+*/
+message CreateByExpression {
+    io.graphoenix.core.StringExpression create_user_id = 1; /* 创建用户ID */
+    io.graphoenix.core.StringExpression create_group_id = 2; /* 创建组ID */
+    io.graphoenix.core.StringExpression id = 3; /* id */
+    bool include_deprecated = 4; /* Include Deprecated */
+    io.graphoenix.core.IntExpression version = 5; /* Version */
+    io.graphoenix.core.IntExpression realm_id = 6; /* Realm ID */
+    io.graphoenix.core.StringExpression create_time = 7; /* Create Time */
+    io.graphoenix.core.StringExpression update_user_id = 8; /* Update User ID */
+    io.graphoenix.core.StringExpression update_time = 9; /* Update Time */
+    bool not = 10; /* Not */
+    io.graphoenix.core.Conditional cond = 11; /* Condition */
+}
+/**
+* Mutation Input for 数据归属
+*/
+message CreateByInput {
+    string create_user_id = 1; /* 创建用户ID */
+    string create_group_id = 2; /* 创建组ID */
+    string id = 3; /* id */
+    bool is_deprecated = 4; /* Is Deprecated */
+    int32 version = 5; /* Version */
+    int32 realm_id = 6; /* Realm ID */
+    google.protobuf.Timestamp create_time = 7; /* Create Time */
+    string update_user_id = 8; /* Update User ID */
+    google.protobuf.Timestamp update_time = 9; /* Update Time */
 }
 /**
 * Query Expression Input for 权限类型

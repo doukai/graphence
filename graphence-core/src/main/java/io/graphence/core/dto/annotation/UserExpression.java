@@ -89,9 +89,9 @@ public @interface UserExpression {
   DataPermissionLevelExpression dataPermissionLevel() default @DataPermissionLevelExpression;
 
   /**
-   * 归属
+   * 当前组
    */
-  @Description("归属")
+  @Description("当前组")
   GroupExpression1 group() default @GroupExpression1;
 
   /**
@@ -167,9 +167,9 @@ public @interface UserExpression {
   StringExpression __typename() default @StringExpression;
 
   /**
-   * 归属 Reference
+   * 当前组 Reference
    */
-  @Description("归属 Reference")
+  @Description("当前组 Reference")
   StringExpression groupId() default @StringExpression;
 
   /**

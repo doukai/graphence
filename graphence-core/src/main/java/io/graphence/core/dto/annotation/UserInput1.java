@@ -86,9 +86,9 @@ public @interface UserInput1 {
   DataPermissionLevel dataPermissionLevel() default DataPermissionLevel.ALL;
 
   /**
-   * 归属
+   * 当前组
    */
-  @Description("归属")
+  @Description("当前组")
   GroupInput2 group() default @GroupInput2;
 
   /**
@@ -164,9 +164,9 @@ public @interface UserInput1 {
   String __typename() default "User";
 
   /**
-   * 归属 Reference
+   * 当前组 Reference
    */
-  @Description("归属 Reference")
+  @Description("当前组 Reference")
   String groupId() default "";
 
   /**

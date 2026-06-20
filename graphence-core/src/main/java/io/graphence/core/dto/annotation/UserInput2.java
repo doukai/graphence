@@ -140,9 +140,9 @@ public @interface UserInput2 {
   String __typename() default "User";
 
   /**
-   * 归属 Reference
+   * 当前组 Reference
    */
-  @Description("归属 Reference")
+  @Description("当前组 Reference")
   String groupId() default "";
 
   String $id() default "";

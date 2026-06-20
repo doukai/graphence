@@ -1,6 +1,7 @@
 package io.graphence.core.dto.objectType;
 
 import com.dslplatform.json.CompiledJson;
+import io.graphence.core.dto.TokenPair;
 import jakarta.annotation.Generated;
 import java.lang.Boolean;
 import java.lang.String;
@@ -148,15 +149,21 @@ public class Mutation {
   @Description("Mutation Field for Relationship Object between 角色 and 权限 List")
   private Collection<RolePermissionRelation> rolePermissionRelationList;
 
-  private Boolean syncModelPolicy;
-
-  private Boolean syncPermissionRoleRelationPolicy;
-
   private String login;
+
+  private TokenPair loginWithTokens;
+
+  private TokenPair refreshToken;
+
+  private Boolean logout;
 
   private User currentUserUpdate;
 
   private User currentUserResetPassword;
+
+  private Boolean syncModelPolicy;
+
+  private Boolean syncPermissionRoleRelationPolicy;
 
   public User getUser() {
     return this.user;
@@ -336,28 +343,36 @@ public class Mutation {
     this.rolePermissionRelationList = rolePermissionRelationList;
   }
 
-  public Boolean getSyncModelPolicy() {
-    return this.syncModelPolicy;
-  }
-
-  public void setSyncModelPolicy(Boolean syncModelPolicy) {
-    this.syncModelPolicy = syncModelPolicy;
-  }
-
-  public Boolean getSyncPermissionRoleRelationPolicy() {
-    return this.syncPermissionRoleRelationPolicy;
-  }
-
-  public void setSyncPermissionRoleRelationPolicy(Boolean syncPermissionRoleRelationPolicy) {
-    this.syncPermissionRoleRelationPolicy = syncPermissionRoleRelationPolicy;
-  }
-
   public String getLogin() {
     return this.login;
   }
 
   public void setLogin(String login) {
     this.login = login;
+  }
+
+  public TokenPair getLoginWithTokens() {
+    return this.loginWithTokens;
+  }
+
+  public void setLoginWithTokens(TokenPair loginWithTokens) {
+    this.loginWithTokens = loginWithTokens;
+  }
+
+  public TokenPair getRefreshToken() {
+    return this.refreshToken;
+  }
+
+  public void setRefreshToken(TokenPair refreshToken) {
+    this.refreshToken = refreshToken;
+  }
+
+  public Boolean getLogout() {
+    return this.logout;
+  }
+
+  public void setLogout(Boolean logout) {
+    this.logout = logout;
   }
 
   public User getCurrentUserUpdate() {
@@ -374,5 +389,21 @@ public class Mutation {
 
   public void setCurrentUserResetPassword(User currentUserResetPassword) {
     this.currentUserResetPassword = currentUserResetPassword;
+  }
+
+  public Boolean getSyncModelPolicy() {
+    return this.syncModelPolicy;
+  }
+
+  public void setSyncModelPolicy(Boolean syncModelPolicy) {
+    this.syncModelPolicy = syncModelPolicy;
+  }
+
+  public Boolean getSyncPermissionRoleRelationPolicy() {
+    return this.syncPermissionRoleRelationPolicy;
+  }
+
+  public void setSyncPermissionRoleRelationPolicy(Boolean syncPermissionRoleRelationPolicy) {
+    this.syncPermissionRoleRelationPolicy = syncPermissionRoleRelationPolicy;
   }
 }

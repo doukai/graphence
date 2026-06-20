@@ -1,6 +1,7 @@
 package io.graphence.core.dto.inputObjectType;
 
 import com.dslplatform.json.CompiledJson;
+import com.dslplatform.json.JsonAttribute;
 import io.graphoenix.core.dto.inputObjectType.MetaExpression;
 import io.graphoenix.core.dto.inputObjectType.MetaInput;
 import io.graphoenix.structure.dto.inputObjectType.NamedStructInput;
@@ -257,5 +258,23 @@ public class RealmInput implements NamedStructInput, MetaInput {
   @Override
   public void setWhere(MetaExpression where) {
     this.where = (RealmExpression)where;
+  }
+
+  public void setWhere(RealmExpression where) {
+    this.where = where;
+  }
+
+  @JsonAttribute(
+      name = "where"
+  )
+  public RealmExpression __dslJson_where() {
+    return this.where;
+  }
+
+  @JsonAttribute(
+      name = "where"
+  )
+  public void __dslJson_where(RealmExpression where) {
+    this.where = where;
   }
 }

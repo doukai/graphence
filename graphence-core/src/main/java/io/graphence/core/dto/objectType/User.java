@@ -96,9 +96,9 @@ public class User implements NamedStruct, Meta {
   private DataPermissionLevel dataPermissionLevel;
 
   /**
-   * 归属
+   * 当前组
    */
-  @Description("归属")
+  @Description("当前组")
   private Group group;
 
   /**
@@ -174,9 +174,9 @@ public class User implements NamedStruct, Meta {
   private String __typename = "User";
 
   /**
-   * 归属 Reference
+   * 当前组 Reference
    */
-  @Description("归属 Reference")
+  @Description("当前组 Reference")
   private String groupId;
 
   /**
@@ -318,9 +318,9 @@ public class User implements NamedStruct, Meta {
   private Integer dataPermissionLevelCount;
 
   /**
-   * Count of 归属 Reference
+   * Count of 当前组 Reference
    */
-  @Description("Count of 归属 Reference")
+  @Description("Count of 当前组 Reference")
   private Integer groupIdCount;
 
   /**

@@ -25,9 +25,9 @@ public @interface UserGroupBy1 {
   String[] by() default {};
 
   /**
-   * 归属
+   * 当前组
    */
-  @Description("归属")
+  @Description("当前组")
   GroupGroupBy2 group() default @GroupGroupBy2;
 
   /**

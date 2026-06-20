@@ -133,6 +133,18 @@ message MutationLoginRequest {
     optional string selection_set = 1;
     optional string arguments = 2;
 }
+message MutationLoginWithTokensRequest {
+    optional string selection_set = 1;
+    optional string arguments = 2;
+}
+message MutationRefreshTokenRequest {
+    optional string selection_set = 1;
+    optional string arguments = 2;
+}
+message MutationLogoutRequest {
+    optional string selection_set = 1;
+    optional string arguments = 2;
+}
 message MutationCurrentUserUpdateRequest {
     optional string selection_set = 1;
     optional string arguments = 2;

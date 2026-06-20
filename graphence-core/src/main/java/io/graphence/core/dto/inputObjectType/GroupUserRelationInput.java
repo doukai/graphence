@@ -1,6 +1,7 @@
 package io.graphence.core.dto.inputObjectType;
 
 import com.dslplatform.json.CompiledJson;
+import com.dslplatform.json.JsonAttribute;
 import io.graphoenix.core.dto.inputObjectType.MetaExpression;
 import io.graphoenix.core.dto.inputObjectType.MetaInput;
 import jakarta.annotation.Generated;
@@ -278,5 +279,23 @@ public class GroupUserRelationInput implements MetaInput {
   @Override
   public void setWhere(MetaExpression where) {
     this.where = (GroupUserRelationExpression)where;
+  }
+
+  public void setWhere(GroupUserRelationExpression where) {
+    this.where = where;
+  }
+
+  @JsonAttribute(
+      name = "where"
+  )
+  public GroupUserRelationExpression __dslJson_where() {
+    return this.where;
+  }
+
+  @JsonAttribute(
+      name = "where"
+  )
+  public void __dslJson_where(GroupUserRelationExpression where) {
+    this.where = where;
   }
 }

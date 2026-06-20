@@ -82,9 +82,9 @@ public class UserOrderBy {
   private Sort dataPermissionLevel;
 
   /**
-   * 归属
+   * 当前组
    */
-  @Description("归属")
+  @Description("当前组")
   private GroupOrderBy group;
 
   /**
@@ -160,9 +160,9 @@ public class UserOrderBy {
   private Sort __typename;
 
   /**
-   * 归属 Reference
+   * 当前组 Reference
    */
-  @Description("归属 Reference")
+  @Description("当前组 Reference")
   private Sort groupId;
 
   /**
@@ -274,9 +274,9 @@ public class UserOrderBy {
   private Sort dataPermissionLevelCount;
 
   /**
-   * Count of 归属 Reference
+   * Count of 当前组 Reference
    */
-  @Description("Count of 归属 Reference")
+  @Description("Count of 当前组 Reference")
   private Sort groupIdCount;
 
   /**

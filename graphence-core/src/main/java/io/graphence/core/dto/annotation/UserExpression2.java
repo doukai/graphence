@@ -143,9 +143,9 @@ public @interface UserExpression2 {
   StringExpression __typename() default @StringExpression;
 
   /**
-   * 归属 Reference
+   * 当前组 Reference
    */
-  @Description("归属 Reference")
+  @Description("当前组 Reference")
   StringExpression groupId() default @StringExpression;
 
   /**

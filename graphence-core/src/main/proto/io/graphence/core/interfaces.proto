@@ -7,3 +7,10 @@ package io.graphence.core;
 
 import "io/graphence/core/enums.proto";
 
+/**
+* 数据归属
+*/
+message CreateBy {
+    string create_user_id = 1; /* 创建用户ID */
+    string create_group_id = 2; /* 创建组ID */
+}

@@ -1,6 +1,7 @@
 package io.graphence.core.dto.inputObjectType;
 
 import com.dslplatform.json.CompiledJson;
+import com.dslplatform.json.JsonAttribute;
 import io.graphence.core.dto.enumType.PermissionType;
 import io.graphoenix.core.dto.inputObjectType.MetaExpression;
 import io.graphoenix.core.dto.inputObjectType.MetaInput;
@@ -336,5 +337,23 @@ public class PermissionInput implements MetaInput {
   @Override
   public void setWhere(MetaExpression where) {
     this.where = (PermissionExpression)where;
+  }
+
+  public void setWhere(PermissionExpression where) {
+    this.where = where;
+  }
+
+  @JsonAttribute(
+      name = "where"
+  )
+  public PermissionExpression __dslJson_where() {
+    return this.where;
+  }
+
+  @JsonAttribute(
+      name = "where"
+  )
+  public void __dslJson_where(PermissionExpression where) {
+    this.where = where;
   }
 }

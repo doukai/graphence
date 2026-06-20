@@ -140,9 +140,9 @@ public @interface UserOrderBy2 {
   Sort __typename() default Sort.ASC;
 
   /**
-   * 归属 Reference
+   * 当前组 Reference
    */
-  @Description("归属 Reference")
+  @Description("当前组 Reference")
   Sort groupId() default Sort.ASC;
 
   /**
@@ -206,9 +206,9 @@ public @interface UserOrderBy2 {
   Sort dataPermissionLevelCount() default Sort.ASC;
 
   /**
-   * Count of 归属 Reference
+   * Count of 当前组 Reference
    */
-  @Description("Count of 归属 Reference")
+  @Description("Count of 当前组 Reference")
   Sort groupIdCount() default Sort.ASC;
 
   /**

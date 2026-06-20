@@ -1,6 +1,7 @@
 package io.graphence.core.dto.inputObjectType;
 
 import com.dslplatform.json.CompiledJson;
+import com.dslplatform.json.JsonAttribute;
 import io.graphoenix.core.dto.enumType.Conditional;
 import io.graphoenix.core.dto.inputObjectType.BooleanExpression;
 import io.graphoenix.core.dto.inputObjectType.IntExpression;
@@ -92,9 +93,9 @@ public class UserExpression implements NamedStructExpression, MetaExpression {
   private DataPermissionLevelExpression dataPermissionLevel;
 
   /**
-   * 归属
+   * 当前组
    */
-  @Description("归属")
+  @Description("当前组")
   private GroupExpression group;
 
   /**
@@ -171,9 +172,9 @@ public class UserExpression implements NamedStructExpression, MetaExpression {
   private StringExpression __typename;
 
   /**
-   * 归属 Reference
+   * 当前组 Reference
    */
-  @Description("归属 Reference")
+  @Description("当前组 Reference")
   private StringExpression groupId;
 
   /**
@@ -670,6 +671,20 @@ public class UserExpression implements NamedStructExpression, MetaExpression {
   @Override
   public void setExs(Collection<? extends MetaExpression> exs) {
     this.exs = (Collection<UserExpression>)exs;
+  }
+
+  @JsonAttribute(
+      name = "exs"
+  )
+  public Collection<UserExpression> __dslJson_exs() {
+    return this.exs;
+  }
+
+  @JsonAttribute(
+      name = "exs"
+  )
+  public void __dslJson_exs(Collection<UserExpression> exs) {
+    this.exs = exs;
   }
 
   public UserOrderBy getOrderBy() {

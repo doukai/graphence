@@ -22,7 +22,7 @@ type User implements NamedStruct {
     disable: Boolean
     "数据权限等级"
     dataPermissionLevel: DataPermissionLevel
-    "归属"
+    "当前组"
     group: Group @map(from: "groupId" to: "id")
     "组"
     groups: [Group]
@@ -57,7 +57,7 @@ type Group implements NamedStruct & TreeStruct {
     "ID"
     id: ID @jsonSchema(maxLength: 50)
     "名称"
-    name: String! @options(unique: true) @jsonSchema(minLength: 2 maxLength: 20)
+    name: String! @options(unique: true) @jsonSchema(minLength: 2 maxLength: 50)
     "描述"
     description: String @jsonSchema(maxLength: 100)
     "路径"
@@ -128,4 +128,14 @@ enum DataPermissionLevel {
     SAME_AND_LOWER
     "仅下级"
     LOWER_ONLY
+    "仅自己"
+    SELF_ONLY
+}
+
+"数据归属"
+interface CreateBy {
+    "创建用户ID"
+    createUserId: String
+    "创建组ID"
+    createGroupId: String
 }

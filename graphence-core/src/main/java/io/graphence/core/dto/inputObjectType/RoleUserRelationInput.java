@@ -1,6 +1,7 @@
 package io.graphence.core.dto.inputObjectType;
 
 import com.dslplatform.json.CompiledJson;
+import com.dslplatform.json.JsonAttribute;
 import io.graphoenix.core.dto.inputObjectType.MetaExpression;
 import io.graphoenix.core.dto.inputObjectType.MetaInput;
 import jakarta.annotation.Generated;
@@ -278,5 +279,23 @@ public class RoleUserRelationInput implements MetaInput {
   @Override
   public void setWhere(MetaExpression where) {
     this.where = (RoleUserRelationExpression)where;
+  }
+
+  public void setWhere(RoleUserRelationExpression where) {
+    this.where = where;
+  }
+
+  @JsonAttribute(
+      name = "where"
+  )
+  public RoleUserRelationExpression __dslJson_where() {
+    return this.where;
+  }
+
+  @JsonAttribute(
+      name = "where"
+  )
+  public void __dslJson_where(RoleUserRelationExpression where) {
+    this.where = where;
   }
 }

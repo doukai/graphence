@@ -1,6 +1,7 @@
 package io.graphence.core.dto.inputObjectType;
 
 import com.dslplatform.json.CompiledJson;
+import com.dslplatform.json.JsonAttribute;
 import io.graphoenix.core.dto.enumType.Conditional;
 import io.graphoenix.core.dto.inputObjectType.IntExpression;
 import io.graphoenix.core.dto.inputObjectType.MetaExpression;
@@ -571,6 +572,20 @@ public class RoleExpression implements NamedStructExpression, MetaExpression {
   @Override
   public void setExs(Collection<? extends MetaExpression> exs) {
     this.exs = (Collection<RoleExpression>)exs;
+  }
+
+  @JsonAttribute(
+      name = "exs"
+  )
+  public Collection<RoleExpression> __dslJson_exs() {
+    return this.exs;
+  }
+
+  @JsonAttribute(
+      name = "exs"
+  )
+  public void __dslJson_exs(Collection<RoleExpression> exs) {
+    this.exs = exs;
   }
 
   public RoleOrderBy getOrderBy() {

@@ -1,6 +1,7 @@
 package io.graphence.core.dto.inputObjectType;
 
 import com.dslplatform.json.CompiledJson;
+import com.dslplatform.json.JsonAttribute;
 import io.graphence.core.dto.enumType.DataPermissionLevel;
 import io.graphoenix.core.dto.inputObjectType.MetaExpression;
 import io.graphoenix.core.dto.inputObjectType.MetaInput;
@@ -91,9 +92,9 @@ public class UserInput implements NamedStructInput, MetaInput {
   private DataPermissionLevel dataPermissionLevel;
 
   /**
-   * 归属
+   * 当前组
    */
-  @Description("归属")
+  @Description("当前组")
   private GroupInput group;
 
   /**
@@ -171,9 +172,9 @@ public class UserInput implements NamedStructInput, MetaInput {
   private String __typename = "User";
 
   /**
-   * 归属 Reference
+   * 当前组 Reference
    */
-  @Description("归属 Reference")
+  @Description("当前组 Reference")
   private String groupId;
 
   /**
@@ -482,5 +483,23 @@ public class UserInput implements NamedStructInput, MetaInput {
   @Override
   public void setWhere(MetaExpression where) {
     this.where = (UserExpression)where;
+  }
+
+  public void setWhere(UserExpression where) {
+    this.where = where;
+  }
+
+  @JsonAttribute(
+      name = "where"
+  )
+  public UserExpression __dslJson_where() {
+    return this.where;
+  }
+
+  @JsonAttribute(
+      name = "where"
+  )
+  public void __dslJson_where(UserExpression where) {
+    this.where = where;
   }
 }

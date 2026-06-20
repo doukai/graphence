@@ -24,7 +24,7 @@ message User {
     repeated string phones = 9; /* 手机号 */
     bool disable = 10; /* 禁用 */
     DataPermissionLevel data_permission_level = 11; /* 数据权限等级 */
-    Group group = 12; /* 归属 */
+    Group group = 12; /* 当前组 */
     repeated Group groups = 13; /* 组 */
     repeated Role roles = 14; /* 角色 */
     Realm realm = 15; /* 租户 */
@@ -37,7 +37,7 @@ message User {
     google.protobuf.Timestamp update_time = 22; /* Update Time */
     string create_group_id = 23; /* Create Group ID */
     string intro_typename = 24; /* Type Name */
-    string group_id = 25; /* 归属 Reference */
+    string group_id = 25; /* 当前组 Reference */
     repeated UserPhonesRelation user_phones_relation = 26; /* Relationship Object between 用户 and 手机号 */
     repeated GroupUserRelation group_user_relation = 27; /* Relationship Object between 用户 and 组 */
     repeated RoleUserRelation role_user_relation = 28; /* Relationship Object between 用户 and 角色 */
@@ -61,7 +61,7 @@ message User {
     int32 email_count = 46; /* Count of 邮箱 */
     int32 disable_count = 47; /* Count of 禁用 */
     int32 data_permission_level_count = 48; /* Count of 数据权限等级 */
-    int32 group_id_count = 49; /* Count of 归属 Reference */
+    int32 group_id_count = 49; /* Count of 当前组 Reference */
     int32 create_time_year = 50; /* Year of Create Time */
     int32 create_time_month = 51; /* Month of Create Time */
     int32 create_time_day = 52; /* Day of Create Time */
@@ -618,24 +618,31 @@ message RolePermissionRelationEdge {
     RolePermissionRelation node = 1; /* Node */
     string cursor = 2; /* Cursor */
 }
+message TokenPair {
+    string refresh_token = 1;
+    int32 refresh_token_expires_in = 2;
+    string token_type = 3;
+    int32 access_token_expires_in = 4;
+    string access_token = 5;
+}
 message Policy {
-    string policy = 1;
-    string v3 = 2;
-    string v4 = 3;
-    string v0 = 4;
-    string v5 = 5;
-    string id = 6;
-    string v2 = 7;
-    string v1 = 8;
+    string v0 = 1;
+    string id = 2;
+    string v1 = 3;
+    string v5 = 4;
+    string v4 = 5;
+    string v2 = 6;
+    string policy = 7;
+    string v3 = 8;
 }
 message Current {
-    string last_name = 1;
-    string id = 2;
+    string group_id = 1;
+    repeated string groups = 2;
     string name = 3;
-    string login = 4;
-    string group = 5;
-    int32 data_permission_level = 6;
-    repeated string roles = 7;
-    int32 realm_id = 8;
-    repeated string groups = 9;
+    repeated string roles = 4;
+    int32 data_permission_level = 5;
+    string last_name = 6;
+    int32 realm_id = 7;
+    string id = 8;
+    string login = 9;
 }

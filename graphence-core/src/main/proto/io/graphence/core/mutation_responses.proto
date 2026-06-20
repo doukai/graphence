@@ -86,6 +86,15 @@ message MutationSyncPermissionRoleRelationPolicyResponse {
 message MutationLoginResponse {
     string login = 1;
 }
+message MutationLoginWithTokensResponse {
+    TokenPair login_with_tokens = 1;
+}
+message MutationRefreshTokenResponse {
+    TokenPair refresh_token = 1;
+}
+message MutationLogoutResponse {
+    bool logout = 1;
+}
 message MutationCurrentUserUpdateResponse {
     User current_user_update = 1;
 }

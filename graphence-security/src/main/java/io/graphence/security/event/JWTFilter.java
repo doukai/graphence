@@ -39,6 +39,15 @@ public class JWTFilter extends BaseRequestFilter {
 
   public static final int JWT_FILTER_SCOPE_EVENT_PRIORITY = 0;
 
+  private static final String ACCESS_TOKEN_EXPIRES_IN_HEADER = "X-Access-Token-Expires-In";
+
+  private static final String TOKEN_REFRESH_REQUIRED_HEADER = "X-Token-Refresh-Required";
+
+  private static final String ACCESS_CONTROL_EXPOSE_HEADERS = "Access-Control-Expose-Headers";
+
+  private static final String TOKEN_REFRESH_EXPOSED_HEADERS =
+      ACCESS_TOKEN_EXPIRES_IN_HEADER + ", " + TOKEN_REFRESH_REQUIRED_HEADER;
+
   private final DocumentManager documentManager;
   private final LoginRepository loginRepository;
   private final SecurityConfig securityConfig;
@@ -86,7 +95,8 @@ public class JWTFilter extends BaseRequestFilter {
     if (authorization != null && authorization.startsWith(AUTHORIZATION_SCHEME_BEARER)) {
       String jws = authorization.substring(7);
       try {
-        JsonWebToken jsonWebToken = jwtUtil.parser(jws);
+        JsonWebToken jsonWebToken = jwtUtil.parseAccessToken(jws);
+        setTokenRefreshHeaders(context, jsonWebToken);
         Current current =
             new Current()
                 .setId(jsonWebToken.getSubject())
@@ -162,5 +172,15 @@ public class JWTFilter extends BaseRequestFilter {
       }
     }
     throw new AuthenticationException(UN_AUTHENTICATION);
+  }
+
+  private void setTokenRefreshHeaders(Map<String, Object> context, JsonWebToken jsonWebToken) {
+    long expiresIn = jwtUtil.getExpiresIn(jsonWebToken);
+    getResponse(context).addHeader(ACCESS_TOKEN_EXPIRES_IN_HEADER, String.valueOf(expiresIn));
+    getResponse(context)
+        .addHeader(ACCESS_CONTROL_EXPOSE_HEADERS, TOKEN_REFRESH_EXPOSED_HEADERS);
+    if (expiresIn <= jwtUtil.getRefreshThreshold()) {
+      getResponse(context).addHeader(TOKEN_REFRESH_REQUIRED_HEADER, Boolean.TRUE.toString());
+    }
   }
 }

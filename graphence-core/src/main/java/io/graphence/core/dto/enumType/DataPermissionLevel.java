@@ -33,5 +33,11 @@ public enum DataPermissionLevel {
    * 仅下级
    */
   @Description("仅下级")
-  LOWER_ONLY
+  LOWER_ONLY,
+
+  /**
+   * 仅自己
+   */
+  @Description("仅自己")
+  SELF_ONLY
 }

@@ -22,9 +22,9 @@ public class UserGroupBy {
   private Collection<String> by;
 
   /**
-   * 归属
+   * 当前组
    */
-  @Description("归属")
+  @Description("当前组")
   private GroupGroupBy group;
 
   /**

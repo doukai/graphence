@@ -16,8 +16,6 @@ public class SecurityConfig {
 
   @Optional private Boolean basicAuthentication = false;
 
-  @Optional private Boolean dataPermission = false;
-
   public String getInitialPassword() {
     return initialPassword;
   }
@@ -56,13 +54,5 @@ public class SecurityConfig {
 
   public void setBasicAuthentication(Boolean basicAuthentication) {
     this.basicAuthentication = basicAuthentication;
-  }
-
-  public Boolean getDataPermission() {
-    return dataPermission;
-  }
-
-  public void setDataPermission(Boolean dataPermission) {
-    this.dataPermission = dataPermission;
   }
 }

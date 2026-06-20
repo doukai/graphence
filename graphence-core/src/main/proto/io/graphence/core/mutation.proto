@@ -41,6 +41,9 @@ service MutationService {
     rpc SyncModelPolicy (MutationSyncModelPolicyRequest) returns (MutationSyncModelPolicyResponse);
     rpc SyncPermissionRoleRelationPolicy (MutationSyncPermissionRoleRelationPolicyRequest) returns (MutationSyncPermissionRoleRelationPolicyResponse);
     rpc Login (MutationLoginRequest) returns (MutationLoginResponse);
+    rpc LoginWithTokens (MutationLoginWithTokensRequest) returns (MutationLoginWithTokensResponse);
+    rpc RefreshToken (MutationRefreshTokenRequest) returns (MutationRefreshTokenResponse);
+    rpc Logout (MutationLogoutRequest) returns (MutationLogoutResponse);
     rpc CurrentUserUpdate (MutationCurrentUserUpdateRequest) returns (MutationCurrentUserUpdateResponse);
     rpc CurrentUserResetPassword (MutationCurrentUserResetPasswordRequest) returns (MutationCurrentUserResetPasswordResponse);
 }

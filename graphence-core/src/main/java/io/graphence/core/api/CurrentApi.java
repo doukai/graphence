@@ -1,7 +1,5 @@
 package io.graphence.core.api;
 
-import io.graphence.core.config.SecurityConfig;
-import io.graphence.core.dto.enumType.DataPermissionLevel;
 import io.graphence.core.handler.BcryptManager;
 import io.graphence.core.handler.PasswordManager;
 import io.graphence.core.repository.RBACPolicyRepository;
@@ -11,11 +9,9 @@ import io.graphence.core.dto.inputObjectType.*;
 import io.graphence.core.dto.objectType.Permission;
 import io.graphence.core.dto.objectType.User;
 import io.graphence.core.error.AuthenticationException;
-import io.graphoenix.core.dto.enumType.Operator;
 import io.graphoenix.core.dto.inputObjectType.IntExpression;
 import io.graphoenix.core.dto.inputObjectType.MetaExpression;
 import io.graphoenix.core.dto.inputObjectType.MetaInput;
-import io.graphoenix.core.dto.inputObjectType.StringExpression;
 import io.nozdormu.spi.async.Async;
 import io.nozdormu.spi.async.Asyncable;
 import jakarta.annotation.security.PermitAll;
@@ -40,20 +36,17 @@ public class CurrentApi implements Asyncable {
   private final RBACPolicyRepository rbacPolicyRepository;
   private final UserRepository userRepository;
   private final PasswordManager passwordManager;
-  private final SecurityConfig securityConfig;
 
   @Inject
   public CurrentApi(
       Provider<Mono<Current>> currentMonoProvider,
       RBACPolicyRepository rbacPolicyRepository,
       UserRepository userRepository,
-      PasswordManager passwordManager,
-      SecurityConfig securityConfig) {
+      PasswordManager passwordManager) {
     this.currentMonoProvider = currentMonoProvider;
     this.rbacPolicyRepository = rbacPolicyRepository;
     this.userRepository = userRepository;
     this.passwordManager = Optional.ofNullable(passwordManager).orElse(new BcryptManager());
-    this.securityConfig = securityConfig;
   }
 
   @Query
@@ -159,13 +152,6 @@ public class CurrentApi implements Asyncable {
       IntExpression intExpression = new IntExpression();
       intExpression.setVal(current.getRealmId());
       metaExpression.setRealmId(intExpression);
-    }
-    if (securityConfig.getDataPermission()
-        && !current.getDataPermissionLevel().equals(DataPermissionLevel.ALL.ordinal())) {
-      StringExpression stringExpression = new StringExpression();
-      stringExpression.setOpr(Operator.IN);
-      stringExpression.setArr(current.getGroups());
-      metaExpression.setCreateGroupId(stringExpression);
     }
     return metaExpression;
   }
